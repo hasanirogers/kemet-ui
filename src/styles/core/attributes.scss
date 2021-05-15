@@ -1,0 +1,25 @@
+@use 'config' as *;
+@use 'helpers' as *;
+
+@include makeBreakpoints();
+@include makeGutters();
+
+@if $makeorder {
+  @include makeOrder();
+}
+
+@if $makevisibility {
+  @include makeVisibility();
+}
+
+@if $maketext {
+  @include makeTypeSizers();
+
+  .text-left { text-align: left; }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+}
+
+@if $makespacers {
+  @include makeSpacers();
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Styles | Kemet UI</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+  <link href="/dist/styles/kemet.core.css" rel="stylesheet" />
+  <link href="/dist/styles/kemet.components.css" rel="stylesheet" />
+  <link href="/demo/index.css" rel="stylesheet" />
+</head>
+
+<body class="body--styles">
+  <main>
+    <article>
+      <h2>Layout</h2>
+      <hr />
+
+      <h3>Flexrow</h3>
+      <div layout="flexrow">
+          <div><span class="box">Item 1</span></div>
+          <div><span class="box">Item 2</span></div>
+          <div><span class="box">Item 3</span></div>
+          <div><span class="box">Item 4</span></div>
+      </div>
+
+      <h3>Autostack &amp; Gutters</h3>
+      <div layout="flexrow" autostack gutters>
+          <div><span class="box">Item 1</span></div>
+          <div><span class="box">Item 2</span></div>
+          <div><span class="box">Item 3</span></div>
+          <div><span class="box">Item 4</span></div>
+      </div>
+
+      <h3>Responsive Gutters</h3>
+      <div layout="flexrow" gutters="tiny-none medium-default large-plus-6">
+          <div breakpoint="medium-33"><span class="box">Item 1</span></div>
+          <div><span class="box">Item 2</span></div>
+          <div><span class="box">Item 3</span></div>
+          <div><span class="box">Item 4</span></div>
+      </div>
+
+      <h3>Breakpoints</h3>
+      <div layout="flexrow" flex-items gutters="minus-1">
+          <div breakpoint="tiny-content">
+            <span class="box">
+              <iron-icon icon="icons:polymer"></iron-icon>
+            </span>
+          </div>
+          <div><span class="box">Item 2</span></div>
+          <div><span class="box">Item 3</span></div>
+          <div breakpoint="tiny-50"><span class="box">Item 4</span></div>
+      </div>
+
+      <h3>Alignment</h3>
+      <div layout="flexrow" gutters="plus-1" align="middle" style="height: 64px;">
+          <div align="bottom">
+            <span class="box">Item 1</span>
+          </div>
+          <div><span class="box">Item 2</span></div>
+          <div align="top">
+            <span class="box">Item 3</span>
+          </div>
+          <div><span class="box">Item 4</span></div>
+          <div align="bottom">
+            <span class="box">Item 5</span>
+          </div>
+      </div>
+
+      <h3>Cross Alignment</h3>
+      <div layout="flexrow" cross-align="between">
+          <div breakpoint="tiny-66"><span class="box">Left</span></div>
+          <div breakpoint="tiny-content"><span class="box">Right</span></div>
+      </div>
+
+      <h3>Flexgrid</h3>
+      <div layout="flexgrid" gutters="plus-1">
+          <div breakpoint="tiny-100 medium-33 large-25">
+            <span class="box">1</span>
+          </div>
+          <div breakpoint="tiny-50 medium-33 large-25">
+            <span class="box">2</span>
+          </div>
+          <div breakpoint="tiny-50 medium-33 large-25">
+            <span class="box">3</span>
+          </div>
+          <div breakpoint="tiny-100 medium-100 large-25">
+            <span class="box">4</span>
+          </div>
+      </div>
+
+      <h3>Flexgrid basis</h3>
+      <div layout="flexgrid" gutters basis="tiny-4-columns medium-6-columns huge-12-columns">
+        <div><span class="box">1</span></div>
+        <div><span class="box">2</span></div>
+        <div><span class="box">3</span></div>
+        <div><span class="box">4</span></div>
+        <div><span class="box">5</span></div>
+        <div><span class="box">6</span></div>
+        <div><span class="box">7</span></div>
+        <div><span class="box">8</span></div>
+        <div><span class="box">9</span></div>
+        <div><span class="box">10</span></div>
+        <div><span class="box">11</span></div>
+        <div><span class="box">12</span></div>
+      </div>
+
+      <h3>Flexcolumn</h3>
+      <div layout="flexcolumn" gutters style="height:300px;">
+        <div><span class="box">1</span></div>
+        <div><span class="box">2</span></div>
+        <div><span class="box">3</span></div>
+      </div>
+
+      <h3>Flexcolumn size</h3>
+      <div layout="flexcolumn" gutters="" style="height:300px;">
+        <div size-content=""><span class="box">1</span></div>
+        <div><span class="box">2</span></div>
+        <div><span class="box">3</span></div>
+      </div>
+
+      <h3>Flexlist</h3>
+      <div layout="flexlist" gutters="">
+        <div><span class="box">One</span></div>
+        <div><span class="box">Two</span></div>
+        <div><span class="box">Three</span></div>
+        <div><span class="box">Four</span></div>
+        <div><span class="box">Five</span></div>
+        <div><span class="box">Six</span></div>
+      </div>
+
+      <h3>Order</h3>
+      <div layout="flexlist" gutters="">
+        <div><span class="box">One</span></div>
+        <div><span class="box">Two</span></div>
+        <div><span class="box">Three</span></div>
+        <div order="medium-minus-1"><span class="box" style="background:darkgoldenrod;">Four</span></div>
+        <div order="medium-minus-1"><span class="box" style="background:darkgoldenrod;">Five</span></div>
+        <div><span class="box">Six</span></div>
+      </div>
+
+      <br /><br />
+
+      <h2>Utilities</h2>
+      <hr />
+
+      <section layout="flexrow" gutters autostack>
+        <div>
+          <h3>Visibility: Show Classes</h3>
+          <p class="box show-medium" style="display:none;">This will only show only on medium.</p>
+          <p class="box show-medium-up" style="display:none;">This will show on medium and up.</p>
+          <p class="box show-medium-down" style="display:none;">This will show on medium and down.</p>
+        </div>
+        <div>
+          <h3>Visibility: Hide Classes</h3>
+          <p class="box hide-medium">This will hide only on medium.</p>
+          <p class="box hide-medium-up">This will hide on medium and up.</p>
+          <p class="box hide-medium-down">This will hide on medium and down.</p>
+        </div>
+      </section>
+
+      <h3>Font Sizers</h3>
+      <div layout="flexgrid" gutters autostack basis="medium-2-columns">
+        <div><code class="text-plus-6">.text-plus-6</code></div>
+        <div><code class="text-plus-5">.text-plus-5</code></div>
+        <div><code class="text-plus-4">.text-plus-4</code></div>
+        <div><code class="text-plus-3">.text-plus-3</code></div>
+        <div><code class="text-plus-2">.text-plus-2</code></div>
+        <div><code class="text-plus-1">.text-plus-1</code></div>
+        <div><code class="text-base">.text-base</code></div>
+        <div><code class="text-minus-1">.text-minus-1</code></div>
+        <div><code class="text-minus-2">.text-minus-2</code></div>
+        <div><code class="text-minus-3">.text-minus-3</code></div>
+      </div>
+
+      <h3>Spacer Classes</h3>
+      <div class="margin-tiny-largest-left">
+        <div>This will have a left margin of largest for all breakpoints.</div>
+        <code>.margin-tiny-largest-left</code>
+      </div>
+
+      <div class="margin-small-normal margin-medium-none margin-large-largest">
+        <div>This will have responsive margins of normal at small, none at medium, and large at largest.</div>
+        <code>.margin-small-normal margin-medium-none margin-large-largest</code>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

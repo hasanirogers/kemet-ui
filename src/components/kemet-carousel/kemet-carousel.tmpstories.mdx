@@ -1,0 +1,154 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import { enableNext } from './kemet-carousel.stories.js';
+
+import '../kemet-carousel.js';
+import '../kemet-carousel-link.js';
+import '../kemet-carousel-prev.js';
+import '../kemet-carousel-next.js';
+import '../kemet-carousel-slide.js';
+
+<Meta
+  title="KemetCarousel"
+  parameters={{
+    component: "kemet-carousel",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# KemetCarousel
+
+A designless carousel.
+
+## How to use
+
+### Installation
+
+```bash
+npm install @kemet/kemet-carousel
+```
+
+```js
+import '@kemet/kemet-carousel/kemet-carousel.js';
+import '@kemet/kemet-carousel/kemet-carousel-slide.js';
+import '@kemet/kemet-carousel/kemet-carousel-link.js'; // optional
+import '@kemet/kemet-carousel/kemet-carousel-next.js'; // optional
+import '@kemet/kemet-carousel/kemet-carousel-prev.js'; // optional
+```
+
+### Basic Usage
+You can use `kemet-carousel-link`, `kemet-carousel-prev`, and `kemet-carousel-next` to create pagination as you please. Use the `slide` property with `kemet-carousel-link` to link to a slide. Notice how it's zero indexed.
+
+<Preview withToolbar>
+  <Story name="Basic Usage">
+    {html`
+      <kemet-carousel>
+        <div slot="slides">
+          <kemet-carousel-slide>Slide One</kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Two</kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Three</kemet-carousel-slide>
+        </div>
+        <div slot="pagination">
+          <kemet-carousel-prev>Prev</kemet-carousel-prev>
+          <kemet-carousel-link slide="0">1</kemet-carousel-link>
+          <kemet-carousel-link slide="1">2</kemet-carousel-link>
+          <kemet-carousel-link slide="2">3</kemet-carousel-link>
+          <kemet-carousel-next>Next</kemet-carousel-next>
+        </div>
+      </kemet-carousel>
+    `}
+  </Story>
+</Preview>
+
+### Pagination Position
+You can change the position of the paginator with the `pagination` property. Possible values are: top, right, bottom, left. Default is bottom.
+<Preview withToolbar>
+  <Story name="Pagination Position">
+    {html`
+      <kemet-carousel pagination="top">
+        <div slot="slides">
+          <kemet-carousel-slide>Slide One</kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Two</kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Three</kemet-carousel-slide>
+        </div>
+        <div slot="pagination">
+          <kemet-carousel-prev>Prev</kemet-carousel-prev>
+          <kemet-carousel-link slide="0">1</kemet-carousel-link>
+          <kemet-carousel-link slide="1">2</kemet-carousel-link>
+          <kemet-carousel-link slide="2">3</kemet-carousel-link>
+          <kemet-carousel-next>Next</kemet-carousel-next>
+        </div>
+      </kemet-carousel>
+    `}
+  </Story>
+</Preview>
+
+### Slideshow
+You can use the slideshow property to auto-play the slides. In this example a slide will play every 3 seconds. Slideshow is disabled if set to 0 seconds, which is the default.
+<Preview withToolbar>
+  <Story name="Slideshow">
+    {html`
+      <kemet-carousel slideshow="3">
+        <div slot="slides">
+          <kemet-carousel-slide>Slide One</kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Two</kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Three</kemet-carousel-slide>
+        </div>
+      </kemet-carousel>
+    `}
+  </Story>
+</Preview>
+
+### Transitions
+You can set a transition on each slide. Here we fade the slides. Possible values are: horizontal, vertical, and fade. Default is horizontal.
+<Preview withToolbar>
+  <Story name="Transitions">
+    {html`
+      <kemet-carousel slideshow="3">
+        <div slot="slides">
+          <kemet-carousel-slide transition="fade">Slide One</kemet-carousel-slide>
+          <kemet-carousel-slide transition="fade">Slide Two</kemet-carousel-slide>
+          <kemet-carousel-slide transition="fade">Slide Three</kemet-carousel-slide>
+        </div>
+      </kemet-carousel>
+    `}
+  </Story>
+</Preview>
+
+### Disabling
+`kemet-carousel-link`, `kemet-carousel-prev`, and `kemet-carousel-next` all support the `disabled` property. Use this to control when and how a user can navigate to a slide. In this example, the user can't go to the next slide until they enable doing so with the button in slide one.
+<Preview withToolbar>
+  <Story name="Disabling">
+    {html`
+      <kemet-carousel>
+        <div slot="slides">
+          <kemet-carousel-slide>
+            <button @click=${(event) => enableNext(event)}>Click to enable next.</button>
+          </kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Two</kemet-carousel-slide>
+          <kemet-carousel-slide>Slide Three</kemet-carousel-slide>
+        </div>
+        <div slot="pagination">
+          <kemet-carousel-next disabled>Next</kemet-carousel-next>
+        </div>
+      </kemet-carousel>
+    `}
+  </Story>
+</Preview>
+
+
+## API
+
+### KemetCarousel
+<Props of="kemet-carousel" />
+
+### KemetCarouselSlide
+<Props of="kemet-carousel-slide" />
+
+### KemetCarouselLink
+<Props of="kemet-carousel-link" />
+
+### KemetCarouselPrev
+<Props of="kemet-carousel-prev" />
+
+### KemetCarouselNext
+<Props of="kemet-carousel-next" />

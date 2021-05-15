@@ -1,0 +1,12 @@
+@use 'config' as *;
+
+kemet-modal {
+  --kemet-modal-max-width: 75vw;
+  --kemet-modal-overlay-background-color: var(--kemet-color-primary-75);
+}
+
+kemet-modal .content {
+  padding: 1rem;
+  color: var(--kemet-color-white-rich);
+  background: var(--kemet-color-primary-75);
+}

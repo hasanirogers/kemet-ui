@@ -1,0 +1,73 @@
+@use 'config' as *;
+
+kemet-tabs.horizontal [slot='links'] {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 768px) {
+  kemet-tabs.horizontal [slot='links'] {
+    flex-direction: row;
+    border-bottom: 1px solid var(--kemet-color-primary);
+  }
+}
+
+kemet-tabs.horizontal kemet-tab {
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid transparent;
+}
+
+@media screen and (min-width: 768px) {
+  kemet-tabs.horizontal kemet-tab {
+    padding: 1rem;
+  }
+}
+
+kemet-tabs.horizontal kemet-tab[selected] {
+  border-left: 4px solid var(--kemet-color-primary);
+}
+
+@media screen and (min-width: 768px) {
+  kemet-tabs.horizontal kemet-tab[selected] {
+    border-left: 0;
+    border-bottom: 4px solid var(--kemet-color-primary);
+  }
+}
+
+
+kemet-tabs.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  kemet-tabs.vertical {
+    flex-direction: row;
+  }
+}
+
+kemet-tabs.vertical [slot='links'] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 768px) {
+  kemet-tabs.vertical [slot='links'] {
+    min-width: 148px;
+    margin-right: 2rem;
+    border-right: 1px solid var(--kemet-color-primary);
+  }
+}
+
+kemet-tabs.vertical kemet-tab {
+  padding: 1rem 0;
+}
+
+kemet-tabs.vertical kemet-tab[selected] {
+  border-right: 4px solid var(--kemet-color-primary);
+}

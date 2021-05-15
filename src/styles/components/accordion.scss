@@ -1,0 +1,58 @@
+@use 'config' as *;
+
+kemet-accordion {
+  background: #{map-get($colors, 'white')};
+  box-shadow: 0 15px 30px -10px var(--kemet-color-black-10);
+}
+
+kemet-accordion [slot='trigger'] {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--kemet-color-primary);
+}
+
+kemet-accordion [slot='trigger'] > :first-child {
+  color: var(--kemet-color-primary);
+  flex: 1;
+}
+
+kemet-accordion .plus,
+kemet-accordion .minus {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid var(--kemet-color-primary);
+}
+
+kemet-accordion .plus::before,
+kemet-accordion .minus::before {
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+kemet-accordion .plus::before {
+  content: '+';
+}
+
+kemet-accordion .minus::before {
+  content: '-';
+}
+
+kemet-accordion .plus,
+kemet-accordion[opened] .minus {
+  display: block;
+}
+
+kemet-accordion[opened] .plus,
+kemet-accordion .minus {
+  display: none;
+}
+
+kemet-accordion [slot='panel'] {
+  padding: 1rem;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Rotator | Kemet UI</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+  <link href="/demo/index.css" rel="stylesheet" />
+</head>
+
+<body>
+  <style>
+    body {
+      line-height: 1.5;
+      background: #fafafa;
+    }
+
+    select,
+    input {
+      max-width: 72px;
+      padding: 0.25rem 0.5rem;
+    }
+  </style>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../kemet-rotator.js';
+
+    const properties = {
+      effect: 'flip',
+      messages: [
+        'Hello! This is a rotator.',
+        'Pass it an array and watch it rotate through the text.',
+        'Set the rotation speed to 0 to stop the rotator.',
+        'You can pass it html like <strong><a href="http://kemet.online/rotator">this link</a></strong>!',
+        'Bacon ipsum dolor amet turducken swine pork loin buffalo capicola prosciutto burgdoggen pig biltong. Brisket bresaola bacon landjaeger strip steak cow pork loin pig tenderloin. Kevin pork chop beef ribs boudin ball tip meatball sausage frankfurter landjaeger shank tri-tip porchetta pancetta. Turducken tongue ground round, pastrami meatloaf picanha shankle t-bone turkey bresaola jerky leberkas fatback. Beef fatback jerky landjaeger sausage frankfurter ham hock cow pork belly.',
+      ],
+      rotationSpeed: 5,
+    };
+
+    const demoElement = document.getElementById('demo');
+
+    const demoUI = props => html`
+      <form>
+        <label>
+          Effect:
+          <select @blur=${event => handleEffect(event)} @change=${event => handleEffect(event)}>
+            <option value="fade">Fade</option>
+            <option value="flip" selected>Flip</option>
+          </select>
+        </label>
+
+        &nbsp;&nbsp;
+
+        <label>
+          Rotation Speed (in seconds):
+          <input type="number" @change=${event => handleRotationSpeed(event)} .value=${props.rotationSpeed} />
+        </label>
+      </form>
+
+      <br /><br /><hr />
+
+      <p>
+        <kemet-rotator
+          .effect="${props.effect}"
+          .rotationSpeed="${props.rotationSpeed}"
+          .messages=${props.messages}>
+        </kemet-rotator>
+      </p>
+
+      <hr />
+    `;
+
+    render(demoUI(properties), demoElement);
+
+    const handleEffect = (event) => {
+      properties.effect = event.target.value;
+      render(demoUI(properties), demoElement);
+    };
+
+    const handleRotationSpeed = (event) => {
+      properties.rotationSpeed = event.target.value;
+      render(demoUI(properties), demoElement);
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Modal | Kemet UI</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+  <link href="/demo/index.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/dist/styles/kemet.components.css" />
+</head>
+
+<body>
+  <style>
+    body {
+      background: #fafafa;
+    }
+
+    article {
+      max-width: 960px;
+      margin: auto;
+      transition: all ease 300ms;
+    }
+
+    article.blur {
+      filter: blur(2px);
+    }
+
+    article.scale {
+      transform: scale(0.75);
+    }
+
+    .modal-content {
+      padding: 1rem;
+      background: #ffffff;
+    }
+  </style>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../kemet-modal.js';
+    import '../kemet-modal-close.js';
+
+    const openModal = (id) => {
+      const modal = document.getElementById(id);
+      modal.open();
+    };
+
+    document.addEventListener('kemet-modal-open', () => {
+      const blur = document.querySelector('input[name="blur"]');
+      const scale = document.querySelector('input[name="scale"]');
+
+      if (blur.checked) {
+        document.querySelector('article').classList.add('blur');
+      }
+
+      if (scale.checked) document.querySelector('article').classList.add('scale');
+    });
+
+    document.addEventListener('kemet-modal-close', () => {
+      document.querySelector('article').classList.remove('blur');
+      document.querySelector('article').classList.remove('scale');
+    });
+
+    render(
+      html`
+        <article>
+          <p>
+            <button @click=${() => openModal('has-effect')}>Open modal with effect</button>
+            <button @click=${() => openModal('no-effect')}>Open modal without effect</button>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="blur" />
+              Blur the content when the modal opens.
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="scale" />
+              Scale the content when the modal opens.
+            </label>
+          </p>
+          <p>Bacon ipsum dolor amet doner turkey turducken boudin. Kevin salami ground round, frankfurter brisket tri-tip hamburger beef alcatra sirloin venison pastrami turducken. Strip steak ball tip pig swine burgdoggen sausage t-bone doner leberkas pork ham alcatra pork belly. Turducken corned beef rump chicken pancetta doner sirloin tail. Tenderloin ground round salami short ribs, bresaola andouille beef ribs tri-tip pastrami turkey ribeye ham fatback.</p>
+          <p>Bacon ipsum dolor amet doner turkey turducken boudin. Kevin salami ground round, frankfurter brisket tri-tip hamburger beef alcatra sirloin venison pastrami turducken. Strip steak ball tip pig swine burgdoggen sausage t-bone doner leberkas pork ham alcatra pork belly. Turducken corned beef rump chicken pancetta doner sirloin tail. Tenderloin ground round salami short ribs, bresaola andouille beef ribs tri-tip pastrami turkey ribeye ham fatback.</p>
+          <p>Bacon ipsum dolor amet doner turkey turducken boudin. Kevin salami ground round, frankfurter brisket tri-tip hamburger beef alcatra sirloin venison pastrami turducken. Strip steak ball tip pig swine burgdoggen sausage t-bone doner leberkas pork ham alcatra pork belly. Turducken corned beef rump chicken pancetta doner sirloin tail. Tenderloin ground round salami short ribs, bresaola andouille beef ribs tri-tip pastrami turkey ribeye ham fatback.</p>
+          <p>Bacon ipsum dolor amet doner turkey turducken boudin. Kevin salami ground round, frankfurter brisket tri-tip hamburger beef alcatra sirloin venison pastrami turducken. Strip steak ball tip pig swine burgdoggen sausage t-bone doner leberkas pork ham alcatra pork belly. Turducken corned beef rump chicken pancetta doner sirloin tail. Tenderloin ground round salami short ribs, bresaola andouille beef ribs tri-tip pastrami turkey ribeye ham fatback.</p>
+          <p>Bacon ipsum dolor amet doner turkey turducken boudin. Kevin salami ground round, frankfurter brisket tri-tip hamburger beef alcatra sirloin venison pastrami turducken. Strip steak ball tip pig swine burgdoggen sausage t-bone doner leberkas pork ham alcatra pork belly. Turducken corned beef rump chicken pancetta doner sirloin tail. Tenderloin ground round salami short ribs, bresaola andouille beef ribs tri-tip pastrami turkey ribeye ham fatback.</p>
+        </article>
+
+        <kemet-modal id="has-effect" effect="fadein-scaleup">
+          <div class="modal-content">
+            <h2>This modal has an effect. 😊</h2>
+            <p>Bacon ipsum dolor amet doner turkey turducken boudin. Kevin salami ground round, frankfurter brisket tri-tip hamburger beef alcatra sirloin venison pastrami turducken. Strip steak ball tip pig swine burgdoggen sausage t-bone doner leberkas pork ham alcatra pork belly. Turducken corned beef rump chicken pancetta doner sirloin tail. Tenderloin ground round salami short ribs, bresaola andouille beef ribs tri-tip pastrami turkey ribeye ham fatback.</p>
+            <kemet-modal-close>
+              <button>Close Me</button>
+            </kemet-modal-close>
+          </div>
+        </kemet-modal>
+
+        <kemet-modal id="no-effect">
+          <div class="modal-content">
+            <h2>This modal has no effect. 😔</h2>
+            <p>Bacon ipsum dolor amet doner turkey turducken boudin. Kevin salami ground round, frankfurter brisket tri-tip hamburger beef alcatra sirloin venison pastrami turducken. Strip steak ball tip pig swine burgdoggen sausage t-bone doner leberkas pork ham alcatra pork belly. Turducken corned beef rump chicken pancetta doner sirloin tail. Tenderloin ground round salami short ribs, bresaola andouille beef ribs tri-tip pastrami turkey ribeye ham fatback.</p>
+            <kemet-modal-close>
+              <button>Close Me</button>
+            </kemet-modal-close>
+          <div class="modal-content">
+        </kemet-modal>
+      `,
+      document.querySelector('#demo'),
+    );
+  </script>
+</body>
+</html>

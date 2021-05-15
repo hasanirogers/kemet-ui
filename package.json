@@ -1,0 +1,59 @@
+{
+  "name": "kemet-ui",
+  "version": "0.0.1",
+  "description": "A flexible designless system for UIs.",
+  "main": "index.js",
+  "scripts": {
+    "start": "web-dev-server",
+    "test": "web-test-runner --coverage",
+    "test:watch": "web-test-runner --watch",
+    "css:build": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css",
+    "storybook": "start-storybook -s ./ -p 6006",
+    "storybook:build": "build-storybook",
+    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+    "lint:stylelint": "npx stylelint 'src/styles/**/*.scss'",
+    "format:stylelint": "npx stylelint --fix 'src/styles/**/*.scss'",
+    "prepare": "husky install"
+  },
+  "author": "Hasani Rogers <hasani.rogers@gmail.com>",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config"
+    ],
+    "rules": {
+      "no-param-reassign": "off",
+      "no-use-before-define": "off",
+      "no-multi-assign": "off"
+    }
+  },
+  "dependencies": {
+    "@open-wc/testing": "^2.5.33",
+    "lit": "^2.0.0-rc.2",
+    "sass": "^1.32.13",
+    "ts-dedent": "^2.1.1"
+  },
+  "devDependencies": {
+    "@open-wc/eslint-config": "^4.3.0",
+    "@storybook/addon-a11y": "^6.2.9",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/web-components": "^6.2.9",
+    "@web/dev-server": "^0.1.17",
+    "@web/test-runner": "^0.13.4",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "husky": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasanirogers/kemet-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hasanirogers/kemet-ui/issues"
+  },
+  "homepage": "http://kemet.dev"
+}

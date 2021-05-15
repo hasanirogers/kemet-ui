@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: var(--kemet-color-link);
+  text-decoration: none;
+}
+
+.box {
+  color: var(--kemet-color-white);
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid rgba(0,0,255,0.1);
+  background-color: var(--kemet-color-primary);
+}
+
+[layout="flexcolumn"] .box {
+  height: 100%;
+}
+
+.body--home ol {
+  line-height: 2;
+  padding: 0;
+  list-style: decimal inside none;
+}
+
+.body--styles main {
+  max-width: 960px;
+  margin: auto;
+}

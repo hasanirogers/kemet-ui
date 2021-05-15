@@ -1,0 +1,197 @@
+///
+///  __   __   _ _ _ _   _ _       _ _   _ _ _ _   _ _ _ _ _
+/// |  | /  / |    _ _| |   \     /   | |   _ _ | |_ _   _ _|
+/// |  |/  /  |  |_ _   |    \   /    | |  |_ _       | |
+/// |     \   |   _ _|  |  \  \_/  /  | |   _ _|      | |
+/// |  |\  \  |  |_ _   |  |\     /|  | |  | _ _      | |
+/// |__| \__\ |_ _ _ _| |__| \_ _/ |__| |_ _ _ _|     |_|
+///
+///
+
+
+
+
+/// You can set gutters to whatever space you like.
+/// The defaults here should cover most needs.
+/// While you can add or remove plus/minus, zero is required
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$gutters: (
+  none: 0,
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  default: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+);
+
+
+
+
+/// Controls breakpoint sizing.
+/// Must equal either "fives", "tens", or "twenties" exactly or Kemet will break
+/// Note: that -25 -75 will still be added if this is by tens or twenties.
+/// @type String
+/// @access public
+/// @group config-variables
+
+$flexiplier: 'tens';
+
+
+
+
+/// The point where Kemet goes from a small "mobile" layout to a full layout.
+/// $stackpoint is used primarily to configure where autostack forces a mobile layout.
+/// @type String
+/// @access public
+/// @group config-variables
+
+$stackpoint: 640px;
+
+
+
+
+/// A map that defines Kemet's breakpoints
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$breakpoints: (
+  tiny: 0,
+  small: 321px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1440px
+);
+
+
+
+
+/// A map that defines ranges for Kemet's visibility classes
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$breakranges: (
+  tiny: (0, 319px),
+  small: (320px, 767px),
+  medium: (768px, 1023px),
+  large: (1024px, 1439px),
+  huge: (1440px, 9999px)
+);
+
+
+
+
+/// Determines the number of priority that can be set for the order attribute.
+/// @type Number
+/// @access public
+/// @group config-variables
+
+$order: 5;
+
+
+
+
+/// The number of columns that can exist while using basis with flexgrid.
+/// @type Number
+/// @access public
+/// @group config-variables
+
+$flexgridcolumns: 12;
+
+
+
+
+/// A map that defines sizes for type
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$typesizers: (
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  base: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+);
+
+
+
+
+/// A map that defines sizes for margins and padding helpers
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$spacers: (
+  none: 0,
+  smallest: 0.5rem,
+  smaller: 1rem,
+  small: 1.5rem,
+  normal: 2rem,
+  large: 2.5rem,
+  larger: 3rem,
+  largest: 3.5rem
+);
+
+
+
+
+/// Control whether or not order attributes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeorder: true;
+
+
+
+/// Control whether or not visibility classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makevisibility: true;
+
+
+
+
+/// Control whether or not text classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$maketext: true;
+
+
+
+
+/// Control whether or not responsive gutters will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeresponsivegutters: true;
+
+
+
+
+/// Control whether or not margin utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makespacers: true;

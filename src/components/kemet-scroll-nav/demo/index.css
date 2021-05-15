@@ -1,0 +1,100 @@
+html {
+  --resize-header-height: 400px;
+}
+
+body {
+  color: #fafafa;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  background: rgba(36,49,56,1);
+  background-attachment: fixed;
+}
+
+a {
+  color: dodgerblue;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+main {
+  max-width: 960px;
+  padding: 0 2rem;
+  margin: auto;
+}
+
+article {
+  margin: 2rem 0;
+}
+
+aside a {
+  display: block;
+  font-size: 2rem;
+}
+
+footer {
+  padding: 2rem;
+}
+
+kemet-scroll-nav {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr auto;
+  align-items: flex-end;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+
+/* index page */
+
+body.index #demo {
+  min-height: 100vh;
+  display: flex;
+}
+
+body.index nav {
+  font-size: 2rem;
+  margin: auto;
+  display: flex;
+  gap: 2rem;
+}
+
+
+/* sticky page */
+
+body.sticky header {
+  margin: 6rem 2rem;
+}
+
+
+/* resize page */
+
+body.resize header {
+  margin-top: calc(var(--resize-header-height) + 2rem);
+}
+
+body.resize kemet-scroll-nav {
+  height: var(--resize-header-height);
+  transition: all 300ms ease;
+}
+
+body.resize kemet-scroll-nav[transform] {
+  height: 100px;
+}

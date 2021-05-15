@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Tabs | Kemet UI</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+  <link href="/demo/index.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/dist/styles/kemet.components.css" />
+</head>
+
+<body>
+  <style>
+    img {
+      width: 100%;
+    }
+  </style>
+  <h1>Current Tab: <span>ffxv</span></h1>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../kemet-tabs.js';
+    import '../kemet-tab.js';
+    import '../kemet-tab-panel.js';
+
+    document.addEventListener('kemet-tab-changed', (event) => {
+      if (event.detail) {
+        document.querySelector('h1 span').innerHTML = event.detail;
+      }
+    });
+
+    render(
+      html`
+        <kemet-tabs class="horizontal" selected="two">
+          <nav slot="links">
+            <kemet-tab link="one">One</kemet-tab>
+            <kemet-tab link="two">Two</kemet-tab>
+            <kemet-tab link="three">Three</kemet-tab>
+          </nav>
+          <section slot="panels">
+            <kemet-tab-panel panel="one">
+              <p>Panel One</p>
+              <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+            </kemet-tab-panel>
+            <kemet-tab-panel panel="two">
+              <p>Panel Two</p>
+              <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+            </kemet-tab-panel>
+            <kemet-tab-panel panel="three">
+              <p>Panel Three</p>
+              <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+            </kemet-tab-panel>
+          </section>
+        </kemet-tabs>
+      `,
+      document.querySelector('#demo'),
+    );
+  </script>
+</body>
+</html>

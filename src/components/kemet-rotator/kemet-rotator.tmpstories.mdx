@@ -1,0 +1,63 @@
+import { Story, Preview, Meta, Props } from '@open-wc/demoing-storybook';
+import { html, css } from 'lit';
+import './kemet-rotator.js';
+
+<Meta
+  title="KemetRotator"
+  parameters={{
+    component: "kemet-rotator",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# KemetRotator
+
+A component that rotates through an array of text.
+
+
+## How to use
+
+### Installation
+
+```bash
+npm install @kemet/kemet-rotator
+```
+
+```js
+import '@kemet/kemet-rotator/kemet-rotator.js';
+```
+
+### Basic Usage
+```html
+<kemet-rotator messages='["my", "text", "here"]'></kemet-rotator>
+```
+
+
+## Previews
+
+<Preview withToolbar>
+  <Story name="Fading Text">
+    {html`
+      <kemet-rotator messages='["my", "text", "here"]'></kemet-rotator>
+    `}
+  </Story>
+</Preview>
+
+<Preview withToolbar>
+  <Story name="Flipping HTML">
+    {html`
+      <kemet-rotator
+        effect="flip"
+        rotation-speed="5"
+        messages='["<strong>bold</strong>", "<em>emphasis</em>", "<small>small</small>"]'>
+      </kemet-rotator>
+    `}
+  </Story>
+</Preview>
+
+
+
+## API
+
+### KemetRotator
+<Props of="kemet-rotator" />

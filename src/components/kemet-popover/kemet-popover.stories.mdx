@@ -1,0 +1,112 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import * as stories from './kemet-popover.stories.js'
+
+<Meta
+  title="KemetPopover"
+  component="kemet-popover"
+  argTypes={{
+    triggerText: {
+      defaultValue: 'Activate Popover',
+      control: { type: 'text' },
+    },
+    contentText: {
+      defaultValue: 'Your popover contents here. Supports HTML.',
+      control: { type: 'text' },
+    },
+    width: {
+      defaultValue: '200%',
+      control: { type: 'text' }
+    },
+    height: {
+      defaultValue: 'auto',
+      control: { type: 'text' },
+    },
+    gap: {
+      defaultValue: '1rem',
+      control: { type: 'text' },
+    },
+    contentOffsetX: {
+      defaultValue: '0',
+      control: { type: 'text' }
+    },
+    contentOffsetY: {
+      defaultValue: '0',
+      control: { type: 'text' }
+    },
+    color: {
+      defaultValue: '#fafafa',
+      control: { type: 'color' }
+    },
+    backgroundColor: {
+      defaultValue: '#202020',
+      control: { type: 'color' }
+    },
+    transitionSpeed: {
+      defaultValue: '0.3s',
+      control: { type: 'text' }
+    },
+    opened: {
+      control: { type: 'boolean' }
+    },
+    effect: {
+      control: { type: 'select' },
+      options: ['fade', 'scale', 'slide', 'fall', 'flip-horizontal', 'flip-vertical', 'sign', 'super-scaled'],
+    },
+    position: {
+      control: { type: 'select' },
+      options: ['top', 'right', 'bottom', 'left'],
+    },
+    tooltip: {
+      control: { type: 'boolean' }
+    },
+    customTooltip: {
+      control: { type: 'boolean' }
+    },
+    fireOn: {
+      defaultValue: 'hover',
+      control: { type: 'radio' },
+      options: ['hover', 'click']
+    },
+    clickOutside: {
+      control: { type: 'boolean' }
+    }
+  }}
+/>
+
+# KemetPopover
+
+Displays an element in position of a trigger. Also acts as a tooltip.
+
+
+## How to use
+
+```bash
+npm install @kemet/kemet-popover
+```
+
+```js
+import '@kemet/kemet-popover/kemet-popover.js';
+import '@kemet/kemet-popover/kemet-popover-close.js'; // optional
+```
+
+```html
+<kemet-popover>
+  <button slot="trigger">Popover Trigger</button>
+  <span slot="content">Your popover contents here. Supports HTML.</span>
+</kemet-popover>
+```
+
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Popover} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.customTooltip} />
+</Canvas>
+
+## API
+
+<ArgsTable of="kemet-popover" />

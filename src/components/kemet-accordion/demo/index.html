@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Carousel | Kemet UI</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+  <link href="/demo/index.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/dist/styles/kemet.components.css" />
+</head>
+
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../kemet-accordion.js';
+
+    render(
+      html`
+      <kemet-accordion>
+        <button slot="trigger">Trigger</button>
+        <div slot="panel">Bacon ipsum dolor amet shoulder sausage short ribs, fatback ground round biltong drumstick spare ribs bacon tenderloin burgdoggen turducken picanha beef ribs pork belly.</div>
+      </kemet-accordion>
+      `,
+      document.querySelector('#demo'),
+    );
+  </script>
+</body>
+</html>

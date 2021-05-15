@@ -1,0 +1,11 @@
+@use 'config' as *;
+
+kemet-drawer {
+  --kemet-drawer-width: #{$drawer-width};
+  --kemet-drawer-background: var(--kemet-color-primary);
+}
+
+kemet-drawer[side='top'],
+kemet-drawer[side='bottom'] {
+  --kemet-drawer-height: #{drawer-height};
+}

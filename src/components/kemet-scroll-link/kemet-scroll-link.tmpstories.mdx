@@ -1,0 +1,60 @@
+import { Story, Preview, Meta, Props } from '@open-wc/demoing-storybook';
+import { html, css } from 'lit';
+import './kemet-scroll-link.js';
+
+<Meta
+  title="KemetScrollLink"
+  parameters={{
+    component: "kemet-scroll-link",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# KemetScrollLink
+
+A component that adds a smooth scrolling link to an target.
+
+
+## How to use
+
+### Installation
+
+```bash
+npm install @kemet/kemet-scroll-link
+```
+
+```js
+import '@kemet/kemet-scroll-link/kemet-scroll-link.js';
+```
+
+### Basic Usage
+```html
+<kemet-scroll-link>
+  <button>Scroll to Top</button>
+</kemet-scroll-link>
+```
+
+
+## Previews
+
+<Preview withToolbar>
+  <Story name="Scroll to Top">
+    {html`
+      <style>
+        article {
+          min-height: 100vh;
+        }
+      </style>
+      <article>Scroll down to view the scroll to top button.</article>
+      <kemet-scroll-link>
+        <button>Scroll to Top</button>
+      </kemet-scroll-link>
+    `}
+  </Story>
+</Preview>
+
+
+## API
+
+### KemetScrollLink
+<Props of="kemet-scroll-link" />

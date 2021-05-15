@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Scroll Snap | Vertical | Kemet UI</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+  <link href="/demo/index.css" rel="stylesheet" />
+  <link href="index.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/dist/styles/kemet.components.css" />
+</head>
+
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../kemet-scroll-snap.js';
+    import '../kemet-scroll-snap-slide.js';
+
+    render(
+      html`
+        <main>
+          <kemet-scroll-snap axis="vertical">
+            <div slot="slides">
+              <kemet-scroll-snap-slide>
+                <h3>Heading 1</h3>
+                <p>Bacon ipsum dolor amet biltong pork loin boudin ham jerky venison jowl spare ribs fatback, short ribs beef short loin. Porchetta meatball salami ground round, pancetta biltong venison chuck flank. Frankfurter burgdoggen swine, chuck short ribs alcatra strip steak jerky. Rump porchetta fatback kevin flank. Doner chislic salami, brisket rump jowl spare ribs prosciutto bacon buffalo beef ribs beef tenderloin. Chicken ground round andouille, tail jowl leberkas swine brisket. Alcatra filet mignon short ribs short loin, pig chislic turkey.</p>
+                <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+              </kemet-scroll-snap-slide>
+              <kemet-scroll-snap-slide>
+                <h3>Heading 2</h3>
+                <p>Bacon ipsum dolor amet biltong pork loin boudin ham jerky venison jowl spare ribs fatback, short ribs beef short loin. Porchetta meatball salami ground round, pancetta biltong venison chuck flank. Frankfurter burgdoggen swine, chuck short ribs alcatra strip steak jerky. Rump porchetta fatback kevin flank. Doner chislic salami, brisket rump jowl spare ribs prosciutto bacon buffalo beef ribs beef tenderloin. Chicken ground round andouille, tail jowl leberkas swine brisket. Alcatra filet mignon short ribs short loin, pig chislic turkey.</p>
+                <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+              </kemet-scroll-snap-slide>
+              <kemet-scroll-snap-slide>
+                <h3>Heading 3</h3>
+                <p>Bacon ipsum dolor amet biltong pork loin boudin ham jerky venison jowl spare ribs fatback, short ribs beef short loin. Porchetta meatball salami ground round, pancetta biltong venison chuck flank. Frankfurter burgdoggen swine, chuck short ribs alcatra strip steak jerky. Rump porchetta fatback kevin flank. Doner chislic salami, brisket rump jowl spare ribs prosciutto bacon buffalo beef ribs beef tenderloin. Chicken ground round andouille, tail jowl leberkas swine brisket. Alcatra filet mignon short ribs short loin, pig chislic turkey.</p>
+                <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+              </kemet-scroll-snap-slide>
+              <kemet-scroll-snap-slide>
+                <h3>Heading 4</h3>
+                <p>Bacon ipsum dolor amet biltong pork loin boudin ham jerky venison jowl spare ribs fatback, short ribs beef short loin. Porchetta meatball salami ground round, pancetta biltong venison chuck flank. Frankfurter burgdoggen swine, chuck short ribs alcatra strip steak jerky. Rump porchetta fatback kevin flank. Doner chislic salami, brisket rump jowl spare ribs prosciutto bacon buffalo beef ribs beef tenderloin. Chicken ground round andouille, tail jowl leberkas swine brisket. Alcatra filet mignon short ribs short loin, pig chislic turkey.</p>
+                <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+              </kemet-scroll-snap-slide>
+              <kemet-scroll-snap-slide>
+                <h3>Heading 5</h3>
+                <p>Bacon ipsum dolor amet biltong pork loin boudin ham jerky venison jowl spare ribs fatback, short ribs beef short loin. Porchetta meatball salami ground round, pancetta biltong venison chuck flank. Frankfurter burgdoggen swine, chuck short ribs alcatra strip steak jerky. Rump porchetta fatback kevin flank. Doner chislic salami, brisket rump jowl spare ribs prosciutto bacon buffalo beef ribs beef tenderloin. Chicken ground round andouille, tail jowl leberkas swine brisket. Alcatra filet mignon short ribs short loin, pig chislic turkey.</p>
+                <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+              </kemet-scroll-snap-slide>
+            </div>
+          </kemet-scroll-snap>
+        </main>
+      `,
+      document.querySelector('#demo'),
+    );
+  </script>
+</body>
+</html>
