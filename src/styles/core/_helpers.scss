@@ -153,8 +153,6 @@
       }
     }
   }
-
-
 }
 
 @mixin makeOrder() {
@@ -181,43 +179,43 @@
     $max: getListLast($range);
 
     @media screen and (min-width: $min) {
-      .show-#{$breakpoint}-up {
+      [kemet-show="#{$breakpoint}:up"] {
         display: inherit !important;
       }
 
-      table.show-#{$breakpoint}-up {
+      table[kemet-show="#{$breakpoint}:up"] {
         display: table !important;
       }
 
-      .hide-#{$breakpoint}-up {
+      [kemet-hide="#{$breakpoint}:up"] {
         display: none !important;
       }
     }
 
     @media screen and (max-width: $max) {
-      .show-#{$breakpoint}-down {
+      [kemet-show="#{$breakpoint}:down"] {
         display: inherit !important;
       }
 
-      table.show-#{$breakpoint}-down {
+      table[kemet-show="#{$breakpoint}:down"] {
         display: table !important;
       }
 
-      .hide-#{$breakpoint}-down {
+      [kemet-hide="#{$breakpoint}:down"] {
         display: none !important;
       }
     }
 
     @media screen and (min-width: $min) and (max-width: $max) {
-      .show-#{$breakpoint} {
+      [kemet-show="#{$breakpoint}"] {
         display: inherit !important;
       }
 
-      table.show-#{$breakpoint} {
+      table[kemet-show="#{$breakpoint}"] {
         display: table !important;
       }
 
-      .hide-#{$breakpoint} {
+      [kemet-hide="#{$breakpoint}"] {
         display: none !important;
       }
     }

@@ -138,21 +138,18 @@
 
       <br /><br />
 
-      <h2>Utilities</h2>
-      <hr />
-
       <section kemet-layout="flexrow" kemet-gutters kemet-autostack>
         <div>
           <h3>Visibility: Show Classes</h3>
-          <p class="box show-medium" style="display:none;">This will only show only on medium.</p>
-          <p class="box show-medium-up" style="display:none;">This will show on medium and up.</p>
-          <p class="box show-medium-down" style="display:none;">This will show on medium and down.</p>
+          <p class="box" kemet-show="medium" style="display:none;">This will only show only on medium.</p>
+          <p class="box" kemet-show="medium:up" style="display:none;">This will show on medium and up.</p>
+          <p class="box" kemet-show="medium:down" style="display:none;">This will show on medium and down.</p>
         </div>
         <div>
           <h3>Visibility: Hide Classes</h3>
-          <p class="box hide-medium">This will hide only on medium.</p>
-          <p class="box hide-medium-up">This will hide on medium and up.</p>
-          <p class="box hide-medium-down">This will hide on medium and down.</p>
+          <p class="box" kemet-hide="medium">This will hide only on medium.</p>
+          <p class="box" kemet-hide="medium:up">This will hide on medium and up.</p>
+          <p class="box" kemet-hide="medium:down">This will hide on medium and down.</p>
         </div>
       </section>
 
