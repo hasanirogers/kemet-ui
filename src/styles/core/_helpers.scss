@@ -14,30 +14,30 @@
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @if $flexiplier != 'fives' {
-        [layout] [breakpoint*="#{$breakpoint}-25"] {
+        [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-25"] {
           flex: 0 0 25%;
           max-width: 25%;
         }
       }
 
-      [layout] [breakpoint*="#{$breakpoint}-33"] {
+      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-33"] {
         flex: 0 0 33.33%;
         max-width: 33.33%;
       }
 
-      [layout] [breakpoint*="#{$breakpoint}-66"] {
+      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-66"] {
         flex: 0 0 66.66%;
         max-width: 66.66%;
       }
 
       @if $flexiplier != 'fives' {
-        [layout] [breakpoint*="#{$breakpoint}-75"] {
+        [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-75"] {
           flex: 0 0 75%;
           max-width: 75%;
         }
       }
 
-      [layout] [breakpoint*="#{$breakpoint}-content"] {
+      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-content"] {
         flex: 0 0 auto;
       }
 
@@ -46,7 +46,7 @@
           $size: $i*5;
           $percent: $size + '%';
 
-          [layout] [breakpoint*="#{$breakpoint}-#{$size}"] {
+          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-#{$size}"] {
             flex: 0 0 unquote($percent);
             max-width: unquote($percent);
           }
@@ -58,7 +58,7 @@
           $size: $i*10;
           $percent: $size + '%';
 
-          [layout] [breakpoint*="#{$breakpoint}-#{$size}"] {
+          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-#{$size}"] {
             flex: 0 0 unquote($percent);
             max-width: unquote($percent);
           }
@@ -70,7 +70,7 @@
           $size: $i*20;
           $percent: $size + '%';
 
-          [layout] [breakpoint*="#{$breakpoint}-#{$size}"] {
+          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-#{$size}"] {
             flex: 0 0 unquote($percent);
             max-width: unquote($percent);
           }
@@ -81,24 +81,24 @@
 }
 
 @mixin makeGutters() {
-  [gutters] {
+  [kemet-gutters] {
     margin-right: -(map-get($gutters, default));
   }
 
-  [gutters] > * {
+  [kemet-gutters] > * {
     padding-right: map-get($gutters, default);
   }
 
-  [layout='flexgrid'][gutters] > * {
+  [kemet-layout='flexgrid'][kemet-gutters] > * {
     margin-bottom: map-get($gutters, default);
   }
 
-  [layout='flexcolumn'][gutters] > :not(:first-child) {
+  [kemet-layout='flexcolumn'][kemet-gutters] > :not(:first-child) {
     margin-top: map-get($gutters, default);
   }
 
   @media only screen and (max-width: $stackpoint) {
-    [layout='flexrow'][gutters][autostack] > * {
+    [kemet-layout='flexrow'][kemet-gutters][autostack] > * {
       margin-bottom: map-get($gutters, default);
     }
   }
@@ -107,7 +107,7 @@
     @each $breakpoint, $pixel in $breakpoints {
       @media screen and (min-width: #{$pixel}) {
         @each $attsvalue, $value in $gutters {
-          $gutterselector: '[gutters*="#{$breakpoint}-#{$attsvalue}"]';
+          $gutterselector: '[kemet-gutters*="#{$breakpoint}-#{$attsvalue}"]';
           // @debug $gutterselector;
 
           #{$gutterselector} {
@@ -118,16 +118,16 @@
             padding-right: $value;
           }
 
-          [layout="flexgrid"]#{$gutterselector} > * {
+          [kemet-layout="flexgrid"]#{$gutterselector} > * {
             margin-bottom: $value;
           }
 
-          [layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
+          [kemet-layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
             margin-top: $value;
           }
 
           @media only screen and (max-width: $stackpoint) {
-            [layout="flexrow"]#{$gutterselector}[autostack] > * {
+            [kemet-layout="flexrow"]#{$gutterselector}[autostack] > * {
               margin-bottom: $value;
             }
           }
@@ -149,13 +149,13 @@
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @for $i from 1 through $order {
-        [order="#{$breakpoint}-minus-#{$i}"] {
+        [kemet-order="#{$breakpoint}-minus-#{$i}"] {
           order: -#{$i};
         }
       }
 
       @for $i from 1 through $order {
-        [order="#{$breakpoint}-plus-#{$i}"] {
+        [kemet-order="#{$breakpoint}-plus-#{$i}"] {
           order: #{$i};
         }
       }
@@ -218,7 +218,7 @@
       @for $i from 1 through $flexgridcolumns {
         $base: 100/$i;
 
-        [basis*="#{$breakpoint}-#{$i}-columns"] > * {
+        [kemet-basis*="#{$breakpoint}-#{$i}-columns"] > * {
           flex: 0 0 unquote($base+'%');
           max-width: unquote($base+'%');
         }

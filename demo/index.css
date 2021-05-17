@@ -19,11 +19,11 @@ a {
   padding: 0.5rem;
   box-sizing: border-box;
   display: inline-block;
-  border: 1px solid rgba(0,0,255,0.1);
+  border: 1px solid var(--kemet-color-black-10);
   background-color: var(--kemet-color-primary);
 }
 
-[layout="flexcolumn"] .box {
+[kemet-layout='flexcolumn'] .box {
   height: 100%;
 }
 
