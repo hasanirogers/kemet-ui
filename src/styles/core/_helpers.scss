@@ -139,10 +139,22 @@
 
 @mixin makeTypeSizers() {
   @each $key, $value in $typesizers {
-    .text-#{$key} {
+    [kemet-type-size*="#{$key}"] {
       font-size: $value;
     }
   }
+
+  @each $breakpoint, $pixel in $breakpoints {
+    @media screen and (min-width: #{$pixel}) {
+      @each $key, $value in $typesizers {
+        [kemet-type-size*="#{$breakpoint}:#{$key}"] {
+          font-size: $value;
+        }
+      }
+    }
+  }
+
+
 }
 
 @mixin makeOrder() {
