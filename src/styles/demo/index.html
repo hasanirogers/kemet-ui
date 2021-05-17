@@ -14,10 +14,10 @@
 <body class="body--styles">
   <main>
     <article>
-      <h2>Layout</h2>
+      <h2>Kemet UI Styles</h2>
       <hr />
 
-      <h3>Flexrow</h3>
+      <h2>Flexrow</h2>
       <div kemet-layout="flexrow">
           <div><span class="box">Item 1</span></div>
           <div><span class="box">Item 2</span></div>
@@ -34,8 +34,8 @@
       </div>
 
       <h3>Responsive Gutters</h3>
-      <div kemet-layout="flexrow" kemet-gutters="tiny-none medium-default large-plus-6">
-          <div kemet-breakpoint="medium-33"><span class="box">Item 1</span></div>
+      <div kemet-layout="flexrow" kemet-gutters="tiny:none medium:default large:plus-6">
+          <div kemet-breakpoint="medium:33"><span class="box">Item 1</span></div>
           <div><span class="box">Item 2</span></div>
           <div><span class="box">Item 3</span></div>
           <div><span class="box">Item 4</span></div>
@@ -43,10 +43,10 @@
 
       <h3>Breakpoints</h3>
       <div kemet-layout="flexrow" kemet-flex-items kemet-gutters="minus-1">
-          <div kemet-breakpoint="tiny-content"><span class="box">❤️</span></div>
+          <div kemet-breakpoint="tiny:content"><span class="box">❤️</span></div>
           <div><span class="box">Item 2</span></div>
           <div><span class="box">Item 3</span></div>
-          <div kemet-breakpoint="tiny-50"><span class="box">Item 4</span></div>
+          <div kemet-breakpoint="tiny:50"><span class="box">Item 4</span></div>
       </div>
 
       <h3>Alignment</h3>
@@ -66,28 +66,29 @@
 
       <h3>Cross Alignment</h3>
       <div kemet-layout="flexrow" kemet-align-cross="between">
-          <div kemet-breakpoint="tiny-66"><span class="box">Left</span></div>
-          <div kemet-breakpoint="tiny-content"><span class="box">Right</span></div>
+          <div kemet-breakpoint="tiny:66"><span class="box">Left</span></div>
+          <div kemet-breakpoint="tiny:content"><span class="box">Right</span></div>
       </div>
 
-      <h3>Flexgrid</h3>
+      <br />
+      <h2>Flexgrid</h2>
       <div kemet-layout="flexgrid" kemet-gutters="plus-1">
-          <div kemet-breakpoint="tiny-100 medium-33 large-25">
+          <div kemet-breakpoint="tiny:100 medium:33 large:25">
             <span class="box">1</span>
           </div>
-          <div kemet-breakpoint="tiny-50 medium-33 large-25">
+          <div kemet-breakpoint="tiny:50 medium:33 large:25">
             <span class="box">2</span>
           </div>
-          <div kemet-breakpoint="tiny-50 medium-33 large-25">
+          <div kemet-breakpoint="tiny:50 medium:33 large:25">
             <span class="box">3</span>
           </div>
-          <div kemet-breakpoint="tiny-100 medium-100 large-25">
+          <div kemet-breakpoint="tiny:100 medium:100 large:25">
             <span class="box">4</span>
           </div>
       </div>
 
       <h3>Flexgrid basis</h3>
-      <div kemet-layout="flexgrid" kemet-gutters kemet-basis="tiny-4-columns medium-6-columns huge-12-columns">
+      <div kemet-layout="flexgrid" kemet-gutters kemet-basis="tiny:4-columns medium:6-columns huge:12-columns">
         <div><span class="box">1</span></div>
         <div><span class="box">2</span></div>
         <div><span class="box">3</span></div>
@@ -102,7 +103,8 @@
         <div><span class="box">12</span></div>
       </div>
 
-      <h3>Flexcolumn</h3>
+      <br />
+      <h2>Flexcolumn</h2>
       <div kemet-layout="flexcolumn" kemet-gutters style="height:300px;">
         <div><span class="box">1</span></div>
         <div><span class="box">2</span></div>
@@ -111,12 +113,13 @@
 
       <h3>Flexcolumn size</h3>
       <div kemet-layout="flexcolumn" kemet-gutters style="height:300px;">
-        <div size-content=""><span class="box">1</span></div>
+        <div fit-content><span class="box">1</span></div>
         <div><span class="box">2</span></div>
         <div><span class="box">3</span></div>
       </div>
 
-      <h3>Flexlist</h3>
+      <br />
+      <h2>Flexlist</h2>
       <div kemet-layout="flexlist" kemet-gutters>
         <div><span class="box">One</span></div>
         <div><span class="box">Two</span></div>
@@ -131,13 +134,13 @@
         <div><span class="box">One</span></div>
         <div><span class="box">Two</span></div>
         <div><span class="box">Three</span></div>
-        <div kemet-order="medium-minus-1"><span class="box" style="background:darkgoldenrod;">Four</span></div>
-        <div kemet-order="medium-minus-1"><span class="box" style="background:darkgoldenrod;">Five</span></div>
+        <div kemet-order="medium:minus-1"><span class="box" style="background:darkgoldenrod;">Four</span></div>
+        <div kemet-order="medium:minus-1"><span class="box" style="background:darkgoldenrod;">Five</span></div>
         <div><span class="box">Six</span></div>
       </div>
 
-      <br /><br />
-
+      <br /><hr /><br />
+      <h2>Helpers</h2>
       <section kemet-layout="flexrow" kemet-gutters kemet-autostack>
         <div>
           <h3>Visibility: Show Classes</h3>
@@ -155,7 +158,7 @@
 
       <br />
       <h3>Font Sizers</h3>
-      <div kemet-layout="flexgrid" kemet-gutters kemet-autostack kemet-basis="medium-2-columns">
+      <div kemet-layout="flexgrid" kemet-gutters kemet-autostack kemet-basis="medium:2-columns">
         <div><code kemet-type-size="plus-6">plus-6</code></div>
         <div><code kemet-type-size="plus-5">plus-5</code></div>
         <div><code kemet-type-size="plus-4">plus-4</code></div>

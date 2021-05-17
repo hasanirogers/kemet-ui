@@ -1,6 +1,6 @@
 {
   "name": "kemet-ui",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A flexible designless system for UIs.",
   "main": "dist/kemet.components.js",
   "watch": {

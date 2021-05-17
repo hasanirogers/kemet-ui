@@ -14,30 +14,30 @@
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @if $flexiplier != 'fives' {
-        [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-25"] {
+        [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:25"] {
           flex: 0 0 25%;
           max-width: 25%;
         }
       }
 
-      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-33"] {
+      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:33"] {
         flex: 0 0 33.33%;
         max-width: 33.33%;
       }
 
-      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-66"] {
+      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:66"] {
         flex: 0 0 66.66%;
         max-width: 66.66%;
       }
 
       @if $flexiplier != 'fives' {
-        [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-75"] {
+        [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:75"] {
           flex: 0 0 75%;
           max-width: 75%;
         }
       }
 
-      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-content"] {
+      [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:content"] {
         flex: 0 0 auto;
       }
 
@@ -46,7 +46,7 @@
           $size: $i*5;
           $percent: $size + '%';
 
-          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-#{$size}"] {
+          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:#{$size}"] {
             flex: 0 0 unquote($percent);
             max-width: unquote($percent);
           }
@@ -58,7 +58,7 @@
           $size: $i*10;
           $percent: $size + '%';
 
-          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-#{$size}"] {
+          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:#{$size}"] {
             flex: 0 0 unquote($percent);
             max-width: unquote($percent);
           }
@@ -70,7 +70,7 @@
           $size: $i*20;
           $percent: $size + '%';
 
-          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}-#{$size}"] {
+          [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:#{$size}"] {
             flex: 0 0 unquote($percent);
             max-width: unquote($percent);
           }
@@ -107,7 +107,7 @@
     @each $breakpoint, $pixel in $breakpoints {
       @media screen and (min-width: #{$pixel}) {
         @each $attsvalue, $value in $gutters {
-          $gutterselector: '[kemet-gutters*="#{$breakpoint}-#{$attsvalue}"]';
+          $gutterselector: '[kemet-gutters*="#{$breakpoint}:#{$attsvalue}"]';
           // @debug $gutterselector;
 
           #{$gutterselector} {
@@ -159,13 +159,13 @@
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @for $i from 1 through $order {
-        [kemet-order="#{$breakpoint}-minus-#{$i}"] {
+        [kemet-order="#{$breakpoint}:minus-#{$i}"] {
           order: -#{$i};
         }
       }
 
       @for $i from 1 through $order {
-        [kemet-order="#{$breakpoint}-plus-#{$i}"] {
+        [kemet-order="#{$breakpoint}:plus-#{$i}"] {
           order: #{$i};
         }
       }
@@ -228,7 +228,7 @@
       @for $i from 1 through $flexgridcolumns {
         $base: 100/$i;
 
-        [kemet-basis*="#{$breakpoint}-#{$i}-columns"] > * {
+        [kemet-basis*="#{$breakpoint}:#{$i}-columns"] > * {
           flex: 0 0 unquote($base+'%');
           max-width: unquote($base+'%');
         }
