@@ -49,13 +49,13 @@ export const stylesBase = css`
     transition: transform 0.5s;
   }
 
-  .off-canvas__pusher::after {
+  :host([overlay]) .off-canvas__pusher::after {
     position: absolute;
     top: 0;
     right: 0;
     width: 0;
     height: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--kemet-drawer-overlay-color, rgba(0, 0, 0, 0.2));
     content: '';
     opacity: 0;
     transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
@@ -79,6 +79,10 @@ export const stylesBase = css`
     position: relative;
   }
 
+  ::slotted([slot="content"]) {
+    min-height: 100vh;
+  }
+
   /* -------------------------------------- */
   /* custom properties */
   /* -------------------------------------- */
@@ -87,7 +91,7 @@ export const stylesBase = css`
     width: var(--kemet-drawer-width, 300px);
     height: var(--kemet-drawer-height, 100%);
     color: var(--kemet-drawer-color, #fafafa);
-    background: var(--kemet-drawer-background, #202020);
+    background: var(--kemet-drawer-background-color, #202020);
   }
 `;
 

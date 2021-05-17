@@ -266,11 +266,11 @@
       ],
       "events": [
         {
-          "name": "kemet-drawer-open",
+          "name": "kemet-drawer-opened",
           "description": "Fires when the drawer opens."
         },
         {
-          "name": "kemet-drawer-close",
+          "name": "kemet-drawer-closed",
           "description": "Fires when the drawer closes."
         }
       ],
@@ -304,10 +304,16 @@
           "default": "#fafafa"
         },
         {
-          "name": "--kemet-drawer-background",
+          "name": "--kemet-drawer-background-color",
           "description": "The background color of the drawer. Default is #202020.",
           "type": "Color",
           "default": "#202020"
+        },
+        {
+          "name": "--kemet-drawer-overlay-color",
+          "description": "The color of the overlay.",
+          "type": "Color",
+          "default": "rgba(0, 0, 0, 0.2)"
         }
       ]
     },

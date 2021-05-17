@@ -12,15 +12,10 @@
 
 <body>
   <style>
-    :root {
-      --rich-white: #fafafa;
-    }
-
     body {
       margin: 0;
       padding: 0;
       line-height: 2;
-      background: var(--rich-white);
     }
 
     button {
@@ -33,63 +28,113 @@
       margin: auto;
       padding: 1rem 2rem;
     }
-
-    ul {
-      color: var(--rich-white);
-    }
   </style>
-  <kemet-drawer effect="push" side="top">
-    <nav slot="navigation">
-      <ul>
-        <li>Link 1</li>
-        <li>Link 2</li>
-        <li>Link 3</li>
-      </ul>
-    </nav>
-    <section slot="content">
-      <article>
-        <h1>Drawer is: <span id="status">closed</span></h1>
-        <button id="toggle">Toggle Drawer</button>
-        <p>Bacon ipsum dolor amet turkey turducken chicken shank kielbasa. Ham jerky flank andouille, drumstick meatball short loin alcatra capicola. Brisket tongue meatball chicken, chislic filet mignon cow. Drumstick tongue fatback chuck andouille beef ribs cupim filet mignon cow doner shank. Leberkas tri-tip porchetta ground round jerky. Drumstick pork bacon, rump spare ribs ham hock bresaola t-bone chuck alcatra pig cupim.</p>
-        <p>Porchetta boudin shank jowl. Salami shankle ball tip alcatra burgdoggen sirloin. Burgdoggen tenderloin picanha meatball, spare ribs rump drumstick pork chop biltong porchetta ham hock. Salami meatball strip steak, rump boudin ham hock brisket andouille.</p>
-        <p>Ribeye tenderloin short ribs beef pork loin short loin pig burgdoggen. Bresaola pancetta buffalo, leberkas sirloin rump sausage strip steak chicken swine. Pork landjaeger short loin pork belly sirloin. Short loin pancetta ground round brisket sirloin ham hock short ribs t-bone hamburger kevin beef ribs chislic rump sausage pig. Brisket venison corned beef turkey. Pork loin tri-tip rump, chicken buffalo landjaeger filet mignon ball tip doner cupim strip steak. Cupim alcatra biltong shankle, corned beef boudin frankfurter pork tri-tip bresaola kielbasa capicola t-bone.</p>
-        <p>Chuck capicola frankfurter pancetta, leberkas tail venison swine beef short ribs strip steak ground round turkey. Corned beef hamburger jowl, bresaola short ribs chuck meatball turkey kielbasa. Shoulder andouille tenderloin, chuck picanha ground round sirloin porchetta shank rump bresaola spare ribs. Venison brisket kevin ball tip short ribs picanha. Shoulder andouille sirloin venison biltong.</p>
-        <p>Chicken kielbasa pancetta, meatball alcatra chuck t-bone turducken. Pastrami short loin flank biltong shank drumstick. Capicola fatback biltong, meatball turducken shank tenderloin tri-tip jerky short ribs short loin. Filet mignon bacon sirloin cupim. Capicola ribeye hamburger prosciutto alcatra burgdoggen short ribs ham hock kielbasa. Leberkas doner jerky landjaeger tongue beef capicola.</p>
-      </article>
-    </section>
-  </kemet-drawer>
+  <main></main>
 
-  <script type="module" src="../../../../dist/kemet-components.js"></script>
-  <script>
-    const drawer = document.querySelector('kemet-drawer');
-    const link = document.getElementById('toggle');
-    const statusElement = document.getElementById('status');
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../../../../dist/kemet-components.js';
 
-    let status = 'closed';
+    const properties = {
+      status: 'closed',
+      opened: false,
+      effect: 'push',
+      side: 'left',
+      overlay: false,
+    };
 
-    link.addEventListener('click', () => {
-      drawer.toggle();
-    });
+    const mainElement = document.querySelector('main');
 
-    document.addEventListener('kemet-drawer-toggle', () => {
-      if (drawer.opened) {
-        status = 'opened';
-      } else {
-        status = 'closed';
+    const demoUI = props => html`
+      <kemet-drawer
+        ?opened="${props.opened}"
+        ?overlay="${props.overlay}"
+        effect="${props.effect}"
+        side="${props.side}"
+        @kemet-drawer-opened="${() => handleToggle('opened')}"
+        @kemet-drawer-closed="${() => handleToggle('closed')}">
+        <nav slot="navigation">
+          <ul>
+            <li>Link 1</li>
+            <li>Link 2</li>
+            <li>Link 3</li>
+          </ul>
+        </nav>
+        <section slot="content">
+          <article>
+            <h1>Drawer is: ${props.status}</h1>
+            <form>
+              <label>
+                Effect:
+                <select @blur="${event => handleEffect(event)}">
+                  <option value="push" selected>Push</option>
+                  <option value="reveal">Reveal</option>
+                  <option value="scale">Scale</option>
+                  <option value="slide">Slide</option>
+                </select>
+              </label>
+              &nbsp;&nbsp;
+              <label>
+                Side:
+                <select @blur="${event => handleSide(event)}">
+                  <option value="top">Top</option>
+                  <option value="right">Right</option>
+                  <option value="bottom">Bottom</option>
+                  <option value="left" selected>Left</option>
+                </select>
+              </label>
+              &nbsp;&nbsp;
+              <label>
+                Show Overlay:
+                <input type="checkbox" @change="${event => handleOverlay(event)}" />
+              </label>
+            </form>
+            <p><button @click="${() => toggleDrawer()}">Toggle Drawer</button></p>
+            <p>Bacon ipsum dolor amet turkey turducken chicken shank kielbasa. Ham jerky flank andouille, drumstick meatball short loin alcatra capicola. Brisket tongue meatball chicken, chislic filet mignon cow. Drumstick tongue fatback chuck andouille beef ribs cupim filet mignon cow doner shank. Leberkas tri-tip porchetta ground round jerky. Drumstick pork bacon, rump spare ribs ham hock bresaola t-bone chuck alcatra pig cupim.</p>
+            <p>Porchetta boudin shank jowl. Salami shankle ball tip alcatra burgdoggen sirloin. Burgdoggen tenderloin picanha meatball, spare ribs rump drumstick pork chop biltong porchetta ham hock. Salami meatball strip steak, rump boudin ham hock brisket andouille.</p>
+            <p>Ribeye tenderloin short ribs beef pork loin short loin pig burgdoggen. Bresaola pancetta buffalo, leberkas sirloin rump sausage strip steak chicken swine. Pork landjaeger short loin pork belly sirloin. Short loin pancetta ground round brisket sirloin ham hock short ribs t-bone hamburger kevin beef ribs chislic rump sausage pig. Brisket venison corned beef turkey. Pork loin tri-tip rump, chicken buffalo landjaeger filet mignon ball tip doner cupim strip steak. Cupim alcatra biltong shankle, corned beef boudin frankfurter pork tri-tip bresaola kielbasa capicola t-bone.</p>
+            <p>Chuck capicola frankfurter pancetta, leberkas tail venison swine beef short ribs strip steak ground round turkey. Corned beef hamburger jowl, bresaola short ribs chuck meatball turkey kielbasa. Shoulder andouille tenderloin, chuck picanha ground round sirloin porchetta shank rump bresaola spare ribs. Venison brisket kevin ball tip short ribs picanha. Shoulder andouille sirloin venison biltong.</p>
+            <p>Chicken kielbasa pancetta, meatball alcatra chuck t-bone turducken. Pastrami short loin flank biltong shank drumstick. Capicola fatback biltong, meatball turducken shank tenderloin tri-tip jerky short ribs short loin. Filet mignon bacon sirloin cupim. Capicola ribeye hamburger prosciutto alcatra burgdoggen short ribs ham hock kielbasa. Leberkas doner jerky landjaeger tongue beef capicola.</p>
+          </article>
+        </section>
+      </kemet-drawer>
+    `;
+
+    render(demoUI(properties), mainElement);
+
+    const handleToggle = (status) => {
+      properties.status = status;
+
+      if (status === 'opened') {
+        properties.opened = true;
       }
 
-      statusElement.innerHTML = status;
-    });
+      if (status === 'closed') {
+        properties.opened = false;
+      }
 
-    document.addEventListener('kemet-drawer-open', () => {
-      status = 'opened';
-      statusElement.innerHTML = status;
-    });
+      render(demoUI(properties), mainElement);
+    };
 
-    document.addEventListener('kemet-drawer-close', () => {
-      status = 'closed';
-      statusElement.innerHTML = status;
-    });
+    const toggleDrawer = () => {
+      properties.opened = !properties.opened;
+      render(demoUI(properties), mainElement);
+    };
+
+    const handleEffect = (event) => {
+      properties.effect = event.target.value;
+      render(demoUI(properties), mainElement);
+    };
+
+    const handleSide = (event) => {
+      properties.side = event.target.value;
+      render(demoUI(properties), mainElement);
+    };
+
+    const handleOverlay = (event) => {
+      properties.overlay = event.target.checked;
+      render(demoUI(properties), mainElement);
+    };
   </script>
 </body>
 </html>

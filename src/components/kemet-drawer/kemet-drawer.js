@@ -20,6 +20,10 @@ export class KemetDrawer extends LitElement {
         type: String,
         reflect: true,
       },
+      overlay: {
+        type: Boolean,
+        reflect: true,
+      },
     };
   }
 
@@ -30,53 +34,42 @@ export class KemetDrawer extends LitElement {
     this.opened = undefined;
     this.effect = 'slide';
     this.side = 'left';
+    this.overlay = false;
+  }
+
+  firstUpdated() {
+    this.addEventListener('click', (event) => {
+      if (this.opened && event.target.tagName.toLowerCase() === 'kemet-drawer') {
+        this.opened = false;
+      }
+    });
+  }
+
+  updated(prevProps) {
+    if (!prevProps.get('opened') && this.opened === true) {
+      this.makeEvent('opened');
+    }
+
+    if (prevProps.get('opened') && this.opened === false) {
+      this.makeEvent('closed');
+    }
   }
 
   render() {
     return html`
-      <section class="off-canvas">
-        <nav class="off-canvas__nav">
+      <section class="off-canvas" part="container">
+        <nav class="off-canvas__nav" part="drawer">
           <slot name="navigation"></slot>
         </nav>
-        <div class="off-canvas__pusher">
-          <main class="off-canvas__content">
-            <div class="off-canvas__wrapper">
+        <div class="off-canvas__pusher" part="pusher">
+          <main class="off-canvas__content" part="content">
+            <div class="off-canvas__wrapper" part="wrapper">
               <slot name="content"></slot>
             </div>
           </main>
         </div>
       </section>
     `;
-  }
-
-  firstUpdated() {
-    this.addEventListener('click', (event) => {
-      if (this.opened && event.target.tagName.toLowerCase() === 'kemet-drawer') {
-        this.close();
-      }
-    });
-  }
-
-  updated() {
-    if (this.opened === true) {
-      this.makeEvent('open');
-    }
-
-    if (this.opened === false) {
-      this.makeEvent('close');
-    }
-  }
-
-  open() {
-    this.opened = true;
-  }
-
-  close() {
-    this.opened = false;
-  }
-
-  toggle() {
-    this.opened = !this.opened;
   }
 
   makeEvent(type) {

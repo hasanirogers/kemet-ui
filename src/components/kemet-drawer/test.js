@@ -13,62 +13,7 @@ describe('KemetDrawer', () => {
     expect(element.side).to.equal('left');
   });
 
-  it('opens the drawer when toggled', async () => {
-    const toggle = (event) => {
-      const drawer = event.target.closest('kemet-drawer');
-      // drawer.opened = !drawer.opened;
-      drawer.toggle();
-    };
-
-    const element = await fixture(html`
-      <kemet-drawer>
-        <div slot="content">
-          <button @click=${event => toggle(event)}></button>
-        </div>
-      </kemet-drawer>
-    `);
-
-    element.querySelector('button').click();
-    expect(element.opened).to.equal(true);
-  });
-
-  it('opens the drawer when open is called', async () => {
-    const open = (event) => {
-      const drawer = event.target.closest('kemet-drawer');
-      drawer.open();
-    };
-
-    const element = await fixture(html`
-      <kemet-drawer>
-        <div slot="content">
-          <button @click=${event => open(event)}></button>
-        </div>
-      </kemet-drawer>
-    `);
-
-    element.querySelector('button').click();
-    expect(element.opened).to.equal(true);
-  });
-
-  it('closes the drawer when close is called', async () => {
-    const close = (event) => {
-      const drawer = event.target.closest('kemet-drawer');
-      drawer.close();
-    };
-
-    const element = await fixture(html`
-      <kemet-drawer>
-        <div slot="content">
-          <button @click=${event => close(event)}></button>
-        </div>
-      </kemet-drawer>
-    `);
-
-    element.querySelector('button').click();
-    expect(element.opened).to.equal(false);
-  });
-
-  it('closes the drwawer the drawer itself is clicked on', async () => {
+  it('closes the drawer the drawer itself is clicked on', async () => {
     const element = await fixture(html`
       <kemet-drawer opened>
         <div slot="content">
