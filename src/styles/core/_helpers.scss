@@ -243,13 +243,21 @@
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @each $spacer, $value in $spacers {
-        .margin-#{$breakpoint}-#{$spacer} {
+        [kemet-margin*="#{$breakpoint}:#{$spacer}"] {
           margin: $value;
         }
 
+        [kemet-padding*="#{$breakpoint}:#{$spacer}"] {
+          padding: $value;
+        }
+
         @each $side in $sides {
-          .margin-#{$breakpoint}-#{$spacer}-#{$side} {
+          [kemet-margin*="#{$breakpoint}:#{$spacer}-#{$side}"] {
             margin-#{$side}: $value;
+          }
+
+          [kemet-padding*="#{$breakpoint}:#{$spacer}-#{$side}"] {
+            padding-#{$side}: $value;
           }
         }
       }
