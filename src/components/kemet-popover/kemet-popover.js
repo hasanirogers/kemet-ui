@@ -1,5 +1,5 @@
 import { html, css, LitElement } from 'lit';
-import { tooltip, customTooltip } from './kemet-popover.styles.tooltip.js';
+import { tooltip, customTooltip } from './kemet-popover.tooltip.styles.js';
 import {
   fade,
   scale,
@@ -9,8 +9,13 @@ import {
   flipVertical,
   sign,
   superScaled,
-} from './kemet-popover.styles.effects.js';
-import keyCodes from '../../utilities/constants/keycodes.const.js';
+} from './kemet-popover.effects.styles.js';
+
+const keyCodes = {
+  ENTER: 13,
+  SPACE: 32,
+  ESC: 27,
+};
 
 export class KemetPopover extends LitElement {
   static get styles() {

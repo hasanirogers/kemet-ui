@@ -1,5 +1,10 @@
 import { html, css, LitElement } from 'lit';
-import keyCodes from '../../utilities/constants/keycodes.const.js';
+
+const keyCodes = {
+  ENTER: 13,
+  SPACE: 32,
+  ESC: 27,
+};
 
 export class KemetPopoverClose extends LitElement {
   static get styles() {
