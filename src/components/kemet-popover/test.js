@@ -81,7 +81,7 @@ describe('KemetPopover', () => {
       element.close();
     }, 1);
 
-    const listener = oneEvent(element, 'kemet-popover-close');
+    const listener = oneEvent(element, 'kemet-popover-closed');
     const event = await listener;
     const { detail } = event;
 

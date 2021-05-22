@@ -3,12 +3,14 @@ import { html, fixture, expect } from '@open-wc/testing';
 import './kemet-accordion.js';
 
 describe('KemetAccordion', () => {
-  it('has a default opened prop of false', async () => {
+  it('has the correct default props', async () => {
     const element = await fixture(html`
       <kemet-accordion></kemet-accordion>
     `);
 
-    expect(element.opened).to.equal(false);
+    expect(element.opened).to.equal(undefined);
+    expect(element.maxHeight).to.equal('0px');
+    expect(element.closeOthers).to.equal(false);
   });
 
   it('allows the user to open the accordion with an attribute', async () => {

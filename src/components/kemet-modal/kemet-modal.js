@@ -21,6 +21,7 @@ export class KemetModal extends LitElement {
       },
       closeOnClick: {
         type: Boolean,
+        attribute: 'close-on-click',
       },
     };
   }
@@ -30,7 +31,25 @@ export class KemetModal extends LitElement {
     this.opened = false;
     this.closeOnClick = false;
 
-    this.addEventListener('kemet-modal-close-btn', this.close.bind(this));
+    this.addEventListener('kemet-modal-close-btn', () => { this.opened = false; });
+  }
+
+  firstUpdated() {
+    this.addEventListener('click', (event) => {
+      if (this.opened && this.closeOnClick && event.target.tagName.toLowerCase() === 'kemet-modal') {
+        this.opened = false;
+      }
+    });
+  }
+
+  updated(prevProps) {
+    if (!prevProps.get('opened') && this.opened === true) {
+      this.makeEvent('opened');
+    }
+
+    if (prevProps.get('opened') && this.opened === false) {
+      this.makeEvent('closed');
+    }
   }
 
   render() {
@@ -38,37 +57,18 @@ export class KemetModal extends LitElement {
       <div class="content">
         <slot></slot>
       </div>
-
       <div class="overlay"></div>
     `;
   }
 
-  firstUpdated() {
-    this.addEventListener('click', (event) => {
-      if (this.opened && this.closeOnClick && event.target.tagName.toLowerCase() === 'kemet-modal') {
-        this.close();
-      }
-    });
-  }
-
-  open() {
-    this.opened = true;
-
-    this.dispatchEvent(new CustomEvent('kemet-modal-open', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
-  }
-
-  close() {
-    this.opened = false;
-
-    this.dispatchEvent(new CustomEvent('kemet-modal-close', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+  makeEvent(type) {
+    this.dispatchEvent(
+      new CustomEvent(`kemet-modal-${type}`, {
+        bubbles: true,
+        composed: true,
+        detail: this,
+      }),
+    );
   }
 }
 

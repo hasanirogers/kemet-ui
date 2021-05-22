@@ -181,11 +181,11 @@ export class KemetPopover extends LitElement {
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
-      this.makeEvent('open');
+      this.makeEvent('opened');
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      this.makeEvent('close');
+      this.makeEvent('closed');
     }
 
     this.smartContent();

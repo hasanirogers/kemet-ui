@@ -10,9 +10,24 @@
           "type": "Boolean",
           "description": "Determines whether or not the accordion is opened.",
           "default": false
+        },
+        {
+          "name": "closeOthers",
+          "type": "Boolean",
+          "description": "Will close all other accordions once the current accordion is opened.",
+          "default": false
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "name": "kemet-accordion-opened",
+          "description": "Fires when an accordion opens."
+        },
+        {
+          "name": "kemet-accordion-closed",
+          "description": "Fires when an accordion closes."
+        }
+      ],
       "slots": [
         {
           "name": "trigger",
@@ -427,11 +442,11 @@
       ],
       "events": [
         {
-          "name": "kemet-modal-open",
+          "name": "kemet-modal-opened",
           "description": "Fires when a modal opens."
         },
         {
-          "name": "kemet-modal-close",
+          "name": "kemet-modal-closed",
           "description": "Fires when a modal closes."
         }
       ],
@@ -504,11 +519,11 @@
       ],
       "events": [
         {
-          "name": "kemet-popover-open",
+          "name": "kemet-popover-opened",
           "description": "Fires when the popover opens."
         },
         {
-          "name": "kemet-popover-close",
+          "name": "kemet-popover-closed",
           "description": "Fires when the popover closes."
         }
       ],

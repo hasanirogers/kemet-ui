@@ -4,28 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Carousel | Kemet UI</title>
+  <title>Accordion | Kemet UI</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
   <link href="/demo/index.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="/dist/styles/kemet.components.css" />
 </head>
 
 <body>
-  <div id="demo"></div>
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    main {
+      margin: auto;
+      max-width: 960px;
+    }
+
+    section {
+      box-shadow: 0 0.5rem 0.5rem 0 rgb(0 0 0 / 10%);
+    }
+  </style>
+  <main></main>
 
   <script type="module">
     import { html, render } from 'lit';
     import '../../../../dist/kemet-components.js';
 
-    render(
-      html`
-      <kemet-accordion>
-        <button slot="trigger">Trigger</button>
-        <div slot="panel">Bacon ipsum dolor amet shoulder sausage short ribs, fatback ground round biltong drumstick spare ribs bacon tenderloin burgdoggen turducken picanha beef ribs pork belly.</div>
-      </kemet-accordion>
-      `,
-      document.querySelector('#demo'),
-    );
+    const properties = {
+      transitionSpeed: '300ms',
+      closeOthers: false,
+    };
+
+    const demoElement = document.querySelector('main');
+
+    const demoUI = props => html`
+      <p>
+        <label>
+          Close other accordions when opened:
+          <input type="checkbox" @change="${event => handleCloseOthers(event)}"/>
+        </label>
+      </p>
+      <p>
+        <label>
+          Transition Speed:
+          <input type="text" .value="${props.transitionSpeed}" @change="${event => handleTransitionSpeed(event)}" />
+        </label>
+      </p>
+      <section>
+        <style>
+          kemet-accordion {
+            --kemet-accordion-transition-speed: ${props.transitionSpeed};
+          }
+        </style>
+        <kemet-accordion ?close-others=${props.closeOthers}>
+          <div slot="trigger">
+            <span>Trigger 1</span>
+            <span class="plus"></span>
+            <span class="minus"></span>
+          </div>
+          <div slot="panel">Bacon ipsum dolor amet shoulder sausage short ribs, fatback ground round biltong drumstick spare ribs bacon tenderloin burgdoggen turducken picanha beef ribs pork belly.</div>
+        </kemet-accordion>
+        <kemet-accordion ?close-others=${props.closeOthers}>
+          <div slot="trigger">
+            <span>Trigger 2</span>
+            <span class="plus"></span>
+            <span class="minus"></span>
+          </div>
+          <div slot="panel">Bacon ipsum dolor amet shoulder sausage short ribs, fatback ground round biltong drumstick spare ribs bacon tenderloin burgdoggen turducken picanha beef ribs pork belly.</div>
+        </kemet-accordion>
+      <section>
+    `;
+
+    render(demoUI(properties), demoElement);
+
+    const handleCloseOthers = (event) => {
+      properties.closeOthers = event.target.checked;
+      render(demoUI(properties), demoElement);
+    };
+
+    const handleTransitionSpeed = (event) => {
+      properties.transitionSpeed = event.target.value;
+      render(demoUI(properties), demoElement);
+    };
   </script>
 </body>
 </html>

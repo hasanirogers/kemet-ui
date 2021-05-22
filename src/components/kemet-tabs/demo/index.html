@@ -15,9 +15,13 @@
     img {
       width: 100%;
     }
+
+    main {
+      max-width: 960px;
+    }
   </style>
-  <h1>Current Tab: <span>ffxv</span></h1>
-  <div id="demo"></div>
+  <h1>Current Tab: <span>two</span></h1>
+  <main></main>
 
   <script type="module">
     import { html, render } from 'lit';
@@ -53,7 +57,7 @@
           </section>
         </kemet-tabs>
       `,
-      document.querySelector('#demo'),
+      document.querySelector('main'),
     );
   </script>
 </body>
