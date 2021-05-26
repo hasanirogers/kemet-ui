@@ -7,6 +7,7 @@
   <title>Flipcard | Kemet UI</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
   <link href="/demo/index.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/dist/styles/kemet.components.css" />
 </head>
 
 <body>
@@ -19,10 +20,6 @@
 
     img {
       max-width: 100%;
-    }
-
-    kemet-flipcard::part(wrapper) {
-      border: 2px solid rgba(36,49,56,1);
     }
 
     #demo {
@@ -61,7 +58,7 @@
             <button>Flip Me</button>
           </kemet-flipcard-trigger>
         </div>
-        <kemet-flipcard-trigger slot="back" style="display:flex;">
+        <kemet-flipcard-trigger class="full-image" slot="back">
           <img src="http://placehold.it/1920x1080" alt="a placeholder" />
         </kemet-flipcard-trigger>
       </kemet-flipcard>

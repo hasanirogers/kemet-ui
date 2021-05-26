@@ -137,11 +137,11 @@ export class KemetCarousel extends LitElement {
 
   render() {
     return html`
-      <div class="slides">
+      <div class="slides" part="slides">
         <slot name="slides" @slotchange="${this.handleSlotChange}"></slot>
       </div>
 
-      <div class="pagination">
+      <div class="pagination" part="pagination">
         <slot name="pagination"></slot>
       </div>
     `;

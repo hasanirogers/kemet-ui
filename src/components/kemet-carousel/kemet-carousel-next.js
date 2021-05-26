@@ -26,7 +26,9 @@ export class KemetCarouselNext extends LitElement {
 
   render() {
     return html`
-      <slot @keyup=${() => this.next()} @click=${() => this.next()}></slot>
+      <span tabindex="0" @keyup=${() => this.next()} @click=${() => this.next()}>
+        <slot></slot>
+      </span>
     `;
   }
 

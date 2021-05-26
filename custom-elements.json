@@ -97,6 +97,16 @@
         {
           "name": "--kemet-carousel-height",
           "description": "Height of the carousel. Default is: 50vh."
+        },
+        {
+          "name": "::part(slides)",
+          "description": "The slides.",
+          "type": "Part"
+        },
+        {
+          "name": "::part(pagination)",
+          "description": "The the pagination.",
+          "type": "Part"
         }
       ]
     },
@@ -380,12 +390,22 @@
       ],
       "cssProperties": [
         {
-          "name": "--kemet-flipcard-front-background",
+          "name": "--kemet-flipcard-front-color",
+          "description": "The text color for the front of the card.",
+          "type": "Color"
+        },
+        {
+          "name": "--kemet-flipcard-back-color",
+          "description": "The text color for the back of the card.",
+          "type": "Color"
+        },
+        {
+          "name": "--kemet-flipcard-front-background-color",
           "description": "The background color for the front of the card.",
           "type": "Color"
         },
         {
-          "name": "--kemet-flipcard-back-background",
+          "name": "--kemet-flipcard-back-background-color",
           "description": "The background color for the back of the card.",
           "type": "Color"
         },

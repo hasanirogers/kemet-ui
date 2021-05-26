@@ -34,7 +34,9 @@ export class KemetCarouselLink extends LitElement {
 
   render() {
     return html`
-      <slot @keyup=${() => this.changed()} @click=${() => this.changed()}></slot>
+      <span tabindex="0" @keyup=${() => this.changed()} @click=${() => this.changed()}>
+        <slot></slot>
+      </span>
     `;
   }
 

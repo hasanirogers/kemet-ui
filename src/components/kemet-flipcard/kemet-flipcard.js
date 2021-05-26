@@ -5,7 +5,8 @@ export class KemetFlipcard extends LitElement {
     return css`
       :host {
         display: inline-block;
-        width: 100%;
+        width: var(--kemet-flipcard-width, 100%);
+        height: var(--kemet-flipcard-height, 240px);
         perspective: 1000px;
       }
 
@@ -27,11 +28,13 @@ export class KemetFlipcard extends LitElement {
       }
 
       .front {
-        background-color: var(--kemet-flipcard-front-background, #fafafa);
+        color: var(--kemet-flipcard-front-color, #202020);
+        background-color: var(--kemet-flipcard-front-background-color, #fafafa);
       }
 
       .back {
-        background-color: var(--kemet-flipcard-back-background, #fafafa)
+        color: var(--kemet-flipcard-back-color, #202020);
+        background-color: var(--kemet-flipcard-back-background-color, #fafafa)
       }
 
       :host([axis="horizontal"]) .back {
@@ -108,13 +111,15 @@ export class KemetFlipcard extends LitElement {
   firstUpdated() {
     this.frontChildren = this.shadowRoot.querySelector('[name="front"]').assignedNodes({ flatten: true });
     this.backChildren = this.shadowRoot.querySelector('[name="back"]').assignedNodes({ flatten: true });
-    this.triggers = this.shadowRoot.querySelectorAll('kemet-flipcard-trigger');
 
     [this.frontElement] = this.frontChildren;
     [this.backElement] = this.backChildren;
 
-    this.determineHeight();
     window.addEventListener('resize', this.determineHeight.bind(this));
+  }
+
+  updated() {
+    this.determineHeight();
   }
 
   render() {
@@ -127,10 +132,10 @@ export class KemetFlipcard extends LitElement {
         @mouseover=${() => { if (this.flipOnHover) this.flipped = true; }}
         @mouseout=${() => { if (this.flipOnHover) this.flipped = false; }}>
         <div id="front" class="front" part="front">
-          <slot name="front"></slot>
+          <slot name="front" @slotchange="${() => this.determineHeight()}"></slot>
         </div>
         <div id="back" class="back" part="back">
-          <slot name="back"></slot>
+          <slot name="back" @slotchange="${() => this.determineHeight()}"></slot>
         </div>
       </section>
     `;
@@ -150,6 +155,8 @@ export class KemetFlipcard extends LitElement {
         }
 
         this.style.height = this.height;
+      } else {
+        this.style.removeProperty('height');
       }
     }, 0);
   }

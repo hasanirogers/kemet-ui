@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import * as stories from './stories.js'
+import './kemet-accordion.js';
+
+<Meta
+  title="Components/Kemet Accordion"
+  component="kemet-popover"
+  argTypes={{
+    triggerText: {
+      defaultValue: 'Activate Accordion',
+      control: { type: 'text' },
+    },
+    panelText: {
+      defaultValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tortor pellentesque, efficitur lectus vel, accumsan ipsum. Phasellus dolor elit, ultrices a blandit id, consequat vitae arcu. Sed eu libero a tellus tincidunt auctor id eu libero. Nam ornare ultricies tortor, quis maximus velit placerat ac. Fusce bibendum euismod leo, ac vulputate nunc dignissim quis. Curabitur mollis felis eget ligula tincidunt sodales.',
+      control: { type: 'text' },
+    },
+    transitionSpeed: {
+      defaultValue: '300ms',
+      control: { type: 'text' }
+    },
+    closeOthers: {
+      control: { type: 'boolean' }
+    },
+  }}
+/>
+
+# Kemet Accordion
+
+A component that acts like a standard accordion.
+
+
+## How to use
+
+```html
+<kemet-accordion>
+  <button slot="trigger">Trigger</button>
+  <div slot="panel">Panel Text</div>
+</kemet-accordion>
+```
+
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Single} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.Multiple} />
+</Canvas>
+
+## API
+
+<ArgsTable of="kemet-accordion" />

@@ -1,0 +1,44 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { html, css } from 'lit';
+import * as stories from './stories.js'
+
+import './kemet-draggable.js';
+
+<Meta
+  title="Components/Kemet Draggable"
+  component="kemet-draggable"
+  argTypes={{
+    text: {
+      defaultValue: 'Drag Me',
+      control: { type: 'text' },
+    },
+    memory: {
+      defaultValue: 'kemet-draggable-demo',
+      control: { type: 'text' }
+    }
+  }}
+/>
+
+# Kemet Draggable
+
+A draggable element with the ability to remember its position.
+
+## How to use
+
+```html
+<kemet-draggable memory="a-unique-identifier">
+  <button>Drag Me!</button>
+</kemet-draggable>
+```
+
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Draggable} />
+</Canvas>
+
+## API
+
+### Kemet Draggable
+<ArgsTable of="kemet-draggable" />

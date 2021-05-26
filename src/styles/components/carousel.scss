@@ -15,7 +15,9 @@ kemet-carousel [slot='slides'] {
   border: 1px solid var(--kemet-color-primary);
 }
 
-kemet-carousel [slot='pagination'] {
+kemet-carousel [slot='pagination'],
+kemet-carousel[pagination='top'] [slot='pagination'] > *,
+kemet-carousel[pagination='bottom'] [slot='pagination'] > * {
   display: flex;
 }
 

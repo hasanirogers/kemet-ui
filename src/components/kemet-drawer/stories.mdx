@@ -1,0 +1,72 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import * as stories from './stories.js'
+
+import './kemet-drawer.js';
+
+<Meta
+  title="Components/Kemet Drawer"
+  component="kemet-carousel"
+  argTypes={{
+    width: {
+      defaultValue: '300px',
+      control: { type: 'text' },
+    },
+    height: {
+      defaultValue: '100%',
+      control: { type: 'text' },
+    },
+    color: {
+      defaultValue: '#fafafa',
+      control: { type: 'color' }
+    },
+    backgroundColor: {
+      defaultValue: '#202020',
+      control: { type: 'color' }
+    },
+    opened: {
+      defaultValue: false,
+      control: { type: 'boolean' },
+    },
+    effect: {
+      defaultValue: 'slide',
+      control: { type: 'select' },
+      options: ['slide', 'reveal', 'push', 'scale'],
+    },
+    side: {
+      defaultValue: 'left',
+      control: { type: 'select' },
+      options: ['top', 'right', 'bottom', 'left'],
+    },
+    overlay: {
+      defaultValue: false,
+      control: { type: 'boolean' },
+    },
+    overlayColor: {
+      defaultValue: 'rgba(0,0,0,0.2)',
+      control: { type: 'color' }
+    },
+  }}
+/>
+
+# Kemet Drawer
+
+A component that adds an off-canvas menu with different effects.
+
+## How to use
+
+```html
+<kemet-drawer>
+  <nav slot="navigation">Your navigation goes here.</nav>
+  <section slot="content">Your content goes here.</section>
+</kemet-drawer>
+```
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Drawer} />
+</Canvas>
+
+## API
+
+<ArgsTable of="kemet-drawer" />

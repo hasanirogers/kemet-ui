@@ -1,8 +1,9 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
-import * as stories from './kemet-popover.stories.js'
+import * as stories from './stories.js'
+import './kemet-popover.js';
 
 <Meta
-  title="KemetPopover"
+  title="Components/Kemet Popover"
   component="kemet-popover"
   argTypes={{
     triggerText: {
@@ -79,15 +80,6 @@ Displays an element in position of a trigger. Also acts as a tooltip.
 
 
 ## How to use
-
-```bash
-npm install @kemet/kemet-popover
-```
-
-```js
-import '@kemet/kemet-popover/kemet-popover.js';
-import '@kemet/kemet-popover/kemet-popover-close.js'; // optional
-```
 
 ```html
 <kemet-popover>

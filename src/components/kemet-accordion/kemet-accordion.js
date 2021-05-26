@@ -75,13 +75,7 @@ export class KemetAccordion extends LitElement {
     this.opened = !this.opened;
 
     if (this.opened) {
-      if (this.closeOthers) {
-        document.querySelectorAll('kemet-accordion').forEach((accordion) => {
-          accordion.opened = false;
-          accordion.maxHeight = '0px';
-        });
-      }
-
+      this.closeAll();
       this.opened = true;
       this.maxHeight = `${this.panelElement.offsetHeight}px`;
     } else {
@@ -97,6 +91,15 @@ export class KemetAccordion extends LitElement {
         detail: this,
       }),
     );
+  }
+
+  closeAll() {
+    if (this.closeOthers) {
+      document.querySelectorAll('kemet-accordion').forEach((accordion) => {
+        accordion.opened = false;
+        accordion.maxHeight = '0px';
+      });
+    }
   }
 }
 

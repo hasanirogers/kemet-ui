@@ -41,11 +41,17 @@
       effect: 'push',
       side: 'left',
       overlay: false,
+      overlayColor: 'rgba(0, 0, 0, 0.2)',
     };
 
     const mainElement = document.querySelector('main');
 
     const demoUI = props => html`
+      <style>
+        kemet-drawer {
+          --kemet-drawer-overlay-color: ${props.overlayColor};
+        }
+      </style>
       <kemet-drawer
         ?opened="${props.opened}"
         ?overlay="${props.overlay}"
@@ -64,30 +70,37 @@
           <article>
             <h1>Drawer is: ${props.status}</h1>
             <form>
-              <label>
-                Effect:
-                <select @blur="${event => handleEffect(event)}">
-                  <option value="push" selected>Push</option>
-                  <option value="reveal">Reveal</option>
-                  <option value="scale">Scale</option>
-                  <option value="slide">Slide</option>
-                </select>
-              </label>
-              &nbsp;&nbsp;
-              <label>
-                Side:
-                <select @blur="${event => handleSide(event)}">
-                  <option value="top">Top</option>
-                  <option value="right">Right</option>
-                  <option value="bottom">Bottom</option>
-                  <option value="left" selected>Left</option>
-                </select>
-              </label>
-              &nbsp;&nbsp;
-              <label>
-                Show Overlay:
-                <input type="checkbox" @change="${event => handleOverlay(event)}" />
-              </label>
+              <p>
+                <label>
+                  Effect:
+                  <select @blur="${event => handleEffect(event)}">
+                    <option value="push" selected>Push</option>
+                    <option value="reveal">Reveal</option>
+                    <option value="scale">Scale</option>
+                    <option value="slide">Slide</option>
+                  </select>
+                </label>
+                &nbsp;&nbsp;
+                <label>
+                  Side:
+                  <select @blur="${event => handleSide(event)}">
+                    <option value="top">Top</option>
+                    <option value="right">Right</option>
+                    <option value="bottom">Bottom</option>
+                    <option value="left" selected>Left</option>
+                  </select>
+                </label>
+              </p>
+              <p>
+                <label>
+                  Show Overlay:
+                  <input type="checkbox" @change="${event => handleOverlay(event)}" />
+                </label>
+                <label>
+                  Overlay Color:
+                  <input type="color" .value=${props.overlayColor} @change="${event => handleOverlayColor(event)}" />
+                </label>
+              </p>
             </form>
             <p><button @click="${() => toggleDrawer()}">Toggle Drawer</button></p>
             <p>Bacon ipsum dolor amet turkey turducken chicken shank kielbasa. Ham jerky flank andouille, drumstick meatball short loin alcatra capicola. Brisket tongue meatball chicken, chislic filet mignon cow. Drumstick tongue fatback chuck andouille beef ribs cupim filet mignon cow doner shank. Leberkas tri-tip porchetta ground round jerky. Drumstick pork bacon, rump spare ribs ham hock bresaola t-bone chuck alcatra pig cupim.</p>
@@ -133,6 +146,11 @@
 
     const handleOverlay = (event) => {
       properties.overlay = event.target.checked;
+      render(demoUI(properties), mainElement);
+    };
+
+    const handleOverlayColor = (event) => {
+      properties.overlayColor = event.target.value;
       render(demoUI(properties), mainElement);
     };
   </script>

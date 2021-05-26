@@ -26,7 +26,9 @@ export class KemetCarouselPrev extends LitElement {
 
   render() {
     return html`
-      <slot @keyup=${() => this.prev()} @click=${() => this.prev()}></slot>
+      <span tabindex="0" @keyup=${() => this.prev()} @click=${() => this.prev()}>
+        <slot></slot>
+      </span>
     `;
   }
 

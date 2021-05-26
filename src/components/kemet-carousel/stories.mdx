@@ -1,0 +1,80 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import * as stories from './stories.js'
+
+import './kemet-carousel.js';
+import './kemet-carousel-link.js';
+import './kemet-carousel-prev.js';
+import './kemet-carousel-next.js';
+import './kemet-carousel-slide.js';
+
+<Meta
+  title="Components/Kemet Carousel"
+  component="kemet-carousel"
+  argTypes={{
+    width: {
+      defaultValue: '100%',
+      control: { type: 'text' },
+    },
+    height: {
+      defaultValue: '50vh',
+      control: { type: 'text' },
+    },
+    slideSpeed: {
+      defaultValue: '0.3s',
+      control: { type: 'text' },
+    },
+    fadeSpeed: {
+      defaultValue: '1s',
+      control: { type: 'text' },
+    },
+    pagination: {
+      defaultValue: 'bottom',
+      control: { type: 'select' },
+      options: ['top', 'right', 'bottom', 'left'],
+    },
+    slideshow: {
+      defaultValue: 0,
+      control: { type: 'number' },
+    },
+    transition: {
+      defaultValue: 'horiztonal',
+      control: { type: 'select' },
+      options: ['horizontal', 'vertical', 'fade'],
+    },
+  }}
+/>
+
+# Kemet Carousel
+
+A designless carousel.
+
+## How to use
+
+```html
+<kemet-carousel>
+  <div slot="slides">
+    <kemet-carousel-slide>Slide One</kemet-carousel-slide>
+    <kemet-carousel-slide>Slide Two</kemet-carousel-slide>
+    <kemet-carousel-slide>Slide Three</kemet-carousel-slide>
+  </div>
+  <div slot="pagination">
+    <kemet-carousel-prev>Prev</kemet-carousel-prev>
+    <kemet-carousel-link slide="0">1</kemet-carousel-link>
+    <kemet-carousel-link slide="1">2</kemet-carousel-link>
+    <kemet-carousel-link slide="2">3</kemet-carousel-link>
+    <kemet-carousel-next>Next</kemet-carousel-next>
+  </div>
+</kemet-carousel>
+```
+
+You can use `kemet-carousel-link`, `kemet-carousel-prev`, and `kemet-carousel-next` to create pagination as you please. Use the `slide` property with `kemet-carousel-link` to link to a slide. Notice how it's zero indexed.
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Carousel} />
+</Canvas>
+
+## API
+
+<ArgsTable of="kemet-carousel" />

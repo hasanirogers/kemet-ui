@@ -22,7 +22,7 @@ export class KemetFlipcardTrigger extends LitElement {
 
   render() {
     return html`
-      <slot @click=${() => this.trigger()} @keypress=${event => this.handleKeyup(event)}></slot>
+      <slot tabindex="0" @click=${() => this.trigger()} @keypress=${event => this.handleKeyup(event)}></slot>
     `;
   }
 

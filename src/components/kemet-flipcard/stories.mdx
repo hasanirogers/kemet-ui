@@ -1,0 +1,84 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import * as stories from './stories.js'
+
+import './kemet-flipcard.js';
+import './kemet-flipcard-trigger.js';
+
+<Meta
+  title="Components/Kemet Flipcard"
+  component="kemet-flipcard"
+  argTypes={{
+    width: {
+      defaultValue: '100%',
+      control: { type: 'text' },
+    },
+    height: {
+      defaultValue: '240px',
+      control: { type: 'text' },
+    },
+    frontColor: {
+      defaultValue: '#202020',
+      control: { type: 'color' }
+    },
+    frontBackgroundColor: {
+      defaultValue: '#fafafa',
+      control: { type: 'color' }
+    },
+    backColor: {
+      defaultValue: '#202020',
+      control: { type: 'color' }
+    },
+    backBackgroundColor: {
+      defaultValue: '#fafafa',
+      control: { type: 'color' }
+    },
+    flipped: {
+      defaultValue: false,
+      control: { type: 'boolean' },
+    },
+    measure: {
+      defaultValue: false,
+      control: { type: 'boolean' },
+    },
+    axis: {
+      defaultValue: 'horizontal',
+      control: { type: 'select' },
+      options: ['horizontal', 'vertical'],
+    },
+    flipOnHover: {
+      defaultValue: false,
+      control: { type: 'boolean' },
+    },
+  }}
+/>
+
+# Kemet Flipcard
+
+A card that has a front and back side which can be flipped.
+
+
+## How to use
+```html
+<kemet-flipcard>
+  <div slot="front">
+    <p>This is the front of the card.</p>
+  </div>
+  <div slot="back">
+    <p>This is the back of the card.</p>
+  </div>
+</kemet-flipcard>
+```
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Flipcard} />
+</Canvas>
+
+## API
+
+### Kemet Flipcard
+<ArgsTable of="kemet-flipcard" />
+
+### Kemet Flipcard Trigger
+<ArgsTable of="kemet-flipcard-trigger" />

@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html } from 'lit-html';
 import dedent from 'ts-dedent';
 import './kemet-popover.js';
 import './kemet-popover-close.js';

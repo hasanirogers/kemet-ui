@@ -1,0 +1,7 @@
+kemet-flipcard-trigger.full-image {
+  display: flex;
+}
+
+kemet-flipcard::part(wrapper) {
+  border: 2px solid var(--kemet-color-primary);
+}
