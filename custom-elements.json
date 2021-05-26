@@ -92,11 +92,13 @@
       "cssProperties": [
         {
           "name": "--kemet-carousel-width",
-          "description": "Width of the carousel. Default is: 100%."
+          "description": "Width of the carousel.",
+          "default": "100%"
         },
         {
           "name": "--kemet-carousel-height",
-          "description": "Height of the carousel. Default is: 50vh."
+          "description": "Height of the carousel. Default is: 50vh.",
+          "default": "50hv"
         },
         {
           "name": "::part(slides)",
@@ -392,22 +394,26 @@
         {
           "name": "--kemet-flipcard-front-color",
           "description": "The text color for the front of the card.",
-          "type": "Color"
+          "type": "Color",
+          "default": "#202020"
         },
         {
           "name": "--kemet-flipcard-back-color",
           "description": "The text color for the back of the card.",
-          "type": "Color"
+          "type": "Color",
+          "default": "#202020"
         },
         {
           "name": "--kemet-flipcard-front-background-color",
           "description": "The background color for the front of the card.",
-          "type": "Color"
+          "type": "Color",
+          "default": "#fafafa"
         },
         {
           "name": "--kemet-flipcard-back-background-color",
           "description": "The background color for the back of the card.",
-          "type": "Color"
+          "type": "Color",
+          "default": "#fafafa"
         },
         {
           "name": "::part(front)",
@@ -584,7 +590,7 @@
           "name": "--kemet-popover-background-color",
           "description": "The background color of the popover's contents.",
           "type": "Color",
-          "default": "rgba(36,49,56,1)"
+          "default": "#202020"
         },
         {
           "name": "--kemet-popover-gap",
