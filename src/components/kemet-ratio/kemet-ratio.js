@@ -35,6 +35,10 @@ export class KemetRatio extends LitElement {
     this.aspectRatio = '16:9';
   }
 
+  updated() {
+    this.setAspectRatio();
+  }
+
   render() {
     return html`
       <div id="container" part="container">
