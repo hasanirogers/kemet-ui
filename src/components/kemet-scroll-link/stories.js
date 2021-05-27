@@ -1,5 +1,4 @@
 import { html } from 'lit-html';
-import dedent from 'ts-dedent';
 
 import './kemet-scroll-link.js';
 
@@ -97,17 +96,4 @@ const handleLink = (event) => {
 };
 
 export const ScrollLink = Template.bind({});
-ScrollLink.parameters = {
-  docs: {
-    source: {
-      code: dedent`
-        <kemet-drawer>
-          <nav slot="navigation">Your navigation goes here.</nav>
-          <section slot="content">Your content goes here.</section>
-        </kemet-drawer>
-      `,
-    },
-  },
-};
-
 ScrollLink.decorators = [story => html`<div style="padding:2rem;">${story()}</div>`];
