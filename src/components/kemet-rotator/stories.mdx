@@ -1,0 +1,52 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+
+import './kemet-rotator.js';
+
+<Meta
+  title="Components/Kemet Rotator"
+  components="kemet-rotator"
+  argTypes={{
+    message1: {
+      defaultValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      control: { type: 'text' },
+    },
+    message2: {
+      defaultValue: 'Praesent ornare porta nulla.',
+      control: { type: 'text' },
+    },
+    message3: {
+      defaultValue: 'Nulla ipsum felis, aliquet nec nisl sit amet, suscipit facilisis massa.',
+      control: { type: 'text' },
+    },
+    effect: {
+      defaultValue: 'fade',
+      control: { type: 'select' },
+      options: ['fade', 'flip'],
+    },
+    rotationSpeed: {
+      defaultValue: 3,
+      control: { type: 'number' },
+    },
+  }}
+/>
+
+# Kemet Rotator
+
+A component that rotates through an array of text.
+
+## How to use
+
+```html
+<kemet-rotator messages='["my", "text", "here"]'></kemet-rotator>
+```
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Rotator} />
+</Canvas>
+
+## API
+
+<ArgsTable of="kemet-rotator" />
