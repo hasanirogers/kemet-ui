@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js'
+
+import './kemet-scroll-link.js';
+
+<Meta
+  title="Components/Kemet Scroll Link"
+  components="kemet-scroll-link"
+/>
+
+# KemetScrollLink
+
+A component that adds a smooth scrolling link to an target.
+
+
+## How to use
+
+### HTML
+
+```html
+<article>
+  <h1>Heading</h1>
+  ...
+<article>
+<kemet-scroll-link>
+  <button>Scroll to Top</button>
+</kemet-scroll-link>
+```
+
+### JavaScript
+```js
+const link = document.querySelector('kemet-scroll-link');
+link.target = document.querySelector('h1');
+```
+
+
+## Stories
+
+<Canvas>
+  <Story story={stories.ScrollLink} />
+</Canvas>
+
+
+## API
+
+<ArgsTable of="kemet-scroll-link" />
