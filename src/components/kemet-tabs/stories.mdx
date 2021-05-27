@@ -1,0 +1,60 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+
+import './kemet-tabs.js';
+import './kemet-tab.js';
+import './kemet-tab-panel.js';
+
+<Meta
+  title="Components/Kemet Tabs"
+  component="kemet-tabs"
+  argTypes={{
+    selected: {
+      defaultValue: 'two',
+      control: { type: 'select' },
+      options: ['one', 'two', 'three']
+    }
+  }}
+/>
+
+# Kemet Tabs
+
+A collection of components to enable tab behavior.
+
+## How to use
+
+```html
+<kemet-tabs>
+  <nav slot="links">
+    <kemet-tab>One</kemet-tab>
+    <kemet-tab>Two</kemet-tab>
+    <kemet-tab>Three</kemet-tab>
+  </nav>
+  <section slot="panels">
+    <kemet-tab-panel>Panel One</kemet-tab-panel>
+    <kemet-tab-panel>Panel Two</kemet-tab-panel>
+    <kemet-tab-panel>Panel Three</kemet-tab-panel>
+  </section>
+</kemet-tabs>
+```
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Tabs} />
+</Canvas>
+
+
+## API
+
+### kemet-tabs
+
+<ArgsTable of="kemet-tabs" />
+
+### kemet-tab
+
+<ArgsTable of="kemet-tab" />
+
+### kemet-tab-panel
+
+<ArgsTable of="kemet-tab-panel" />

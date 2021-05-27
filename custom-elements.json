@@ -906,8 +906,7 @@
         {
           "name": "selected",
           "type": "String",
-          "description": "Represents which tab is currently selected.",
-          "default": "Hey there"
+          "description": "Represents which tab is currently selected."
         }
       ],
       "events": [

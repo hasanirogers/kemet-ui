@@ -34,7 +34,9 @@ export class KemetTab extends LitElement {
 
   render() {
     return html`
-      <slot @keyup=${() => this.select()} @click=${() => this.select()}></slot>
+      <span tabindex="0" @keyup=${() => this.select()} @click=${() => this.select()}>
+        <slot></slot>
+      </span>
     `;
   }
 
