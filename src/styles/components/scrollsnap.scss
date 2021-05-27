@@ -56,10 +56,6 @@ html[kemet-scroll-snap-axis='vertical'] {
   overflow: hidden;
 }
 
-kemet-scroll-snap[axis='vertical'] {
-  height: 100vh;
-}
-
 kemet-scroll-snap[axis='vertical'] [slot='slides'] {
   overflow-x: hidden;
 }

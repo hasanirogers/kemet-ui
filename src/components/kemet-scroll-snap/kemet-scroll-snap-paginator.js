@@ -21,10 +21,12 @@ export class KemetScrollSnapPaginator extends LitElement {
       useNumberPages: {
         type: Boolean,
         reflect: true,
+        attribute: 'use-number-pages',
       },
       useLabelPages: {
         type: Boolean,
         reflect: true,
+        attribute: 'use-label-pages',
       },
     };
   }
@@ -37,14 +39,6 @@ export class KemetScrollSnapPaginator extends LitElement {
     this.hideFocusedLinks = false;
     this.useNumberPages = false;
     this.useLabelPages = false;
-
-    const scrollSnapElement = this.closest('kemet-scroll-snap');
-
-    if (scrollSnapElement) {
-      scrollSnapElement.addEventListener('kemet-scroll-snap-make-slides', (event) => {
-        this.slides = event.detail;
-      });
-    }
   }
 
   static get styles() {
@@ -55,13 +49,23 @@ export class KemetScrollSnapPaginator extends LitElement {
     `;
   }
 
+  firstUpdated() {
+    const scrollSnapElement = this.closest('kemet-scroll-snap');
+
+    if (scrollSnapElement) {
+      scrollSnapElement.addEventListener('kemet-scroll-snap-make-slides', (event) => {
+        this.slides = event.detail;
+      });
+    }
+  }
+
   createRenderRoot() {
     return this;
   }
 
   render() {
     return html`
-      <ul>${this.makePagination()}</ul>
+      <nav>${this.makePagination()}</nav>
     `;
   }
 
@@ -74,20 +78,18 @@ export class KemetScrollSnapPaginator extends LitElement {
 
         if (slide.focused) {
           return html`
-            <li><span>${this.pageDisplay(slide, counter)}</span></li>
+            <span>${this.pageDisplay(slide, counter)}</span>
           `;
         }
 
         return html`
-          <li>
-            <span
-              class="link"
-              tabindex="0"
-              @keyup="${event => this.handleKeyboardInput(event, slide.id)}"
-              @click=${() => this.slideLink(slide.id)} aria-label="${slide.label}">
-              ${this.pageDisplay(slide, counter)}
-            </span>
-          </li>
+          <span
+            class="link"
+            tabindex="0"
+            @keyup="${event => this.handleKeyboardInput(event, slide.id)}"
+            @click=${() => this.slideLink(slide.id)} aria-label="${slide.label}">
+            ${this.pageDisplay(slide, counter)}
+          </span>
         `;
       });
     }
