@@ -493,6 +493,16 @@
         {
           "name": "--kemet-modal-transition-speed",
           "description": "Speed for revealing the modal. Default: 0.3s."
+        },
+        {
+          "name": "::part(content)",
+          "description": "Contains the content for the modal.",
+          "type": "Part"
+        },
+        {
+          "name": "::part(overlay)",
+          "description": "Contains the overlay for the modal.",
+          "type": "Part"
         }
       ]
     },

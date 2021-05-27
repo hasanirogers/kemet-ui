@@ -1,0 +1,75 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import * as stories from './stories.js';
+
+import './kemet-modal.js';
+import './kemet-modal-close.js';
+
+<Meta
+  title="Components/Kemet Modal"
+  component="kemet-modal"
+  argTypes={{
+    displayCloseBtn: {
+      defaultValue: true,
+      control: { type: 'boolean' },
+    },
+    minWidth: {
+      defaultValue: '0',
+      control: { type: 'text' },
+    },
+    maxWidth: {
+      defaultValue: 'none',
+      control: { type: 'text' },
+    },
+    overlayColor: {
+      defaultValue: 'rgba(0,0,0,0.2)',
+      control: { type: 'color' }
+    },
+    transitionSpeed: {
+      defaultValue: '0.3s',
+      control: { type: 'text' }
+    },
+    opened: {
+      defaultValue: false,
+      control: { type: 'boolean' },
+    },
+    effect: {
+      defaultValue: 'fall',
+      control: { type: 'select' },
+      options: ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'],
+    },
+    closeOnClick: {
+      defaultValue: false,
+      control: { type: 'boolean' },
+    },
+  }}
+/>
+
+# Kemet Modal
+
+A modal that has many built in effects and flexible styles.
+
+## How to use
+
+```html
+<kemet-modal>
+  <h2>Modal Title</h2>
+  <p>Your modal contents here.<p>
+  <kemet-modal-close>&times;</kemet-modal-close>
+</kemet-modal>
+```
+
+**Note:** `kemet-modal-close` is optional.
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Modal} />
+</Canvas>
+
+## API
+
+### Kemet Modal
+<ArgsTable of="kemet-modal" />
+
+### Kemet Modal close
+<ArgsTable of="kemet-modal-close" />

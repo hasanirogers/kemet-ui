@@ -54,10 +54,10 @@ export class KemetModal extends LitElement {
 
   render() {
     return html`
-      <div class="content">
+      <div class="content" part="content">
         <slot></slot>
       </div>
-      <div class="overlay"></div>
+      <div class="overlay" part="overlay"></div>
     `;
   }
 
