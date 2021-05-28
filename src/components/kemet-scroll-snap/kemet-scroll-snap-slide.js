@@ -18,6 +18,10 @@ export class KemetScrollSnapSlide extends LitElement {
     };
   }
 
+  updated() {
+    this.addTabIndex();
+  }
+
   static get styles() {
     return css`
       :host {
@@ -33,6 +37,10 @@ export class KemetScrollSnapSlide extends LitElement {
     return html`
       <slot></slot>
     `;
+  }
+
+  addTabIndex() {
+    this.setAttribute('tabindex', '0');
   }
 }
 

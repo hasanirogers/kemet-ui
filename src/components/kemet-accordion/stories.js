@@ -63,3 +63,23 @@ Single.parameters = {
 };
 
 export const Multiple = TemplateMultiple.bind({});
+Multiple.parameters = {
+  docs: {
+    source: {
+      code: dedent`
+        <kemet-accordion>
+          <button slot="trigger">Activate Accordion</button>
+          <div slot="panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tortor pellentesque, efficitur lectus vel, accumsan ipsum. Phasellus dolor elit, ultrices a blandit id, consequat vitae arcu. Sed eu libero a tellus tincidunt auctor id eu libero. Nam ornare ultricies tortor, quis maximus velit placerat ac. Fusce bibendum euismod leo, ac vulputate nunc dignissim quis. Curabitur mollis felis eget ligula tincidunt sodales.</div>
+        </kemet-accordion>
+        <kemet-accordion>
+          <button slot="trigger">Activate Accordion</button>
+          <div slot="panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tortor pellentesque, efficitur lectus vel, accumsan ipsum. Phasellus dolor elit, ultrices a blandit id, consequat vitae arcu. Sed eu libero a tellus tincidunt auctor id eu libero. Nam ornare ultricies tortor, quis maximus velit placerat ac. Fusce bibendum euismod leo, ac vulputate nunc dignissim quis. Curabitur mollis felis eget ligula tincidunt sodales.</div>
+        </kemet-accordion>
+        <kemet-accordion>
+          <button slot="trigger">Activate Accordion</button>
+          <div slot="panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tortor pellentesque, efficitur lectus vel, accumsan ipsum. Phasellus dolor elit, ultrices a blandit id, consequat vitae arcu. Sed eu libero a tellus tincidunt auctor id eu libero. Nam ornare ultricies tortor, quis maximus velit placerat ac. Fusce bibendum euismod leo, ac vulputate nunc dignissim quis. Curabitur mollis felis eget ligula tincidunt sodales.</div>
+        </kemet-accordion>
+      `,
+    },
+  },
+};

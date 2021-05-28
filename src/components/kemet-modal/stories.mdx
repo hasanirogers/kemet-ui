@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 import * as stories from './stories.js';
 
 import './kemet-modal.js';
@@ -9,38 +9,40 @@ import './kemet-modal-close.js';
   component="kemet-modal"
   argTypes={{
     displayCloseBtn: {
-      defaultValue: true,
       control: { type: 'boolean' },
     },
     minWidth: {
-      defaultValue: '0',
       control: { type: 'text' },
     },
     maxWidth: {
-      defaultValue: 'none',
       control: { type: 'text' },
     },
     overlayColor: {
-      defaultValue: 'rgba(0,0,0,0.2)',
       control: { type: 'color' }
     },
     transitionSpeed: {
-      defaultValue: '0.3s',
       control: { type: 'text' }
     },
     opened: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     effect: {
-      defaultValue: 'fall',
       control: { type: 'select' },
       options: ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'],
     },
     closeOnClick: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  }}
+  args={{
+    displayCloseBtn: true,
+    minWidth: '0',
+    maxWidth: 'none',
+    overlayColor: 'rgba(0,0,0,0.2)',
+    transitionSpeed: '0.3s',
+    opened: false,
+    effect: 'fall',
+    closeOnClick: false,
   }}
 />
 

@@ -8,26 +8,28 @@ import './kemet-rotator.js';
   components="kemet-rotator"
   argTypes={{
     message1: {
-      defaultValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       control: { type: 'text' },
     },
     message2: {
-      defaultValue: 'Praesent ornare porta nulla.',
       control: { type: 'text' },
     },
     message3: {
-      defaultValue: 'Nulla ipsum felis, aliquet nec nisl sit amet, suscipit facilisis massa.',
       control: { type: 'text' },
     },
     effect: {
-      defaultValue: 'fade',
       control: { type: 'select' },
       options: ['fade', 'flip'],
     },
     rotationSpeed: {
-      defaultValue: 3,
       control: { type: 'number' },
     },
+  }}
+  args={{
+    message1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    message2: 'Praesent ornare porta nulla.',
+    message3: 'Nulla ipsum felis, aliquet nec nisl sit amet, suscipit facilisis massa.',
+    effect: 'fade',
+    rotationSpeed: 3
   }}
 />
 

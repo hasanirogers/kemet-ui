@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 import { html, css } from 'lit';
 import * as stories from './stories.js'
 
@@ -9,13 +9,15 @@ import './kemet-draggable.js';
   component="kemet-draggable"
   argTypes={{
     text: {
-      defaultValue: 'Drag Me',
       control: { type: 'text' },
     },
     memory: {
-      defaultValue: 'kemet-draggable-demo',
       control: { type: 'text' }
     }
+  }}
+  args={{
+    text: 'Drag Me',
+    memory: 'kemet-draggable-demo',
   }}
 />
 

@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 import * as stories from './stories.js'
 
 import './kemet-carousel.js';
@@ -12,35 +12,37 @@ import './kemet-carousel-slide.js';
   component="kemet-carousel"
   argTypes={{
     width: {
-      defaultValue: '100%',
       control: { type: 'text' },
     },
     height: {
-      defaultValue: '50vh',
       control: { type: 'text' },
     },
     slideSpeed: {
-      defaultValue: '0.3s',
       control: { type: 'text' },
     },
     fadeSpeed: {
-      defaultValue: '1s',
       control: { type: 'text' },
     },
     pagination: {
-      defaultValue: 'bottom',
       control: { type: 'select' },
       options: ['top', 'right', 'bottom', 'left'],
     },
     slideshow: {
-      defaultValue: 0,
       control: { type: 'number' },
     },
     transition: {
-      defaultValue: 'horiztonal',
       control: { type: 'select' },
       options: ['horizontal', 'vertical', 'fade'],
     },
+  }}
+  args={{
+    width: '100%',
+    height: '50vh',
+    slideSpeed: '0.3s',
+    fadeSpeed: '1s',
+    pagination: 'bottom',
+    slideshow: 0,
+    transition: 'horizontal'
   }}
 />
 

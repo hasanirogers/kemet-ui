@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 import * as stories from './stories.js'
 import './kemet-popover.js';
 
@@ -7,43 +7,33 @@ import './kemet-popover.js';
   component="kemet-popover"
   argTypes={{
     triggerText: {
-      defaultValue: 'Activate Popover',
       control: { type: 'text' },
     },
     contentText: {
-      defaultValue: 'Your popover contents here. Supports HTML.',
       control: { type: 'text' },
     },
     width: {
-      defaultValue: '200%',
       control: { type: 'text' }
     },
     height: {
-      defaultValue: 'auto',
       control: { type: 'text' },
     },
     gap: {
-      defaultValue: '1rem',
       control: { type: 'text' },
     },
     contentOffsetX: {
-      defaultValue: '0',
       control: { type: 'text' }
     },
     contentOffsetY: {
-      defaultValue: '0',
       control: { type: 'text' }
     },
     color: {
-      defaultValue: '#fafafa',
       control: { type: 'color' }
     },
     backgroundColor: {
-      defaultValue: '#202020',
       control: { type: 'color' }
     },
     transitionSpeed: {
-      defaultValue: '0.3s',
       control: { type: 'text' }
     },
     opened: {
@@ -64,13 +54,30 @@ import './kemet-popover.js';
       control: { type: 'boolean' }
     },
     fireOn: {
-      defaultValue: 'hover',
       control: { type: 'radio' },
       options: ['hover', 'click']
     },
     clickOutside: {
       control: { type: 'boolean' }
     }
+  }}
+  args={{
+    triggerText: 'Popover Trigger',
+    contentText: 'Your popover contents here. Supports HTML.',
+    width: '200%',
+    height: 'auto',
+    gap: '1rem',
+    contentOffsetX: '0',
+    contentOffsetY: '0',
+    color: '#fafafa',
+    backgroundColor: '#202020',
+    transitionSpeed: '0.3s',
+    opened: false,
+    effect: 'fade',
+    position: 'top',
+    customTooltip: false,
+    fireOn: 'hover',
+    clickOutside: false
   }}
 />
 
@@ -88,7 +95,6 @@ Displays an element in position of a trigger. Also acts as a tooltip.
 </kemet-popover>
 ```
 
-
 ## Stories
 
 <Canvas>
@@ -100,5 +106,7 @@ Displays an element in position of a trigger. Also acts as a tooltip.
 </Canvas>
 
 ## API
+
+### Kemet Popover
 
 <ArgsTable of="kemet-popover" />

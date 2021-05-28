@@ -110,4 +110,51 @@ Popover.args = {
 Popover.decorators = [story => html`<div style="display:flex; min-height:240px;">${story()}</div>`];
 
 export const customTooltip = customTooltipTemplate.bind({});
+customTooltip.parameters = {
+  docs: {
+    source: {
+      code: dedent`
+      <style>
+        kemet-popover-close {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          font-size: 2rem;
+        }
+
+        #custom-tooltip {
+          margin: 0 auto;
+          --kemet-popover-width: 200%;
+        }
+
+        #custom-tooltip [slot="content"] {
+          color: rgba(36,49,56,1);
+          background-color: #fafafa;
+          border: 3px solid rgba(36,49,56,1);
+        }
+
+        #custom-tooltip svg {
+          position: relative;
+          top: -3px;
+        }
+      </style>
+      <kemet-popover id="custom-tooltip" custom-tooltip click-outside fire-on="click" effect="fade">
+        <strong slot="trigger">Activate Custom Tooltip</strong>:
+        <div slot="content">
+          <kemet-popover-close>&times;</kemet-popover-close>
+          <h3>HTML is Supported</h3>
+          <p>This is a custom tooltip.</p>
+          <p><img src="http://placehold.it/1920x1080" style="max-width:100%;" alt="A Placeholder" /></p>
+          <p><a href="http://google.com" target="_blank">Random link</a></p>
+        </div>
+        <span slot="custom-tooltip">
+          <svg width="32" height="18" viewBox="0 0 1366.99 767.67">
+            <polyline points="0.74 0.67 685.25 766.17 1366.24 0.67" style="fill:#fafafa; stroke:rgba(36,49,56,1); stroke-width:100px"/>
+          </svg>
+        </span>
+      </kemet-popover>
+      `,
+    },
+  },
+};
 customTooltip.decorators = [story => html`<div style="display:flex; min-height:480px; align-items:flex-end;">${story()}</div>`];

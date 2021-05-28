@@ -10,10 +10,12 @@ import './kemet-tab-panel.js';
   component="kemet-tabs"
   argTypes={{
     selected: {
-      defaultValue: 'two',
       control: { type: 'select' },
       options: ['one', 'two', 'three']
     }
+  }}
+  args={{
+    selected: 'two'
   }}
 />
 

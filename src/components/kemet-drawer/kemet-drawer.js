@@ -58,7 +58,7 @@ export class KemetDrawer extends LitElement {
   render() {
     return html`
       <section class="off-canvas" part="container">
-        <nav class="off-canvas__nav" part="drawer">
+        <nav class="off-canvas__nav" part="drawer" title="Drawer">
           <slot name="navigation"></slot>
         </nav>
         <div class="off-canvas__pusher" part="pusher">

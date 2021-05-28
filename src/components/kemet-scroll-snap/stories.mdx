@@ -10,39 +10,41 @@ import './kemet-scroll-snap-paginator.js';
   component="kemet-scroll-snap"
   argTypes={{
     showPagination: {
-      defaultValue: true,
       control: { type: 'boolean' },
     },
     numberOfSlides: {
-      defaultValue: 5,
       control: { type: 'number' },
     },
     gap: {
-      defaultValue: '0',
       control: { type: 'text' }
     },
     axis: {
-      defaultValue: 'horizontal',
       control: { type: 'select' },
       options: ['horizontal', 'vertical']
     },
     pagination: {
-      defaultValue: 'bottom',
       control: { type: 'select' },
       options: ['top', 'right', 'bottom', 'left']
     },
     paginationIcon: {
-      defaultValue: '•',
       control: { type: 'text' },
     },
     paginationUseNumbers: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     paginationUseLabels: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  }}
+  args={{
+    showPagination: true,
+    numberOfSlides: 5,
+    gap: '0',
+    axis: 'horizontal',
+    pagination: 'bottom',
+    paginationIcon: '•',
+    paginationUseNumbers: false,
+    paginationUseLabels: false,
   }}
 />
 
