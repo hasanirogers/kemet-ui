@@ -19,6 +19,7 @@ export default {
       targets: [
         { src: components, dest: 'dist/components' },
         { src: 'src/components/**/*.styles.js', dest: 'dist/components' },
+        { src: 'src/styles/!(demo)', dest: 'dist/styles/scss' },
       ],
     }),
   ],

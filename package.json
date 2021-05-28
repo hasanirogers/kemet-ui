@@ -12,7 +12,7 @@
     "test:watch": "web-test-runner --watch",
     "watch": "npm-watch",
     "build": "npm run css:build && npm run js:build",
-    "css:build": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css",
+    "css:build": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
     "js:build": "rollup -c config/rollup.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
@@ -20,6 +20,7 @@
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
     "lint:stylelint": "npx stylelint 'src/styles/**/*.scss'",
     "format:stylelint": "npx stylelint --fix 'src/styles/**/*.scss'",
+    "temp": "postcss dist/styles/**/*.css -u autoprefixer --dir distTEMP/styles",
     "prepare": "husky install",
     "prepublish": "rimraf dist && npm run build"
   },
@@ -48,6 +49,11 @@
       "dist/**/*.js"
     ]
   },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "iOS >= 8"
+  ],
   "dependencies": {
     "lit": "^2.0.0-rc.2",
     "ts-dedent": "^2.1.1"
@@ -70,6 +76,8 @@
     "babel-loader": "^8.2.2",
     "husky": "^6.0.0",
     "npm-watch": "^0.9.0",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
     "rimraf": "^3.0.2",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-minify-html-literals": "^1.2.6",
