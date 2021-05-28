@@ -1,0 +1,18 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install
+      - run: npm run deploy
+        env:
+          FTP_DEPLOY_HOST: ${{ secrets.FTP_DEPLOY_HOST }}
+          FTP_DEPLOY_USERNAME: ${{ secrets.FTP_DEPLOY_USERNAME }}
+          FTP_DEPLOY_PASSWORD: ${{ secrets.FTP_DEPLOY_PASSWORD }}
+          FTP_DEPLOY_PORT: ${{ secrets.FTP_DEPLOY_PORT }}
