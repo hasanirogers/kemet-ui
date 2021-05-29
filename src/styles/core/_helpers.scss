@@ -252,14 +252,44 @@
         }
 
         @each $side in $sides {
-          [kemet-margin*="#{$breakpoint}:#{$spacer}-#{$side}"] {
+          [kemet-margin-#{$side}*="#{$breakpoint}:#{$spacer}"] {
             margin-#{$side}: $value;
           }
 
-          [kemet-padding*="#{$breakpoint}:#{$spacer}-#{$side}"] {
+          [kemet-padding-#{$side}*="#{$breakpoint}:#{$spacer}"] {
             padding-#{$side}: $value;
           }
         }
+      }
+    }
+  }
+}
+
+@mixin makeTypeAlign {
+  [kemet-type-align='left'] {
+    text-align: left;
+  }
+
+  [kemet-type-align='right'] {
+    text-align: right;
+  }
+
+  [kemet-type-align='center'] {
+    text-align: center;
+  }
+
+  @each $breakpoint, $pixel in $breakpoints {
+    @media screen and (min-width: #{$pixel}) {
+      [kemet-type-align*='#{$breakpoint}:left'] {
+        text-align: left;
+      }
+
+      [kemet-type-align*='#{$breakpoint}:right'] {
+        text-align: right;
+      }
+
+      [kemet-type-align*='#{$breakpoint}:center'] {
+        text-align: center;
       }
     }
   }

@@ -12,7 +12,7 @@ kemet-carousel[pagination='bottom'] {
 kemet-carousel [slot='slides'] {
   height: 100%;
   border-radius: 1rem;
-  border: 1px solid var(--kemet-color-primary);
+  border: 2px solid var(--kemet-color-primary);
 }
 
 kemet-carousel [slot='pagination'],

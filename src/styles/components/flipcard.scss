@@ -2,6 +2,9 @@ kemet-flipcard-trigger.full-image {
   display: flex;
 }
 
-kemet-flipcard::part(wrapper) {
+kemet-flipcard::part(front),
+kemet-flipcard::part(back) {
   border: 2px solid var(--kemet-color-primary);
+  border-radius: 1rem;
+  overflow: hidden;
 }

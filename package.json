@@ -21,7 +21,6 @@
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
     "lint:stylelint": "npx stylelint 'src/styles/**/*.scss'",
     "format:stylelint": "npx stylelint --fix 'src/styles/**/*.scss'",
-    "temp": "postcss dist/styles/**/*.css -u autoprefixer --dir distTEMP/styles",
     "prepare": "husky install",
     "prepublish": "rimraf dist && npm run build"
   },

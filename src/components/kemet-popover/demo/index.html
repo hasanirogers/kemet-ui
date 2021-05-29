@@ -7,6 +7,7 @@
   <title>Popover | Kemet UI</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
   <link href="/demo/index.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/dist/styles/kemet.components.css" />
 </head>
 
 <body>
@@ -71,7 +72,8 @@
     [custom-tooltip] [slot="content"] {
       color: rgba(36,49,56,1);
       background-color: #fafafa;
-      border: 3px solid rgba(36,49,56,1);
+      border: 3px solid var(--kemet-color-primary);
+      border-radius: 1rem;
     }
 
     [custom-tooltip] svg {
@@ -295,7 +297,7 @@
         </div>
         <span slot="custom-tooltip">
           <svg width="32" height="18" viewBox="0 0 1366.99 767.67">
-            <polyline points="0.74 0.67 685.25 766.17 1366.24 0.67" style="fill:#fafafa; stroke:rgba(36,49,56,1); stroke-width:100px"/>
+            <polyline points="0.74 0.67 685.25 766.17 1366.24 0.67" style="fill:#fafafa; stroke:var(--kemet-color-primary); stroke-width:100px"/>
           </svg>
         </span>
       </kemet-popover>
