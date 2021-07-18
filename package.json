@@ -33,7 +33,8 @@
     "designless"
   ],
   "files": [
-    "dist"
+    "dist",
+    "custom-elements.json"
   ],
   "eslintConfig": {
     "extends": [
