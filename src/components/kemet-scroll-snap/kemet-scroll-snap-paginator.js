@@ -17,6 +17,7 @@ export class KemetScrollSnapPaginator extends LitElement {
       },
       hideFocusedLinks: {
         type: Boolean,
+        attribute: 'hide-focused-links',
       },
       useNumberPages: {
         type: Boolean,

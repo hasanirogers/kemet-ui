@@ -144,7 +144,7 @@ customTooltip.parameters = {
           <kemet-popover-close>&times;</kemet-popover-close>
           <h3>HTML is Supported</h3>
           <p>This is a custom tooltip.</p>
-          <p><img src="http://placehold.it/1920x1080" style="max-width:100%;" alt="A Placeholder" /></p>
+          <p><img src="https://via.placeholder.com/1920x1080" style="max-width:100%;" alt="A Placeholder" /></p>
           <p><a href="http://google.com" target="_blank">Random link</a></p>
         </div>
         <span slot="custom-tooltip">

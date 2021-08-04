@@ -51,7 +51,7 @@ const makeSlides = (numberOfSlides) => {
       <kemet-scroll-snap-slide label="Heading ${i + 1}">
         <h3>Heading ${i + 1}</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <img src="http://placehold.it/1920x1080" alt="A placeholder" />
+        <img src="https://via.placeholder.com/1920x1080" alt="A placeholder" />
       </kemet-scroll-snap-slide>
     `);
   }

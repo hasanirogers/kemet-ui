@@ -289,6 +289,12 @@
           "reflect": true,
           "description": "Allows you to control which side the drawer opens from. Values include: (left|right)",
           "default": "left"
+        },
+        {
+          "name": "overlay",
+          "type": "Boolean",
+          "description": "Adds a overlay over the content section of the Drawer when opened",
+          "default": false
         }
       ],
       "events": [
@@ -551,6 +557,12 @@
           "type": "Boolean",
           "description": "Controls whether or not the tooltip triggers on hover.",
           "default": true
+        },
+        {
+          "name": "clickOutside",
+          "type": "Boolean",
+          "description": "Allows the popover to be closed by clicking outside of its content.",
+          "default": false
         }
       ],
       "events": [

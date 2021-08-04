@@ -19,7 +19,6 @@ describe('KemetScrollSnap', () => {
 
     expect(element.axis).to.equal('horizontal');
     expect(element.pagination).to.equal('bottom');
-    expect(element.paginationIcon).to.equal('•');
   });
 
   it('sets the vertical html attribute while axis is vertical', async () => {

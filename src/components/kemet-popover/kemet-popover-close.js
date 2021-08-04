@@ -12,6 +12,7 @@ export class KemetPopoverClose extends LitElement {
       css`
         button {
           font: inherit;
+          color: inherit;
           cursor: pointer;
           border: 0;
           background: transparent;

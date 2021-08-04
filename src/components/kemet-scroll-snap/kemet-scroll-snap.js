@@ -58,12 +58,10 @@ export class KemetScrollSnap extends LitElement {
       isTouchDevice: {
         type: Boolean,
         reflect: true,
+        attribute: 'is-touch-device',
       },
       slides: {
         type: Array,
-      },
-      paginationIcon: {
-        type: String,
       },
     };
   }
@@ -75,7 +73,6 @@ export class KemetScrollSnap extends LitElement {
     this.pagination = 'bottom';
     this.isTouchDevice = 'ontouchstart' in document.documentElement;
     this.slides = [];
-    this.paginationIcon = '•';
 
     this.addEventListener('kemet-scroll-snap-focus', (event) => {
       this.focusSlide(event.detail);

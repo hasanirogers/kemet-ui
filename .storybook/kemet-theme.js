@@ -4,5 +4,5 @@ export default create({
   base: 'light',
   brandTitle: 'Storybook | Kemet UI',
   brandUrl: 'https://storybook.kemet.dev',
-  brandImage: 'https://kemet.dev/images/storybook.png',
+  brandImage: 'https://kemet.dev/assets/images/storybook.png',
 });
