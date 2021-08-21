@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js'
+import './kemet-svgs.js';
+import './kemet-svg.js'
+
+<Meta
+  title="Components/Kemet SVGs"
+  component="kemet-svgs"
+  argTypes={{
+    svg: {
+      control: { type: 'select' },
+      options: ['anubis', 'eye', 'horus']
+    },
+  }}
+/>
+
+# Kemet SVGs
+
+A set of SVG graphics that can be referenced any where in a page or app.
+
+
+## How to use
+
+```html
+<!-- define the set of svgs here -->
+<kemet-svgs>
+  <svg>
+    <defs>
+      <g id="[name of svg]">
+        [svg paths here]
+      </g>
+    </defs>
+  </svg>
+</kemet-svgs>
+...
+<!-- reference a svg from the set here -->
+<kemet-svg svg="[name of svg]" viewbox="[svg source viewbox value"></kemet-svg>
+```
+
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Standard} />
+</Canvas>
+
+## API
+
+### &lt;kemet-svgs&gt;
+<ArgsTable of="kemet-svgs" />
+
+### &lt;kemet-svg&gt;
+<ArgsTable of="kemet-svg" />

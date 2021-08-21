@@ -123,6 +123,8 @@
     "src/components/kemet-scroll-snap/kemet-scroll-snap.js",
     "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js",
     "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js",
+    "src/components/kemet-svgs/kemet-svgs.js",
+    "src/components/kemet-svgs/kemet-svg.js",
     "src/components/kemet-tabs/kemet-tabs.js",
     "src/components/kemet-tabs/kemet-tab-panel.js",
     "src/components/kemet-tabs/kemet-tab.js"

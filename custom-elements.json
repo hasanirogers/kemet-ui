@@ -912,6 +912,66 @@
       "cssProperties": []
     },
     {
+      "name": "kemet-svgs",
+      "description": "A set of SVG graphics that can be referenced any where in a page or app.",
+      "properties": [
+        {
+          "name": "set",
+          "type": "string",
+          "description": "Defines the name for the set of svgs.",
+          "default": "svgs"
+        }
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": []
+    },
+    {
+      "name": "kemet-svg",
+      "description": "An individual svg graphic to display from a set.",
+      "properties": [
+        {
+          "name": "set",
+          "type": "string",
+          "description": "Defines which set of svgs is referenced.",
+          "default": "svgs"
+        },
+        {
+          "name": "svg",
+          "type": "string",
+          "description": "The name (id) of the svg to be displayed.",
+          "default": null
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Sets the width and height of a the svg to the given value in pixels.",
+          "default": null
+        },
+        {
+          "name": "ratio",
+          "type": "string",
+          "description": "The value for the preserveAspectRatio attribute of the svg.",
+          "default": "none"
+        },
+        {
+          "name": "viewBox",
+          "type": "string",
+          "description": "The value for the viewBox attribute of the svg.",
+          "default": "0 0 128 128"
+        }
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": [
+        {
+          "name": "::part(svg)",
+          "description": "The svg element.",
+          "type": "Part"
+        }
+      ]
+    },
+    {
       "name": "kemet-tabs",
       "description": "The tabs container element.",
       "properties": [
