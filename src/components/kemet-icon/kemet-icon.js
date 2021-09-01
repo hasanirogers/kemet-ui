@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   html, css, LitElement,
 } from 'lit';
