@@ -452,6 +452,30 @@
       "cssProperties": []
     },
     {
+      "name": "kemet-icon",
+      "description": "An element that represents an icon from a predefined set of open sourced icons.",
+      "properties": [
+        {
+          "name": "set",
+          "type": "string",
+          "description": "The sprite map from an open source project that an icon belongs too. Values include: (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+          "default:": "bootstrap"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "The name of the icon to reference.",
+          "default:": "bootstrap"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "The width and height of the icon in pixels.",
+          "default:": null
+        }
+      ]
+    },
+    {
       "name": "kemet-modal",
       "description": "A modal that has many built in effects and flexible styles.",
       "properties": [
@@ -910,6 +934,66 @@
       ],
       "slots": [],
       "cssProperties": []
+    },
+    {
+      "name": "kemet-svgs",
+      "description": "A set of SVG graphics that can be referenced any where in a page or app.",
+      "properties": [
+        {
+          "name": "set",
+          "type": "string",
+          "description": "Defines the name for the set of svgs.",
+          "default": "svgs"
+        }
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": []
+    },
+    {
+      "name": "kemet-svg",
+      "description": "An individual svg graphic to display from a set.",
+      "properties": [
+        {
+          "name": "set",
+          "type": "string",
+          "description": "Defines which set of svgs is referenced.",
+          "default": "svgs"
+        },
+        {
+          "name": "svg",
+          "type": "string",
+          "description": "The name (id) of the svg to be displayed.",
+          "default": null
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Sets the width and height of a the svg to the given value in pixels.",
+          "default": null
+        },
+        {
+          "name": "ratio",
+          "type": "string",
+          "description": "The value for the preserveAspectRatio attribute of the svg.",
+          "default": "none"
+        },
+        {
+          "name": "viewBox",
+          "type": "string",
+          "description": "The value for the viewBox attribute of the svg.",
+          "default": "0 0 128 128"
+        }
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": [
+        {
+          "name": "::part(svg)",
+          "description": "The svg element.",
+          "type": "Part"
+        }
+      ]
     },
     {
       "name": "kemet-tabs",

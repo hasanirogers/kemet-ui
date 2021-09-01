@@ -1,0 +1,85 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import { Icons } from './stories.jsx';
+import './kemet-icon.js';
+
+<Meta
+  title="Components/Kemet Icon"
+  component="kemet-icon"
+  argTypes={{
+    set: {
+      control: { type: 'select' },
+      options: ['bootstrap', 'font-awesome-brand', 'font-awesome-regular', 'font-awesome-solid']
+    },
+    icon: {
+      control: { type: 'text' },
+    },
+    size: {
+      control: { type: 'number' }
+    }
+  }}
+/>
+
+# Kemet Icon
+
+An element that represents an icon from a predefined set of open sourced icons.
+
+
+## How to use
+
+```html
+<kemet-icon set="[open source icon set]" icon="[icon name]" size="[icon size]"></kemet-icon>
+```
+
+## Stories
+
+<Canvas>
+  <Story story={stories.Standard} />
+</Canvas>
+
+
+## Sets
+
+Kemet Icon comes with several predefined sets of icons that can be referenced. These icons come from open source projects. To get more information on the icons please visit the set's documentation site.
+
+<br />
+
+### Bootstrap
+
+* **set**: bootstrap
+* **site**: https://icons.getbootstrap.com
+
+<Icons set="bootstrap" />
+
+<br />
+
+### Font Awesome Regular
+
+* **set**: font-awesome-regular
+* **site**: https://fontawesome.com
+
+<Icons set="font-awesome-regular" />
+
+<br />
+
+### Font Awesome Solid
+
+* **set**: font-awesome-solid
+* **site**: https://fontawesome.com
+
+<Icons set="font-awesome-solid" />
+
+<br />
+
+### Font Awesome Brand
+
+* **set**: font-awesome-brand
+* **site**: https://fontawesome.com
+
+<Icons set="font-awesome-brand" />
+
+
+## API
+
+### &lt;kemet-icon&gt;
+<ArgsTable of="kemet-icon" />
