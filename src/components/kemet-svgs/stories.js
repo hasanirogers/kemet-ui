@@ -3,11 +3,6 @@ import dedent from 'ts-dedent';
 import './kemet-svgs.js';
 import './kemet-svg.js';
 
-// export default {
-//   title: 'Kemet SVGs',
-//   component: 'kemet-svgs',
-// };
-
 const getViewBox = (svg) => {
   let viewBox;
 

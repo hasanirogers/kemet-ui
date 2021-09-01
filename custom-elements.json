@@ -452,6 +452,30 @@
       "cssProperties": []
     },
     {
+      "name": "kemet-icon",
+      "description": "An element that represents an icon from a predefined set of open sourced icons.",
+      "properties": [
+        {
+          "name": "set",
+          "type": "string",
+          "description": "The sprite map from an open source project that an icon belongs too. Values include: (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+          "default:": "bootstrap"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "The name of the icon to reference.",
+          "default:": "bootstrap"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "description": "The width and height of the icon in pixels.",
+          "default:": null
+        }
+      ]
+    },
+    {
       "name": "kemet-modal",
       "description": "A modal that has many built in effects and flexible styles.",
       "properties": [

@@ -34,9 +34,10 @@ A set of SVG graphics that can be referenced any where in a page or app.
 </kemet-svgs>
 ...
 <!-- reference a svg from the set here -->
-<kemet-svg svg="[name of svg]" viewbox="[svg source viewbox value"></kemet-svg>
+<kemet-svg svg="[name of svg]" viewbox="[svg source viewbox value]"></kemet-svg>
 ```
 
+**Note:** if your svg does not have a viewbox value set use the width and height of the svg as the last two numbers for the view box. An svg with a width of 1920 and height of 1080 for example should have a viewbox value of `0 0 1920 1080`.
 
 ## Stories
 
