@@ -32,11 +32,17 @@ export class KemetTab extends LitElement {
     this.selected = false;
   }
 
+  firstUpdated() {
+    this.addEventListener('click', this.select.bind(this));
+  }
+
+  updated() {
+    this.a11y();
+  }
+
   render() {
     return html`
-      <span tabindex="0" @keyup=${() => this.select()} @click=${() => this.select()}>
-        <slot></slot>
-      </span>
+      <slot></slot>
     `;
   }
 
@@ -46,6 +52,18 @@ export class KemetTab extends LitElement {
       composed: true,
       detail: this,
     }));
+  }
+
+  a11y() {
+    this.setAttribute('role', 'tab');
+
+    if (this.selected) {
+      this.setAttribute('aria-selected', 'true');
+      this.setAttribute('tabindex', '0');
+    } else {
+      this.setAttribute('aria-selected', 'false');
+      this.setAttribute('tabindex', '-1');
+    }
   }
 }
 

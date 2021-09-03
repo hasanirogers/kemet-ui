@@ -1,6 +1,34 @@
-import { LitElement, html } from 'lit';
+/* eslint-disable no-case-declarations */
+import { LitElement, html, css } from 'lit';
 
 export class KemetTabs extends LitElement {
+  static get styles() {
+    return [
+      css`
+        :host {
+          display: block;
+          overflow: hidden;
+        }
+
+        ::slotted([slot='links']) {
+          overflow: auto;
+        }
+
+        ::slotted([slot='panels']) {
+          display: flex;
+        }
+
+        :host([panel-effect='slide']) #panels {
+          transition: transform var(--kemet-tabs-transition-speed, 0.5s) linear;
+        }
+
+        :host([panel-effect='fade']) ::slotted([slot='panels']) {
+          flex-flow: row nowrap;
+        }
+      `,
+    ];
+  }
+
   static get properties() {
     return {
       selected: {
@@ -10,22 +38,48 @@ export class KemetTabs extends LitElement {
       selectedIndex: {
         type: Number,
       },
+      panelPosition: {
+        type: Number,
+      },
+      panelEffect: {
+        type: String,
+        reflect: true,
+        attribute: 'panel-effect',
+      },
     };
   }
 
   constructor() {
     super();
 
+    // managed properties
+    this.selectedIndex = 0;
+    this.panelPosition = 0;
+    this.panelEffect = 'none';
+
+    // standard properties
     this.tabs = [];
     this.panels = [];
-    this.selectedIndex = 0;
+
+    this.keyCodes = {
+      ENTER: 13,
+      SPACE: 32,
+      HOME: 36,
+      END: 35,
+      RIGHT: 39,
+      LEFT: 37,
+    };
+
     this.addEventListener('kemet-tab-selected', this.tabSelectedChange.bind(this));
+    window.addEventListener('resize', this.handleResize.bind(this));
   }
 
   render() {
     return html`
       <slot name="links"></slot>
-      <slot name="panels"></slot>
+      <section id="panels" part="panels" style="transform: translateX(${this.panelPosition}px)">
+        <slot name="panels"></slot>
+      </section>
     `;
   }
 
@@ -36,6 +90,7 @@ export class KemetTabs extends LitElement {
   updated() {
     this.selectTab();
     this.selectPanel();
+    this.determineFade();
   }
 
   init() {
@@ -53,6 +108,9 @@ export class KemetTabs extends LitElement {
 
       // store the list of tabs
       this.tabs = this.tabs.concat(tab);
+
+      // add keyboard support
+      tab.addEventListener('keydown', event => this.handleTabKeydown(event));
     });
 
     panels.forEach((panel) => {
@@ -101,8 +159,13 @@ export class KemetTabs extends LitElement {
       this.panels.forEach((panel) => {
         const panelName = panel.getAttribute('panel');
 
+        if (this.panelEffect === 'fade' && panel.index !== 0) {
+          panel.classList.add('push');
+        }
+
         if (panelName === this.selected) {
           panel.selected = true;
+          this.animatePanel(panelName, null);
         } else {
           panel.selected = false;
         }
@@ -111,8 +174,13 @@ export class KemetTabs extends LitElement {
       // otherwise select by index
     } else {
       this.panels.forEach((panel) => {
+        if (this.panelEffect === 'fade' && panel.index !== 0) {
+          panel.classList.add('push');
+        }
+
         if (this.selectedIndex === panel.index) {
           panel.selected = true;
+          this.animatePanel(null, panel.index);
         } else {
           panel.selected = false;
         }
@@ -131,16 +199,99 @@ export class KemetTabs extends LitElement {
   }
 
   tabSelectedChange(event) {
-    // if selected has been set, use the string attribute
     if (this.selected) {
+      // if selected has been set, use the string attribute
       this.selected = event.detail.getAttribute('link');
-
-      // otherwise use the generated index
     } else {
+      // otherwise use the generated index
       this.selectedIndex = event.detail.index;
     }
 
     this.dispatchTabChange();
+  }
+
+  determineFade() {
+    // const panels = this.querySelectorAll('kemet-tab-panel');
+
+    this.panels.forEach((panel) => {
+      // add fade class if panel effect is fade
+      if (this.panelEffect === 'fade') panel.classList.add('fade');
+    });
+  }
+
+  handleResize() {
+    if (this.selected) {
+      this.animatePanel(this.selected, null);
+    } else {
+      this.animatePanel(null, this.selectedIndex);
+    }
+  }
+
+  animatePanel(panelName, panelIndex) {
+    if (panelName) {
+      const selectedPanel = this.querySelector(`[panel="${panelName}"]`);
+      if (selectedPanel) this.panelPosition = selectedPanel.offsetLeft * -1;
+    } else {
+      this.panelPosition = this.panels[panelIndex].offsetLeft * -1;
+    }
+  }
+
+  handleTabKeydown(event) {
+    if (this.selected) {
+      switch (event.keyCode) {
+        case this.keyCodes.HOME:
+          this.selected = this.tabs[0].getAttribute('link');
+          break;
+        case this.keyCodes.END:
+          this.selected = this.tabs[this.tabs.length - 1].getAttribute('link');
+          break;
+        case this.keyCodes.RIGHT:
+          const nextLinkElement = this.querySelector('kemet-tab[selected]').nextElementSibling;
+          const nextLink = nextLinkElement ? nextLinkElement.getAttribute('link') : false;
+
+          if (nextLink) {
+            this.selected = nextLink;
+          }
+          break;
+        case this.keyCodes.LEFT:
+          const previousLinkElement = this.querySelector('kemet-tab[selected]').previousElementSibling;
+          const previousLink = previousLinkElement ? previousLinkElement.getAttribute('link') : false;
+
+          if (previousLink) {
+            this.selected = previousLink;
+          }
+          break;
+        default: break;
+      }
+
+      this.querySelector(`[link=${this.selected}]`).focus();
+    } else {
+      switch (event.keyCode) {
+        case this.keyCodes.HOME:
+          this.selectedIndex = 0;
+          break;
+        case this.keyCodes.END:
+          this.selectedIndex = this.tabs.length - 1;
+          break;
+        case this.keyCodes.RIGHT:
+          if (this.selectedIndex < this.tabs.length - 1) {
+            this.selectedIndex += 1;
+          } else {
+            this.selectedIndex = this.tabs.length - 1;
+          }
+          break;
+        case this.keyCodes.LEFT:
+          if (this.selectedIndex < 1) {
+            this.selectedIndex = 0;
+          } else {
+            this.selectedIndex -= 1;
+          }
+          break;
+        default: break;
+      }
+
+      this.tabs[this.selectedIndex].focus();
+    }
   }
 }
 
