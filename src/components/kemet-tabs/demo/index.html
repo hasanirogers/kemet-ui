@@ -47,7 +47,7 @@
         </label>
       </form>
       <hr />
-      <kemet-tabs class="horizontal" selected="two" panel-effect=${props.panelEffect} @kemet-tab-changed=${event => handleTabChanged(event)}>
+      <kemet-tabs class="horizontal" selected="two" panel-effect=${props.panelEffect} swipe @kemet-tab-changed=${event => handleTabChanged(event)}>
         <div slot="links" role="tablist" aria-label="Tabs">
           <kemet-tab link="one">One</kemet-tab>
           <kemet-tab link="two">Two</kemet-tab>

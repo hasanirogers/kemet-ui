@@ -1,3 +1,4 @@
+/* eslint-disable no-lonely-if */
 /* eslint-disable no-case-declarations */
 import { LitElement, html, css } from 'lit';
 
@@ -46,6 +47,9 @@ export class KemetTabs extends LitElement {
         reflect: true,
         attribute: 'panel-effect',
       },
+      swipe: {
+        type: Boolean,
+      },
     };
   }
 
@@ -60,6 +64,8 @@ export class KemetTabs extends LitElement {
     // standard properties
     this.tabs = [];
     this.panels = [];
+    this.xDown = null;
+    this.yDown = null;
 
     this.keyCodes = {
       ENTER: 13,
@@ -96,6 +102,7 @@ export class KemetTabs extends LitElement {
   init() {
     const tabs = this.querySelectorAll('kemet-tab');
     const panels = this.querySelectorAll('kemet-tab-panel');
+    const panelElement = this.shadowRoot.getElementById('panels');
     const index = {
       tabs: 0,
       panels: 0,
@@ -125,6 +132,12 @@ export class KemetTabs extends LitElement {
     // default to the first tab/panel selected
     if (this.tabs.length > 0) this.tabs[0].selected = true;
     if (this.panels.length > 0) this.panels[0].selected = true;
+
+    // add swipe support
+    if (this.swipe) {
+      panelElement.addEventListener('touchstart', event => this.handleTouchStart(event), false);
+      panelElement.addEventListener('touchmove', event => this.handleTouchMove(event), false);
+    }
   }
 
   selectTab() {
@@ -211,8 +224,6 @@ export class KemetTabs extends LitElement {
   }
 
   determineFade() {
-    // const panels = this.querySelectorAll('kemet-tab-panel');
-
     this.panels.forEach((panel) => {
       // add fade class if panel effect is fade
       if (this.panelEffect === 'fade') panel.classList.add('fade');
@@ -292,6 +303,47 @@ export class KemetTabs extends LitElement {
 
       this.tabs[this.selectedIndex].focus();
     }
+  }
+
+  handleTouchStart(event) {
+    this.xDown = event.touches[0].clientX;
+    this.yDown = event.touches[0].clientY;
+  }
+
+  handleTouchMove(event) {
+    if (!this.xDown || !this.yDown) {
+      return;
+    }
+
+    const xUp = event.touches[0].clientX;
+    const yUp = event.touches[0].clientY;
+    const xDiff = this.xDown - xUp;
+    const yDiff = this.yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
+        if (this.selected) {
+          const nextElement = this.querySelector('kemet-tab-panel[selected]').nextElementSibling;
+          const next = nextElement ? nextElement.getAttribute('panel') : false;
+
+          if (next) this.selected = next;
+        } else {
+          this.selectedIndex += 1;
+        }
+      } else {
+        if (this.selected) {
+          const previousElement = this.querySelector('kemet-tab-panel[selected]').previousElementSibling;
+          const previous = previousElement ? previousElement.getAttribute('panel') : false;
+
+          if (previous) this.selected = previous;
+        } else {
+          this.selectedIndex -= 1;
+        }
+      }
+    }
+
+    this.xDown = null;
+    this.yDown = null;
   }
 }
 

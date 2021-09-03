@@ -1018,6 +1018,11 @@
           "name": "panelEffect",
           "type": "String",
           "description": "The transition effect for the panel. Values include: (none | slide | fade)"
+        },
+        {
+          "name": "swipe",
+          "type": "Boolean",
+          "description": "Determines whether or not the user can swipe to change panels."
         }
       ],
       "events": [

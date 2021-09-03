@@ -5,7 +5,7 @@ import './kemet-tab.js';
 import './kemet-tab-panel.js';
 
 const namedTemplateResult = args => html`
- <kemet-tabs selected="${args.selected}" panel-effect=${args.panelEffect}>
+ <kemet-tabs selected="${args.selected}" panel-effect=${args.panelEffect} ?swipe=${args.swipe}>
     <div slot="links" role="tablist" aria-label="Tabs">
       <kemet-tab link="one">One</kemet-tab>
       <kemet-tab link="two">Two</kemet-tab>
@@ -25,6 +25,7 @@ export const SelectByName = namedTemplate.bind({});
 SelectByName.args = {
   selected: 'two',
   panelEffect: 'slide',
+  swipe: true,
 };
 SelectByName.parameters = {
   docs: {
@@ -47,7 +48,7 @@ const indexTemplateResult = (args) => {
   }
 
   return html`
-    <kemet-tabs panel-effect=${args.panelEffect}>
+    <kemet-tabs panel-effect=${args.panelEffect} ?swipe=${args.swipe}>
       <div slot="links" role="tablist" aria-label="Tabs">
         ${tabs}
       </div>
@@ -64,6 +65,7 @@ export const SelectByIndex = indexTemplate.bind({});
 SelectByIndex.args = {
   panelEffect: 'slide',
   numOfTabs: 5,
+  swipe: true,
 };
 SelectByIndex.parameters = {
   docs: {

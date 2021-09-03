@@ -4,6 +4,30 @@ import './kemet-tabs.js';
 import './kemet-tab.js';
 import './kemet-tab-panel.js';
 
+const sendTouchEvent = (x, y, element, eventType) => {
+  const touchObject = new Touch({
+    identifier: Date.now(),
+    target: element,
+    clientX: x,
+    clientY: y,
+    radiusX: 2.5,
+    radiusY: 2.5,
+    rotationAngle: 10,
+    force: 0.5,
+  });
+
+  const touchEvent = new TouchEvent(eventType, {
+    cancelable: true,
+    bubbles: true,
+    touches: [touchObject],
+    targetTouches: [],
+    changedTouches: [touchObject],
+    shiftKey: true,
+  });
+
+  element.dispatchEvent(touchEvent);
+};
+
 describe('KemetTabs', () => {
   it('can select a panel', async () => {
     const element = await fixture(html`
@@ -221,6 +245,35 @@ describe('KemetTabs', () => {
     selectedElement.querySelector('kemet-tab[selected]').dispatchEvent(keydownSpaceEvent);
     expect(indexElement.selectedIndex).to.equal(1);
     expect(selectedElement.selected).to.equal('two');
+  });
+
+  it('handles swiping', async () => {
+    const element = await fixture(html`
+      <kemet-tabs selected="one" swipe>
+        <nav slot="links">
+          <kemet-tab link="one">One</kemet-tab>
+          <kemet-tab link="two">Two</kemet-tab>
+          <kemet-tab link="three">Three</kemet-tab>
+        </nav>
+        <section slot="panels">
+          <kemet-tab-panel panel="one">Panel One</kemet-tab-panel>
+          <kemet-tab-panel panel="two">Panel Two</kemet-tab-panel>
+          <kemet-tab-panel panel="three">Panel Three</kemet-tab-panel>
+        </section>
+      </kemet-tabs>
+    `);
+
+    const panels = element.shadowRoot.getElementById('panels');
+
+    // swipe right
+    sendTouchEvent(150, 150, panels, 'touchstart');
+    sendTouchEvent(220, 150, panels, 'touchmove');
+    expect(element.selected).to.equal('one');
+
+    // swipe left
+    sendTouchEvent(150, 150, panels, 'touchstart');
+    sendTouchEvent(10, 150, panels, 'touchmove');
+    expect(element.selected).to.equal('two');
   });
 
   it('passes the a11y audit', async () => {
