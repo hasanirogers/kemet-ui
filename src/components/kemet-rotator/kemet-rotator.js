@@ -8,6 +8,14 @@ export class KemetRotator extends LitElement {
         display: flex;
       }
 
+      .rotator__slide {
+        pointer-events: none;
+      }
+
+      .rotator__slide--active {
+        pointer-events: auto;
+      }
+
       /* fade effect */
       :host([effect="fade"]) .rotator {
         display: inline-flex;
