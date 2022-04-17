@@ -1,1114 +1,3203 @@
 {
-  "version": 2,
-  "tags": [
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
     {
-      "name": "kemet-accordion",
-      "description": "A component that acts like a standard accordion.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-accordion/kemet-accordion-panel.js",
+      "declarations": [
         {
-          "name": "opened",
-          "type": "Boolean",
-          "description": "Determines whether or not the accordion is opened.",
-          "default": false
-        },
-        {
-          "name": "closeOthers",
-          "type": "Boolean",
-          "description": "Will close all other accordions once the current accordion is opened.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetAccordionPanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "toggle"
+            },
+            {
+              "kind": "method",
+              "name": "focusableBodyElements"
+            },
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "opened",
+              "default": "undefined",
+              "privacy": "public",
+              "description": "Determines the opened state of the panel",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "maxHeight",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "privacy": "public",
+              "description": "Sets the max height of the panel's body",
+              "attribute": "max-height"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "privacy": "public",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "attribute": "slug"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-accordion-panel-opened",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when a panel is opened"
+            },
+            {
+              "name": "kemet-accordion-panel-closed",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when a panel is closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "description": "Determines the opened state of the panel",
+              "fieldName": "opened"
+            },
+            {
+              "name": "max-height",
+              "description": "Sets the max height of the panel's body",
+              "fieldName": "maxHeight"
+            },
+            {
+              "name": "slug",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "fieldName": "slug"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-accordion-panel",
+          "customElement": true
         }
       ],
-      "events": [
+      "exports": [
         {
-          "name": "kemet-accordion-opened",
-          "description": "Fires when an accordion opens."
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.js"
+          }
         },
         {
-          "name": "kemet-accordion-closed",
-          "description": "Fires when an accordion closes."
-        }
-      ],
-      "slots": [
-        {
-          "name": "trigger",
-          "description": "The element that, when clicked, opens the accordion."
-        },
-        {
-          "name": "panel",
-          "description": "The body contents of the accordion."
-        }
-      ],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-carousel",
-      "description": "The overall container for the carousel.",
-      "properties": [
-        {
-          "name": "index",
-          "type": "Number",
-          "description": "Gives and identity to each slide by indexing them.",
-          "default": 0
-        },
-        {
-          "name": "pagination",
-          "type": "String",
-          "description": "The position your pagination slot appears in. Possible values are: top, right, bottom, left.",
-          "default": "bottom"
-        },
-        {
-          "name": "slideshow",
-          "type": "Number",
-          "description": "The number of seconds to wait for auto slide switching, 0 means don't auto play.",
-          "default": 0
-        },
-        {
-          "name": "useHash",
-          "type": "Boolean",
-          "description": "Turns on linking to slides by url. It's only met to be used with one carousel on the page.",
-          "default": false
-        }
-      ],
-      "events": [
-        {
-          "name": "kemet-carousel-change-start",
-          "description": "Fires when a slide changes."
-        },
-        {
-          "name": "kemet-carousel-change-finished",
-          "description": "Fires after the transition effect of a slide change finishes."
-        }
-      ],
-      "slots": [
-        {
-          "name": "slides",
-          "description": "Place your slides here."
-        },
-        {
-          "name": "pagination",
-          "description": "If you want a paginator create it here."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-carousel-width",
-          "description": "Width of the carousel.",
-          "default": "100%"
-        },
-        {
-          "name": "--kemet-carousel-height",
-          "description": "Height of the carousel. Default is: 50vh.",
-          "default": "50hv"
-        },
-        {
-          "name": "::part(slides)",
-          "description": "The slides.",
-          "type": "Part"
-        },
-        {
-          "name": "::part(pagination)",
-          "description": "The the pagination.",
-          "type": "Part"
+          "kind": "custom-element-definition",
+          "name": "kemet-accordion-panel",
+          "declaration": {
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-carousel-slide",
-      "description": "The slide for the carousel.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-accordion/kemet-accordion.js",
+      "declarations": [
         {
-          "name": "transition",
-          "type": "String",
-          "description": "An effect for how the slide comes in and out.",
-          "default": "horizontal"
+          "kind": "class",
+          "description": "",
+          "name": "KemetAccordion",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handlePanelOpened",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "navigatePanels",
+              "parameters": [
+                {
+                  "name": "direction"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "expandAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseAll"
+            },
+            {
+              "kind": "field",
+              "name": "togglePanels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Support for closing all inactive panels when one is opened",
+              "attribute": "toggle-panels"
+            },
+            {
+              "kind": "field",
+              "name": "currentPanel",
+              "default": "undefined",
+              "privacy": "public",
+              "description": "The index value for the most recently opened panel",
+              "attribute": "currentPanel"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "currentPanel",
+              "description": "The index value for the most recently opened panel",
+              "fieldName": "currentPanel"
+            },
+            {
+              "name": "toggle-panels",
+              "description": "Support for closing all inactive panels when one is opened",
+              "fieldName": "togglePanels"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-accordion",
+          "customElement": true
         }
       ],
-      "events": [],
-      "slots": [
+      "exports": [
         {
-          "description": "The contents of a slide."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-carousel-slide-speed",
-          "description": "The speed of horizontal and vertical transitions. Default is: 0.3s."
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.js"
+          }
         },
         {
-          "name": "--kemet-carousel-slide-fade-speed",
-          "description": "The speed of the fade transition. Default is: 1s."
+          "kind": "custom-element-definition",
+          "name": "kemet-accordion",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-carousel-link",
-      "description": "A link to a slide in the carousel",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-link.js",
+      "declarations": [
         {
-          "name": "slide",
-          "type": "Number",
-          "description": "Which slide to link to. Goes by 0 based index.",
-          "default": 0
-        },
-        {
-          "name": "selected",
-          "type": "Boolean",
-          "description": "Whether or not the link is current slide.",
-          "default": false
-        },
-        {
-          "name": "disabled",
-          "type": "Boolean",
-          "description": "Allow the users to disable linking until conditions are met.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselLink",
+          "members": [
+            {
+              "kind": "method",
+              "name": "changed"
+            },
+            {
+              "kind": "field",
+              "name": "slide",
+              "privacy": "public",
+              "attribute": "slide",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-link",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slide",
+              "fieldName": "slide"
+            },
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-link",
+          "customElement": true
         }
       ],
-      "events": [
+      "exports": [
         {
+          "kind": "js",
+          "name": "KemetCarouselLink",
+          "declaration": {
+            "name": "KemetCarouselLink",
+            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
           "name": "kemet-carousel-link",
-          "description": "Fires when a link is clicked."
+          "declaration": {
+            "name": "KemetCarouselLink",
+            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
+          }
         }
-      ],
-      "slots": [
-        {
-          "description": "Contents of the link."
-        }
-      ],
-      "cssProperties": []
+      ]
     },
     {
-      "name": "kemet-carousel-prev",
-      "description": "A link to the previous slide in the carousel",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-next.js",
+      "declarations": [
         {
-          "name": "disabled",
-          "type": "Boolean",
-          "description": "Allow the users to disable linking until conditions are met.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselNext",
+          "members": [
+            {
+              "kind": "method",
+              "name": "next"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-next",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-next",
+          "customElement": true
         }
       ],
-      "events": [
+      "exports": [
         {
-          "name": "kemet-carousel-prev",
-          "description": "Fires when the link is clicked."
-        }
-      ],
-      "slots": [
+          "kind": "js",
+          "name": "KemetCarouselNext",
+          "declaration": {
+            "name": "KemetCarouselNext",
+            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
+          }
+        },
         {
-          "description": "Contents of the link."
-        }
-      ],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-carousel-next",
-      "description": "A link to the next slide in the carousel",
-      "properties": [
-        {
-          "name": "disabled",
-          "type": "Boolean",
-          "description": "Allow the users to disable linking until conditions are met.",
-          "default": false
-        }
-      ],
-      "events": [
-        {
+          "kind": "custom-element-definition",
           "name": "kemet-carousel-next",
-          "description": "Fires when the link is clicked."
-        }
-      ],
-      "slots": [
-        {
-          "description": "Contents of the link."
-        }
-      ],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-draggable",
-      "description": "A draggable element with the ability to remember its position.",
-      "properties": [
-        {
-          "name": "memory",
-          "type": "String",
-          "description": "A unique identifier used to store the element's position in local storage.",
-          "default": null
-        },
-        {
-          "name": "top",
-          "type": "String",
-          "description": "The elements top position in pixels.",
-          "default": "auto"
-        },
-        {
-          "name": "left",
-          "type": "String",
-          "description": "The element's left position in pixels.",
-          "default": "auto"
-        },
-        {
-          "name": "measure",
-          "type": "Boolean",
-          "description": "If set to true, will measure the width and height of the element's content and apply it to the host element.",
-          "default": false
-        }
-
-      ],
-      "events": [
-        {
-          "name": "kemet-draggable-start",
-          "description": "Fires when the user starts dragging the element."
-        },
-        {
-          "name": "kemet-draggable-stop",
-          "description": "Fires when the user stops dragging the element."
+          "declaration": {
+            "name": "KemetCarouselNext",
+            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-drawer",
-      "description": "A component that adds an off-canvas menu with different effects.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-prev.js",
+      "declarations": [
         {
-          "name": "effect",
-          "type": "String",
-          "reflect": true,
-          "description": "The animation effect for opening and closing the drawer. Values include: (slide|reveal|push|scale)",
-          "default": "slide"
-        },
-        {
-          "name": "opened",
-          "type": "Boolean",
-          "reflect": true,
-          "description": "Determines if the drawer is opened or not.",
-          "default": false
-        },
-        {
-          "name": "side",
-          "type": "String",
-          "reflect": true,
-          "description": "Allows you to control which side the drawer opens from. Values include: (left|right)",
-          "default": "left"
-        },
-        {
-          "name": "overlay",
-          "type": "Boolean",
-          "description": "Adds a overlay over the content section of the Drawer when opened",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselPrev",
+          "members": [
+            {
+              "kind": "method",
+              "name": "prev"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-prev",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-prev",
+          "customElement": true
         }
       ],
-      "events": [
+      "exports": [
         {
-          "name": "kemet-drawer-opened",
-          "description": "Fires when the drawer opens."
+          "kind": "js",
+          "name": "KemetCarouselPrev",
+          "declaration": {
+            "name": "KemetCarouselPrev",
+            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
+          }
         },
         {
-          "name": "kemet-drawer-closed",
-          "description": "Fires when the drawer closes."
-        }
-      ],
-      "slots": [
-        {
-          "name": "navigation",
-          "description": "The off canvas navigation."
-        },
-        {
-          "name": "content",
-          "description": "The main page content area."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-drawer-width",
-          "description": "The width of the drawer. Default is 300px.",
-          "type": "Length",
-          "default": "300px"
-        },
-        {
-          "name": "--kemet-drawer-height",
-          "description": "The height of the drawer. Default is 100%.",
-          "type": "Length",
-          "default": "100%"
-        },
-        {
-          "name": "--kemet-drawer-color",
-          "description": "The text color of the drawer. Default is #fafafa.",
-          "type": "Color",
-          "default": "#fafafa"
-        },
-        {
-          "name": "--kemet-drawer-background-color",
-          "description": "The background color of the drawer. Default is #202020.",
-          "type": "Color",
-          "default": "#202020"
-        },
-        {
-          "name": "--kemet-drawer-overlay-color",
-          "description": "The color of the overlay.",
-          "type": "Color",
-          "default": "rgba(0, 0, 0, 0.2)"
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel-prev",
+          "declaration": {
+            "name": "KemetCarouselPrev",
+            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-flipcard",
-      "description": "A card that has a front and back side which can be flipped.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-slide.js",
+      "declarations": [
         {
-          "name": "axis",
-          "type": "String",
-          "description": "The direction the card flips in. Values include: (horizontal|vertical)",
-          "default": "horizontal"
-        },
-        {
-          "name": "flipped",
-          "type": "Boolean",
-          "description": "Determines whether or not to show the front or back of the card.",
-          "default": false
-        },
-        {
-          "name": "flipOnHover",
-          "type": "Boolean",
-          "description": "If true, the card flips on hover and focus.",
-          "default": false
-        },
-        {
-          "name": "height",
-          "type": "String",
-          "description": "The measured height of the card in pixels.",
-          "default": "auto"
-        },
-        {
-          "name": "measure",
-          "type": "Boolean",
-          "description": "If true, the card will determine the tallest side and apply it's height to the host.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselSlide",
+          "members": [
+            {
+              "kind": "field",
+              "name": "seen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "seen"
+            },
+            {
+              "kind": "field",
+              "name": "transition",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "privacy": "public",
+              "attribute": "transition",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "type": {
+                "text": "string"
+              },
+              "default": "'true'"
+            },
+            {
+              "kind": "field",
+              "name": "'aria-hidden'",
+              "privacy": "public",
+              "attribute": "'aria-hidden'",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "seen",
+              "fieldName": "seen"
+            },
+            {
+              "name": "transition",
+              "fieldName": "transition"
+            },
+            {
+              "name": "'aria-hidden'",
+              "fieldName": "'aria-hidden'"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-slide",
+          "customElement": true
         }
       ],
-      "events": [],
-      "slots": [
+      "exports": [
         {
-          "name": "front",
-          "description": "The front of the card."
+          "kind": "js",
+          "name": "KemetCarouselSlide",
+          "declaration": {
+            "name": "KemetCarouselSlide",
+            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
+          }
         },
         {
-          "name": "back",
-          "description": "The back of the card."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-flipcard-front-color",
-          "description": "The text color for the front of the card.",
-          "type": "Color",
-          "default": "#202020"
-        },
-        {
-          "name": "--kemet-flipcard-back-color",
-          "description": "The text color for the back of the card.",
-          "type": "Color",
-          "default": "#202020"
-        },
-        {
-          "name": "--kemet-flipcard-front-background-color",
-          "description": "The background color for the front of the card.",
-          "type": "Color",
-          "default": "#fafafa"
-        },
-        {
-          "name": "--kemet-flipcard-back-background-color",
-          "description": "The background color for the back of the card.",
-          "type": "Color",
-          "default": "#fafafa"
-        },
-        {
-          "name": "::part(front)",
-          "description": "The front of the card.",
-          "type": "Part"
-        },
-        {
-          "name": "::part(back)",
-          "description": "The back of the card.",
-          "type": "Part"
-        },
-        {
-          "name": "::part(wrapper)",
-          "description": "A container for both front and back of the card.",
-          "type": "Part"
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel-slide",
+          "declaration": {
+            "name": "KemetCarouselSlide",
+            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-flipcard-trigger",
-      "description": "A trigger for the flipped property of <kemet-flipcard>.",
-      "properties": [],
-      "events": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel.js",
+      "declarations": [
         {
-          "name": "kemet-flipcard-flipped",
-          "description": "Fires when clicked or when entered key is pressed for a flipped event."
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarousel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlideShow"
+            },
+            {
+              "kind": "method",
+              "name": "handleNext"
+            },
+            {
+              "kind": "method",
+              "name": "handlePrev"
+            },
+            {
+              "kind": "method",
+              "name": "updateIndex",
+              "parameters": [
+                {
+                  "name": "newIndex"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleTransitionEnd",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleLink",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pagination",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bottom'",
+              "privacy": "public",
+              "attribute": "pagination",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "slideshow",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "slideshow"
+            },
+            {
+              "kind": "field",
+              "name": "useHash",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "use-hash"
+            },
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "links",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "loaded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-change-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-carousel-change-finished",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "index",
+              "fieldName": "index"
+            },
+            {
+              "name": "pagination",
+              "fieldName": "pagination"
+            },
+            {
+              "name": "slideshow",
+              "fieldName": "slideshow"
+            },
+            {
+              "name": "use-hash",
+              "fieldName": "useHash"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel",
+          "customElement": true
         }
       ],
-      "slots": [],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-icon",
-      "description": "An element that represents an icon from a predefined set of open sourced icons.",
-      "properties": [
+      "exports": [
         {
-          "name": "set",
-          "type": "string",
-          "description": "The sprite map from an open source project that an icon belongs too. Values include: (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-          "default:": "bootstrap"
+          "kind": "js",
+          "name": "KemetCarousel",
+          "declaration": {
+            "name": "KemetCarousel",
+            "module": "src/components/kemet-carousel/kemet-carousel.js"
+          }
         },
         {
-          "name": "icon",
-          "type": "string",
-          "description": "The name of the icon to reference.",
-          "default:": "bootstrap"
-        },
-        {
-          "name": "size",
-          "type": "number",
-          "description": "The width and height of the icon in pixels.",
-          "default:": null
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel",
+          "declaration": {
+            "name": "KemetCarousel",
+            "module": "src/components/kemet-carousel/kemet-carousel.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-modal",
-      "description": "A modal that has many built in effects and flexible styles.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-draggable/kemet-draggable.js",
+      "declarations": [
         {
-          "name": "opened",
-          "type": "Boolean",
-          "description": "Determines whether or not the modal is opened.",
-          "default": false
-        },
-        {
-          "name": "effect",
-          "type": "string",
-          "description": "The opening and closing style of the modal. Possible effects include: (fadein-scaleup | slide-right | slide-bottom | newspaper | fall | side-fall | flip-horizontal | flip-vertical | sign-3d | super-scaled | slit | rotate-bottom | rotate-left)"
-        },
-        {
-          "name": "closeOnClick",
-          "type": "Boolean",
-          "description": "Allows the user to control if clicking the overlay closes the modal."
+          "kind": "class",
+          "description": "",
+          "name": "KemetDraggable",
+          "members": [
+            {
+              "kind": "method",
+              "name": "startDrag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "drag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "stopDrag"
+            },
+            {
+              "kind": "method",
+              "name": "measureContent"
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "attribute": "top"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "position1",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "position2",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "position3",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "position4",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "mouseMove"
+            },
+            {
+              "kind": "field",
+              "name": "mouseUp"
+            },
+            {
+              "kind": "field",
+              "name": "memory",
+              "privacy": "public",
+              "attribute": "memory"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-draggable-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-draggable-stop",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "memory",
+              "fieldName": "memory"
+            },
+            {
+              "name": "top",
+              "fieldName": "top"
+            },
+            {
+              "name": "left",
+              "fieldName": "left"
+            },
+            {
+              "name": "measure",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-draggable",
+          "customElement": true
         }
       ],
-      "events": [
+      "exports": [
         {
-          "name": "kemet-modal-opened",
-          "description": "Fires when a modal opens."
+          "kind": "js",
+          "name": "KemetDraggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
         },
         {
-          "name": "kemet-modal-closed",
-          "description": "Fires when a modal closes."
-        }
-      ],
-      "slots": [],
-      "cssProperties": [
-        {
-          "name": "--kemet-modal-min-width",
-          "description": "Minimum width of the modal contents. Default: 0."
-        },
-        {
-          "name": "--kemet-modal-max-width",
-          "description": "Maximum with of the modal contents. Default: none."
-        },
-        {
-          "name": "--kemet-modal-overlay-background-color",
-          "description": "The color of the modal's overlay. Default: rgba(0,0,0,0.2)."
-        },
-        {
-          "name": "--kemet-modal-transition-speed",
-          "description": "Speed for revealing the modal. Default: 0.3s."
-        },
-        {
-          "name": "::part(content)",
-          "description": "Contains the content for the modal.",
-          "type": "Part"
-        },
-        {
-          "name": "::part(overlay)",
-          "description": "Contains the overlay for the modal.",
-          "type": "Part"
+          "kind": "custom-element-definition",
+          "name": "kemet-draggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-popover",
-      "description": "Displays an element in position of a trigger. Also acts as a tooltip.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-drawer/kemet-drawer.js",
+      "declarations": [
         {
-          "name": "opened",
-          "type": "Boolean",
-          "description": "Determines whether or not the popover displays.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetDrawer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeEvent",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "opened",
+              "default": "undefined",
+              "privacy": "public",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "effect",
+              "type": {
+                "text": "string"
+              },
+              "default": "'slide'",
+              "privacy": "public",
+              "attribute": "effect",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "side",
+              "type": {
+                "text": "string"
+              },
+              "default": "'left'",
+              "privacy": "public",
+              "attribute": "side",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "overlay",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "fieldName": "opened"
+            },
+            {
+              "name": "effect",
+              "fieldName": "effect"
+            },
+            {
+              "name": "side",
+              "fieldName": "side"
+            },
+            {
+              "name": "overlay",
+              "fieldName": "overlay"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-drawer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetDrawer",
+          "declaration": {
+            "name": "KemetDrawer",
+            "module": "src/components/kemet-drawer/kemet-drawer.js"
+          }
         },
         {
-          "name": "effect",
-          "type": "String",
-          "description": "The opening and closing effect of the popover. Is optional. Values include: (fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
-          "default": null
+          "kind": "custom-element-definition",
+          "name": "kemet-drawer",
+          "declaration": {
+            "name": "KemetDrawer",
+            "module": "src/components/kemet-drawer/kemet-drawer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-drawer/kemet-drawer.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "stylesBase",
+          "default": "css`\n  :host {\n    width: 100%;\n  }\n\n  .off-canvas {\n    position: relative;\n    overflow: hidden;\n  }\n\n  .off-canvas__nav {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 100;\n    visibility: hidden;\n    height: 100%;\n    transition: all 0.5s;\n  }\n\n  .off-canvas__nav::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(0, 0, 0, 0.2);\n    content: '';\n    opacity: 1;\n    transition: opacity 0.5s;\n  }\n\n  :host([opened]) .off-canvas__nav::after {\n    width: 0;\n    height: 0;\n    opacity: 0;\n    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;\n  }\n\n  .off-canvas__pusher {\n    position: relative;\n    left: 0;\n    z-index: 99;\n    height: 100%;\n    transition: transform 0.5s;\n  }\n\n  :host([overlay]) .off-canvas__pusher::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 0;\n    height: 0;\n    background: var(--kemet-drawer-overlay-color, rgba(0, 0, 0, 0.2));\n    content: '';\n    opacity: 0;\n    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;\n  }\n\n  :host([opened]) .off-canvas__pusher::after {\n    width: 100%;\n    height: 100%;\n    opacity: 1;\n    transition: opacity 0.5s;\n    transform: scale(2);\n  }\n\n  .off-canvas__content {\n    position: relative;\n    /* overflow-y: scroll; */\n    min-height: 100vh;\n  }\n\n  .off-canvas__wrapper {\n    position: relative;\n  }\n\n  ::slotted([slot=\"content\"]) {\n    min-height: 100vh;\n  }\n\n  /* -------------------------------------- */\n  /* custom properties */\n  /* -------------------------------------- */\n\n  .off-canvas__nav {\n    width: var(--kemet-drawer-width, 300px);\n    height: var(--kemet-drawer-height, 100%);\n    color: var(--kemet-drawer-color, #fafafa);\n    background: var(--kemet-drawer-background-color, #202020);\n  }\n`"
         },
         {
-          "name": "position",
-          "type": "String",
-          "description": "Determines the placement of the popover. Values include: (top | right | bottom | left)",
-          "default": "top"
+          "kind": "variable",
+          "name": "stylesEffects",
+          "default": "css`\n  /* slide */\n  :host([effect='slide']) .off-canvas__nav {\n    visibility: visible;\n    transform: translate3d(-100%, 0, 0);\n  }\n\n  :host([effect='slide'][opened]) .off-canvas__nav {\n    visibility: visible;\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='slide']) .off-canvas__nav:after {\n    display: none;\n  }\n\n  :host([effect='slide'][side='right']) .off-canvas__nav {\n    transform: translate3d(100vw, 0, 0);\n  }\n\n  :host([effect='slide'][side='right'][opened]) .off-canvas__nav {\n    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);\n  }\n\n  :host([effect='slide'][side='top']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);\n  }\n\n  :host([effect='slide'][side='top'][opened]) .off-canvas__nav {\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='slide'][side='bottom']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, ${unsafeCSS(documentHeight)}, 0);\n  }\n\n  :host([effect='slide'][side='bottom'][opened]) .off-canvas__nav {\n    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);\n  }\n\n  /* reveal */\n  :host([effect='reveal'][opened]) .off-canvas__pusher {\n    transform: translate3d(var(--kemet-drawer-width, 300px), 0, 0);\n  }\n\n  :host([effect='reveal']) .off-canvas__nav {\n    z-index: 1;\n  }\n\n  :host([effect='reveal'][opened]) .off-canvas__nav {\n    visibility: visible;\n    transition: transform 0.5s;\n  }\n\n  :host([effect='reveal']) .off-canvas__nav::after {\n    display: none;\n  }\n\n  :host([effect='reveal'][side='right'][opened]) .off-canvas__pusher {\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='reveal'][side='right']) .off-canvas__nav {\n    transform: translate3d(100vw, 0, 0);\n  }\n\n  :host([effect='reveal'][side='right'][opened]) .off-canvas__nav {\n    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);\n  }\n\n  :host([effect='reveal'][side='top']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);\n  }\n\n  :host([effect='reveal'][side='top'][opened]) .off-canvas__nav {\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='reveal'][side='top'][opened]) .off-canvas__pusher {\n    transform: translate3d(0, var(--kemet-drawer-height, 100vh), 0);\n  }\n\n  :host([effect='reveal'][side='bottom']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, ${unsafeCSS(documentHeight)}, 0);\n  }\n\n  :host([effect='reveal'][side='bottom'][opened]) .off-canvas__nav {\n    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);\n  }\n\n  :host([effect='reveal'][side='bottom'][opened]) .off-canvas__pusher {\n    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);\n  }\n\n  /* push */\n  :host([effect='push'][opened]) .off-canvas__pusher {\n    transform: translate3d(var(--kemet-drawer-width, 300px), 0, 0);\n  }\n\n  :host([effect='push']) .off-canvas__nav {\n    transform: translate3d(-100%, 0, 0);\n  }\n\n  :host([effect='push'][opened]) .off-canvas__nav {\n    visibility: visible;\n    transition: transform 0.5s;\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='push']) .off-canvas__nav::after {\n    display: none;\n  }\n\n  :host([effect='push'][side='right'][opened]) .off-canvas__pusher {\n    transform: translate3d(calc(var(--kemet-drawer-width, 300px) * -1), 0, 0);\n  }\n\n  :host([effect='push'][side='right']) .off-canvas__nav {\n    transform: translate3d(100vw, 0, 0);\n  }\n\n  :host([effect='push'][side='right'][opened]) .off-canvas__nav {\n    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);\n  }\n\n  :host([effect='push'][side='top']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);\n  }\n\n  :host([effect='push'][side='top'][opened]) .off-canvas__nav {\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='push'][side='top'][opened]) .off-canvas__pusher {\n    transform: translate3d(0, var(--kemet-drawer-height, 100vh), 0);\n  }\n\n  :host([effect='push'][side='bottom']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, ${unsafeCSS(documentHeight)}, 0);\n  }\n\n  :host([effect='push'][side='bottom'][opened]) .off-canvas__nav {\n    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);\n  }\n\n  :host([effect='push'][side='bottom'][opened]) .off-canvas__pusher {\n    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);\n  }\n\n  /* scale */\n  :host([effect='scale']) .off-canvas__pusher {\n    transform-style: preserve-3d;\n  }\n\n  :host([effect='scale'][opened]) .off-canvas__pusher {\n    transform: translate3d(0, 0, 0) scale(0.95);\n  }\n\n  :host([effect='scale']) .off-canvas__nav {\n    opacity: 1;\n    transform: translate3d(-100%, 0, 0);\n  }\n\n  :host([effect='scale'][opened]) .off-canvas__nav {\n    visibility: visible;\n    transition: transform 0.5s;\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='scale']) .off-canvas__nav::after {\n    display: none;\n  }\n\n  :host([effect='scale'][side='right']) .off-canvas__nav {\n    transform: translate3d(100vw, 0, 0);\n  }\n\n  :host([effect='scale'][side='right'][opened]) .off-canvas__nav {\n    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);\n  }\n\n  :host([effect='scale'][side='top']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);\n  }\n\n  :host([effect='scale'][side='top'][opened]) .off-canvas__nav {\n    transform: translate3d(0, 0, 0);\n  }\n\n  :host([effect='scale'][side='bottom']) .off-canvas__nav {\n    width: 100vw;\n    height: var(--kemet-drawer-height, 100vh);\n    transform: translate3d(0, ${unsafeCSS(documentHeight)}, 0);\n  }\n\n  :host([effect='scale'][side='bottom'][opened]) .off-canvas__nav {\n    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "stylesBase",
+          "declaration": {
+            "name": "stylesBase",
+            "module": "src/components/kemet-drawer/kemet-drawer.styles.js"
+          }
         },
         {
+          "kind": "js",
+          "name": "stylesEffects",
+          "declaration": {
+            "name": "stylesEffects",
+            "module": "src/components/kemet-drawer/kemet-drawer.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetFlipcardTrigger",
+          "members": [
+            {
+              "kind": "method",
+              "name": "trigger"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyup",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "keyCodes",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      ENTER: 13,\n      SPACE: 32,\n    }"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-flipcard-flipped",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-flipcard-trigger",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetFlipcardTrigger",
+          "declaration": {
+            "name": "KemetFlipcardTrigger",
+            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-flipcard-trigger",
+          "declaration": {
+            "name": "KemetFlipcardTrigger",
+            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-flipcard/kemet-flipcard.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetFlipcard",
+          "members": [
+            {
+              "kind": "method",
+              "name": "determineHeight"
+            },
+            {
+              "kind": "field",
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "privacy": "public",
+              "attribute": "axis",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "flipped",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "flipped",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "flipOnHover",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "flip-on-hover"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "attribute": "height"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "measure"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "axis",
+              "fieldName": "axis"
+            },
+            {
+              "name": "flipped",
+              "fieldName": "flipped"
+            },
+            {
+              "name": "flip-on-hover",
+              "fieldName": "flipOnHover"
+            },
+            {
+              "name": "height",
+              "fieldName": "height"
+            },
+            {
+              "name": "measure",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-flipcard",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetFlipcard",
+          "declaration": {
+            "name": "KemetFlipcard",
+            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-flipcard",
+          "declaration": {
+            "name": "KemetFlipcard",
+            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-icon/kemet-icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetIcon",
+          "members": [
+            {
+              "kind": "method",
+              "name": "getIcon"
+            },
+            {
+              "kind": "method",
+              "name": "getUrl"
+            },
+            {
+              "kind": "field",
+              "name": "set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bootstrap'",
+              "privacy": "public",
+              "attribute": "set"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'alarm'",
+              "privacy": "public",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon"
+            },
+            {
+              "name": "set",
+              "fieldName": "set"
+            },
+            {
+              "name": "size",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetIcon",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-icon",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-modal/kemet-modal-close.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetModalClose",
+          "members": [
+            {
+              "kind": "method",
+              "name": "close"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-modal-close-btn",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-modal-close",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetModalClose",
+          "declaration": {
+            "name": "KemetModalClose",
+            "module": "src/components/kemet-modal/kemet-modal-close.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-modal-close",
+          "declaration": {
+            "name": "KemetModalClose",
+            "module": "src/components/kemet-modal/kemet-modal-close.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-modal/kemet-modal.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetModal",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeEvent",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closeOnClick",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "close-on-click"
+            },
+            {
+              "kind": "field",
+              "name": "effect",
+              "privacy": "public",
+              "attribute": "effect",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "fieldName": "opened"
+            },
+            {
+              "name": "effect",
+              "fieldName": "effect"
+            },
+            {
+              "name": "close-on-click",
+              "fieldName": "closeOnClick"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-modal",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetModal",
+          "declaration": {
+            "name": "KemetModal",
+            "module": "src/components/kemet-modal/kemet-modal.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-modal",
+          "declaration": {
+            "name": "KemetModal",
+            "module": "src/components/kemet-modal/kemet-modal.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-modal/kemet-modal.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "stylesBase",
+          "default": "css`\n  :host {\n    position: fixed;\n    display: flex;\n    top: 0;\n    left: 0;\n    z-index: 99;\n    width: 100%;\n    height: 100vh;\n    visibility: hidden;\n    backface-visibility: hidden;\n  }\n\n  :host([opened]) {\n    visibility: visible;\n  }\n\n  .content {\n    position: relative;\n    z-index: 3;\n    margin: auto;\n    min-width: var(--kemet-modal-min-width, 0);\n    max-width: var(--kemet-modal-max-width, none);\n  }\n\n  .overlay {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    visibility: hidden;\n    top: 0;\n    left: 0;\n    z-index: 1;\n    opacity: 0;\n    background: var(--kemet-modal-overlay-background-color, rgba(0,0,0,0.2));\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([opened]) .overlay {\n    opacity: 1;\n    visibility: visible;\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "stylesEffects",
+          "default": "css`\n  /* fadein-scaleup */\n  :host([effect=\"fadein-scaleup\"]) .content {\n    transform: scale(0.7);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"fadein-scaleup\"][opened]) .content {\n    transform: scale(1);\n    opacity: 1;\n  }\n\n  /* slide-right */\n  :host([effect=\"slide-right\"]) .content {\n    transform: translateX(20%);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s) cubic-bezier(0.25, 0.5, 0.5, 0.9);\n  }\n\n  :host([effect=\"slide-right\"][opened]) .content {\n    transform: translateX(0);\n    opacity: 1;\n  }\n\n  /* slide-bottom */\n  :host([effect=\"slide-bottom\"]) .content {\n    transform: translateY(20%);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"slide-bottom\"][opened]) .content {\n    transform: translateY(0);\n    opacity: 1;\n  }\n\n  /* newspaper */\n  :host([effect=\"newspaper\"]) .content {\n    transform: scale(0) rotate(720deg);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"newspaper\"][opened]) .content {\n    transform: scale(1) rotate(0deg);\n    opacity: 1;\n  }\n\n  /* fall */\n  :host([effect=\"fall\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"fall\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(600px) rotateX(20deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"fall\"][opened]) .content {\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;\n    transform: translateZ(0px) rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* side-fall */\n  :host([effect=\"side-fall\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"side-fall\"]) .content {\n    transform-style: preserve-3d;\n    transform: translate(30%) translateZ(600px) rotate(10deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"side-fall\"][opened]) .content {\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;\n    transform: translate(0%) translateZ(0) rotate(0deg);\n    opacity: 1;\n  }\n\n  /* flip-horizontal */\n  :host([effect=\"flip-horizontal\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-horizontal\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateY(-70deg);\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-horizontal\"][opened]) .content {\n    transform: rotateY(0deg);\n    opacity: 1;\n  }\n\n  /* flip-vertical */\n  :host([effect=\"flip-vertical\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-vertical\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateX(-70deg);\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-vertical\"][opened]) .content {\n    transform: rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* sign-3d */\n  :host([effect=\"sign-3d\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"sign-3d\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateX(-60deg);\n    transform-origin: 50% 0;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"sign-3d\"][opened]) .content {\n    transform: rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* super-scaled */\n  :host([effect=\"super-scaled\"]) .content {\n    transform: scale(2);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"super-scaled\"][opened]) .content {\n    transform: scale(1);\n    opacity: 1;\n  }\n\n  /* slit */\n  :host([effect=\"slit\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"slit\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(-3000px) rotateY(90deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"slit\"][opened]) .content {\n    animation: slit .7s forwards ease-out;\n  }\n\n  @keyframes slit {\n    50% {\n      transform: translateZ(-250px) rotateY(89deg);\n      opacity: 1;\n      animation-timing-function: ease-in;}\n    100% {\n      transform: translateZ(0) rotateY(0deg);\n      opacity: 1;\n    }\n  }\n\n  /* rotate-bottom */\n  :host([effect=\"rotate-bottom\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"rotate-bottom\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateY(100%) rotateX(90deg);\n    transform-origin: 0 100%;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-out;\n  }\n\n  :host([effect=\"rotate-bottom\"][opened]) .content {\n    transform: translateY(0%) rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* rotate-left */\n  :host([effect=\"rotate-left\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"rotate-left\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(100px) translateX(-30%) rotateY(90deg);\n    transform-origin: 0 100%;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"rotate-left\"][opened]) .content {\n    transform: translateZ(0px) translateX(0%) rotateY(0deg);\n    opacity: 1;\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "stylesBase",
+          "declaration": {
+            "name": "stylesBase",
+            "module": "src/components/kemet-modal/kemet-modal.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "stylesEffects",
+          "declaration": {
+            "name": "stylesEffects",
+            "module": "src/components/kemet-modal/kemet-modal.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-popover/kemet-popover-close.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetPopoverClose",
+          "members": [
+            {
+              "kind": "method",
+              "name": "close"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyboard",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-popover-close-btn",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-popover-close",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetPopoverClose",
+          "declaration": {
+            "name": "KemetPopoverClose",
+            "module": "src/components/kemet-popover/kemet-popover-close.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-popover-close",
+          "declaration": {
+            "name": "KemetPopoverClose",
+            "module": "src/components/kemet-popover/kemet-popover-close.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-popover/kemet-popover.effects.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "fade",
+          "default": "css`\n  :host([effect=\"fade\"]) #content {\n    opacity: 0;\n    transition: all var(--kemet-popover-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"fade\"][opened]) #content {\n    opacity: 1;\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "scale",
+          "default": "css`\n  :host([effect=\"scale\"]) #content {\n    opacity: 0;\n    transition: all var(--kemet-popover-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"scale\"][opened]) #content {\n    opacity: 1;\n  }\n\n  :host([effect=\"scale\"][position=\"top\"]) #content,\n  :host([effect=\"scale\"][position=\"bottom\"]) #content {\n    transform: translateX(-50%) scale(0.7);\n  }\n\n  :host([effect=\"scale\"][position=\"top\"][opened]) #content,\n  :host([effect=\"scale\"][position=\"bottom\"][opened]) #content {\n    transform: translateX(-50%) scale(1);\n  }\n\n  :host([effect=\"scale\"][position=\"left\"]) #content,\n  :host([effect=\"scale\"][position=\"right\"]) #content {\n    transform: translateY(-50%) scale(0.7);\n  }\n\n  :host([effect=\"scale\"][position=\"left\"][opened]) #content,\n  :host([effect=\"scale\"][position=\"right\"][opened]) #content {\n    transform: translateY(-50%) scale(1);\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "slide",
+          "default": "css`\n  :host([effect=\"slide\"]) #content {\n    opacity: 0;\n    transition: all var(--kemet-popover-transition-speed, 0.3s) cubic-bezier(0.25, 0.5, 0.5, 0.9);\n  }\n\n  :host([effect=\"slide\"][opened]) #content {\n    opacity: 1;\n  }\n\n  :host([effect=\"slide\"][position=\"top\"]) #content {\n    transform: translateX(-50%) translateY(20%);\n  }\n\n  :host([effect=\"slide\"][position=\"top\"][opened]) #content {\n    transform: translateX(-50%) translateY(0);\n  }\n\n  :host([effect=\"slide\"][position=\"bottom\"]) #content {\n    transform: translateX(-50%) translateY(-20%);\n  }\n\n  :host([effect=\"slide\"][position=\"bottom\"][opened]) #content {\n    transform: translateX(-50%) translateY(0);\n  }\n\n  :host([effect=\"slide\"][position=\"right\"]) #content {\n    transform: translateY(-50%) translateX(-20%);\n  }\n\n  :host([effect=\"slide\"][position=\"right\"][opened]) #content {\n    transform: translateY(-50%) translateX(0);\n  }\n\n  :host([effect=\"slide\"][position=\"left\"]) #content {\n    transform: translateY(-50%) translateX(20%);\n  }\n\n  :host([effect=\"slide\"][position=\"left\"][opened]) #content {\n    transform: translateY(-50%) translateX(0);\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "fall",
+          "default": "css`\n  :host([effect=\"fall\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"fall\"]) #content {\n    transform-style: preserve-3d;\n    opacity: 0;\n  }\n\n  :host([effect=\"fall\"][opened]) #content {\n    transition: all var(--kemet-popover-transition-speed, 0.3s) ease-in;\n    opacity: 1;\n  }\n\n  :host([effect=\"fall\"][position=\"top\"]) #content {\n    transform: translateX(-50%) translateZ(600px) rotateX(20deg);\n  }\n\n  :host([effect=\"fall\"][position=\"top\"][opened]) #content {\n    transform: translateX(-50%) translateZ(0px) rotateX(0deg);\n  }\n\n  :host([effect=\"fall\"][position=\"bottom\"]) #content {\n    transform: translateX(-50%) translateZ(600px) rotateX(20deg);\n  }\n\n  :host([effect=\"fall\"][position=\"bottom\"][opened]) #content {\n    transform: translateX(-50%) translateZ(0px) rotateX(0deg);\n  }\n\n  :host([effect=\"fall\"][position=\"right\"]) #content {\n    transform: translateY(-50%) translateZ(600px) rotateX(20deg);\n  }\n\n  :host([effect=\"fall\"][position=\"right\"][opened]) #content {\n    transform: translateY(-50%) translateZ(0px) rotateX(0deg);\n  }\n\n  :host([effect=\"fall\"][position=\"left\"]) #content {\n    transform: translateY(-50%) translateZ(600px) rotateX(20deg);\n  }\n\n  :host([effect=\"fall\"][position=\"left\"][opened]) #content {\n    transform: translateY(-50%) translateZ(0px) rotateX(0deg);\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "flipHorizontal",
+          "default": "css`\n  :host([effect=\"flip-horizontal\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-horizontal\"]) #content {\n    transform-style: preserve-3d;\n    transition: all var(--kemet-popover-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-horizontal\"][opened]) #content {\n    opacity: 1;\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"top\"]) #content {\n    transform: translateX(-50%) rotateY(-70deg);\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"top\"][opened]) #content {\n    transform: translateX(-50%) rotateY(0deg);\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"bottom\"]) #content {\n    transform: translateX(-50%) rotateY(-70deg);\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"bottom\"][opened]) #content {\n    transform: translateX(-50%) rotateY(0deg);\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"right\"]) #content {\n    transform: translateY(-50%) rotateY(-70deg);\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"right\"][opened]) #content {\n    transform: translateY(-50%) rotateY(0deg);\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"left\"]) #content {\n    transform: translateY(-50%) rotateY(-70deg);\n  }\n\n  :host([effect=\"flip-horizontal\"][position=\"left\"][opened]) #content {\n    transform: translateY(-50%) rotateY(0deg);\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "flipVertical",
+          "default": "css`\n  :host([effect=\"flip-vertical\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-vertical\"]) #content {\n    transform-style: preserve-3d;\n    transition: all var(--kemet-popover-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-vertical\"][opened]) #content {\n    opacity: 1;\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"top\"]) #content {\n    transform: translateX(-50%) rotateX(-70deg);\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"top\"][opened]) #content {\n    transform: translateX(-50%) rotateX(0deg);\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"bottom\"]) #content {\n    transform: translateX(-50%) rotateX(-70deg);\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"bottom\"][opened]) #content {\n    transform: translateX(-50%) rotateX(0deg);\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"right\"]) #content {\n    transform: translateY(-50%) rotateX(-70deg);\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"right\"][opened]) #content {\n    transform: translateY(-50%) rotateX(0deg);\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"left\"]) #content {\n    transform: translateY(-50%) rotateX(-70deg);\n  }\n\n  :host([effect=\"flip-vertical\"][position=\"left\"][opened]) #content {\n    transform: translateY(-50%) rotateX(0deg);\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "sign",
+          "default": "css`\n  :host([effect=\"sign\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"sign\"]) #content {\n    transform-style: preserve-3d;\n    transition: all var(--kemet-popover-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"sign\"][opened]) #content {\n    opacity: 1;\n  }\n\n  :host([effect=\"sign\"][position=\"top\"]) #content {\n    transform-origin: 0 100%;\n    transform: translateX(-50%) rotateX(90deg);\n  }\n\n  :host([effect=\"sign\"][position=\"top\"][opened]) #content {\n    transform: translateX(-50%) rotateX(0deg);\n  }\n\n  :host([effect=\"sign\"][position=\"bottom\"]) #content {\n    transform-origin: 100% 0;\n    transform: translateX(-50%) rotateX(90deg);\n  }\n\n  :host([effect=\"sign\"][position=\"bottom\"][opened]) #content {\n    transform: translateX(-50%) rotateX(0deg);\n  }\n\n  :host([effect=\"sign\"][position=\"right\"]) #content {\n    transform-origin: 0 100%;\n    transform: translateY(-50%) rotateY(90deg);\n  }\n\n  :host([effect=\"sign\"][position=\"right\"][opened]) #content {\n    transform: translateY(-50%) rotateY(0deg);\n  }\n\n  :host([effect=\"sign\"][position=\"left\"]) #content {\n    transform-origin: 100% 0;\n    transform: translateY(-50%) rotateY(90deg);\n  }\n\n  :host([effect=\"sign\"][position=\"left\"][opened]) #content {\n    transform: translateY(-50%) rotateY(0deg);\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "superScaled",
+          "default": "css`\n  :host([effect=\"super-scaled\"]) #content {\n    opacity: 0;\n    transition: all var(--kemet-popover-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"super-scaled\"][opened]) #content {\n    opacity: 1;\n  }\n\n  :host([effect=\"super-scaled\"][position=\"top\"]) #content,\n  :host([effect=\"super-scaled\"][position=\"bottom\"]) #content {\n    transform: translateX(-50%) scale(2);\n  }\n\n  :host([effect=\"super-scaled\"][position=\"top\"][opened]) #content,\n  :host([effect=\"super-scaled\"][position=\"bottom\"][opened]) #content {\n    transform: translateX(-50%) scale(1);\n  }\n\n  :host([effect=\"super-scaled\"][position=\"left\"]) #content,\n  :host([effect=\"super-scaled\"][position=\"right\"]) #content {\n    transform: translateY(-50%) scale(2);\n  }\n\n  :host([effect=\"super-scaled\"][position=\"left\"][opened]) #content,\n  :host([effect=\"super-scaled\"][position=\"right\"][opened]) #content {\n    transform: translateY(-50%) scale(1);\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "fade",
+          "declaration": {
+            "name": "fade",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "scale",
+          "declaration": {
+            "name": "scale",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "slide",
+          "declaration": {
+            "name": "slide",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "fall",
+          "declaration": {
+            "name": "fall",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "flipHorizontal",
+          "declaration": {
+            "name": "flipHorizontal",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "flipVertical",
+          "declaration": {
+            "name": "flipVertical",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sign",
+          "declaration": {
+            "name": "sign",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "superScaled",
+          "declaration": {
+            "name": "superScaled",
+            "module": "src/components/kemet-popover/kemet-popover.effects.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-popover/kemet-popover.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetPopover",
+          "members": [
+            {
+              "kind": "method",
+              "name": "open"
+            },
+            {
+              "kind": "method",
+              "name": "close"
+            },
+            {
+              "kind": "method",
+              "name": "toggle",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "makeEvent",
+              "parameters": [
+                {
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "makeTooltip"
+            },
+            {
+              "kind": "method",
+              "name": "makeOverlay"
+            },
+            {
+              "kind": "method",
+              "name": "smartContent"
+            },
+            {
+              "kind": "method",
+              "name": "setPosition",
+              "parameters": [
+                {
+                  "name": "contentRect"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "effect",
+              "type": {
+                "text": "null"
+              },
+              "default": "null",
+              "privacy": "public",
+              "attribute": "effect",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "position",
+              "type": {
+                "text": "string"
+              },
+              "default": "'top'",
+              "privacy": "public",
+              "attribute": "position",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "tooltip",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "tooltip"
+            },
+            {
+              "kind": "field",
+              "name": "customTooltip",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "custom-tooltip"
+            },
+            {
+              "kind": "field",
+              "name": "fireOn",
+              "type": {
+                "text": "string"
+              },
+              "default": "'hover'",
+              "privacy": "public",
+              "attribute": "fire-on"
+            },
+            {
+              "kind": "field",
+              "name": "clickOutside",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "click-outside"
+            },
+            {
+              "kind": "field",
+              "name": "smart",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "privacy": "public",
+              "attribute": "smart"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "fieldName": "opened"
+            },
+            {
+              "name": "effect",
+              "fieldName": "effect"
+            },
+            {
+              "name": "position",
+              "fieldName": "position"
+            },
+            {
+              "name": "tooltip",
+              "fieldName": "tooltip"
+            },
+            {
+              "name": "custom-tooltip",
+              "fieldName": "customTooltip"
+            },
+            {
+              "name": "fire-on",
+              "fieldName": "fireOn"
+            },
+            {
+              "name": "click-outside",
+              "fieldName": "clickOutside"
+            },
+            {
+              "name": "smart",
+              "fieldName": "smart"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-popover",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetPopover",
+          "declaration": {
+            "name": "KemetPopover",
+            "module": "src/components/kemet-popover/kemet-popover.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-popover",
+          "declaration": {
+            "name": "KemetPopover",
+            "module": "src/components/kemet-popover/kemet-popover.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-popover/kemet-popover.tooltip.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
           "name": "tooltip",
-          "type": "Boolean",
-          "description": "Adds a build in tooltip to the popover.",
-          "default": false
+          "default": "css`\n  #tooltip {\n    display: flex;\n    position: absolute;\n  }\n\n  #tooltip polygon {\n    fill: var(--kemet-popover-background-color, #202020);\n  }\n\n  :host([position=\"top\"]) #tooltip {\n    left: 50%;\n    transform: translateX(-50%);\n  }\n\n  :host([position=\"right\"]) #tooltip {\n    right: 100%;\n    top: 50%;\n    transform-origin: top;\n    transform: translateY(-50%);\n  }\n\n  :host([position=\"bottom\"]) #tooltip {\n    bottom: 100%;\n    left: 50%;\n    transform-origin: left;\n    transform: translateX(-50%);\n  }\n\n  :host([position=\"left\"]) #tooltip {\n    left: 100%;\n    top: 50%;\n    transform-origin: top;\n    transform: translateY(-50%);\n  }\n\n  /* svg */\n  #tooltip svg {\n    position: relative;\n  }\n\n  :host([position=\"right\"]) svg {\n    transform: rotate(90deg);\n    right: -8px;\n  }\n\n  :host([position=\"bottom\"]) svg {\n    transform: rotate(180deg);\n    right: -8px;\n  }\n\n  :host([position=\"left\"]) svg {\n    transform: rotate(270deg);\n    right: 8px;\n  }\n`"
         },
         {
+          "kind": "variable",
           "name": "customTooltip",
-          "type": "Boolean",
-          "description": "Adds a custom tooltip to the popover. Use the custom-tooltip slot to specify the custom tooltip.",
-          "default": false
-        },
-        {
-          "name": "fireOnClick",
-          "type": "Boolean",
-          "description": "Controls whether or not the tooltip triggers on click.",
-          "default": false
-        },
-        {
-          "name": "fireOnHover",
-          "type": "Boolean",
-          "description": "Controls whether or not the tooltip triggers on hover.",
-          "default": true
-        },
-        {
-          "name": "clickOutside",
-          "type": "Boolean",
-          "description": "Allows the popover to be closed by clicking outside of its content.",
-          "default": false
+          "default": "css`\n  #custom-tooltip {\n    display: flex;\n    position: absolute;\n    z-index: 3;\n  }\n\n  :host([position=\"top\"]) #custom-tooltip {\n    left: 50%;\n    transform: translateX(-50%);\n  }\n\n  :host([position=\"right\"]) #custom-tooltip {\n    right: 100%;\n    top: 50%;\n    transform-origin: top;\n    transform: translateY(-50%);\n  }\n\n  :host([position=\"bottom\"]) #custom-tooltip {\n    bottom: 100%;\n    left: 50%;\n    transform-origin: left;\n    transform: translateX(-50%);\n  }\n\n  :host([position=\"left\"]) #custom-tooltip {\n    left: 100%;\n    top: 50%;\n    transform-origin: top;\n    transform: translateY(-50%);\n  }\n\n  ::slotted([slot=\"custom-tooltip\"]) {\n    display: flex;\n  }\n`"
         }
       ],
-      "events": [
+      "exports": [
         {
-          "name": "kemet-popover-opened",
-          "description": "Fires when the popover opens."
+          "kind": "js",
+          "name": "tooltip",
+          "declaration": {
+            "name": "tooltip",
+            "module": "src/components/kemet-popover/kemet-popover.tooltip.styles.js"
+          }
         },
         {
-          "name": "kemet-popover-closed",
-          "description": "Fires when the popover closes."
-        }
-      ],
-      "slots": [
-        {
-          "name": "trigger",
-          "description": "Controls opening and closing the popover."
-        },
-        {
-          "name": "content",
-          "description": "The contents of the popover."
-        },
-        {
-          "name": "custom-tooltip",
-          "description": "Allows you to use an svg, image, custom css, etc for a custom tooltip."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-popover-width",
-          "description": "The width of the popover contents.",
-          "type": "Dimension",
-          "default": "100%"
-        },
-        {
-          "name": "--kemet-popover-height",
-          "description": "The height of the popover contents.",
-          "type": "Dimension",
-          "default": "auto"
-        },
-        {
-          "name": "--kemet-popover-color",
-          "description": "The text color of the popover's contents.",
-          "type": "Color",
-          "default": "#fafafa"
-        },
-        {
-          "name": "--kemet-popover-background-color",
-          "description": "The background color of the popover's contents.",
-          "type": "Color",
-          "default": "#202020"
-        },
-        {
-          "name": "--kemet-popover-gap",
-          "description": "The space between the trigger and content.",
-          "type": "Position",
-          "default": "0px"
-        },
-        {
-          "name": "--kemet-popover-transition-speed",
-          "description": "The speed of the opening and closing effect.",
-          "type": "Transition",
-          "default": "0.3s"
-        },
-        {
-          "name": "::part(trigger)",
-          "description": "Contains the trigger for the popover.",
-          "type": "Part"
-        },
-        {
-          "name": "::part(content)",
-          "description": "Contains the content for the popover.",
-          "type": "Part"
-        },
-        {
-          "name": "::part(tooltip)",
-          "description": "Contains the tooltip for the popover.",
-          "type": "Part"
-        },
-        {
-          "name": "::part(custom-tooltip)",
-          "description": "Contains the custom tooltip for the popover.",
-          "type": "Part"
+          "kind": "js",
+          "name": "customTooltip",
+          "declaration": {
+            "name": "customTooltip",
+            "module": "src/components/kemet-popover/kemet-popover.tooltip.styles.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-ratio",
-      "description": "Displays a box given an aspect ratio. Especially useful for embeds.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-ratio/kemet-ratio.js",
+      "declarations": [
         {
-          "name": "aspectRatio",
-          "type": "String",
-          "description": "The aspect ratio of the box.",
-          "default": "16:9"
+          "kind": "class",
+          "description": "",
+          "name": "KemetRatio",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setAspectRatio"
+            },
+            {
+              "kind": "field",
+              "name": "aspectRatio",
+              "type": {
+                "text": "string"
+              },
+              "default": "'16:9'",
+              "privacy": "public",
+              "attribute": "aspect-ratio",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "aspect-ratio",
+              "fieldName": "aspectRatio"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-ratio",
+          "customElement": true
         }
       ],
-      "events": [],
-      "slots": [],
-      "cssProperties": [
+      "exports": [
         {
-          "name": "::part(container)",
-          "description": "Contains your content.",
-          "type": "Part"
+          "kind": "js",
+          "name": "KemetRatio",
+          "declaration": {
+            "name": "KemetRatio",
+            "module": "src/components/kemet-ratio/kemet-ratio.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-ratio",
+          "declaration": {
+            "name": "KemetRatio",
+            "module": "src/components/kemet-ratio/kemet-ratio.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-rotator",
-      "description": "A component that rotates through an array of text.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-rotator/kemet-rotator.js",
+      "declarations": [
         {
-          "name": "activeSlide",
-          "type": "Number",
-          "description": "The index number for the current slide.",
-          "default": 0
-        },
-        {
-          "name": "width",
-          "type": "String",
-          "description": "The width of the rotator block.",
-          "default": "auto"
-        },
-        {
-          "name": "height",
-          "type": "String",
-          "description": "The height of the rotator block.",
-          "default": "auto"
-        },
-        {
-          "name": "messages",
-          "type": "Array",
-          "description": "Text in the rotator. Supports HTML.",
-          "default": []
-        },
-        {
-          "name": "effect",
-          "type": "String",
-          "description": "The transition effect type.",
-          "default": "fade"
-        },
-        {
-          "name": "rotationSpeed",
-          "type": "Number",
-          "description": "How fast, in seconds, each slide lasts. Stop the rotator with 0.",
-          "default": 3
+          "kind": "class",
+          "description": "",
+          "name": "KemetRotator",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeMessages"
+            },
+            {
+              "kind": "method",
+              "name": "setDimensions"
+            },
+            {
+              "kind": "method",
+              "name": "nextSlide"
+            },
+            {
+              "kind": "field",
+              "name": "activeSlide",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "activeSlide"
+            },
+            {
+              "kind": "field",
+              "name": "messages",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "messages"
+            },
+            {
+              "kind": "field",
+              "name": "effect",
+              "type": {
+                "text": "string"
+              },
+              "default": "'fade'",
+              "privacy": "public",
+              "attribute": "effect",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rotationSpeed",
+              "type": {
+                "text": "number"
+              },
+              "default": "3",
+              "privacy": "public",
+              "attribute": "rotation-speed"
+            },
+            {
+              "kind": "field",
+              "name": "width",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "attribute": "width"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "attribute": "height"
+            },
+            {
+              "kind": "field",
+              "name": "prevSlide",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "activeSlide",
+              "fieldName": "activeSlide"
+            },
+            {
+              "name": "width",
+              "fieldName": "width"
+            },
+            {
+              "name": "height",
+              "fieldName": "height"
+            },
+            {
+              "name": "messages",
+              "fieldName": "messages"
+            },
+            {
+              "name": "effect",
+              "fieldName": "effect"
+            },
+            {
+              "name": "rotation-speed",
+              "fieldName": "rotationSpeed"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-rotator",
+          "customElement": true
         }
       ],
-      "methods": [
+      "exports": [
         {
-          "name": "nextSlide",
-          "description": "Calls the slide."
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": [
+          "kind": "js",
+          "name": "KemetRotator",
+          "declaration": {
+            "name": "KemetRotator",
+            "module": "src/components/kemet-rotator/kemet-rotator.js"
+          }
+        },
         {
-          "name": "--kemet-rotator-transition-speed",
-          "description": "How long, in css time units, the transition effect lasts.",
-          "type": "Time Unit",
-          "default": "500ms"
+          "kind": "custom-element-definition",
+          "name": "kemet-rotator",
+          "declaration": {
+            "name": "KemetRotator",
+            "module": "src/components/kemet-rotator/kemet-rotator.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-scroll-link",
-      "description": "A component that adds a smooth scrolling link to an target.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-link/kemet-scroll-link.js",
+      "declarations": [
         {
-          "name": "element",
-          "type": "Object",
-          "description": "A DOM element that establishes the context of scrolling.",
-          "default": "window"
-        },
-        {
-          "name": "target",
-          "type": "Object",
-          "description": "A DOM element that represents the destination of the scroll link",
-          "default": "body"
-        },
-        {
-          "name": "xOffset",
-          "type": "Number",
-          "description": "Allows the horizontal scrolling to stop short of the given value.",
-          "default": 0
-        },
-        {
-          "name": "yOffset",
-          "type": "Number",
-          "description": "Allows the vertical scrolling to stop short of the given value.",
-          "default": 0
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollLink",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleKeyup",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleScroll"
+            },
+            {
+              "kind": "field",
+              "name": "element",
+              "privacy": "public",
+              "attribute": "element"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "privacy": "public",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "xOffset",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "x-offset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "yOffset",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "y-offset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "keyCodes",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      ENTER: 13,\n      SPACE: 32,\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "isSmoothSupported"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "element",
+              "fieldName": "element"
+            },
+            {
+              "name": "target",
+              "fieldName": "target"
+            },
+            {
+              "name": "x-offset",
+              "fieldName": "xOffset"
+            },
+            {
+              "name": "y-offset",
+              "fieldName": "yOffset"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-link",
+          "customElement": true
         }
       ],
-      "events": [],
-      "slots": [],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-scroll-nav",
-      "description": "An element that transforms at a scroll point.",
-      "properties": [
+      "exports": [
         {
-          "name": "effect",
-          "type": "String",
-          "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
-          "default": "sticky"
+          "kind": "js",
+          "name": "KemetScrollLink",
+          "declaration": {
+            "name": "KemetScrollLink",
+            "module": "src/components/kemet-scroll-link/kemet-scroll-link.js"
+          }
         },
         {
-          "name": "transform",
-          "type": "Boolean",
-          "description": "Whether or not the nav has shifted into a new state.",
-          "default": false
-        },
-        {
-          "name": "offset",
-          "type": "Number",
-          "description": "Allows for an arbitrary adjustment of the transform point in pixels. Works with negative values.",
-          "default": 0
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-scroll-snap",
-      "description": "A scroll-snap implementation for responsive sliders.",
-      "properties": [
-        {
-          "name": "axis",
-          "type": "String",
-          "description": "Determines the direction the component flows. Values include: (horizontal|vertical)",
-          "default": "horizontal"
-        },
-        {
-          "name": "pagination",
-          "type": "String",
-          "description": "Determines where to display the paginator. Values include: (top|right|bottom|left)",
-          "default": "bottom"
-        },
-        {
-          "name": "isTouchDevice",
-          "type": "Boolean",
-          "description": "Is set if touch capabilities are detected.",
-          "default": false
-        },
-        {
-          "name": "slides",
-          "type": "Array",
-          "description": "An array of objects containing info about the slides.",
-          "default": []
-        }
-      ],
-      "events": [
-        {
-          "name": "kemet-scroll-snap-make-slides",
-          "description": "Fires when slide data has been created."
-        }
-      ],
-      "slots": [
-        {
-          "name": "slides",
-          "description": "Place your slides here."
-        },
-        {
-          "name": "pagination",
-          "description": "Place the paginator component here if you want one."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-scroll-snap-gap",
-          "description": "Space between the slides. Default is: 0."
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-link",
+          "declaration": {
+            "name": "KemetScrollLink",
+            "module": "src/components/kemet-scroll-link/kemet-scroll-link.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-scroll-snap-slide",
-      "description": "A slide for kemet-scroll-snap.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-nav/kemet-scroll-nav.js",
+      "declarations": [
         {
-          "name": "focused",
-          "type": "Boolean",
-          "description": "Is true when the slide is fully visible in it's container.",
-          "default": false
-        },
-        {
-          "name": "index",
-          "type": "String",
-          "description": "Identifies the slide.",
-          "default": "0"
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollNav",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleScroll",
+              "parameters": [
+                {
+                  "name": "stickPoint"
+                },
+                {
+                  "name": "elementHeight"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "effect",
+              "type": {
+                "text": "string"
+              },
+              "default": "'sticky'",
+              "privacy": "public",
+              "attribute": "effect",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "transform",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "transform",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "offset",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "offset"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "effect",
+              "fieldName": "effect"
+            },
+            {
+              "name": "transform",
+              "fieldName": "transform"
+            },
+            {
+              "name": "offset",
+              "fieldName": "offset"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-nav",
+          "customElement": true
         }
       ],
-      "events": [],
-      "slots": [
+      "exports": [
         {
-          "description": "The contents of a slide."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-scroll-snap-slide-width",
-          "description": "The width of the slide. Default is: 100%."
+          "kind": "js",
+          "name": "KemetScrollNav",
+          "declaration": {
+            "name": "KemetScrollNav",
+            "module": "src/components/kemet-scroll-nav/kemet-scroll-nav.js"
+          }
         },
         {
-          "name": "--kemet-scroll-snap-slide-align",
-          "description": "The scroll-snap alignment. Default is: center."
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-nav",
+          "declaration": {
+            "name": "KemetScrollNav",
+            "module": "src/components/kemet-scroll-nav/kemet-scroll-nav.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-scroll-snap-paginator",
-      "description": "A paginator for the scroll snap component.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js",
+      "declarations": [
         {
-          "name": "slides",
-          "type": "Array",
-          "description": "Information about each slide",
-          "default": []
-        },
-        {
-          "name": "icon",
-          "type": "String",
-          "description": "A character icon used for each page in the pagination iterator.",
-          "default": "•"
-        },
-        {
-          "name": "useNumberPages",
-          "type": "Boolean",
-          "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
-          "default": false
-        },
-        {
-          "name": "useLabelPages",
-          "type": "Boolean",
-          "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollSnapPaginator",
+          "members": [
+            {
+              "kind": "method",
+              "name": "createRenderRoot"
+            },
+            {
+              "kind": "method",
+              "name": "makePagination"
+            },
+            {
+              "kind": "method",
+              "name": "pageDisplay",
+              "parameters": [
+                {
+                  "name": "slide"
+                },
+                {
+                  "name": "visibleIndex"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "slideLink",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyboardInput",
+              "parameters": [
+                {
+                  "name": "event"
+                },
+                {
+                  "name": "id"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "slides"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'•'",
+              "privacy": "public",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "hideFocusedLinks",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "hide-focused-links"
+            },
+            {
+              "kind": "field",
+              "name": "useNumberPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "use-number-pages",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "useLabelPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "use-label-pages",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-scroll-snap-focus",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slides",
+              "fieldName": "slides"
+            },
+            {
+              "name": "icon",
+              "fieldName": "icon"
+            },
+            {
+              "name": "hide-focused-links",
+              "fieldName": "hideFocusedLinks"
+            },
+            {
+              "name": "use-number-pages",
+              "fieldName": "useNumberPages"
+            },
+            {
+              "name": "use-label-pages",
+              "fieldName": "useLabelPages"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-snap-paginator",
+          "customElement": true
         }
       ],
-      "events": [
+      "exports": [
         {
-          "name": "kemet-scroll-snap-focus",
-          "description": "Fires when a set of slides are focused on."
-        }
-      ],
-      "slots": [],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-svgs",
-      "description": "A set of SVG graphics that can be referenced any where in a page or app.",
-      "properties": [
-        {
-          "name": "set",
-          "type": "string",
-          "description": "Defines the name for the set of svgs.",
-          "default": "svgs"
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": []
-    },
-    {
-      "name": "kemet-svg",
-      "description": "An individual svg graphic to display from a set.",
-      "properties": [
-        {
-          "name": "set",
-          "type": "string",
-          "description": "Defines which set of svgs is referenced.",
-          "default": "svgs"
+          "kind": "js",
+          "name": "KemetScrollSnapPaginator",
+          "declaration": {
+            "name": "KemetScrollSnapPaginator",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js"
+          }
         },
         {
-          "name": "svg",
-          "type": "string",
-          "description": "The name (id) of the svg to be displayed.",
-          "default": null
-        },
-        {
-          "name": "size",
-          "type": "number",
-          "description": "Sets the width and height of a the svg to the given value in pixels.",
-          "default": null
-        },
-        {
-          "name": "ratio",
-          "type": "string",
-          "description": "The value for the preserveAspectRatio attribute of the svg.",
-          "default": "none"
-        },
-        {
-          "name": "viewBox",
-          "type": "string",
-          "description": "The value for the viewBox attribute of the svg.",
-          "default": "0 0 128 128"
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": [
-        {
-          "name": "::part(svg)",
-          "description": "The svg element.",
-          "type": "Part"
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-snap-paginator",
+          "declaration": {
+            "name": "KemetScrollSnapPaginator",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-tabs",
-      "description": "The tabs container element.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js",
+      "declarations": [
         {
-          "name": "selected",
-          "type": "String",
-          "description": "Represents which tab is currently selected."
-        },
-        {
-          "name": "selectedIndex",
-          "type": "Number",
-          "description": "Represents which tab index is currently selected."
-        },
-        {
-          "name": "panelPosition",
-          "type": "Number",
-          "description": "Determines, in pixels, how to position the panel."
-        },
-        {
-          "name": "panelEffect",
-          "type": "String",
-          "description": "The transition effect for the panel. Values include: (none | slide | fade)"
-        },
-        {
-          "name": "swipe",
-          "type": "Boolean",
-          "description": "Determines whether or not the user can swipe to change panels."
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollSnapSlide",
+          "members": [
+            {
+              "kind": "method",
+              "name": "addTabIndex"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "privacy": "public",
+              "attribute": "index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "attribute": "label",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "index",
+              "fieldName": "index"
+            },
+            {
+              "name": "label",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-snap-slide",
+          "customElement": true
         }
       ],
-      "events": [
+      "exports": [
         {
-          "name": "kemet-tab-changed",
-          "description": "Called when a tab is changed."
-        }
-      ],
-      "slots": [
-        {
-          "name": "links",
-          "description": "The tabs that link to a panel."
+          "kind": "js",
+          "name": "KemetScrollSnapSlide",
+          "declaration": {
+            "name": "KemetScrollSnapSlide",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js"
+          }
         },
         {
-          "name": "panel",
-          "description": "The content that corresponds to each tab."
-        }
-      ],
-      "cssProperties": [
-        {
-          "name": "--kemet-tabs-transition-speed",
-          "description": "Speed for the panel effect.",
-          "type": "Transition",
-          "default": "0.3s"
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-snap-slide",
+          "declaration": {
+            "name": "KemetScrollSnapSlide",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js"
+          }
         }
       ]
     },
     {
-      "name": "kemet-tab",
-      "description": "A tab that serves as a link to a panel.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap.js",
+      "declarations": [
         {
-          "name": "selected",
-          "type": "Boolean",
-          "description": "Is applied to the active tab.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollSnap",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setFocusedSlides"
+            },
+            {
+              "kind": "method",
+              "name": "makeSlides"
+            },
+            {
+              "kind": "method",
+              "name": "focusSlide",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setVerticalAttribute"
+            },
+            {
+              "kind": "field",
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "privacy": "public",
+              "attribute": "axis",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pagination",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bottom'",
+              "privacy": "public",
+              "attribute": "pagination",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isTouchDevice",
+              "privacy": "public",
+              "attribute": "is-touch-device",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "slides"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-scroll-snap-make-slides",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "axis",
+              "fieldName": "axis"
+            },
+            {
+              "name": "pagination",
+              "fieldName": "pagination"
+            },
+            {
+              "name": "is-touch-device",
+              "fieldName": "isTouchDevice"
+            },
+            {
+              "name": "slides",
+              "fieldName": "slides"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-snap",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetScrollSnap",
+          "declaration": {
+            "name": "KemetScrollSnap",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.js"
+          }
         },
         {
-          "name": "link",
-          "type": "String",
-          "description": "Represents which panel corresponds to the tab."
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-snap",
+          "declaration": {
+            "name": "KemetScrollSnap",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.js"
+          }
         }
-      ],
-      "events": [
-        {
-          "name": "kemet-tab-changed",
-          "description": "Called when a tab is changed."
-        }
-      ],
-      "slots": [
-        {
-          "name": "",
-          "description": "The contents of the tab."
-        }
-      ],
-      "cssProperties": []
+      ]
     },
     {
-      "name": "kemet-tab-panel",
-      "description": "Shows the contents of a tab.",
-      "properties": [
+      "kind": "javascript-module",
+      "path": "src/components/kemet-svgs/kemet-svg.js",
+      "declarations": [
         {
-          "name": "selected",
-          "type": "Boolean",
-          "description": "Is applied to the active panel.",
-          "default": false
+          "kind": "class",
+          "description": "",
+          "name": "KemetSVG",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setSize"
+            },
+            {
+              "kind": "method",
+              "name": "getIcon"
+            },
+            {
+              "kind": "method",
+              "name": "fillSVG",
+              "parameters": [
+                {
+                  "name": "element"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'svgs'",
+              "privacy": "public",
+              "attribute": "set"
+            },
+            {
+              "kind": "field",
+              "name": "ratio",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'",
+              "privacy": "public",
+              "attribute": "ratio"
+            },
+            {
+              "kind": "field",
+              "name": "viewBox",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0 0 128 128'",
+              "privacy": "public",
+              "attribute": "viewBox"
+            },
+            {
+              "kind": "field",
+              "name": "svg",
+              "privacy": "public",
+              "attribute": "svg"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "set",
+              "fieldName": "set"
+            },
+            {
+              "name": "svg",
+              "fieldName": "svg"
+            },
+            {
+              "name": "size",
+              "fieldName": "size"
+            },
+            {
+              "name": "ratio",
+              "fieldName": "ratio"
+            },
+            {
+              "name": "viewBox",
+              "fieldName": "viewBox"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-svg",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetSVG",
+          "declaration": {
+            "name": "KemetSVG",
+            "module": "src/components/kemet-svgs/kemet-svg.js"
+          }
         },
         {
-          "name": "panel",
-          "type": "String",
-          "description": "The name of the panel for linking purposes."
+          "kind": "custom-element-definition",
+          "name": "kemet-svg",
+          "declaration": {
+            "name": "KemetSVG",
+            "module": "src/components/kemet-svgs/kemet-svg.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-svgs/kemet-svgs.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetSVGs",
+          "members": [
+            {
+              "kind": "method",
+              "name": "populateIcons"
+            },
+            {
+              "kind": "field",
+              "name": "set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'svgs'",
+              "privacy": "public",
+              "attribute": "set"
+            },
+            {
+              "kind": "field",
+              "name": "kemetSVGs"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "set",
+              "fieldName": "set"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-svgs",
+          "customElement": true
         }
       ],
-      "events": [],
-      "slots": [
+      "exports": [
         {
-          "name": "",
-          "description": "The contents of the panel."
+          "kind": "js",
+          "name": "KemetSVGs",
+          "declaration": {
+            "name": "KemetSVGs",
+            "module": "src/components/kemet-svgs/kemet-svgs.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-svgs",
+          "declaration": {
+            "name": "KemetSVGs",
+            "module": "src/components/kemet-svgs/kemet-svgs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-tabs/kemet-tab-panel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTabPanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "panel",
+              "privacy": "public",
+              "attribute": "panel"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "panel",
+              "fieldName": "panel"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-tab-panel",
+          "customElement": true
         }
       ],
-      "cssProperties": [
+      "exports": [
         {
-          "name": "--kemet-tab-panel-fade-speed",
-          "description": "Speed for the fade effect.",
-          "type": "Transition",
-          "default": "0.5s"
+          "kind": "js",
+          "name": "KemetTabPanel",
+          "declaration": {
+            "name": "KemetTabPanel",
+            "module": "src/components/kemet-tabs/kemet-tab-panel.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-tab-panel",
+          "declaration": {
+            "name": "KemetTabPanel",
+            "module": "src/components/kemet-tabs/kemet-tab-panel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-tabs/kemet-tab.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTab",
+          "members": [
+            {
+              "kind": "method",
+              "name": "select"
+            },
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "privacy": "public",
+              "attribute": "link"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-tab-selected",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "link",
+              "fieldName": "link"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-tab",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetTab",
+          "declaration": {
+            "name": "KemetTab",
+            "module": "src/components/kemet-tabs/kemet-tab.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-tab",
+          "declaration": {
+            "name": "KemetTab",
+            "module": "src/components/kemet-tabs/kemet-tab.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-tabs/kemet-tabs.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTabs",
+          "members": [
+            {
+              "kind": "method",
+              "name": "init"
+            },
+            {
+              "kind": "method",
+              "name": "selectTab"
+            },
+            {
+              "kind": "method",
+              "name": "selectPanel"
+            },
+            {
+              "kind": "method",
+              "name": "dispatchTabChange"
+            },
+            {
+              "kind": "method",
+              "name": "tabSelectedChange",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "determineFade"
+            },
+            {
+              "kind": "method",
+              "name": "handleResize"
+            },
+            {
+              "kind": "method",
+              "name": "animatePanel",
+              "parameters": [
+                {
+                  "name": "panelName"
+                },
+                {
+                  "name": "panelIndex"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleTabKeydown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleTouchStart",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleTouchMove",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "selectedIndex"
+            },
+            {
+              "kind": "field",
+              "name": "panelPosition",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "panelPosition"
+            },
+            {
+              "kind": "field",
+              "name": "panelEffect",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'",
+              "privacy": "public",
+              "attribute": "panel-effect",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "panels",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "xDown",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "yDown",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "keyCodes",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      ENTER: 13,\n      SPACE: 32,\n      HOME: 36,\n      END: 35,\n      RIGHT: 39,\n      LEFT: 37,\n    }"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "swipe",
+              "privacy": "public",
+              "attribute": "swipe"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "selectedIndex",
+              "fieldName": "selectedIndex"
+            },
+            {
+              "name": "panelPosition",
+              "fieldName": "panelPosition"
+            },
+            {
+              "name": "panel-effect",
+              "fieldName": "panelEffect"
+            },
+            {
+              "name": "swipe",
+              "fieldName": "swipe"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-tabs",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetTabs",
+          "declaration": {
+            "name": "KemetTabs",
+            "module": "src/components/kemet-tabs/kemet-tabs.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-tabs",
+          "declaration": {
+            "name": "KemetTabs",
+            "module": "src/components/kemet-tabs/kemet-tabs.js"
+          }
         }
       ]
     }
