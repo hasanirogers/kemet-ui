@@ -1,5 +1,4 @@
-import { html } from 'lit-html';
-import dedent from 'ts-dedent';
+import { html } from 'lit';
 
 import './kemet-drawer.js';
 
@@ -29,13 +28,15 @@ const Template = ({
     }
   </style>
   <kemet-drawer ?opened=${opened} effect="${effect}" side="${side}" ?overlay=${overlay}>
-    <nav slot="navigation">
+    <nav slot="navigation" kemet-padding="tiny:large">
       <p>Your navigation goes here.</p>
-      <button @click=${event => toggleDrawer(event)}>Toggle the Drawer</button>
+      <kemet-button @click=${event => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
     </nav>
     <section slot="content">
-      <p>Your content goes here.</p>
-      <button @click=${event => toggleDrawer(event)}>Toggle the Drawer</button>
+      <div kemet-padding="tiny:large">
+        <p>Your content goes here.</p>
+        <kemet-button @click=${event => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
+      </div>
     </section>
   </kemet-drawer>
 `;
@@ -46,15 +47,45 @@ const toggleDrawer = (event) => {
 };
 
 export const Drawer = Template.bind({});
-Drawer.parameters = {
-  docs: {
-    source: {
-      code: dedent`
-        <kemet-drawer>
-          <nav slot="navigation">Your navigation goes here.</nav>
-          <section slot="content">Your content goes here.</section>
-        </kemet-drawer>
-      `,
-    },
+Drawer.argTypes = {
+  width: {
+    control: { type: 'text' },
   },
+  height: {
+    control: { type: 'text' },
+  },
+  color: {
+    control: { type: 'color' },
+  },
+  backgroundColor: {
+    control: { type: 'color' },
+  },
+  opened: {
+    control: { type: 'boolean' },
+  },
+  effect: {
+    control: { type: 'select' },
+    options: ['slide', 'reveal', 'push', 'scale'],
+  },
+  side: {
+    control: { type: 'select' },
+    options: ['top', 'right', 'bottom', 'left'],
+  },
+  overlay: {
+    control: { type: 'boolean' },
+  },
+  overlayColor: {
+    control: { type: 'color' },
+  },
+};
+Drawer.args = {
+  width: '300px',
+  height: '100%',
+  color: '#fafafa',
+  backgroundColor: '#202020',
+  opened: false,
+  effect: 'slide',
+  side: 'left',
+  overlay: false,
+  overlayColor: 'rgba(0,0,0,0.2)',
 };

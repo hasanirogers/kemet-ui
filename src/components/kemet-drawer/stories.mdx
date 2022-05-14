@@ -3,52 +3,7 @@ import * as stories from './stories.js';
 
 import './kemet-drawer.js';
 
-<Meta
-  title="Components/Kemet Drawer"
-  component="kemet-carousel"
-  argTypes={{
-    width: {
-      control: { type: 'text' },
-    },
-    height: {
-      control: { type: 'text' },
-    },
-    color: {
-      control: { type: 'color' }
-    },
-    backgroundColor: {
-      control: { type: 'color' }
-    },
-    opened: {
-      control: { type: 'boolean' },
-    },
-    effect: {
-      control: { type: 'select' },
-      options: ['slide', 'reveal', 'push', 'scale'],
-    },
-    side: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
-    },
-    overlay: {
-      control: { type: 'boolean' },
-    },
-    overlayColor: {
-      control: { type: 'color' }
-    },
-  }}
-  args={{
-    width: '300px',
-    height: '100%',
-    color: '#fafafa',
-    backgroundColor: '#202020',
-    opened: false,
-    effect: 'slide',
-    side: 'left',
-    overlay: false,
-    overlayColor: 'rgba(0,0,0,0.2)'
-  }}
-/>
+<Meta title="Components/Drawer" component="kemet-carousel" />
 
 # Kemet Drawer
 
@@ -63,12 +18,44 @@ A component that adds an off-canvas menu with different effects.
 </kemet-drawer>
 ```
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-drawer.js'
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-drawer.js" type="module"></script>
+```
+
 ## Stories
 
 <Canvas>
-  <Story story={stories.Drawer} />
+  <Story name="Standard" story={stories.Drawer} />
 </Canvas>
+
+<ArgsTable story="Standard" />
 
 ## API
 
+### &lt;kemet-drawer&gt;
 <ArgsTable of="kemet-drawer" />
+
+#### CSS
+
+| css                             | description                         | default            |
+| ------------------------------- | ----------------------------------- | ------------------ |
+| --kemet-drawer-width            | The width of the drawer.            |	300px              |
+| --kemet-drawer-height           | The height of the drawer.           | 100%               |
+| --kemet-drawer-color            | The text color of the drawer        | #fafafa            |
+| --kemet-drawer-background-color |	The background color of the drawer. | #202020            |
+| --kemet-drawer-overlay-color    | The color of the overlay.	          | rgba(0, 0, 0, 0.2) |
+| ::part(container)               |                                     |                    |
+| ::part(drawer)                  |                                     |                    |
+| ::part(pusher)                  |                                     |                    |
+| ::part(content)                 |                                     |                    |
+| ::part(wrapper)                 |                                     |                    |

@@ -462,6 +462,7 @@
               },
               "default": "'auto'",
               "privacy": "public",
+              "description": "The elements top position in pixels.",
               "attribute": "top"
             },
             {
@@ -472,6 +473,7 @@
               },
               "default": "'auto'",
               "privacy": "public",
+              "description": "The element's left position in pixels.",
               "attribute": "left"
             },
             {
@@ -482,12 +484,14 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
               "attribute": "measure"
             },
             {
               "kind": "field",
               "name": "memory",
               "privacy": "public",
+              "description": "A unique identifier used to store the element's position in local storage.",
               "attribute": "memory"
             }
           ],
@@ -508,18 +512,22 @@
           "attributes": [
             {
               "name": "memory",
+              "description": "A unique identifier used to store the element's position in local storage.",
               "fieldName": "memory"
             },
             {
               "name": "top",
+              "description": "The elements top position in pixels.",
               "fieldName": "top"
             },
             {
               "name": "left",
+              "description": "The element's left position in pixels.",
               "fieldName": "left"
             },
             {
               "name": "measure",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
               "fieldName": "measure"
             }
           ],
@@ -1032,19 +1040,11 @@
           "name": "KemetDrawer",
           "members": [
             {
-              "kind": "method",
-              "name": "makeEvent",
-              "parameters": [
-                {
-                  "name": "type"
-                }
-              ]
-            },
-            {
               "kind": "field",
               "name": "opened",
               "default": "undefined",
               "privacy": "public",
+              "description": "Determines if the drawer is opened or not.",
               "attribute": "opened",
               "reflects": true
             },
@@ -1056,6 +1056,7 @@
               },
               "default": "'slide'",
               "privacy": "public",
+              "description": "The animation effect for opening and closing the drawer.\nValues include: (slide | reveal | push | scale)",
               "attribute": "effect",
               "reflects": true
             },
@@ -1067,6 +1068,7 @@
               },
               "default": "'left'",
               "privacy": "public",
+              "description": "Allows you to control which side the drawer opens from.\nValues include: (left | right | top | bottom)",
               "attribute": "side",
               "reflects": true
             },
@@ -1078,32 +1080,46 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "Adds a overlay over the content section of the Drawer when opened",
               "attribute": "overlay",
               "reflects": true
             }
           ],
           "events": [
             {
+              "name": "kemet-drawer-opened",
               "type": {
                 "text": "CustomEvent"
-              }
+              },
+              "description": "Fires when the drawer opens."
+            },
+            {
+              "name": "kemet-drawer-closed",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the drawer closes."
             }
           ],
           "attributes": [
             {
               "name": "opened",
+              "description": "Determines if the drawer is opened or not.",
               "fieldName": "opened"
             },
             {
               "name": "effect",
+              "description": "The animation effect for opening and closing the drawer.\nValues include: (slide | reveal | push | scale)",
               "fieldName": "effect"
             },
             {
               "name": "side",
+              "description": "Allows you to control which side the drawer opens from.\nValues include: (left | right | top | bottom)",
               "fieldName": "side"
             },
             {
               "name": "overlay",
+              "description": "Adds a overlay over the content section of the Drawer when opened",
               "fieldName": "overlay"
             }
           ],
@@ -1141,7 +1157,7 @@
         {
           "kind": "variable",
           "name": "stylesBase",
-          "default": "css`\n  :host {\n    width: 100%;\n  }\n\n  .off-canvas {\n    position: relative;\n    overflow: hidden;\n  }\n\n  .off-canvas__nav {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 100;\n    visibility: hidden;\n    height: 100%;\n    transition: all 0.5s;\n  }\n\n  .off-canvas__nav::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(0, 0, 0, 0.2);\n    content: '';\n    opacity: 1;\n    transition: opacity 0.5s;\n  }\n\n  :host([opened]) .off-canvas__nav::after {\n    width: 0;\n    height: 0;\n    opacity: 0;\n    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;\n  }\n\n  .off-canvas__pusher {\n    position: relative;\n    left: 0;\n    z-index: 99;\n    height: 100%;\n    transition: transform 0.5s;\n  }\n\n  :host([overlay]) .off-canvas__pusher::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 0;\n    height: 0;\n    background: var(--kemet-drawer-overlay-color, rgba(0, 0, 0, 0.2));\n    content: '';\n    opacity: 0;\n    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;\n  }\n\n  :host([opened]) .off-canvas__pusher::after {\n    width: 100%;\n    height: 100%;\n    opacity: 1;\n    transition: opacity 0.5s;\n    transform: scale(2);\n  }\n\n  .off-canvas__content {\n    position: relative;\n    /* overflow-y: scroll; */\n    min-height: 100vh;\n  }\n\n  .off-canvas__wrapper {\n    position: relative;\n  }\n\n  ::slotted([slot=\"content\"]) {\n    min-height: 100vh;\n  }\n\n  /* -------------------------------------- */\n  /* custom properties */\n  /* -------------------------------------- */\n\n  .off-canvas__nav {\n    width: var(--kemet-drawer-width, 300px);\n    height: var(--kemet-drawer-height, 100%);\n    color: var(--kemet-drawer-color, #fafafa);\n    background: var(--kemet-drawer-background-color, #202020);\n  }\n`"
+          "default": "css`\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  :host {\n    width: 100%;\n  }\n\n  .off-canvas {\n    position: relative;\n    overflow: hidden;\n  }\n\n  .off-canvas__nav {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 100;\n    visibility: hidden;\n    height: 100%;\n    transition: all 0.5s;\n  }\n\n  .off-canvas__nav::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(0, 0, 0, 0.2);\n    content: '';\n    opacity: 1;\n    transition: opacity 0.5s;\n  }\n\n  :host([opened]) .off-canvas__nav::after {\n    width: 0;\n    height: 0;\n    opacity: 0;\n    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;\n  }\n\n  .off-canvas__pusher {\n    position: relative;\n    left: 0;\n    z-index: 99;\n    height: 100%;\n    transition: transform 0.5s;\n  }\n\n  :host([overlay]) .off-canvas__pusher::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 0;\n    height: 0;\n    background: var(--kemet-drawer-overlay-color, rgba(0, 0, 0, 0.2));\n    content: '';\n    opacity: 0;\n    transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;\n  }\n\n  :host([opened]) .off-canvas__pusher::after {\n    width: 100%;\n    height: 100%;\n    opacity: 1;\n    transition: opacity 0.5s;\n    transform: scale(2);\n  }\n\n  .off-canvas__content {\n    position: relative;\n    /* overflow-y: scroll; */\n    min-height: 100vh;\n  }\n\n  .off-canvas__wrapper {\n    position: relative;\n  }\n\n  ::slotted([slot=\"content\"]) {\n    min-height: 100vh;\n  }\n\n  /* -------------------------------------- */\n  /* custom properties */\n  /* -------------------------------------- */\n\n  .off-canvas__nav {\n    width: var(--kemet-drawer-width, 300px);\n    height: var(--kemet-drawer-height, 100%);\n    color: var(--kemet-drawer-color, #fafafa);\n    background: var(--kemet-drawer-background-color, #202020);\n  }\n`"
         },
         {
           "kind": "variable",

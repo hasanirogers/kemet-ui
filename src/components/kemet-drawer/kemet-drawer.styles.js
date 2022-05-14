@@ -3,6 +3,12 @@ import { css, unsafeCSS } from 'lit';
 const documentHeight = `${document.documentElement.scrollHeight}px`;
 
 export const stylesBase = css`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   :host {
     width: 100%;
   }

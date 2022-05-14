@@ -8,18 +8,32 @@ export class KemetDrawer extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * Determines if the drawer is opened or not.
+       */
       opened: {
         type: Boolean,
         reflect: true,
       },
+      /**
+       * The animation effect for opening and closing the drawer.
+       * Values include: (slide | reveal | push | scale)
+       */
       effect: {
         type: String,
         reflect: true,
       },
+      /**
+       * Allows you to control which side the drawer opens from.
+       * Values include: (left | right | top | bottom)
+       */
       side: {
         type: String,
         reflect: true,
       },
+      /**
+       * Adds a overlay over the content section of the Drawer when opened
+       */
       overlay: {
         type: Boolean,
         reflect: true,
@@ -30,7 +44,7 @@ export class KemetDrawer extends LitElement {
   constructor() {
     super();
 
-    // property defaults
+    // managed properties
     this.opened = undefined;
     this.effect = 'slide';
     this.side = 'left';
@@ -47,11 +61,29 @@ export class KemetDrawer extends LitElement {
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
-      this.makeEvent('opened');
+      /**
+       * Fires when the drawer opens.
+       */
+      this.dispatchEvent(
+        new CustomEvent('kemet-drawer-opened', {
+          bubbles: true,
+          composed: true,
+          detail: this,
+        }),
+      );
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      this.makeEvent('closed');
+      /**
+       * Fires when the drawer closes.
+       */
+      this.dispatchEvent(
+        new CustomEvent('kemet-drawer-closed', {
+          bubbles: true,
+          composed: true,
+          detail: this,
+        }),
+      );
     }
   }
 
@@ -71,16 +103,7 @@ export class KemetDrawer extends LitElement {
       </section>
     `;
   }
-
-  makeEvent(type) {
-    this.dispatchEvent(
-      new CustomEvent(`kemet-drawer-${type}`, {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      }),
-    );
-  }
 }
 
-window.customElements.define('kemet-drawer', KemetDrawer);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-drawer') || customElements.define('kemet-drawer', KemetDrawer);
