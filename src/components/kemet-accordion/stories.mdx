@@ -4,7 +4,7 @@ import './kemet-accordion.js';
 import './kemet-accordion-panel.js';
 
 <Meta
-  title="Components/Kemet Accordion"
+  title="Components/Accordion"
   component="kemet-popover"
   argTypes={{
     transitionSpeed: {
@@ -65,9 +65,9 @@ A component that acts like a standard accordion.
 
 #### Methods
 
-| method | description                |
-| ------ | -------------------------- |
-| toggle | Opens or closes the panel. |
+| method    | description                |
+| --------- | -------------------------- |
+| .toggle() | Opens or closes the panel. |
 
 #### Slots
 
@@ -77,16 +77,12 @@ A component that acts like a standard accordion.
 | icon    | The icon for the panel.                             |
 | body    | The body content of the panel.                      |
 
-<br />
-
-## CSS
-
-<br />
-
-### &lt;fmc-accordion-panel&gt;
+#### CSS
 
 | css                                      | description                                  | default |
 | ---------------------------------------- | -------------------------------------------- | ------- |
 | --kemet-accordion-panel-transition-speed | The speed of the opening and closing effect. | 0.3s    |
 | ::part(trigger)                          | Contains the trigger for the panel.          |         |
 | ::part(body)                             | Contains the body for the panel.             |         |
+
+

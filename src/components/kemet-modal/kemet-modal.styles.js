@@ -1,6 +1,12 @@
 import { css } from 'lit';
 
 export const stylesBase = css`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   :host {
     position: fixed;
     display: flex;
@@ -21,8 +27,17 @@ export const stylesBase = css`
     position: relative;
     z-index: 3;
     margin: auto;
-    min-width: var(--kemet-modal-min-width, 0);
-    max-width: var(--kemet-modal-max-width, none);
+    min-width: var(--kemet-modal-content-min-width, 0);
+    max-width: var(--kemet-modal-content-max-width, none);
+    padding: var(--kemet-modal-content-padding, 2rem);
+    background-color: var(--kemet-modal-content-background-color, var(--kemet-color-white));
+    box-shadow: var(--kemet-modal-content-box-shadow, rgb(0 0 0 / 10%) 0px 0.5rem 0.5rem 0px);
+  }
+
+  :host([mobile]) .content {
+    min-width: var(--kemet-modal-content-mobile-min-width, 100%);
+    min-height: var(--kemet-modal-content-mobile-min-height, 80vh);
+    padding: var(--kemet-modal-content-mobile-padding, 1rem);
   }
 
   .overlay {
