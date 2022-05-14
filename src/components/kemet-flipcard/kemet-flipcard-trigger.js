@@ -11,9 +11,7 @@ export class KemetFlipcardTrigger extends LitElement {
     ];
   }
 
-  constructor() {
-    super();
-
+  firstUpdated() {
     this.keyCodes = {
       ENTER: 13,
       SPACE: 32,
@@ -43,4 +41,5 @@ export class KemetFlipcardTrigger extends LitElement {
   }
 }
 
-window.customElements.define('kemet-flipcard-trigger', KemetFlipcardTrigger);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-flipcard-trigger') || customElements.define('kemet-flipcard-trigger', KemetFlipcardTrigger);

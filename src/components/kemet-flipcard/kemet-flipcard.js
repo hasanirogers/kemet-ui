@@ -3,10 +3,17 @@ import { html, css, LitElement } from 'lit';
 export class KemetFlipcard extends LitElement {
   static get styles() {
     return css`
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+      }
+
       :host {
         display: inline-block;
         width: var(--kemet-flipcard-width, 100%);
-        height: var(--kemet-flipcard-height, 240px);
+        height: var(--kemet-flipcard-height, auto);
+        aspect-ratio: var(--kemet-flipcard-ratio, 16/9);
         perspective: 1000px;
       }
 
@@ -25,11 +32,18 @@ export class KemetFlipcard extends LitElement {
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
+        overflow: hidden;
+        border-radius: var(--kemet-flipcard-border-radius, 0);
+        border: var(--kemet-flipcard-border, 2px solid var(--kemet-color-primary));
       }
 
       .front {
         color: var(--kemet-flipcard-front-color, #202020);
         background-color: var(--kemet-flipcard-front-background-color, #fafafa);
+      }
+
+      :host([flipped]) .front {
+        z-index: -1;
       }
 
       .back {
@@ -161,4 +175,6 @@ export class KemetFlipcard extends LitElement {
     }, 0);
   }
 }
-window.customElements.define('kemet-flipcard', KemetFlipcard);
+
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-flipcard') || window.customElements.define('kemet-flipcard', KemetFlipcard);
