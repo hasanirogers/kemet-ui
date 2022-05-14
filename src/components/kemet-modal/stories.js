@@ -58,3 +58,40 @@ const Template = ({
 };
 
 export const Modal = Template.bind({});
+Modal.argTypes = {
+  displayCloseBtn: {
+    control: { type: 'boolean' },
+  },
+  minWidth: {
+    control: { type: 'text' },
+  },
+  maxWidth: {
+    control: { type: 'text' },
+  },
+  overlayColor: {
+    control: { type: 'color' },
+  },
+  transitionSpeed: {
+    control: { type: 'text' },
+  },
+  opened: {
+    control: { type: 'boolean' },
+  },
+  effect: {
+    control: { type: 'select' },
+    options: ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'],
+  },
+  closeOnClick: {
+    control: { type: 'boolean' },
+  },
+};
+Modal.args = {
+  displayCloseBtn: true,
+  minWidth: '0',
+  maxWidth: 'none',
+  overlayColor: 'rgba(0,0,0,0.2)',
+  transitionSpeed: '0.3s',
+  opened: false,
+  effect: 'fall',
+  closeOnClick: false,
+};

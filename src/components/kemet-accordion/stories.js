@@ -1,11 +1,4 @@
 import { html } from 'lit-html';
-import dedent from 'ts-dedent';
-import './kemet-accordion.js';
-
-export default {
-  title: 'Kemet Accordion',
-  component: 'kemet-accordion',
-};
 
 const Template = ({
   transitionSpeed = '300ms',
@@ -45,37 +38,15 @@ const Template = ({
 `;
 
 export const Standard = Template.bind({});
-Standard.parameters = {
-  docs: {
-    source: {
-      code: dedent`
-      <kemet-accordion>
-        <kemet-accordion-panel>
-          <h3 slot="trigger">Trigger 1</h3>
-          <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
-          <div slot="body">
-            <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
-          </div>
-        </kemet-accordion-panel>
-        <kemet-accordion-panel>
-          <h3 slot="trigger">Trigger 2</h3>
-          <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
-          <div slot="body">
-            <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
-          </div>
-        </kemet-accordion-panel>
-        <kemet-accordion-panel>
-          <h3 slot="trigger">Trigger 3</h3>
-          <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
-          <div slot="body">
-            <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
-          </div>
-        </kemet-accordion-panel>
-      </kemet-accordion>
-      `,
-    },
+Standard.argTypes = {
+  transitionSpeed: {
+    control: { type: 'text' },
+  },
+  togglePanels: {
+    control: { type: 'boolean' },
   },
 };
-Standard.decorators = [
-  story => html`<div style="margin:2rem">${story()}</div>`,
-];
+Standard.args = {
+  transitionSpeed: '300ms',
+  togglePanels: false,
+};

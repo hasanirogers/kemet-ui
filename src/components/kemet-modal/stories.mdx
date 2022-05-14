@@ -5,47 +5,7 @@ import './kemet-modal.js';
 import './kemet-modal-close.js';
 
 
-<Meta
-  title="Components/Modal"
-  component="kemet-modal"
-  argTypes={{
-    displayCloseBtn: {
-      control: { type: 'boolean' },
-    },
-    minWidth: {
-      control: { type: 'text' },
-    },
-    maxWidth: {
-      control: { type: 'text' },
-    },
-    overlayColor: {
-      control: { type: 'color' }
-    },
-    transitionSpeed: {
-      control: { type: 'text' }
-    },
-    opened: {
-      control: { type: 'boolean' },
-    },
-    effect: {
-      control: { type: 'select' },
-      options: ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'],
-    },
-    closeOnClick: {
-      control: { type: 'boolean' },
-    },
-  }}
-  args={{
-    displayCloseBtn: true,
-    minWidth: '0',
-    maxWidth: 'none',
-    overlayColor: 'rgba(0,0,0,0.2)',
-    transitionSpeed: '0.3s',
-    opened: false,
-    effect: 'fall',
-    closeOnClick: false,
-  }}
-/>
+<Meta title="Components/Modal" component="kemet-modal" />
 
 # Kemet Modal
 
@@ -64,6 +24,22 @@ A modal that has many built in effects and flexible styles.
 ```
 
 **Note:** `kemet-modal-close` is optional.
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-modal.js';
+import 'kemet-ui/dist/components/kemet-modal-close.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-modal.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-modal-close.js" type="module"></script>
+```
 
 ## Stories
 

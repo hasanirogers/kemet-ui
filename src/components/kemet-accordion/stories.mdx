@@ -3,22 +3,7 @@ import * as stories from './stories.js'
 import './kemet-accordion.js';
 import './kemet-accordion-panel.js';
 
-<Meta
-  title="Components/Accordion"
-  component="kemet-popover"
-  argTypes={{
-    transitionSpeed: {
-      control: { type: 'text' }
-    },
-    togglePanels: {
-      control: { type: 'boolean' }
-    },
-  }}
-  args={{
-    transitionSpeed: '300ms',
-    togglePanels: false
-  }}
-/>
+<Meta title="Components/Accordion" component="kemet-popover" />
 
 # Kemet Accordion
 
@@ -37,6 +22,21 @@ A component that acts like a standard accordion.
 </kemet-accordion>
 ```
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-accordion.js';
+import 'kemet-ui/dist/components/kemet-accordion-panel.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-accordion.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-accordion-panel.js" type="module"></script>
+```
 
 ## Stories
 

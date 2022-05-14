@@ -37,17 +37,16 @@ export class KemetDraggable extends LitElement {
     this.top = 'auto';
     this.left = 'auto';
     this.measure = false;
+  }
 
-    // js property defaults
+  firstUpdated() {
+    // standard properties
     this.position1 = 0;
     this.position2 = 0;
     this.position3 = 0;
     this.position4 = 0;
     this.mouseMove = event => this.drag(event);
     this.mouseUp = () => this.stopDrag();
-  }
-
-  firstUpdated() {
     this.draggableElement = this.shadowRoot.getElementById('draggable');
 
     const savedPosition = JSON.parse(localStorage.getItem(this.memory));
