@@ -421,6 +421,145 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-draggable/kemet-draggable.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetDraggable",
+          "members": [
+            {
+              "kind": "method",
+              "name": "startDrag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "drag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "stopDrag"
+            },
+            {
+              "kind": "method",
+              "name": "measureContent"
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The elements top position in pixels.",
+              "attribute": "top"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The element's left position in pixels.",
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "memory",
+              "privacy": "public",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "attribute": "memory"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-draggable-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-draggable-stop",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "memory",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "fieldName": "memory"
+            },
+            {
+              "name": "top",
+              "description": "The elements top position in pixels.",
+              "fieldName": "top"
+            },
+            {
+              "name": "left",
+              "description": "The element's left position in pixels.",
+              "fieldName": "left"
+            },
+            {
+              "name": "measure",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-draggable",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetDraggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-draggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-carousel/kemet-carousel-link.js",
       "declarations": [
         {
@@ -893,145 +1032,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-draggable/kemet-draggable.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetDraggable",
-          "members": [
-            {
-              "kind": "method",
-              "name": "startDrag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "drag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "stopDrag"
-            },
-            {
-              "kind": "method",
-              "name": "measureContent"
-            },
-            {
-              "kind": "field",
-              "name": "top",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The elements top position in pixels.",
-              "attribute": "top"
-            },
-            {
-              "kind": "field",
-              "name": "left",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The element's left position in pixels.",
-              "attribute": "left"
-            },
-            {
-              "kind": "field",
-              "name": "measure",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "attribute": "measure"
-            },
-            {
-              "kind": "field",
-              "name": "memory",
-              "privacy": "public",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "attribute": "memory"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-draggable-start",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "name": "kemet-draggable-stop",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "memory",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "fieldName": "memory"
-            },
-            {
-              "name": "top",
-              "description": "The elements top position in pixels.",
-              "fieldName": "top"
-            },
-            {
-              "name": "left",
-              "description": "The element's left position in pixels.",
-              "fieldName": "left"
-            },
-            {
-              "name": "measure",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "fieldName": "measure"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-draggable",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetDraggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-draggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-drawer/kemet-drawer.js",
       "declarations": [
         {
@@ -1382,6 +1382,7 @@
               },
               "default": "'bootstrap'",
               "privacy": "public",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
               "attribute": "set"
             },
             {
@@ -1392,6 +1393,7 @@
               },
               "default": "'alarm'",
               "privacy": "public",
+              "description": "The name of the icon to reference.",
               "attribute": "icon"
             },
             {
@@ -1402,20 +1404,24 @@
               },
               "default": "16",
               "privacy": "public",
+              "description": "The width and height of the icon in pixels.",
               "attribute": "size"
             }
           ],
           "attributes": [
             {
               "name": "icon",
+              "description": "The name of the icon to reference.",
               "fieldName": "icon"
             },
             {
               "name": "set",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
               "fieldName": "set"
             },
             {
               "name": "size",
+              "description": "The width and height of the icon in pixels.",
               "fieldName": "size"
             }
           ],
@@ -2080,64 +2086,6 @@
           "declaration": {
             "name": "customTooltip",
             "module": "src/components/kemet-popover/kemet-popover.tooltip.styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-ratio/kemet-ratio.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetRatio",
-          "members": [
-            {
-              "kind": "method",
-              "name": "setAspectRatio"
-            },
-            {
-              "kind": "field",
-              "name": "aspectRatio",
-              "type": {
-                "text": "string"
-              },
-              "default": "'16:9'",
-              "privacy": "public",
-              "attribute": "aspect-ratio",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "aspect-ratio",
-              "fieldName": "aspectRatio"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-ratio",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetRatio",
-          "declaration": {
-            "name": "KemetRatio",
-            "module": "src/components/kemet-ratio/kemet-ratio.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-ratio",
-          "declaration": {
-            "name": "KemetRatio",
-            "module": "src/components/kemet-ratio/kemet-ratio.js"
           }
         }
       ]

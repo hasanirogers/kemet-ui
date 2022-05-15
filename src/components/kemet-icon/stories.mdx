@@ -3,22 +3,7 @@ import * as stories from './stories.js';
 import { Icons } from './stories.jsx';
 import './kemet-icon.js';
 
-<Meta
-  title="Components/Kemet Icon"
-  component="kemet-icon"
-  argTypes={{
-    set: {
-      control: { type: 'select' },
-      options: ['bootstrap', 'font-awesome-brand', 'font-awesome-regular', 'font-awesome-solid']
-    },
-    icon: {
-      control: { type: 'text' },
-    },
-    size: {
-      control: { type: 'number' }
-    }
-  }}
-/>
+<Meta title="Components/Icon" component="kemet-icon" />
 
 # Kemet Icon
 
@@ -31,11 +16,27 @@ An element that represents an icon from a predefined set of open sourced icons.
 <kemet-icon set="[open source icon set]" icon="[icon name]" size="[icon size]"></kemet-icon>
 ```
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-icon.js'
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-icon.js" type="module"></script>
+```
+
 ## Stories
 
 <Canvas>
-  <Story story={stories.Standard} />
+  <Story name="Standard" story={stories.Standard} />
 </Canvas>
+
+<ArgsTable story="Standard" />
 
 
 ## Sets
