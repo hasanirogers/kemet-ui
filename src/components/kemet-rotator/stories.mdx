@@ -3,35 +3,7 @@ import * as stories from './stories.js';
 
 import './kemet-rotator.js';
 
-<Meta
-  title="Components/Kemet Rotator"
-  components="kemet-rotator"
-  argTypes={{
-    message1: {
-      control: { type: 'text' },
-    },
-    message2: {
-      control: { type: 'text' },
-    },
-    message3: {
-      control: { type: 'text' },
-    },
-    effect: {
-      control: { type: 'select' },
-      options: ['fade', 'flip'],
-    },
-    rotationSpeed: {
-      control: { type: 'number' },
-    },
-  }}
-  args={{
-    message1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    message2: 'Praesent ornare porta nulla.',
-    message3: 'Nulla ipsum felis, aliquet nec nisl sit amet, suscipit facilisis massa.',
-    effect: 'fade',
-    rotationSpeed: 3
-  }}
-/>
+<Meta title="Components/Rotator" components="kemet-rotator" />
 
 # Kemet Rotator
 
@@ -43,12 +15,44 @@ A component that rotates through an array of text.
 <kemet-rotator messages='["my", "text", "here"]'></kemet-rotator>
 ```
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-rotator.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-rotator.js" type="module"></script>
+```
+
 ## Stories
 
 <Canvas>
-  <Story story={stories.Rotator} />
+  <Story name="Standard" story={stories.Rotator} />
 </Canvas>
+
+<ArgsTable story="Standard" />
 
 ## API
 
+<br />
+
+&lt;kemet-rotator&gt;
+
 <ArgsTable of="kemet-rotator" />
+
+#### Methods
+
+| method       | description      |
+|------------- |----------------- |
+| .nextSlide() | Calls the slide. |
+
+#### CSS
+
+| css                            | description                                               | default |
+|------------------------------- |---------------------------------------------------------- | ------- |
+--kemet-rotator-transition-speed | How long, in css time units, the transition effect lasts. | 500ms   |

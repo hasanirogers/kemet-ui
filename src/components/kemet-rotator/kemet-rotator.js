@@ -77,22 +77,40 @@ export class KemetRotator extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * The index number for the current slide.
+       */
       activeSlide: {
         type: Number,
       },
+      /**
+       * The width of the rotator block.
+       */
       width: {
         type: String,
       },
+      /**
+       * The height of the rotator block.
+       */
       height: {
         type: String,
       },
+      /**
+       * Text in the rotator. Supports HTML.
+       */
       messages: {
         type: Array,
       },
+      /**
+       * The transition effect type.
+       */
       effect: {
         type: String,
         reflect: true,
       },
+      /**
+       * How fast, in seconds, each slide lasts. Stop the rotator with 0.
+       */
       rotationSpeed: {
         type: Number,
         attribute: 'rotation-speed',
@@ -110,12 +128,12 @@ export class KemetRotator extends LitElement {
     this.rotationSpeed = 3;
     this.width = 'auto';
     this.height = 'auto';
-
-    // standard properties
-    this.prevSlide = null;
   }
 
   firstUpdated() {
+    // standard properties
+    this.prevSlide = null;
+
     window.addEventListener('resize', this.setDimensions.bind(this));
   }
 
@@ -189,4 +207,5 @@ export class KemetRotator extends LitElement {
   }
 }
 
-window.customElements.define('kemet-rotator', KemetRotator);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-rotator') || customElements.define('kemet-rotator', KemetRotator);

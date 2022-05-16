@@ -2144,6 +2144,7 @@
               },
               "default": "0",
               "privacy": "public",
+              "description": "The index number for the current slide.",
               "attribute": "activeSlide"
             },
             {
@@ -2154,6 +2155,7 @@
               },
               "default": "[]",
               "privacy": "public",
+              "description": "Text in the rotator. Supports HTML.",
               "attribute": "messages"
             },
             {
@@ -2164,6 +2166,7 @@
               },
               "default": "'fade'",
               "privacy": "public",
+              "description": "The transition effect type.",
               "attribute": "effect",
               "reflects": true
             },
@@ -2175,6 +2178,7 @@
               },
               "default": "3",
               "privacy": "public",
+              "description": "How fast, in seconds, each slide lasts. Stop the rotator with 0.",
               "attribute": "rotation-speed"
             },
             {
@@ -2185,6 +2189,7 @@
               },
               "default": "'auto'",
               "privacy": "public",
+              "description": "The width of the rotator block.",
               "attribute": "width"
             },
             {
@@ -2195,40 +2200,39 @@
               },
               "default": "'auto'",
               "privacy": "public",
+              "description": "The height of the rotator block.",
               "attribute": "height"
-            },
-            {
-              "kind": "field",
-              "name": "prevSlide",
-              "type": {
-                "text": "null"
-              },
-              "default": "null"
             }
           ],
           "attributes": [
             {
               "name": "activeSlide",
+              "description": "The index number for the current slide.",
               "fieldName": "activeSlide"
             },
             {
               "name": "width",
+              "description": "The width of the rotator block.",
               "fieldName": "width"
             },
             {
               "name": "height",
+              "description": "The height of the rotator block.",
               "fieldName": "height"
             },
             {
               "name": "messages",
+              "description": "Text in the rotator. Supports HTML.",
               "fieldName": "messages"
             },
             {
               "name": "effect",
+              "description": "The transition effect type.",
               "fieldName": "effect"
             },
             {
               "name": "rotation-speed",
+              "description": "How fast, in seconds, each slide lasts. Stop the rotator with 0.",
               "fieldName": "rotationSpeed"
             }
           ],
