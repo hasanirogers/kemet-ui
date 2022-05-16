@@ -2,84 +2,7 @@ import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 import * as stories from './stories.js'
 import './kemet-popover.js';
 
-<Meta
-  title="Components/Kemet Popover"
-  component="kemet-popover"
-  argTypes={{
-    triggerText: {
-      control: { type: 'text' },
-    },
-    contentText: {
-      control: { type: 'text' },
-    },
-    width: {
-      control: { type: 'text' }
-    },
-    height: {
-      control: { type: 'text' },
-    },
-    gap: {
-      control: { type: 'text' },
-    },
-    contentOffsetX: {
-      control: { type: 'text' }
-    },
-    contentOffsetY: {
-      control: { type: 'text' }
-    },
-    color: {
-      control: { type: 'color' }
-    },
-    backgroundColor: {
-      control: { type: 'color' }
-    },
-    transitionSpeed: {
-      control: { type: 'text' }
-    },
-    opened: {
-      control: { type: 'boolean' }
-    },
-    effect: {
-      control: { type: 'select' },
-      options: ['fade', 'scale', 'slide', 'fall', 'flip-horizontal', 'flip-vertical', 'sign', 'super-scaled'],
-    },
-    position: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
-    },
-    tooltip: {
-      control: { type: 'boolean' }
-    },
-    customTooltip: {
-      control: { type: 'boolean' }
-    },
-    fireOn: {
-      control: { type: 'radio' },
-      options: ['hover', 'click']
-    },
-    clickOutside: {
-      control: { type: 'boolean' }
-    }
-  }}
-  args={{
-    triggerText: 'Popover Trigger',
-    contentText: 'Your popover contents here. Supports HTML.',
-    width: '200%',
-    height: 'auto',
-    gap: '1rem',
-    contentOffsetX: '0',
-    contentOffsetY: '0',
-    color: '#fafafa',
-    backgroundColor: '#202020',
-    transitionSpeed: '0.3s',
-    opened: false,
-    effect: 'fade',
-    position: 'top',
-    customTooltip: false,
-    fireOn: 'hover',
-    clickOutside: false
-  }}
-/>
+<Meta title="Components/Popover" component="kemet-popover" />
 
 # KemetPopover
 
@@ -95,18 +18,71 @@ Displays an element in position of a trigger. Also acts as a tooltip.
 </kemet-popover>
 ```
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-popover.js';
+import 'kemet-ui/dist/components/kemet-popover-close.js';
+
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-popover.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-popover-close.js" type="module"></script>
+```
+
 ## Stories
 
-<Canvas>
-  <Story story={stories.Popover} />
-</Canvas>
+### Standard
 
 <Canvas>
-  <Story story={stories.customTooltip} />
+  <Story name="Standard" story={stories.Popover} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+### Custom Tooltip
+
+<Canvas>
+  <Story name="Custom Tooltip" story={stories.customTooltip} />
 </Canvas>
 
 ## API
 
-### Kemet Popover
+<br />
+
+### &lt;kemet-popover&gt;
 
 <ArgsTable of="kemet-popover" />
+
+#### Slots
+| slot           | description                                     |
+| -------------- |------------------------------------------------------------------------ |
+| trigger        |	Controls opening and closing the popover.                              |
+| content        |	The contents of the popover.                                           |
+| custom-tooltip |	Allows you to use an svg, image, custom css, etc for a custom tooltip. |
+
+#### CSS
+
+| css                              | description                                     | default |
+|--------------------------------- |------------------------------------------------ | ------- |
+| --kemet-popover-width	           | The width of the popover contents.	             | 100%    |
+| --kemet-popover-height	         | The height of the popover contents.	           | auto    |
+| --kemet-popover-color          	 | The text color of the popover's contents.	     | #fafafa |
+| --kemet-popover-background-color | The background color of the popover's contents. | #202020 |
+| --kemet-popover-gap	             | The space between the trigger and content.	     | 0px     |
+| --kemet-popover-transition-speed | The speed of the opening and closing effect.	   | 0.3s    |
+| ::part(trigger)	                 | Contains the trigger for the popover.	         |         |
+| ::part(content)	                 | Contains the content for the popover.	         |         |
+| ::part(tooltip)	                 | Contains the tooltip for the popover.	         |         |
+| ::part(custom-tooltip)	         | Contains the custom tooltip for the popover.	   |         |
+
+<br />
+
+### &lt;kemet-popover-close&gt;
+
+<ArgsTable of="kemet-popover-close" />

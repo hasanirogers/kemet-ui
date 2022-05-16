@@ -121,33 +121,62 @@ export class KemetPopover extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * Determines whether or not the popover displays.
+       */
       opened: {
         type: Boolean,
         reflect: true,
       },
+      /**
+       * The opening and closing effect of the popover. Is optional.
+       * Values include:
+       * (fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)
+       */
       effect: {
         string: String,
         reflect: true,
       },
+      /**
+       * Determines the placement of the popover.
+       * Values include: (top | right | bottom | left)
+       */
       position: {
         type: String,
         reflect: true,
       },
+      /**
+       * Adds a built in tooltip to the popover.
+       */
       tooltip: {
         type: Boolean,
       },
+      /**
+       * Adds a custom tooltip to the popover.
+       * Use the custom-tooltip slot to specify the custom tooltip.
+       */
       customTooltip: {
         type: Boolean,
         attribute: 'custom-tooltip',
       },
+      /**
+       * Controls how the trigger should activate the popover.
+       * Values include: (click | hover)
+       */
       fireOn: {
         type: String,
         attribute: 'fire-on',
       },
+      /**
+       * Allows the popover to be closed by clicking outside of its content.
+       */
       clickOutside: {
         type: Boolean,
         attribute: 'click-outside',
       },
+      /**
+       * Intelligently positions the popover.
+       */
       smart: {
         type: Boolean,
       },
@@ -170,6 +199,10 @@ export class KemetPopover extends LitElement {
   }
 
   firstUpdated() {
+    // standard properties
+    this.focusableSelector = 'body, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable], kemet-popover-close';
+    this.focusableElements = this.querySelectorAll(this.focusableSelector);
+
     // eslint-disable-next-line prefer-destructuring
     this.contentElement = this.shadowRoot
       .querySelector('slot[name="content"]')
@@ -178,15 +211,39 @@ export class KemetPopover extends LitElement {
     window.addEventListener('resize', () => {
       this.smartContent();
     });
+
+    if (this.fireOn === 'click') {
+      this.focusableElements.forEach((element) => {
+        element.addEventListener('keydown', event => this.handleFocusableDown(event));
+      });
+    }
   }
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
-      this.makeEvent('opened');
+      /**
+       * Fires when the popover opens.
+       */
+      this.dispatchEvent(
+        new CustomEvent('kemet-popover-opened', {
+          bubbles: true,
+          composed: true,
+          detail: this,
+        }),
+      );
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      this.makeEvent('closed');
+      /**
+       * Fires when the popover closes.
+       */
+      this.dispatchEvent(
+        new CustomEvent('kemet-popover-closed', {
+          bubbles: true,
+          composed: true,
+          detail: this,
+        }),
+      );
     }
 
     this.smartContent();
@@ -247,14 +304,19 @@ export class KemetPopover extends LitElement {
     }
   }
 
-  makeEvent(type) {
-    this.dispatchEvent(
-      new CustomEvent(`kemet-popover-${type}`, {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      }),
-    );
+  handleFocusableDown(event) {
+    const firstFocusable = this.focusableElements[0];
+    const lastFocusable = this.focusableElements[this.focusableElements.length - 1];
+
+    if (event.key === 'Tab') {
+      if (event.shiftKey && document.activeElement === firstFocusable) {
+        event.preventDefault();
+        lastFocusable.focus();
+      } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+        event.preventDefault();
+        firstFocusable.focus();
+      }
+    }
   }
 
   makeTooltip() {
@@ -361,4 +423,5 @@ export class KemetPopover extends LitElement {
   }
 }
 
-window.customElements.define('kemet-popover', KemetPopover);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-popover') || customElements.define('kemet-popover', KemetPopover);

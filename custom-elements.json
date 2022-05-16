@@ -1876,10 +1876,10 @@
             },
             {
               "kind": "method",
-              "name": "makeEvent",
+              "name": "handleFocusableDown",
               "parameters": [
                 {
-                  "name": "type"
+                  "name": "event"
                 }
               ]
             },
@@ -1912,6 +1912,7 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "Determines whether or not the popover displays.",
               "attribute": "opened",
               "reflects": true
             },
@@ -1923,6 +1924,7 @@
               },
               "default": "null",
               "privacy": "public",
+              "description": "The opening and closing effect of the popover. Is optional.\nValues include:\n(fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
               "attribute": "effect",
               "reflects": true
             },
@@ -1934,6 +1936,7 @@
               },
               "default": "'top'",
               "privacy": "public",
+              "description": "Determines the placement of the popover.\nValues include: (top | right | bottom | left)",
               "attribute": "position",
               "reflects": true
             },
@@ -1945,6 +1948,7 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "Adds a built in tooltip to the popover.",
               "attribute": "tooltip"
             },
             {
@@ -1955,6 +1959,7 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "Adds a custom tooltip to the popover.\nUse the custom-tooltip slot to specify the custom tooltip.",
               "attribute": "custom-tooltip"
             },
             {
@@ -1965,6 +1970,7 @@
               },
               "default": "'hover'",
               "privacy": "public",
+              "description": "Controls how the trigger should activate the popover.\nValues include: (click | hover)",
               "attribute": "fire-on"
             },
             {
@@ -1975,6 +1981,7 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "Allows the popover to be closed by clicking outside of its content.",
               "attribute": "click-outside"
             },
             {
@@ -1985,47 +1992,65 @@
               },
               "default": "true",
               "privacy": "public",
+              "description": "Intelligently positions the popover.",
               "attribute": "smart"
             }
           ],
           "events": [
             {
+              "name": "kemet-popover-opened",
               "type": {
                 "text": "CustomEvent"
-              }
+              },
+              "description": "Fires when the popover opens."
+            },
+            {
+              "name": "kemet-popover-closed",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the popover closes."
             }
           ],
           "attributes": [
             {
               "name": "opened",
+              "description": "Determines whether or not the popover displays.",
               "fieldName": "opened"
             },
             {
               "name": "effect",
+              "description": "The opening and closing effect of the popover. Is optional.\nValues include:\n(fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
               "fieldName": "effect"
             },
             {
               "name": "position",
+              "description": "Determines the placement of the popover.\nValues include: (top | right | bottom | left)",
               "fieldName": "position"
             },
             {
               "name": "tooltip",
+              "description": "Adds a built in tooltip to the popover.",
               "fieldName": "tooltip"
             },
             {
               "name": "custom-tooltip",
+              "description": "Adds a custom tooltip to the popover.\nUse the custom-tooltip slot to specify the custom tooltip.",
               "fieldName": "customTooltip"
             },
             {
               "name": "fire-on",
+              "description": "Controls how the trigger should activate the popover.\nValues include: (click | hover)",
               "fieldName": "fireOn"
             },
             {
               "name": "click-outside",
+              "description": "Allows the popover to be closed by clicking outside of its content.",
               "fieldName": "clickOutside"
             },
             {
               "name": "smart",
+              "description": "Intelligently positions the popover.",
               "fieldName": "smart"
             }
           ],
