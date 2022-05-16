@@ -421,145 +421,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-draggable/kemet-draggable.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetDraggable",
-          "members": [
-            {
-              "kind": "method",
-              "name": "startDrag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "drag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "stopDrag"
-            },
-            {
-              "kind": "method",
-              "name": "measureContent"
-            },
-            {
-              "kind": "field",
-              "name": "top",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The elements top position in pixels.",
-              "attribute": "top"
-            },
-            {
-              "kind": "field",
-              "name": "left",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The element's left position in pixels.",
-              "attribute": "left"
-            },
-            {
-              "kind": "field",
-              "name": "measure",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "attribute": "measure"
-            },
-            {
-              "kind": "field",
-              "name": "memory",
-              "privacy": "public",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "attribute": "memory"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-draggable-start",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "name": "kemet-draggable-stop",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "memory",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "fieldName": "memory"
-            },
-            {
-              "name": "top",
-              "description": "The elements top position in pixels.",
-              "fieldName": "top"
-            },
-            {
-              "name": "left",
-              "description": "The element's left position in pixels.",
-              "fieldName": "left"
-            },
-            {
-              "name": "measure",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "fieldName": "measure"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-draggable",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetDraggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-draggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-carousel/kemet-carousel-link.js",
       "declarations": [
         {
@@ -1026,6 +887,145 @@
           "declaration": {
             "name": "KemetCarousel",
             "module": "src/components/kemet-carousel/kemet-carousel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-draggable/kemet-draggable.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetDraggable",
+          "members": [
+            {
+              "kind": "method",
+              "name": "startDrag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "drag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "stopDrag"
+            },
+            {
+              "kind": "method",
+              "name": "measureContent"
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The elements top position in pixels.",
+              "attribute": "top"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The element's left position in pixels.",
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "memory",
+              "privacy": "public",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "attribute": "memory"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-draggable-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-draggable-stop",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "memory",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "fieldName": "memory"
+            },
+            {
+              "name": "top",
+              "description": "The elements top position in pixels.",
+              "fieldName": "top"
+            },
+            {
+              "name": "left",
+              "description": "The element's left position in pixels.",
+              "fieldName": "left"
+            },
+            {
+              "name": "measure",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-draggable",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetDraggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-draggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
           }
         }
       ]
@@ -2289,12 +2289,14 @@
               "kind": "field",
               "name": "element",
               "privacy": "public",
+              "description": "A DOM element that establishes the context of scrolling.",
               "attribute": "element"
             },
             {
               "kind": "field",
               "name": "target",
               "privacy": "public",
+              "description": "A DOM element that represents the destination of the scroll link.\nIf no target is specified it will default to the top of the page.",
               "attribute": "target"
             },
             {
@@ -2305,6 +2307,7 @@
               },
               "default": "0",
               "privacy": "public",
+              "description": "Allows the horizontal scrolling to stop short of the given value.",
               "attribute": "x-offset",
               "reflects": true
             },
@@ -2316,37 +2319,30 @@
               },
               "default": "0",
               "privacy": "public",
+              "description": "Allows the vertical scrolling to stop short of the given value.",
               "attribute": "y-offset",
               "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "keyCodes",
-              "type": {
-                "text": "object"
-              },
-              "default": "{\n      ENTER: 13,\n      SPACE: 32,\n    }"
-            },
-            {
-              "kind": "field",
-              "name": "isSmoothSupported"
             }
           ],
           "attributes": [
             {
               "name": "element",
+              "description": "A DOM element that establishes the context of scrolling.",
               "fieldName": "element"
             },
             {
               "name": "target",
+              "description": "A DOM element that represents the destination of the scroll link.\nIf no target is specified it will default to the top of the page.",
               "fieldName": "target"
             },
             {
               "name": "x-offset",
+              "description": "Allows the horizontal scrolling to stop short of the given value.",
               "fieldName": "xOffset"
             },
             {
               "name": "y-offset",
+              "description": "Allows the vertical scrolling to stop short of the given value.",
               "fieldName": "yOffset"
             }
           ],
