@@ -2402,6 +2402,7 @@
               },
               "default": "'sticky'",
               "privacy": "public",
+              "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
               "attribute": "effect",
               "reflects": true
             },
@@ -2413,6 +2414,7 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "Whether or not the nav has shifted into a new state.",
               "attribute": "transform",
               "reflects": true
             },
@@ -2424,20 +2426,24 @@
               },
               "default": "0",
               "privacy": "public",
+              "description": "Allows for an arbitrary adjustment of the transform point in pixels.\nWorks with negative values.",
               "attribute": "offset"
             }
           ],
           "attributes": [
             {
               "name": "effect",
+              "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
               "fieldName": "effect"
             },
             {
               "name": "transform",
+              "description": "Whether or not the nav has shifted into a new state.",
               "fieldName": "transform"
             },
             {
               "name": "offset",
+              "description": "Allows for an arbitrary adjustment of the transform point in pixels.\nWorks with negative values.",
               "fieldName": "offset"
             }
           ],
