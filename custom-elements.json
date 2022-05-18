@@ -2889,6 +2889,7 @@
               },
               "default": "'svgs'",
               "privacy": "public",
+              "description": "Defines which set of svgs is referenced.",
               "attribute": "set"
             },
             {
@@ -2899,6 +2900,7 @@
               },
               "default": "'none'",
               "privacy": "public",
+              "description": "The value for the preserveAspectRatio attribute of the svg.",
               "attribute": "ratio"
             },
             {
@@ -2909,40 +2911,48 @@
               },
               "default": "'0 0 128 128'",
               "privacy": "public",
+              "description": "The value for the viewBox attribute of the svg.",
               "attribute": "viewBox"
             },
             {
               "kind": "field",
               "name": "svg",
               "privacy": "public",
+              "description": "The name (id) of the svg to be displayed.",
               "attribute": "svg"
             },
             {
               "kind": "field",
               "name": "size",
               "privacy": "public",
+              "description": "Sets the width and height of a the svg to the given value in pixels.",
               "attribute": "size"
             }
           ],
           "attributes": [
             {
               "name": "set",
+              "description": "Defines which set of svgs is referenced.",
               "fieldName": "set"
             },
             {
               "name": "svg",
+              "description": "The name (id) of the svg to be displayed.",
               "fieldName": "svg"
             },
             {
               "name": "size",
+              "description": "Sets the width and height of a the svg to the given value in pixels.",
               "fieldName": "size"
             },
             {
               "name": "ratio",
+              "description": "The value for the preserveAspectRatio attribute of the svg.",
               "fieldName": "ratio"
             },
             {
               "name": "viewBox",
+              "description": "The value for the viewBox attribute of the svg.",
               "fieldName": "viewBox"
             }
           ],
@@ -2994,16 +3004,14 @@
               },
               "default": "'svgs'",
               "privacy": "public",
+              "description": "Defines the name for the set of svgs.",
               "attribute": "set"
-            },
-            {
-              "kind": "field",
-              "name": "kemetSVGs"
             }
           ],
           "attributes": [
             {
               "name": "set",
+              "description": "Defines the name for the set of svgs.",
               "fieldName": "set"
             }
           ],

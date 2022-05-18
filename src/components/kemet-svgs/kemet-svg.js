@@ -16,18 +16,33 @@ export class KemetSVG extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * Defines which set of svgs is referenced.
+       */
       set: {
         type: String,
       },
+      /**
+       * The name (id) of the svg to be displayed.
+       */
       svg: {
         type: String,
       },
+      /**
+       * Sets the width and height of a the svg to the given value in pixels.
+       */
       size: {
         type: Number,
       },
+      /**
+       * The value for the preserveAspectRatio attribute of the svg.
+       */
       ratio: {
         type: String,
       },
+      /**
+       * The value for the viewBox attribute of the svg.
+       */
       viewBox: {
         type: String,
       },
@@ -90,4 +105,5 @@ export class KemetSVG extends LitElement {
   }
 }
 
-window.customElements.define('kemet-svg', KemetSVG);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-svg') || customElements.define('kemet-svg', KemetSVG);

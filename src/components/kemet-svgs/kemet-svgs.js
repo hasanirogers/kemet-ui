@@ -11,6 +11,9 @@ export class KemetSVGs extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * Defines the name for the set of svgs.
+       */
       set: {
         type: String,
       },
@@ -21,11 +24,11 @@ export class KemetSVGs extends LitElement {
     super();
 
     this.set = 'svgs';
-    document.kemetSVGs = document.kemetSVGs || {};
   }
 
   firstUpdated() {
     this.slotElement = this.shadowRoot.querySelector('slot');
+    document.kemetSVGs = document.kemetSVGs || {};
 
     this.populateIcons();
     this.slotElement.addEventListener('slotchange', this.populateIcons());
@@ -45,4 +48,5 @@ export class KemetSVGs extends LitElement {
   }
 }
 
-window.customElements.define('kemet-svgs', KemetSVGs);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-svgs') || customElements.define('kemet-svgs', KemetSVGs);
