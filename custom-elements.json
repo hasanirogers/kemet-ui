@@ -1186,6 +1186,101 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-icon/kemet-icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetIcon",
+          "members": [
+            {
+              "kind": "method",
+              "name": "getIcon"
+            },
+            {
+              "kind": "method",
+              "name": "getUrl"
+            },
+            {
+              "kind": "field",
+              "name": "set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bootstrap'",
+              "privacy": "public",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "attribute": "set"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'alarm'",
+              "privacy": "public",
+              "description": "The name of the icon to reference.",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "description": "The width and height of the icon in pixels.",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "description": "The name of the icon to reference.",
+              "fieldName": "icon"
+            },
+            {
+              "name": "set",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "fieldName": "set"
+            },
+            {
+              "name": "size",
+              "description": "The width and height of the icon in pixels.",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetIcon",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-icon",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.js",
       "declarations": [
         {
@@ -1353,101 +1448,6 @@
           "declaration": {
             "name": "KemetFlipcard",
             "module": "src/components/kemet-flipcard/kemet-flipcard.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-icon/kemet-icon.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetIcon",
-          "members": [
-            {
-              "kind": "method",
-              "name": "getIcon"
-            },
-            {
-              "kind": "method",
-              "name": "getUrl"
-            },
-            {
-              "kind": "field",
-              "name": "set",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bootstrap'",
-              "privacy": "public",
-              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "attribute": "set"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'alarm'",
-              "privacy": "public",
-              "description": "The name of the icon to reference.",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "privacy": "public",
-              "description": "The width and height of the icon in pixels.",
-              "attribute": "size"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "description": "The name of the icon to reference.",
-              "fieldName": "icon"
-            },
-            {
-              "name": "set",
-              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "fieldName": "set"
-            },
-            {
-              "name": "size",
-              "description": "The width and height of the icon in pixels.",
-              "fieldName": "size"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-icon",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetIcon",
-          "declaration": {
-            "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-icon",
-          "declaration": {
-            "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
           }
         }
       ]
@@ -2485,10 +2485,6 @@
           "members": [
             {
               "kind": "method",
-              "name": "createRenderRoot"
-            },
-            {
-              "kind": "method",
               "name": "makePagination"
             },
             {
@@ -2532,6 +2528,7 @@
               },
               "default": "[]",
               "privacy": "public",
+              "description": "Information about each slide.",
               "attribute": "slides"
             },
             {
@@ -2540,9 +2537,21 @@
               "type": {
                 "text": "string"
               },
-              "default": "'•'",
+              "default": "'circle-fill'",
               "privacy": "public",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
               "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "description": "The size in pixels of the icons.",
+              "attribute": "size"
             },
             {
               "kind": "field",
@@ -2552,6 +2561,7 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "Will hide inactive pagination items if set to true.",
               "attribute": "hide-focused-links"
             },
             {
@@ -2562,6 +2572,7 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
               "attribute": "use-number-pages",
               "reflects": true
             },
@@ -2573,7 +2584,16 @@
               },
               "default": "false",
               "privacy": "public",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on\nthe slide.",
               "attribute": "use-label-pages",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "center",
+              "privacy": "public",
+              "description": "Determines whether to center the pagination items.",
+              "attribute": "center",
               "reflects": true
             }
           ],
@@ -2582,28 +2602,44 @@
               "name": "kemet-scroll-snap-focus",
               "type": {
                 "text": "CustomEvent"
-              }
+              },
+              "description": "Fires when a set of slides are focused on."
             }
           ],
           "attributes": [
             {
               "name": "slides",
+              "description": "Information about each slide.",
               "fieldName": "slides"
             },
             {
               "name": "icon",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
               "fieldName": "icon"
             },
             {
+              "name": "size",
+              "description": "The size in pixels of the icons.",
+              "fieldName": "size"
+            },
+            {
+              "name": "center",
+              "description": "Determines whether to center the pagination items.",
+              "fieldName": "center"
+            },
+            {
               "name": "hide-focused-links",
+              "description": "Will hide inactive pagination items if set to true.",
               "fieldName": "hideFocusedLinks"
             },
             {
               "name": "use-number-pages",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
               "fieldName": "useNumberPages"
             },
             {
               "name": "use-label-pages",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on\nthe slide.",
               "fieldName": "useLabelPages"
             }
           ],
@@ -2651,6 +2687,7 @@
               "kind": "field",
               "name": "focused",
               "privacy": "public",
+              "description": "Is true when the slide is fully visible in it's container.",
               "attribute": "focused",
               "reflects": true
             },
@@ -2658,6 +2695,7 @@
               "kind": "field",
               "name": "index",
               "privacy": "public",
+              "description": "Identifies the slide.",
               "attribute": "index",
               "reflects": true
             },
@@ -2665,6 +2703,7 @@
               "kind": "field",
               "name": "label",
               "privacy": "public",
+              "description": "Labels the slide.",
               "attribute": "label",
               "reflects": true
             }
@@ -2672,14 +2711,17 @@
           "attributes": [
             {
               "name": "focused",
+              "description": "Is true when the slide is fully visible in it's container.",
               "fieldName": "focused"
             },
             {
               "name": "index",
+              "description": "Identifies the slide.",
               "fieldName": "index"
             },
             {
               "name": "label",
+              "description": "Labels the slide.",
               "fieldName": "label"
             }
           ],
@@ -2748,6 +2790,7 @@
               },
               "default": "'horizontal'",
               "privacy": "public",
+              "description": "Determines the direction the component flows. Values include: (horizontal|vertical)",
               "attribute": "axis",
               "reflects": true
             },
@@ -2759,25 +2802,9 @@
               },
               "default": "'bottom'",
               "privacy": "public",
+              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
               "attribute": "pagination",
               "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "isTouchDevice",
-              "privacy": "public",
-              "attribute": "is-touch-device",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "slides",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]",
-              "privacy": "public",
-              "attribute": "slides"
             }
           ],
           "events": [
@@ -2785,25 +2812,20 @@
               "name": "kemet-scroll-snap-make-slides",
               "type": {
                 "text": "CustomEvent"
-              }
+              },
+              "description": "Fires when slide data has been created."
             }
           ],
           "attributes": [
             {
               "name": "axis",
+              "description": "Determines the direction the component flows. Values include: (horizontal|vertical)",
               "fieldName": "axis"
             },
             {
               "name": "pagination",
+              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
               "fieldName": "pagination"
-            },
-            {
-              "name": "is-touch-device",
-              "fieldName": "isTouchDevice"
-            },
-            {
-              "name": "slides",
-              "fieldName": "slides"
             }
           ],
           "superclass": {

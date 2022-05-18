@@ -3,10 +3,21 @@ import { html, css, LitElement } from 'lit';
 export class KemetScrollSnap extends LitElement {
   static get styles() {
     return css`
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+
       :host {
         display: flex;
-        width: 100%;
         flex-direction: column;
+        width: 100%;
+      }
+
+      :host([axis='horizontal']) {
+        margin: auto;
+        max-width: var(--kemet-scroll-snap-horizontal-max-width, 1024px);
       }
 
       :host([pagination="left"]),
@@ -26,9 +37,8 @@ export class KemetScrollSnap extends LitElement {
 
       ::slotted([slot="slides"]) {
         display: flex;
-        gap: var(--kemet-scroll-snap-gap, 0);
+        gap: var(--kemet-scroll-snap-gap, 1.5rem);
         scroll-snap-type: x mandatory;
-
         overflow-x: scroll;
       }
 
@@ -41,27 +51,26 @@ export class KemetScrollSnap extends LitElement {
         flex-direction: column;
         overflow-x: hidden;
         scroll-snap-type: y mandatory;
+        padding: var(--kemet-scroll-snap-slides-vertical-padding, 0 2rem);
       }
     `;
   }
 
   static get properties() {
     return {
+      /**
+       * Determines the direction the component flows. Values include: (horizontal|vertical)
+       */
       axis: {
         type: String,
         reflect: true,
       },
+      /**
+       * Determines where to display the paginator. Values include: (top | right | bottom | left)
+       */
       pagination: {
         type: String,
         reflect: true,
-      },
-      isTouchDevice: {
-        type: Boolean,
-        reflect: true,
-        attribute: 'is-touch-device',
-      },
-      slides: {
-        type: Array,
       },
     };
   }
@@ -69,10 +78,9 @@ export class KemetScrollSnap extends LitElement {
   constructor() {
     super();
 
+    // managed properties
     this.axis = 'horizontal';
     this.pagination = 'bottom';
-    this.isTouchDevice = 'ontouchstart' in document.documentElement;
-    this.slides = [];
 
     this.addEventListener('kemet-scroll-snap-focus', (event) => {
       this.focusSlide(event.detail);
@@ -80,6 +88,10 @@ export class KemetScrollSnap extends LitElement {
   }
 
   firstUpdated() {
+    // standard properties
+    this.isTouchDevice = 'ontouchstart' in document.documentElement;
+    this.slides = [];
+
     this.setFocusedSlides();
   }
 
@@ -134,7 +146,6 @@ export class KemetScrollSnap extends LitElement {
       const slide = element;
 
       slide.index = index;
-
       slides.push({
         id: index,
         focused: slide.focused,
@@ -144,6 +155,9 @@ export class KemetScrollSnap extends LitElement {
 
     this.slides = slides;
 
+    /**
+     * Fires when slide data has been created.
+     */
     this.dispatchEvent(new CustomEvent('kemet-scroll-snap-make-slides', {
       bubbles: true,
       composed: true,
@@ -163,4 +177,5 @@ export class KemetScrollSnap extends LitElement {
   }
 }
 
-window.customElements.define('kemet-scroll-snap', KemetScrollSnap);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-scroll-snap') || customElements.define('kemet-scroll-snap', KemetScrollSnap);

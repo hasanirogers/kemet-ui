@@ -141,6 +141,7 @@
   @each $key, $value in $typesizers {
     [kemet-type-size*="#{$key}"] {
       font-size: $value;
+      margin: 0;
     }
   }
 
@@ -149,6 +150,7 @@
       @each $key, $value in $typesizers {
         [kemet-type-size*="#{$breakpoint}:#{$key}"] {
           font-size: $value;
+          margin: 0;
         }
       }
     }

@@ -1,46 +1,5 @@
 @use 'config' as *;
 
-kemet-scroll-snap-slide {
-  padding: 2rem;
-  box-sizing: border-box;
-}
-
-kemet-scroll-snap-paginator {
-  font-size: 3rem;
-  display: block;
-  text-align: center;
-}
-
-kemet-scroll-snap-paginator ul {
-  display: inline-flex;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-kemet-scroll-snap-paginator .link {
-  cursor: pointer;
-  color: var(--kemet-color-link);
-}
-
-/* horizontal */
-kemet-scroll-snap[axis='horizontal'] kemet-scroll-snap {
-  max-width: 1440px;
-}
-
-@media screen and (min-width: 640px) {
-  kemet-scroll-snap[axis='horizontal'] kemet-scroll-snap-slide {
-    max-width: 48vw;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  kemet-scroll-snap[axis='horizontal'] kemet-scroll-snap-slide {
-    max-width: 33vw;
-  }
-}
-
 kemet-scroll-snap[axis='horizontal'] [slot='slides'] {
   scrollbar-width: none;
 }
@@ -51,18 +10,20 @@ kemet-scroll-snap[axis='horizontal'] [slot='slides']::-webkit-scrollbar {
   background: transparent;
 }
 
-/* vertical */
-html[kemet-scroll-snap-axis='vertical'] {
-  overflow: hidden;
-}
 
-kemet-scroll-snap[axis='vertical'] [slot='slides'] {
-  overflow-x: hidden;
-}
 
-kemet-scroll-snap[axis='vertical'] kemet-scroll-snap-slide {
-  --kemet-scroll-snap-slide-align: start;
+// /* vertical */
+// html[kemet-scroll-snap-axis='vertical'] {
+//   overflow: hidden;
+// }
 
-  max-width: 1440px;
-  margin: auto;
-}
+// kemet-scroll-snap[axis='vertical'] [slot='slides'] {
+//   overflow-x: hidden;
+// }
+
+// kemet-scroll-snap[axis='vertical'] kemet-scroll-snap-slide {
+//   --kemet-scroll-snap-slide-align: start;
+
+//   max-width: 1440px;
+//   margin: auto;
+// }
