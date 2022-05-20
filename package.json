@@ -54,7 +54,8 @@
       "import/no-extraneous-dependencies": "off"
     },
     "ignorePatterns": [
-      "dist/**/*.js"
+      "dist/**/*.js",
+      "src/utilities/controllers/**/*.js"
     ]
   },
   "browserslist": [
@@ -71,7 +72,7 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-react": "^7.14.5",
     "@custom-elements-manifest/analyzer": "^0.5.7",
-    "@open-wc/eslint-config": "^4.3.0",
+    "@open-wc/eslint-config": "^7.0.0",
     "@open-wc/testing": "^2.5.33",
     "@rollup/plugin-multi-entry": "^4.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
