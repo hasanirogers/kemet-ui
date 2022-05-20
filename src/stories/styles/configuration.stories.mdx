@@ -1,0 +1,199 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+
+<Meta title="Styles/Config" />
+
+# Configuration
+
+Kemet UI comes with several variables that allow you to customize the behavior of the styles. You can view these variables in [the config file](https://github.com/hasanirogers/kemet-ui/blob/main/src/styles/core/_config.scss).
+
+<br />
+
+## Gutters
+
+You can control how gutters behave with the `$gutters` variables. `$gutters` is a sass map. You can change the values for the map. For example you might want to use px instead of rem for the units on the gutters. You can also change how gutters are referenced by changing the map's key. So instead of minus-1 you might want to change it to simply small. Kemet is smart enough to loop through the map so you can also add or remove any key value you pairs as you wish. Here's an example of a custom `$gutters` config.
+
+```scss
+$gutters: (
+  none: 0,
+  smallest: 4px,
+  smaller: 8px,
+  small: 12px,
+  default: 16px, // do not remove this
+  large: 20px,
+  larger: 24px,
+  largest: 28px,
+);
+```
+
+In the example above we changed the keys, values, and number of entries in the map to our custom needs. The only rule is do not remove default.
+
+<br />
+
+**Default**
+
+```scss
+$gutters: (
+  none: 0,
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  default: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+);
+```
+
+## Flexiplier
+
+The `$flexiplier` controls increments of spacing. The default is `tens`. You may also use `fives` or `twenties`. So for example, if you set it to `fives` you can use increments of 5 in your breakpoints.
+
+```html
+<div kemet-breakpoint="tiny:15">...</div>
+```
+
+In the example above we are able to use `kemet-breakpoint="tiny:15"` because our flexliplier is at `fives`. We could also use 20, 25, 30, 35, etc since we're incrementing by 5.
+
+**Default**
+
+```scss
+$flexiplier: 'tens';
+```
+
+## Stackpoint
+
+The `$stackpoint` is the point at which the library considers your layout to go from “mobile” to “full”. The attribute autostack relies on this. The default is set to `640px`.
+
+**Default**
+
+```scss
+$stackpoint: 640px;
+```
+
+## Breakpoints
+
+This is a map that controls both how many and what sizes your breakpoints are. You can add key/value pairs to the breakpoints as necessary. So for example, if we wanted to simplify the default config we could add the following:
+
+```scss
+$breakpoints: (
+  mobile: 0,
+  tablet: 768px,
+  desktop: 1024px,
+);
+```
+
+We don't recommend such a configuration, but it's possible to achieve. Notice that mobile starts at `0px`. This is because the media queries are all mobile first and use min-width. So, in this example, mobile starts at 0, tablets starts at 768, and desktop at 1024.
+
+It should also be noted that the breakpoints used the order attribute are determined by this as well.
+
+**Default**
+
+```scss
+$breakpoints: (
+  tiny: 0,
+  small: 321px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1440px
+);
+```
+
+## Break Ranges
+
+These are specifically for the visibility classes and logically should be consistent with your breakpoints.
+
+**Default**
+
+```scss
+$breakranges: (
+  tiny: (0, 319px),
+  small: (320px, 767px),
+  medium: (768px, 1023px),
+  large: (1024px, 1439px),
+  huge: (1440px, 9999px)
+);
+```
+
+## Order
+
+Determines the depth of priority that can be set for the order attribute where depth is defined as a number. The default is 5 so giving an order of `order=”small:minus-5”` would mean the highest priority, starting at small.
+
+**Default**
+
+```scss
+$order: 5;
+```
+
+## Flexgrid Columns
+
+Use of `$flexgridcolumn` is specifically for using basis with flexgrid. It simply sets the number of columns. Default is 12.
+
+**Default**
+
+```scss
+$flexgridcolumns: 12;
+```
+
+
+## Type Sizers
+
+Similar to `$gutters`, `$typesizers` allows you to control how sizing for the type utility. The defaults are similar to gutters but can be customized in the same fashion as well.
+
+**Default**
+
+```scss
+$typesizers: (
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  base: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+);
+```
+
+## Spacers
+
+Controls the amount of spacing used for margin helper classes.
+
+**Default**
+
+```scss
+$spacers: (
+  none: 0,
+  smallest: 0.5rem,
+  smaller: 1rem,
+  small: 1.5rem,
+  normal: 2rem,
+  large: 2.5rem,
+  larger: 3rem,
+  largest: 3.5rem
+);
+```
+
+## Make Order
+If you want to reduce file size and don't need the order attribute, set `$makeorder` to false.
+
+**Default**: `true`
+
+## Make Visibility
+If you want to reduce file size and don't need the visibility classes, set `$makevisibility` to false.
+
+**Default**: `true`
+
+## Make Text
+If you want to reduce file size and don't need text helper classes, set `$maketext` to false.
+
+**Default**: `true`
+
+## Make Spacers
+If you want to reduce file size and don't need spacers, set `$makespacers` to false.
+
+**Default**: `true`
