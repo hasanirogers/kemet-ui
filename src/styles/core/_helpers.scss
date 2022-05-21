@@ -1,4 +1,5 @@
 @use 'config' as *;
+@use '../components/config' as *;
 
 @function getListFirst($list) {
   @return nth($list, 1);
@@ -293,6 +294,18 @@
       [kemet-type-align*='#{$breakpoint}:center'] {
         text-align: center;
       }
+    }
+  }
+}
+
+@mixin makeColors {
+  @each $color, $value in $colors {
+    [kemet-color="#{$color}"] {
+      color: $value;
+    }
+
+    [kemet-background-color="#{$color}"] {
+      background-color: $value;
     }
   }
 }

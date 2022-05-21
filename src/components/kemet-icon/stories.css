@@ -1,0 +1,31 @@
+.kemet-icons {
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  flex-wrap: wrap;
+  list-style: none;
+  grid-template-columns: repeat(2, 1fr);
+  max-height: 50vh;
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .kemet-icons {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.kemet-icons figure {
+  margin: 0;
+  padding: 2rem 0;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.kemet-icons figcaption {
+  font-size: 90%;
+  color: rgb(128, 128, 128);
+  font-style: italic;
+  margin-top: 0.5rem;
+}

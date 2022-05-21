@@ -1,7 +1,7 @@
 import { html } from 'lit';
 
 const AgencyTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack style="background-color:#eeeeee;">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2">
     <div kemet-margin-left="tiny:normal">
       <ul kemet-layout="flexlist" kemet-align="middle" kemet-gutters>
         <li><h2>Agency Name</h2></li>
@@ -103,7 +103,7 @@ const AgencyTemplate = () => html`
 export const Agency = AgencyTemplate.bind({});
 
 const eCommerceTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack style="background-color:#eeeeee;">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2">
     <div kemet-margin-left="tiny:normal">
       <ul kemet-layout="flexlist" kemet-align="middle" kemet-gutters>
         <li><h2>Site Name</h2></li>
@@ -338,7 +338,7 @@ const eCommerceTemplate = () => html`
 export const eCommerce = eCommerceTemplate.bind({});
 
 const NewsTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack style="background-color:#eeeeee;">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2">
     <div kemet-margin-left="tiny:normal">
       <ul kemet-layout="flexlist" kemet-align="middle" kemet-gutters>
         <li><h2>Site Name</h2></li>

@@ -20,3 +20,7 @@
 @if $makespacers {
   @include makeSpacers();
 }
+
+@if $makecolors {
+  @include makeColors();
+}
