@@ -233,478 +233,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-link.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCarouselLink",
-          "members": [
-            {
-              "kind": "method",
-              "name": "changed"
-            },
-            {
-              "kind": "field",
-              "name": "slide",
-              "privacy": "public",
-              "attribute": "slide",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "selected",
-              "privacy": "public",
-              "attribute": "selected",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-carousel-link",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "slide",
-              "fieldName": "slide"
-            },
-            {
-              "name": "selected",
-              "fieldName": "selected"
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-carousel-link",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetCarouselLink",
-          "declaration": {
-            "name": "KemetCarouselLink",
-            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-carousel-link",
-          "declaration": {
-            "name": "KemetCarouselLink",
-            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-next.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCarouselNext",
-          "members": [
-            {
-              "kind": "method",
-              "name": "next"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-carousel-next",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-carousel-next",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetCarouselNext",
-          "declaration": {
-            "name": "KemetCarouselNext",
-            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-carousel-next",
-          "declaration": {
-            "name": "KemetCarouselNext",
-            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-prev.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCarouselPrev",
-          "members": [
-            {
-              "kind": "method",
-              "name": "prev"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-carousel-prev",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-carousel-prev",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetCarouselPrev",
-          "declaration": {
-            "name": "KemetCarouselPrev",
-            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-carousel-prev",
-          "declaration": {
-            "name": "KemetCarouselPrev",
-            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-slide.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCarouselSlide",
-          "members": [
-            {
-              "kind": "field",
-              "name": "seen",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "seen"
-            },
-            {
-              "kind": "field",
-              "name": "transition",
-              "type": {
-                "text": "string"
-              },
-              "default": "'horizontal'",
-              "privacy": "public",
-              "attribute": "transition",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "type": {
-                "text": "string"
-              },
-              "default": "'true'"
-            },
-            {
-              "kind": "field",
-              "name": "'aria-hidden'",
-              "privacy": "public",
-              "attribute": "'aria-hidden'",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "seen",
-              "fieldName": "seen"
-            },
-            {
-              "name": "transition",
-              "fieldName": "transition"
-            },
-            {
-              "name": "'aria-hidden'",
-              "fieldName": "'aria-hidden'"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-carousel-slide",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetCarouselSlide",
-          "declaration": {
-            "name": "KemetCarouselSlide",
-            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-carousel-slide",
-          "declaration": {
-            "name": "KemetCarouselSlide",
-            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCarousel",
-          "members": [
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlideShow"
-            },
-            {
-              "kind": "method",
-              "name": "handleNext"
-            },
-            {
-              "kind": "method",
-              "name": "handlePrev"
-            },
-            {
-              "kind": "method",
-              "name": "updateIndex",
-              "parameters": [
-                {
-                  "name": "newIndex"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleTransitionEnd",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleLink",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "index",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "privacy": "public",
-              "attribute": "index",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pagination",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bottom'",
-              "privacy": "public",
-              "attribute": "pagination",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "slideshow",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "privacy": "public",
-              "attribute": "slideshow"
-            },
-            {
-              "kind": "field",
-              "name": "useHash",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "use-hash"
-            },
-            {
-              "kind": "field",
-              "name": "slides",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "links",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "loaded",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-carousel-change-start",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "name": "kemet-carousel-change-finished",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "index",
-              "fieldName": "index"
-            },
-            {
-              "name": "pagination",
-              "fieldName": "pagination"
-            },
-            {
-              "name": "slideshow",
-              "fieldName": "slideshow"
-            },
-            {
-              "name": "use-hash",
-              "fieldName": "useHash"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-carousel",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetCarousel",
-          "declaration": {
-            "name": "KemetCarousel",
-            "module": "src/components/kemet-carousel/kemet-carousel.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-carousel",
-          "declaration": {
-            "name": "KemetCarousel",
-            "module": "src/components/kemet-carousel/kemet-carousel.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-button/kemet-button.js",
       "declarations": [
         {
@@ -1180,6 +708,870 @@
           "declaration": {
             "name": "stylesEffects",
             "module": "src/components/kemet-drawer/kemet-drawer.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetFlipcardTrigger",
+          "members": [
+            {
+              "kind": "method",
+              "name": "trigger"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyup",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-flipcard-flipped",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-flipcard-trigger",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetFlipcardTrigger",
+          "declaration": {
+            "name": "KemetFlipcardTrigger",
+            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-flipcard-trigger",
+          "declaration": {
+            "name": "KemetFlipcardTrigger",
+            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-flipcard/kemet-flipcard.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetFlipcard",
+          "members": [
+            {
+              "kind": "method",
+              "name": "determineHeight"
+            },
+            {
+              "kind": "field",
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "privacy": "public",
+              "attribute": "axis",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "flipped",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "flipped",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "flipOnHover",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "flip-on-hover"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "attribute": "height"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "measure"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "axis",
+              "fieldName": "axis"
+            },
+            {
+              "name": "flipped",
+              "fieldName": "flipped"
+            },
+            {
+              "name": "flip-on-hover",
+              "fieldName": "flipOnHover"
+            },
+            {
+              "name": "height",
+              "fieldName": "height"
+            },
+            {
+              "name": "measure",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-flipcard",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetFlipcard",
+          "declaration": {
+            "name": "KemetFlipcard",
+            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-flipcard",
+          "declaration": {
+            "name": "KemetFlipcard",
+            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-icon/kemet-icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetIcon",
+          "members": [
+            {
+              "kind": "method",
+              "name": "getIcon"
+            },
+            {
+              "kind": "method",
+              "name": "getUrl"
+            },
+            {
+              "kind": "field",
+              "name": "set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bootstrap'",
+              "privacy": "public",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "attribute": "set"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'alarm'",
+              "privacy": "public",
+              "description": "The name of the icon to reference.",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "description": "The width and height of the icon in pixels.",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "description": "The name of the icon to reference.",
+              "fieldName": "icon"
+            },
+            {
+              "name": "set",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "fieldName": "set"
+            },
+            {
+              "name": "size",
+              "description": "The width and height of the icon in pixels.",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetIcon",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-icon",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-input/kemet-input.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetInput",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeIconRight",
+              "description": "Makes the right icon",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "templateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "makeIconLeft",
+              "description": "Makes the left icon",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "templateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "makeIconClear",
+              "description": "Makes a clear icon for search.",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "templateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "makeVisibilityToggle",
+              "description": "Makes a password visibility toggle button",
+              "return": {
+                "type": {
+                  "text": "templateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setPasswordIcon"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus",
+              "description": "Handles when the input receives focus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles when the input loses focus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "description": "Handles when the input changes value",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ],
+              "description": "Handles when the input receives input",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInvalid",
+              "description": "Handles when the input has an error",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleStatus",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "togglePasswordVisibility",
+              "description": "Toggles password visibility",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClear",
+              "description": "Handles the clear button for search",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "description": "Checks the validity of the standard input",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "description": "Focuses the standard input",
+              "privacy": "public"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'input'",
+              "privacy": "public",
+              "description": "The name of the input",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'text'",
+              "privacy": "public",
+              "description": "The type of input",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "The input's value",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "description": "The status of the input",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "description": "Size of the icons",
+              "attribute": "iconSize"
+            },
+            {
+              "kind": "field",
+              "name": "validateOnBlur",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Activates validation on blur",
+              "attribute": "validate-on-blur"
+            },
+            {
+              "kind": "field",
+              "name": "isPasswordVisible",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Manages password visibility",
+              "attribute": "isPasswordVisible"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "privacy": "public",
+              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "description": "The placeholder attribute",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "minlength",
+              "privacy": "public",
+              "description": "The minlength attribute",
+              "attribute": "minlength"
+            },
+            {
+              "kind": "field",
+              "name": "maxlength",
+              "privacy": "public",
+              "description": "The maxlength attribute",
+              "attribute": "maxlength"
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "privacy": "public",
+              "description": "The min attribute",
+              "attribute": "min"
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "privacy": "public",
+              "description": "The max attribute",
+              "attribute": "max"
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "privacy": "public",
+              "description": "The step attribute",
+              "attribute": "step"
+            },
+            {
+              "kind": "field",
+              "name": "autocomplete",
+              "privacy": "public",
+              "description": "The autocomplete attribute",
+              "attribute": "autocomplete"
+            },
+            {
+              "kind": "field",
+              "name": "pattern",
+              "privacy": "public",
+              "description": "The pattern attribute",
+              "attribute": "pattern"
+            },
+            {
+              "kind": "field",
+              "name": "inputmode",
+              "privacy": "public",
+              "description": "The input mode attribute",
+              "attribute": "inputmode"
+            },
+            {
+              "kind": "field",
+              "name": "autofocus",
+              "privacy": "public",
+              "description": "The autofocus attribute",
+              "attribute": "autofocus"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "The disable attribute",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "privacy": "public",
+              "description": "The readonly attribute",
+              "attribute": "readonly"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "description": "The required attribute",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "description": "States whether or not the input is invalid",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "ariaAutoComplete",
+              "privacy": "public",
+              "description": "Aria Autocomplete",
+              "attribute": "aria-autocomplete"
+            },
+            {
+              "kind": "field",
+              "name": "ariaControls",
+              "privacy": "public",
+              "description": "Aria Controls",
+              "attribute": "aria-controls"
+            },
+            {
+              "kind": "field",
+              "name": "ariaActiveDescendant",
+              "privacy": "public",
+              "description": "Aria Active Descendant",
+              "attribute": "aria-activedescendant"
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "privacy": "public",
+              "description": "Displays rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "privacy": "public",
+              "description": "Displays a filled input box",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconRight",
+              "privacy": "public",
+              "description": "Custom Icon to the right of the input",
+              "attribute": "icon-right",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconLeft",
+              "privacy": "public",
+              "description": "Custom Icon to the left of the input",
+              "attribute": "icon-left",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "privacy": "public",
+              "description": "The HTML5 validity object.",
+              "attribute": "validity"
+            },
+            {
+              "kind": "field",
+              "name": "inputType",
+              "privacy": "public",
+              "description": "Input Type of keypress handled through handleInput(e)",
+              "attribute": "inputType"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-input-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the input receives and loses focus"
+            },
+            {
+              "name": "kemet-input-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status.\nThis event includes an object that reports:\n1) the status. 2) HTML5 validity object. 3) the component element.\nUse the validity object to support custom validation messages."
+            },
+            {
+              "name": "kemet-input-input",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the input receives input"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slug",
+              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
+              "fieldName": "slug"
+            },
+            {
+              "name": "name",
+              "description": "The name of the input",
+              "fieldName": "name"
+            },
+            {
+              "name": "placeholder",
+              "description": "The placeholder attribute",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "minlength",
+              "description": "The minlength attribute",
+              "fieldName": "minlength"
+            },
+            {
+              "name": "maxlength",
+              "description": "The maxlength attribute",
+              "fieldName": "maxlength"
+            },
+            {
+              "name": "min",
+              "description": "The min attribute",
+              "fieldName": "min"
+            },
+            {
+              "name": "max",
+              "description": "The max attribute",
+              "fieldName": "max"
+            },
+            {
+              "name": "step",
+              "description": "The step attribute",
+              "fieldName": "step"
+            },
+            {
+              "name": "autocomplete",
+              "description": "The autocomplete attribute",
+              "fieldName": "autocomplete"
+            },
+            {
+              "name": "pattern",
+              "description": "The pattern attribute",
+              "fieldName": "pattern"
+            },
+            {
+              "name": "inputmode",
+              "description": "The input mode attribute",
+              "fieldName": "inputmode"
+            },
+            {
+              "name": "autofocus",
+              "description": "The autofocus attribute",
+              "fieldName": "autofocus"
+            },
+            {
+              "name": "disabled",
+              "description": "The disable attribute",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "readonly",
+              "description": "The readonly attribute",
+              "fieldName": "readonly"
+            },
+            {
+              "name": "required",
+              "description": "The required attribute",
+              "fieldName": "required"
+            },
+            {
+              "name": "type",
+              "description": "The type of input",
+              "fieldName": "type"
+            },
+            {
+              "name": "value",
+              "description": "The input's value",
+              "fieldName": "value"
+            },
+            {
+              "name": "invalid",
+              "description": "States whether or not the input is invalid",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "status",
+              "description": "The status of the input",
+              "fieldName": "status"
+            },
+            {
+              "name": "validate-on-blur",
+              "description": "Activates validation on blur",
+              "fieldName": "validateOnBlur"
+            },
+            {
+              "name": "aria-autocomplete",
+              "description": "Aria Autocomplete",
+              "fieldName": "ariaAutoComplete"
+            },
+            {
+              "name": "aria-controls",
+              "description": "Aria Controls",
+              "fieldName": "ariaControls"
+            },
+            {
+              "name": "aria-activedescendant",
+              "description": "Aria Active Descendant",
+              "fieldName": "ariaActiveDescendant"
+            },
+            {
+              "name": "rounded",
+              "description": "Displays rounded corners",
+              "fieldName": "rounded"
+            },
+            {
+              "name": "filled",
+              "description": "Displays a filled input box",
+              "fieldName": "filled"
+            },
+            {
+              "name": "icon-right",
+              "description": "Custom Icon to the right of the input",
+              "fieldName": "iconRight"
+            },
+            {
+              "name": "icon-left",
+              "description": "Custom Icon to the left of the input",
+              "fieldName": "iconLeft"
+            },
+            {
+              "name": "iconSize",
+              "description": "Size of the icons",
+              "fieldName": "iconSize"
+            },
+            {
+              "name": "validity",
+              "description": "The HTML5 validity object.",
+              "fieldName": "validity"
+            },
+            {
+              "name": "isPasswordVisible",
+              "description": "Manages password visibility",
+              "fieldName": "isPasswordVisible"
+            },
+            {
+              "name": "inputType",
+              "description": "Input Type of keypress handled through handleInput(e)",
+              "fieldName": "inputType"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-input",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetInput",
+            "module": "src/components/kemet-input/kemet-input.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-input",
+          "declaration": {
+            "name": "KemetInput",
+            "module": "src/components/kemet-input/kemet-input.js"
           }
         }
       ]
@@ -2101,870 +2493,6 @@
           "declaration": {
             "name": "KemetScrollLink",
             "module": "src/components/kemet-scroll-link/kemet-scroll-link.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-icon/kemet-icon.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetIcon",
-          "members": [
-            {
-              "kind": "method",
-              "name": "getIcon"
-            },
-            {
-              "kind": "method",
-              "name": "getUrl"
-            },
-            {
-              "kind": "field",
-              "name": "set",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bootstrap'",
-              "privacy": "public",
-              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "attribute": "set"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'alarm'",
-              "privacy": "public",
-              "description": "The name of the icon to reference.",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "privacy": "public",
-              "description": "The width and height of the icon in pixels.",
-              "attribute": "size"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "description": "The name of the icon to reference.",
-              "fieldName": "icon"
-            },
-            {
-              "name": "set",
-              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "fieldName": "set"
-            },
-            {
-              "name": "size",
-              "description": "The width and height of the icon in pixels.",
-              "fieldName": "size"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-icon",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetIcon",
-          "declaration": {
-            "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-icon",
-          "declaration": {
-            "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetFlipcardTrigger",
-          "members": [
-            {
-              "kind": "method",
-              "name": "trigger"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyup",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-flipcard-flipped",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-flipcard-trigger",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetFlipcardTrigger",
-          "declaration": {
-            "name": "KemetFlipcardTrigger",
-            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-flipcard-trigger",
-          "declaration": {
-            "name": "KemetFlipcardTrigger",
-            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-flipcard/kemet-flipcard.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetFlipcard",
-          "members": [
-            {
-              "kind": "method",
-              "name": "determineHeight"
-            },
-            {
-              "kind": "field",
-              "name": "axis",
-              "type": {
-                "text": "string"
-              },
-              "default": "'horizontal'",
-              "privacy": "public",
-              "attribute": "axis",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "flipped",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "flipped",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "flipOnHover",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "flip-on-hover"
-            },
-            {
-              "kind": "field",
-              "name": "height",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "attribute": "height"
-            },
-            {
-              "kind": "field",
-              "name": "measure",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "measure"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "axis",
-              "fieldName": "axis"
-            },
-            {
-              "name": "flipped",
-              "fieldName": "flipped"
-            },
-            {
-              "name": "flip-on-hover",
-              "fieldName": "flipOnHover"
-            },
-            {
-              "name": "height",
-              "fieldName": "height"
-            },
-            {
-              "name": "measure",
-              "fieldName": "measure"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-flipcard",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetFlipcard",
-          "declaration": {
-            "name": "KemetFlipcard",
-            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-flipcard",
-          "declaration": {
-            "name": "KemetFlipcard",
-            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-input/kemet-input.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetInput",
-          "members": [
-            {
-              "kind": "method",
-              "name": "makeIconRight",
-              "description": "Makes the right icon",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "makeIconLeft",
-              "description": "Makes the left icon",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "makeIconClear",
-              "description": "Makes a clear icon for search.",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "makeVisibilityToggle",
-              "description": "Makes a password visibility toggle button",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setPasswordIcon"
-            },
-            {
-              "kind": "method",
-              "name": "handleFocus",
-              "description": "Handles when the input receives focus",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles when the input loses focus",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleChange",
-              "description": "Handles when the input changes value",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
-              "description": "Handles when the input receives input",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleInvalid",
-              "description": "Handles when the input has an error",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleStatus",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "togglePasswordVisibility",
-              "description": "Toggles password visibility",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClear",
-              "description": "Handles the clear button for search",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "checkValidity",
-              "description": "Checks the validity of the standard input",
-              "privacy": "public",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "focus",
-              "description": "Focuses the standard input",
-              "privacy": "public"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'input'",
-              "privacy": "public",
-              "description": "The name of the input",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "string"
-              },
-              "default": "'text'",
-              "privacy": "public",
-              "description": "The type of input",
-              "attribute": "type"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "privacy": "public",
-              "description": "The input's value",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "privacy": "public",
-              "description": "The status of the input",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "iconSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "privacy": "public",
-              "description": "Size of the icons",
-              "attribute": "iconSize"
-            },
-            {
-              "kind": "field",
-              "name": "validateOnBlur",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "Activates validation on blur",
-              "attribute": "validate-on-blur"
-            },
-            {
-              "kind": "field",
-              "name": "isPasswordVisible",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "Manages password visibility",
-              "attribute": "isPasswordVisible"
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "placeholder",
-              "privacy": "public",
-              "description": "The placeholder attribute",
-              "attribute": "placeholder"
-            },
-            {
-              "kind": "field",
-              "name": "minlength",
-              "privacy": "public",
-              "description": "The minlength attribute",
-              "attribute": "minlength"
-            },
-            {
-              "kind": "field",
-              "name": "maxlength",
-              "privacy": "public",
-              "description": "The maxlength attribute",
-              "attribute": "maxlength"
-            },
-            {
-              "kind": "field",
-              "name": "min",
-              "privacy": "public",
-              "description": "The min attribute",
-              "attribute": "min"
-            },
-            {
-              "kind": "field",
-              "name": "max",
-              "privacy": "public",
-              "description": "The max attribute",
-              "attribute": "max"
-            },
-            {
-              "kind": "field",
-              "name": "step",
-              "privacy": "public",
-              "description": "The step attribute",
-              "attribute": "step"
-            },
-            {
-              "kind": "field",
-              "name": "autocomplete",
-              "privacy": "public",
-              "description": "The autocomplete attribute",
-              "attribute": "autocomplete"
-            },
-            {
-              "kind": "field",
-              "name": "pattern",
-              "privacy": "public",
-              "description": "The pattern attribute",
-              "attribute": "pattern"
-            },
-            {
-              "kind": "field",
-              "name": "inputmode",
-              "privacy": "public",
-              "description": "The input mode attribute",
-              "attribute": "inputmode"
-            },
-            {
-              "kind": "field",
-              "name": "autofocus",
-              "privacy": "public",
-              "description": "The autofocus attribute",
-              "attribute": "autofocus"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "description": "The disable attribute",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "readonly",
-              "privacy": "public",
-              "description": "The readonly attribute",
-              "attribute": "readonly"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "privacy": "public",
-              "description": "The required attribute",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "invalid",
-              "privacy": "public",
-              "description": "States whether or not the input is invalid",
-              "attribute": "invalid",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "ariaAutoComplete",
-              "privacy": "public",
-              "description": "Aria Autocomplete",
-              "attribute": "aria-autocomplete"
-            },
-            {
-              "kind": "field",
-              "name": "ariaControls",
-              "privacy": "public",
-              "description": "Aria Controls",
-              "attribute": "aria-controls"
-            },
-            {
-              "kind": "field",
-              "name": "ariaActiveDescendant",
-              "privacy": "public",
-              "description": "Aria Active Descendant",
-              "attribute": "aria-activedescendant"
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "privacy": "public",
-              "description": "Displays rounded corners",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "privacy": "public",
-              "description": "Displays a filled input box",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "iconRight",
-              "privacy": "public",
-              "description": "Custom Icon to the right of the input",
-              "attribute": "icon-right",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "iconLeft",
-              "privacy": "public",
-              "description": "Custom Icon to the left of the input",
-              "attribute": "icon-left",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "validity",
-              "privacy": "public",
-              "description": "The HTML5 validity object.",
-              "attribute": "validity"
-            },
-            {
-              "kind": "field",
-              "name": "inputType",
-              "privacy": "public",
-              "description": "Input Type of keypress handled through handleInput(e)",
-              "attribute": "inputType"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-input-focused",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the input receives and loses focus"
-            },
-            {
-              "name": "kemet-input-status",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when there's a change in status.\nThis event includes an object that reports:\n1) the status. 2) HTML5 validity object. 3) the component element.\nUse the validity object to support custom validation messages."
-            },
-            {
-              "name": "kemet-input-input",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the input receives input"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "slug",
-              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
-              "fieldName": "slug"
-            },
-            {
-              "name": "name",
-              "description": "The name of the input",
-              "fieldName": "name"
-            },
-            {
-              "name": "placeholder",
-              "description": "The placeholder attribute",
-              "fieldName": "placeholder"
-            },
-            {
-              "name": "minlength",
-              "description": "The minlength attribute",
-              "fieldName": "minlength"
-            },
-            {
-              "name": "maxlength",
-              "description": "The maxlength attribute",
-              "fieldName": "maxlength"
-            },
-            {
-              "name": "min",
-              "description": "The min attribute",
-              "fieldName": "min"
-            },
-            {
-              "name": "max",
-              "description": "The max attribute",
-              "fieldName": "max"
-            },
-            {
-              "name": "step",
-              "description": "The step attribute",
-              "fieldName": "step"
-            },
-            {
-              "name": "autocomplete",
-              "description": "The autocomplete attribute",
-              "fieldName": "autocomplete"
-            },
-            {
-              "name": "pattern",
-              "description": "The pattern attribute",
-              "fieldName": "pattern"
-            },
-            {
-              "name": "inputmode",
-              "description": "The input mode attribute",
-              "fieldName": "inputmode"
-            },
-            {
-              "name": "autofocus",
-              "description": "The autofocus attribute",
-              "fieldName": "autofocus"
-            },
-            {
-              "name": "disabled",
-              "description": "The disable attribute",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "readonly",
-              "description": "The readonly attribute",
-              "fieldName": "readonly"
-            },
-            {
-              "name": "required",
-              "description": "The required attribute",
-              "fieldName": "required"
-            },
-            {
-              "name": "type",
-              "description": "The type of input",
-              "fieldName": "type"
-            },
-            {
-              "name": "value",
-              "description": "The input's value",
-              "fieldName": "value"
-            },
-            {
-              "name": "invalid",
-              "description": "States whether or not the input is invalid",
-              "fieldName": "invalid"
-            },
-            {
-              "name": "status",
-              "description": "The status of the input",
-              "fieldName": "status"
-            },
-            {
-              "name": "validate-on-blur",
-              "description": "Activates validation on blur",
-              "fieldName": "validateOnBlur"
-            },
-            {
-              "name": "aria-autocomplete",
-              "description": "Aria Autocomplete",
-              "fieldName": "ariaAutoComplete"
-            },
-            {
-              "name": "aria-controls",
-              "description": "Aria Controls",
-              "fieldName": "ariaControls"
-            },
-            {
-              "name": "aria-activedescendant",
-              "description": "Aria Active Descendant",
-              "fieldName": "ariaActiveDescendant"
-            },
-            {
-              "name": "rounded",
-              "description": "Displays rounded corners",
-              "fieldName": "rounded"
-            },
-            {
-              "name": "filled",
-              "description": "Displays a filled input box",
-              "fieldName": "filled"
-            },
-            {
-              "name": "icon-right",
-              "description": "Custom Icon to the right of the input",
-              "fieldName": "iconRight"
-            },
-            {
-              "name": "icon-left",
-              "description": "Custom Icon to the left of the input",
-              "fieldName": "iconLeft"
-            },
-            {
-              "name": "iconSize",
-              "description": "Size of the icons",
-              "fieldName": "iconSize"
-            },
-            {
-              "name": "validity",
-              "description": "The HTML5 validity object.",
-              "fieldName": "validity"
-            },
-            {
-              "name": "isPasswordVisible",
-              "description": "Manages password visibility",
-              "fieldName": "isPasswordVisible"
-            },
-            {
-              "name": "inputType",
-              "description": "Input Type of keypress handled through handleInput(e)",
-              "fieldName": "inputType"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-input",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetInput",
-            "module": "src/components/kemet-input/kemet-input.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-input",
-          "declaration": {
-            "name": "KemetInput",
-            "module": "src/components/kemet-input/kemet-input.js"
           }
         }
       ]
@@ -3997,6 +3525,362 @@
           "declaration": {
             "name": "KemetTabs",
             "module": "src/components/kemet-tabs/kemet-tabs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-textarea/kemet-textarea.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTextarea",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleFocus",
+              "description": "Handles when the textarea receives focus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles when the textarea loses focus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "description": "Handles when the textarea changes value",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "description": "Handles when the textarea receives input",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInvalid",
+              "description": "Handles when the textarea has an error",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "checkLimitValidity",
+              "description": "Checks the validity of the character limit for the count component",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "description": "Checks the validity of the standard input",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "description": "Focuses the standard input",
+              "privacy": "public"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'textarea'",
+              "privacy": "public",
+              "description": "Used for the id of the input",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'textarea'",
+              "privacy": "public",
+              "description": "The name of the input",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "The input's value",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "description": "The status of the input",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rows",
+              "type": {
+                "text": "number"
+              },
+              "default": "4",
+              "privacy": "public",
+              "description": "The rows of the textarea",
+              "attribute": "rows"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "privacy": "public",
+              "description": "The placeholder attribute",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "minlength",
+              "privacy": "public",
+              "description": "The minlength attribute",
+              "attribute": "minlength"
+            },
+            {
+              "kind": "field",
+              "name": "maxlength",
+              "privacy": "public",
+              "description": "The maxlength attribute",
+              "attribute": "maxlength"
+            },
+            {
+              "kind": "field",
+              "name": "inputmode",
+              "privacy": "public",
+              "description": "The input mode attribute",
+              "attribute": "inputmode"
+            },
+            {
+              "kind": "field",
+              "name": "autofocus",
+              "privacy": "public",
+              "description": "The autofocus attribute",
+              "attribute": "autofocus"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "The disable attribute",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "privacy": "public",
+              "description": "The readonly attribute",
+              "attribute": "readonly"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "description": "The required attribute",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "privacy": "public",
+              "description": "States whether or not the input is invalid",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "validateOnBlur",
+              "privacy": "public",
+              "description": "Activates validation on blur",
+              "attribute": "validate-on-blur"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "privacy": "public",
+              "description": "Displays a filled textarea",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "privacy": "public",
+              "description": "Displays a rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "fmc-input-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the input receives and loses focus"
+            },
+            {
+              "name": "fmc-input-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status"
+            },
+            {
+              "name": "fmc-input-input",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the input receives input"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slug",
+              "description": "Used for the id of the input",
+              "fieldName": "slug"
+            },
+            {
+              "name": "name",
+              "description": "The name of the input",
+              "fieldName": "name"
+            },
+            {
+              "name": "placeholder",
+              "description": "The placeholder attribute",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "minlength",
+              "description": "The minlength attribute",
+              "fieldName": "minlength"
+            },
+            {
+              "name": "maxlength",
+              "description": "The maxlength attribute",
+              "fieldName": "maxlength"
+            },
+            {
+              "name": "inputmode",
+              "description": "The input mode attribute",
+              "fieldName": "inputmode"
+            },
+            {
+              "name": "autofocus",
+              "description": "The autofocus attribute",
+              "fieldName": "autofocus"
+            },
+            {
+              "name": "disabled",
+              "description": "The disable attribute",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "readonly",
+              "description": "The readonly attribute",
+              "fieldName": "readonly"
+            },
+            {
+              "name": "required",
+              "description": "The required attribute",
+              "fieldName": "required"
+            },
+            {
+              "name": "value",
+              "description": "The input's value",
+              "fieldName": "value"
+            },
+            {
+              "name": "invalid",
+              "description": "States whether or not the input is invalid",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "status",
+              "description": "The status of the input",
+              "fieldName": "status"
+            },
+            {
+              "name": "rows",
+              "description": "The rows of the textarea",
+              "fieldName": "rows"
+            },
+            {
+              "name": "validate-on-blur",
+              "description": "Activates validation on blur",
+              "fieldName": "validateOnBlur"
+            },
+            {
+              "name": "filled",
+              "description": "Displays a filled textarea",
+              "fieldName": "filled"
+            },
+            {
+              "name": "rounded",
+              "description": "Displays a rounded corners",
+              "fieldName": "rounded"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-textarea",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTextarea",
+            "module": "src/components/kemet-textarea/kemet-textarea.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-textarea",
+          "declaration": {
+            "name": "KemetTextarea",
+            "module": "src/components/kemet-textarea/kemet-textarea.js"
           }
         }
       ]
