@@ -157,7 +157,10 @@ const eCommerceTemplate = () => html`
 
   <hr />
 
-  <img src="https://via.placeholder.com/1920x320/0c4a6e/ffffff?text=Specials" alt="Weekly Specials" style="max-width:100%;" />
+  <svg width="100%" height="150">
+    <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="2rem">[Specials]</text>
+  </svg>
 
   <hr />
 
