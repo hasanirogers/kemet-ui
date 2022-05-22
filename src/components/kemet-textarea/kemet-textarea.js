@@ -202,7 +202,7 @@ export default class KemetTextarea extends LitElement {
   firstUpdated() {
     // elements
     this.form = this.closest('form');
-    this.control = this.closest('fmc-control');
+    this.control = this.closest('kemet-control');
     this.textarea = this.shadowRoot.querySelector('textarea');
   }
 
@@ -244,7 +244,7 @@ export default class KemetTextarea extends LitElement {
      * Fires when the input receives and loses focus
      */
     this.dispatchEvent(
-      new CustomEvent('fmc-input-focused', {
+      new CustomEvent('kemet-input-focused', {
         bubbles: true,
         composed: true,
         detail: true,
@@ -263,7 +263,7 @@ export default class KemetTextarea extends LitElement {
      * Fires when the input receives and loses focus
      */
     this.dispatchEvent(
-      new CustomEvent('fmc-input-focused', {
+      new CustomEvent('kemet-input-focused', {
         bubbles: true,
         composed: true,
         detail: false,
@@ -292,7 +292,7 @@ export default class KemetTextarea extends LitElement {
        * Fires when there's a change in status
        */
       this.dispatchEvent(
-        new CustomEvent('fmc-input-status', {
+        new CustomEvent('kemet-input-status', {
           bubbles: true,
           composed: true,
           detail: {
@@ -316,7 +316,7 @@ export default class KemetTextarea extends LitElement {
      * Fires when the input receives input
      */
     this.dispatchEvent(
-      new CustomEvent('fmc-input-input', {
+      new CustomEvent('kemet-input-input', {
         bubbles: true,
         composed: true,
         detail: this.value,
@@ -339,7 +339,7 @@ export default class KemetTextarea extends LitElement {
        * Fires when there's a change in status
        */
       this.dispatchEvent(
-        new CustomEvent('fmc-input-status', {
+        new CustomEvent('kemet-input-status', {
           bubbles: true,
           composed: true,
           detail: {
@@ -359,7 +359,7 @@ export default class KemetTextarea extends LitElement {
    */
   checkLimitValidity() {
     if (this.control) {
-      const count = this.control.querySelector('fmc-count');
+      const count = this.control.querySelector('kemet-count');
       if (count) {
         return this.value.length < count.limit;
       }

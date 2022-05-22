@@ -15,21 +15,21 @@ const Template = ({
   <kemet-accordion ?toggle-panels=${togglePanels}>
     <kemet-accordion-panel>
       <h3 slot="trigger">Trigger 1</h3>
-      <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
+      <kemet-icon slot="icon" icon="chevron-down" size="18"></kemet-icon>
       <div slot="body">
         <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
       </div>
     </kemet-accordion-panel>
     <kemet-accordion-panel>
       <h3 slot="trigger">Trigger 2</h3>
-      <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
+      <kemet-icon slot="icon" icon="chevron-down" size="18"></kemet-icon>
       <div slot="body">
         <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
       </div>
     </kemet-accordion-panel>
     <kemet-accordion-panel>
       <h3 slot="trigger">Trigger 3</h3>
-      <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
+      <kemet-icon slot="icon" icon="chevron-down" size="18"></kemet-icon>
       <div slot="body">
         <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
       </div>

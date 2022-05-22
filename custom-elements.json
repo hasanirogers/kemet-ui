@@ -421,145 +421,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-draggable/kemet-draggable.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetDraggable",
-          "members": [
-            {
-              "kind": "method",
-              "name": "startDrag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "drag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "stopDrag"
-            },
-            {
-              "kind": "method",
-              "name": "measureContent"
-            },
-            {
-              "kind": "field",
-              "name": "top",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The elements top position in pixels.",
-              "attribute": "top"
-            },
-            {
-              "kind": "field",
-              "name": "left",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The element's left position in pixels.",
-              "attribute": "left"
-            },
-            {
-              "kind": "field",
-              "name": "measure",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "attribute": "measure"
-            },
-            {
-              "kind": "field",
-              "name": "memory",
-              "privacy": "public",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "attribute": "memory"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-draggable-start",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "name": "kemet-draggable-stop",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "memory",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "fieldName": "memory"
-            },
-            {
-              "name": "top",
-              "description": "The elements top position in pixels.",
-              "fieldName": "top"
-            },
-            {
-              "name": "left",
-              "description": "The element's left position in pixels.",
-              "fieldName": "left"
-            },
-            {
-              "name": "measure",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "fieldName": "measure"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-draggable",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetDraggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-draggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-drawer/kemet-drawer.js",
       "declarations": [
         {
@@ -708,6 +569,145 @@
           "declaration": {
             "name": "stylesEffects",
             "module": "src/components/kemet-drawer/kemet-drawer.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-draggable/kemet-draggable.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetDraggable",
+          "members": [
+            {
+              "kind": "method",
+              "name": "startDrag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "drag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "stopDrag"
+            },
+            {
+              "kind": "method",
+              "name": "measureContent"
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The elements top position in pixels.",
+              "attribute": "top"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The element's left position in pixels.",
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "memory",
+              "privacy": "public",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "attribute": "memory"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-draggable-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-draggable-stop",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "memory",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "fieldName": "memory"
+            },
+            {
+              "name": "top",
+              "description": "The elements top position in pixels.",
+              "fieldName": "top"
+            },
+            {
+              "name": "left",
+              "description": "The element's left position in pixels.",
+              "fieldName": "left"
+            },
+            {
+              "name": "measure",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-draggable",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetDraggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-draggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
           }
         }
       ]
@@ -2981,6 +2981,374 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-select/kemet-option.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetOption",
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "The value of the options",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "description": "The label of the option",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether to disable the option",
+              "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "description": "Selects the option if true",
+              "attribute": "selected"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "description": "The label of the option",
+              "fieldName": "label"
+            },
+            {
+              "name": "value",
+              "description": "The value of the options",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether to disable the option",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "selected",
+              "description": "Selects the option if true",
+              "fieldName": "selected"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-option",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetOption",
+            "module": "src/components/kemet-select/kemet-option.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-option",
+          "declaration": {
+            "name": "KemetOption",
+            "module": "src/components/kemet-select/kemet-option.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-select/kemet-select.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetSelect",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeOptions",
+              "description": "Generates the option elements",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "makeIcon",
+              "description": "Generates an dropdown icon",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus",
+              "description": "Handles when the input receives focus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles when the input loses focus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "description": "Handles when the input changes value",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInvalid",
+              "description": "Handles when the input has an error",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "description": "Checks the validity of the standard select",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'select'",
+              "privacy": "public",
+              "description": "The name of the select",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'chevron-down'",
+              "privacy": "public",
+              "description": "The dropdown icon",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "description": "The dropdown icon size",
+              "attribute": "icon-size"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "control"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "privacy": "public",
+              "description": "A string the uniquely identifies the select",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "description": "The value of the select",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "privacy": "public",
+              "description": "The options the select contains",
+              "attribute": "options"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "privacy": "public",
+              "description": "The status of the select",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "description": "Determines whether or not the field is required",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether or not the field is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "multiple",
+              "privacy": "public",
+              "description": "Support of multiple choice selections",
+              "attribute": "multiple"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "privacy": "public",
+              "description": "Displays a filled select",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "privacy": "public",
+              "description": "Displays rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-input-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the input receives and loses focus"
+            },
+            {
+              "name": "kemet-input-status",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slug",
+              "description": "A string the uniquely identifies the select",
+              "fieldName": "slug"
+            },
+            {
+              "name": "name",
+              "description": "The name of the select",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "description": "The value of the select",
+              "fieldName": "value"
+            },
+            {
+              "name": "options",
+              "description": "The options the select contains",
+              "fieldName": "options"
+            },
+            {
+              "name": "status",
+              "description": "The status of the select",
+              "fieldName": "status"
+            },
+            {
+              "name": "required",
+              "description": "Determines whether or not the field is required",
+              "fieldName": "required"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether or not the field is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "multiple",
+              "description": "Support of multiple choice selections",
+              "fieldName": "multiple"
+            },
+            {
+              "name": "icon",
+              "description": "The dropdown icon",
+              "fieldName": "icon"
+            },
+            {
+              "name": "icon-size",
+              "description": "The dropdown icon size",
+              "fieldName": "iconSize"
+            },
+            {
+              "name": "filled",
+              "description": "Displays a filled select",
+              "fieldName": "filled"
+            },
+            {
+              "name": "rounded",
+              "description": "Displays rounded corners",
+              "fieldName": "rounded"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-select",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetSelect",
+            "module": "src/components/kemet-select/kemet-select.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-select",
+          "declaration": {
+            "name": "KemetSelect",
+            "module": "src/components/kemet-select/kemet-select.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-svgs/kemet-svg.js",
       "declarations": [
         {
@@ -3750,21 +4118,21 @@
           ],
           "events": [
             {
-              "name": "fmc-input-focused",
+              "name": "kemet-input-focused",
               "type": {
                 "text": "CustomEvent"
               },
               "description": "Fires when the input receives and loses focus"
             },
             {
-              "name": "fmc-input-status",
+              "name": "kemet-input-status",
               "type": {
                 "text": "CustomEvent"
               },
               "description": "Fires when there's a change in status"
             },
             {
-              "name": "fmc-input-input",
+              "name": "kemet-input-input",
               "type": {
                 "text": "CustomEvent"
               },
