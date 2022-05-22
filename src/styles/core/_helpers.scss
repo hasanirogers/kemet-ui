@@ -309,3 +309,11 @@
     }
   }
 }
+
+@mixin makeElevation {
+  @each $layer, $value in $elevation {
+    [kemet-elevation="#{$layer}"] {
+      box-shadow: $value;
+    }
+  }
+}

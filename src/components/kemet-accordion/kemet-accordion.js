@@ -6,7 +6,6 @@ export default class KemetAccordion extends LitElement {
       css`
         :host {
           display: block;
-          box-shadow: 0 0.5rem 0.5rem 0 rgb(0 0 0 / 10%);
         }
       `,
     ];

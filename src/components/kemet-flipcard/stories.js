@@ -22,6 +22,7 @@ const Template = ({
   measure = false,
   axis = 'horizontal',
   flipOnHover = false,
+  rounded = false,
 }) => html`
   <style>
     kemet-flipcard {
@@ -36,14 +37,14 @@ const Template = ({
       --kemet-flipcard-ratio: ${ratio};
     }
   </style>
-  <kemet-flipcard ?flipped="${flipped}" ?measure="${measure}" axis="${axis}" ?flip-on-hover="${flipOnHover}">
-    <div slot="front">
+  <kemet-flipcard ?flipped="${flipped}" ?measure="${measure}" axis="${axis}" ?flip-on-hover="${flipOnHover}" ?rounded=${rounded}>
+    <div slot="front" kemet-elevation="layer5" kemet-padding="tiny:normal">
       <p>This is the front of the card.</p>
       <kemet-flipcard-trigger>
         <kemet-button>Flip Me</kemet-button>
       </kemet-flipcard-trigger>
     </div>
-    <div slot="back">
+    <div slot="back" kemet-elevation="layer5" kemet-padding="tiny:normal">
       <p>This is the back of the card.</p>
       <kemet-flipcard-trigger>
         <kemet-button>Flip Me</kemet-button>
@@ -91,6 +92,9 @@ Flipcard.argTypes = {
   flipOnHover: {
     control: { type: 'boolean' },
   },
+  rounded: {
+    control: { type: 'boolean' },
+  },
 };
 Flipcard.args = {
   width: '50%',
@@ -106,4 +110,5 @@ Flipcard.args = {
   measure: false,
   axis: 'horizontal',
   flipOnHover: false,
+  rounded: false,
 };

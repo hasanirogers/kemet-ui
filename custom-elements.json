@@ -421,6 +421,145 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-draggable/kemet-draggable.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetDraggable",
+          "members": [
+            {
+              "kind": "method",
+              "name": "startDrag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "drag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "stopDrag"
+            },
+            {
+              "kind": "method",
+              "name": "measureContent"
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The elements top position in pixels.",
+              "attribute": "top"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The element's left position in pixels.",
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "memory",
+              "privacy": "public",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "attribute": "memory"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-draggable-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-draggable-stop",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "memory",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "fieldName": "memory"
+            },
+            {
+              "name": "top",
+              "description": "The elements top position in pixels.",
+              "fieldName": "top"
+            },
+            {
+              "name": "left",
+              "description": "The element's left position in pixels.",
+              "fieldName": "left"
+            },
+            {
+              "name": "measure",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-draggable",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetDraggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-draggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-drawer/kemet-drawer.js",
       "declarations": [
         {
@@ -569,145 +708,6 @@
           "declaration": {
             "name": "stylesEffects",
             "module": "src/components/kemet-drawer/kemet-drawer.styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-draggable/kemet-draggable.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetDraggable",
-          "members": [
-            {
-              "kind": "method",
-              "name": "startDrag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "drag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "stopDrag"
-            },
-            {
-              "kind": "method",
-              "name": "measureContent"
-            },
-            {
-              "kind": "field",
-              "name": "top",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The elements top position in pixels.",
-              "attribute": "top"
-            },
-            {
-              "kind": "field",
-              "name": "left",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The element's left position in pixels.",
-              "attribute": "left"
-            },
-            {
-              "kind": "field",
-              "name": "measure",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "attribute": "measure"
-            },
-            {
-              "kind": "field",
-              "name": "memory",
-              "privacy": "public",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "attribute": "memory"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-draggable-start",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "name": "kemet-draggable-stop",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "memory",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "fieldName": "memory"
-            },
-            {
-              "name": "top",
-              "description": "The elements top position in pixels.",
-              "fieldName": "top"
-            },
-            {
-              "name": "left",
-              "description": "The element's left position in pixels.",
-              "fieldName": "left"
-            },
-            {
-              "name": "measure",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "fieldName": "measure"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-draggable",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetDraggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-draggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
           }
         }
       ]
@@ -1766,7 +1766,7 @@
         {
           "kind": "variable",
           "name": "stylesBase",
-          "default": "css`\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  :host {\n    position: fixed;\n    display: flex;\n    top: 0;\n    left: 0;\n    z-index: 99;\n    width: 100%;\n    height: 100vh;\n    visibility: hidden;\n    backface-visibility: hidden;\n  }\n\n  :host([opened]) {\n    visibility: visible;\n  }\n\n  .content {\n    position: relative;\n    z-index: 3;\n    margin: auto;\n    min-width: var(--kemet-modal-content-min-width, 0);\n    max-width: var(--kemet-modal-content-max-width, none);\n    padding: var(--kemet-modal-content-padding, 2rem);\n    background-color: var(--kemet-modal-content-background-color, var(--kemet-color-white));\n    box-shadow: var(--kemet-modal-content-box-shadow, rgb(0 0 0 / 10%) 0px 0.5rem 0.5rem 0px);\n  }\n\n  :host([mobile]) .content {\n    min-width: var(--kemet-modal-content-mobile-min-width, 100%);\n    min-height: var(--kemet-modal-content-mobile-min-height, 80vh);\n    padding: var(--kemet-modal-content-mobile-padding, 1rem);\n  }\n\n  .overlay {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    visibility: hidden;\n    top: 0;\n    left: 0;\n    z-index: 1;\n    opacity: 0;\n    background: var(--kemet-modal-overlay-background-color, rgba(0,0,0,0.2));\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([opened]) .overlay {\n    opacity: 1;\n    visibility: visible;\n  }\n`"
+          "default": "css`\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  :host {\n    position: fixed;\n    display: flex;\n    top: 0;\n    left: 0;\n    z-index: 99;\n    width: 100%;\n    height: 100vh;\n    visibility: hidden;\n    backface-visibility: hidden;\n  }\n\n  :host([opened]) {\n    visibility: visible;\n  }\n\n  .content {\n    position: relative;\n    z-index: 3;\n    margin: auto;\n    min-width: var(--kemet-modal-content-min-width, 0);\n    max-width: var(--kemet-modal-content-max-width, none);\n  }\n\n  :host([mobile]) .content {\n    min-width: var(--kemet-modal-content-mobile-min-width, 100%);\n    min-height: var(--kemet-modal-content-mobile-min-height, 80vh);\n    padding: var(--kemet-modal-content-mobile-padding, 1rem);\n  }\n\n  .overlay {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    visibility: hidden;\n    top: 0;\n    left: 0;\n    z-index: 1;\n    opacity: 0;\n    background: var(--kemet-modal-overlay-background-color, rgba(0,0,0,0.2));\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([opened]) .overlay {\n    opacity: 1;\n    visibility: visible;\n  }\n`"
         },
         {
           "kind": "variable",

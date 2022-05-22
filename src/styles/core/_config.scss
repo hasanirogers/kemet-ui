@@ -212,6 +212,25 @@ $colors: (
 
 
 
+/// A map that defines the box shadow elevation
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$elevation: (
+  none: 0 0 #0000,
+  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
+);
+
+
+
+
 /// Control whether or not order attributes will be included.
 /// @type Boolean
 /// @access public
@@ -267,3 +286,13 @@ $makespacers: true;
 /// @group config-variables
 
 $makecolors: true;
+
+
+
+
+/// Control whether or not elevation utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeelevation: true;

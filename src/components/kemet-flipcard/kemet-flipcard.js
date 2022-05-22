@@ -32,9 +32,14 @@ export class KemetFlipcard extends LitElement {
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        overflow: hidden;
+        /* overflow: hidden; */
         border-radius: var(--kemet-flipcard-border-radius, 0);
         border: var(--kemet-flipcard-border, 2px solid var(--kemet-color-primary));
+      }
+
+      :host([rounded]) .front,
+      :host([rounded]) .back {
+        border-radius: var(--kemet-border-radius);
       }
 
       .front {
@@ -76,6 +81,8 @@ export class KemetFlipcard extends LitElement {
         display: inline-block;
         margin: auto;
         position: relative;
+        width: 100%;
+        height: 100%;
       }
     `;
   }

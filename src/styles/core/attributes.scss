@@ -24,3 +24,7 @@
 @if $makecolors {
   @include makeColors();
 }
+
+@if $makeelevation {
+  @include makeElevation();
+}

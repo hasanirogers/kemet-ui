@@ -48,9 +48,11 @@ const Template = ({
     </style>
     <kemet-button @click="${() => openModal()}">Open Modal</kemet-button>
     <kemet-modal ?opened=${opened} effect="${effect}" ?close-on-click="${closeOnClick}">
-      ${makeCloseBtn(displayCloseBtn)}
-      <h2 kemet-margin="tiny:none">Modal Title</h2>
-      <p>Your modal contents <a href="http://google.com">here</a>.</p>
+      <div kemet-elevation="layer5" kemet-padding="tiny:large" kemet-background-color="white">
+        ${makeCloseBtn(displayCloseBtn)}
+        <h2 kemet-margin="tiny:none">Modal Title</h2>
+        <p>Your modal contents <a href="http://google.com">here</a>.</p>
+      </div>
     </kemet-modal>
   `;
 
