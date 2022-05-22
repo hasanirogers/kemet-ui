@@ -28,3 +28,7 @@
 @if $makeelevation {
   @include makeElevation();
 }
+
+@if $makeborders {
+  @include makeBorders();
+}

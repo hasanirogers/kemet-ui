@@ -181,6 +181,53 @@ $colors: (
 );
 ```
 
+<br />
+
+## Elevation
+
+A map that controls the box shadow layers.
+
+**Default**
+
+```scss
+$elevation: (
+  none: 0 0 #0000,
+  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
+);
+```
+
+<br />
+
+## Border Widths
+
+A map that controls the border widths.
+
+**Default**
+
+```scss
+$borderwidths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+);
+```
+
+
+<br />
+
 ## Order
 
 Determines the depth of priority that can be set for the order attribute where depth is defined as a number. The default is 5 so giving an order of `order=”small:minus-5”` would mean the highest priority, starting at small.
@@ -259,5 +306,15 @@ If you want to reduce file size and don't need text helper classes, set `$makete
 
 ## Make Spacers
 If you want to reduce file size and don't need spacers, set `$makespacers` to false.
+
+**Default**: `true`
+
+## Make Elevation
+If you want to reduce file size and don't need elevation, set `$makeelevation` to false.
+
+**Default**: `true`
+
+## Make Elevation
+If you want to reduce file size and don't need borders, set `$makeborders` to false.
 
 **Default**: `true`

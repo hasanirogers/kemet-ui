@@ -317,3 +317,67 @@
     }
   }
 }
+
+@mixin makeBorders {
+  $sides: 'top', 'right', 'bottom', 'left';
+  $styles: dotted, dashed, solid, double, groove, ridge, inset, outset, none, hidden;
+
+  @each $color, $value in $colors {
+    [kemet-border*="#{$color}"] {
+      border-color: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    [kemet-border*="all-#{$width}"] {
+      border-width: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    [kemet-border*="horizontal-#{$width}"] {
+      border-top-width: $value;
+      border-bottom-width: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    [kemet-border*="vertical-#{$width}"] {
+      border-left-width: $value;
+      border-right-width: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    @each $side in $sides {
+      [kemet-border*="#{$side}-#{$width}"] {
+        border-#{$side}-width: $value;
+      }
+    }
+  }
+
+  @each $style in $styles {
+    [kemet-border*="all"][kemet-border*="#{$style}"] {
+      border-style: $style;
+    }
+
+    [kemet-border*="horizontal"][kemet-border*="#{$style}"] {
+      border-style: none;
+      border-top-style: $style;
+      border-bottom-style: $style;
+    }
+
+    [kemet-border*="vertical"][kemet-border*="#{$style}"] {
+      border-style: none;
+      border-left-style: $style;
+      border-right-style: $style;
+    }
+
+    @each $side in $sides {
+      [kemet-border*="#{$side}"][kemet-border*="#{$style}"] {
+        border-style: none;
+        border-#{$side}-style: $style;
+      }
+    }
+  }
+}

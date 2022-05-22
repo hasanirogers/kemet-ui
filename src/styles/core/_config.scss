@@ -231,6 +231,27 @@ $elevation: (
 
 
 
+/// A map that defines the amount of border widths
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$borderwidths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+);
+
+
+
+
 /// Control whether or not order attributes will be included.
 /// @type Boolean
 /// @access public
@@ -296,3 +317,13 @@ $makecolors: true;
 /// @group config-variables
 
 $makeelevation: true;
+
+
+
+
+/// Control whether or not border utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeborders: true;

@@ -9,6 +9,7 @@ export default class KemetInput extends LitElement {
       css`
         :host {
           position: relative;
+          display: block;
         }
 
         input {

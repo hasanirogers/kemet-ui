@@ -7,6 +7,11 @@ export default class KemetTextarea extends LitElement {
   static get styles() {
     return [
       css`
+        :host {
+          position: relative;
+          display: block;
+        }
+
         textarea {
           display: block;
           width: 100%;

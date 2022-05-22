@@ -7,6 +7,7 @@ export default class KemetSelect extends LitElement {
       css`
         :host {
           position: relative;
+          display: block;
         }
 
         select {
