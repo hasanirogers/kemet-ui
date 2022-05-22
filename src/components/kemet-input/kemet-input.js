@@ -7,6 +7,10 @@ export default class KemetInput extends LitElement {
   static get styles() {
     return [
       css`
+        :host {
+          position: relative;
+        }
+
         input {
           display: block;
           width: 100%;
@@ -86,11 +90,11 @@ export default class KemetInput extends LitElement {
         }
 
         kemet-icon.left {
-          left: 3rem;
+          left: 1rem;
         }
 
         kemet-icon.right {
-          right: 3rem;
+          right: 1rem;
         }
 
         kemet-icon.eye,

@@ -14,7 +14,6 @@
 
 [kemet-layout='flexrow'] {
   display: flex;
-  padding: 0;
 }
 
 [kemet-layout='flexrow'] > * {
@@ -101,7 +100,6 @@
 [kemet-layout='flexgrid'] {
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
 }
 
 [kemet-layout='flexgrid'] > * {
