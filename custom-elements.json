@@ -421,6 +421,349 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCheckbox",
+          "members": [
+            {
+              "kind": "method",
+              "name": "click"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckMark"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'checkbox'",
+              "privacy": "public",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "privacy": "public",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "attribute": "focused",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-checkbox-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the state of the checkbox changes"
+            },
+            {
+              "name": "kemet-checkbox-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the checkbox loses or receives focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "indeterminate",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "fieldName": "required"
+            },
+            {
+              "name": "focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "rounded",
+              "fieldName": "rounded"
+            },
+            {
+              "name": "filled",
+              "fieldName": "filled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-checkbox",
+          "declaration": {
+            "name": "KemetCheckbox",
+            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-draggable/kemet-draggable.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetDraggable",
+          "members": [
+            {
+              "kind": "method",
+              "name": "startDrag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "drag",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "stopDrag"
+            },
+            {
+              "kind": "method",
+              "name": "measureContent"
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The elements top position in pixels.",
+              "attribute": "top"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "description": "The element's left position in pixels.",
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "memory",
+              "privacy": "public",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "attribute": "memory"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-draggable-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-draggable-stop",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "memory",
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "fieldName": "memory"
+            },
+            {
+              "name": "top",
+              "description": "The elements top position in pixels.",
+              "fieldName": "top"
+            },
+            {
+              "name": "left",
+              "description": "The element's left position in pixels.",
+              "fieldName": "left"
+            },
+            {
+              "name": "measure",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-draggable",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetDraggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-draggable",
+          "declaration": {
+            "name": "KemetDraggable",
+            "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-drawer/kemet-drawer.js",
       "declarations": [
         {
@@ -569,145 +912,6 @@
           "declaration": {
             "name": "stylesEffects",
             "module": "src/components/kemet-drawer/kemet-drawer.styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-draggable/kemet-draggable.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetDraggable",
-          "members": [
-            {
-              "kind": "method",
-              "name": "startDrag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "drag",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "stopDrag"
-            },
-            {
-              "kind": "method",
-              "name": "measureContent"
-            },
-            {
-              "kind": "field",
-              "name": "top",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The elements top position in pixels.",
-              "attribute": "top"
-            },
-            {
-              "kind": "field",
-              "name": "left",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "privacy": "public",
-              "description": "The element's left position in pixels.",
-              "attribute": "left"
-            },
-            {
-              "kind": "field",
-              "name": "measure",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "attribute": "measure"
-            },
-            {
-              "kind": "field",
-              "name": "memory",
-              "privacy": "public",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "attribute": "memory"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-draggable-start",
-              "type": {
-                "text": "CustomEvent"
-              }
-            },
-            {
-              "name": "kemet-draggable-stop",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "memory",
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "fieldName": "memory"
-            },
-            {
-              "name": "top",
-              "description": "The elements top position in pixels.",
-              "fieldName": "top"
-            },
-            {
-              "name": "left",
-              "description": "The element's left position in pixels.",
-              "fieldName": "left"
-            },
-            {
-              "name": "measure",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
-              "fieldName": "measure"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-draggable",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetDraggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-draggable",
-          "declaration": {
-            "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
           }
         }
       ]

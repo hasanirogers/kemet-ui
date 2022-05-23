@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-checkbox.js';
+
+<Meta title="Components/Checkbox" component="kemet-checkbox" />
+
+# Kemet Checkbox
+
+An enhanced checkbox.
+
+
+## How to use
+
+```html
+<kemet-checkbox label="The label."></kemet-checkbox>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-checkbox.js'
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-checkbox.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+## API
+
+### &lt;kemet-checkbox&gt;
+
+<ArgsTable of="kemet-checkbox" />
+
+#### Methods
+
+| method     | description                              |
+| ---------- | ---------------------------------------- |
+| .click()   | Simulates a click on the input element.  |
+
+#### CSS
+
+| css                                      | description                              | default                              |
+| ---------------------------------------- | ---------------------------------------- | ------------------------------------ |
+| --kemet-checkbox-size                    | The width and height of the checkbox.    | 18px                                 |
+| --kemet-checkbox-color                   | The color of the checkbox's mark.        | var(--kemet-color-primary)           |
+| --kemet-checkbox-border                  | The border of the checkbox.              | 1px solid var(--kemet-color-primary) |
+| --kemet-checkbox-border-radius           | The border radius of the checkbox.       | 4px                                  |
+| --kemet-checkbox-filled-color            | The filled color of the checkbox's mark. | var(--kemet-color-white)             |
+| --kemet-checkbox-filled-background-color | The filled background color.             | var(--kemet-color-primary)           |
+| ::part(label)                            | The label element.                       |                                      |
+| ::part(text)                             | The the label's text.                    |                                      |
+| ::part(mark)                             | The icon of the checkmark.               |                                      |
