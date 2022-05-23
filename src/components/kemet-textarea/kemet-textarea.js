@@ -207,7 +207,7 @@ export default class KemetTextarea extends LitElement {
   firstUpdated() {
     // elements
     this.form = this.closest('form');
-    this.control = this.closest('kemet-control');
+    this.control = this.closest('kemet-field');
     this.textarea = this.shadowRoot.querySelector('textarea');
   }
 

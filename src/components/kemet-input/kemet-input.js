@@ -14,6 +14,7 @@ export default class KemetInput extends LitElement {
 
         input {
           display: block;
+          font-size: 1rem;
           width: 100%;
           height: var(--kemet-input-height, 50px);
           padding: var(--kemet-input-padding, 0.5rem 1rem);
@@ -332,7 +333,7 @@ export default class KemetInput extends LitElement {
   firstUpdated() {
     // elements
     this.input = this.shadowRoot.querySelector('input');
-    this.control = this.closest('kemet-control');
+    this.control = this.closest('kemet-field');
     this.form = this.closest('form');
     this.slug = this.control ? this.control.slug : 'input';
   }

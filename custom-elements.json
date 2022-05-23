@@ -714,6 +714,234 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-field/kemet-field.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetField",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeStatusIcon"
+            },
+            {
+              "kind": "method",
+              "name": "makeStatusMessage"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocused",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleStatus",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleSelection",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "description": "The validation status of standard, error, or success",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "errorIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'exclamation-triangle-fill'",
+              "privacy": "public",
+              "description": "The icon while in an error or warning state",
+              "attribute": "error-icon"
+            },
+            {
+              "kind": "field",
+              "name": "successIcon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'check-lg'",
+              "privacy": "public",
+              "description": "The icon while in an success state",
+              "attribute": "success-icon"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "privacy": "public",
+              "description": "Uniquely identifies the control. Use the same slug for slotted sub components.",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "description": "The label text",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The validation message for error or success",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "Determines if the containing input is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "privacy": "public",
+              "description": "Is true when the containing input has a value",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "length",
+              "privacy": "public",
+              "description": "The length of the containing input",
+              "attribute": "length"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Determines the disabled state of the control",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-field-input",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when input fires on the input slot"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slug",
+              "description": "Uniquely identifies the control. Use the same slug for slotted sub components.",
+              "fieldName": "slug"
+            },
+            {
+              "name": "label",
+              "description": "The label text",
+              "fieldName": "label"
+            },
+            {
+              "name": "message",
+              "description": "The validation message for error or success",
+              "fieldName": "message"
+            },
+            {
+              "name": "focused",
+              "description": "Determines if the containing input is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "status",
+              "description": "The validation status of standard, error, or success",
+              "fieldName": "status"
+            },
+            {
+              "name": "filled",
+              "description": "Is true when the containing input has a value",
+              "fieldName": "filled"
+            },
+            {
+              "name": "length",
+              "description": "The length of the containing input",
+              "fieldName": "length"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines the disabled state of the control",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "error-icon",
+              "description": "The icon while in an error or warning state",
+              "fieldName": "errorIcon"
+            },
+            {
+              "name": "success-icon",
+              "description": "The icon while in an success state",
+              "fieldName": "successIcon"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-field",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetField",
+            "module": "src/components/kemet-field/kemet-field.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-field",
+          "declaration": {
+            "name": "KemetField",
+            "module": "src/components/kemet-field/kemet-field.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.js",
       "declarations": [
         {

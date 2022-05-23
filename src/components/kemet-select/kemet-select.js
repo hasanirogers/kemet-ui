@@ -12,6 +12,7 @@ export default class KemetSelect extends LitElement {
 
         select {
           display: block;
+          font-size: 1rem;
           width: 100%;
           padding: var(--kemet-select-padding, 1rem);
           border: var(--kemet-select-border, 1px solid var(--kemet-color-primary));
@@ -169,7 +170,7 @@ export default class KemetSelect extends LitElement {
     this.formSubmitController = new FormSubmitController(this);
 
     // elements
-    this.control = this.closest('kemet-control');
+    this.control = this.closest('kemet-field');
   }
 
   firstUpdated() {
