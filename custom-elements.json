@@ -233,194 +233,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetButton",
-          "members": [
-            {
-              "kind": "method",
-              "name": "handleMouseOver",
-              "description": "Sets hover to true onMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut",
-              "description": "Sets hover to false onMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "description": "Handles click behavior",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles blur",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "description": "event object",
-                  "type": {
-                    "text": "object"
-                  }
-                }
-              ],
-              "description": "Handles keyup",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "privacy": "public",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "outline",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "active",
-              "privacy": "public",
-              "description": "Determines whether or not the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "privacy": "public",
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "privacy": "public",
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "privacy": "public",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "description": "Determines whether or not the button is active",
-              "fieldName": "active"
-            },
-            {
-              "name": "hover",
-              "description": "Is true when the button is hovered",
-              "fieldName": "hover"
-            },
-            {
-              "name": "focused",
-              "description": "Is true when the button is focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "link",
-              "description": "The url a button should link too",
-              "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "description": "Determines whether not a button is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "type",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "fieldName": "type"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "KemetButton",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-button",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-checkbox/kemet-checkbox.js",
       "declarations": [
         {
@@ -619,6 +431,194 @@
           "declaration": {
             "name": "KemetCheckbox",
             "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-button/kemet-button.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetButton",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleMouseOver",
+              "description": "Sets hover to true onMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut",
+              "description": "Sets hover to false onMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "description": "Handles click behavior",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles blur",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "description": "event object",
+                  "type": {
+                    "text": "object"
+                  }
+                }
+              ],
+              "description": "Handles keyup",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "outline",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "description": "Determines whether or not the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "privacy": "public",
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "privacy": "public",
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "privacy": "public",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "description": "Determines whether or not the button is active",
+              "fieldName": "active"
+            },
+            {
+              "name": "hover",
+              "description": "Is true when the button is hovered",
+              "fieldName": "hover"
+            },
+            {
+              "name": "focused",
+              "description": "Is true when the button is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "link",
+              "description": "The url a button should link too",
+              "fieldName": "link"
+            },
+            {
+              "name": "outlined",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "type",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetButton",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-button",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
           }
         }
       ]
@@ -2667,6 +2667,271 @@
           "declaration": {
             "name": "customTooltip",
             "module": "src/components/kemet-popover/kemet-popover.tooltip.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-radio/kemet-radio.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetRadio",
+          "members": [
+            {
+              "kind": "method",
+              "name": "click"
+            },
+            {
+              "kind": "method",
+              "name": "blur"
+            },
+            {
+              "kind": "method",
+              "name": "focus"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
+            },
+            {
+              "kind": "method",
+              "name": "makeDot"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "The text next to the radio button",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'radio-button'",
+              "privacy": "public",
+              "description": "The name of the field",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Determines if the button should be disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "description": "Determines whether or not the button is checked",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "description": "The value of the radio button",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "Is true when the button is focused on",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "privacy": "public",
+              "description": "Displayed the button as a filled button",
+              "attribute": "filled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-radio-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the checkbox loses or receives focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "description": "The text next to the radio button",
+              "fieldName": "label"
+            },
+            {
+              "name": "checked",
+              "description": "Determines whether or not the button is checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "name",
+              "description": "The name of the field",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "description": "The value of the radio button",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines if the button should be disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "focused",
+              "description": "Is true when the button is focused on",
+              "fieldName": "focused"
+            },
+            {
+              "name": "filled",
+              "description": "Displayed the button as a filled button",
+              "fieldName": "filled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-radio",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-radio",
+          "declaration": {
+            "name": "KemetRadio",
+            "module": "src/components/kemet-radio/kemet-radio.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-radio/kemet-radios.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetRadios",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "field",
+              "name": "legend",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "The legend text for the fieldset",
+              "attribute": "legend"
+            },
+            {
+              "kind": "field",
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "privacy": "public",
+              "description": "The direction of the button's layout",
+              "attribute": "axis",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-radios-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the state of the checkbox changes"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "legend",
+              "description": "The legend text for the fieldset",
+              "fieldName": "legend"
+            },
+            {
+              "name": "axis",
+              "description": "The direction of the button's layout",
+              "fieldName": "axis"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-radios",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-radios",
+          "declaration": {
+            "name": "KemetRadios",
+            "module": "src/components/kemet-radio/kemet-radios.js"
           }
         }
       ]
