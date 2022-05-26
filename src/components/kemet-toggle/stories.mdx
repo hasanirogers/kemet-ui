@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-toggle.js';
+
+<Meta title="Components/Toggle" component="kemet-toggle" />
+
+# Kemet Toggle
+
+A toggle swtich for forms.
+
+
+## How to use
+
+```html
+<kemet-toggle></kemet-toggle>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-toggle.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-toggle.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+## API
+
+### &lt;kemet-toggle&gt;
+
+<ArgsTable of="kemet-toggle" />
+
+#### CSS
+
+| css                            | description                      | default                                                                                           |
+| ------------------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------- |
+| --kemet-toggle-width           | The width of the entire toggle.  | 3.5rem;                                                                                           |
+| --kemet-toggle-height          | The height of the entire toggle. | 2rem;                                                                                             |
+| --kemet-toggle-handle-diameter | The diameter of the handle.      | 1.6rem;                                                                                           |
+| --kemet-toggle-track-border    | The border of the track.         | none                                                                                              |
+| --kemet-toggle-track-color     | The color of the track.          | var(--kemet-color-white)                                                                          |
+| --kemet-toggle-track-shadow    | The shadow on the track.         | inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1) |
+| --kemet-toggle-handle-border   | The border on the handle.        | none                                                                                              |
+| --kemet-toggle-handle-color    | The color of the handle.         | var(--kemet-color-primary)                                                                        |
+| --kemet-toggle-handle-shadow   | The shadow on the handle.        | 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2)                        |
+| ::part(label)                  | The label element.               |                                                                                                   |
+| ::part(control)                | The control element.             |                                                                                                   |
+| ::part(text)                   | The label text.                  |                                                                                                   |
+| ::part(checked)                | The checked text.                |                                                                                                   |
+| ::part(unchecked)              | The unchecked text.              |                                                                                                   |
