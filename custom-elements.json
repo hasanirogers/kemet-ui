@@ -786,78 +786,119 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.js",
+      "path": "src/components/kemet-combo/kemet-combo.js",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetCount",
+          "name": "KemetCombo",
           "members": [
             {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "description": "The text label shown to users",
-              "attribute": "message"
+              "kind": "method",
+              "name": "makeOptions"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleSelection",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleOptionKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInputKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             },
             {
               "kind": "field",
-              "name": "remaining",
+              "name": "slug",
               "privacy": "public",
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
+              "description": "Uniquely identifies the component. Should match the slug used in a control.",
+              "attribute": "slug"
             },
             {
               "kind": "field",
-              "name": "limit",
+              "name": "options",
               "privacy": "public",
-              "description": "The maximum number of characters allowed",
-              "attribute": "limit"
+              "description": "An array of items listed for the combo box",
+              "attribute": "options"
             },
             {
               "kind": "field",
-              "name": "validateImmediately",
+              "name": "filteredOptions",
               "privacy": "public",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "attribute": "validate-immediately"
+              "description": "Used internally",
+              "attribute": "filteredOptions"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "privacy": "public",
+              "description": "Controls the display of the combo box",
+              "attribute": "show",
+              "reflects": true
             }
           ],
           "events": [
             {
-              "name": "kemet-count-status",
+              "name": "kemet-combo-selection",
               "type": {
                 "text": "CustomEvent"
               },
-              "description": "Fires when there's a change in status."
+              "description": "Fires when a selection has been made"
             }
           ],
           "attributes": [
             {
-              "name": "message",
-              "description": "The text label shown to users",
-              "fieldName": "message"
+              "name": "slug",
+              "description": "Uniquely identifies the component. Should match the slug used in a control.",
+              "fieldName": "slug"
             },
             {
-              "name": "remaining",
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
+              "name": "options",
+              "description": "An array of items listed for the combo box",
+              "fieldName": "options"
             },
             {
-              "name": "limit",
-              "description": "The maximum number of characters allowed",
-              "fieldName": "limit"
+              "name": "filteredOptions",
+              "description": "Used internally",
+              "fieldName": "filteredOptions"
             },
             {
-              "name": "validate-immediately",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "fieldName": "validateImmediately"
+              "name": "show",
+              "description": "Controls the display of the combo box",
+              "fieldName": "show"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-count",
+          "tagName": "kemet-combo",
           "customElement": true
         }
       ],
@@ -866,16 +907,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
+            "name": "KemetCombo",
+            "module": "src/components/kemet-combo/kemet-combo.js"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-count",
+          "name": "kemet-combo",
           "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
+            "name": "KemetCombo",
+            "module": "src/components/kemet-combo/kemet-combo.js"
           }
         }
       ]
@@ -1015,6 +1056,102 @@
           "declaration": {
             "name": "KemetDraggable",
             "module": "src/components/kemet-draggable/kemet-draggable.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-count/kemet-count.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "privacy": "public",
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "privacy": "public",
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "privacy": "public",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-count-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
