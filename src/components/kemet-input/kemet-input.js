@@ -346,9 +346,9 @@ export default class KemetInput extends LitElement {
   firstUpdated() {
     // elements
     this.input = this.shadowRoot.querySelector('input');
-    this.control = this.closest('kemet-field');
+    this.field = this.closest('kemet-field');
     this.form = this.closest('form');
-    this.slug = this.control ? this.control.slug : 'input';
+    this.slug = this.field ? this.field.slug : 'input';
   }
 
   render() {
@@ -508,7 +508,7 @@ export default class KemetInput extends LitElement {
   handleChange() {
     this.value = this.input.value;
 
-    if (this.input.checkValidity() && this.status !== 'success') {
+    if (this.input.checkValidity() && this.input.checkLimitValidity && this.status !== 'success') {
       this.invalid = false;
       this.status = 'standard';
       this.validity = this.input.validity;
@@ -617,32 +617,16 @@ export default class KemetInput extends LitElement {
    * @private
    * @returns {boolean}
    */
-  // checkLimitValidity() {
-  //   if (this.control) {
-  //     const count = this.control.querySelector('kemet-count');
-  //     if (count) {
-  //       return this.value.length < count.limit;
-  //     }
-  //   }
+  checkLimitValidity() {
+    if (this.field) {
+      const count = this.field.querySelector('kemet-count');
+      if (count) {
+        return this.value.length < count.limit;
+      }
+    }
 
-  //   return true;
-  // }
-
-  /**
-   * Checks the validity of the password for the password component
-   * @private
-   * @returns {boolean}
-   */
-  // checkPasswordValidity() {
-  //   if (this.control) {
-  //     const password = this.control.querySelector('kemet-password');
-  //     if (password) {
-  //       return password.status !== 'error';
-  //     }
-  //   }
-
-  //   return true;
-  // }
+    return true;
+  }
 
   /**
    * Checks the validity of the standard input

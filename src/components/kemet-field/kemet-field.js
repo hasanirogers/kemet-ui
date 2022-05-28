@@ -154,7 +154,6 @@ export default class KemetField extends LitElement {
 
   firstUpdated() {
     this.slotInput = this.querySelector('[slot="input"]');
-    this.slotCount = this.querySelector('[slot="count"]');
     this.slotCombo = this.querySelector('[slot="combo"]');
 
     if (this.slotInput.value) {
@@ -171,6 +170,7 @@ export default class KemetField extends LitElement {
         <slot name="input"></slot>
       </label>
       ${this.makeStatusMessage()}
+      <slot name="component"></slot>
     `;
   }
 

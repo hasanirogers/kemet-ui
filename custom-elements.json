@@ -233,204 +233,110 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
+      "path": "src/components/kemet-badge/kemet-badge.js",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetCheckbox",
+          "name": "KemetBadge",
           "members": [
             {
               "kind": "method",
-              "name": "click"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur"
-            },
-            {
-              "kind": "method",
-              "name": "handleFocus"
-            },
-            {
-              "kind": "method",
-              "name": "makeCheckMark"
+              "name": "handleSlotChange"
             },
             {
               "kind": "field",
-              "name": "label",
+              "name": "status",
               "type": {
                 "text": "string"
               },
-              "default": "''",
+              "default": "'primary'",
               "privacy": "public",
-              "attribute": "label"
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'checkbox'",
-              "privacy": "public",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
+              "name": "pill",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
               "privacy": "public",
-              "attribute": "disabled",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "required",
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
               "privacy": "public",
-              "attribute": "required",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "rounded",
+              "name": "circlePadding",
               "type": {
-                "text": "boolean"
+                "text": "number"
               },
-              "default": "false",
+              "default": "0",
               "privacy": "public",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "privacy": "public",
-              "attribute": "indeterminate",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "attribute": "focused",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-checkbox-change",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the state of the checkbox changes"
-            },
-            {
-              "name": "kemet-checkbox-focused",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the checkbox loses or receives focus"
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
             }
           ],
           "attributes": [
             {
-              "name": "label",
-              "fieldName": "label"
+              "name": "status",
+              "description": "The status of the badge",
+              "fieldName": "status"
             },
             {
-              "name": "checked",
-              "fieldName": "checked"
+              "name": "circle",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
             },
             {
-              "name": "indeterminate",
-              "fieldName": "indeterminate"
+              "name": "pill",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
             },
             {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "value",
-              "fieldName": "value"
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "required",
-              "fieldName": "required"
-            },
-            {
-              "name": "focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "rounded",
-              "fieldName": "rounded"
-            },
-            {
-              "name": "filled",
-              "fieldName": "filled"
+              "name": "circle-padding",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-checkbox",
+          "tagName": "kemet-badge",
           "customElement": true
         }
       ],
       "exports": [
         {
-          "kind": "custom-element-definition",
-          "name": "kemet-checkbox",
+          "kind": "js",
+          "name": "default",
           "declaration": {
-            "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-badge",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.js"
           }
         }
       ]
@@ -510,6 +416,12 @@
                 "text": "boolean"
               },
               "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
             },
             {
               "kind": "field",
@@ -607,7 +519,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetButton",
+          "name": "default",
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.js"
@@ -619,6 +531,351 @@
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCheckbox",
+          "members": [
+            {
+              "kind": "method",
+              "name": "click"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange"
+            },
+            {
+              "kind": "method",
+              "name": "makeMessage"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckMark"
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'checkbox'",
+              "privacy": "public",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "privacy": "public",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "attribute": "message"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-checkbox-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the state of the checkbox changes"
+            },
+            {
+              "name": "kemet-checkbox-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the checkbox loses or receives focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "indeterminate",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "fieldName": "required"
+            },
+            {
+              "name": "focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "rounded",
+              "fieldName": "rounded"
+            },
+            {
+              "name": "filled",
+              "fieldName": "filled"
+            },
+            {
+              "name": "status",
+              "fieldName": "status"
+            },
+            {
+              "name": "message",
+              "fieldName": "message"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCheckbox",
+            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-checkbox",
+          "declaration": {
+            "name": "KemetCheckbox",
+            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-count/kemet-count.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "privacy": "public",
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "privacy": "public",
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "privacy": "public",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-count-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
@@ -746,7 +1003,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetDraggable",
+          "name": "default",
           "declaration": {
             "name": "KemetDraggable",
             "module": "src/components/kemet-draggable/kemet-draggable.js"
@@ -866,7 +1123,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetDrawer",
+          "name": "default",
           "declaration": {
             "name": "KemetDrawer",
             "module": "src/components/kemet-drawer/kemet-drawer.js"
@@ -1186,7 +1443,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetFlipcardTrigger",
+          "name": "default",
           "declaration": {
             "name": "KemetFlipcardTrigger",
             "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
@@ -1301,7 +1558,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetFlipcard",
+          "name": "default",
           "declaration": {
             "name": "KemetFlipcard",
             "module": "src/components/kemet-flipcard/kemet-flipcard.js"
@@ -1396,7 +1653,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetIcon",
+          "name": "default",
           "declaration": {
             "name": "KemetIcon",
             "module": "src/components/kemet-icon/kemet-icon.js"
@@ -1526,6 +1783,17 @@
             },
             {
               "kind": "method",
+              "name": "checkLimitValidity",
+              "description": "Checks the validity of the character limit for the count component",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
               "name": "checkValidity",
               "description": "Checks the validity of the standard input",
               "privacy": "public",
@@ -1592,7 +1860,7 @@
               "type": {
                 "text": "number"
               },
-              "default": "16",
+              "default": "20",
               "privacy": "public",
               "description": "Size of the icons",
               "attribute": "iconSize"
@@ -2042,7 +2310,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetModalClose",
+          "name": "default",
           "declaration": {
             "name": "KemetModalClose",
             "module": "src/components/kemet-modal/kemet-modal-close.js"
@@ -2175,7 +2443,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetModal",
+          "name": "default",
           "declaration": {
             "name": "KemetModal",
             "module": "src/components/kemet-modal/kemet-modal.js"
@@ -2267,7 +2535,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetPopoverClose",
+          "name": "default",
           "declaration": {
             "name": "KemetPopoverClose",
             "module": "src/components/kemet-popover/kemet-popover-close.js"
@@ -2621,7 +2889,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetPopover",
+          "name": "default",
           "declaration": {
             "name": "KemetPopover",
             "module": "src/components/kemet-popover/kemet-popover.js"
@@ -2718,10 +2986,6 @@
             {
               "kind": "field",
               "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'radio-button'",
               "privacy": "public",
               "description": "The name of the field",
               "attribute": "name"
@@ -2737,12 +3001,6 @@
               "description": "Determines if the button should be disabled",
               "attribute": "disabled",
               "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
             },
             {
               "kind": "field",
@@ -2832,6 +3090,14 @@
       ],
       "exports": [
         {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetRadio",
+            "module": "src/components/kemet-radio/kemet-radio.js"
+          }
+        },
+        {
           "kind": "custom-element-definition",
           "name": "kemet-radio",
           "declaration": {
@@ -2873,6 +3139,14 @@
               "name": "handleSlotChange"
             },
             {
+              "kind": "method",
+              "name": "makeMessage"
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
               "kind": "field",
               "name": "legend",
               "type": {
@@ -2894,6 +3168,56 @@
               "description": "The direction of the button's layout",
               "attribute": "axis",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'radios'",
+              "privacy": "public",
+              "description": "The name of the radio button set",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "description": "The status of the radio button set",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "description": "The value of the selected radio button",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "Validation message for the user",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "description": "Determines whether or not the radio button set is required",
+              "attribute": "required"
             }
           ],
           "events": [
@@ -2915,6 +3239,31 @@
               "name": "axis",
               "description": "The direction of the button's layout",
               "fieldName": "axis"
+            },
+            {
+              "name": "value",
+              "description": "The value of the selected radio button",
+              "fieldName": "value"
+            },
+            {
+              "name": "name",
+              "description": "The name of the radio button set",
+              "fieldName": "name"
+            },
+            {
+              "name": "status",
+              "description": "The status of the radio button set",
+              "fieldName": "status"
+            },
+            {
+              "name": "message",
+              "description": "Validation message for the user",
+              "fieldName": "message"
+            },
+            {
+              "name": "required",
+              "description": "Determines whether or not the radio button set is required",
+              "fieldName": "required"
             }
           ],
           "superclass": {
@@ -2926,6 +3275,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetRadios",
+            "module": "src/components/kemet-radio/kemet-radios.js"
+          }
+        },
         {
           "kind": "custom-element-definition",
           "name": "kemet-radios",
@@ -3068,7 +3425,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetRotator",
+          "name": "default",
           "declaration": {
             "name": "KemetRotator",
             "module": "src/components/kemet-rotator/kemet-rotator.js"
@@ -3178,7 +3535,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetScrollLink",
+          "name": "default",
           "declaration": {
             "name": "KemetScrollLink",
             "module": "src/components/kemet-scroll-link/kemet-scroll-link.js"
@@ -3279,7 +3636,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetScrollNav",
+          "name": "default",
           "declaration": {
             "name": "KemetScrollNav",
             "module": "src/components/kemet-scroll-nav/kemet-scroll-nav.js"
@@ -3475,7 +3832,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetScrollSnapPaginator",
+          "name": "default",
           "declaration": {
             "name": "KemetScrollSnapPaginator",
             "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js"
@@ -3557,7 +3914,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetScrollSnapSlide",
+          "name": "default",
           "declaration": {
             "name": "KemetScrollSnapSlide",
             "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js"
@@ -3660,7 +4017,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetScrollSnap",
+          "name": "default",
           "declaration": {
             "name": "KemetScrollSnap",
             "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.js"
@@ -4156,7 +4513,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetSVG",
+          "name": "default",
           "declaration": {
             "name": "KemetSVG",
             "module": "src/components/kemet-svgs/kemet-svg.js"
@@ -4215,7 +4572,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetSVGs",
+          "name": "default",
           "declaration": {
             "name": "KemetSVGs",
             "module": "src/components/kemet-svgs/kemet-svgs.js"
@@ -4283,7 +4640,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetTabPanel",
+          "name": "default",
           "declaration": {
             "name": "KemetTabPanel",
             "module": "src/components/kemet-tabs/kemet-tab-panel.js"
@@ -4363,7 +4720,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetTab",
+          "name": "default",
           "declaration": {
             "name": "KemetTab",
             "module": "src/components/kemet-tabs/kemet-tab.js"
@@ -4578,7 +4935,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetTabs",
+          "name": "default",
           "declaration": {
             "name": "KemetTabs",
             "module": "src/components/kemet-tabs/kemet-tabs.js"
@@ -4946,6 +5303,205 @@
           "declaration": {
             "name": "KemetTextarea",
             "module": "src/components/kemet-textarea/kemet-textarea.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-toggle/kemet-toggle.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetToggle",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleChange"
+            },
+            {
+              "kind": "method",
+              "name": "makeUncheckedOption"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckedOption"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'toggle-switch'",
+              "privacy": "public",
+              "description": "The name on the input field",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Determines whether or not the toggle is disabled",
+              "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Determines whether or not the toggle is checked",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Determines whether or not to show text options",
+              "attribute": "show"
+            },
+            {
+              "kind": "field",
+              "name": "squared",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Displays the toggle as squared instead of rounded",
+              "attribute": "squared"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "description": "A description of the toggle's purpose",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "optionChecked",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "privacy": "public",
+              "description": "The checked option text",
+              "attribute": "option-checked"
+            },
+            {
+              "kind": "field",
+              "name": "optionUnchecked",
+              "type": {
+                "text": "string"
+              },
+              "default": "'off'",
+              "privacy": "public",
+              "description": "The unchecked option text",
+              "attribute": "option-unchecked"
+            },
+            {
+              "kind": "field",
+              "name": "value"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-toggle-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the toggle changes state"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "description": "The name on the input field",
+              "fieldName": "name"
+            },
+            {
+              "name": "checked",
+              "description": "Determines whether or not the toggle is checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether or not the toggle is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "label",
+              "description": "A description of the toggle's purpose",
+              "fieldName": "label"
+            },
+            {
+              "name": "show",
+              "description": "Determines whether or not to show text options",
+              "fieldName": "show"
+            },
+            {
+              "name": "squared",
+              "description": "Displays the toggle as squared instead of rounded",
+              "fieldName": "squared"
+            },
+            {
+              "name": "option-checked",
+              "description": "The checked option text",
+              "fieldName": "optionChecked"
+            },
+            {
+              "name": "option-unchecked",
+              "description": "The unchecked option text",
+              "fieldName": "optionUnchecked"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-toggle",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetToggle",
+            "module": "src/components/kemet-toggle/kemet-toggle.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-toggle",
+          "declaration": {
+            "name": "KemetToggle",
+            "module": "src/components/kemet-toggle/kemet-toggle.js"
           }
         }
       ]
