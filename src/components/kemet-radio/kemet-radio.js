@@ -1,7 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
 class KemetRadio extends LitElement {
   static get styles() {
@@ -125,13 +124,8 @@ class KemetRadio extends LitElement {
 
     // managed properties
     this.label = '';
-    this.name = 'radio-button';
+    this.name = this.closest('kemet-radios').name || 'radio-button';
     this.disabled = false;
-
-    /**
-     * Used only for form reactive controller
-     */
-    this.formSubmitController = new FormSubmitController(this);
   }
 
   firstUpdated() {
@@ -157,7 +151,7 @@ class KemetRadio extends LitElement {
           @blur=${() => this.handleBlur()}
           @focus=${() => this.handleFocus()}
         />
-        <button part="button">${this.makeDot()}</button>
+        <button part="button" aria-label=${this.label}>${this.makeDot()}</button>
         <span part="text">${this.label}</span>
       </label>
     `;

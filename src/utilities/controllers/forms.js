@@ -59,7 +59,7 @@ export class FormSubmitController {
       event.preventDefault();
       event.stopImmediatePropagation();
 
-      const components = this.form.querySelectorAll('kemet-input, kemet-textarea, kemet-select');
+      const components = this.form.querySelectorAll('kemet-input, kemet-textarea, kemet-select, kemet-checkbox, kemet-radios');
 
       components.forEach((component) => {
         component.checkValidity();

@@ -12,7 +12,6 @@ export default class KemetField extends LitElement {
 
         :host {
           display: block;
-          margin-top: 1.6rem;
         }
 
         :host([disabled]) {

@@ -73,6 +73,19 @@ class KemetCheckbox extends LitElement {
         :host([filled][indeterminate]) [part='mark'] {
           color: var(--kemet-checkbox-filled-color, var(--kemet-color-white));
         }
+
+        [part='message'] {
+          display: block;
+          margin-top: 0.5rem;
+        }
+
+        :host([status='error']) [part='message'] {
+          color: var(--kemet-color-error);
+        }
+
+        :host([status='warning']) [part='message'] {
+          color: var(--kemet-color-error);
+        }
       `,
     ];
   }
@@ -116,6 +129,13 @@ class KemetCheckbox extends LitElement {
         type: Boolean,
         reflect: true,
       },
+      status: {
+        type: String,
+        reflect: true,
+      },
+      message: {
+        type: String,
+      },
     };
   }
 
@@ -129,6 +149,7 @@ class KemetCheckbox extends LitElement {
     this.required = false;
     this.rounded = false;
     this.filled = false;
+    this.status = 'standard';
 
     /**
      * Used only for form reactive controller
@@ -155,12 +176,14 @@ class KemetCheckbox extends LitElement {
           @click=${() => this.handleClick()}
           @blur=${() => this.handleBlur()}
           @focus=${() => this.handleFocus()}
+          @change=${() => this.handleChange()}
         />
-        <button part="checkbox" >
+        <button part="checkbox" aria-label=${this.label}>
           ${this.makeCheckMark()}
         </button>
         <span part="text">${this.label}</span>
       </label>
+      ${this.makeMessage()}
     `;
   }
 
@@ -213,6 +236,22 @@ class KemetCheckbox extends LitElement {
     );
   }
 
+  handleChange() {
+    this.value = this.checked;
+
+    if (this.input.checkValidity()) {
+      this.status = 'standard';
+    }
+  }
+
+  makeMessage() {
+    if (this.status === 'error' || this.status === 'warning') {
+      return html`<span part="message">${this.message}</span>`;
+    }
+
+    return null;
+  }
+
   makeCheckMark() {
     if (this.checked) {
       return html`
@@ -248,6 +287,10 @@ class KemetCheckbox extends LitElement {
     }
 
     return null;
+  }
+
+  checkValidity() {
+    return this.input.checkValidity();
   }
 }
 

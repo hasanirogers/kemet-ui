@@ -11,7 +11,7 @@ export default class KemetToggle extends LitElement {
           --kemet-toggle-handle-diameter: 1.6rem;
           --kemet-toggle-handle-margin: calc((var(--kemet-toggle-height) - var(--kemet-toggle-handle-diameter)) / 2);
 
-          display: inline-flex;
+          display: flex;
           align-items: center;
         }
 
@@ -156,7 +156,7 @@ export default class KemetToggle extends LitElement {
     this.label = '';
     this.optionChecked = 'on';
     this.optionUnchecked = 'off';
-    this.value = this.optionChecked || this.optionUnchecked;
+    this.value = this.checked ? this.optionChecked : this.optionUnchecked;
 
     /**
      * Used only for form reactive controller

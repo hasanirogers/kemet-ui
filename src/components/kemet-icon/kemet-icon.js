@@ -33,7 +33,7 @@ export class KemetIcon extends LitElement {
     return [
       css`
         :host {
-          display: flex;
+          display: inline-flex;
         }
       `,
     ];

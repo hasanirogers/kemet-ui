@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
 class KemetRadios extends LitElement {
   static get styles() {
@@ -29,6 +30,19 @@ class KemetRadios extends LitElement {
         :host([axis='vertical']) fieldset {
           flex-direction: column;
         }
+
+        [part='message'] {
+          display: block;
+          margin-top: 0.5rem;
+        }
+
+        :host([status='error']) [part='message'] {
+          color: var(--kemet-color-error);
+        }
+
+        :host([status='warning']) [part='message'] {
+          color: var(--kemet-color-error);
+        }
       `,
     ];
   }
@@ -48,6 +62,37 @@ class KemetRadios extends LitElement {
         type: String,
         reflect: true,
       },
+      /**
+       * The value of the selected radio button
+       */
+      value: {
+        type: String,
+      },
+      /**
+       * The name of the radio button set
+       */
+      name: {
+        type: String,
+      },
+      /**
+       * The status of the radio button set
+       */
+      status: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * Validation message for the user
+       */
+      message: {
+        type: String,
+      },
+      /**
+       * Determines whether or not the radio button set is required
+       */
+      required: {
+        type: Boolean,
+      },
     };
   }
 
@@ -57,6 +102,13 @@ class KemetRadios extends LitElement {
     // managed properties
     this.legend = '';
     this.axis = 'horizontal';
+    this.name = 'radios';
+    this.status = 'standard';
+
+    /**
+     * Used only for form reactive controller
+     */
+    this.formSubmitController = new FormSubmitController(this);
   }
 
   firstUpdated() {
@@ -67,9 +119,10 @@ class KemetRadios extends LitElement {
   render() {
     return html`
       <fieldset part="fieldset">
-        <legend part="legend">${this.legend}</legend>
+        ${this.legend !== '' ? html`<legend part="legend">${this.legend}</legend>` : null}
         <slot @click=${event => this.handleClick(event)} @keydown=${event => this.handleKeyDown(event)} @slotchange=${() => this.handleSlotChange()}></slot>
       </fieldset>
+      ${this.makeMessage()}
     `;
   }
 
@@ -85,6 +138,8 @@ class KemetRadios extends LitElement {
     if (!target.disabled) {
       target.checked = true;
       target.setAttribute('aria-checked', 'true');
+      this.value = target.value;
+      this.status = 'standard';
 
       /**
        * Fires when the state of the checkbox changes
@@ -140,6 +195,22 @@ class KemetRadios extends LitElement {
     if (checkedRadio) {
       checkedRadio.tabIndex = 0;
     }
+  }
+
+  makeMessage() {
+    if (this.status === 'error' || this.status === 'warning') {
+      return html`<span part="message">${this.message}</span>`;
+    }
+
+    return null;
+  }
+
+  checkValidity() {
+    if (this.required) {
+      return !!this.value;
+    }
+
+    return true;
   }
 }
 

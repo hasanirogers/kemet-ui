@@ -32,3 +32,7 @@
 @if $makeborders {
   @include makeBorders();
 }
+
+@if $makeborderradiuses {
+  @include makeBorderRadiuses();
+}

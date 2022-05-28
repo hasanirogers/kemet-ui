@@ -70,7 +70,7 @@ The `$stackpoint` is the point at which the library considers your layout to go 
 **Default**
 
 ```scss
-$stackpoint: 640px;
+$stackpoint: 767px;
 ```
 
 ## Breakpoints
@@ -225,6 +225,21 @@ $borderwidths: (
 );
 ```
 
+<br />
+
+## Border Radius
+
+A map that controls the radius on borders.
+
+**Default**
+
+```scss
+$borderradiuses: (
+  small: 3px,
+  medium: 6px,
+  large: 12px,
+);
+```
 
 <br />
 
@@ -278,6 +293,7 @@ Controls the amount of spacing used for margin helper classes.
 
 ```scss
 $spacers: (
+  auto: auto,
   none: 0,
   smallest: 0.5rem,
   smaller: 1rem,

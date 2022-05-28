@@ -6,9 +6,12 @@ const Template = ({
   side = 'all',
   style = 'solid',
   color = 'primary',
+  radius = 'none',
 }) => {
+  const borderRadius = radius !== 'none' ? `kemet-border-radius="${radius}"` : null;
+
   const template = `
-    <div kemet-border="${side}-${width} ${style} ${color}" kemet-margin="tiny:normal" kemet-padding="tiny:normal">The quick brown fox jumps over the lazy dog.</div>
+    <div kemet-border="${side}-${width} ${style} ${color}" ${borderRadius} kemet-margin="tiny:normal" kemet-padding="tiny:normal">The quick brown fox jumps over the lazy dog.</div>
   `;
 
   return html`${unsafeHTML(template)}`;
@@ -19,6 +22,7 @@ Standard.args = {
   side: 'all',
   style: 'solid',
   color: 'primary',
+  radius: 'none',
 };
 Standard.argTypes = {
   width: {
@@ -36,5 +40,9 @@ Standard.argTypes = {
   color: {
     control: { type: 'select' },
     options: ['primary', 'black', 'white', 'gray1', 'gray2', 'gray3', 'gray4', 'gray5', 'gray6', 'gray7', 'gray8', 'gray9', 'gray10'],
+  },
+  radius: {
+    control: { type: 'select' },
+    options: ['none', 'small', 'medium', 'large'],
   },
 };

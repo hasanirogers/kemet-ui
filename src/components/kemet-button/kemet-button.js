@@ -1,5 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import '../kemet-icon/kemet-icon.js';
+import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
 export class KemetButton extends LitElement {
   static get styles() {
@@ -36,7 +37,7 @@ export class KemetButton extends LitElement {
           align-items: center;
           color: inherit;
           font-size: inherit;
-          padding: var(--kemet-button-padding, 0.75rem 1.25rem);
+          padding: var(--kemet-button-padding, 1rem 1.25rem);
           border: 0;
           background: none;
         }
@@ -143,6 +144,11 @@ export class KemetButton extends LitElement {
     this.type = 'standard';
     this.outline = false;
     this.disable = false;
+
+    /**
+      * Used only for form reactive controller
+      */
+    this.formSubmitController = new FormSubmitController(this);
   }
 
   render() {
@@ -192,6 +198,10 @@ export class KemetButton extends LitElement {
     setTimeout(() => {
       this.active = false;
     }, 300);
+
+    if (this.shadowRoot.querySelector('button')) {
+      this.formSubmitController.submit(this);
+    }
   }
 
   /**

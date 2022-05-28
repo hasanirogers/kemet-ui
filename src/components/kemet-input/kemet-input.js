@@ -86,6 +86,7 @@ export default class KemetInput extends LitElement {
         }
 
         kemet-icon {
+          color: var(--kemet-color-primary);
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
@@ -102,6 +103,18 @@ export default class KemetInput extends LitElement {
         kemet-icon.eye,
         kemet-icon.search {
           cursor: pointer;
+        }
+
+        :host([status='error']) kemet-icon {
+          color: var(--kemet-color-error);
+        }
+
+        :host([status='warning']) kemet-icon {
+          color: var(--kemet-color-error);
+        }
+
+        :host([status='success']) kemet-icon {
+          color: var(--kemet-color-success);
         }
       `,
     ];
@@ -320,7 +333,7 @@ export default class KemetInput extends LitElement {
     this.type = 'text';
     this.value = '';
     this.status = 'standard';
-    this.iconSize = 16;
+    this.iconSize = 20;
     this.validateOnBlur = false;
     this.isPasswordVisible = false;
 
@@ -384,7 +397,7 @@ export default class KemetInput extends LitElement {
   makeIconRight() {
     if (this.iconRight) {
       return html`
-        <kemet-icon class="right" icon="${this.iconRight}" size="${this.iconSize ? this.iconSize : 16}"></kemet-icon>
+        <kemet-icon class="right" icon="${this.iconRight}" size="${this.iconSize ? this.iconSize : 20}"></kemet-icon>
       `;
     }
 

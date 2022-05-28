@@ -163,3 +163,7 @@
 [kemet-layout='flexlist'] > * {
   flex: 0 0 auto;
 }
+
+[kemet-layout='flexlist'][kemet-gutters] > :last-child {
+  padding-right: 0;
+}

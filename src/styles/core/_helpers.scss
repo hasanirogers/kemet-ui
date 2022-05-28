@@ -161,14 +161,18 @@
 @mixin makeOrder() {
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
+      [kemet-order*="#{$breakpoint}:none"] {
+        order: 0;
+      }
+
       @for $i from 1 through $order {
-        [kemet-order="#{$breakpoint}:minus-#{$i}"] {
+        [kemet-order*="#{$breakpoint}:minus-#{$i}"] {
           order: -#{$i};
         }
       }
 
       @for $i from 1 through $order {
-        [kemet-order="#{$breakpoint}:plus-#{$i}"] {
+        [kemet-order*="#{$breakpoint}:plus-#{$i}"] {
           order: #{$i};
         }
       }
@@ -378,6 +382,14 @@
         border-style: none;
         border-#{$side}-style: $style;
       }
+    }
+  }
+}
+
+@mixin makeBorderRadiuses {
+  @each $size, $value in $borderradiuses {
+    [kemet-border-radius="#{$size}"] {
+      border-radius: $value;
     }
   }
 }

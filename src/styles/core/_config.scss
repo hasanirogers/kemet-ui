@@ -53,7 +53,7 @@ $flexiplier: 'tens';
 /// @access public
 /// @group config-variables
 
-$stackpoint: 640px;
+$stackpoint: 767px;
 
 
 
@@ -138,6 +138,7 @@ $typesizers: (
 
 $spacers: (
   none: 0,
+  auto: auto,
   small: 1.5rem,
   smaller: 1rem,
   smallest: 0.5rem,
@@ -252,6 +253,20 @@ $borderwidths: (
 
 
 
+/// A map that defines the sizes of border radiuses
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$borderradiuses: (
+  small: 3px,
+  medium: 6px,
+  large: 12px,
+);
+
+
+
+
 /// Control whether or not order attributes will be included.
 /// @type Boolean
 /// @access public
@@ -327,3 +342,13 @@ $makeelevation: true;
 /// @group config-variables
 
 $makeborders: true;
+
+
+
+
+/// Control whether or not border radius utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeborderradiuses: true;
