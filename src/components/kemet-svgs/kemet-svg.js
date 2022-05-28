@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 
-export class KemetSVG extends LitElement {
+export default class KemetSVG extends LitElement {
   static get styles() {
     return css`
       :host {

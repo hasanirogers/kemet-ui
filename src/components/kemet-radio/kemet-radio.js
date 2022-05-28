@@ -2,7 +2,7 @@ import { html, css, LitElement } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
-class KemetRadio extends LitElement {
+export default class KemetRadio extends LitElement {
   static get styles() {
     return [
       css`

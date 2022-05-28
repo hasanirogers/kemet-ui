@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-export class KemetTabPanel extends LitElement {
+export default class KemetTabPanel extends LitElement {
   static get styles() {
     return css`
       :host {

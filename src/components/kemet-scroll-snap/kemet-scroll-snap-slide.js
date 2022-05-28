@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 
-export class KemetScrollSnapSlide extends LitElement {
+export default class KemetScrollSnapSlide extends LitElement {
   static get styles() {
     return css`
       :host {

@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 
-export class KemetScrollSnapPaginator extends LitElement {
+export default class KemetScrollSnapPaginator extends LitElement {
   static get styles() {
     return css`
       :host {

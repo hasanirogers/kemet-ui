@@ -3,7 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
-class KemetCheckbox extends LitElement {
+export default class KemetCheckbox extends LitElement {
   static get styles() {
     return [
       css`

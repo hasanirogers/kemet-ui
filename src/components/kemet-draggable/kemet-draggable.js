@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 
-export class KemetDraggable extends LitElement {
+export default class KemetDraggable extends LitElement {
   static get styles() {
     return css`
       :host {

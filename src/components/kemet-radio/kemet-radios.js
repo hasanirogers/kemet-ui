@@ -1,7 +1,7 @@
 import { html, css, LitElement } from 'lit';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
-class KemetRadios extends LitElement {
+export default class KemetRadios extends LitElement {
   static get styles() {
     return [
       css`

@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-export class KemetScrollNav extends LitElement {
+export default class KemetScrollNav extends LitElement {
   static get styles() {
     return [
       css`

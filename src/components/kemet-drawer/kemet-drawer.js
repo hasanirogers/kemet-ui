@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
 import { stylesBase, stylesEffects } from './kemet-drawer.styles.js';
 
-export class KemetDrawer extends LitElement {
+export default class KemetDrawer extends LitElement {
   static get styles() {
     return [stylesBase, stylesEffects];
   }

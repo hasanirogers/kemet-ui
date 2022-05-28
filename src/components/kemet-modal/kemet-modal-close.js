@@ -1,6 +1,6 @@
 import { css, html, LitElement } from 'lit';
 
-export class KemetModalClose extends LitElement {
+export default class KemetModalClose extends LitElement {
   static get styles() {
     return [
       css`

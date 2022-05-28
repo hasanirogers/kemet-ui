@@ -1,7 +1,7 @@
 import { html, css, LitElement } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
-export class KemetRotator extends LitElement {
+export default class KemetRotator extends LitElement {
   static get styles() {
     return css`
       :host {

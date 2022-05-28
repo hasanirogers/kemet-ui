@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-export class KemetFlipcardTrigger extends LitElement {
+export default class KemetFlipcardTrigger extends LitElement {
   static get styles() {
     return [
       css`

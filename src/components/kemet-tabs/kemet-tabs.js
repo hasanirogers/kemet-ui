@@ -2,7 +2,7 @@
 /* eslint-disable no-case-declarations */
 import { LitElement, html, css } from 'lit';
 
-export class KemetTabs extends LitElement {
+export default class KemetTabs extends LitElement {
   static get styles() {
     return [
       css`

@@ -89,9 +89,11 @@ const CheckoutTemplate = () => html`
         <kemet-button kemet-layout="flexrow" type="rounded">CONTINUE TO CHECKOUT</kemet-button>
       </form>
       <aside kemet-breakpoint="tiny:100 medium:33" kemet-margin-top="tiny:normal medium:none" kemet-order="tiny:minus-1 medium:none">
-        <div kemet-layout="flexrow" kemet-align="center" kemet-margin-bottom="tiny:normal">
+        <div kemet-layout="flexrow" kemet-align="middle" kemet-margin-bottom="tiny:normal">
           <h2 kemet-margin="tiny:none" kemet-color="gray4">Your cart</h2>
-          <div kemet-breakpoint="tiny:content" kemet-color="white" kemet-background-color="gray6">[badge]</div>
+          <div kemet-breakpoint="tiny:content">
+            <kemet-badge status="standard" circle>3</kemet-badge>
+          </div>
         </div>
         <ul kemet-layout="flexcolumn" kemet-border-radius="medium" kemet-margin="tiny:none" kemet-padding="tiny:none" kemet-border="all-1 solid gray2">
           <li>

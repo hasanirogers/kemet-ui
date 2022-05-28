@@ -3,7 +3,7 @@ import {
   html, css, LitElement,
 } from 'lit';
 
-export class KemetIcon extends LitElement {
+export default class KemetIcon extends LitElement {
   static get properties() {
     return {
       /**

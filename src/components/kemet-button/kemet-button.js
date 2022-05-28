@@ -2,7 +2,7 @@ import { html, css, LitElement } from 'lit';
 import '../kemet-icon/kemet-icon.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
-export class KemetButton extends LitElement {
+export default class KemetButton extends LitElement {
   static get styles() {
     return [
       css`

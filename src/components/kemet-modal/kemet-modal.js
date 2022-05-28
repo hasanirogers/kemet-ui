@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { stylesBase, stylesEffects } from './kemet-modal.styles.js';
 
-export class KemetModal extends LitElement {
+export default class KemetModal extends LitElement {
   static get styles() {
     return [
       stylesBase,
