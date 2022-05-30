@@ -343,6 +343,143 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-combo/kemet-combo.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCombo",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeOptions"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleSelection",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleOptionKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInputKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "privacy": "public",
+              "description": "Uniquely identifies the component. Should match the slug used in a control.",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "privacy": "public",
+              "description": "An array of items listed for the combo box",
+              "attribute": "options"
+            },
+            {
+              "kind": "field",
+              "name": "filteredOptions",
+              "privacy": "public",
+              "description": "Used internally",
+              "attribute": "filteredOptions"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "privacy": "public",
+              "description": "Controls the display of the combo box",
+              "attribute": "show",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-combo-selection",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when a selection has been made"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slug",
+              "description": "Uniquely identifies the component. Should match the slug used in a control.",
+              "fieldName": "slug"
+            },
+            {
+              "name": "options",
+              "description": "An array of items listed for the combo box",
+              "fieldName": "options"
+            },
+            {
+              "name": "filteredOptions",
+              "description": "Used internally",
+              "fieldName": "filteredOptions"
+            },
+            {
+              "name": "show",
+              "description": "Controls the display of the combo box",
+              "fieldName": "show"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-combo",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCombo",
+            "module": "src/components/kemet-combo/kemet-combo.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-combo",
+          "declaration": {
+            "name": "KemetCombo",
+            "module": "src/components/kemet-combo/kemet-combo.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-button/kemet-button.js",
       "declarations": [
         {
@@ -531,6 +668,102 @@
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-count/kemet-count.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "privacy": "public",
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "privacy": "public",
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "privacy": "public",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-count-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
@@ -786,143 +1019,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-combo/kemet-combo.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCombo",
-          "members": [
-            {
-              "kind": "method",
-              "name": "makeOptions"
-            },
-            {
-              "kind": "method",
-              "name": "handleInput",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleSelection",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleOptionKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleInputKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "description": "Uniquely identifies the component. Should match the slug used in a control.",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "options",
-              "privacy": "public",
-              "description": "An array of items listed for the combo box",
-              "attribute": "options"
-            },
-            {
-              "kind": "field",
-              "name": "filteredOptions",
-              "privacy": "public",
-              "description": "Used internally",
-              "attribute": "filteredOptions"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "privacy": "public",
-              "description": "Controls the display of the combo box",
-              "attribute": "show",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-combo-selection",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when a selection has been made"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "slug",
-              "description": "Uniquely identifies the component. Should match the slug used in a control.",
-              "fieldName": "slug"
-            },
-            {
-              "name": "options",
-              "description": "An array of items listed for the combo box",
-              "fieldName": "options"
-            },
-            {
-              "name": "filteredOptions",
-              "description": "Used internally",
-              "fieldName": "filteredOptions"
-            },
-            {
-              "name": "show",
-              "description": "Controls the display of the combo box",
-              "fieldName": "show"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-combo",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-combo",
-          "declaration": {
-            "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-draggable/kemet-draggable.js",
       "declarations": [
         {
@@ -1056,102 +1152,6 @@
           "declaration": {
             "name": "KemetDraggable",
             "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCount",
-          "members": [
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "description": "The text label shown to users",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "remaining",
-              "privacy": "public",
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
-            },
-            {
-              "kind": "field",
-              "name": "limit",
-              "privacy": "public",
-              "description": "The maximum number of characters allowed",
-              "attribute": "limit"
-            },
-            {
-              "kind": "field",
-              "name": "validateImmediately",
-              "privacy": "public",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "attribute": "validate-immediately"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-count-status",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when there's a change in status."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "message",
-              "description": "The text label shown to users",
-              "fieldName": "message"
-            },
-            {
-              "name": "remaining",
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
-            },
-            {
-              "name": "limit",
-              "description": "The maximum number of characters allowed",
-              "fieldName": "limit"
-            },
-            {
-              "name": "validate-immediately",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "fieldName": "validateImmediately"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-count",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-count",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
@@ -4884,7 +4884,40 @@
           "members": [
             {
               "kind": "method",
-              "name": "init"
+              "name": "handleLinksSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handlePanelsSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleLeftArrow"
+            },
+            {
+              "kind": "method",
+              "name": "handleRightArrow"
+            },
+            {
+              "kind": "method",
+              "name": "makeInk",
+              "parameters": [
+                {
+                  "name": "location"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "makeDivider"
+            },
+            {
+              "kind": "method",
+              "name": "makeLeftArrow"
+            },
+            {
+              "kind": "method",
+              "name": "makeRightArrow"
             },
             {
               "kind": "method",
@@ -4910,6 +4943,10 @@
             {
               "kind": "method",
               "name": "determineFade"
+            },
+            {
+              "kind": "method",
+              "name": "determineOverflow"
             },
             {
               "kind": "method",
@@ -4987,6 +5024,38 @@
             },
             {
               "kind": "field",
+              "name": "placement",
+              "type": {
+                "text": "string"
+              },
+              "default": "'top'",
+              "privacy": "public",
+              "attribute": "placement",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "tabsAlign",
+              "type": {
+                "text": "string"
+              },
+              "default": "'center'",
+              "privacy": "public",
+              "attribute": "tabs-align",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideInk",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "hide-ink"
+            },
+            {
+              "kind": "field",
               "name": "tabs",
               "type": {
                 "text": "array"
@@ -5019,14 +5088,6 @@
             },
             {
               "kind": "field",
-              "name": "keyCodes",
-              "type": {
-                "text": "object"
-              },
-              "default": "{\n      ENTER: 13,\n      SPACE: 32,\n      HOME: 36,\n      END: 35,\n      RIGHT: 39,\n      LEFT: 37,\n    }"
-            },
-            {
-              "kind": "field",
               "name": "selected",
               "privacy": "public",
               "attribute": "selected",
@@ -5037,6 +5098,25 @@
               "name": "swipe",
               "privacy": "public",
               "attribute": "swipe"
+            },
+            {
+              "kind": "field",
+              "name": "divider",
+              "privacy": "public",
+              "attribute": "divider"
+            },
+            {
+              "kind": "field",
+              "name": "ink",
+              "privacy": "public",
+              "attribute": "ink"
+            },
+            {
+              "kind": "field",
+              "name": "overflow",
+              "privacy": "public",
+              "attribute": "overflow",
+              "reflects": true
             }
           ],
           "attributes": [
@@ -5059,6 +5139,30 @@
             {
               "name": "swipe",
               "fieldName": "swipe"
+            },
+            {
+              "name": "placement",
+              "fieldName": "placement"
+            },
+            {
+              "name": "divider",
+              "fieldName": "divider"
+            },
+            {
+              "name": "tabs-align",
+              "fieldName": "tabsAlign"
+            },
+            {
+              "name": "ink",
+              "fieldName": "ink"
+            },
+            {
+              "name": "hide-ink",
+              "fieldName": "hideInk"
+            },
+            {
+              "name": "overflow",
+              "fieldName": "overflow"
             }
           ],
           "superclass": {

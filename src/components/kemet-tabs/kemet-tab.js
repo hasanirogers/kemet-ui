@@ -5,10 +5,17 @@ export default class KemetTab extends LitElement {
     return css`
       :host {
         cursor: pointer;
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        padding: var(--kemet-tab-padding, 1rem);
       }
 
       :host([selected]) {
         cursor: auto;
+        color: var(--kemet-tab-color, var(--kemet-color-primary));
       }
     `;
   }

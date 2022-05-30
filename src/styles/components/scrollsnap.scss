@@ -9,21 +9,3 @@ kemet-scroll-snap[axis='horizontal'] [slot='slides']::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-
-
-
-// /* vertical */
-// html[kemet-scroll-snap-axis='vertical'] {
-//   overflow: hidden;
-// }
-
-// kemet-scroll-snap[axis='vertical'] [slot='slides'] {
-//   overflow-x: hidden;
-// }
-
-// kemet-scroll-snap[axis='vertical'] kemet-scroll-snap-slide {
-//   --kemet-scroll-snap-slide-align: start;
-
-//   max-width: 1440px;
-//   margin: auto;
-// }

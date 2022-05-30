@@ -5,26 +5,7 @@ import './kemet-tabs.js';
 import './kemet-tab.js';
 import './kemet-tab-panel.js';
 
-<Meta
-  title="Components/Kemet Tabs"
-  component="kemet-tabs"
-  argTypes={{
-    selected: {
-      control: { type: 'select' },
-      options: ['one', 'two', 'three']
-    },
-    panelEffect: {
-      control: { type: 'select' },
-      options: ['none', 'slide', 'fade']
-    },
-    numOfTabs: {
-      control: { type: 'number' },
-    },
-    swipe: {
-      control: { type: 'boolean' },
-    }
-  }}
-/>
+<Meta title="Components/Tabs" component="kemet-tabs" />
 
 # Kemet Tabs
 
@@ -52,14 +33,18 @@ A collection of components to enable tab behavior.
 ### Select by name
 
 <Canvas>
-  <Story story={stories.SelectByName} />
+  <Story name="Select by name" story={stories.SelectByName} />
 </Canvas>
+
+<ArgsTable story="Select by name" />
 
 ### Select by index
 
 <Canvas>
-  <Story story={stories.SelectByIndex} />
+  <Story name="Select by index" story={stories.SelectByIndex} />
 </Canvas>
+
+<ArgsTable story="Select by index" />
 
 
 ## API

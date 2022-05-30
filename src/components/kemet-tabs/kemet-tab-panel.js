@@ -26,6 +26,14 @@ export default class KemetTabPanel extends LitElement {
       :host(.fade.push) {
         margin-left: -100%;
       }
+
+      :host(.vertical) {
+        display: none;
+      }
+
+      :host(.vertical[selected]) {
+        display: block;
+      }
     `;
   }
 

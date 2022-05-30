@@ -189,20 +189,11 @@ describe('KemetTabs', () => {
       </kemet-tabs>
     `);
 
-    const keyCodes = {
-      ENTER: 13,
-      SPACE: 32,
-      HOME: 36,
-      END: 35,
-      RIGHT: 39,
-      LEFT: 37,
-    };
-
-    const keydownHomeEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.HOME });
-    const keydownEndEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.END });
-    const keydownRightEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.RIGHT });
-    const keydownLeftEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.LEFT });
-    const keydownSpaceEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.SPACE });
+    const keydownHomeEvent = new KeyboardEvent('keydown', { key: 'Home' });
+    const keydownEndEvent = new KeyboardEvent('keydown', { key: 'End' });
+    const keydownRightEvent = new KeyboardEvent('keydown', { key: 'ArrowRight' });
+    const keydownLeftEvent = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
+    const keydownSpaceEvent = new KeyboardEvent('keydown', { key: 'Space' });
 
     // end
     indexElement.querySelector('kemet-tab[selected]').dispatchEvent(keydownEndEvent);
