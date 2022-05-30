@@ -39,10 +39,16 @@ export default class KemetTabPanel extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * Is true when a panel is selected
+       */
       selected: {
         type: Boolean,
         reflect: true,
       },
+      /**
+       * Identifies the panel to be linked by a tab
+       */
       panel: {
         type: String,
       },

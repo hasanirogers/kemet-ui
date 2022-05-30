@@ -17,17 +17,34 @@ export default class KemetTab extends LitElement {
         cursor: auto;
         color: var(--kemet-tab-color, var(--kemet-color-primary));
       }
+
+      kemet-icon {
+        cursor: pointer;
+        margin-left: 0.5rem;
+      }
     `;
   }
 
   static get properties() {
     return {
+      /**
+       * Is true when the tab is selected
+       */
       selected: {
         type: Boolean,
         reflect: true,
       },
+      /**
+       * Links to a panel name
+       */
       link: {
         type: String,
+      },
+      /**
+       * Determines if the tab can be closed
+       */
+      closable: {
+        type: Boolean,
       },
     };
   }
@@ -50,10 +67,14 @@ export default class KemetTab extends LitElement {
   render() {
     return html`
       <slot></slot>
+      ${this.makeCloseable()}
     `;
   }
 
   select() {
+    /**
+     * Fires when a tab is selected
+     */
     this.dispatchEvent(new CustomEvent('kemet-tab-selected', {
       bubbles: true,
       composed: true,
@@ -71,6 +92,25 @@ export default class KemetTab extends LitElement {
       this.setAttribute('aria-selected', 'false');
       this.setAttribute('tabindex', '-1');
     }
+  }
+
+  makeCloseable() {
+    if (this.closable) {
+      return html`<kemet-icon icon="x-lg" @click=${() => this.handleClosable()}></kemet-icon>`;
+    }
+
+    return null;
+  }
+
+  handleClosable() {
+    /**
+     * Fires when the tab should close
+     */
+    this.dispatchEvent(new CustomEvent('kemet-tab-close', {
+      bubbles: true,
+      composed: true,
+      detail: this,
+    }));
   }
 }
 

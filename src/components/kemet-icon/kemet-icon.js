@@ -49,6 +49,8 @@ export default class KemetIcon extends LitElement {
 
   updated() {
     this.getIcon();
+    this.style.width = `${this.size}px`;
+    this.style.height = `${this.size}px`;
   }
 
   render() {

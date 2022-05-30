@@ -1,208 +1,85 @@
 /* eslint-disable no-lonely-if */
 /* eslint-disable no-case-declarations */
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
+import { stylesKemetTabs } from './kemet-tabs.styles.js';
 
 export default class KemetTabs extends LitElement {
   static get styles() {
-    return [
-      css`
-        :host {
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          position: relative;
-        }
-
-        :host([placement='bottom']) {
-          flex-direction: column-reverse;
-        }
-
-        :host([placement='left']) {
-          flex-direction: row;
-        }
-
-        :host([placement='right']) {
-          flex-direction: row-reverse;
-        }
-
-        :host([placement='left']),
-        :host([placement='right']) {
-          overflow: unset;
-        }
-
-        :host([placement='left']) #panels,
-        :host([placement='right']) #panels {
-          transform: none !important;
-          position: relative;
-          width: 100%;
-        }
-
-        :host([placement='top']) ::slotted([slot='panels']) {
-          margin-top: var(--kemet-tabs-spacer, 1rem);
-        }
-
-        :host([placement='right']) ::slotted([slot='panels']) {
-          margin-right: var(--kemet-tabs-spacer, 1rem);
-        }
-
-        :host([placement='bottom']) ::slotted([slot='panels']) {
-          margin-bottom: var(--kemet-tabs-spacer, 1rem);
-        }
-
-        :host([placement='left']) ::slotted([slot='panels']) {
-          margin-left: var(--kemet-tabs-spacer, 1rem);
-        }
-
-        :host([placement='left']) ::slotted([slot='links']),
-        :host([placement='right']) ::slotted([slot='links']) {
-          display: flex;
-          flex-direction: column;
-          align-items: start;
-        }
-
-        ::slotted([slot='links']) {
-          display: flex;
-        }
-
-        :host([tabs-align='center']) ::slotted([slot='links']) {
-          justify-content: center;
-        }
-
-        :host([tabs-align='between']) ::slotted([slot='links']) {
-          justify-content: space-between;
-        }
-
-        :host([tabs-align='evenly']) ::slotted([slot='links']) {
-          justify-content: space-evenly;
-        }
-
-        :host([tabs-align='around']) ::slotted([slot='links']) {
-          justify-content: space-around
-        }
-
-        :host([tabs-align='start']) ::slotted([slot='links']) {
-          justify-content: flex-start;
-        }
-
-        :host([tabs-align='end']) ::slotted([slot='links']) {
-          justify-content: flex-end;
-        }
-
-        :host([overflow]) ::slotted([slot='links']) {
-          justify-content: start;
-        }
-
-        ::slotted([slot='panels']) {
-          display: flex;
-        }
-
-        :host([panel-effect='slide']) #panels {
-          transition: transform var(--kemet-tabs-transition-speed, 0.5s) linear;
-        }
-
-        :host([panel-effect='fade']) #panels {
-          transform: none !important;
-        }
-
-        :host([panel-effect='fade']) ::slotted([slot='panels']) {
-          flex-flow: row nowrap;
-        }
-
-        [part='divider'] {
-          height: 1px;
-          background-color: var(--kemet-color-gray4);
-        }
-
-        :host([placement='left']) [part='divider'],
-        :host([placement='right']) [part='divider'] {
-          width: 1px;
-          height: auto;
-        }
-
-        [part='ink'] {
-          height: 1px;
-          transition: all 300ms ease;
-          background-color: var(--kemet-color-primary);
-        }
-
-        :host([placement='left']) [part='ink'],
-        :host([placement='right']) [part='ink'] {
-          width: 1px;
-        }
-
-        :host([overflow]) [part='links'] {
-          overflow-x: auto;
-          margin: 0 2rem;
-          scroll-behavior: smooth;
-        }
-
-        :host([overflow]) [part='links']::-webkit-scrollbar {
-          display: none;
-          width: 0;
-          background: transparent;
-        }
-
-        [icon*='chevron'] {
-          cursor: pointer;
-          position: absolute;
-          top: 1rem;
-        }
-
-        [icon='chevron-left'] {
-          left: 0;
-        }
-
-        [icon='chevron-right'] {
-          right: 0;
-        }
-
-        :host([placement='bottom']) [icon*='chevron'] {
-          top: auto;
-          bottom: 1rem;
-        }
-      `,
-    ];
+    return [stylesKemetTabs];
   }
 
   static get properties() {
     return {
+      /**
+       * The selected tab by name
+       */
       selected: {
         type: String,
         reflect: true,
       },
+      /**
+       * The selected tab by index
+       */
       selectedIndex: {
         type: Number,
       },
+      /**
+       * Positions the current panel
+       */
       panelPosition: {
         type: Number,
       },
+      /**
+       * The transition effect for panels
+       */
       panelEffect: {
         type: String,
         reflect: true,
         attribute: 'panel-effect',
       },
+      /**
+       * Determines whether or not to enable swipe behavior
+       */
       swipe: {
         type: Boolean,
       },
+      /**
+       * Places the tabs to the top, right, bottom, or left
+       */
       placement: {
         type: String,
         reflect: true,
       },
+      /**
+       * Determines whether or not to show a divider line
+       */
       divider: {
         type: Boolean,
       },
+      /**
+       * Spacing alignment of the tabs
+       */
       tabsAlign: {
         type: String,
         reflect: true,
         attribute: 'tabs-align',
       },
+      /**
+       * An object that contains information about the ink
+       */
       ink: {
         type: Object,
       },
+      /**
+       * Determines whether or not to hide the ink
+       */
       hideInk: {
         type: Boolean,
         attribute: 'hide-ink',
       },
+      /**
+       * Is true when the space of the tabs is larger than it's container
+       */
       overflow: {
         type: Boolean,
         reflect: true,
@@ -221,17 +98,18 @@ export default class KemetTabs extends LitElement {
     this.tabsAlign = 'center';
     this.hideInk = false;
 
+    this.addEventListener('kemet-tab-selected', this.tabSelectedChange.bind(this));
+    this.addEventListener('kemet-tab-close', this.handleTabClose.bind(this));
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  firstUpdated() {
     // standard properties
     this.tabs = [];
     this.panels = [];
     this.xDown = null;
     this.yDown = null;
 
-    this.addEventListener('kemet-tab-selected', this.tabSelectedChange.bind(this));
-    window.addEventListener('resize', this.handleResize.bind(this));
-  }
-
-  firstUpdated() {
     this.links = this.shadowRoot.getElementById('links');
   }
 
@@ -239,14 +117,18 @@ export default class KemetTabs extends LitElement {
     return html`
       ${this.makeLeftArrow()}
       ${this.makeRightArrow()}
-      <div id="links" part="links" role="tablist">
-        <slot name="links" @slotchange=${() => this.handleLinksSlotChange()}></slot>
+      <div id="links" part="links">
+        <div part='tablist' role="tablist">
+          <slot name="tab" @slotchange=${() => this.handleLinksSlotChange()}></slot>
+        </div>
         ${this.makeInk('links')}
       </div>
       ${this.makeInk('host')}
       ${this.makeDivider()}
       <section id="panels" part="panels" style="transform:translateX(${this.panelPosition}px);">
-        <slot name="panels" @slotchange=${() => this.handlePanelsSlotChange()}></slot>
+        <div>
+          <slot name="panel" @slotchange=${() => this.handlePanelsSlotChange()}></slot>
+        </div>
       </section>
     `;
   }
@@ -346,6 +228,17 @@ export default class KemetTabs extends LitElement {
     this.selectPanel();
   }
 
+  handleTabClose(event) {
+    const tab = event.detail;
+    const panel = this.panels[tab.index];
+
+    this.selected = this.tabs[0].link;
+    this.selectedIndex = 0;
+
+    panel.remove();
+    tab.remove();
+  }
+
   makeInk(location) {
     if (this.hideInk) {
       return null;
@@ -387,6 +280,9 @@ export default class KemetTabs extends LitElement {
   }
 
   selectTab() {
+    const marginLeft = this.links ? parseInt(window.getComputedStyle(this.links).marginLeft.replace('px', ''), 10) : 0;
+    const overflowOffset = this.overflow ? marginLeft : 0;
+
     // if the user uses the selected attribute select by it
     if (this.selected) {
       this.tabs.forEach((tab) => {
@@ -399,9 +295,11 @@ export default class KemetTabs extends LitElement {
           this.ink = {
             width: `${tab.offsetWidth}px`,
             height: `${tab.offsetHeight}px`,
-            positionX: `${tab.offsetLeft}px`,
+            positionX: `${tab.offsetLeft - overflowOffset}px`,
             positionY: `${tab.offsetTop}px`,
           };
+
+          this.links.scrollLeft = tab.offsetLeft - overflowOffset;
         } else {
           tab.selected = false;
         }
@@ -416,9 +314,11 @@ export default class KemetTabs extends LitElement {
           this.ink = {
             width: `${tab.offsetWidth}px`,
             height: `${tab.offsetHeight}px`,
-            positionX: `${tab.offsetLeft}px`,
+            positionX: `${tab.offsetLeft - overflowOffset}px`,
             positionY: `${tab.offsetTop}px`,
           };
+
+          this.links.scrollLeft = tab.offsetLeft - overflowOffset;
         } else {
           tab.selected = false;
         }
@@ -518,23 +418,27 @@ export default class KemetTabs extends LitElement {
   }
 
   handleResize() {
-    const selectedElement = this.tabs.find(tab => tab.selected);
+    if (this.tabs && this.panels) {
+      const marginLeft = this.links ? parseInt(window.getComputedStyle(this.links).marginLeft.replace('px', ''), 10) : 0;
+      const overflowOffset = this.overflow ? marginLeft : 0;
+      const selectedElement = this.tabs.find(tab => tab.selected);
 
-    if (selectedElement) {
-      this.ink = {
-        width: `${selectedElement.offsetWidth}px`,
-        height: `${selectedElement.offsetHeight}px`,
-        positionX: `${selectedElement.offsetLeft}px`,
-        positionY: `${selectedElement.offsetTop}px`,
-      };
-    }
+      if (selectedElement) {
+        this.ink = {
+          width: `${selectedElement.offsetWidth}px`,
+          height: `${selectedElement.offsetHeight}px`,
+          positionX: `${selectedElement.offsetLeft - overflowOffset}px`,
+          positionY: `${selectedElement.offsetTop}px`,
+        };
+      }
 
-    this.determineOverflow();
+      this.determineOverflow();
 
-    if (this.selected) {
-      this.animatePanel(this.selected, null);
-    } else {
-      this.animatePanel(null, this.selectedIndex);
+      if (this.selected) {
+        this.animatePanel(this.selected, null);
+      } else {
+        this.animatePanel(null, this.selectedIndex);
+      }
     }
   }
 
@@ -548,8 +452,6 @@ export default class KemetTabs extends LitElement {
   }
 
   handleTabKeydown(event) {
-    console.log(event.key);
-
     if (this.selected) {
       switch (event.key) {
         case 'Home':
@@ -577,7 +479,7 @@ export default class KemetTabs extends LitElement {
         default: break;
       }
 
-      this.querySelector(`[link=${this.selected}]`).focus();
+      this.tabs.find(tab => tab.link === this.selected).focus();
     } else {
       switch (event.key) {
         case 'Home':
@@ -621,27 +523,28 @@ export default class KemetTabs extends LitElement {
     const yUp = event.touches[0].clientY;
     const xDiff = this.xDown - xUp;
     const yDiff = this.yDown - yUp;
+    const nextElement = this.querySelector('kemet-tab-panel[selected]').nextElementSibling;
+    const next = nextElement ? nextElement.getAttribute('panel') : false;
+    const previousElement = this.querySelector('kemet-tab-panel[selected]').previousElementSibling;
+    const previous = previousElement ? previousElement.getAttribute('panel') : false;
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
       if (xDiff > 0) {
         if (this.selected) {
-          const nextElement = this.querySelector('kemet-tab-panel[selected]').nextElementSibling;
-          const next = nextElement ? nextElement.getAttribute('panel') : false;
-
           if (next) this.selected = next;
         } else {
-          this.selectedIndex += 1;
+          if (this.selectedIndex < this.tabs.length) this.selectedIndex += 1;
         }
       } else {
         if (this.selected) {
-          const previousElement = this.querySelector('kemet-tab-panel[selected]').previousElementSibling;
-          const previous = previousElement ? previousElement.getAttribute('panel') : false;
-
           if (previous) this.selected = previous;
         } else {
-          this.selectedIndex -= 1;
+          if (this.selectedIndex > 0) this.selectedIndex -= 1;
         }
       }
+
+      this.selectTab();
+      this.selectPanel();
     }
 
     this.xDown = null;
