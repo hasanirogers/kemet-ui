@@ -1,15 +1,15 @@
 import { html } from 'lit';
 
 const AgencyTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2">
-    <div kemet-margin-left="tiny:normal">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2" kemet-padding-bottom="tiny:small medium:none">
+    <div kemet-margin-left="medium:normal">
       <ul kemet-layout="flexlist" kemet-align="middle" kemet-gutters>
         <li><h2>Agency Name</h2></li>
         <li><a href="#one">One</a></li>
         <li><a href="#two">Two</a></li>
       </ul>
     </div>
-    <div kemet-margin-right="tiny:normal" kemet-breakpoint="tiny:content">
+    <div kemet-margin-right="medium:normal" kemet-breakpoint="tiny:content">
       <ul kemet-layout="flexlist" kemet-gutters>
         <li><a href="#three">Three</a></li>
         <li><a href="#four">Four</a></li>
@@ -103,8 +103,8 @@ const AgencyTemplate = () => html`
 export const Agency = AgencyTemplate.bind({});
 
 const eCommerceTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2">
-    <div kemet-margin-left="tiny:normal">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2" kemet-padding-bottom="tiny:small medium:none">
+    <div kemet-margin-left="medium:normal">
       <ul kemet-layout="flexlist" kemet-align="middle" kemet-gutters>
         <li><h2>Site Name</h2></li>
         <li><a href="#one">One</a></li>
@@ -112,7 +112,7 @@ const eCommerceTemplate = () => html`
         <li><a href="#three">Three</a></li>
       </ul>
     </div>
-    <div kemet-margin-right="tiny:normal" kemet-breakpoint="tiny:content">
+    <div kemet-margin-right="medium:normal" kemet-breakpoint="tiny:content">
       <ul kemet-layout="flexlist" kemet-gutters>
         <li><a href="#two">Three</a></li>
         <li><a href="#one">Four</a></li>
@@ -434,7 +434,7 @@ const NewsTemplate = () => html`
 
     <br />
 
-    <section kemet-layout="flexrow" kemet-autostack kemet-gutters="tiny:plus-3" style="max-height:328px;">
+    <section kemet-layout="flexrow" kemet-autostack kemet-gutters="tiny:plus-3">
       <div kemet-breakpoint="medium:66">
         <svg width="100%" height="100%">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>

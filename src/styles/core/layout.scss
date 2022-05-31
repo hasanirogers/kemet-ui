@@ -164,6 +164,6 @@
   flex: 0 0 auto;
 }
 
-[kemet-layout='flexlist'][kemet-gutters] > :last-child {
-  padding-right: 0;
+[kemet-layout='flexlist'][kemet-gutters] > * {
+  padding: unset;
 }

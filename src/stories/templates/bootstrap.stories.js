@@ -12,7 +12,7 @@ const handleFormSubmit = (event) => {
 const CheckoutTemplate = () => html`
   <main style="max-width:1280px;" kemet-margin="tiny:auto" kemet-padding="tiny:small">
     <header kemet-type-align="center">
-      <kemet-icon icon="cart3" size="72" kemet-color="white" kemet-border-radius="large" kemet-background-color="primary" kemet-padding="tiny:small"></kemet-icon>
+      <kemet-icon icon="cart3" size="128" kemet-color="white" kemet-border-radius="large" kemet-background-color="primary" kemet-padding="tiny:small"></kemet-icon>
       <h1 kemet-margin="tiny:normal">Checkout Form</h1>
       <p kemet-type-size="plus-2" kemet-padding-left="tiny:largest" kemet-padding-right="tiny:largest">This form is a recreation of Bootstrap's Checkout example. It's been recreated using Kemet UI Core API styles and components. It serves as an example of doing validation with web components using Kemet UI.</p>
     </header>

@@ -86,6 +86,10 @@
     margin-right: -(map-get($gutters, default));
   }
 
+  [kemet-layout='flexlist'][kemet-gutters] {
+    gap: map-get($gutters, default);
+  }
+
   [kemet-gutters] > * {
     padding-right: map-get($gutters, default);
   }
@@ -113,6 +117,10 @@
 
           #{$gutterselector} {
             margin-right: -($value);
+          }
+
+          [kemet-layout="flexlist"]#{$gutterselector} {
+            gap: $value;
           }
 
           #{$gutterselector} > * {

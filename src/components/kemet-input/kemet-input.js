@@ -508,7 +508,7 @@ export default class KemetInput extends LitElement {
   handleChange() {
     this.value = this.input.value;
 
-    if (this.input.checkValidity() && this.input.checkLimitValidity && this.status !== 'success') {
+    if (this.input.checkValidity() && this.checkLimitValidity() && this.status !== 'success') {
       this.invalid = false;
       this.status = 'standard';
       this.validity = this.input.validity;

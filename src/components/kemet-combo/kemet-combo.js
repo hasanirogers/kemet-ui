@@ -99,6 +99,7 @@ export default class KemetCombo extends LitElement {
         aria-controls="${this.slug}-listbox"
         aria-haspopup="listbox"
         id="${this.slug}-combobox"
+        aria-label="${this.field.label}"
       >
         <ul role="listbox" aria-labelledby="${this.slug}-label" id="${this.slug}-listbox">
           ${this.makeOptions()}

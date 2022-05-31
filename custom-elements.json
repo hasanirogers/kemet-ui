@@ -233,116 +233,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetBadge",
-          "members": [
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "privacy": "public",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "privacy": "public",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-button/kemet-button.js",
       "declarations": [
         {
@@ -917,6 +807,116 @@
           "declaration": {
             "name": "KemetCombo",
             "module": "src/components/kemet-combo/kemet-combo.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-badge/kemet-badge.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetBadge",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "privacy": "public",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "status",
+              "description": "The status of the badge",
+              "fieldName": "status"
+            },
+            {
+              "name": "circle",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
+            },
+            {
+              "name": "pill",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-badge",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.js"
           }
         }
       ]

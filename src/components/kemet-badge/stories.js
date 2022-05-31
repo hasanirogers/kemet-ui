@@ -4,7 +4,7 @@ const Template = ({
   status = 'primary',
   pill = false,
   circle = false,
-  circlePadding = 16,
+  circlePadding = 8,
 }) => html`
   <kemet-badge status=${status} ?pill=${pill} ?circle=${circle} circle-padding=${circlePadding}>
     ${circle ? html`<kemet-icon icon="cart3"></kemet-icon>&nbsp;3` : 'Badge'}
@@ -16,7 +16,7 @@ Standard.args = {
   status: 'primary',
   pill: false,
   circle: false,
-  circlePadding: 16,
+  circlePadding: 8,
 };
 Standard.argTypes = {
   status: {
