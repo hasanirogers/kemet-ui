@@ -1,6 +1,6 @@
 {
   "name": "kemet-ui",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A flexible and designless blueprint system for UIs.",
   "main": "index.js",
   "watch": {
