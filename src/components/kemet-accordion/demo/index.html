@@ -14,90 +14,58 @@
   <style>
     body {
       display: flex;
+      margin: 0;
       min-height: 100vh;
     }
 
     main {
-      margin: auto;
-      max-width: 960px;
+      margin: 2rem auto;
+      max-width: 640px;
     }
 
-    section {
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 0.5rem 0.5rem 0 rgb(0 0 0 / 10%);
+    h3 {
+      font-weight: normal;
+      margin: 0;
     }
   </style>
+
   <main></main>
 
   <script type="module">
     import { html, render } from 'lit';
     import '../../../../dist/kemet-components.js';
 
-    const properties = {
-      transitionSpeed: '300ms',
-      closeOthers: false,
-    };
-
     const demoElement = document.querySelector('main');
 
-    const demoUI = props => html`
-      <p>
-        <label>
-          Close other accordions when opened:
-          <input type="checkbox" @change="${event => handleCloseOthers(event)}"/>
-        </label>
-      </p>
-      <p>
-        <label>
-          Transition Speed:
-          <input type="text" .value="${props.transitionSpeed}" @change="${event => handleTransitionSpeed(event)}" />
-        </label>
-      </p>
+    const demoUI = () => html`
       <section>
-        <style>
-          kemet-accordion {
-            --kemet-accordion-transition-speed: ${props.transitionSpeed};
-          }
-        </style>
-        <kemet-accordion ?close-others=${props.closeOthers}>
-          <div slot="trigger">
-            <span>Trigger 1</span>
-            <span class="plus"></span>
-            <span class="minus"></span>
-          </div>
-          <div slot="panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis nibh justo, quis tempus ante euismod a. Ut lacinia lorem augue, non tempor orci pulvinar tincidunt. Suspendisse cursus, orci at ultrices viverra, leo lacus varius quam, in semper quam sapien et lectus. Sed vitae bibendum tellus. Praesent ultrices finibus dapibus. Suspendisse ac libero sed diam ullamcorper aliquet. Ut ac sapien ac purus posuere sagittis. Praesent eu mattis turpis. Nullam tristique odio in ante placerat feugiat. Sed gravida sit amet quam et laoreet. Sed tristique mi enim, eu rutrum neque dapibus vitae.</div>
-        </kemet-accordion>
-        <kemet-accordion ?close-others=${props.closeOthers}>
-          <div slot="trigger">
-            <span>Trigger 2</span>
-            <span class="plus"></span>
-            <span class="minus"></span>
-          </div>
-          <div slot="panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis nibh justo, quis tempus ante euismod a. Ut lacinia lorem augue, non tempor orci pulvinar tincidunt. Suspendisse cursus, orci at ultrices viverra, leo lacus varius quam, in semper quam sapien et lectus. Sed vitae bibendum tellus. Praesent ultrices finibus dapibus. Suspendisse ac libero sed diam ullamcorper aliquet. Ut ac sapien ac purus posuere sagittis. Praesent eu mattis turpis. Nullam tristique odio in ante placerat feugiat. Sed gravida sit amet quam et laoreet. Sed tristique mi enim, eu rutrum neque dapibus vitae.</div>
-        </kemet-accordion>
-        <kemet-accordion ?close-others=${props.closeOthers}>
-          <div slot="trigger">
-            <span>Trigger 3</span>
-            <span class="plus"></span>
-            <span class="minus"></span>
-          </div>
-          <div slot="panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis nibh justo, quis tempus ante euismod a. Ut lacinia lorem augue, non tempor orci pulvinar tincidunt. Suspendisse cursus, orci at ultrices viverra, leo lacus varius quam, in semper quam sapien et lectus. Sed vitae bibendum tellus. Praesent ultrices finibus dapibus. Suspendisse ac libero sed diam ullamcorper aliquet. Ut ac sapien ac purus posuere sagittis. Praesent eu mattis turpis. Nullam tristique odio in ante placerat feugiat. Sed gravida sit amet quam et laoreet. Sed tristique mi enim, eu rutrum neque dapibus vitae.</div>
+        <kemet-accordion>
+          <kemet-accordion-panel>
+            <h3 slot="trigger">Trigger 1</h3>
+            <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
+            <div slot="body">
+              <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+            </div>
+          </kemet-accordion-panel>
+          <kemet-accordion-panel>
+            <h3 slot="trigger">Trigger 2</h3>
+            <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
+            <div slot="body">
+              <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+            </div>
+          </kemet-accordion-panel>
+          <kemet-accordion-panel>
+            <h3 slot="trigger">Trigger 3</h3>
+            <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
+            <div slot="body">
+              <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+            </div>
+          </kemet-accordion-panel>
         </kemet-accordion>
       <section>
     `;
 
-    render(demoUI(properties), demoElement);
-
-    const handleCloseOthers = (event) => {
-      properties.closeOthers = event.target.checked;
-      render(demoUI(properties), demoElement);
-    };
-
-    const handleTransitionSpeed = (event) => {
-      properties.transitionSpeed = event.target.value;
-      render(demoUI(properties), demoElement);
-    };
+    render(demoUI(), demoElement);
   </script>
 </body>
 </html>

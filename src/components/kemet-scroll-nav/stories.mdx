@@ -1,10 +1,9 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js'
 
 import './kemet-scroll-nav.js';
 
-<Meta
-  title="Components/Kemet Scroll Nav"
-  component="kemet-scroll-nav"
+<Meta title="Components/Scroll Nav" component="kemet-scroll-nav"
 />
 
 # Kemet Drawer
@@ -19,10 +18,51 @@ An element that transforms at a scroll point.
 </kemet-scroll-nav>
 ```
 
-# Demo
+## How to import
 
-Scroll Nav is best viewed with more realistically styling. Since Kemet is designless out-of-the-box, [checkout this demo on Stackblitz](https://stackblitz.com/edit/kemet-scroll-nav) to get a feel for how to use Scroll Nav. Styling has been applied as Scroll Nav transforms given its effect.
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-scroll-nav.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-nav.js" type="module"></script>
+```
+
+## Stories
+
+**Note:** Click on the Canvas tab to view a demo of the component.
+
+### Resize
+<Canvas>
+  <Story name="Resize" story={stories.Resize} />
+</Canvas>
+
+### Sticky
+<Canvas>
+  <Story name="Sticky" story={stories.Sticky} />
+</Canvas>
+
 
 ## API
 
+<br />
+
+### &lt;kemet-scroll-nav&gt;
+
 <ArgsTable of="kemet-scroll-nav" />
+
+### CSS
+
+| css                                          | description                                 | default   |
+| -------------------------------------------- | ------------------------------------------- | --------- |
+| --kemet-scroll-nav-padding                   | The padding of the nav.                     | 1rem 2rem |
+| --kemet-scroll-nav-background                | The background color of the nav.            | #fafafa   |
+| --kemet-scroll-nav-transition                | The transition speed of the transformation. | 300ms     |
+| --kemet-scroll-nav-resize-height             | The height of the pre-transformed nav.      | 400px     |
+| --kemet-scroll-nav-resize-height-transformed | The height of the transformed nav.          | 100px     |
+
+

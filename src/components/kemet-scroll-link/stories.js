@@ -1,17 +1,11 @@
-import { html } from 'lit-html';
+import { html } from 'lit';
 
 import './kemet-scroll-link.js';
-
-export default {
-  title: 'Kemet Drawer',
-  component: 'kemet-drawer',
-};
 
 const Template = () => html`
   <style>
     body {
       --nav-height: 72px;
-
       line-height: 1.5;
     }
 
@@ -84,8 +78,8 @@ const Template = () => html`
     <p>Etiam egestas vulputate sem a dictum. Curabitur mattis ex ut turpis vehicula, nec auctor eros facilisis. Duis nisl augue, varius feugiat sem et, iaculis gravida enim. Nam luctus purus et dapibus mattis. Curabitur hendrerit risus non velit aliquet hendrerit. Nullam faucibus, sapien vitae egestas congue, metus lacus rhoncus leo, non malesuada justo ipsum eu felis. Aenean venenatis metus non tincidunt sollicitudin.</p>
   </article>
 
-  <kemet-scroll-link class="fixed">
-    <button>Scroll to Top</button>
+  <kemet-scroll-link>
+    <kemet-button>Scroll to Top</kemet-button>
   </kemet-scroll-link>
 `;
 

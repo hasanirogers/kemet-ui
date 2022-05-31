@@ -6,7 +6,7 @@
   display: block;
   box-sizing: border-box;
   word-wrap: break-word;
-  text-align: left;
+  // text-align: left;
 }
 
 // row layout
@@ -14,7 +14,6 @@
 
 [kemet-layout='flexrow'] {
   display: flex;
-  padding: 0;
 }
 
 [kemet-layout='flexrow'] > * {
@@ -101,7 +100,6 @@
 [kemet-layout='flexgrid'] {
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
 }
 
 [kemet-layout='flexgrid'] > * {
@@ -117,7 +115,6 @@
 [kemet-layout='flexcolumn'] {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
 }
 
 [kemet-layout='flexcolumn'] > * {
@@ -126,7 +123,7 @@
   flex-direction: column;
 }
 
-[kemet-layout='flexcolumn'] > [fit-content] {
+[kemet-layout='flexcolumn'] > [kemet-fit-content] {
   flex: 0 0 auto;
 }
 
@@ -165,4 +162,8 @@
 
 [kemet-layout='flexlist'] > * {
   flex: 0 0 auto;
+}
+
+[kemet-layout='flexlist'][kemet-gutters] > * {
+  padding: unset;
 }

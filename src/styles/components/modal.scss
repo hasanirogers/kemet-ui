@@ -1,12 +1,8 @@
 @use 'config' as *;
 
-kemet-modal {
-  --kemet-modal-max-width: 75vw;
-}
-
-kemet-modal .content {
-  padding: 1rem 2rem 2rem;
-  border-radius: 1rem;
-  color: var(--kemet-color-white-rich);
-  background: var(--kemet-color-primary);
+kemet-modal[mobile] {
+  kemet-modal-close {
+    top: -0.9rem;
+    right: 0.5rem;
+  }
 }

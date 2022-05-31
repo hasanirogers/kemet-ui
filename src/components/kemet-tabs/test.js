@@ -40,16 +40,12 @@ describe('KemetTabs', () => {
   it('can populate tabs and panels correctly', async () => {
     const element = await fixture(html`
       <kemet-tabs selected="ffxv">
-        <nav slot="links">
-          <kemet-tab link="ffvii">Final Fantasy VII</kemet-tab>
-          <kemet-tab link="ffxv">Final Fantasy XV</kemet-tab>
-          <kemet-tab link="ffx">Final Fantasy X</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel panel="ffvii">Contents</kemet-tab-panel>
-          <kemet-tab-panel panel="ffxv">Contents</kemet-tab-panel>
-          <kemet-tab-panel panel="ffx">Contents</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab" link="ffvii">Final Fantasy VII</kemet-tab>
+        <kemet-tab slot="tab" link="ffxv">Final Fantasy XV</kemet-tab>
+        <kemet-tab slot="tab" link="ffx">Final Fantasy X</kemet-tab>
+        <kemet-tab-panel slot="panel" panel="ffvii">Contents</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="ffxv">Contents</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="ffx">Contents</kemet-tab-panel>
       </kemet-tabs>
     `);
 
@@ -60,16 +56,12 @@ describe('KemetTabs', () => {
   it('should correctly select a tab', async () => {
     const element = await fixture(html`
       <kemet-tabs selected="ffxv">
-        <nav slot="links">
-          <kemet-tab link="ffvii">Final Fantasy VII</kemet-tab>
-          <kemet-tab link="ffxv">Final Fantasy XV</kemet-tab>
-          <kemet-tab link="ffx">Final Fantasy X</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel panel="ffvii">Contents</kemet-tab-panel>
-          <kemet-tab-panel panel="ffxv">Contents</kemet-tab-panel>
-          <kemet-tab-panel panel="ffx">Contents</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab" link="ffvii">Final Fantasy VII</kemet-tab>
+        <kemet-tab slot="tab" link="ffxv">Final Fantasy XV</kemet-tab>
+        <kemet-tab slot="tab" link="ffx">Final Fantasy X</kemet-tab>
+        <kemet-tab-panel slot="panel" panel="ffvii">Contents</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="ffxv">Contents</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="ffx">Contents</kemet-tab-panel>
       </kemet-tabs>
     `);
 
@@ -91,20 +83,16 @@ describe('KemetTabs', () => {
   it('should correctly select a tab by index', async () => {
     const element = await fixture(html`
       <kemet-tabs>
-        <nav slot="links">
-          <kemet-tab>One</kemet-tab>
-          <kemet-tab>Two</kemet-tab>
-          <kemet-tab>Three</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel>Panel One</kemet-tab-panel>
-          <kemet-tab-panel>Panel Two</kemet-tab-panel>
-          <kemet-tab-panel>Panel Three</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab">One</kemet-tab>
+        <kemet-tab slot="tab">Two</kemet-tab>
+        <kemet-tab slot="tab">Three</kemet-tab>
+        <kemet-tab-panel slot="panel">Panel One</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Two</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Three</kemet-tab-panel>
       </kemet-tabs>
     `);
 
-    element.querySelector('kemet-tab:last-child').click();
+    element.querySelector('kemet-tab:nth-child(3)').click();
 
     element.addEventListener('kemet-tab-selected', () => {
       expect(element.selectedIndex).to.equal(2);
@@ -114,16 +102,12 @@ describe('KemetTabs', () => {
   it('should handle resizing', async () => {
     const element = await fixture(html`
       <kemet-tabs>
-        <nav slot="links">
-          <kemet-tab>One</kemet-tab>
-          <kemet-tab>Two</kemet-tab>
-          <kemet-tab>Three</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel>Panel One</kemet-tab-panel>
-          <kemet-tab-panel>Panel Two</kemet-tab-panel>
-          <kemet-tab-panel>Panel Three</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab">One</kemet-tab>
+        <kemet-tab slot="tab">Two</kemet-tab>
+        <kemet-tab slot="tab">Three</kemet-tab>
+        <kemet-tab-panel slot="panel">Panel One</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Two</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Three</kemet-tab-panel>
       </kemet-tabs>
     `);
 
@@ -138,16 +122,12 @@ describe('KemetTabs', () => {
   it('should add fade class to kemet-tab-panel when panel-effect is fade', async () => {
     const element = await fixture(html`
       <kemet-tabs panel-effect="fade">
-        <nav slot="links">
-          <kemet-tab>One</kemet-tab>
-          <kemet-tab>Two</kemet-tab>
-          <kemet-tab>Three</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel>Panel One</kemet-tab-panel>
-          <kemet-tab-panel>Panel Two</kemet-tab-panel>
-          <kemet-tab-panel>Panel Three</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab">One</kemet-tab>
+        <kemet-tab slot="tab">Two</kemet-tab>
+        <kemet-tab slot="tab">Three</kemet-tab>
+        <kemet-tab-panel slot="panel">Panel One</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Two</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Three</kemet-tab-panel>
       </kemet-tabs>
     `);
 
@@ -161,48 +141,31 @@ describe('KemetTabs', () => {
   it('should select the correct tab given the key', async () => {
     const indexElement = await fixture(html`
       <kemet-tabs>
-        <nav slot="links">
-          <kemet-tab>One</kemet-tab>
-          <kemet-tab>Two</kemet-tab>
-          <kemet-tab>Three</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel>Panel One</kemet-tab-panel>
-          <kemet-tab-panel>Panel Two</kemet-tab-panel>
-          <kemet-tab-panel>Panel Three</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab">One</kemet-tab>
+        <kemet-tab slot="tab">Two</kemet-tab>
+        <kemet-tab slot="tab">Three</kemet-tab>
+        <kemet-tab-panel slot="panel">Panel One</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Two</kemet-tab-panel>
+        <kemet-tab-panel slot="panel">Panel Three</kemet-tab-panel>
       </kemet-tabs>
     `);
 
     const selectedElement = await fixture(html`
       <kemet-tabs selected="one">
-        <nav slot="links">
-          <kemet-tab link="one">One</kemet-tab>
-          <kemet-tab link="two">Two</kemet-tab>
-          <kemet-tab link="three">Three</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel panel="one">Panel One</kemet-tab-panel>
-          <kemet-tab-panel panel="two">Panel Two</kemet-tab-panel>
-          <kemet-tab-panel panel="three">Panel Three</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab" link="one">One</kemet-tab>
+        <kemet-tab slot="tab" link="two">Two</kemet-tab>
+        <kemet-tab slot="tab" link="three">Three</kemet-tab>
+        <kemet-tab-panel slot="panel" panel="one">Panel One</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="two">Panel Two</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="three">Panel Three</kemet-tab-panel>
       </kemet-tabs>
     `);
 
-    const keyCodes = {
-      ENTER: 13,
-      SPACE: 32,
-      HOME: 36,
-      END: 35,
-      RIGHT: 39,
-      LEFT: 37,
-    };
-
-    const keydownHomeEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.HOME });
-    const keydownEndEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.END });
-    const keydownRightEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.RIGHT });
-    const keydownLeftEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.LEFT });
-    const keydownSpaceEvent = new KeyboardEvent('keydown', { keyCode: keyCodes.SPACE });
+    const keydownHomeEvent = new KeyboardEvent('keydown', { key: 'Home' });
+    const keydownEndEvent = new KeyboardEvent('keydown', { key: 'End' });
+    const keydownRightEvent = new KeyboardEvent('keydown', { key: 'ArrowRight' });
+    const keydownLeftEvent = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
+    const keydownSpaceEvent = new KeyboardEvent('keydown', { key: 'Space' });
 
     // end
     indexElement.querySelector('kemet-tab[selected]').dispatchEvent(keydownEndEvent);
@@ -250,16 +213,12 @@ describe('KemetTabs', () => {
   it('handles swiping', async () => {
     const element = await fixture(html`
       <kemet-tabs selected="one" swipe>
-        <nav slot="links">
-          <kemet-tab link="one">One</kemet-tab>
-          <kemet-tab link="two">Two</kemet-tab>
-          <kemet-tab link="three">Three</kemet-tab>
-        </nav>
-        <section slot="panels">
-          <kemet-tab-panel panel="one">Panel One</kemet-tab-panel>
-          <kemet-tab-panel panel="two">Panel Two</kemet-tab-panel>
-          <kemet-tab-panel panel="three">Panel Three</kemet-tab-panel>
-        </section>
+        <kemet-tab slot="tab" link="one">One</kemet-tab>
+        <kemet-tab slot="tab" link="two">Two</kemet-tab>
+        <kemet-tab slot="tab" link="three">Three</kemet-tab>
+        <kemet-tab-panel slot="panel" panel="one">Panel One</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="two">Panel Two</kemet-tab-panel>
+        <kemet-tab-panel slot="panel" panel="three">Panel Three</kemet-tab-panel>
       </kemet-tabs>
     `);
 

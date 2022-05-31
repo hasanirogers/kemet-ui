@@ -1,0 +1,35 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './flexlist.stories.js'
+
+<Meta title="Styles/Flexlist" />
+
+# Flexgrid
+
+Use Flexlist to take advantage of ordering and alignment while having a presentation that looks like a list. It should be noted that ordering works on all layout types.
+
+<br />
+
+## Example 1
+
+Use a flexlist to take advantage of ordering and alignment while having a presentation that looks like a list.
+<Canvas>
+  <Story name="Example1" story={stories.Example1} />
+</Canvas>
+
+<br />
+
+## Example 2
+
+You can prioritize elements at a breakpoint using the order attribute.
+<Canvas>
+  <Story name="Example2" story={stories.Example2} />
+</Canvas>
+
+<br />
+
+## Example 3
+
+You can also de-prioritize elements at a breakpoint using the order attribute.
+<Canvas>
+  <Story name="Example3" story={stories.Example3} />
+</Canvas>

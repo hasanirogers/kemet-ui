@@ -5,26 +5,7 @@ import './kemet-tabs.js';
 import './kemet-tab.js';
 import './kemet-tab-panel.js';
 
-<Meta
-  title="Components/Kemet Tabs"
-  component="kemet-tabs"
-  argTypes={{
-    selected: {
-      control: { type: 'select' },
-      options: ['one', 'two', 'three']
-    },
-    panelEffect: {
-      control: { type: 'select' },
-      options: ['none', 'slide', 'fade']
-    },
-    numOfTabs: {
-      control: { type: 'number' },
-    },
-    swipe: {
-      control: { type: 'boolean' },
-    }
-  }}
-/>
+<Meta title="Components/Tabs" component="kemet-tabs" />
 
 # Kemet Tabs
 
@@ -34,32 +15,34 @@ A collection of components to enable tab behavior.
 
 ```html
 <kemet-tabs>
-  <nav slot="links">
-    <kemet-tab>One</kemet-tab>
-    <kemet-tab>Two</kemet-tab>
-    <kemet-tab>Three</kemet-tab>
-  </nav>
-  <section slot="panels">
-    <kemet-tab-panel>Panel One</kemet-tab-panel>
-    <kemet-tab-panel>Panel Two</kemet-tab-panel>
-    <kemet-tab-panel>Panel Three</kemet-tab-panel>
-  </section>
+  <kemet-tab slot="tab">One</kemet-tab>
+  <kemet-tab slot="tab">Two</kemet-tab>
+  <kemet-tab slot="tab">Three</kemet-tab>
+  <kemet-tab-panel slot="panel">Panel One</kemet-tab-panel>
+  <kemet-tab-panel slot="panel">Panel Two</kemet-tab-panel>
+  <kemet-tab-panel slot="panel">Panel Three</kemet-tab-panel>
 </kemet-tabs>
 ```
 
 ## Stories
 
+<br />
+
 ### Select by name
 
 <Canvas>
-  <Story story={stories.SelectByName} />
+  <Story name="Select by name" story={stories.SelectByName} />
 </Canvas>
+
+<ArgsTable story="Select by name" />
 
 ### Select by index
 
 <Canvas>
-  <Story story={stories.SelectByIndex} />
+  <Story name="Select by index" story={stories.SelectByIndex} />
 </Canvas>
+
+<ArgsTable story="Select by index" />
 
 
 ## API
@@ -68,10 +51,51 @@ A collection of components to enable tab behavior.
 
 <ArgsTable of="kemet-tabs" />
 
+#### Slots
+
+| slot  | description            |
+| ----- | ---------------------- |
+| tab   | Place the tabs here.   |
+| panel | Place the panels here. |
+
+#### CSS
+
+| css                           | description                         | default                    |
+| ----------------------------- | ----------------------------------- | -------------------------- |
+| --kemet-tabs-ink-size         | The thickness of the ink.           | 6px                        |
+| --kemet-tabs-ink-radius       | The radius on the ink.              | 6px                        |
+| --kemet-tabs-ink-color        | The color of the ink.               | var(--kemet-color-primary) |
+| --kemet-tabs-divider-size     | The thickness of the divider.       | 1px                        |
+| --kemet-tabs-divider-color    | The color of the divider.           | var(--kemet-color-gray4)   |
+| --kemet-tabs-transition-speed | The transition speed of the panels. | 0.5s                       |
+| --kemet-tabs-spacer           | The space between tabs and panels.  | 1rem                       |
+| ::part(links)                 | The container for the tablist.      |                            |
+| ::part(tablist)               | Contains the tabs.                  |                            |
+| ::part(panels)                | Contains the panels.                |                            |
+| ::part(ink)                   | The ink element.                    |                            |
+| ::part(divider)               | The divider element.                |                            |
+
+<br />
+
 ### &lt;kemet-tab&gt;
 
 <ArgsTable of="kemet-tab" />
 
+#### CSS
+
+| css                 | description                    | default                    |
+| ------------------- | ------------------------------ | -------------------------- |
+| --kemet-tab-padding | The padding of the tab.        | 1rem                       |
+| --kemet-tab-color   | The color of the selected tab. | var(--kemet-color-primary) |
+
+<br />
+
 ### &lt;kemet-tab-panel&gt;
 
 <ArgsTable of="kemet-tab-panel" />
+
+#### CSS
+
+| css                          | description     | default |
+| ---------------------------- | --------------- | ------- |
+| --kemet-tab-panel-fade-speed | The fade speed. | 0.5s    |

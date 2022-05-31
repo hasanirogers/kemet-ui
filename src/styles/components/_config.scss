@@ -2,28 +2,3 @@ $header-height: 64px;
 $drawer-width: 280px;
 $drawer-height: 280px;
 $carousel-height: 18rem;
-
-$colors: (
-  white-75: rgba(255, 255, 255, 0.75),
-  white-rich: rgba(242, 242, 242, 1),
-
-  black-10: rgba(0, 0, 0, 0.1),
-  black-25: rgba(0, 0, 0, 0.25),
-
-  primary: rgba(12, 74, 110, 1),
-  primary-75: rgba(12, 74, 110, 0.75),
-
-  link: rgba(0, 125, 193, 1)
-);
-
-:root {
-  --kemet-color-white: #fff;
-  --kemet-color-white-75: #{map-get($colors, 'white-75')};
-  --kemet-color-white-rich: #{map-get($colors, 'white-rich')};
-  --kemet-color-black: #000;
-  --kemet-color-black-25: #{map-get($colors, 'black-25')};
-  --kemet-color-black-10: #{map-get($colors, 'black-10')};
-  --kemet-color-primary: #{map-get($colors, 'primary')};
-  --kemet-color-primary-75: #{map-get($colors, 'primary-75')};
-  --kemet-color-link: #{map-get($colors, 'link')};
-}

@@ -1,31 +1,9 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 import * as stories from './stories.js'
 import './kemet-accordion.js';
+import './kemet-accordion-panel.js';
 
-<Meta
-  title="Components/Kemet Accordion"
-  component="kemet-popover"
-  argTypes={{
-    triggerText: {
-      control: { type: 'text' },
-    },
-    panelText: {
-      control: { type: 'text' },
-    },
-    transitionSpeed: {
-      control: { type: 'text' }
-    },
-    closeOthers: {
-      control: { type: 'boolean' }
-    },
-  }}
-  args={{
-    triggerText: 'Activate Accordion',
-    panelText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tortor pellentesque, efficitur lectus vel, accumsan ipsum. Phasellus dolor elit, ultrices a blandit id, consequat vitae arcu. Sed eu libero a tellus tincidunt auctor id eu libero. Nam ornare ultricies tortor, quis maximus velit placerat ac. Fusce bibendum euismod leo, ac vulputate nunc dignissim quis. Curabitur mollis felis eget ligula tincidunt sodales.',
-    transitionSpeed: '300ms',
-    closeOthers: false
-  }}
-/>
+<Meta title="Components/Accordion" component="kemet-popover" />
 
 # Kemet Accordion
 
@@ -36,22 +14,75 @@ A component that acts like a standard accordion.
 
 ```html
 <kemet-accordion>
-  <button slot="trigger">Trigger</button>
-  <div slot="panel">Panel Text</div>
+  <kemet-accordion-panel>
+    <h3 slot="trigger">Trigger 1</h3>
+    <kemet-icon slot="icon" icon="caret-down" size="18"></kemet-icon>
+    <div slot="body">The quick brown fox jumps over the lazy dog.</div>
+  </kemet-accordion-panel>
 </kemet-accordion>
 ```
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-accordion.js';
+import 'kemet-ui/dist/components/kemet-accordion-panel.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-accordion.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-accordion-panel.js" type="module"></script>
+```
 
 ## Stories
 
 <Canvas>
-  <Story story={stories.Single} />
-</Canvas>
-
-<Canvas>
-  <Story story={stories.Multiple} />
+  <Story story={stories.Standard} />
 </Canvas>
 
 ## API
 
+<br />
+
+### &lt;kemet-accordion&gt;
 <ArgsTable of="kemet-accordion" />
+
+#### Methods
+
+| method         | description           |
+| -------------- | --------------------- |
+| .expandAll()   | Expands all panels.   |
+| .collapseAll() | Collapses all panels. |
+
+<br />
+
+### &lt;kemet-accordion-panel&gt;
+<ArgsTable of="kemet-accordion-panel" />
+
+#### Methods
+
+| method    | description                |
+| --------- | -------------------------- |
+| .toggle() | Opens or closes the panel. |
+
+#### Slots
+
+| slot    | description                                         |
+| ------  | --------------------------------------------------- |
+| trigger | The trigger button that opens and closes the panel. |
+| icon    | The icon for the panel.                             |
+| body    | The body content of the panel.                      |
+
+#### CSS
+
+| css                                      | description                                  | default |
+| ---------------------------------------- | -------------------------------------------- | ------- |
+| --kemet-accordion-panel-transition-speed | The speed of the opening and closing effect. | 0.3s    |
+| ::part(trigger)                          | Contains the trigger for the panel.          |         |
+| ::part(body)                             | Contains the body for the panel.             |         |
+
+

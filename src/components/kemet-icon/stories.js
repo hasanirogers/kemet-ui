@@ -6,15 +6,20 @@ const Template = args => html`
 `;
 
 export const Standard = Template.bind({});
+Standard.argTypes = {
+  set: {
+    control: { type: 'select' },
+    options: ['bootstrap', 'font-awesome-brand', 'font-awesome-regular', 'font-awesome-solid'],
+  },
+  icon: {
+    control: { type: 'text' },
+  },
+  size: {
+    control: { type: 'number' },
+  },
+};
 Standard.args = {
   set: 'bootstrap',
   icon: 'alarm',
   size: 128,
-};
-Standard.parameters = {
-  docs: {
-    source: {
-      code: `<kemet-icon set="${Standard.args.set}" icon="${Standard.args.icon}" size="${Standard.args.size}"></kemet-icon>`,
-    },
-  },
 };

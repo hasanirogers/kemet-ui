@@ -4,22 +4,7 @@ import * as stories from './stories.js'
 
 import './kemet-draggable.js';
 
-<Meta
-  title="Components/Kemet Draggable"
-  component="kemet-draggable"
-  argTypes={{
-    text: {
-      control: { type: 'text' },
-    },
-    memory: {
-      control: { type: 'text' }
-    }
-  }}
-  args={{
-    text: 'Drag Me',
-    memory: 'kemet-draggable-demo',
-  }}
-/>
+<Meta title="Components/Draggable" component="kemet-draggable" />
 
 # Kemet Draggable
 
@@ -29,18 +14,36 @@ A draggable element with the ability to remember its position.
 
 ```html
 <kemet-draggable memory="a-unique-identifier">
-  <button>Drag Me!</button>
+  <kemet-button>Drag Me!</kemet-button>
 </kemet-draggable>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-draggable.js'
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-draggable.js" type="module"></script>
 ```
 
 
 ## Stories
 
 <Canvas>
-  <Story story={stories.Draggable} />
+  <Story name="Standard" story={stories.Draggable} />
 </Canvas>
 
+<ArgsTable story="Standard" />
+
 ## API
+
+<br />
 
 ### Kemet Draggable
 <ArgsTable of="kemet-draggable" />

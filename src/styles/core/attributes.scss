@@ -20,3 +20,19 @@
 @if $makespacers {
   @include makeSpacers();
 }
+
+@if $makecolors {
+  @include makeColors();
+}
+
+@if $makeelevation {
+  @include makeElevation();
+}
+
+@if $makeborders {
+  @include makeBorders();
+}
+
+@if $makeborderradiuses {
+  @include makeBorderRadiuses();
+}

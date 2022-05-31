@@ -6,7 +6,7 @@ const keyCodes = {
   ESC: 27,
 };
 
-export class KemetPopoverClose extends LitElement {
+export default class KemetPopoverClose extends LitElement {
   static get styles() {
     return [
       css`

@@ -1,0 +1,61 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-combo.js';
+
+<Meta title="Components/Combo" component="kemet-combo" />
+
+# Kemet Combo
+
+Allows the user to select a choice filtered through an Input. May only be used as a component of Field.
+
+
+## How to use
+
+```html
+<kemet-field>
+  <kemet-input slot="input" name="input"></kemet-input>
+  <kemet-combo slot="component" options='["Item 1", "Item 2", "Item 3"]'></kemet-combo>
+</kemet-field>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-combo.js'
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-combo.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} inline={false} height={380} />
+</Canvas>
+
+<br />
+
+## API
+
+### &lt;kemet-combo&gt;
+
+<ArgsTable of="kemet-combo" />
+
+### CSS
+
+| css                                  | description                           | default                                                             |
+| ------------------------------------ | ------------------------------------- | ------------------------------------------------------------------- |
+| --kemet-combo-width                  | The width of the combo box            | calc(100% - 2px)                                                    |
+| --kemet-combo-margin                 | The margins on the combo box          | 1rem auto                                                           |
+| --kemet-combo-max-height             | The max height of the combo box       | calc(5 * 3rem)                                                      |
+| --kemet-combo-border                 | The border of the combo box           | 1px solid var(--kemet-color-primary)                                |
+| --kemet-combo-border-radius          | The border radius of the combo box    | var(--kemet-border-radius)                                          |
+| --kemet-combo-background-color       | The background color of the combo box | var(--kemet-color-white)                                            |
+| --kemet-combo-shadow                 | The shadow of the combo box           | 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) |
+| --kemet-combo-hover-color            | The hover item's text color           | var(--kemet-color-white)                                            |
+| --kemet-combo-hover-background-color | The hover item's background color     | var(--kemet-color-primary)                                          |

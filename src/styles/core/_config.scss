@@ -53,7 +53,7 @@ $flexiplier: 'tens';
 /// @access public
 /// @group config-variables
 
-$stackpoint: 640px;
+$stackpoint: 767px;
 
 
 
@@ -138,13 +138,130 @@ $typesizers: (
 
 $spacers: (
   none: 0,
-  smallest: 0.5rem,
-  smaller: 1rem,
+  auto: auto,
   small: 1.5rem,
+  smaller: 1rem,
+  smallest: 0.5rem,
   normal: 2rem,
   large: 2.5rem,
   larger: 3rem,
   largest: 3.5rem
+);
+
+
+
+
+/// A map that defines the colors
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$colors: (
+  white: rgba(255, 255, 255, 1),
+  white-10: rgba(255, 255, 255, 0.1),
+  white-20: rgba(255, 255, 255, 0.2),
+  white-30: rgba(255, 255, 255, 0.3),
+  white-40: rgba(255, 255, 255, 0.4),
+  white-50: rgba(255, 255, 255, 0.5),
+  white-60: rgba(255, 255, 255, 0.6),
+  white-70: rgba(255, 255, 255, 0.7),
+  white-80: rgba(255, 255, 255, 0.8),
+  white-90: rgba(255, 255, 255, 0.9),
+  white-rich: rgba(242, 242, 242, 1),
+
+  black: rgba(0, 0, 0, 1),
+  black-10: rgba(0, 0, 0, 0.1),
+  black-20: rgba(0, 0, 0, 0.2),
+  black-30: rgba(0, 0, 0, 0.3),
+  black-40: rgba(0, 0, 0, 0.4),
+  black-50: rgba(0, 0, 0, 0.5),
+  black-60: rgba(0, 0, 0, 0.6),
+  black-70: rgba(0, 0, 0, 0.7),
+  black-80: rgba(0, 0, 0, 0.8),
+  black-90: rgba(0, 0, 0, 0.9),
+
+  gray1: #eff2f1,
+  gray2: #d7d7d7,
+  gray3: #bebebe,
+  gray4: #a4a4a4,
+  gray5: #8b8b8b,
+  gray6: #727270,
+  gray7: #585858,
+  gray8: #3f3f3f,
+  gray9: #262626,
+  gray10: #0c0c0c,
+
+  primary: rgba(12, 74, 110, 1),
+  primary-10: rgba(12, 74, 110, 0.1),
+  primary-20: rgba(12, 74, 110, 0.2),
+  primary-30: rgba(12, 74, 110, 0.3),
+  primary-40: rgba(12, 74, 110, 0.4),
+  primary-50: rgba(12, 74, 110, 0.5),
+  primary-60: rgba(12, 74, 110, 0.6),
+  primary-70: rgba(12, 74, 110, 0.7),
+  primary-80: rgba(12, 74, 110, 0.8),
+  primary-90: rgba(12, 74, 110, 0.9),
+
+  link: rgba(12, 74, 110, 1),
+
+  error: rgba(197, 48, 48, 1),
+  success: rgba(22, 163, 74, 1),
+  neutral: rgba(82, 82, 91, 1),
+  warning: rgba(217, 119, 6, 1),
+);
+
+
+
+
+/// A map that defines the box shadow elevation
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$elevation: (
+  none: 0 0 #0000,
+  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
+);
+
+
+
+
+/// A map that defines the amount of border widths
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$borderwidths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+);
+
+
+
+
+/// A map that defines the sizes of border radiuses
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$borderradiuses: (
+  small: 3px,
+  medium: 6px,
+  large: 12px,
 );
 
 
@@ -195,3 +312,43 @@ $makeresponsivegutters: true;
 /// @group config-variables
 
 $makespacers: true;
+
+
+
+
+/// Control whether or not color utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makecolors: true;
+
+
+
+
+/// Control whether or not elevation utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeelevation: true;
+
+
+
+
+/// Control whether or not border utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeborders: true;
+
+
+
+
+/// Control whether or not border radius utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeborderradiuses: true;

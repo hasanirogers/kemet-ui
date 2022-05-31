@@ -4,27 +4,29 @@
   "description": "A flexible and designless blueprint system for UIs.",
   "main": "index.js",
   "watch": {
-    "build": "src/**/*.*"
+    "build": "src/**/*.*",
+    "analyze": "src/components/**/*.js"
   },
   "scripts": {
-    "deploy": "build-storybook && node deploy.js",
-    "start": "web-dev-server",
-    "test": "web-test-runner --coverage",
-    "test:watch": "web-test-runner --watch",
-    "watch": "npm-watch",
+    "analyze": "custom-elements-manifest analyze --litelement --globs \"src/components/kemet-*/kemet-*.js\"",
     "build": "npm run css:build && npm run js:build",
     "css:build": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
+    "deploy": "build-storybook && node deploy.js",
+    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+    "format:stylelint": "npx stylelint --fix 'src/styles/**/*.scss'",
+    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+    "lint:stylelint": "npx stylelint 'src/styles/**/*.scss'",
+    "prepare": "husky install",
+    "prepublish": "rimraf dist && npm run build",
     "js:build": "rollup -c config/rollup.js",
+    "start": "web-dev-server",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
-    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
-    "lint:stylelint": "npx stylelint 'src/styles/**/*.scss'",
-    "format:stylelint": "npx stylelint --fix 'src/styles/**/*.scss'",
-    "prepare": "husky install",
-    "prepublish": "rimraf dist && npm run build"
+    "test": "web-test-runner --coverage",
+    "test:watch": "web-test-runner --watch",
+    "watch": "npm-watch"
   },
-  "author": "Hasani Rogers <hasani.rogers@gmail.com>",
+  "author": "Hasani Rogers <dev@hasanirogers.me>",
   "license": "MIT",
   "keywords": [
     "web components",
@@ -52,7 +54,8 @@
       "import/no-extraneous-dependencies": "off"
     },
     "ignorePatterns": [
-      "dist/**/*.js"
+      "dist/**/*.js",
+      "src/utilities/controllers/**/*.js"
     ]
   },
   "browserslist": [
@@ -61,26 +64,30 @@
     "iOS >= 8"
   ],
   "dependencies": {
-    "lit": "^2.0.0-rc.2",
+    "lit": "^2.2.3",
+    "lit-html": "^2.0.2",
     "ts-dedent": "^2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-react": "^7.14.5",
-    "@open-wc/eslint-config": "^4.3.0",
+    "@custom-elements-manifest/analyzer": "^0.5.7",
+    "@open-wc/eslint-config": "^7.0.0",
     "@open-wc/testing": "^2.5.33",
     "@rollup/plugin-multi-entry": "^4.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
-    "@storybook/addon-a11y": "^6.2.9",
-    "@storybook/addon-actions": "^6.3.6",
-    "@storybook/addon-essentials": "^6.3.6",
-    "@storybook/addon-links": "^6.3.6",
-    "@storybook/addons": "^6.2.9",
-    "@storybook/theming": "^6.2.9",
-    "@storybook/web-components": "^6.3.6",
+    "@storybook/addon-a11y": "^6.5.6",
+    "@storybook/addon-actions": "^6.5.6",
+    "@storybook/addon-essentials": "^6.5.6",
+    "@storybook/addon-links": "^6.5.6",
+    "@storybook/addons": "^6.5.6",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/theming": "^6.5.6",
+    "@storybook/web-components": "^6.5.6",
     "@web/dev-server": "^0.1.17",
     "@web/test-runner": "^0.13.4",
     "babel-loader": "^8.2.2",
+    "css-loader": "5.2.6",
     "dotenv": "^10.0.0",
     "husky": "^6.0.0",
     "npm-watch": "^0.9.0",
@@ -91,7 +98,9 @@
     "rollup-plugin-minify-html-literals": "^1.2.6",
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.32.13",
+    "sass-loader": "10.1.1",
     "ssh2-sftp-client": "^6.0.1",
+    "style-loader": "2.0.0",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^22.0.0"
@@ -104,36 +113,5 @@
     "url": "https://github.com/hasanirogers/kemet-ui/issues"
   },
   "homepage": "http://kemet.dev",
-  "components": [
-    "src/components/kemet-accordion/kemet-accordion.js",
-    "src/components/kemet-carousel/kemet-carousel.js",
-    "src/components/kemet-carousel/kemet-carousel-link.js",
-    "src/components/kemet-carousel/kemet-carousel-next.js",
-    "src/components/kemet-carousel/kemet-carousel-prev.js",
-    "src/components/kemet-carousel/kemet-carousel-slide.js",
-    "src/components/kemet-carousel/kemet-carousel.js",
-    "src/components/kemet-draggable/kemet-draggable.js",
-    "src/components/kemet-drawer/kemet-drawer.js",
-    "src/components/kemet-flipcard/kemet-flipcard.js",
-    "src/components/kemet-flipcard/kemet-flipcard-trigger.js",
-    "src/components/kemet-icon/kemet-icon.js",
-    "src/components/kemet-carousel/kemet-carousel.js",
-    "src/components/kemet-modal/kemet-modal.js",
-    "src/components/kemet-modal/kemet-modal-close.js",
-    "src/components/kemet-carousel/kemet-carousel.js",
-    "src/components/kemet-popover/kemet-popover.js",
-    "src/components/kemet-popover/kemet-popover-close.js",
-    "src/components/kemet-ratio/kemet-ratio.js",
-    "src/components/kemet-rotator/kemet-rotator.js",
-    "src/components/kemet-scroll-link/kemet-scroll-link.js",
-    "src/components/kemet-scroll-nav/kemet-scroll-nav.js",
-    "src/components/kemet-scroll-snap/kemet-scroll-snap.js",
-    "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js",
-    "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js",
-    "src/components/kemet-svgs/kemet-svgs.js",
-    "src/components/kemet-svgs/kemet-svg.js",
-    "src/components/kemet-tabs/kemet-tabs.js",
-    "src/components/kemet-tabs/kemet-tab-panel.js",
-    "src/components/kemet-tabs/kemet-tab.js"
-  ]
+  "customElements": "custom-elements.json"
 }

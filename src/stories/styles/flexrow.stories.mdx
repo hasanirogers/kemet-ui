@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './flexrow.stories.js'
+
+<Meta title="Styles/Flexrow" />
+
+# Flexrow
+
+Flexrow allows you to layout items in row (a flexbox line). Add as many items to the row as you like and sizing is largely automated.
+
+<br />
+
+## Example 1
+
+This is most basic usage of flexrow. Every direct descendent of flexrow will equally distribute space.
+<Canvas>
+  <Story name="Example1" story={stories.Example1} />
+</Canvas>
+
+<br />
+
+## Example 2
+
+Add autostack to flexrow to force the items to stack to a mobile layout at the $stackpoint variable. Add gutters to flexrow to put gutter spacing between items.
+<Canvas>
+  <Story name="Example2" story={stories.Example2} />
+</Canvas>
+
+<br />
+
+## Example 3
+
+You can add responsive gutters. The syntax is `[breakpoint]:[gutter-value]`. So for example, if you wanted the default value for gutters for all breakpoints use `tiny:default`. Kemet UI is mobile first so using tiny means tiny and up.
+<Canvas>
+  <Story name="Example3" story={stories.Example3} />
+</Canvas>
+
+<br />
+
+## Example 4
+
+You can control the size of items at each breakpoint with breakpoint. The syntax is `breakpoint:size`. `:content` means fit the item's content. All other sizes are numerical multiples of 5 (5-100) and also 33 and 66. You only need to add breakpoints to items that you want to size. Items without breakpoints will equally distribute.
+<Canvas>
+  <Story name="Example4" story={stories.Example4} />
+</Canvas>
+
+<br />
+
+## Example 5
+
+You can align all items by using align on your container or a specific item by using align on your item. Values are `top`, `middle`, `bottom`, `stretch`.
+<Canvas>
+  <Story name="Example5" story={stories.Example5} />
+</Canvas>
+
+<br />
+
+## Example 6
+
+You can align acrosss the x-axis with align-cross. Cross align can only be used on a container and effects all items. Values include `left`, `right`, `center`, `between`, and `around`.
+<Canvas>
+  <Story name="Example6" story={stories.Example6} />
+</Canvas>
+

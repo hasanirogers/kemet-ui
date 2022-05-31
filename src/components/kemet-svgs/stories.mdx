@@ -3,16 +3,7 @@ import * as stories from './stories.js'
 import './kemet-svgs.js';
 import './kemet-svg.js'
 
-<Meta
-  title="Components/Kemet SVGs"
-  component="kemet-svgs"
-  argTypes={{
-    svg: {
-      control: { type: 'select' },
-      options: ['anubis', 'eye', 'horus']
-    },
-  }}
-/>
+<Meta title="Components/SVGs" component="kemet-svgs" />
 
 # Kemet SVGs
 
@@ -39,16 +30,45 @@ A set of SVG graphics that can be referenced any where in a page or app.
 
 **Note:** if your svg does not have a viewbox value set use the width and height of the svg as the last two numbers for the view box. An svg with a width of 1920 and height of 1080 for example should have a viewbox value of `0 0 1920 1080`.
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-svgs.js';
+import 'kemet-ui/dist/components/kemet-svg.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-svgs.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-svg.js" type="module"></script>
+```
+
 ## Stories
 
 <Canvas>
-  <Story story={stories.Standard} />
+  <Story name="Standard" story={stories.Standard} />
 </Canvas>
+
+<ArgsTable story="Standard" />
+
 
 ## API
 
+<br />
+
 ### &lt;kemet-svgs&gt;
+
 <ArgsTable of="kemet-svgs" />
 
 ### &lt;kemet-svg&gt;
+
 <ArgsTable of="kemet-svg" />
+
+#### CSS
+
+| css         | description      | default |
+| ----------- | ---------------- | ------- |
+| ::part(svg)	| The svg element. |         |

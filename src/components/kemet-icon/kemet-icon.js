@@ -3,15 +3,26 @@ import {
   html, css, LitElement,
 } from 'lit';
 
-export class KemetIcon extends LitElement {
+export default class KemetIcon extends LitElement {
   static get properties() {
     return {
+      /**
+       * The name of the icon to reference.
+       */
       icon: {
         type: String,
       },
+      /**
+       * The sprite map from an open source project that an icon belongs too.
+       * Values include:
+       * (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)
+       */
       set: {
         type: String,
       },
+      /**
+       * The width and height of the icon in pixels.
+       */
       size: {
         type: Number,
       },
@@ -22,7 +33,9 @@ export class KemetIcon extends LitElement {
     return [
       css`
         :host {
-          display: inline-block;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
         }
       `,
     ];
@@ -38,6 +51,8 @@ export class KemetIcon extends LitElement {
 
   updated() {
     this.getIcon();
+    this.style.width = `${this.size}px`;
+    this.style.height = `${this.size}px`;
   }
 
   render() {
@@ -106,4 +121,5 @@ export class KemetIcon extends LitElement {
   }
 }
 
-window.customElements.define('kemet-icon', KemetIcon);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-icon') || customElements.define('kemet-icon', KemetIcon);

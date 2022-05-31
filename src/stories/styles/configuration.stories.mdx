@@ -1,0 +1,336 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+
+<Meta title="Styles/Config" />
+
+# Configuration
+
+Kemet UI comes with several variables that allow you to customize the behavior of the styles. You can view these variables in [the config file](https://github.com/hasanirogers/kemet-ui/blob/main/src/styles/core/_config.scss).
+
+<br />
+
+## Gutters
+
+You can control how gutters behave with the `$gutters` variables. `$gutters` is a sass map. You can change the values for the map. For example you might want to use px instead of rem for the units on the gutters. You can also change how gutters are referenced by changing the map's key. So instead of minus-1 you might want to change it to simply small. Kemet is smart enough to loop through the map so you can also add or remove any key value you pairs as you wish. Here's an example of a custom `$gutters` config.
+
+```scss
+$gutters: (
+  none: 0,
+  smallest: 4px,
+  smaller: 8px,
+  small: 12px,
+  default: 16px, // do not remove this
+  large: 20px,
+  larger: 24px,
+  largest: 28px,
+);
+```
+
+In the example above we changed the keys, values, and number of entries in the map to our custom needs. The only rule is do not remove default.
+
+<br />
+
+**Default**
+
+```scss
+$gutters: (
+  none: 0,
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  default: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+);
+```
+
+## Flexiplier
+
+The `$flexiplier` controls increments of spacing. The default is `tens`. You may also use `fives` or `twenties`. So for example, if you set it to `fives` you can use increments of 5 in your breakpoints.
+
+```html
+<div kemet-breakpoint="tiny:15">...</div>
+```
+
+In the example above we are able to use `kemet-breakpoint="tiny:15"` because our flexliplier is at `fives`. We could also use 20, 25, 30, 35, etc since we're incrementing by 5.
+
+**Default**
+
+```scss
+$flexiplier: 'tens';
+```
+
+## Stackpoint
+
+The `$stackpoint` is the point at which the library considers your layout to go from “mobile” to “full”. The attribute autostack relies on this. The default is set to `640px`.
+
+**Default**
+
+```scss
+$stackpoint: 767px;
+```
+
+## Breakpoints
+
+This is a map that controls both how many and what sizes your breakpoints are. You can add key/value pairs to the breakpoints as necessary. So for example, if we wanted to simplify the default config we could add the following:
+
+```scss
+$breakpoints: (
+  mobile: 0,
+  tablet: 768px,
+  desktop: 1024px,
+);
+```
+
+We don't recommend such a configuration, but it's possible to achieve. Notice that mobile starts at `0px`. This is because the media queries are all mobile first and use min-width. So, in this example, mobile starts at 0, tablets starts at 768, and desktop at 1024.
+
+It should also be noted that the breakpoints used the order attribute are determined by this as well.
+
+**Default**
+
+```scss
+$breakpoints: (
+  tiny: 0,
+  small: 321px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1440px
+);
+```
+
+## Break Ranges
+
+These are specifically for the visibility classes and logically should be consistent with your breakpoints.
+
+**Default**
+
+```scss
+$breakranges: (
+  tiny: (0, 319px),
+  small: (320px, 767px),
+  medium: (768px, 1023px),
+  large: (1024px, 1439px),
+  huge: (1440px, 9999px)
+);
+```
+
+<br />
+
+## Colors
+
+A map that controls the color pallet for the system.
+
+**Default**
+
+```scss
+$colors: (
+  white: rgba(255, 255, 255, 1),
+  white-10: rgba(255, 255, 255, 0.10),
+  white-20: rgba(255, 255, 255, 0.20),
+  white-30: rgba(255, 255, 255, 0.30),
+  white-40: rgba(255, 255, 255, 0.40),
+  white-50: rgba(255, 255, 255, 0.50),
+  white-60: rgba(255, 255, 255, 0.60),
+  white-70: rgba(255, 255, 255, 0.70),
+  white-80: rgba(255, 255, 255, 0.80),
+  white-90: rgba(255, 255, 255, 0.90),
+  white-rich: rgba(242, 242, 242, 1),
+
+  black: rgba(0, 0, 0, 1),
+  black-10: rgba(0, 0, 0, 0.1),
+  black-20: rgba(0, 0, 0, 0.20),
+  black-30: rgba(0, 0, 0, 0.30),
+  black-40: rgba(0, 0, 0, 0.40),
+  black-50: rgba(0, 0, 0, 0.50),
+  black-60: rgba(0, 0, 0, 0.60),
+  black-70: rgba(0, 0, 0, 0.70),
+  black-80: rgba(0, 0, 0, 0.80),
+  black-90: rgba(0, 0, 0, 0.90),
+
+  gray1: #eff2f1,
+  gray2: #d7d7d7,
+  gray3: #bebebe,
+  gray4: #a4a4a4,
+  gray5: #8b8b8b,
+  gray6: #727270,
+  gray7: #585858,
+  gray8: #3f3f3f,
+  gray9: #262626,
+  gray10: #0c0c0c,
+
+  primary: rgba(12, 74, 110, 1),
+  primary-10: rgba(12, 74, 110, 0.10),
+  primary-20: rgba(12, 74, 110, 0.20),
+  primary-30: rgba(12, 74, 110, 0.30),
+  primary-40: rgba(12, 74, 110, 0.40),
+  primary-50: rgba(12, 74, 110, 0.50),
+  primary-60: rgba(12, 74, 110, 0.60),
+  primary-70: rgba(12, 74, 110, 0.70),
+  primary-80: rgba(12, 74, 110, 0.80),
+  primary-90: rgba(12, 74, 110, 0.90),
+
+  link: rgba(12, 74, 110, 1),
+
+  error: rgba(197, 48, 48, 1),
+  success: rgba(22, 163, 74, 1),
+  neutral: rgba(82, 82, 91, 1),
+  warning: rgba(217, 119, 6, 1),
+);
+```
+
+<br />
+
+## Elevation
+
+A map that controls the box shadow layers.
+
+**Default**
+
+```scss
+$elevation: (
+  none: 0 0 #0000,
+  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
+);
+```
+
+<br />
+
+## Border Widths
+
+A map that controls the border widths.
+
+**Default**
+
+```scss
+$borderwidths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+);
+```
+
+<br />
+
+## Border Radius
+
+A map that controls the radius on borders.
+
+**Default**
+
+```scss
+$borderradiuses: (
+  small: 3px,
+  medium: 6px,
+  large: 12px,
+);
+```
+
+<br />
+
+## Order
+
+Determines the depth of priority that can be set for the order attribute where depth is defined as a number. The default is 5 so giving an order of `order=”small:minus-5”` would mean the highest priority, starting at small.
+
+**Default**
+
+```scss
+$order: 5;
+```
+
+## Flexgrid Columns
+
+Use of `$flexgridcolumn` is specifically for using basis with flexgrid. It simply sets the number of columns. Default is 12.
+
+**Default**
+
+```scss
+$flexgridcolumns: 12;
+```
+
+
+## Type Sizers
+
+Similar to `$gutters`, `$typesizers` allows you to control how sizing for the type utility. The defaults are similar to gutters but can be customized in the same fashion as well.
+
+**Default**
+
+```scss
+$typesizers: (
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  base: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+);
+```
+
+## Spacers
+
+Controls the amount of spacing used for margin helper classes.
+
+**Default**
+
+```scss
+$spacers: (
+  auto: auto,
+  none: 0,
+  smallest: 0.5rem,
+  smaller: 1rem,
+  small: 1.5rem,
+  normal: 2rem,
+  large: 2.5rem,
+  larger: 3rem,
+  largest: 3.5rem
+);
+```
+
+## Make Order
+If you want to reduce file size and don't need the order attribute, set `$makeorder` to false.
+
+**Default**: `true`
+
+## Make Visibility
+If you want to reduce file size and don't need the visibility classes, set `$makevisibility` to false.
+
+**Default**: `true`
+
+## Make Text
+If you want to reduce file size and don't need text helper classes, set `$maketext` to false.
+
+**Default**: `true`
+
+## Make Spacers
+If you want to reduce file size and don't need spacers, set `$makespacers` to false.
+
+**Default**: `true`
+
+## Make Elevation
+If you want to reduce file size and don't need elevation, set `$makeelevation` to false.
+
+**Default**: `true`
+
+## Make Elevation
+If you want to reduce file size and don't need borders, set `$makeborders` to false.
+
+**Default**: `true`

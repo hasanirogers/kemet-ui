@@ -5,48 +5,7 @@ import './kemet-scroll-snap.js';
 import './kemet-scroll-snap-slide.js';
 import './kemet-scroll-snap-paginator.js';
 
-<Meta
-  title="Components/Kemet Scroll Snap"
-  component="kemet-scroll-snap"
-  argTypes={{
-    showPagination: {
-      control: { type: 'boolean' },
-    },
-    numberOfSlides: {
-      control: { type: 'number' },
-    },
-    gap: {
-      control: { type: 'text' }
-    },
-    axis: {
-      control: { type: 'select' },
-      options: ['horizontal', 'vertical']
-    },
-    pagination: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left']
-    },
-    paginationIcon: {
-      control: { type: 'text' },
-    },
-    paginationUseNumbers: {
-      control: { type: 'boolean' },
-    },
-    paginationUseLabels: {
-      control: { type: 'boolean' },
-    },
-  }}
-  args={{
-    showPagination: true,
-    numberOfSlides: 5,
-    gap: '0',
-    axis: 'horizontal',
-    pagination: 'bottom',
-    paginationIcon: '•',
-    paginationUseNumbers: false,
-    paginationUseLabels: false,
-  }}
-/>
+<Meta title="Components/Scroll Snap" component="kemet-scroll-snap" />
 
 
 # Kemet Scroll Snap
@@ -61,9 +20,7 @@ A scroll-snap implementation for responsive sliders.
     <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
     <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
   </div>
-  <div slot="pagination">
-    <kemet-scroll-snap-paginator></kemet-scroll-snap-paginator>
-  </div>
+  <kemet-scroll-snap-paginator slot="pagination"></kemet-scroll-snap-paginator>
 </kemet-scroll-snap>
 ```
 
@@ -81,19 +38,80 @@ kemet-scroll-snap[axis="horizontal"] [slot="slides"]::-webkit-scrollbar {
 }
 ```
 
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-scroll-snap.js';
+import 'kemet-ui/dist/components/kemet-scroll-snap-slide.js';
+import 'kemet-ui/dist/components/kemet-scroll-snap-paginator.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-snap.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-snap-slide.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-snap-paginator.js" type="module"></script>
+```
+
 ## Stories
 
 <Canvas>
-  <Story story={stories.ScrollSnap} />
+  <Story name="Standard" story={stories.ScrollSnap} />
 </Canvas>
+
+<ArgsTable story="Standard" />
 
 ## API
 
-### Kemet Scroll Snap
+<br />
+
+### &lt;kemet-scroll-snap&gt;
+
 <ArgsTable of="kemet-scroll-snap" />
 
-### Kemet Scroll Snap Slide
+#### Slots
+
+| slot       | description                                         |
+| ---------- | --------------------------------------------------- |
+| slides     | Place your slides here.                             |
+| pagination | Place the paginator component here if you want one. |
+
+#### CSS
+
+| css                                         | description                                | default |
+| ------------------------------------------- | ------------------------------------------ | ------- |
+| --kemet-scroll-snap-gap	                    | Space between the slides.                  | 1.5rem  |
+| --kemet-scroll-snap-horizontal-max-width    | The horizontal max width of the container. | 1024px  |
+| --kemet-scroll-snap-vertical-height         | The vertical height of the container.      | 100vh   |
+| --kemet-scroll-snap-slides-vertical-padding | Padding on the vertical axis.              | 0 2rem  |
+| ::part(slides)                              | The slides container.                      |         |
+| ::part(pagination)                          | The pagination element.                    |         |
+
+<br />
+
+### &lt;kemet-scroll-snap-slide&gt;
+
 <ArgsTable of="kemet-scroll-snap-slide" />
 
-### Kemet Scroll Snap Paginator
+#### CSS
+
+| css                             | description             | default |
+| ------------------------------- | ----------------------- | ------- |
+| --kemet-scroll-snap-slide-width | The width of the slide. | 100%    |
+| --kemet-scroll-snap-slide-align | The slide alignment.    | center  |
+
+<br />
+
+### &lt;kemet-scroll-snap-paginator&gt;
 <ArgsTable of="kemet-scroll-snap-paginator" />
+
+#### CSS
+
+| css                                      | description                              | default                    |
+| ---------------------------------------- | ---------------------------------------- | -------------------------- |
+| --kemet-scroll-snap-paginator-padding    | The padding on the container.            | 1rem 0                     |
+| --kemet-scroll-snap-paginator-gap        | The space between pagination items.      | 0.5rem                     |
+| --kemet-scroll-snap-paginator-link-color | The color of a linkable pagination item. | var(--kemet-color-primary) |

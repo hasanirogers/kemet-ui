@@ -1,0 +1,73 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-input.js';
+
+<Meta title="Components/Input" component="kemet-input" />
+
+# Kemet Input
+
+An enhanced input element.
+
+
+## How to use
+
+```html
+<kemet-input></kemet-input>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-input.js'
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-input.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+<br />
+
+## API
+
+### &lt;kemet-input&gt;
+
+<ArgsTable of="kemet-input" />
+
+#### Methods
+
+| method           | description                             |
+| ---------------- | --------------------------------------- |
+| .focus()         | Focuses on the input element.           |
+| .checkValidity() | Simulates a checkValidity on the input. |
+
+#### CSS
+
+| css                                    | description                         | default                              |
+| -------------------------------------- | ----------------------------------- | ------------------------------------ |
+| --kemet-input-height                   | The height of the input.            | 50px                                 |
+| --kemet-input-padding                  | The padding on the input.           | 0.5rem 1rem                          |
+| --kemet-input-border                   | The border of the input.            | 1px solid var(--kemet-color-primary) |
+| --kemet-input-border-color-error       | The border of the error state.      | 1px solid var(--kemet-color-error)   |
+| --kemet-input-border-color-success     | The border of the success state.    | 1px solid var(--kemet-color-success) |
+| --kemet-input-border-color-warning     | The border of the warning state.    | 1px solid var(--kemet-color-warning) |
+| --kemet-input-icon-left-padding        | The icon-left padding.              | 3rem                                 |
+| --kemet-input-icon-right-padding       | The icon-right padding.             | 3rem                                 |
+| --kemet-input-border-radius-rounded    | The border radius on rounded.       | var(--kemet-border-radius)           |
+| --kemet-input-border-filled            | The border on filled.               | none                                 |
+| --kemet-input-color-filled             | The color on filled.                | var(--kemet-color-white)             |
+| --kemet-input-background-color-filled  | The background-color on filled.     | var(--kemet-color-primary)           |
+| --kemet-input-background-color-error   | The error state background color.   | var(--kemet-color-error)             |
+| --kemet-input-background-color-success | The success state background color. | var(--kemet-color-success)           |
+| --kemet-input-background-color-warning | The warning state background color. | var(--kemet-color-warning)           |

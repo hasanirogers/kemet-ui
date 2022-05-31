@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 
-export class KemetDraggable extends LitElement {
+export default class KemetDraggable extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -15,15 +15,28 @@ export class KemetDraggable extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * A unique identifier used to store the element's position in local storage.
+       */
       memory: {
         type: String,
       },
+      /**
+       * The elements top position in pixels.
+       */
       top: {
         type: String,
       },
+      /**
+       * The element's left position in pixels.
+       */
       left: {
         type: String,
       },
+      /**
+       * If set to true, will measure the width and height
+       * of the element's content and apply it to the host element.
+       */
       measure: {
         type: Boolean,
       },
@@ -37,17 +50,16 @@ export class KemetDraggable extends LitElement {
     this.top = 'auto';
     this.left = 'auto';
     this.measure = false;
+  }
 
-    // js property defaults
+  firstUpdated() {
+    // standard properties
     this.position1 = 0;
     this.position2 = 0;
     this.position3 = 0;
     this.position4 = 0;
     this.mouseMove = event => this.drag(event);
     this.mouseUp = () => this.stopDrag();
-  }
-
-  firstUpdated() {
     this.draggableElement = this.shadowRoot.getElementById('draggable');
 
     const savedPosition = JSON.parse(localStorage.getItem(this.memory));
@@ -126,4 +138,5 @@ export class KemetDraggable extends LitElement {
   }
 }
 
-window.customElements.define('kemet-draggable', KemetDraggable);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-draggable') || customElements.define('kemet-draggable', KemetDraggable);

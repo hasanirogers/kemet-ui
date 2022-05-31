@@ -1,4 +1,5 @@
 @use 'config' as *;
+@use '../components/config' as *;
 
 @function getListFirst($list) {
   @return nth($list, 1);
@@ -85,6 +86,10 @@
     margin-right: -(map-get($gutters, default));
   }
 
+  [kemet-layout='flexlist'][kemet-gutters] {
+    gap: map-get($gutters, default);
+  }
+
   [kemet-gutters] > * {
     padding-right: map-get($gutters, default);
   }
@@ -114,6 +119,10 @@
             margin-right: -($value);
           }
 
+          [kemet-layout="flexlist"]#{$gutterselector} {
+            gap: $value;
+          }
+
           #{$gutterselector} > * {
             padding-right: $value;
           }
@@ -141,6 +150,7 @@
   @each $key, $value in $typesizers {
     [kemet-type-size*="#{$key}"] {
       font-size: $value;
+      margin: 0;
     }
   }
 
@@ -149,6 +159,7 @@
       @each $key, $value in $typesizers {
         [kemet-type-size*="#{$breakpoint}:#{$key}"] {
           font-size: $value;
+          margin: 0;
         }
       }
     }
@@ -158,14 +169,18 @@
 @mixin makeOrder() {
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
+      [kemet-order*="#{$breakpoint}:none"] {
+        order: 0;
+      }
+
       @for $i from 1 through $order {
-        [kemet-order="#{$breakpoint}:minus-#{$i}"] {
+        [kemet-order*="#{$breakpoint}:minus-#{$i}"] {
           order: -#{$i};
         }
       }
 
       @for $i from 1 through $order {
-        [kemet-order="#{$breakpoint}:plus-#{$i}"] {
+        [kemet-order*="#{$breakpoint}:plus-#{$i}"] {
           order: #{$i};
         }
       }
@@ -291,6 +306,98 @@
       [kemet-type-align*='#{$breakpoint}:center'] {
         text-align: center;
       }
+    }
+  }
+}
+
+@mixin makeColors {
+  @each $color, $value in $colors {
+    [kemet-color="#{$color}"] {
+      color: $value;
+    }
+
+    [kemet-background-color="#{$color}"] {
+      background-color: $value;
+    }
+  }
+}
+
+@mixin makeElevation {
+  @each $layer, $value in $elevation {
+    [kemet-elevation="#{$layer}"] {
+      box-shadow: $value;
+    }
+  }
+}
+
+@mixin makeBorders {
+  $sides: 'top', 'right', 'bottom', 'left';
+  $styles: dotted, dashed, solid, double, groove, ridge, inset, outset, none, hidden;
+
+  @each $color, $value in $colors {
+    [kemet-border*="#{$color}"] {
+      border-color: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    [kemet-border*="all-#{$width}"] {
+      border-width: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    [kemet-border*="horizontal-#{$width}"] {
+      border-top-width: $value;
+      border-bottom-width: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    [kemet-border*="vertical-#{$width}"] {
+      border-left-width: $value;
+      border-right-width: $value;
+    }
+  }
+
+  @each $width, $value in $borderwidths {
+    @each $side in $sides {
+      [kemet-border*="#{$side}-#{$width}"] {
+        border-#{$side}-width: $value;
+      }
+    }
+  }
+
+  @each $style in $styles {
+    [kemet-border*="all"][kemet-border*="#{$style}"] {
+      border-style: $style;
+    }
+
+    [kemet-border*="horizontal"][kemet-border*="#{$style}"] {
+      border-style: none;
+      border-top-style: $style;
+      border-bottom-style: $style;
+    }
+
+    [kemet-border*="vertical"][kemet-border*="#{$style}"] {
+      border-style: none;
+      border-left-style: $style;
+      border-right-style: $style;
+    }
+
+    @each $side in $sides {
+      [kemet-border*="#{$side}"][kemet-border*="#{$style}"] {
+        border-style: none;
+        border-#{$side}-style: $style;
+      }
+    }
+  }
+}
+
+@mixin makeBorderRadiuses {
+  @each $size, $value in $borderradiuses {
+    [kemet-border-radius="#{$size}"] {
+      border-radius: $value;
     }
   }
 }

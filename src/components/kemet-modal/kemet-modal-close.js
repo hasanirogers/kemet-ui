@@ -1,6 +1,21 @@
-import { html, LitElement } from 'lit';
+import { css, html, LitElement } from 'lit';
 
-export class KemetModalClose extends LitElement {
+export default class KemetModalClose extends LitElement {
+  static get styles() {
+    return [
+      css`
+        :host {
+          position: absolute;
+          top: -0.5rem;
+          right: -0.5rem;
+          border: 2px solid white;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+      `,
+    ];
+  }
+
   render() {
     return html`
       <slot @keyup=${() => this.close()} @click=${() => this.close()}></slot>
@@ -8,7 +23,10 @@ export class KemetModalClose extends LitElement {
   }
 
   close() {
-    this.dispatchEvent(new CustomEvent('kemet-modal-close-btn', {
+    /**
+     * Fires when the close button is pressed
+     */
+    this.dispatchEvent(new CustomEvent('kemet-modal-close-pressed', {
       bubbles: true,
       composed: true,
       detail: this,
@@ -16,4 +34,5 @@ export class KemetModalClose extends LitElement {
   }
 }
 
-window.customElements.define('kemet-modal-close', KemetModalClose);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('kemet-modal-close') || customElements.define('kemet-modal-close', KemetModalClose);
