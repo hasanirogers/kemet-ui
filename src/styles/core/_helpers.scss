@@ -312,11 +312,13 @@
 
 @mixin makeColors {
   @each $color, $value in $colors {
-    [kemet-color="#{$color}"] {
+    $name: '' + $color;
+
+    [kemet-color="#{$name}"] {
       color: $value;
     }
 
-    [kemet-background-color="#{$color}"] {
+    [kemet-background-color="#{$name}"] {
       background-color: $value;
     }
   }
@@ -335,7 +337,9 @@
   $styles: dotted, dashed, solid, double, groove, ridge, inset, outset, none, hidden;
 
   @each $color, $value in $colors {
-    [kemet-border*="#{$color}"] {
+    $name: '' + $color;
+
+    [kemet-border*="#{$name}"] {
       border-color: $value;
     }
   }

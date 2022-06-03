@@ -3,7 +3,6 @@ import multi from '@rollup/plugin-multi-entry';
 import copy from 'rollup-plugin-copy';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 import { terser } from 'rollup-plugin-terser';
-// import { components } from '../package.json';
 
 export default {
   input: 'src/components/kemet-*/kemet-*.js',
@@ -17,10 +16,11 @@ export default {
     multi(),
     copy({
       targets: [
-        { src: 'src/components/kemet-*/kemet-*.js', dest: 'dist/components' },
-        { src: 'src/components/**/*.styles.js', dest: 'dist/components' },
-        { src: 'src/styles/!(demo)', dest: 'dist/styles/scss' },
+        { src: ['src/components/kemet-*/!(demo)', '!**/stories.*', '!**/test.js'], dest: 'dist' },
+        { src: 'src/utilities', dest: 'dist' },
+        { src: 'src/styles/!(demo)', dest: 'dist' },
       ],
+      flatten: false,
     }),
   ],
 };
