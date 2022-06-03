@@ -30,7 +30,7 @@ $gutters: (
   plus-4: 2rem,
   plus-5: 2.25rem,
   plus-6: 3rem
-);
+) !default;
 
 
 
@@ -42,7 +42,7 @@ $gutters: (
 /// @access public
 /// @group config-variables
 
-$flexiplier: 'tens';
+$flexiplier: 'tens' !default;
 
 
 
@@ -53,7 +53,7 @@ $flexiplier: 'tens';
 /// @access public
 /// @group config-variables
 
-$stackpoint: 767px;
+$stackpoint: 767px !default;
 
 
 
@@ -69,7 +69,7 @@ $breakpoints: (
   medium: 768px,
   large: 1024px,
   huge: 1440px
-);
+) !default;
 
 
 
@@ -85,7 +85,7 @@ $breakranges: (
   medium: (768px, 1023px),
   large: (1024px, 1439px),
   huge: (1440px, 9999px)
-);
+) !default;
 
 
 
@@ -95,7 +95,7 @@ $breakranges: (
 /// @access public
 /// @group config-variables
 
-$order: 5;
+$order: 5 !default;
 
 
 
@@ -105,7 +105,7 @@ $order: 5;
 /// @access public
 /// @group config-variables
 
-$flexgridcolumns: 12;
+$flexgridcolumns: 12 !default;
 
 
 
@@ -126,7 +126,7 @@ $typesizers: (
   plus-4: 2rem,
   plus-5: 2.25rem,
   plus-6: 3rem
-);
+) !default;
 
 
 
@@ -146,7 +146,7 @@ $spacers: (
   large: 2.5rem,
   larger: 3rem,
   largest: 3.5rem
-);
+) !default;
 
 
 
@@ -208,7 +208,7 @@ $colors: (
   success: rgba(22, 163, 74, 1),
   neutral: rgba(82, 82, 91, 1),
   warning: rgba(217, 119, 6, 1),
-);
+) !default;
 
 
 
@@ -227,7 +227,7 @@ $elevation: (
   layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
   layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
   inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
-);
+) !default;
 
 
 
@@ -248,7 +248,7 @@ $borderwidths: (
   7: 7px,
   8: 8px,
   9: 9px,
-);
+) !default;
 
 
 
@@ -262,7 +262,7 @@ $borderradiuses: (
   small: 3px,
   medium: 6px,
   large: 12px,
-);
+) !default;
 
 
 
@@ -272,7 +272,7 @@ $borderradiuses: (
 /// @access public
 /// @group config-variables
 
-$makeorder: true;
+$makeorder: true !default;
 
 
 
@@ -281,7 +281,7 @@ $makeorder: true;
 /// @access public
 /// @group config-variables
 
-$makevisibility: true;
+$makevisibility: true !default;
 
 
 
@@ -291,7 +291,7 @@ $makevisibility: true;
 /// @access public
 /// @group config-variables
 
-$maketext: true;
+$maketext: true !default;
 
 
 
@@ -301,7 +301,7 @@ $maketext: true;
 /// @access public
 /// @group config-variables
 
-$makeresponsivegutters: true;
+$makeresponsivegutters: true !default;
 
 
 
@@ -311,7 +311,7 @@ $makeresponsivegutters: true;
 /// @access public
 /// @group config-variables
 
-$makespacers: true;
+$makespacers: true !default;
 
 
 
@@ -321,7 +321,7 @@ $makespacers: true;
 /// @access public
 /// @group config-variables
 
-$makecolors: true;
+$makecolors: true !default;
 
 
 
@@ -331,7 +331,7 @@ $makecolors: true;
 /// @access public
 /// @group config-variables
 
-$makeelevation: true;
+$makeelevation: true !default;
 
 
 
@@ -341,7 +341,7 @@ $makeelevation: true;
 /// @access public
 /// @group config-variables
 
-$makeborders: true;
+$makeborders: true !default;
 
 
 
@@ -351,4 +351,4 @@ $makeborders: true;
 /// @access public
 /// @group config-variables
 
-$makeborderradiuses: true;
+$makeborderradiuses: true !default;
