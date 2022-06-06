@@ -1,0 +1,71 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+
+import './kemet-carousel.js';
+import './kemet-carousel-link.js';
+import './kemet-carousel-next.js';
+import './kemet-carousel-prev.js';
+import './kemet-carousel-slide.js';
+
+<Meta title="Components/Carousel" component="kemet-carousel" />
+
+# Kemet Carousel
+
+Carousel allows you to click or swipe through content on a rotation.
+
+
+## How to use
+
+```html
+...
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-link.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-next.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-prev.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-slide.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-link.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-next.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-prev.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-slide.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+
+## API
+
+<br />
+
+### &lt;kemet-carousel&gt;
+<ArgsTable of="kemet-carousel" />
+
+#### Slots
+
+| slot  | description                                                 |
+|-------|------------------------------------------------------------ |
+| left  | Alows you to place an icon to the left of the button text.  |
+| right | Alows you to place an icon to the right of the button text. |
+
+#### CSS
+
+| css                             | description                               | default               |
+|-------------------------------- |------------------------------------------ | --------------------- |

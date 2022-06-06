@@ -343,6 +343,526 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-link.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselLink",
+          "members": [
+            {
+              "kind": "method",
+              "name": "changed"
+            },
+            {
+              "kind": "field",
+              "name": "slide",
+              "privacy": "public",
+              "attribute": "slide",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-link",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slide",
+              "fieldName": "slide"
+            },
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-link",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCarouselLink",
+            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel-link",
+          "declaration": {
+            "name": "KemetCarouselLink",
+            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-next.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselNext",
+          "members": [
+            {
+              "kind": "method",
+              "name": "next"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-next",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-next",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCarouselNext",
+            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel-next",
+          "declaration": {
+            "name": "KemetCarouselNext",
+            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-prev.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselPrev",
+          "members": [
+            {
+              "kind": "method",
+              "name": "prev"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-prev",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-prev",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "KemetCarouselPrev",
+          "declaration": {
+            "name": "KemetCarouselPrev",
+            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel-prev",
+          "declaration": {
+            "name": "KemetCarouselPrev",
+            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel-slide.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarouselSlide",
+          "members": [
+            {
+              "kind": "field",
+              "name": "seen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "seen"
+            },
+            {
+              "kind": "field",
+              "name": "transition",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "privacy": "public",
+              "attribute": "transition",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "type": {
+                "text": "string"
+              },
+              "default": "'true'"
+            },
+            {
+              "kind": "field",
+              "name": "'aria-hidden'",
+              "privacy": "public",
+              "attribute": "'aria-hidden'",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "seen",
+              "fieldName": "seen"
+            },
+            {
+              "name": "transition",
+              "fieldName": "transition"
+            },
+            {
+              "name": "'aria-hidden'",
+              "fieldName": "'aria-hidden'"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel-slide",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCarouselSlide",
+            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel-slide",
+          "declaration": {
+            "name": "KemetCarouselSlide",
+            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-carousel/kemet-carousel.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCarousel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "swipeStart",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "swipeEnd",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "swipeUpdate",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "swipeLeave"
+            },
+            {
+              "kind": "method",
+              "name": "setSlideSize"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlideShow"
+            },
+            {
+              "kind": "method",
+              "name": "handleNext"
+            },
+            {
+              "kind": "method",
+              "name": "handlePrev"
+            },
+            {
+              "kind": "method",
+              "name": "updateIndex",
+              "parameters": [
+                {
+                  "name": "newIndex"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "goToSlide",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleTransitionEnd",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleLink",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "privacy": "public",
+              "attribute": "index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pagination",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bottom'",
+              "privacy": "public",
+              "attribute": "pagination",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "slidesWidth",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "privacy": "public",
+              "attribute": "slidesWidth"
+            },
+            {
+              "kind": "field",
+              "name": "slidesTranslateX",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0'",
+              "privacy": "public",
+              "attribute": "slidesTranslateX"
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      slideshow: 0,\n      perView: 3,\n    }",
+              "privacy": "public",
+              "attribute": "options"
+            },
+            {
+              "kind": "field",
+              "name": "swipeMove"
+            },
+            {
+              "kind": "field",
+              "name": "slideshow",
+              "privacy": "public",
+              "attribute": "slideshow"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-carousel-change-start",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "kemet-carousel-change-finished",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "index",
+              "fieldName": "index"
+            },
+            {
+              "name": "pagination",
+              "fieldName": "pagination"
+            },
+            {
+              "name": "slideshow",
+              "fieldName": "slideshow"
+            },
+            {
+              "name": "slidesWidth",
+              "fieldName": "slidesWidth"
+            },
+            {
+              "name": "slidesTranslateX",
+              "fieldName": "slidesTranslateX"
+            },
+            {
+              "name": "options",
+              "fieldName": "options"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-carousel",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCarousel",
+            "module": "src/components/kemet-carousel/kemet-carousel.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-carousel",
+          "declaration": {
+            "name": "KemetCarousel",
+            "module": "src/components/kemet-carousel/kemet-carousel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-button/kemet-button.js",
       "declarations": [
         {
@@ -923,6 +1443,102 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-count/kemet-count.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "privacy": "public",
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "privacy": "public",
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "privacy": "public",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-count-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-draggable/kemet-draggable.js",
       "declarations": [
         {
@@ -1056,102 +1672,6 @@
           "declaration": {
             "name": "KemetDraggable",
             "module": "src/components/kemet-draggable/kemet-draggable.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCount",
-          "members": [
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "description": "The text label shown to users",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "remaining",
-              "privacy": "public",
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
-            },
-            {
-              "kind": "field",
-              "name": "limit",
-              "privacy": "public",
-              "description": "The maximum number of characters allowed",
-              "attribute": "limit"
-            },
-            {
-              "kind": "field",
-              "name": "validateImmediately",
-              "privacy": "public",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "attribute": "validate-immediately"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-count-status",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when there's a change in status."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "message",
-              "description": "The text label shown to users",
-              "fieldName": "message"
-            },
-            {
-              "name": "remaining",
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
-            },
-            {
-              "name": "limit",
-              "description": "The maximum number of characters allowed",
-              "fieldName": "limit"
-            },
-            {
-              "name": "validate-immediately",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "fieldName": "validateImmediately"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-count",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-count",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
