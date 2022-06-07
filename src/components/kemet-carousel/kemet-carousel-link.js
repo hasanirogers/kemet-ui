@@ -21,6 +21,10 @@ export default class KemetCarouselLink extends LitElement {
   static get styles() {
     return [
       css`
+        :host([selected]) {
+          color: var(--kemet-color-primary);
+        }
+
         :host(:not([selected])) {
           cursor: pointer;
         }

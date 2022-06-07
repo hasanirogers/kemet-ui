@@ -1,9 +1,9 @@
 import { html } from 'lit';
 
 const Template = () => html`
-  <kemet-carousel pagination="bottom" index="1">
+  <kemet-carousel pagination="bottom" index="0">
     <div slot="slides">
-      <kemet-carousel-slide kemet-border="all-1 solid gray4">
+      <kemet-carousel-slide kemet-border="all-1 solid primary">
         <figure>
           <h3>Slide 1</h3>
           <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
@@ -11,7 +11,7 @@ const Template = () => html`
         </figure>
       </kemet-carousel-slide>
 
-      <kemet-carousel-slide kemet-border="all-1 solid gray4">
+      <kemet-carousel-slide kemet-border="all-1 solid primary">
         <figure>
           <h3>Slide 2</h3>
           <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
@@ -19,7 +19,7 @@ const Template = () => html`
         </figure>
       </kemet-carousel-slide>
 
-      <kemet-carousel-slide kemet-border="all-1 solid gray4">
+      <kemet-carousel-slide kemet-border="all-1 solid primary">
         <figure>
           <h3>Slide 3</h3>
           <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
@@ -27,7 +27,7 @@ const Template = () => html`
         </figure>
       </kemet-carousel-slide>
 
-      <kemet-carousel-slide kemet-border="all-1 solid gray4">
+      <kemet-carousel-slide kemet-border="all-1 solid primary">
         <figure>
           <h3>Slide 4</h3>
           <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
@@ -35,7 +35,7 @@ const Template = () => html`
         </figure>
       </kemet-carousel-slide>
 
-      <kemet-carousel-slide kemet-border="all-1 solid gray4">
+      <kemet-carousel-slide kemet-border="all-1 solid primary">
         <figure>
           <h3>Slide 5</h3>
           <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
