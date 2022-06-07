@@ -18,27 +18,7 @@ export default class KemetCarousel extends LitElement {
         overflow: visible;
       }
 
-      :host([hidden]) {
-        display: none;
-      }
-
-      :host([pagination="top"]) {
-        display: flex;
-        flex-direction: column;
-      }
-
-      :host([pagination="left"]),
-      :host([pagination="right"]) {
-        display: flex;
-      }
-
-
-      :host([pagination="top"]) .pagination,
-      :host([pagination="left"]) .pagination {
-        order: -1;
-      }
-
-      ::slotted([slot='pagination']) {
+      .pagination {
         display: flex;
         gap: 1rem;
         align-items: center;
@@ -47,16 +27,13 @@ export default class KemetCarousel extends LitElement {
         padding: 1rem;
       }
 
-      ::slotted([slot='slides']) {
-        display: flex;
-        flex-wrap: nowrap;
-      }
-
       .slides {
         overflow: hidden;
       }
 
       .slides > div {
+        display: flex;
+        flex-wrap: nowrap;
         transition: transform 300ms ease;
       }
     `;
@@ -96,6 +73,7 @@ export default class KemetCarousel extends LitElement {
       perView: 3,
       gap: 24,
       slideshow: 0,
+      rewind: true,
     };
 
     // bindings
@@ -167,9 +145,7 @@ export default class KemetCarousel extends LitElement {
   }
 
   swipeEnd(event) {
-    console.log('end');
-
-    this.updateIndex(this.index + this.swipeUpdate(event));
+    this.updateIndex(this.swipeUpdate(event));
     this.removeEventListener('mousemove', this.swipeMove, false);
     this.removeEventListener('touchmove', this.swipeMove, false);
   }
@@ -181,14 +157,14 @@ export default class KemetCarousel extends LitElement {
     const diff = this.startX - pageX;
     const shouldUpdate = Math.abs(diff) > threshold;
 
-    let index;
+    let { index } = this;
 
     if (shouldUpdate && direction === 'right') {
-      index = this.index > this.slides.length ? 0 : 1;
+      index = this.index >= this.slides.length - 1 ? this.index : this.index + 1;
     }
 
     if (shouldUpdate && direction === 'left') {
-      index = this.index < 1 ? 0 : -1;
+      index = this.index < 1 ? 0 : this.index - 1;
     }
 
     return index;
@@ -213,7 +189,6 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleSlotChange() {
-    // let elementIndex = 0;
     const slides = this.querySelectorAll('kemet-carousel-slide');
     const links = this.querySelectorAll('kemet-carousel-link');
 
@@ -223,53 +198,20 @@ export default class KemetCarousel extends LitElement {
 
     // populate slide array
     slides.forEach((slide) => {
-      // slide.seen = this.index > elementIndex;
       this.slides.push(slide);
-      // elementIndex += 1;
     });
-
-    const slotSlides = this.querySelector('[slot="slides"]');
-
-    // clones
-    for (let i = 0; i < this.options.perView; i += 1) {
-      const clone = slides[i].cloneNode(true);
-
-      clone.style.width = `${this.slideWidth - this.options.gap}px`;
-      clone.style.marginRight = `${this.options.gap / 2}px`;
-      clone.style.marginLeft = `${this.options.gap / 2}px`;
-
-      slotSlides.append(clone);
-      // this.slides.push(slides[i]);
-    }
-
-    // console.log(this.slides);
-
-    // fake firstUpdated because slotChange happens after it
-    // if (!this.loaded) {
-    // const hash = window.location.hash.replace('#', '');
-    // const index = parseInt(hash, 10);
-
-    // if (
-    //   this.useHash // if the user is using hashes
-    //   && Number.isInteger(index) // and index from hash is a number
-    //   && index > -1 // and it's more than -1
-    //   && index <= this.slides.length // but not more than the total number of slides
-    // ) {
-    //   this.index = hash;
-    // } else {
-    // this.index = 0;
-    // }
-
-    // this.loaded = true;
-    // this.updateIndex(this.index);
-    // }
   }
 
   handleNext() {
     let newIndex = this.index + 1;
 
-    // reset to first slide
-    if (newIndex >= this.slides.length) newIndex = 0;
+    if (newIndex >= this.slides.length) {
+      if (this.options.rewind) {
+        newIndex = 0;
+      } else {
+        newIndex = this.index;
+      }
+    }
 
     this.updateIndex(newIndex);
   }
@@ -278,7 +220,13 @@ export default class KemetCarousel extends LitElement {
     let newIndex = this.index - 1;
 
     // send them to the last slide
-    if (newIndex < 0) newIndex = this.slides.length - 1;
+    if (newIndex < 0) {
+      if (this.options.rewind) {
+        newIndex = this.slides.length - 1;
+      } else {
+        newIndex = this.index;
+      }
+    }
 
     this.updateIndex(newIndex);
   }
@@ -306,15 +254,17 @@ export default class KemetCarousel extends LitElement {
       currentSlide.addEventListener('transitionend', this.handleTransitionEnd);
       currentSlide.setAttribute('aria-hidden', 'true');
 
-      // correct for wrong index entered by users
+      // correct for invalid indexes
       if (newIndex > -1 && newIndex < this.slides.length) {
         this.index = newIndex;
       } else {
+        // eslint-disable-next-line no-console
+        console.warn('An invalid index number was entered. The kemet-carousel has been reset to the first slide.');
         this.index = 0;
       }
 
       // move
-      this.goToSlide(newIndex);
+      this.goToSlide(this.index);
 
       // update new slide
       currentSlide = this.slides[this.index];
