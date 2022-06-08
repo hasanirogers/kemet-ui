@@ -58,6 +58,9 @@ export default class KemetCarousel extends LitElement {
       options: {
         type: Object,
       },
+      breakpoints: {
+        type: Object,
+      },
     };
   }
 
@@ -70,10 +73,20 @@ export default class KemetCarousel extends LitElement {
     this.slidesWidth = 'auto';
     this.slidesTranslateX = '0';
     this.options = {
-      perView: 3,
+      perView: 1,
+      perMove: 1,
       gap: 24,
       slideshow: 0,
       rewind: true,
+    };
+    this.breakpoints = {
+      768: {
+        perView: 2,
+        rewind: false,
+      },
+      1280: {
+        perView: 3,
+      },
     };
 
     // bindings
@@ -92,19 +105,11 @@ export default class KemetCarousel extends LitElement {
     };
 
     this.handleSlideShow = () => {
-      if (this.options.slideshow > 0) {
+      if (this.getOption('slideshow') > 0) {
         this.updateIndex(this.index + 1);
         clearTimeout(this.handleSlideShow);
       }
     };
-  }
-
-  updated(prevProps) {
-    this.setSlideSize();
-
-    if (prevProps.has('index')) {
-      setTimeout(this.handleSlideShow, this.options.slideshow * 1000);
-    }
   }
 
   firstUpdated() {
@@ -113,6 +118,19 @@ export default class KemetCarousel extends LitElement {
     this.links = [];
     this.loaded = false;
     this.slidesElement = this.shadowRoot.querySelector('[part="slides"]');
+
+    window.addEventListener('resize', () => {
+      this.setSlideSize();
+      this.updateIndex(this.index);
+    });
+  }
+
+  updated(prevProps) {
+    this.setSlideSize();
+
+    if (prevProps.has('index')) {
+      setTimeout(this.handleSlideShow, this.getOption('slideshow') * 1000);
+    }
   }
 
   render() {
@@ -177,12 +195,12 @@ export default class KemetCarousel extends LitElement {
   }
 
   setSlideSize() {
-    this.slideWidth = this.offsetWidth / this.options.perView; // perView Number
+    this.slideWidth = this.offsetWidth / this.getOption('perView');
 
     this.slides.forEach((slide) => {
-      slide.style.width = `${this.slideWidth - this.options.gap}px`;
-      slide.style.marginRight = `${this.options.gap / 2}px`;
-      slide.style.marginLeft = `${this.options.gap / 2}px`;
+      slide.style.width = `${this.slideWidth - this.getOption('gap')}px`;
+      slide.style.marginRight = `${this.getOption('gap') / 2}px`;
+      slide.style.marginLeft = `${this.getOption('gap') / 2}px`;
     });
 
     this.slidesWidth = `${this.slideWidth * this.slides.length}px`;
@@ -203,10 +221,10 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleNext() {
-    let newIndex = this.index + 1;
+    let newIndex = this.index + this.getOption('perMove');
 
     if (newIndex >= this.slides.length) {
-      if (this.options.rewind) {
+      if (this.getOption('rewind')) {
         newIndex = 0;
       } else {
         newIndex = this.index;
@@ -217,11 +235,11 @@ export default class KemetCarousel extends LitElement {
   }
 
   handlePrev() {
-    let newIndex = this.index - 1;
+    let newIndex = this.index - this.getOption('perMove');
 
     // send them to the last slide
     if (newIndex < 0) {
-      if (this.options.rewind) {
+      if (this.getOptions('rewind')) {
         newIndex = this.slides.length - 1;
       } else {
         newIndex = this.index;
@@ -295,6 +313,21 @@ export default class KemetCarousel extends LitElement {
 
   handleLink(event) {
     this.updateIndex(event.detail.slide);
+  }
+
+  getOption(option) {
+    const breakpoints = Object.keys(this.breakpoints);
+    let value = this.options[option];
+
+    breakpoints.forEach((breakpoint) => {
+      if (window.matchMedia(`(min-width: ${breakpoint}px)`).matches && this.breakpoints[breakpoint][option] !== undefined) {
+        value = this.breakpoints[breakpoint][option];
+      }
+
+      return value;
+    });
+
+    return value;
   }
 }
 
