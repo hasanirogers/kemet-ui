@@ -2,6 +2,9 @@ import { html } from 'lit';
 
 const Template = () => html`
   <kemet-carousel pagination="bottom" index="0">
+    <kemet-carousel-prev slot="prev">
+      <kemet-icon icon="chevron-left" size="72"></kemet-icon>
+    </kemet-carousel-prev>
     <kemet-carousel-slide slot="slides">
       <figure kemet-border="all-1 solid primary" kemet-margin="tiny:none" kemet-padding="tiny:normal">
         <h3 kemet-margin="tiny:none">Slide 1</h3>
@@ -37,7 +40,14 @@ const Template = () => html`
         <figcaption>An image in a carousel.</figcaption>
       </figure>
     </kemet-carousel-slide>
+    <kemet-carousel-next slot="next">
+      <kemet-icon icon="chevron-right" size="72"></kemet-icon>
+    </kemet-carousel-next>
 
+
+    <kemet-carousel-first slot="pagination">
+      <kemet-icon icon="chevron-double-left"></kemet-icon>
+    </kemet-carousel-first>
     <kemet-carousel-prev slot="pagination">
       <kemet-icon icon="chevron-left"></kemet-icon>
     </kemet-carousel-prev>
@@ -49,6 +59,9 @@ const Template = () => html`
     <kemet-carousel-next slot="pagination">
       <kemet-icon icon="chevron-right"></kemet-icon>
     </kemet-carousel-next>
+    <kemet-carousel-last slot="pagination">
+      <kemet-icon icon="chevron-double-right"></kemet-icon>
+    </kemet-carousel-last>
   </kemet-carousel>
 `;
 
