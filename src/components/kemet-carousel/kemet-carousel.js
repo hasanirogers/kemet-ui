@@ -12,11 +12,16 @@ export default class KemetCarousel extends LitElement {
 
       :host {
         position: relative;
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
         align-items: center;
         width: var(--kemet-carousel-width, 100%);
         height: var(--kemet-carousel-height, auto);
         overflow: visible;
+      }
+
+      :host([arrows]) {
+        grid-template-columns: auto minmax(0, 1fr) auto;
       }
 
       .pagination {
@@ -28,8 +33,18 @@ export default class KemetCarousel extends LitElement {
         padding: 1rem;
       }
 
+      :host([inner]) .pagination {
+        bottom: 0;
+        top: auto;
+        color: var(--kemet-color-white);
+        background: rgba(0, 0, 0, 0.5);
+      }
+
       .slides {
         overflow: hidden;
+        position: relative;
+        padding: 1rem 0;
+        border: 1px solid var(--kemet-color-primary);
       }
 
       .slider {
@@ -61,11 +76,19 @@ export default class KemetCarousel extends LitElement {
         type: String,
         reflect: true,
       },
-      slidesWidth: {
+      sliderWidth: {
         type: String,
       },
-      slidesTranslateX: {
+      sliderTranslateX: {
         type: String,
+      },
+      inner: {
+        type: Boolean,
+        reflect: true,
+      },
+      arrows: {
+        type: Boolean,
+        reflect: true,
       },
       options: {
         type: Object,
@@ -82,18 +105,21 @@ export default class KemetCarousel extends LitElement {
     // managed properties
     this.index = 0;
     this.pagination = 'bottom';
-    this.slidesWidth = 'auto';
-    this.slidesTranslateX = '0';
+    this.sliderWidth = 'auto';
+    this.sliderTranslateX = '0';
+    this.inner = false;
+    this.arrows = false;
     this.options = {
       perView: 1,
       perMove: 1,
-      gap: 24,
+      gap: 12,
       slideshow: 0,
       rewind: true,
     };
     this.breakpoints = {
       768: {
         perView: 2,
+        gap: 24,
         rewind: false,
       },
       1280: {
@@ -115,7 +141,7 @@ export default class KemetCarousel extends LitElement {
       const pageX = event.touches ? event.touches[0].pageX : event.pageX;
       const currentSlide = this.slides[this.index];
 
-      this.slidesTranslateX = `${pageX - this.startX - currentSlide.offsetLeft}px`;
+      this.sliderTranslateX = `${pageX - this.startX - currentSlide.offsetLeft}px`;
     };
 
     this.handleSlideShow = () => {
@@ -131,16 +157,21 @@ export default class KemetCarousel extends LitElement {
     this.slides = [];
     this.links = [];
     this.loaded = false;
+    this.containerElement = this.shadowRoot.querySelector('[part="container"]');
     this.slidesElement = this.shadowRoot.querySelector('[part="slides"]');
+    this.sliderElement = this.shadowRoot.querySelector('[part="slider"]');
+    this.paginationElement = this.shadowRoot.querySelector('[part="pagination"]');
 
     window.addEventListener('resize', () => {
       this.setSlideSize();
+      this.setPaginationWidth();
       this.updateIndex(this.index);
     });
   }
 
   updated(prevProps) {
     this.setSlideSize();
+    this.setPaginationWidth();
 
     if (prevProps.has('index')) {
       setTimeout(this.handleSlideShow, this.getOption('slideshow') * 1000);
@@ -149,24 +180,26 @@ export default class KemetCarousel extends LitElement {
 
   render() {
     return html`
-      <slot name="prev"></slot>
-      <div
-        class="slides"
-        part="slides"
-        @mousedown=${this.swipeStart}
-        @mouseup=${this.swipeEnd}
-        @touchstart=${this.swipeStart}
-        @touchend=${this.swipeEnd}
-        @mouseleave=${this.swipeLeave}
-      >
-        <div class="slider" part="slider" style="width:${this.slidesWidth}; transform:translateX(${this.slidesTranslateX});">
-          <slot name="slides" @slotchange="${this.handleSlotChange}"></slot>
-        </div>
-        <div class="pagination" part="pagination">
+      <slot name="prev" @slotchange=${this.handleArrows}></slot>
+      <div class="container" part="container">
+        <section
+          class="slides"
+          part="slides"
+          @mousedown=${this.swipeStart}
+          @mouseup=${this.swipeEnd}
+          @touchstart=${this.swipeStart}
+          @touchend=${this.swipeEnd}
+          @mouseleave=${this.swipeLeave}
+        >
+          <div class="slider" part="slider" style="width:${this.sliderWidth}; transform:translateX(${this.sliderTranslateX});">
+            <slot name="slides" @slotchange="${this.handleSlotChange}"></slot>
+          </div>
+        </section>
+        <section class="pagination" part="pagination">
           <slot name="pagination"></slot>
-        </div>
+        </section>
       </div>
-      <slot name="next"></slot>
+      <slot name="next" @slotchange=${this.handleArrows}></slot>
     `;
   }
 
@@ -210,17 +243,27 @@ export default class KemetCarousel extends LitElement {
   }
 
   setSlideSize() {
-    const slidesElement = this.shadowRoot.querySelector('.slides');
-
-    this.slideWidth = slidesElement.offsetWidth / this.getOption('perView');
+    this.slideWidth = this.containerElement.offsetWidth / this.getOption('perView');
 
     this.slides.forEach((slide) => {
-      slide.style.width = `${this.slideWidth - this.getOption('gap')}px`;
-      slide.style.marginRight = `${this.getOption('gap') / 2}px`;
       slide.style.marginLeft = `${this.getOption('gap') / 2}px`;
+      slide.style.marginRight = `${this.getOption('gap') / 2}px`;
+      slide.style.width = `${this.slideWidth - this.getOption('gap')}px`;
     });
 
-    this.slidesWidth = `${this.slideWidth * this.slides.length}px`;
+    this.sliderWidth = `${this.slideWidth * this.slides.length}px`;
+  }
+
+  setPaginationWidth() {
+    if (this.inner) {
+      const width = this.slidesElement.offsetWidth;
+      this.paginationElement.style.width = `${width}px`;
+
+      // there is some kinda of layout/paint issue where absolute has to be applied on a delay
+      setTimeout(() => {
+        this.paginationElement.style.position = 'absolute';
+      }, 1);
+    }
   }
 
   handleSlotChange() {
@@ -235,6 +278,10 @@ export default class KemetCarousel extends LitElement {
     slides.forEach((slide) => {
       this.slides.push(slide);
     });
+  }
+
+  handleArrows() {
+    this.arrows = true;
   }
 
   handleFirst() {
@@ -323,7 +370,7 @@ export default class KemetCarousel extends LitElement {
   }
 
   goToSlide(index) {
-    this.slidesTranslateX = `${(this.slideWidth * index) * -1}px`;
+    this.sliderTranslateX = `${(this.slideWidth * index) * -1}px`;
   }
 
   handleTransitionEnd(event) {

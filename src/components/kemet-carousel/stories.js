@@ -1,40 +1,40 @@
 import { html } from 'lit';
 
 const Template = () => html`
-  <kemet-carousel pagination="bottom" index="0">
+  <kemet-carousel pagination="bottom" index="0" inner>
     <kemet-carousel-prev slot="prev">
       <kemet-icon icon="chevron-left" size="72"></kemet-icon>
     </kemet-carousel-prev>
     <kemet-carousel-slide slot="slides">
-      <figure kemet-border="all-1 solid primary" kemet-margin="tiny:none" kemet-padding="tiny:normal">
+      <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
         <h3 kemet-margin="tiny:none">Slide 1</h3>
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
-      <figure kemet-border="all-1 solid primary" kemet-margin="tiny:none" kemet-padding="tiny:normal">
+      <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
         <h3 kemet-margin="tiny:none">Slide 2</h3>
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
-      <figure kemet-border="all-1 solid primary" kemet-margin="tiny:none" kemet-padding="tiny:normal">
+      <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
         <h3 kemet-margin="tiny:none">Slide 3</h3>
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
-      <figure kemet-border="all-1 solid primary" kemet-margin="tiny:none" kemet-padding="tiny:normal">
+      <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
         <h3 kemet-margin="tiny:none">Slide 4</h3>
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
-      <figure kemet-border="all-1 solid primary" kemet-margin="tiny:none" kemet-padding="tiny:normal">
+      <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
         <h3 kemet-margin="tiny:none">Slide 5</h3>
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>

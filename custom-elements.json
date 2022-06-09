@@ -343,200 +343,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetButton",
-          "members": [
-            {
-              "kind": "method",
-              "name": "handleMouseOver",
-              "description": "Sets hover to true onMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut",
-              "description": "Sets hover to false onMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "description": "Handles click behavior",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles blur",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "description": "event object",
-                  "type": {
-                    "text": "object"
-                  }
-                }
-              ],
-              "description": "Handles keyup",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "privacy": "public",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "outline",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "active",
-              "privacy": "public",
-              "description": "Determines whether or not the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "privacy": "public",
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "privacy": "public",
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "privacy": "public",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "description": "Determines whether or not the button is active",
-              "fieldName": "active"
-            },
-            {
-              "name": "hover",
-              "description": "Is true when the button is hovered",
-              "fieldName": "hover"
-            },
-            {
-              "name": "focused",
-              "description": "Is true when the button is focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "link",
-              "description": "The url a button should link too",
-              "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "description": "Determines whether not a button is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "type",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "fieldName": "type"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-button",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-carousel/kemet-carousel-first.js",
       "declarations": [
         {
@@ -999,7 +805,15 @@
             },
             {
               "kind": "method",
+              "name": "setPaginationWidth"
+            },
+            {
+              "kind": "method",
               "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleArrows"
             },
             {
               "kind": "method",
@@ -1086,23 +900,45 @@
             },
             {
               "kind": "field",
-              "name": "slidesWidth",
+              "name": "sliderWidth",
               "type": {
                 "text": "string"
               },
               "default": "'auto'",
               "privacy": "public",
-              "attribute": "slidesWidth"
+              "attribute": "sliderWidth"
             },
             {
               "kind": "field",
-              "name": "slidesTranslateX",
+              "name": "sliderTranslateX",
               "type": {
                 "text": "string"
               },
               "default": "'0'",
               "privacy": "public",
-              "attribute": "slidesTranslateX"
+              "attribute": "sliderTranslateX"
+            },
+            {
+              "kind": "field",
+              "name": "inner",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "inner",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "arrows",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "arrows",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -1110,7 +946,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 24,\n      slideshow: 0,\n      rewind: true,\n    }",
+              "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 12,\n      slideshow: 0,\n      rewind: true,\n    }",
               "privacy": "public",
               "attribute": "options"
             },
@@ -1120,7 +956,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      768: {\n        perView: 2,\n        rewind: false,\n      },\n      1280: {\n        perView: 3,\n      },\n    }",
+              "default": "{\n      768: {\n        perView: 2,\n        gap: 24,\n        rewind: false,\n      },\n      1280: {\n        perView: 3,\n      },\n    }",
               "privacy": "public",
               "attribute": "breakpoints"
             },
@@ -1157,12 +993,20 @@
               "fieldName": "pagination"
             },
             {
-              "name": "slidesWidth",
-              "fieldName": "slidesWidth"
+              "name": "sliderWidth",
+              "fieldName": "sliderWidth"
             },
             {
-              "name": "slidesTranslateX",
-              "fieldName": "slidesTranslateX"
+              "name": "sliderTranslateX",
+              "fieldName": "sliderTranslateX"
+            },
+            {
+              "name": "inner",
+              "fieldName": "inner"
+            },
+            {
+              "name": "arrows",
+              "fieldName": "arrows"
             },
             {
               "name": "options",
@@ -1451,6 +1295,296 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-button/kemet-button.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetButton",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleMouseOver",
+              "description": "Sets hover to true onMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut",
+              "description": "Sets hover to false onMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "description": "Handles click behavior",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles blur",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "description": "event object",
+                  "type": {
+                    "text": "object"
+                  }
+                }
+              ],
+              "description": "Handles keyup",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "outline",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "description": "Determines whether or not the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "privacy": "public",
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "privacy": "public",
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "privacy": "public",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "description": "Determines whether or not the button is active",
+              "fieldName": "active"
+            },
+            {
+              "name": "hover",
+              "description": "Is true when the button is hovered",
+              "fieldName": "hover"
+            },
+            {
+              "name": "focused",
+              "description": "Is true when the button is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "link",
+              "description": "The url a button should link too",
+              "fieldName": "link"
+            },
+            {
+              "name": "outlined",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "type",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-button",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-count/kemet-count.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "privacy": "public",
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "privacy": "public",
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "privacy": "public",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-count-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-combo/kemet-combo.js",
       "declarations": [
         {
@@ -1582,102 +1716,6 @@
           "declaration": {
             "name": "KemetCombo",
             "module": "src/components/kemet-combo/kemet-combo.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCount",
-          "members": [
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "description": "The text label shown to users",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "remaining",
-              "privacy": "public",
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
-            },
-            {
-              "kind": "field",
-              "name": "limit",
-              "privacy": "public",
-              "description": "The maximum number of characters allowed",
-              "attribute": "limit"
-            },
-            {
-              "kind": "field",
-              "name": "validateImmediately",
-              "privacy": "public",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "attribute": "validate-immediately"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-count-status",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when there's a change in status."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "message",
-              "description": "The text label shown to users",
-              "fieldName": "message"
-            },
-            {
-              "name": "remaining",
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
-            },
-            {
-              "name": "limit",
-              "description": "The maximum number of characters allowed",
-              "fieldName": "limit"
-            },
-            {
-              "name": "validate-immediately",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "fieldName": "validateImmediately"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-count",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-count",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
@@ -2378,6 +2416,101 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-icon/kemet-icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetIcon",
+          "members": [
+            {
+              "kind": "method",
+              "name": "getIcon"
+            },
+            {
+              "kind": "method",
+              "name": "getUrl"
+            },
+            {
+              "kind": "field",
+              "name": "set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bootstrap'",
+              "privacy": "public",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "attribute": "set"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'alarm'",
+              "privacy": "public",
+              "description": "The name of the icon to reference.",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "description": "The width and height of the icon in pixels.",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "description": "The name of the icon to reference.",
+              "fieldName": "icon"
+            },
+            {
+              "name": "set",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "fieldName": "set"
+            },
+            {
+              "name": "size",
+              "description": "The width and height of the icon in pixels.",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-icon",
+          "declaration": {
+            "name": "KemetIcon",
+            "module": "src/components/kemet-icon/kemet-icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-input/kemet-input.js",
       "declarations": [
         {
@@ -2985,77 +3118,32 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-icon/kemet-icon.js",
+      "path": "src/components/kemet-modal/kemet-modal-close.js",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetIcon",
+          "name": "KemetModalClose",
           "members": [
             {
               "kind": "method",
-              "name": "getIcon"
-            },
-            {
-              "kind": "method",
-              "name": "getUrl"
-            },
-            {
-              "kind": "field",
-              "name": "set",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bootstrap'",
-              "privacy": "public",
-              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "attribute": "set"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'alarm'",
-              "privacy": "public",
-              "description": "The name of the icon to reference.",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "privacy": "public",
-              "description": "The width and height of the icon in pixels.",
-              "attribute": "size"
+              "name": "close"
             }
           ],
-          "attributes": [
+          "events": [
             {
-              "name": "icon",
-              "description": "The name of the icon to reference.",
-              "fieldName": "icon"
-            },
-            {
-              "name": "set",
-              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "fieldName": "set"
-            },
-            {
-              "name": "size",
-              "description": "The width and height of the icon in pixels.",
-              "fieldName": "size"
+              "name": "kemet-modal-close-pressed",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the close button is pressed"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-icon",
+          "tagName": "kemet-modal-close",
           "customElement": true
         }
       ],
@@ -3064,16 +3152,183 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
+            "name": "KemetModalClose",
+            "module": "src/components/kemet-modal/kemet-modal-close.js"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-icon",
+          "name": "kemet-modal-close",
           "declaration": {
-            "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
+            "name": "KemetModalClose",
+            "module": "src/components/kemet-modal/kemet-modal-close.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-modal/kemet-modal.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetModal",
+          "members": [
+            {
+              "kind": "method",
+              "name": "isMobile"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocusableDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closeOnClick",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "close-on-click"
+            },
+            {
+              "kind": "field",
+              "name": "breakpoint",
+              "type": {
+                "text": "string"
+              },
+              "default": "'600px'",
+              "privacy": "public",
+              "attribute": "breakpoint"
+            },
+            {
+              "kind": "field",
+              "name": "effect",
+              "privacy": "public",
+              "attribute": "effect",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "privacy": "public",
+              "attribute": "mobile",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-modal-opened",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the modal opens"
+            },
+            {
+              "name": "kemet-modal-closed",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the modal closes"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "fieldName": "opened"
+            },
+            {
+              "name": "effect",
+              "fieldName": "effect"
+            },
+            {
+              "name": "close-on-click",
+              "fieldName": "closeOnClick"
+            },
+            {
+              "name": "breakpoint",
+              "fieldName": "breakpoint"
+            },
+            {
+              "name": "mobile",
+              "fieldName": "mobile"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-modal",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetModal",
+            "module": "src/components/kemet-modal/kemet-modal.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-modal",
+          "declaration": {
+            "name": "KemetModal",
+            "module": "src/components/kemet-modal/kemet-modal.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-modal/kemet-modal.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "stylesBase",
+          "default": "css`\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  :host {\n    position: fixed;\n    display: flex;\n    top: 0;\n    left: 0;\n    z-index: 99;\n    width: 100%;\n    height: 100vh;\n    visibility: hidden;\n    backface-visibility: hidden;\n  }\n\n  :host([opened]) {\n    visibility: visible;\n  }\n\n  .content {\n    position: relative;\n    z-index: 3;\n    margin: auto;\n    min-width: var(--kemet-modal-content-min-width, 0);\n    max-width: var(--kemet-modal-content-max-width, none);\n  }\n\n  :host([mobile]) .content {\n    min-width: var(--kemet-modal-content-mobile-min-width, 100%);\n    min-height: var(--kemet-modal-content-mobile-min-height, 80vh);\n    padding: var(--kemet-modal-content-mobile-padding, 1rem);\n  }\n\n  .overlay {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    visibility: hidden;\n    top: 0;\n    left: 0;\n    z-index: 1;\n    opacity: 0;\n    background: var(--kemet-modal-overlay-background-color, rgba(0,0,0,0.2));\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([opened]) .overlay {\n    opacity: 1;\n    visibility: visible;\n  }\n`"
+        },
+        {
+          "kind": "variable",
+          "name": "stylesEffects",
+          "default": "css`\n  /* fadein-scaleup */\n  :host([effect=\"fadein-scaleup\"]) .content {\n    transform: scale(0.7);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"fadein-scaleup\"][opened]) .content {\n    transform: scale(1);\n    opacity: 1;\n  }\n\n  /* slide-right */\n  :host([effect=\"slide-right\"]) .content {\n    transform: translateX(20%);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s) cubic-bezier(0.25, 0.5, 0.5, 0.9);\n  }\n\n  :host([effect=\"slide-right\"][opened]) .content {\n    transform: translateX(0);\n    opacity: 1;\n  }\n\n  /* slide-bottom */\n  :host([effect=\"slide-bottom\"]) .content {\n    transform: translateY(20%);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"slide-bottom\"][opened]) .content {\n    transform: translateY(0);\n    opacity: 1;\n  }\n\n  /* newspaper */\n  :host([effect=\"newspaper\"]) .content {\n    transform: scale(0) rotate(720deg);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"newspaper\"][opened]) .content {\n    transform: scale(1) rotate(0deg);\n    opacity: 1;\n  }\n\n  /* fall */\n  :host([effect=\"fall\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"fall\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(600px) rotateX(20deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"fall\"][opened]) .content {\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;\n    transform: translateZ(0px) rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* side-fall */\n  :host([effect=\"side-fall\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"side-fall\"]) .content {\n    transform-style: preserve-3d;\n    transform: translate(30%) translateZ(600px) rotate(10deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"side-fall\"][opened]) .content {\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;\n    transform: translate(0%) translateZ(0) rotate(0deg);\n    opacity: 1;\n  }\n\n  /* flip-horizontal */\n  :host([effect=\"flip-horizontal\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-horizontal\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateY(-70deg);\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-horizontal\"][opened]) .content {\n    transform: rotateY(0deg);\n    opacity: 1;\n  }\n\n  /* flip-vertical */\n  :host([effect=\"flip-vertical\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-vertical\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateX(-70deg);\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-vertical\"][opened]) .content {\n    transform: rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* sign-3d */\n  :host([effect=\"sign-3d\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"sign-3d\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateX(-60deg);\n    transform-origin: 50% 0;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"sign-3d\"][opened]) .content {\n    transform: rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* super-scaled */\n  :host([effect=\"super-scaled\"]) .content {\n    transform: scale(2);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"super-scaled\"][opened]) .content {\n    transform: scale(1);\n    opacity: 1;\n  }\n\n  /* slit */\n  :host([effect=\"slit\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"slit\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(-3000px) rotateY(90deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"slit\"][opened]) .content {\n    animation: slit .7s forwards ease-out;\n  }\n\n  @keyframes slit {\n    50% {\n      transform: translateZ(-250px) rotateY(89deg);\n      opacity: 1;\n      animation-timing-function: ease-in;}\n    100% {\n      transform: translateZ(0) rotateY(0deg);\n      opacity: 1;\n    }\n  }\n\n  /* rotate-bottom */\n  :host([effect=\"rotate-bottom\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"rotate-bottom\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateY(100%) rotateX(90deg);\n    transform-origin: 0 100%;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-out;\n  }\n\n  :host([effect=\"rotate-bottom\"][opened]) .content {\n    transform: translateY(0%) rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* rotate-left */\n  :host([effect=\"rotate-left\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"rotate-left\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(100px) translateX(-30%) rotateY(90deg);\n    transform-origin: 0 100%;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"rotate-left\"][opened]) .content {\n    transform: translateZ(0px) translateX(0%) rotateY(0deg);\n    opacity: 1;\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "stylesBase",
+          "declaration": {
+            "name": "stylesBase",
+            "module": "src/components/kemet-modal/kemet-modal.styles.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "stylesEffects",
+          "declaration": {
+            "name": "stylesEffects",
+            "module": "src/components/kemet-modal/kemet-modal.styles.js"
           }
         }
       ]
@@ -3520,223 +3775,6 @@
           "declaration": {
             "name": "customTooltip",
             "module": "src/components/kemet-popover/kemet-popover.tooltip.styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-modal/kemet-modal-close.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetModalClose",
-          "members": [
-            {
-              "kind": "method",
-              "name": "close"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-modal-close-pressed",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the close button is pressed"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-modal-close",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetModalClose",
-            "module": "src/components/kemet-modal/kemet-modal-close.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-modal-close",
-          "declaration": {
-            "name": "KemetModalClose",
-            "module": "src/components/kemet-modal/kemet-modal-close.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-modal/kemet-modal.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetModal",
-          "members": [
-            {
-              "kind": "method",
-              "name": "isMobile"
-            },
-            {
-              "kind": "method",
-              "name": "handleFocusableDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closeOnClick",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "close-on-click"
-            },
-            {
-              "kind": "field",
-              "name": "breakpoint",
-              "type": {
-                "text": "string"
-              },
-              "default": "'600px'",
-              "privacy": "public",
-              "attribute": "breakpoint"
-            },
-            {
-              "kind": "field",
-              "name": "effect",
-              "privacy": "public",
-              "attribute": "effect",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "mobile",
-              "privacy": "public",
-              "attribute": "mobile",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-modal-opened",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the modal opens"
-            },
-            {
-              "name": "kemet-modal-closed",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the modal closes"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "fieldName": "opened"
-            },
-            {
-              "name": "effect",
-              "fieldName": "effect"
-            },
-            {
-              "name": "close-on-click",
-              "fieldName": "closeOnClick"
-            },
-            {
-              "name": "breakpoint",
-              "fieldName": "breakpoint"
-            },
-            {
-              "name": "mobile",
-              "fieldName": "mobile"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-modal",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetModal",
-            "module": "src/components/kemet-modal/kemet-modal.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-modal",
-          "declaration": {
-            "name": "KemetModal",
-            "module": "src/components/kemet-modal/kemet-modal.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-modal/kemet-modal.styles.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "stylesBase",
-          "default": "css`\n  *,\n  *::before,\n  *::after {\n    box-sizing: border-box;\n  }\n\n  :host {\n    position: fixed;\n    display: flex;\n    top: 0;\n    left: 0;\n    z-index: 99;\n    width: 100%;\n    height: 100vh;\n    visibility: hidden;\n    backface-visibility: hidden;\n  }\n\n  :host([opened]) {\n    visibility: visible;\n  }\n\n  .content {\n    position: relative;\n    z-index: 3;\n    margin: auto;\n    min-width: var(--kemet-modal-content-min-width, 0);\n    max-width: var(--kemet-modal-content-max-width, none);\n  }\n\n  :host([mobile]) .content {\n    min-width: var(--kemet-modal-content-mobile-min-width, 100%);\n    min-height: var(--kemet-modal-content-mobile-min-height, 80vh);\n    padding: var(--kemet-modal-content-mobile-padding, 1rem);\n  }\n\n  .overlay {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    visibility: hidden;\n    top: 0;\n    left: 0;\n    z-index: 1;\n    opacity: 0;\n    background: var(--kemet-modal-overlay-background-color, rgba(0,0,0,0.2));\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([opened]) .overlay {\n    opacity: 1;\n    visibility: visible;\n  }\n`"
-        },
-        {
-          "kind": "variable",
-          "name": "stylesEffects",
-          "default": "css`\n  /* fadein-scaleup */\n  :host([effect=\"fadein-scaleup\"]) .content {\n    transform: scale(0.7);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"fadein-scaleup\"][opened]) .content {\n    transform: scale(1);\n    opacity: 1;\n  }\n\n  /* slide-right */\n  :host([effect=\"slide-right\"]) .content {\n    transform: translateX(20%);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s) cubic-bezier(0.25, 0.5, 0.5, 0.9);\n  }\n\n  :host([effect=\"slide-right\"][opened]) .content {\n    transform: translateX(0);\n    opacity: 1;\n  }\n\n  /* slide-bottom */\n  :host([effect=\"slide-bottom\"]) .content {\n    transform: translateY(20%);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"slide-bottom\"][opened]) .content {\n    transform: translateY(0);\n    opacity: 1;\n  }\n\n  /* newspaper */\n  :host([effect=\"newspaper\"]) .content {\n    transform: scale(0) rotate(720deg);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"newspaper\"][opened]) .content {\n    transform: scale(1) rotate(0deg);\n    opacity: 1;\n  }\n\n  /* fall */\n  :host([effect=\"fall\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"fall\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(600px) rotateX(20deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"fall\"][opened]) .content {\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;\n    transform: translateZ(0px) rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* side-fall */\n  :host([effect=\"side-fall\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"side-fall\"]) .content {\n    transform-style: preserve-3d;\n    transform: translate(30%) translateZ(600px) rotate(10deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"side-fall\"][opened]) .content {\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;\n    transform: translate(0%) translateZ(0) rotate(0deg);\n    opacity: 1;\n  }\n\n  /* flip-horizontal */\n  :host([effect=\"flip-horizontal\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-horizontal\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateY(-70deg);\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-horizontal\"][opened]) .content {\n    transform: rotateY(0deg);\n    opacity: 1;\n  }\n\n  /* flip-vertical */\n  :host([effect=\"flip-vertical\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"flip-vertical\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateX(-70deg);\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n    opacity: 0;\n  }\n\n  :host([effect=\"flip-vertical\"][opened]) .content {\n    transform: rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* sign-3d */\n  :host([effect=\"sign-3d\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"sign-3d\"]) .content {\n    transform-style: preserve-3d;\n    transform: rotateX(-60deg);\n    transform-origin: 50% 0;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"sign-3d\"][opened]) .content {\n    transform: rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* super-scaled */\n  :host([effect=\"super-scaled\"]) .content {\n    transform: scale(2);\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"super-scaled\"][opened]) .content {\n    transform: scale(1);\n    opacity: 1;\n  }\n\n  /* slit */\n  :host([effect=\"slit\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"slit\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(-3000px) rotateY(90deg);\n    opacity: 0;\n  }\n\n  :host([effect=\"slit\"][opened]) .content {\n    animation: slit .7s forwards ease-out;\n  }\n\n  @keyframes slit {\n    50% {\n      transform: translateZ(-250px) rotateY(89deg);\n      opacity: 1;\n      animation-timing-function: ease-in;}\n    100% {\n      transform: translateZ(0) rotateY(0deg);\n      opacity: 1;\n    }\n  }\n\n  /* rotate-bottom */\n  :host([effect=\"rotate-bottom\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"rotate-bottom\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateY(100%) rotateX(90deg);\n    transform-origin: 0 100%;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-out;\n  }\n\n  :host([effect=\"rotate-bottom\"][opened]) .content {\n    transform: translateY(0%) rotateX(0deg);\n    opacity: 1;\n  }\n\n  /* rotate-left */\n  :host([effect=\"rotate-left\"]) {\n    perspective: 1300px;\n  }\n\n  :host([effect=\"rotate-left\"]) .content {\n    transform-style: preserve-3d;\n    transform: translateZ(100px) translateX(-30%) rotateY(90deg);\n    transform-origin: 0 100%;\n    opacity: 0;\n    transition: all var(--kemet-modal-transition-speed, 0.3s);\n  }\n\n  :host([effect=\"rotate-left\"][opened]) .content {\n    transform: translateZ(0px) translateX(0%) rotateY(0deg);\n    opacity: 1;\n  }\n`"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "stylesBase",
-          "declaration": {
-            "name": "stylesBase",
-            "module": "src/components/kemet-modal/kemet-modal.styles.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "stylesEffects",
-          "declaration": {
-            "name": "stylesEffects",
-            "module": "src/components/kemet-modal/kemet-modal.styles.js"
           }
         }
       ]
