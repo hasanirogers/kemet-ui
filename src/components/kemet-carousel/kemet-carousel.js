@@ -72,6 +72,9 @@ export default class KemetCarousel extends LitElement {
         type: Number,
         reflect: true,
       },
+      total: {
+        type: Number,
+      },
       pagination: {
         type: String,
         reflect: true,
@@ -104,6 +107,7 @@ export default class KemetCarousel extends LitElement {
 
     // managed properties
     this.index = 0;
+    this.total = 0;
     this.pagination = 'bottom';
     this.sliderWidth = 'auto';
     this.sliderTranslateX = '0';
@@ -157,16 +161,22 @@ export default class KemetCarousel extends LitElement {
     this.slides = [];
     this.links = [];
     this.loaded = false;
+
+    // elements
     this.containerElement = this.shadowRoot.querySelector('[part="container"]');
     this.slidesElement = this.shadowRoot.querySelector('[part="slides"]');
     this.sliderElement = this.shadowRoot.querySelector('[part="slider"]');
     this.paginationElement = this.shadowRoot.querySelector('[part="pagination"]');
+    this.informationElement = this.querySelector('kemet-carousel-information');
 
+    // events
     window.addEventListener('resize', () => {
       this.setSlideSize();
       this.setPaginationWidth();
       this.updateIndex(this.index);
     });
+
+    this.sliderElement.addEventListener('transitionend', this.handleTransitionEnd.bind(this));
   }
 
   updated(prevProps) {
@@ -270,13 +280,17 @@ export default class KemetCarousel extends LitElement {
     const slides = this.querySelectorAll('kemet-carousel-slide');
     const links = this.querySelectorAll('kemet-carousel-link');
 
-    links.forEach((link) => {
-      this.links.push(link);
-    });
-
-    // populate slide array
+    // handle slides
     slides.forEach((slide) => {
       this.slides.push(slide);
+    });
+
+    this.updateInformation();
+    this.total = slides.length;
+
+    // handle links
+    links.forEach((link) => {
+      this.links.push(link);
     });
   }
 
@@ -341,7 +355,6 @@ export default class KemetCarousel extends LitElement {
     }
 
     if (currentSlide) {
-      currentSlide.addEventListener('transitionend', this.handleTransitionEnd);
       currentSlide.setAttribute('aria-hidden', 'true');
 
       // correct for invalid indexes
@@ -366,6 +379,17 @@ export default class KemetCarousel extends LitElement {
         composed: true,
         detail: this,
       }));
+
+      // update information element
+      this.updateInformation();
+    }
+  }
+
+  updateInformation() {
+    this.informationSlot = this.slides[this.index].querySelector('[slot="information"]');
+
+    if (this.informationSlot) {
+      this.informationElement.innerHTML = this.informationSlot.outerHTML;
     }
   }
 
@@ -373,14 +397,18 @@ export default class KemetCarousel extends LitElement {
     this.sliderTranslateX = `${(this.slideWidth * index) * -1}px`;
   }
 
-  handleTransitionEnd(event) {
+  handleTransitionEnd() {
+    const currentElement = this.querySelector('kemet-carousel-current');
+
+    if (currentElement) {
+      currentElement.current = this.index + 1;
+    }
+
     this.dispatchEvent(new CustomEvent('kemet-carousel-change-finished', {
       bubbles: true,
       composed: true,
-      detail: this.closest('kemet-carousel'),
+      detail: this,
     }));
-
-    event.target.removeEventListener('transitionend', this.handleTransitionEnd);
   }
 
   handleLink(event) {

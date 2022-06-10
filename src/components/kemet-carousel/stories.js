@@ -1,7 +1,7 @@
 import { html } from 'lit';
 
 const Template = () => html`
-  <kemet-carousel pagination="bottom" index="0" inner>
+  <kemet-carousel pagination="bottom" index="0">
     <kemet-carousel-prev slot="prev">
       <kemet-icon icon="chevron-left" size="72"></kemet-icon>
     </kemet-carousel-prev>
@@ -11,6 +11,7 @@ const Template = () => html`
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
+      <a slot="information" href="http://google.com">Google 1</a>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
       <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
@@ -18,6 +19,7 @@ const Template = () => html`
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
+      <a slot="information" href="http://google.com">Google 2</a>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
       <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
@@ -25,6 +27,7 @@ const Template = () => html`
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
+      <a slot="information" href="http://google.com">Google 3</a>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
       <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
@@ -32,6 +35,7 @@ const Template = () => html`
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
+      <a slot="information" href="http://google.com">Google 4</a>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
       <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
@@ -39,6 +43,7 @@ const Template = () => html`
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
+      <a slot="information" href="http://google.com">Google 5</a>
     </kemet-carousel-slide>
     <kemet-carousel-next slot="next">
       <kemet-icon icon="chevron-right" size="72"></kemet-icon>
@@ -62,6 +67,10 @@ const Template = () => html`
     <kemet-carousel-last slot="pagination">
       <kemet-icon icon="chevron-double-right"></kemet-icon>
     </kemet-carousel-last>
+    <kemet-carousel-current slot="pagination"></kemet-carousel-current>
+    <span slot="pagination">of</span>
+    <kemet-carousel-total slot="pagination"></kemet-carousel-total>
+    <kemet-carousel-information slot="pagination"></kemet-carousel-information>
   </kemet-carousel>
 `;
 
