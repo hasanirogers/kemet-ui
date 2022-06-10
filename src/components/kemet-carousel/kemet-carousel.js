@@ -24,7 +24,7 @@ export default class KemetCarousel extends LitElement {
         grid-template-columns: auto minmax(0, 1fr) auto;
       }
 
-      .pagination {
+      .toolbar {
         display: flex;
         gap: 1rem;
         align-items: center;
@@ -33,7 +33,7 @@ export default class KemetCarousel extends LitElement {
         padding: 1rem;
       }
 
-      :host([inner]) .pagination {
+      :host([inner]) .toolbar {
         bottom: 0;
         top: auto;
         color: var(--kemet-color-white);
@@ -75,10 +75,6 @@ export default class KemetCarousel extends LitElement {
       total: {
         type: Number,
       },
-      pagination: {
-        type: String,
-        reflect: true,
-      },
       sliderWidth: {
         type: String,
       },
@@ -108,7 +104,6 @@ export default class KemetCarousel extends LitElement {
     // managed properties
     this.index = 0;
     this.total = 0;
-    this.pagination = 'bottom';
     this.sliderWidth = 'auto';
     this.sliderTranslateX = '0';
     this.inner = false;
@@ -166,13 +161,13 @@ export default class KemetCarousel extends LitElement {
     this.containerElement = this.shadowRoot.querySelector('[part="container"]');
     this.slidesElement = this.shadowRoot.querySelector('[part="slides"]');
     this.sliderElement = this.shadowRoot.querySelector('[part="slider"]');
-    this.paginationElement = this.shadowRoot.querySelector('[part="pagination"]');
+    this.toolbarElement = this.shadowRoot.querySelector('[part="toolbar"]');
     this.informationElement = this.querySelector('kemet-carousel-information');
 
     // events
     window.addEventListener('resize', () => {
       this.setSlideSize();
-      this.setPaginationWidth();
+      this.setToolbarSize();
       this.updateIndex(this.index);
     });
 
@@ -181,7 +176,7 @@ export default class KemetCarousel extends LitElement {
 
   updated(prevProps) {
     this.setSlideSize();
-    this.setPaginationWidth();
+    this.setToolbarSize();
 
     if (prevProps.has('index')) {
       setTimeout(this.handleSlideShow, this.getOption('slideshow') * 1000);
@@ -205,8 +200,8 @@ export default class KemetCarousel extends LitElement {
             <slot name="slides" @slotchange="${this.handleSlotChange}"></slot>
           </div>
         </section>
-        <section class="pagination" part="pagination">
-          <slot name="pagination"></slot>
+        <section class="toolbar" part="toolbar">
+          <slot name="toolbar"></slot>
         </section>
       </div>
       <slot name="next" @slotchange=${this.handleArrows}></slot>
@@ -264,14 +259,14 @@ export default class KemetCarousel extends LitElement {
     this.sliderWidth = `${this.slideWidth * this.slides.length}px`;
   }
 
-  setPaginationWidth() {
+  setToolbarSize() {
     if (this.inner) {
       const width = this.slidesElement.offsetWidth;
-      this.paginationElement.style.width = `${width}px`;
+      this.toolbarElement.style.width = `${width}px`;
 
       // there is some kinda of layout/paint issue where absolute has to be applied on a delay
       setTimeout(() => {
-        this.paginationElement.style.position = 'absolute';
+        this.toolbarElement.style.position = 'absolute';
       }, 1);
     }
   }
@@ -390,6 +385,8 @@ export default class KemetCarousel extends LitElement {
 
     if (this.informationSlot) {
       this.informationElement.innerHTML = this.informationSlot.outerHTML;
+    } else {
+      this.informationElement.innerHTML = '';
     }
   }
 

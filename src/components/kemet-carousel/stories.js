@@ -1,7 +1,7 @@
 import { html } from 'lit';
 
 const Template = () => html`
-  <kemet-carousel pagination="bottom" index="0">
+  <kemet-carousel index="0">
     <kemet-carousel-prev slot="prev">
       <kemet-icon icon="chevron-left" size="72"></kemet-icon>
     </kemet-carousel-prev>
@@ -27,7 +27,6 @@ const Template = () => html`
         <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
         <figcaption>An image in a carousel.</figcaption>
       </figure>
-      <a slot="information" href="http://google.com">Google 3</a>
     </kemet-carousel-slide>
     <kemet-carousel-slide slot="slides">
       <figure kemet-border="all-1 solid gray1" kemet-margin="tiny:none" kemet-padding="tiny:normal">
@@ -50,27 +49,27 @@ const Template = () => html`
     </kemet-carousel-next>
 
 
-    <kemet-carousel-first slot="pagination">
+    <kemet-carousel-first slot="toolbar">
       <kemet-icon icon="chevron-double-left"></kemet-icon>
     </kemet-carousel-first>
-    <kemet-carousel-prev slot="pagination">
+    <kemet-carousel-prev slot="toolbar">
       <kemet-icon icon="chevron-left"></kemet-icon>
     </kemet-carousel-prev>
-    <kemet-carousel-link slide="0" slot="pagination">1</kemet-carousel-link>
-    <kemet-carousel-link slide="1" slot="pagination">2</kemet-carousel-link>
-    <kemet-carousel-link slide="2" slot="pagination">3</kemet-carousel-link>
-    <kemet-carousel-link slide="3" slot="pagination">4</kemet-carousel-link>
-    <kemet-carousel-link slide="4" slot="pagination">5</kemet-carousel-link>
-    <kemet-carousel-next slot="pagination">
+    <kemet-carousel-link slide="0" slot="toolbar">1</kemet-carousel-link>
+    <kemet-carousel-link slide="1" slot="toolbar">2</kemet-carousel-link>
+    <kemet-carousel-link slide="2" slot="toolbar">3</kemet-carousel-link>
+    <kemet-carousel-link slide="3" slot="toolbar">4</kemet-carousel-link>
+    <kemet-carousel-link slide="4" slot="toolbar">5</kemet-carousel-link>
+    <kemet-carousel-next slot="toolbar">
       <kemet-icon icon="chevron-right"></kemet-icon>
     </kemet-carousel-next>
-    <kemet-carousel-last slot="pagination">
+    <kemet-carousel-last slot="toolbar">
       <kemet-icon icon="chevron-double-right"></kemet-icon>
     </kemet-carousel-last>
-    <kemet-carousel-current slot="pagination"></kemet-carousel-current>
-    <span slot="pagination">of</span>
-    <kemet-carousel-total slot="pagination"></kemet-carousel-total>
-    <kemet-carousel-information slot="pagination"></kemet-carousel-information>
+    <kemet-carousel-current slot="toolbar"></kemet-carousel-current>
+    <span slot="toolbar">of</span>
+    <kemet-carousel-total slot="toolbar"></kemet-carousel-total>
+    <kemet-carousel-information slot="toolbar"></kemet-carousel-information>
   </kemet-carousel>
 `;
 
