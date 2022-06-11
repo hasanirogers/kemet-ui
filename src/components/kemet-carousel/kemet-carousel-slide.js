@@ -11,18 +11,6 @@ export default class KemetCarouselSlide extends LitElement {
           box-sizing: border-box;
         }
 
-        // :host {
-        //   position: absolute;
-        //   contain: content;
-        //   box-sizing: border-box;
-        //   display: block;
-        //   top: 0;
-        //   left: 0;
-        //   width: 100%;
-        //   height: 100%;
-        //   transition: transform ease var(--kemet-carousel-slide-speed, 0.3s), opacity ease var(--kemet-carousel-slide-fade-speed, 1s);
-        // }
-
         :host {
           flex: 0 0 auto;
         }
@@ -32,11 +20,8 @@ export default class KemetCarouselSlide extends LitElement {
 
   static get properties() {
     return {
-      seen: {
+      selected: {
         type: Boolean,
-      },
-      transition: {
-        type: String,
         reflect: true,
       },
       'aria-hidden': {
@@ -48,8 +33,7 @@ export default class KemetCarouselSlide extends LitElement {
 
   constructor() {
     super();
-    this.seen = false;
-    this.transition = 'horizontal';
+    this.selected = false;
     this['aria-hidden'] = 'true';
   }
 

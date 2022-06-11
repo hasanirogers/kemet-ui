@@ -34,17 +34,19 @@ export default class KemetCarousel extends LitElement {
       }
 
       :host([inner]) .toolbar {
+        width: 100%;
+        position: absolute;
         bottom: 0;
         top: auto;
         color: var(--kemet-color-white);
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.4);
       }
 
       .slides {
         overflow: hidden;
         position: relative;
         padding: 1rem 0;
-        border: 1px solid var(--kemet-color-primary);
+        border: 1px solid var(--kemet-color-gray1);
       }
 
       .slider {
@@ -132,6 +134,30 @@ export default class KemetCarousel extends LitElement {
     this.addEventListener('kemet-carousel-next', this.handleNext.bind(this));
     this.addEventListener('kemet-carousel-prev', this.handlePrev.bind(this));
     this.addEventListener('kemet-carousel-link', this.handleLink.bind(this));
+  }
+
+  firstUpdated() {
+    // standard properties
+    this.slides = [];
+    this.links = [];
+    this.loaded = false;
+
+    // elements
+    this.containerElement = this.shadowRoot.querySelector('[part="container"]');
+    this.slidesElement = this.shadowRoot.querySelector('[part="slides"]');
+    this.sliderElement = this.shadowRoot.querySelector('[part="slider"]');
+    this.toolbarElement = this.shadowRoot.querySelector('[part="toolbar"]');
+    this.toolbarSlotElement = this.querySelector('[slot="toolbar"]');
+    this.informationElement = this.querySelector('kemet-carousel-information');
+
+    // events
+    window.addEventListener('resize', () => {
+      this.setSlideSize();
+      this.setToolbarSize();
+      this.updateIndex(this.index);
+    });
+
+    this.sliderElement.addEventListener('transitionend', this.handleTransitionEnd.bind(this));
 
     // methods
     this.swipeMove = (event) => {
@@ -149,29 +175,6 @@ export default class KemetCarousel extends LitElement {
         clearTimeout(this.handleSlideShow);
       }
     };
-  }
-
-  firstUpdated() {
-    // standard properties
-    this.slides = [];
-    this.links = [];
-    this.loaded = false;
-
-    // elements
-    this.containerElement = this.shadowRoot.querySelector('[part="container"]');
-    this.slidesElement = this.shadowRoot.querySelector('[part="slides"]');
-    this.sliderElement = this.shadowRoot.querySelector('[part="slider"]');
-    this.toolbarElement = this.shadowRoot.querySelector('[part="toolbar"]');
-    this.informationElement = this.querySelector('kemet-carousel-information');
-
-    // events
-    window.addEventListener('resize', () => {
-      this.setSlideSize();
-      this.setToolbarSize();
-      this.updateIndex(this.index);
-    });
-
-    this.sliderElement.addEventListener('transitionend', this.handleTransitionEnd.bind(this));
   }
 
   updated(prevProps) {
@@ -200,9 +203,7 @@ export default class KemetCarousel extends LitElement {
             <slot name="slides" @slotchange="${this.handleSlotChange}"></slot>
           </div>
         </section>
-        <section class="toolbar" part="toolbar">
-          <slot name="toolbar"></slot>
-        </section>
+        ${this.makeToolbar()}
       </div>
       <slot name="next" @slotchange=${this.handleArrows}></slot>
     `;
@@ -260,15 +261,22 @@ export default class KemetCarousel extends LitElement {
   }
 
   setToolbarSize() {
-    if (this.inner) {
+    if (this.inner && this.toolbarElement) {
       const width = this.slidesElement.offsetWidth;
       this.toolbarElement.style.width = `${width}px`;
-
-      // there is some kinda of layout/paint issue where absolute has to be applied on a delay
-      setTimeout(() => {
-        this.toolbarElement.style.position = 'absolute';
-      }, 1);
     }
+  }
+
+  makeToolbar() {
+    if (this.toolbarSlotElement) {
+      return html`
+        <section class="toolbar" part="toolbar">
+          <slot name="toolbar"></slot>
+        </section>
+      `;
+    }
+
+    return null;
   }
 
   handleSlotChange() {
@@ -282,6 +290,7 @@ export default class KemetCarousel extends LitElement {
 
     this.updateInformation();
     this.total = slides.length;
+    slides[this.index].selected = true;
 
     // handle links
     links.forEach((link) => {
@@ -368,6 +377,12 @@ export default class KemetCarousel extends LitElement {
       currentSlide = this.slides[this.index];
       currentSlide.setAttribute('aria-hidden', 'false');
 
+      this.slides.forEach((slide) => {
+        slide.selected = false;
+      });
+
+      currentSlide.selected = true;
+
       // notify consumers of slide change
       this.dispatchEvent(new CustomEvent('kemet-carousel-change-start', {
         bubbles: true,
@@ -383,10 +398,12 @@ export default class KemetCarousel extends LitElement {
   updateInformation() {
     this.informationSlot = this.slides[this.index].querySelector('[slot="information"]');
 
-    if (this.informationSlot) {
-      this.informationElement.innerHTML = this.informationSlot.outerHTML;
-    } else {
-      this.informationElement.innerHTML = '';
+    if (this.informationElement) {
+      if (this.informationSlot) {
+        this.informationElement.innerHTML = this.informationSlot.outerHTML;
+      } else {
+        this.informationElement.innerHTML = '';
+      }
     }
   }
 
