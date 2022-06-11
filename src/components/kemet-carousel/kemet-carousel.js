@@ -116,6 +116,7 @@ export default class KemetCarousel extends LitElement {
       gap: 12,
       slideshow: 0,
       rewind: true,
+      center: false,
     };
     this.breakpoints = {
       768: {
@@ -124,7 +125,8 @@ export default class KemetCarousel extends LitElement {
         rewind: false,
       },
       1280: {
-        perView: 3,
+        perView: 2.5,
+        center: true,
       },
     };
 
@@ -140,7 +142,6 @@ export default class KemetCarousel extends LitElement {
     // standard properties
     this.slides = [];
     this.links = [];
-    this.loaded = false;
 
     // elements
     this.containerElement = this.shadowRoot.querySelector('[part="container"]');
@@ -175,6 +176,10 @@ export default class KemetCarousel extends LitElement {
         clearTimeout(this.handleSlideShow);
       }
     };
+
+    // setup
+    this.setSlideSize();
+    this.goToSlide(this.index);
   }
 
   updated(prevProps) {
@@ -408,7 +413,13 @@ export default class KemetCarousel extends LitElement {
   }
 
   goToSlide(index) {
-    this.sliderTranslateX = `${(this.slideWidth * index) * -1}px`;
+    if (this.getOption('center') === true) {
+      const slidesCenter = this.slidesElement.offsetWidth / 2;
+      const slideX = this.slideWidth * index;
+      this.sliderTranslateX = `${slideX - (slideX - slidesCenter) - this.slideWidth / 2 - slideX}px`;
+    } else {
+      this.sliderTranslateX = `${(this.slideWidth * index) * -1}px`;
+    }
   }
 
   handleTransitionEnd() {

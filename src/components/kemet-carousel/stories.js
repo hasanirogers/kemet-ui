@@ -133,6 +133,7 @@ Standard.args = {
     gap: 12,
     slideshow: 0,
     rewind: true,
+    center: false,
   },
   breakpoints: {
     768: {
@@ -141,7 +142,8 @@ Standard.args = {
       rewind: false,
     },
     1280: {
-      perView: 3,
+      perView: 2.5,
+      center: true,
     },
   },
 };

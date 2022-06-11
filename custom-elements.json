@@ -343,6 +343,200 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-button/kemet-button.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetButton",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleMouseOver",
+              "description": "Sets hover to true onMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut",
+              "description": "Sets hover to false onMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "description": "Handles click behavior",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles blur",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "description": "event object",
+                  "type": {
+                    "text": "object"
+                  }
+                }
+              ],
+              "description": "Handles keyup",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "outline",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "description": "Determines whether or not the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "privacy": "public",
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "privacy": "public",
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "privacy": "public",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "description": "Determines whether or not the button is active",
+              "fieldName": "active"
+            },
+            {
+              "name": "hover",
+              "description": "Is true when the button is hovered",
+              "fieldName": "hover"
+            },
+            {
+              "name": "focused",
+              "description": "Is true when the button is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "link",
+              "description": "The url a button should link too",
+              "fieldName": "link"
+            },
+            {
+              "name": "outlined",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "type",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-button",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-carousel/kemet-carousel-current.js",
       "declarations": [
         {
@@ -1032,7 +1226,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 12,\n      slideshow: 0,\n      rewind: true,\n    }",
+              "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 12,\n      slideshow: 0,\n      rewind: true,\n      center: false,\n    }",
               "privacy": "public",
               "attribute": "options"
             },
@@ -1042,7 +1236,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      768: {\n        perView: 2,\n        gap: 24,\n        rewind: false,\n      },\n      1280: {\n        perView: 3,\n      },\n    }",
+              "default": "{\n      768: {\n        perView: 2,\n        gap: 24,\n        rewind: false,\n      },\n      1280: {\n        perView: 2.5,\n        center: true,\n      },\n    }",
               "privacy": "public",
               "attribute": "breakpoints"
             }
@@ -1118,200 +1312,6 @@
           "declaration": {
             "name": "KemetCarousel",
             "module": "src/components/kemet-carousel/kemet-carousel.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetButton",
-          "members": [
-            {
-              "kind": "method",
-              "name": "handleMouseOver",
-              "description": "Sets hover to true onMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut",
-              "description": "Sets hover to false onMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "description": "Handles click behavior",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles blur",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "description": "event object",
-                  "type": {
-                    "text": "object"
-                  }
-                }
-              ],
-              "description": "Handles keyup",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "privacy": "public",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "outline",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "active",
-              "privacy": "public",
-              "description": "Determines whether or not the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "privacy": "public",
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "privacy": "public",
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "privacy": "public",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "description": "Determines whether or not the button is active",
-              "fieldName": "active"
-            },
-            {
-              "name": "hover",
-              "description": "Is true when the button is hovered",
-              "fieldName": "hover"
-            },
-            {
-              "name": "focused",
-              "description": "Is true when the button is focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "link",
-              "description": "The url a button should link too",
-              "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "description": "Determines whether not a button is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "type",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "fieldName": "type"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-button",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
           }
         }
       ]
@@ -1567,6 +1567,102 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-count/kemet-count.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "privacy": "public",
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "privacy": "public",
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "privacy": "public",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-count-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-combo/kemet-combo.js",
       "declarations": [
         {
@@ -1698,102 +1794,6 @@
           "declaration": {
             "name": "KemetCombo",
             "module": "src/components/kemet-combo/kemet-combo.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCount",
-          "members": [
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "description": "The text label shown to users",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "remaining",
-              "privacy": "public",
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
-            },
-            {
-              "kind": "field",
-              "name": "limit",
-              "privacy": "public",
-              "description": "The maximum number of characters allowed",
-              "attribute": "limit"
-            },
-            {
-              "kind": "field",
-              "name": "validateImmediately",
-              "privacy": "public",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "attribute": "validate-immediately"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-count-status",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when there's a change in status."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "message",
-              "description": "The text label shown to users",
-              "fieldName": "message"
-            },
-            {
-              "name": "remaining",
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
-            },
-            {
-              "name": "limit",
-              "description": "The maximum number of characters allowed",
-              "fieldName": "limit"
-            },
-            {
-              "name": "validate-immediately",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "fieldName": "validateImmediately"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-count",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-count",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
