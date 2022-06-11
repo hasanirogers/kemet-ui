@@ -22,7 +22,7 @@ export default class KemetCarouselLink extends LitElement {
     return [
       css`
         :host([selected]) {
-          color: var(--kemet-color-primary);
+          color: var(--kemet-carousel-link-selected-color, var(--kemet-color-primary));
         }
 
         :host(:not([selected])) {

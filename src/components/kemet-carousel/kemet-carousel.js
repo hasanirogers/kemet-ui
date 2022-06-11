@@ -26,74 +26,98 @@ export default class KemetCarousel extends LitElement {
 
       .toolbar {
         display: flex;
-        gap: 1rem;
+        gap: var(--kemet-carousel-toolbar-gap, 1rem);
         align-items: center;
-        justify-content: center;
+        justify-content: var(--kemet-carousel-toolbar-justify-content, center);
         line-height: 1;
-        padding: 1rem;
+        padding: var(--kemet-carousel-toolbar-padding, 1rem);
       }
 
       :host([inner]) .toolbar {
-        width: 100%;
+        width: var(--kemet-carousel-toolbar-inner-width, 100%);
         position: absolute;
-        bottom: 0;
-        top: auto;
-        color: var(--kemet-color-white);
-        background: rgba(0, 0, 0, 0.4);
+        bottom: var(--kemet-carousel-toolbar-inner-bottom, 0);
+        top: var(--kemet-carousel-toolbar-inner-top, auto);
+        color: var(--kemet-carousel-toolbar-inner-color, var(--kemet-color-white));
+        background-color: var(--kemet-carousel-toolbar-inner-background-color, rgba(0, 0, 0, 0.4));
       }
 
       .slides {
         overflow: hidden;
         position: relative;
         padding: 1rem 0;
-        border: 1px solid var(--kemet-color-gray1);
+        border: var(--kemet-carousel-slides-border, 1px solid var(--kemet-color-gray1));
       }
 
       .slider {
         display: flex;
         flex-wrap: nowrap;
-        transition: transform 300ms ease;
+        transition: transform var(--kemet-carousel-transition-speed, 300ms) ease;
       }
 
       ::slotted([slot='next']),
       ::slotted([slot='prev']) {
-        opacity: 0.25;
-        transition: opacity 300ms ease-in-out;
+        opacity: var(--kemet-carousel-arrows-opacity, 0.25);
+        transition: opacity var(--kemet-carousel-arrows-transition-speed, 300ms) ease-in-out;
       }
 
       :host(:hover) ::slotted([slot='next']),
       :host(:hover) ::slotted([slot='prev']) {
-        opacity: 1;
+        opacity: var(--kemet-carousel-arrows-opacity-hover, 1);
       }
     `;
   }
 
   static get properties() {
     return {
+      /**
+       * The current slide index.
+       */
       index: {
         type: Number,
         reflect: true,
       },
+      /**
+       * The total amount of slides
+       */
       total: {
         type: Number,
       },
+      /**
+       * The width of the slider
+       */
       sliderWidth: {
         type: String,
       },
+      /**
+       * The X position of the slider
+       */
       sliderTranslateX: {
         type: String,
       },
+      /**
+       * Displays the toolbar inside the carousel container
+       */
       inner: {
         type: Boolean,
         reflect: true,
       },
+      /**
+       * Determines whether or not to display arrows
+       */
       arrows: {
         type: Boolean,
         reflect: true,
       },
+      /**
+       * Default options for the carousel
+       */
       options: {
         type: Object,
       },
+      /**
+       * Options are different breakpoints for the carousel. Is mobile first.
+       */
       breakpoints: {
         type: Object,
       },
@@ -389,6 +413,10 @@ export default class KemetCarousel extends LitElement {
       currentSlide.selected = true;
 
       // notify consumers of slide change
+
+      /**
+       * Fires with the a slide has begun to change
+       */
       this.dispatchEvent(new CustomEvent('kemet-carousel-change-start', {
         bubbles: true,
         composed: true,
@@ -429,6 +457,9 @@ export default class KemetCarousel extends LitElement {
       currentElement.current = this.index + 1;
     }
 
+    /**
+     * Fires when a slide has changed and finished animating
+     */
     this.dispatchEvent(new CustomEvent('kemet-carousel-change-finished', {
       bubbles: true,
       composed: true,

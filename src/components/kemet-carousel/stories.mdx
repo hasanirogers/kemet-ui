@@ -21,7 +21,11 @@ The Carousel allows you to click or swipe through content.
 ## How to use
 
 ```html
-...
+<kemet-carousel>
+  <kemet-carousel-slide slot="slides">Slide 1</kemet-carousel-slide>
+  <kemet-carousel-slide slot="slides">Slide 2</kemet-carousel-slide>
+  <kemet-carousel-slide slot="slides">Slide 3</kemet-carousel-slide>
+</kemet-carousel>
 ```
 
 ## How to import
@@ -35,6 +39,10 @@ import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-link.js';
 import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-next.js';
 import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-prev.js';
 import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-slide.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-first.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-last.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-current.js';
+import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-total.js';
 ```
 
 ### HTML
@@ -44,6 +52,10 @@ import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-slide.js';
 <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-next.js" type="module"></script>
 <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-prev.js" type="module"></script>
 <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-slide.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-first.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-last.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-current.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-carousel/kemet-carousel-total.js" type="module"></script>
 ```
 
 ## Stories
@@ -54,22 +66,99 @@ import 'kemet-ui/dist/components/kemet-carousel/kemet-carousel-slide.js';
 
 <ArgsTable story="Standard" />
 
-
 ## API
 
 <br />
 
 ### &lt;kemet-carousel&gt;
+The main carousel element.
 <ArgsTable of="kemet-carousel" />
+
+#### Options
+
+The options object contains a number of settings for the carousel. Use these options to set the default options for the carousel. You can overrride them at specified breakpoints in the breakpoints object.
+
+| option    | description                                                                                            |
+|-----------|------------------------------------------------------------------------------------------------------- |
+| perView   | The number of slides to display in the container. Access decimals numbers.                             |
+| perMove   | The number of slides to move on next and prev shifts.                                                  |
+| gap       | The number, in pixels, of space between each slide.                                                    |
+| slideshow | The number, in seconds, to display a slide before rotating to a new one. Use 0 to disable a slideshow. |
+| rewind    | Loops back to the first or last slide when a limit is reached.                                         |
+| center    | Centers the active slide.                                                                              |
 
 #### Slots
 
-| slot  | description                                                 |
-|-------|------------------------------------------------------------ |
-| left  | Alows you to place an icon to the left of the button text.  |
-| right | Alows you to place an icon to the right of the button text. |
+| slot        | description                                                                               |
+|-------------|------------------------------------------------------------------------------------------ |
+| slides      | Place the slide elements here.                                                            |
+| toolbar     | Allows you to construct a toolbar within the carousel. Place things like pagination here. |
+| information | Allows you to enter custom HTML such as a slide description to be used in the toolbar.    |
 
 #### CSS
 
-| css                             | description                               | default               |
-|-------------------------------- |------------------------------------------ | --------------------- |
+| css                                             | description                               | default                            |
+| ----------------------------------------------- | ----------------------------------------- | ---------------------------------- |
+| --kemet-carousel-width                          | The width of the carousel.                | 100%                               |
+| --kemet-carousel-height                         | The height of the carousel.               | auto                               |
+| --kemet-carousel-toolbar-gap                    | The space between items in the toolbar.   | 1rem                               |
+| --kemet-carousel-toolbar-justify-content        | The cross axis alignment of the toolbar.  | center                             |
+| --kemet-carousel-toolbar-padding                | The padding of the toolbar.               | 1rem                               |
+| --kemet-carousel-toolbar-inner-width            | The inner toolbar width.                  | 100%                               |
+| --kemet-carousel-toolbar-inner-bottom           | The bottom position of the inner toolbar. | 0                                  |
+| --kemet-carousel-toolbar-inner-top              | The top position of the inner toolbar.    | auto                               |
+| --kemet-carousel-toolbar-inner-color            | The inner toolbar text color.             | var(--kemet-color-white)           |
+| --kemet-carousel-toolbar-inner-background-color | The inner toolbar background color.       | rgba(0, 0, 0, 0.4)                 |
+| --kemet-carousel-slides-border                  | The border around the slides.             | 1px solid var(--kemet-color-gray1) |
+| --kemet-carousel-transition-speed               | The transition speed of the slides.       | 300ms                              |
+| --kemet-carousel-arrows-opacity                 | The arrows start opacity.                 | 0.25                               |
+| --kemet-carousel-arrows-opacity-hover           | The arrows however opacity.               | 1                                  |
+| --kemet-carousel-arrows-transition-speed        | The arrows transition speed.              | 300ms                              |
+| ::part(container)                               | Contains the slides and toolbar.          |                                    |
+| ::part(slides)                                  | Wrapper for the slider.                   |                                    |
+| ::part(slider)                                  | Contains the slides.                      |                                    |
+| ::part(toolbar)                                 | Contains the toolbar.                     |                                    |
+
+<br />
+
+### &lt;kemet-carousel-link&gt;
+Zero-based index link to a slide in the carousel.
+<ArgsTable of="kemet-carousel-link" />
+
+#### CSS
+
+| css                                | description                    | default                    |
+| ---------------------------------- | ------------------------------ | -------------------------- |
+--kemet-carousel-link-selected-color | The color of an selected link. | var(--kemet-color-primary) |
+
+
+### &lt;kemet-carouse-next&gt;
+A link to the next slide in the carousel.
+<ArgsTable of="kemet-carousel-next" />
+
+### &lt;kemet-carousel-prev&gt;
+A link to the previous slide in teh carousel.
+<ArgsTable of="kemet-carousel-prev" />
+
+### &lt;kemet-carousel-slide&gt;
+A container for a slide in the carousel.
+<ArgsTable of="kemet-carousel-slide" />
+
+### &lt;kemet-carousel-first&gt;
+A link to the first slide in the carousel.
+<ArgsTable of="kemet-carousel-first" />
+
+### &lt;kemet-carousel-last&gt;
+A link to the last slide in the carousel.
+<ArgsTable of="kemet-carousel-last" />
+
+### &lt;kemet-carousel-current&gt;
+Displays the active slide number.
+<ArgsTable of="kemet-carousel-current" />
+
+### &lt;kemet-carousel-total&gt;
+Displays the total slide number.
+<ArgsTable of="kemet-carousel-total" />
+
+### &lt;kemet-carousel-information&gt;
+Note that this technically isn't a web component. Use this custom tag name to grab information form a slide and display it in the toolbar.

@@ -20,6 +20,9 @@ export default class KemetCarouselSlide extends LitElement {
 
   static get properties() {
     return {
+      /**
+       * Determines if the slide is selected
+       */
       selected: {
         type: Boolean,
         reflect: true,
