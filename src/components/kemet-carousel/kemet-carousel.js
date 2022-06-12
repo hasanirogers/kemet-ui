@@ -211,6 +211,7 @@ export default class KemetCarousel extends LitElement {
     this.setToolbarSize();
 
     if (prevProps.has('index')) {
+      this.updateIndex(this.index);
       setTimeout(this.handleSlideShow, this.getOption('slideshow') * 1000);
     }
   }
