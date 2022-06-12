@@ -1,4 +1,4 @@
 export default {
-  files: 'src/components/**/test.js',
+  files: ['src/components/**/test.js'],
   nodeResolve: true,
 };
