@@ -322,6 +322,13 @@ export default class KemetInput extends LitElement {
       inputType: {
         type: String,
       },
+      /**
+       * Determines if the input is focused
+       */
+      focused: {
+        type: Boolean,
+        reflect: true,
+      },
     };
   }
 
@@ -336,6 +343,7 @@ export default class KemetInput extends LitElement {
     this.iconSize = 20;
     this.validateOnBlur = false;
     this.isPasswordVisible = false;
+    this.focused = false;
 
     /**
      * Used only for form reactive controller
@@ -349,6 +357,10 @@ export default class KemetInput extends LitElement {
     this.field = this.closest('kemet-field');
     this.form = this.closest('form');
     this.slug = this.field ? this.field.slug : 'input';
+
+    if (this.field) {
+      this.field.addEventListener('fmc-password-status', event => this.handleStatus(event));
+    }
   }
 
   render() {
@@ -463,7 +475,7 @@ export default class KemetInput extends LitElement {
    * @private
    */
   handleFocus() {
-    this.hasFocus = true;
+    this.focused = true;
 
     /**
      * Fires when the input receives and loses focus
@@ -487,7 +499,7 @@ export default class KemetInput extends LitElement {
       this.validity = this.input.validity;
     }
 
-    this.hasFocus = false;
+    this.focused = false;
 
     /**
      * Fires when the input receives and loses focus
@@ -537,8 +549,7 @@ export default class KemetInput extends LitElement {
    * Handles when the input receives input
    * @private
    */
-  handleInput(e) {
-    this.inputType = e.inputType;
+  handleInput() {
     this.value = this.input.value;
 
     /**

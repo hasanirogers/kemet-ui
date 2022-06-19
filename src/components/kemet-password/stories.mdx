@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-password.js';
+
+<Meta title="Components/Password" component="kemet-password" />
+
+# Kemet Combo
+
+Gauges the strength of a password entered by the user.
+
+
+## How to use
+
+```html
+<kemet-field>
+  <kemet-input slot="input" type="password" name="input"></kemet-input>
+  <kemet-password slot="component"></kemet-password>
+</kemet-field>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-password/kemet-password.js'
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-password/kemet-password.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+<br />
+
+## API
+
+### &lt;kemet-password&gt;
+
+<ArgsTable of="kemet-password" />
+
+### CSS
+
+| css               | description                       | default |
+| ----------------- | --------------------------------- | ------- |
+| ::part(status)    | The status message.               |         |
+| ::part(indicator) | The strength indicator bars.      |         |
+| ::part(message)   | A message to display to the user. |         |
+| ::part(rules)     | A description of rules to follow. |         |
