@@ -1,0 +1,80 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-tracker.js';
+import './kemet-tracker-step.js';
+
+<Meta title="Components/Tracker" component="kemet-tracker" />
+
+# Kemet Tracker
+
+Displays the progress of a process such as a wizard of multi-step form.
+
+
+## How to use
+
+```html
+<kemet-tracker>
+  <kemet-tracker-step>Step 1</kemet-tracker-step>
+  <kemet-tracker-step>Step 2</kemet-tracker-step>
+  <kemet-tracker-step>Step 3</kemet-tracker-step>
+</kemet-tracker>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-tracker/kemet-tracker.js';
+import 'kemet-ui/dist/components/kemet-tracker/kemet-tracker-step.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-tracker/kemet-tracker.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-tracker/kemet-tracker-step.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+
+## API
+
+<br />
+
+### &lt;kemet-tracker&gt;
+<ArgsTable of="kemet-tracker" />
+
+### &lt;kemet-tracker-step&gt;
+<ArgsTable of="kemet-tracker-step" />
+
+#### CSS
+
+| css                                        | description                             | default                              |
+| ------------------------------------------ | --------------------------------------- | ------------------------------------ |
+| --kemet-tracker-step-dot-font-size         | The font size.                          | 90%                                  |
+| --kemet-tracker-step-dot-color             | The text color.                         | var(--kemet-color-primary)           |
+| --kemet-tracker-step-dot-border            | Border around a dot.                    | 1px solid var(--kemet-color-primary) |
+| --kemet-tracker-step-dot-size              | Width and height of a dot.              | 50px                                 |
+| --kemet-tracker-step-dot-size-mobile       | Mobile width and height of a dot.       | 25px                                 |
+| --kemet-tracker-step-dot-gap               | Space between a dot and connector line. | 4px                                  |
+| --kemet-tracker-step-dot-transition        | Tranisition of a dot.                   | all 300ms ease-in-out                |
+| --kemet-tracker-step-dot-fill-color        | Fill color of a dot                     | transparent                          |
+| --kemet-tracker-step-dot-background-color  | Color of the background a dot is on.    | var(--kemet-color-white)             |
+| --kemet-tracker-step-current-color         | Current dot text color.                 | var(--kemet-color-white)             |
+| --kemet-tracker-step-current-fill-color    | Current dot fill color.                 | var(--kemet-color-primary)           |
+| --kemet-tracker-step-completed-color       | Text color of a completed dot.          | var(--kemet-color-white)             |
+| --kemet-tracker-step-completed-fill-color  | Background color of a completed dot.    | var(--kemet-color-success)           |
+| --kemet-tracker-step-completed-line-color  | Completed connector line color.         | var(--kemet-color-primary)           |
+| --kemet-tracker-step-completed-line-weight | Completed line weight                   | 3px                                  |
+| --kemet-tracker-step-standard-line-weight  | Standard line weight.                   | 1px                                  |
+| ::part(dot)                                | The container for the dot.              |                                      |
+| ::part(line)                               | A connector line from dot to dot.       |                                      |
+| ::part(completed-line)                     | A completed connector line.             |                                      |
