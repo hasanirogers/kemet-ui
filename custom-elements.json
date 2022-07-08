@@ -537,255 +537,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCheckbox",
-          "members": [
-            {
-              "kind": "method",
-              "name": "click"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur"
-            },
-            {
-              "kind": "method",
-              "name": "handleFocus"
-            },
-            {
-              "kind": "method",
-              "name": "handleChange"
-            },
-            {
-              "kind": "method",
-              "name": "makeMessage"
-            },
-            {
-              "kind": "method",
-              "name": "makeCheckMark"
-            },
-            {
-              "kind": "method",
-              "name": "checkValidity"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "privacy": "public",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'checkbox'",
-              "privacy": "public",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "privacy": "public",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "privacy": "public",
-              "attribute": "indeterminate",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "attribute": "message"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-checkbox-change",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the state of the checkbox changes"
-            },
-            {
-              "name": "kemet-checkbox-focused",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the checkbox loses or receives focus"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label"
-            },
-            {
-              "name": "checked",
-              "fieldName": "checked"
-            },
-            {
-              "name": "indeterminate",
-              "fieldName": "indeterminate"
-            },
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "value",
-              "fieldName": "value"
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "required",
-              "fieldName": "required"
-            },
-            {
-              "name": "focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "rounded",
-              "fieldName": "rounded"
-            },
-            {
-              "name": "filled",
-              "fieldName": "filled"
-            },
-            {
-              "name": "status",
-              "fieldName": "status"
-            },
-            {
-              "name": "message",
-              "fieldName": "message"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-checkbox",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-checkbox",
-          "declaration": {
-            "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-carousel/kemet-carousel-current.js",
       "declarations": [
         {
@@ -1587,6 +1338,255 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCheckbox",
+          "members": [
+            {
+              "kind": "method",
+              "name": "click"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange"
+            },
+            {
+              "kind": "method",
+              "name": "makeMessage"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckMark"
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "privacy": "public",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'checkbox'",
+              "privacy": "public",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "privacy": "public",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "privacy": "public",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "attribute": "message"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-checkbox-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the state of the checkbox changes"
+            },
+            {
+              "name": "kemet-checkbox-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the checkbox loses or receives focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "indeterminate",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "fieldName": "required"
+            },
+            {
+              "name": "focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "rounded",
+              "fieldName": "rounded"
+            },
+            {
+              "name": "filled",
+              "fieldName": "filled"
+            },
+            {
+              "name": "status",
+              "fieldName": "status"
+            },
+            {
+              "name": "message",
+              "fieldName": "message"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCheckbox",
+            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-checkbox",
+          "declaration": {
+            "name": "KemetCheckbox",
+            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-combo/kemet-combo.js",
       "declarations": [
         {
@@ -2107,6 +2107,145 @@
           "declaration": {
             "name": "stylesEffects",
             "module": "src/components/kemet-drawer/kemet-drawer.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-fab/kemet-fab.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetFAB",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleMouseOver"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut"
+            },
+            {
+              "kind": "method",
+              "name": "handleScroll"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "The expanded state of the button",
+              "attribute": "expanded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "privacy": "public",
+              "description": "Displays the fab with rounded corners",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "expandPoint",
+              "privacy": "public",
+              "description": "The distance, in pixels, where the fab should automatically expand",
+              "attribute": "expand-point"
+            },
+            {
+              "kind": "field",
+              "name": "collapsePoint",
+              "privacy": "public",
+              "description": "The distance, in pixels, where the fab should automatically collapse",
+              "attribute": "collapse-point"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "expanded",
+              "description": "The expanded state of the button",
+              "fieldName": "expanded"
+            },
+            {
+              "name": "outlined",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "pill",
+              "description": "Displays the fab with rounded corners",
+              "fieldName": "pill"
+            },
+            {
+              "name": "expand-point",
+              "description": "The distance, in pixels, where the fab should automatically expand",
+              "fieldName": "expandPoint"
+            },
+            {
+              "name": "collapse-point",
+              "description": "The distance, in pixels, where the fab should automatically collapse",
+              "fieldName": "collapsePoint"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-fab",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetFAB",
+            "module": "src/components/kemet-fab/kemet-fab.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-fab",
+          "declaration": {
+            "name": "KemetFAB",
+            "module": "src/components/kemet-fab/kemet-fab.js"
           }
         }
       ]
@@ -2684,11 +2823,6 @@
             {
               "kind": "method",
               "name": "handleInput",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ],
               "description": "Handles when the input receives input",
               "privacy": "private"
             },
@@ -2824,6 +2958,18 @@
               "privacy": "public",
               "description": "Manages password visibility",
               "attribute": "isPasswordVisible"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "public",
+              "description": "Determines if the input is focused",
+              "attribute": "focused",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -3185,6 +3331,11 @@
               "name": "inputType",
               "description": "Input Type of keypress handled through handleInput(e)",
               "fieldName": "inputType"
+            },
+            {
+              "name": "focused",
+              "description": "Determines if the input is focused",
+              "fieldName": "focused"
             }
           ],
           "superclass": {
@@ -3427,6 +3578,207 @@
           "declaration": {
             "name": "stylesEffects",
             "module": "src/components/kemet-modal/kemet-modal.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-password/kemet-password.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetPassword",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeRules",
+              "description": "Makes the list of rules",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "templateResults"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckIcon",
+              "parameters": [
+                {
+                  "name": "meetsCriteria",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
+              "description": "Makes the check icon if the criteria has been met",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "templateResults"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "*"
+                  }
+                }
+              ],
+              "description": "Handles the kemet-input-input event",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setStrength",
+              "description": "Determines the strength of the password",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "visibility",
+              "description": "Determines whether to show or hide the component",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "rules",
+              "type": {
+                "text": "array"
+              },
+              "default": "[\n      { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n      { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n      { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n    ]",
+              "privacy": "public",
+              "description": "An array of objects containing the rules the password must meet",
+              "attribute": "rules"
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Please make sure you meet all the requirements.'",
+              "privacy": "public",
+              "description": "A message that is above the rules",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'check2'",
+              "privacy": "public",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "attribute": "iconSize"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "privacy": "public",
+              "description": "Controls the display of the component",
+              "attribute": "show",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "description": "The value of the input component",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "strength",
+              "privacy": "public",
+              "description": "The strength of the password. Weak | Better | Strong",
+              "attribute": "strength"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-password-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "rules",
+              "description": "An array of objects containing the rules the password must meet",
+              "fieldName": "rules"
+            },
+            {
+              "name": "show",
+              "description": "Controls the display of the component",
+              "fieldName": "show"
+            },
+            {
+              "name": "value",
+              "description": "The value of the input component",
+              "fieldName": "value"
+            },
+            {
+              "name": "message",
+              "description": "A message that is above the rules",
+              "fieldName": "message"
+            },
+            {
+              "name": "strength",
+              "description": "The strength of the password. Weak | Better | Strong",
+              "fieldName": "strength"
+            },
+            {
+              "name": "icon",
+              "fieldName": "icon"
+            },
+            {
+              "name": "iconSize",
+              "fieldName": "iconSize"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-password",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetPassword",
+            "module": "src/components/kemet-password/kemet-password.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-password",
+          "declaration": {
+            "name": "KemetPassword",
+            "module": "src/components/kemet-password/kemet-password.js"
           }
         }
       ]
@@ -6600,6 +6952,233 @@
           "declaration": {
             "name": "KemetToggle",
             "module": "src/components/kemet-toggle/kemet-toggle.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-tracker/kemet-tracker-step.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTrackerStep",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeLine"
+            },
+            {
+              "kind": "method",
+              "name": "makeCompletedLine"
+            },
+            {
+              "kind": "method",
+              "name": "makeDotContent"
+            },
+            {
+              "kind": "method",
+              "name": "makeSlotContent"
+            },
+            {
+              "kind": "method",
+              "name": "handleCompletedLineEnd"
+            },
+            {
+              "kind": "field",
+              "name": "completedSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "privacy": "public",
+              "description": "The icon size for the completed check mark",
+              "attribute": "completedSize"
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "privacy": "public",
+              "description": "The current step number",
+              "attribute": "step"
+            },
+            {
+              "kind": "field",
+              "name": "completed",
+              "privacy": "public",
+              "description": "Determines whether or not a step renders as complete",
+              "attribute": "completed",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "current",
+              "privacy": "public",
+              "description": "Determines whether or not a step renders as the current step",
+              "attribute": "current",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "last",
+              "privacy": "public",
+              "description": "Is automatically added to the last step",
+              "attribute": "last",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "privacy": "public",
+              "description": "Determines if a step should render as mobile",
+              "attribute": "mobile",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideDotContent",
+              "privacy": "public",
+              "description": "Hides the label inside of a dot",
+              "attribute": "hide-dot-content",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "step",
+              "description": "The current step number",
+              "fieldName": "step"
+            },
+            {
+              "name": "completed",
+              "description": "Determines whether or not a step renders as complete",
+              "fieldName": "completed"
+            },
+            {
+              "name": "current",
+              "description": "Determines whether or not a step renders as the current step",
+              "fieldName": "current"
+            },
+            {
+              "name": "last",
+              "description": "Is automatically added to the last step",
+              "fieldName": "last"
+            },
+            {
+              "name": "mobile",
+              "description": "Determines if a step should render as mobile",
+              "fieldName": "mobile"
+            },
+            {
+              "name": "hide-dot-content",
+              "description": "Hides the label inside of a dot",
+              "fieldName": "hideDotContent"
+            },
+            {
+              "name": "completedSize",
+              "description": "The icon size for the completed check mark",
+              "fieldName": "completedSize"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-tracker-step",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTrackerStep",
+            "module": "src/components/kemet-tracker/kemet-tracker-step.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-tracker-step",
+          "declaration": {
+            "name": "KemetTrackerStep",
+            "module": "src/components/kemet-tracker/kemet-tracker-step.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-tracker/kemet-tracker.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTracker",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "isMobile"
+            },
+            {
+              "kind": "field",
+              "name": "breakpoint",
+              "type": {
+                "text": "string"
+              },
+              "default": "'767px'",
+              "privacy": "public",
+              "description": "The point at which the tracker goes from mobile to standard",
+              "attribute": "breakpoint"
+            },
+            {
+              "kind": "field",
+              "name": "total",
+              "privacy": "public",
+              "description": "The total number of steps",
+              "attribute": "total"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "total",
+              "description": "The total number of steps",
+              "fieldName": "total"
+            },
+            {
+              "name": "breakpoint",
+              "description": "The point at which the tracker goes from mobile to standard",
+              "fieldName": "breakpoint"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-tracker",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTracker",
+            "module": "src/components/kemet-tracker/kemet-tracker.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-tracker",
+          "declaration": {
+            "name": "KemetTracker",
+            "module": "src/components/kemet-tracker/kemet-tracker.js"
           }
         }
       ]

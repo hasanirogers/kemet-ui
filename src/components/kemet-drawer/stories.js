@@ -17,29 +17,36 @@ const Template = ({
   side = 'left',
   overlay = false,
   overlayColor = 'rgba(0,0,0,0.2)',
-}) => html`
-  <style>
-    kemet-drawer {
-      --kemet-drawer-width: ${width};
-      --kemet-drawer-height: ${height};
-      --kemet-drawer-color: ${color};
-      --kemet-drawer-background-color: ${backgroundColor};
-      --kemet-drawer-overlay-color: ${overlayColor};
-    }
-  </style>
-  <kemet-drawer ?opened=${opened} effect="${effect}" side="${side}" ?overlay=${overlay}>
-    <nav slot="navigation" kemet-padding="tiny:large">
-      <p>Your navigation goes here.</p>
-      <kemet-button @click=${event => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
-    </nav>
-    <section slot="content">
-      <div kemet-padding="tiny:large">
-        <p>Your content goes here.</p>
+}) => {
+  setTimeout(() => {
+    const docsStoryWrapper = document.querySelector('.docs-story > div');
+    if (docsStoryWrapper) docsStoryWrapper.style.padding = '0';
+  }, 100);
+
+  return html`
+    <style>
+      kemet-drawer {
+        --kemet-drawer-width: ${width};
+        --kemet-drawer-height: ${height};
+        --kemet-drawer-color: ${color};
+        --kemet-drawer-background-color: ${backgroundColor};
+        --kemet-drawer-overlay-color: ${overlayColor};
+      }
+    </style>
+    <kemet-drawer ?opened=${opened} effect="${effect}" side="${side}" ?overlay=${overlay}>
+      <nav slot="navigation" kemet-padding="tiny:large">
+        <p>Your navigation goes here.</p>
         <kemet-button @click=${event => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
-      </div>
-    </section>
-  </kemet-drawer>
-`;
+      </nav>
+      <section slot="content">
+        <div kemet-padding="tiny:large">
+          <p>Your content goes here.</p>
+          <kemet-button @click=${event => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
+        </div>
+      </section>
+    </kemet-drawer>
+  `;
+};
 
 const toggleDrawer = (event) => {
   const drawer = event.target.closest('kemet-drawer');

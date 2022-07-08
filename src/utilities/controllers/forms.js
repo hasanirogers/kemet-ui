@@ -43,10 +43,10 @@ export class FormSubmitController {
     if (!disabled && typeof name === 'string' && typeof value !== 'undefined') {
       if (Array.isArray(value)) {
         value.forEach((val) => {
-          event.formData.append(name, val.toString());
+          event.formData?.append(name, val.toString());
         });
       } else {
-        event.formData.append(name, value.toString());
+        event.formData?.append(name, value.toString());
       }
     }
   }
@@ -54,6 +54,8 @@ export class FormSubmitController {
   handleFormSubmit(event) {
     const disabled = this.options.disabled(this.host);
     const checkValidity = this.options.checkValidity;
+
+    this.form = this.options.form(this.host);
 
     if (this.form && !this.form.noValidate && !disabled && !checkValidity(this.host)) {
       event.preventDefault();
