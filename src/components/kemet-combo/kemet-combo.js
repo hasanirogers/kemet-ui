@@ -84,7 +84,7 @@ export default class KemetCombo extends LitElement {
     this.input = this.field.querySelector('[slot="input"]');
 
     // managed properties
-    this.slug = this.field.slug;
+    this.slug = this.field.slug || 'slug';
 
     // events listeners
     this.input.addEventListener('kemet-input-input', this.handleInput.bind(this));
@@ -99,7 +99,7 @@ export default class KemetCombo extends LitElement {
         aria-controls="${this.slug}-listbox"
         aria-haspopup="listbox"
         id="${this.slug}-combobox"
-        aria-label="${this.field.label}"
+        aria-label="${this.field?.label}"
       >
         <ul role="listbox" aria-labelledby="${this.slug}-label" id="${this.slug}-listbox">
           ${this.makeOptions()}
