@@ -154,7 +154,11 @@ export default class KemetCombo extends LitElement {
       new CustomEvent('kemet-combo-selection', {
         bubbles: true,
         composed: true,
-        detail: event.target.getAttribute('id'),
+        detail: {
+          element: event.target,
+          text: event.target.innerText,
+          id: event.target.getAttribute('id'),
+        },
       }),
     );
   }
