@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import multi from '@rollup/plugin-multi-entry';
 import copy from 'rollup-plugin-copy';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
+import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
 export default {
@@ -13,6 +14,7 @@ export default {
   ],
   plugins: [
     resolve(),
+    commonjs(),
     multi(),
     copy({
       targets: [

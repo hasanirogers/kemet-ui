@@ -75,7 +75,7 @@ export default class KemetModal extends LitElement {
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
       setTimeout(() => {
-        this.focusableElements[0].focus();
+        this.focusableElements[0]?.focus();
       }, 100);
 
       /**

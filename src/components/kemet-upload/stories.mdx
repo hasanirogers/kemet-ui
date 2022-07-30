@@ -1,0 +1,86 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-upload.js';
+import './kemet-upload-file.js';
+
+<Meta title="Components/Upload" component="kemet-upload" />
+
+# Kemet Upload
+
+An interface for uploading files (actual upload script must be handled by your app).
+
+
+## How to use
+
+```html
+<kemet-upload>
+  <kemet-upload-file></kemet-upload-file>
+  <kemet-upload-file></kemet-upload-file>
+  <kemet-upload-file></kemet-upload-file>
+</kemet-upload>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-upload/kemet-upload.js';
+import 'kemet-ui/dist/components/kemet-upload/kemet-upload-file.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-upload/kemet-upload.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-upload/kemet-upload-file.js" type="module"></script>
+```
+
+## Stories
+
+**Note** Kemet UI cannot provide actual upload functionality for you. You need to write your own upload script. You can do this by listening to the `kemet-upload-change` event. This event will give you the files that have been added. You'll need to dynamically insert a `kemet-upload-file` element for each of these files in the event. An example upload script is coming shortly.
+
+<Canvas style={{background: '#eff2f1'}}>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+
+## API
+
+<br />
+
+### &lt;kemet-upload&gt;
+<ArgsTable of="kemet-upload" />
+
+#### CSS
+
+| css                             | description                               | default                             |
+|-------------------------------- | ----------------------------------------- | ----------------------------------- |
+| --kemet-upload-color            | The default text color.                   | var(--kemet-color-white)            |
+| --kemet-upload-height           | The height.                               | 364px                               |
+| --kemet-upload-border           | The border.                               | 1rem solid var(--kemet-color-white) |
+| --kemet-upload-background-color | The background color.                     | var(--kemet-color-primary)          |
+| ::part(upload)                  | The area where files are dropped.         |                                     |
+| ::part(heading)                 | The description in the upload area.       |                                     |
+| ::part(button)                  | The button in the upload area.            |                                     |
+| ::part(files)                   | The area where uploaded files are listed. |                                     |
+
+<br />
+
+### &lt;kemet-upload-file&gt;
+<ArgsTable of="kemet-upload-file" />
+
+#### CSS
+
+| css                         | description                               | default                              |
+|---------------------------- | ----------------------------------------- | ------------------------------------ |
+| --kemet-upload-file-color   | The default text color.                   | var(--kemet-color-gray7)             |
+| --kemet-upload-file-padding | The padding around the file.              | 0.5rem 1rem                          |
+| --kemet-upload-file-border  | The border around the file.               | 1px solid var(--kemet-color-primary) |
+| ::part(percentage)          | Area that displays the percentage.        |                                      |
+| ::part(filename)            | Area that displays file name.             |                                      |
+| ::part(loaded)              | Area that displays how much has uploaded. |                                      |
+| ::part(message)             | Area for the error message.               |                                      |
+| ::part(indicator)           | Area for status icon.                     |                                      |
