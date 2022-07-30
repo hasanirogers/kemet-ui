@@ -35,32 +35,32 @@
             {
               "kind": "field",
               "name": "opened",
-              "default": "undefined",
               "privacy": "public",
               "description": "Determines the opened state of the panel",
+              "default": "undefined",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "maxHeight",
+              "privacy": "public",
+              "description": "Sets the max height of the panel's body",
               "type": {
                 "text": "string"
               },
               "default": "'0px'",
-              "privacy": "public",
-              "description": "Sets the max height of the panel's body",
               "attribute": "max-height"
             },
             {
               "kind": "field",
               "name": "slug",
+              "privacy": "public",
+              "description": "Uniquely identifies a panel for accessibility purposes",
               "type": {
                 "text": "string"
               },
               "default": "'panel'",
-              "privacy": "public",
-              "description": "Uniquely identifies a panel for accessibility purposes",
               "attribute": "slug"
             }
           ],
@@ -84,16 +84,28 @@
             {
               "name": "opened",
               "description": "Determines the opened state of the panel",
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-accordion/kemet-accordion-panel.js"
+              },
               "fieldName": "opened"
             },
             {
               "name": "max-height",
               "description": "Sets the max height of the panel's body",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
               "fieldName": "maxHeight"
             },
             {
               "name": "slug",
               "description": "Uniquely identifies a panel for accessibility purposes",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
               "fieldName": "slug"
             }
           ],
@@ -175,20 +187,20 @@
             {
               "kind": "field",
               "name": "togglePanels",
+              "privacy": "public",
+              "description": "Support for closing all inactive panels when one is opened",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Support for closing all inactive panels when one is opened",
               "attribute": "toggle-panels"
             },
             {
               "kind": "field",
               "name": "currentPanel",
-              "default": "undefined",
               "privacy": "public",
               "description": "The index value for the most recently opened panel",
+              "default": "undefined",
               "attribute": "currentPanel"
             }
           ],
@@ -196,11 +208,19 @@
             {
               "name": "currentPanel",
               "description": "The index value for the most recently opened panel",
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-accordion/kemet-accordion.js"
+              },
               "fieldName": "currentPanel"
             },
             {
               "name": "toggle-panels",
               "description": "Support for closing all inactive panels when one is opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "togglePanels"
             }
           ],
@@ -247,48 +267,48 @@
             {
               "kind": "field",
               "name": "status",
+              "privacy": "public",
+              "description": "The status of the badge",
               "type": {
                 "text": "string"
               },
               "default": "'primary'",
-              "privacy": "public",
-              "description": "The status of the badge",
               "attribute": "status",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "pill",
+              "privacy": "public",
+              "description": "Rounds the corners on the badge",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Rounds the corners on the badge",
               "attribute": "pill",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "circle",
+              "privacy": "public",
+              "description": "Displays the badge in a circle",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Displays the badge in a circle",
               "attribute": "circle",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "circlePadding",
+              "privacy": "public",
+              "description": "Padding on the badge as a circle",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "Padding on the badge as a circle",
               "attribute": "circle-padding"
             }
           ],
@@ -296,21 +316,37 @@
             {
               "name": "status",
               "description": "The status of the badge",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
               "fieldName": "status"
             },
             {
               "name": "circle",
               "description": "Displays the badge in a circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "circle"
             },
             {
               "name": "pill",
               "description": "Rounds the corners on the badge",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "pill"
             },
             {
               "name": "circle-padding",
               "description": "Padding on the badge as a circle",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "circlePadding"
             }
           ],
@@ -392,12 +428,12 @@
             {
               "kind": "field",
               "name": "type",
+              "privacy": "public",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
-              "privacy": "public",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
               "attribute": "type",
               "reflects": true
             },
@@ -505,6 +541,10 @@
             {
               "name": "type",
               "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
               "fieldName": "type"
             }
           ],
@@ -531,255 +571,6 @@
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCheckbox",
-          "members": [
-            {
-              "kind": "method",
-              "name": "click"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur"
-            },
-            {
-              "kind": "method",
-              "name": "handleFocus"
-            },
-            {
-              "kind": "method",
-              "name": "handleChange"
-            },
-            {
-              "kind": "method",
-              "name": "makeMessage"
-            },
-            {
-              "kind": "method",
-              "name": "makeCheckMark"
-            },
-            {
-              "kind": "method",
-              "name": "checkValidity"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "privacy": "public",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'checkbox'",
-              "privacy": "public",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "privacy": "public",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "privacy": "public",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "privacy": "public",
-              "attribute": "indeterminate",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "attribute": "message"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-checkbox-change",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the state of the checkbox changes"
-            },
-            {
-              "name": "kemet-checkbox-focused",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when the checkbox loses or receives focus"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label"
-            },
-            {
-              "name": "checked",
-              "fieldName": "checked"
-            },
-            {
-              "name": "indeterminate",
-              "fieldName": "indeterminate"
-            },
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "value",
-              "fieldName": "value"
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "required",
-              "fieldName": "required"
-            },
-            {
-              "name": "focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "rounded",
-              "fieldName": "rounded"
-            },
-            {
-              "name": "filled",
-              "fieldName": "filled"
-            },
-            {
-              "name": "status",
-              "fieldName": "status"
-            },
-            {
-              "name": "message",
-              "fieldName": "message"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-checkbox",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-checkbox",
-          "declaration": {
-            "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
           }
         }
       ]
@@ -1177,12 +968,12 @@
             {
               "kind": "field",
               "name": "selected",
+              "privacy": "public",
+              "description": "Determines if the slide is selected",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines if the slide is selected",
               "attribute": "selected",
               "reflects": true
             },
@@ -1205,6 +996,10 @@
             {
               "name": "selected",
               "description": "Determines if the slide is selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "selected"
             },
             {
@@ -1411,92 +1206,92 @@
             {
               "kind": "field",
               "name": "index",
+              "privacy": "public",
+              "description": "The current slide index.",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "The current slide index.",
               "attribute": "index",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "total",
+              "privacy": "public",
+              "description": "The total amount of slides",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "The total amount of slides",
               "attribute": "total"
             },
             {
               "kind": "field",
               "name": "sliderWidth",
+              "privacy": "public",
+              "description": "The width of the slider",
               "type": {
                 "text": "string"
               },
               "default": "'auto'",
-              "privacy": "public",
-              "description": "The width of the slider",
               "attribute": "sliderWidth"
             },
             {
               "kind": "field",
               "name": "sliderTranslateX",
+              "privacy": "public",
+              "description": "The X position of the slider",
               "type": {
                 "text": "string"
               },
               "default": "'0'",
-              "privacy": "public",
-              "description": "The X position of the slider",
               "attribute": "sliderTranslateX"
             },
             {
               "kind": "field",
               "name": "inner",
+              "privacy": "public",
+              "description": "Displays the toolbar inside the carousel container",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Displays the toolbar inside the carousel container",
               "attribute": "inner",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "arrows",
+              "privacy": "public",
+              "description": "Determines whether or not to display arrows",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines whether or not to display arrows",
               "attribute": "arrows",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "options",
+              "privacy": "public",
+              "description": "Default options for the carousel",
               "type": {
                 "text": "object"
               },
               "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 12,\n      slideshow: 0,\n      rewind: true,\n      center: false,\n    }",
-              "privacy": "public",
-              "description": "Default options for the carousel",
               "attribute": "options"
             },
             {
               "kind": "field",
               "name": "breakpoints",
+              "privacy": "public",
+              "description": "Options are different breakpoints for the carousel. Is mobile first.",
               "type": {
                 "text": "object"
               },
               "default": "{\n      768: {\n        perView: 2,\n        gap: 24,\n        rewind: false,\n      },\n      1280: {\n        perView: 2.5,\n        center: true,\n      },\n    }",
-              "privacy": "public",
-              "description": "Options are different breakpoints for the carousel. Is mobile first.",
               "attribute": "breakpoints"
             }
           ],
@@ -1520,41 +1315,73 @@
             {
               "name": "index",
               "description": "The current slide index.",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "index"
             },
             {
               "name": "total",
               "description": "The total amount of slides",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "total"
             },
             {
               "name": "sliderWidth",
               "description": "The width of the slider",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
               "fieldName": "sliderWidth"
             },
             {
               "name": "sliderTranslateX",
               "description": "The X position of the slider",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0'",
               "fieldName": "sliderTranslateX"
             },
             {
               "name": "inner",
               "description": "Displays the toolbar inside the carousel container",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "inner"
             },
             {
               "name": "arrows",
               "description": "Determines whether or not to display arrows",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "arrows"
             },
             {
               "name": "options",
               "description": "Default options for the carousel",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 12,\n      slideshow: 0,\n      rewind: true,\n      center: false,\n    }",
               "fieldName": "options"
             },
             {
               "name": "breakpoints",
               "description": "Options are different breakpoints for the carousel. Is mobile first.",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n      768: {\n        perView: 2,\n        gap: 24,\n        rewind: false,\n      },\n      1280: {\n        perView: 2.5,\n        center: true,\n      },\n    }",
               "fieldName": "breakpoints"
             }
           ],
@@ -1581,6 +1408,379 @@
           "declaration": {
             "name": "KemetCarousel",
             "module": "src/components/kemet-carousel/kemet-carousel.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCheckbox",
+          "members": [
+            {
+              "kind": "method",
+              "name": "click"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange"
+            },
+            {
+              "kind": "method",
+              "name": "makeMessage"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckMark"
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'checkbox'",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "privacy": "public",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "attribute": "message"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-checkbox-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the state of the checkbox changes"
+            },
+            {
+              "name": "kemet-checkbox-focused",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when the checkbox loses or receives focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "indeterminate",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'checkbox'",
+              "fieldName": "name"
+            },
+            {
+              "name": "value",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required"
+            },
+            {
+              "name": "focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "rounded"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "filled"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "fieldName": "status"
+            },
+            {
+              "name": "message",
+              "fieldName": "message"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCheckbox",
+            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-checkbox",
+          "declaration": {
+            "name": "KemetCheckbox",
+            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-count/kemet-count.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "privacy": "public",
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "privacy": "public",
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "privacy": "public",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-count-status",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when there's a change in status."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/components/kemet-count/kemet-count.js"
           }
         }
       ]
@@ -1724,102 +1924,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCount",
-          "members": [
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "description": "The text label shown to users",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "remaining",
-              "privacy": "public",
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
-            },
-            {
-              "kind": "field",
-              "name": "limit",
-              "privacy": "public",
-              "description": "The maximum number of characters allowed",
-              "attribute": "limit"
-            },
-            {
-              "kind": "field",
-              "name": "validateImmediately",
-              "privacy": "public",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "attribute": "validate-immediately"
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-count-status",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when there's a change in status."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "message",
-              "description": "The text label shown to users",
-              "fieldName": "message"
-            },
-            {
-              "name": "remaining",
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
-            },
-            {
-              "name": "limit",
-              "description": "The maximum number of characters allowed",
-              "fieldName": "limit"
-            },
-            {
-              "name": "validate-immediately",
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "fieldName": "validateImmediately"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-count",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-count",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-draggable/kemet-draggable.js",
       "declarations": [
         {
@@ -1856,34 +1960,34 @@
             {
               "kind": "field",
               "name": "top",
+              "privacy": "public",
+              "description": "The elements top position in pixels.",
               "type": {
                 "text": "string"
               },
               "default": "'auto'",
-              "privacy": "public",
-              "description": "The elements top position in pixels.",
               "attribute": "top"
             },
             {
               "kind": "field",
               "name": "left",
+              "privacy": "public",
+              "description": "The element's left position in pixels.",
               "type": {
                 "text": "string"
               },
               "default": "'auto'",
-              "privacy": "public",
-              "description": "The element's left position in pixels.",
               "attribute": "left"
             },
             {
               "kind": "field",
               "name": "measure",
+              "privacy": "public",
+              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
               "attribute": "measure"
             },
             {
@@ -1917,16 +2021,28 @@
             {
               "name": "top",
               "description": "The elements top position in pixels.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
               "fieldName": "top"
             },
             {
               "name": "left",
               "description": "The element's left position in pixels.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
               "fieldName": "left"
             },
             {
               "name": "measure",
               "description": "If set to true, will measure the width and height\nof the element's content and apply it to the host element.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "measure"
             }
           ],
@@ -1969,45 +2085,45 @@
             {
               "kind": "field",
               "name": "opened",
-              "default": "undefined",
               "privacy": "public",
               "description": "Determines if the drawer is opened or not.",
+              "default": "undefined",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "effect",
+              "privacy": "public",
+              "description": "The animation effect for opening and closing the drawer.\nValues include: (slide | reveal | push | scale)",
               "type": {
                 "text": "string"
               },
               "default": "'slide'",
-              "privacy": "public",
-              "description": "The animation effect for opening and closing the drawer.\nValues include: (slide | reveal | push | scale)",
               "attribute": "effect",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "side",
+              "privacy": "public",
+              "description": "Allows you to control which side the drawer opens from.\nValues include: (left | right | top | bottom)",
               "type": {
                 "text": "string"
               },
               "default": "'left'",
-              "privacy": "public",
-              "description": "Allows you to control which side the drawer opens from.\nValues include: (left | right | top | bottom)",
               "attribute": "side",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "overlay",
+              "privacy": "public",
+              "description": "Adds a overlay over the content section of the Drawer when opened",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Adds a overlay over the content section of the Drawer when opened",
               "attribute": "overlay",
               "reflects": true
             }
@@ -2032,21 +2148,37 @@
             {
               "name": "opened",
               "description": "Determines if the drawer is opened or not.",
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-drawer/kemet-drawer.js"
+              },
               "fieldName": "opened"
             },
             {
               "name": "effect",
               "description": "The animation effect for opening and closing the drawer.\nValues include: (slide | reveal | push | scale)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'slide'",
               "fieldName": "effect"
             },
             {
               "name": "side",
               "description": "Allows you to control which side the drawer opens from.\nValues include: (left | right | top | bottom)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'left'",
               "fieldName": "side"
             },
             {
               "name": "overlay",
               "description": "Adds a overlay over the content section of the Drawer when opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "overlay"
             }
           ],
@@ -2135,36 +2267,36 @@
             {
               "kind": "field",
               "name": "outlined",
+              "privacy": "public",
+              "description": "Outline style for a button",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Outline style for a button",
               "attribute": "outlined",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether not a button is disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines whether not a button is disabled",
               "attribute": "disabled",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "expanded",
+              "privacy": "public",
+              "description": "The expanded state of the button",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "The expanded state of the button",
               "attribute": "expanded",
               "reflects": true
             },
@@ -2195,16 +2327,28 @@
             {
               "name": "expanded",
               "description": "The expanded state of the button",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "expanded"
             },
             {
               "name": "outlined",
               "description": "Outline style for a button",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "outlined"
             },
             {
               "name": "disabled",
               "description": "Determines whether not a button is disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "disabled"
             },
             {
@@ -2306,35 +2450,35 @@
             {
               "kind": "field",
               "name": "status",
+              "privacy": "public",
+              "description": "The validation status of standard, error, or success",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
-              "privacy": "public",
-              "description": "The validation status of standard, error, or success",
               "attribute": "status",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "errorIcon",
+              "privacy": "public",
+              "description": "The icon while in an error or warning state",
               "type": {
                 "text": "string"
               },
               "default": "'exclamation-triangle-fill'",
-              "privacy": "public",
-              "description": "The icon while in an error or warning state",
               "attribute": "error-icon"
             },
             {
               "kind": "field",
               "name": "successIcon",
+              "privacy": "public",
+              "description": "The icon while in an success state",
               "type": {
                 "text": "string"
               },
               "default": "'check-lg'",
-              "privacy": "public",
-              "description": "The icon while in an success state",
               "attribute": "success-icon"
             },
             {
@@ -2423,6 +2567,10 @@
             {
               "name": "status",
               "description": "The validation status of standard, error, or success",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
               "fieldName": "status"
             },
             {
@@ -2443,11 +2591,19 @@
             {
               "name": "error-icon",
               "description": "The icon while in an error or warning state",
+              "type": {
+                "text": "string"
+              },
+              "default": "'exclamation-triangle-fill'",
               "fieldName": "errorIcon"
             },
             {
               "name": "success-icon",
               "description": "The icon while in an success state",
+              "type": {
+                "text": "string"
+              },
+              "default": "'check-lg'",
               "fieldName": "successIcon"
             }
           ],
@@ -2552,75 +2708,95 @@
             {
               "kind": "field",
               "name": "axis",
+              "privacy": "public",
               "type": {
                 "text": "string"
               },
               "default": "'horizontal'",
-              "privacy": "public",
               "attribute": "axis",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "flipped",
+              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
               "attribute": "flipped",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "flipOnHover",
+              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
               "attribute": "flip-on-hover"
             },
             {
               "kind": "field",
               "name": "height",
+              "privacy": "public",
               "type": {
                 "text": "string"
               },
               "default": "'auto'",
-              "privacy": "public",
               "attribute": "height"
             },
             {
               "kind": "field",
               "name": "measure",
+              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
               "attribute": "measure"
             }
           ],
           "attributes": [
             {
               "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
               "fieldName": "axis"
             },
             {
               "name": "flipped",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "flipped"
             },
             {
               "name": "flip-on-hover",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "flipOnHover"
             },
             {
               "name": "height",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
               "fieldName": "height"
             },
             {
               "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "measure"
             }
           ],
@@ -2671,34 +2847,34 @@
             {
               "kind": "field",
               "name": "set",
+              "privacy": "public",
+              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
               "type": {
                 "text": "string"
               },
               "default": "'bootstrap'",
-              "privacy": "public",
-              "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
               "attribute": "set"
             },
             {
               "kind": "field",
               "name": "icon",
+              "privacy": "public",
+              "description": "The name of the icon to reference.",
               "type": {
                 "text": "string"
               },
               "default": "'alarm'",
-              "privacy": "public",
-              "description": "The name of the icon to reference.",
               "attribute": "icon"
             },
             {
               "kind": "field",
               "name": "size",
+              "privacy": "public",
+              "description": "The width and height of the icon in pixels.",
               "type": {
                 "text": "number"
               },
               "default": "16",
-              "privacy": "public",
-              "description": "The width and height of the icon in pixels.",
               "attribute": "size"
             }
           ],
@@ -2706,16 +2882,28 @@
             {
               "name": "icon",
               "description": "The name of the icon to reference.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'alarm'",
               "fieldName": "icon"
             },
             {
               "name": "set",
               "description": "The sprite map from an open source project that an icon belongs too.\nValues include:\n(bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bootstrap'",
               "fieldName": "set"
             },
             {
               "name": "size",
               "description": "The width and height of the icon in pixels.",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
               "fieldName": "size"
             }
           ],
@@ -2884,90 +3072,90 @@
             {
               "kind": "field",
               "name": "name",
+              "privacy": "public",
+              "description": "The name of the input",
               "type": {
                 "text": "string"
               },
               "default": "'input'",
-              "privacy": "public",
-              "description": "The name of the input",
               "attribute": "name"
             },
             {
               "kind": "field",
               "name": "type",
+              "privacy": "public",
+              "description": "The type of input",
               "type": {
                 "text": "string"
               },
               "default": "'text'",
-              "privacy": "public",
-              "description": "The type of input",
               "attribute": "type"
             },
             {
               "kind": "field",
               "name": "value",
+              "privacy": "public",
+              "description": "The input's value",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "privacy": "public",
-              "description": "The input's value",
               "attribute": "value"
             },
             {
               "kind": "field",
               "name": "status",
+              "privacy": "public",
+              "description": "The status of the input",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
-              "privacy": "public",
-              "description": "The status of the input",
               "attribute": "status",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "iconSize",
+              "privacy": "public",
+              "description": "Size of the icons",
               "type": {
                 "text": "number"
               },
               "default": "20",
-              "privacy": "public",
-              "description": "Size of the icons",
               "attribute": "iconSize"
             },
             {
               "kind": "field",
               "name": "validateOnBlur",
+              "privacy": "public",
+              "description": "Activates validation on blur",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Activates validation on blur",
               "attribute": "validate-on-blur"
             },
             {
               "kind": "field",
               "name": "isPasswordVisible",
+              "privacy": "public",
+              "description": "Manages password visibility",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Manages password visibility",
               "attribute": "isPasswordVisible"
             },
             {
               "kind": "field",
               "name": "focused",
+              "privacy": "public",
+              "description": "Determines if the input is focused",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines if the input is focused",
               "attribute": "focused",
               "reflects": true
             },
@@ -3185,6 +3373,10 @@
             {
               "name": "name",
               "description": "The name of the input",
+              "type": {
+                "text": "string"
+              },
+              "default": "'input'",
               "fieldName": "name"
             },
             {
@@ -3255,11 +3447,19 @@
             {
               "name": "type",
               "description": "The type of input",
+              "type": {
+                "text": "string"
+              },
+              "default": "'text'",
               "fieldName": "type"
             },
             {
               "name": "value",
               "description": "The input's value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
               "fieldName": "value"
             },
             {
@@ -3270,11 +3470,19 @@
             {
               "name": "status",
               "description": "The status of the input",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
               "fieldName": "status"
             },
             {
               "name": "validate-on-blur",
               "description": "Activates validation on blur",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "validateOnBlur"
             },
             {
@@ -3315,6 +3523,10 @@
             {
               "name": "iconSize",
               "description": "Size of the icons",
+              "type": {
+                "text": "number"
+              },
+              "default": "20",
               "fieldName": "iconSize"
             },
             {
@@ -3325,6 +3537,10 @@
             {
               "name": "isPasswordVisible",
               "description": "Manages password visibility",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "isPasswordVisible"
             },
             {
@@ -3335,6 +3551,10 @@
             {
               "name": "focused",
               "description": "Determines if the input is focused",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "focused"
             }
           ],
@@ -3440,32 +3660,32 @@
             {
               "kind": "field",
               "name": "opened",
+              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "closeOnClick",
+              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
               "attribute": "close-on-click"
             },
             {
               "kind": "field",
               "name": "breakpoint",
+              "privacy": "public",
               "type": {
                 "text": "string"
               },
               "default": "'600px'",
-              "privacy": "public",
               "attribute": "breakpoint"
             },
             {
@@ -3502,6 +3722,10 @@
           "attributes": [
             {
               "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "opened"
             },
             {
@@ -3510,10 +3734,18 @@
             },
             {
               "name": "close-on-click",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "closeOnClick"
             },
             {
               "name": "breakpoint",
+              "type": {
+                "text": "string"
+              },
+              "default": "'600px'",
               "fieldName": "breakpoint"
             },
             {
@@ -3650,43 +3882,43 @@
             {
               "kind": "field",
               "name": "rules",
+              "privacy": "public",
+              "description": "An array of objects containing the rules the password must meet",
               "type": {
                 "text": "array"
               },
               "default": "[\n      { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n      { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n      { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n    ]",
-              "privacy": "public",
-              "description": "An array of objects containing the rules the password must meet",
               "attribute": "rules"
             },
             {
               "kind": "field",
               "name": "message",
+              "privacy": "public",
+              "description": "A message that is above the rules",
               "type": {
                 "text": "string"
               },
               "default": "'Please make sure you meet all the requirements.'",
-              "privacy": "public",
-              "description": "A message that is above the rules",
               "attribute": "message"
             },
             {
               "kind": "field",
               "name": "icon",
+              "privacy": "public",
               "type": {
                 "text": "string"
               },
               "default": "'check2'",
-              "privacy": "public",
               "attribute": "icon"
             },
             {
               "kind": "field",
               "name": "iconSize",
+              "privacy": "public",
               "type": {
                 "text": "number"
               },
               "default": "16",
-              "privacy": "public",
               "attribute": "iconSize"
             },
             {
@@ -3725,6 +3957,10 @@
             {
               "name": "rules",
               "description": "An array of objects containing the rules the password must meet",
+              "type": {
+                "text": "array"
+              },
+              "default": "[\n      { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n      { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n      { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n    ]",
               "fieldName": "rules"
             },
             {
@@ -3740,6 +3976,10 @@
             {
               "name": "message",
               "description": "A message that is above the rules",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Please make sure you meet all the requirements.'",
               "fieldName": "message"
             },
             {
@@ -3749,10 +3989,18 @@
             },
             {
               "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'check2'",
               "fieldName": "icon"
             },
             {
               "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
               "fieldName": "iconSize"
             }
           ],
@@ -4021,92 +4269,92 @@
             {
               "kind": "field",
               "name": "opened",
+              "privacy": "public",
+              "description": "Determines whether or not the popover displays.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines whether or not the popover displays.",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "effect",
+              "privacy": "public",
+              "description": "The opening and closing effect of the popover. Is optional.\nValues include:\n(fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
               "type": {
                 "text": "null"
               },
               "default": "null",
-              "privacy": "public",
-              "description": "The opening and closing effect of the popover. Is optional.\nValues include:\n(fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
               "attribute": "effect",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "position",
+              "privacy": "public",
+              "description": "Determines the placement of the popover.\nValues include: (top | right | bottom | left)",
               "type": {
                 "text": "string"
               },
               "default": "'top'",
-              "privacy": "public",
-              "description": "Determines the placement of the popover.\nValues include: (top | right | bottom | left)",
               "attribute": "position",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "tooltip",
+              "privacy": "public",
+              "description": "Adds a built in tooltip to the popover.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Adds a built in tooltip to the popover.",
               "attribute": "tooltip"
             },
             {
               "kind": "field",
               "name": "customTooltip",
+              "privacy": "public",
+              "description": "Adds a custom tooltip to the popover.\nUse the custom-tooltip slot to specify the custom tooltip.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Adds a custom tooltip to the popover.\nUse the custom-tooltip slot to specify the custom tooltip.",
               "attribute": "custom-tooltip"
             },
             {
               "kind": "field",
               "name": "fireOn",
+              "privacy": "public",
+              "description": "Controls how the trigger should activate the popover.\nValues include: (click | hover)",
               "type": {
                 "text": "string"
               },
               "default": "'hover'",
-              "privacy": "public",
-              "description": "Controls how the trigger should activate the popover.\nValues include: (click | hover)",
               "attribute": "fire-on"
             },
             {
               "kind": "field",
               "name": "clickOutside",
+              "privacy": "public",
+              "description": "Allows the popover to be closed by clicking outside of its content.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Allows the popover to be closed by clicking outside of its content.",
               "attribute": "click-outside"
             },
             {
               "kind": "field",
               "name": "smart",
+              "privacy": "public",
+              "description": "Intelligently positions the popover.",
               "type": {
                 "text": "boolean"
               },
               "default": "true",
-              "privacy": "public",
-              "description": "Intelligently positions the popover.",
               "attribute": "smart"
             }
           ],
@@ -4130,41 +4378,73 @@
             {
               "name": "opened",
               "description": "Determines whether or not the popover displays.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "opened"
             },
             {
               "name": "effect",
               "description": "The opening and closing effect of the popover. Is optional.\nValues include:\n(fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
+              "type": {
+                "text": "null"
+              },
+              "default": "null",
               "fieldName": "effect"
             },
             {
               "name": "position",
               "description": "Determines the placement of the popover.\nValues include: (top | right | bottom | left)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'top'",
               "fieldName": "position"
             },
             {
               "name": "tooltip",
               "description": "Adds a built in tooltip to the popover.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "tooltip"
             },
             {
               "name": "custom-tooltip",
               "description": "Adds a custom tooltip to the popover.\nUse the custom-tooltip slot to specify the custom tooltip.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "customTooltip"
             },
             {
               "name": "fire-on",
               "description": "Controls how the trigger should activate the popover.\nValues include: (click | hover)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'hover'",
               "fieldName": "fireOn"
             },
             {
               "name": "click-outside",
               "description": "Allows the popover to be closed by clicking outside of its content.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "clickOutside"
             },
             {
               "name": "smart",
               "description": "Intelligently positions the popover.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
               "fieldName": "smart"
             }
           ],
@@ -4265,12 +4545,12 @@
             {
               "kind": "field",
               "name": "label",
+              "privacy": "public",
+              "description": "The text next to the radio button",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "privacy": "public",
-              "description": "The text next to the radio button",
               "attribute": "label"
             },
             {
@@ -4283,12 +4563,12 @@
             {
               "kind": "field",
               "name": "disabled",
+              "privacy": "public",
+              "description": "Determines if the button should be disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines if the button should be disabled",
               "attribute": "disabled",
               "reflects": true
             },
@@ -4337,6 +4617,10 @@
             {
               "name": "label",
               "description": "The text next to the radio button",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
               "fieldName": "label"
             },
             {
@@ -4357,6 +4641,10 @@
             {
               "name": "disabled",
               "description": "Determines if the button should be disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "disabled"
             },
             {
@@ -4439,46 +4727,46 @@
             {
               "kind": "field",
               "name": "legend",
+              "privacy": "public",
+              "description": "The legend text for the fieldset",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "privacy": "public",
-              "description": "The legend text for the fieldset",
               "attribute": "legend"
             },
             {
               "kind": "field",
               "name": "axis",
+              "privacy": "public",
+              "description": "The direction of the button's layout",
               "type": {
                 "text": "string"
               },
               "default": "'horizontal'",
-              "privacy": "public",
-              "description": "The direction of the button's layout",
               "attribute": "axis",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "name",
+              "privacy": "public",
+              "description": "The name of the radio button set",
               "type": {
                 "text": "string"
               },
               "default": "'radios'",
-              "privacy": "public",
-              "description": "The name of the radio button set",
               "attribute": "name"
             },
             {
               "kind": "field",
               "name": "status",
+              "privacy": "public",
+              "description": "The status of the radio button set",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
-              "privacy": "public",
-              "description": "The status of the radio button set",
               "attribute": "status",
               "reflects": true
             },
@@ -4523,11 +4811,19 @@
             {
               "name": "legend",
               "description": "The legend text for the fieldset",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
               "fieldName": "legend"
             },
             {
               "name": "axis",
               "description": "The direction of the button's layout",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
               "fieldName": "axis"
             },
             {
@@ -4538,11 +4834,19 @@
             {
               "name": "name",
               "description": "The name of the radio button set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'radios'",
               "fieldName": "name"
             },
             {
               "name": "status",
               "description": "The status of the radio button set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
               "fieldName": "status"
             },
             {
@@ -4607,68 +4911,68 @@
             {
               "kind": "field",
               "name": "activeSlide",
+              "privacy": "public",
+              "description": "The index number for the current slide.",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "The index number for the current slide.",
               "attribute": "activeSlide"
             },
             {
               "kind": "field",
               "name": "messages",
+              "privacy": "public",
+              "description": "Text in the rotator. Supports HTML.",
               "type": {
                 "text": "array"
               },
               "default": "[]",
-              "privacy": "public",
-              "description": "Text in the rotator. Supports HTML.",
               "attribute": "messages"
             },
             {
               "kind": "field",
               "name": "effect",
+              "privacy": "public",
+              "description": "The transition effect type.",
               "type": {
                 "text": "string"
               },
               "default": "'fade'",
-              "privacy": "public",
-              "description": "The transition effect type.",
               "attribute": "effect",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "rotationSpeed",
+              "privacy": "public",
+              "description": "How fast, in seconds, each slide lasts. Stop the rotator with 0.",
               "type": {
                 "text": "number"
               },
               "default": "3",
-              "privacy": "public",
-              "description": "How fast, in seconds, each slide lasts. Stop the rotator with 0.",
               "attribute": "rotation-speed"
             },
             {
               "kind": "field",
               "name": "width",
+              "privacy": "public",
+              "description": "The width of the rotator block.",
               "type": {
                 "text": "string"
               },
               "default": "'auto'",
-              "privacy": "public",
-              "description": "The width of the rotator block.",
               "attribute": "width"
             },
             {
               "kind": "field",
               "name": "height",
+              "privacy": "public",
+              "description": "The height of the rotator block.",
               "type": {
                 "text": "string"
               },
               "default": "'auto'",
-              "privacy": "public",
-              "description": "The height of the rotator block.",
               "attribute": "height"
             }
           ],
@@ -4676,31 +4980,55 @@
             {
               "name": "activeSlide",
               "description": "The index number for the current slide.",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "activeSlide"
             },
             {
               "name": "width",
               "description": "The width of the rotator block.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
               "fieldName": "width"
             },
             {
               "name": "height",
               "description": "The height of the rotator block.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
               "fieldName": "height"
             },
             {
               "name": "messages",
               "description": "Text in the rotator. Supports HTML.",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
               "fieldName": "messages"
             },
             {
               "name": "effect",
               "description": "The transition effect type.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'fade'",
               "fieldName": "effect"
             },
             {
               "name": "rotation-speed",
               "description": "How fast, in seconds, each slide lasts. Stop the rotator with 0.",
+              "type": {
+                "text": "number"
+              },
+              "default": "3",
               "fieldName": "rotationSpeed"
             }
           ],
@@ -4770,24 +5098,24 @@
             {
               "kind": "field",
               "name": "xOffset",
+              "privacy": "public",
+              "description": "Allows the horizontal scrolling to stop short of the given value.",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "Allows the horizontal scrolling to stop short of the given value.",
               "attribute": "x-offset",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "yOffset",
+              "privacy": "public",
+              "description": "Allows the vertical scrolling to stop short of the given value.",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "Allows the vertical scrolling to stop short of the given value.",
               "attribute": "y-offset",
               "reflects": true
             }
@@ -4806,11 +5134,19 @@
             {
               "name": "x-offset",
               "description": "Allows the horizontal scrolling to stop short of the given value.",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "xOffset"
             },
             {
               "name": "y-offset",
               "description": "Allows the vertical scrolling to stop short of the given value.",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "yOffset"
             }
           ],
@@ -4865,36 +5201,36 @@
             {
               "kind": "field",
               "name": "effect",
+              "privacy": "public",
+              "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
               "type": {
                 "text": "string"
               },
               "default": "'sticky'",
-              "privacy": "public",
-              "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
               "attribute": "effect",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "transform",
+              "privacy": "public",
+              "description": "Whether or not the nav has shifted into a new state.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Whether or not the nav has shifted into a new state.",
               "attribute": "transform",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "offset",
+              "privacy": "public",
+              "description": "Allows for an arbitrary adjustment of the transform point in pixels.\nWorks with negative values.",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "Allows for an arbitrary adjustment of the transform point in pixels.\nWorks with negative values.",
               "attribute": "offset"
             }
           ],
@@ -4902,16 +5238,28 @@
             {
               "name": "effect",
               "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'sticky'",
               "fieldName": "effect"
             },
             {
               "name": "transform",
               "description": "Whether or not the nav has shifted into a new state.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "transform"
             },
             {
               "name": "offset",
               "description": "Allows for an arbitrary adjustment of the transform point in pixels.\nWorks with negative values.",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "offset"
             }
           ],
@@ -4991,68 +5339,68 @@
             {
               "kind": "field",
               "name": "slides",
+              "privacy": "public",
+              "description": "Information about each slide.",
               "type": {
                 "text": "array"
               },
               "default": "[]",
-              "privacy": "public",
-              "description": "Information about each slide.",
               "attribute": "slides"
             },
             {
               "kind": "field",
               "name": "icon",
+              "privacy": "public",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
               "type": {
                 "text": "string"
               },
               "default": "'circle-fill'",
-              "privacy": "public",
-              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
               "attribute": "icon"
             },
             {
               "kind": "field",
               "name": "size",
+              "privacy": "public",
+              "description": "The size in pixels of the icons.",
               "type": {
                 "text": "number"
               },
               "default": "16",
-              "privacy": "public",
-              "description": "The size in pixels of the icons.",
               "attribute": "size"
             },
             {
               "kind": "field",
               "name": "hideFocusedLinks",
+              "privacy": "public",
+              "description": "Will hide inactive pagination items if set to true.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Will hide inactive pagination items if set to true.",
               "attribute": "hide-focused-links"
             },
             {
               "kind": "field",
               "name": "useNumberPages",
+              "privacy": "public",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
               "attribute": "use-number-pages",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "useLabelPages",
+              "privacy": "public",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on\nthe slide.",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "If set to true, the pages in the pagination iterator will appear as the label set on\nthe slide.",
               "attribute": "use-label-pages",
               "reflects": true
             },
@@ -5078,16 +5426,28 @@
             {
               "name": "slides",
               "description": "Information about each slide.",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
               "fieldName": "slides"
             },
             {
               "name": "icon",
               "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'circle-fill'",
               "fieldName": "icon"
             },
             {
               "name": "size",
               "description": "The size in pixels of the icons.",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
               "fieldName": "size"
             },
             {
@@ -5098,16 +5458,28 @@
             {
               "name": "hide-focused-links",
               "description": "Will hide inactive pagination items if set to true.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "hideFocusedLinks"
             },
             {
               "name": "use-number-pages",
               "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "useNumberPages"
             },
             {
               "name": "use-label-pages",
               "description": "If set to true, the pages in the pagination iterator will appear as the label set on\nthe slide.",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "useLabelPages"
             }
           ],
@@ -5253,24 +5625,24 @@
             {
               "kind": "field",
               "name": "axis",
+              "privacy": "public",
+              "description": "Determines the direction the component flows. Values include: (horizontal|vertical)",
               "type": {
                 "text": "string"
               },
               "default": "'horizontal'",
-              "privacy": "public",
-              "description": "Determines the direction the component flows. Values include: (horizontal|vertical)",
               "attribute": "axis",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "pagination",
+              "privacy": "public",
+              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
               "type": {
                 "text": "string"
               },
               "default": "'bottom'",
-              "privacy": "public",
-              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
               "attribute": "pagination",
               "reflects": true
             }
@@ -5288,11 +5660,19 @@
             {
               "name": "axis",
               "description": "Determines the direction the component flows. Values include: (horizontal|vertical)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
               "fieldName": "axis"
             },
             {
               "name": "pagination",
               "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bottom'",
               "fieldName": "pagination"
             }
           ],
@@ -5335,12 +5715,12 @@
             {
               "kind": "field",
               "name": "value",
+              "privacy": "public",
+              "description": "The value of the options",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "privacy": "public",
-              "description": "The value of the options",
               "attribute": "value"
             },
             {
@@ -5374,6 +5754,10 @@
             {
               "name": "value",
               "description": "The value of the options",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
               "fieldName": "value"
             },
             {
@@ -5478,34 +5862,34 @@
             {
               "kind": "field",
               "name": "name",
+              "privacy": "public",
+              "description": "The name of the select",
               "type": {
                 "text": "string"
               },
               "default": "'select'",
-              "privacy": "public",
-              "description": "The name of the select",
               "attribute": "name"
             },
             {
               "kind": "field",
               "name": "icon",
+              "privacy": "public",
+              "description": "The dropdown icon",
               "type": {
                 "text": "string"
               },
               "default": "'chevron-down'",
-              "privacy": "public",
-              "description": "The dropdown icon",
               "attribute": "icon"
             },
             {
               "kind": "field",
               "name": "iconSize",
+              "privacy": "public",
+              "description": "The dropdown icon size",
               "type": {
                 "text": "number"
               },
               "default": "16",
-              "privacy": "public",
-              "description": "The dropdown icon size",
               "attribute": "icon-size"
             },
             {
@@ -5611,6 +5995,10 @@
             {
               "name": "name",
               "description": "The name of the select",
+              "type": {
+                "text": "string"
+              },
+              "default": "'select'",
               "fieldName": "name"
             },
             {
@@ -5646,11 +6034,19 @@
             {
               "name": "icon",
               "description": "The dropdown icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'chevron-down'",
               "fieldName": "icon"
             },
             {
               "name": "icon-size",
               "description": "The dropdown icon size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
               "fieldName": "iconSize"
             },
             {
@@ -5693,6 +6089,129 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-sortable/kemet-sortable-item.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetSortableItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "ghost",
+              "privacy": "public",
+              "attribute": "ghost",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "ghost",
+              "fieldName": "ghost"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-sortable-item",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetSortableItem",
+            "module": "src/components/kemet-sortable/kemet-sortable-item.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-sortable-item",
+          "declaration": {
+            "name": "KemetSortableItem",
+            "module": "src/components/kemet-sortable/kemet-sortable-item.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-sortable/kemet-sortable.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetSortable",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleDragStart",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleDragOver",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleDragEnd",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-sortable-drag-end",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when an item has been moved to a new spot"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-sortable",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetSortable",
+            "module": "src/components/kemet-sortable/kemet-sortable.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-sortable",
+          "declaration": {
+            "name": "KemetSortable",
+            "module": "src/components/kemet-sortable/kemet-sortable.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-svgs/kemet-svg.js",
       "declarations": [
         {
@@ -5720,34 +6239,34 @@
             {
               "kind": "field",
               "name": "set",
+              "privacy": "public",
+              "description": "Defines which set of svgs is referenced.",
               "type": {
                 "text": "string"
               },
               "default": "'svgs'",
-              "privacy": "public",
-              "description": "Defines which set of svgs is referenced.",
               "attribute": "set"
             },
             {
               "kind": "field",
               "name": "ratio",
+              "privacy": "public",
+              "description": "The value for the preserveAspectRatio attribute of the svg.",
               "type": {
                 "text": "string"
               },
               "default": "'none'",
-              "privacy": "public",
-              "description": "The value for the preserveAspectRatio attribute of the svg.",
               "attribute": "ratio"
             },
             {
               "kind": "field",
               "name": "viewBox",
+              "privacy": "public",
+              "description": "The value for the viewBox attribute of the svg.",
               "type": {
                 "text": "string"
               },
               "default": "'0 0 128 128'",
-              "privacy": "public",
-              "description": "The value for the viewBox attribute of the svg.",
               "attribute": "viewBox"
             },
             {
@@ -5769,6 +6288,10 @@
             {
               "name": "set",
               "description": "Defines which set of svgs is referenced.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'svgs'",
               "fieldName": "set"
             },
             {
@@ -5784,11 +6307,19 @@
             {
               "name": "ratio",
               "description": "The value for the preserveAspectRatio attribute of the svg.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'",
               "fieldName": "ratio"
             },
             {
               "name": "viewBox",
               "description": "The value for the viewBox attribute of the svg.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0 0 128 128'",
               "fieldName": "viewBox"
             }
           ],
@@ -5835,12 +6366,12 @@
             {
               "kind": "field",
               "name": "set",
+              "privacy": "public",
+              "description": "Defines the name for the set of svgs.",
               "type": {
                 "text": "string"
               },
               "default": "'svgs'",
-              "privacy": "public",
-              "description": "Defines the name for the set of svgs.",
               "attribute": "set"
             }
           ],
@@ -5848,6 +6379,10 @@
             {
               "name": "set",
               "description": "Defines the name for the set of svgs.",
+              "type": {
+                "text": "string"
+              },
+              "default": "'svgs'",
               "fieldName": "set"
             }
           ],
@@ -5894,12 +6429,12 @@
             {
               "kind": "field",
               "name": "selected",
+              "privacy": "public",
+              "description": "Is true when a panel is selected",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Is true when a panel is selected",
               "attribute": "selected",
               "reflects": true
             },
@@ -5915,6 +6450,10 @@
             {
               "name": "selected",
               "description": "Is true when a panel is selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "selected"
             },
             {
@@ -5978,12 +6517,12 @@
             {
               "kind": "field",
               "name": "selected",
+              "privacy": "public",
+              "description": "Is true when the tab is selected",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Is true when the tab is selected",
               "attribute": "selected",
               "reflects": true
             },
@@ -6022,6 +6561,10 @@
             {
               "name": "selected",
               "description": "Is true when the tab is selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "selected"
             },
             {
@@ -6192,70 +6735,70 @@
             {
               "kind": "field",
               "name": "selectedIndex",
+              "privacy": "public",
+              "description": "The selected tab by index",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "The selected tab by index",
               "attribute": "selectedIndex"
             },
             {
               "kind": "field",
               "name": "panelPosition",
+              "privacy": "public",
+              "description": "Positions the current panel",
               "type": {
                 "text": "number"
               },
               "default": "0",
-              "privacy": "public",
-              "description": "Positions the current panel",
               "attribute": "panelPosition"
             },
             {
               "kind": "field",
               "name": "panelEffect",
+              "privacy": "public",
+              "description": "The transition effect for panels",
               "type": {
                 "text": "string"
               },
               "default": "'none'",
-              "privacy": "public",
-              "description": "The transition effect for panels",
               "attribute": "panel-effect",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "placement",
+              "privacy": "public",
+              "description": "Places the tabs to the top, right, bottom, or left",
               "type": {
                 "text": "string"
               },
               "default": "'top'",
-              "privacy": "public",
-              "description": "Places the tabs to the top, right, bottom, or left",
               "attribute": "placement",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "tabsAlign",
+              "privacy": "public",
+              "description": "Spacing alignment of the tabs",
               "type": {
                 "text": "string"
               },
               "default": "'center'",
-              "privacy": "public",
-              "description": "Spacing alignment of the tabs",
               "attribute": "tabs-align",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "hideInk",
+              "privacy": "public",
+              "description": "Determines whether or not to hide the ink",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines whether or not to hide the ink",
               "attribute": "hide-ink"
             },
             {
@@ -6305,16 +6848,28 @@
             {
               "name": "selectedIndex",
               "description": "The selected tab by index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "selectedIndex"
             },
             {
               "name": "panelPosition",
               "description": "Positions the current panel",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
               "fieldName": "panelPosition"
             },
             {
               "name": "panel-effect",
               "description": "The transition effect for panels",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'",
               "fieldName": "panelEffect"
             },
             {
@@ -6325,6 +6880,10 @@
             {
               "name": "placement",
               "description": "Places the tabs to the top, right, bottom, or left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'top'",
               "fieldName": "placement"
             },
             {
@@ -6335,6 +6894,10 @@
             {
               "name": "tabs-align",
               "description": "Spacing alignment of the tabs",
+              "type": {
+                "text": "string"
+              },
+              "default": "'center'",
               "fieldName": "tabsAlign"
             },
             {
@@ -6345,6 +6908,10 @@
             {
               "name": "hide-ink",
               "description": "Determines whether or not to hide the ink",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "hideInk"
             },
             {
@@ -6471,57 +7038,57 @@
             {
               "kind": "field",
               "name": "slug",
+              "privacy": "public",
+              "description": "Used for the id of the input",
               "type": {
                 "text": "string"
               },
               "default": "'textarea'",
-              "privacy": "public",
-              "description": "Used for the id of the input",
               "attribute": "slug"
             },
             {
               "kind": "field",
               "name": "name",
+              "privacy": "public",
+              "description": "The name of the input",
               "type": {
                 "text": "string"
               },
               "default": "'textarea'",
-              "privacy": "public",
-              "description": "The name of the input",
               "attribute": "name"
             },
             {
               "kind": "field",
               "name": "value",
+              "privacy": "public",
+              "description": "The input's value",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "privacy": "public",
-              "description": "The input's value",
               "attribute": "value"
             },
             {
               "kind": "field",
               "name": "status",
+              "privacy": "public",
+              "description": "The status of the input",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
-              "privacy": "public",
-              "description": "The status of the input",
               "attribute": "status",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "rows",
+              "privacy": "public",
+              "description": "The rows of the textarea",
               "type": {
                 "text": "number"
               },
               "default": "4",
-              "privacy": "public",
-              "description": "The rows of the textarea",
               "attribute": "rows"
             },
             {
@@ -6647,11 +7214,19 @@
             {
               "name": "slug",
               "description": "Used for the id of the input",
+              "type": {
+                "text": "string"
+              },
+              "default": "'textarea'",
               "fieldName": "slug"
             },
             {
               "name": "name",
               "description": "The name of the input",
+              "type": {
+                "text": "string"
+              },
+              "default": "'textarea'",
               "fieldName": "name"
             },
             {
@@ -6697,6 +7272,10 @@
             {
               "name": "value",
               "description": "The input's value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
               "fieldName": "value"
             },
             {
@@ -6707,11 +7286,19 @@
             {
               "name": "status",
               "description": "The status of the input",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
               "fieldName": "status"
             },
             {
               "name": "rows",
               "description": "The rows of the textarea",
+              "type": {
+                "text": "number"
+              },
+              "default": "4",
               "fieldName": "rows"
             },
             {
@@ -6781,90 +7368,90 @@
             {
               "kind": "field",
               "name": "name",
+              "privacy": "public",
+              "description": "The name on the input field",
               "type": {
                 "text": "string"
               },
               "default": "'toggle-switch'",
-              "privacy": "public",
-              "description": "The name on the input field",
               "attribute": "name"
             },
             {
               "kind": "field",
               "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether or not the toggle is disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines whether or not the toggle is disabled",
               "attribute": "disabled"
             },
             {
               "kind": "field",
               "name": "checked",
+              "privacy": "public",
+              "description": "Determines whether or not the toggle is checked",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines whether or not the toggle is checked",
               "attribute": "checked",
               "reflects": true
             },
             {
               "kind": "field",
               "name": "show",
+              "privacy": "public",
+              "description": "Determines whether or not to show text options",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Determines whether or not to show text options",
               "attribute": "show"
             },
             {
               "kind": "field",
               "name": "squared",
+              "privacy": "public",
+              "description": "Displays the toggle as squared instead of rounded",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
-              "privacy": "public",
-              "description": "Displays the toggle as squared instead of rounded",
               "attribute": "squared"
             },
             {
               "kind": "field",
               "name": "label",
+              "privacy": "public",
+              "description": "A description of the toggle's purpose",
               "type": {
                 "text": "string"
               },
               "default": "''",
-              "privacy": "public",
-              "description": "A description of the toggle's purpose",
               "attribute": "label"
             },
             {
               "kind": "field",
               "name": "optionChecked",
+              "privacy": "public",
+              "description": "The checked option text",
               "type": {
                 "text": "string"
               },
               "default": "'on'",
-              "privacy": "public",
-              "description": "The checked option text",
               "attribute": "option-checked"
             },
             {
               "kind": "field",
               "name": "optionUnchecked",
+              "privacy": "public",
+              "description": "The unchecked option text",
               "type": {
                 "text": "string"
               },
               "default": "'off'",
-              "privacy": "public",
-              "description": "The unchecked option text",
               "attribute": "option-unchecked"
             },
             {
@@ -6891,41 +7478,73 @@
             {
               "name": "name",
               "description": "The name on the input field",
+              "type": {
+                "text": "string"
+              },
+              "default": "'toggle-switch'",
               "fieldName": "name"
             },
             {
               "name": "checked",
               "description": "Determines whether or not the toggle is checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "checked"
             },
             {
               "name": "disabled",
               "description": "Determines whether or not the toggle is disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "disabled"
             },
             {
               "name": "label",
               "description": "A description of the toggle's purpose",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
               "fieldName": "label"
             },
             {
               "name": "show",
               "description": "Determines whether or not to show text options",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "show"
             },
             {
               "name": "squared",
               "description": "Displays the toggle as squared instead of rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
               "fieldName": "squared"
             },
             {
               "name": "option-checked",
               "description": "The checked option text",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
               "fieldName": "optionChecked"
             },
             {
               "name": "option-unchecked",
               "description": "The unchecked option text",
+              "type": {
+                "text": "string"
+              },
+              "default": "'off'",
               "fieldName": "optionUnchecked"
             }
           ],
@@ -6988,12 +7607,12 @@
             {
               "kind": "field",
               "name": "completedSize",
+              "privacy": "public",
+              "description": "The icon size for the completed check mark",
               "type": {
                 "text": "number"
               },
               "default": "16",
-              "privacy": "public",
-              "description": "The icon size for the completed check mark",
               "attribute": "completedSize"
             },
             {
@@ -7078,6 +7697,10 @@
             {
               "name": "completedSize",
               "description": "The icon size for the completed check mark",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
               "fieldName": "completedSize"
             }
           ],
@@ -7128,12 +7751,12 @@
             {
               "kind": "field",
               "name": "breakpoint",
+              "privacy": "public",
+              "description": "The point at which the tracker goes from mobile to standard",
               "type": {
                 "text": "string"
               },
               "default": "'767px'",
-              "privacy": "public",
-              "description": "The point at which the tracker goes from mobile to standard",
               "attribute": "breakpoint"
             },
             {
@@ -7153,6 +7776,10 @@
             {
               "name": "breakpoint",
               "description": "The point at which the tracker goes from mobile to standard",
+              "type": {
+                "text": "string"
+              },
+              "default": "'767px'",
               "fieldName": "breakpoint"
             }
           ],
@@ -7179,6 +7806,413 @@
           "declaration": {
             "name": "KemetTracker",
             "module": "src/components/kemet-tracker/kemet-tracker.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-upload/kemet-upload-file.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetUploadFile",
+          "members": [
+            {
+              "kind": "method",
+              "name": "calculatePercent"
+            },
+            {
+              "kind": "method",
+              "name": "getStatusIcon"
+            },
+            {
+              "kind": "field",
+              "name": "loaded",
+              "privacy": "public",
+              "description": "The number of bytes loaded",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "attribute": "loaded"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "description": "The file size in bytes",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "percent",
+              "privacy": "public",
+              "description": "A percentage of file completion that's calculated by the loaded property",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "attribute": "percent"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "description": "The name of the file",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "privacy": "public",
+              "description": "The file type",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "privacy": "public",
+              "description": "The status of the file. Values are complete | uploading | error.",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "privacy": "public",
+              "description": "An error message to give to users",
+              "attribute": "message"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "description": "The name of the file",
+              "fieldName": "name"
+            },
+            {
+              "name": "loaded",
+              "description": "The number of bytes loaded",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "loaded"
+            },
+            {
+              "name": "size",
+              "description": "The file size in bytes",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "size"
+            },
+            {
+              "name": "type",
+              "description": "The file type",
+              "fieldName": "type"
+            },
+            {
+              "name": "status",
+              "description": "The status of the file. Values are complete | uploading | error.",
+              "fieldName": "status"
+            },
+            {
+              "name": "percent",
+              "description": "A percentage of file completion that's calculated by the loaded property",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "percent"
+            },
+            {
+              "name": "message",
+              "description": "An error message to give to users",
+              "fieldName": "message"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-upload-file",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetUploadFile",
+            "module": "src/components/kemet-upload/kemet-upload-file.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-upload-file",
+          "declaration": {
+            "name": "KemetUploadFile",
+            "module": "src/components/kemet-upload/kemet-upload-file.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-upload/kemet-upload-file.loaders.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "stylesLoaders",
+          "default": "css`\n  .lds-ripple {\n    display: inline-block;\n    position: relative;\n    width: 80px;\n    height: 80px;\n  }\n\n  .lds-ripple div {\n    position: absolute;\n    border: 4px solid var(--kemet-upload-file-ripple-color);\n    opacity: 1;\n    border-radius: 50%;\n    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;\n  }\n\n  .lds-ripple div:nth-child(2) {\n    animation-delay: -0.5s;\n  }\n\n  @keyframes lds-ripple {\n    0% {\n      top: 36px;\n      left: 36px;\n      width: 0;\n      height: 0;\n      opacity: 0;\n    }\n    4.9% {\n      top: 36px;\n      left: 36px;\n      width: 0;\n      height: 0;\n      opacity: 0;\n    }\n    5% {\n      top: 36px;\n      left: 36px;\n      width: 0;\n      height: 0;\n      opacity: 1;\n    }\n    100% {\n      top: 0px;\n      left: 0px;\n      width: 72px;\n      height: 72px;\n      opacity: 0;\n    }\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "stylesLoaders",
+          "declaration": {
+            "name": "stylesLoaders",
+            "module": "src/components/kemet-upload/kemet-upload-file.loaders.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-upload/kemet-upload.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetUpload",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleDrop",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "isMobile"
+            },
+            {
+              "kind": "method",
+              "name": "hasDragDrop"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "privacy": "public",
+              "description": "A unique identifier for the component",
+              "type": {
+                "text": "string"
+              },
+              "default": "'upload'",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "breakpoint",
+              "privacy": "public",
+              "description": "Controls the point at which the component is considered mobile",
+              "type": {
+                "text": "string"
+              },
+              "default": "'600px'",
+              "attribute": "breakpoint",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "buttonLabel",
+              "privacy": "public",
+              "description": "The browse files button text",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Browse Files'",
+              "attribute": "button-label"
+            },
+            {
+              "kind": "field",
+              "name": "heading",
+              "privacy": "public",
+              "description": "Descriptive text for the upload area",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Drag & Drop Files'",
+              "attribute": "heading"
+            },
+            {
+              "kind": "field",
+              "name": "accept",
+              "privacy": "public",
+              "description": "Determines what file types are accepted",
+              "attribute": "accept"
+            },
+            {
+              "kind": "field",
+              "name": "multiple",
+              "privacy": "public",
+              "description": "Allows for multiple files",
+              "attribute": "multiple"
+            },
+            {
+              "kind": "field",
+              "name": "over",
+              "privacy": "public",
+              "description": "Automatically is true when a file is being dragged over the upload area",
+              "attribute": "over",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "privacy": "public",
+              "description": "Displays the component in a mobile context",
+              "attribute": "mobile",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "noDragDrop",
+              "privacy": "public",
+              "description": "If true if drag and drop support is not detected",
+              "attribute": "no-drag-drop",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "maxSize",
+              "privacy": "public",
+              "description": "The maximum file size for uploads",
+              "attribute": "max-size"
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-upload-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when files have been added"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slug",
+              "description": "A unique identifier for the component",
+              "type": {
+                "text": "string"
+              },
+              "default": "'upload'",
+              "fieldName": "slug"
+            },
+            {
+              "name": "accept",
+              "description": "Determines what file types are accepted",
+              "fieldName": "accept"
+            },
+            {
+              "name": "multiple",
+              "description": "Allows for multiple files",
+              "fieldName": "multiple"
+            },
+            {
+              "name": "over",
+              "description": "Automatically is true when a file is being dragged over the upload area",
+              "fieldName": "over"
+            },
+            {
+              "name": "heading",
+              "description": "Descriptive text for the upload area",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Drag & Drop Files'",
+              "fieldName": "heading"
+            },
+            {
+              "name": "mobile",
+              "description": "Displays the component in a mobile context",
+              "fieldName": "mobile"
+            },
+            {
+              "name": "breakpoint",
+              "description": "Controls the point at which the component is considered mobile",
+              "type": {
+                "text": "string"
+              },
+              "default": "'600px'",
+              "fieldName": "breakpoint"
+            },
+            {
+              "name": "no-drag-drop",
+              "description": "If true if drag and drop support is not detected",
+              "fieldName": "noDragDrop"
+            },
+            {
+              "name": "max-size",
+              "description": "The maximum file size for uploads",
+              "fieldName": "maxSize"
+            },
+            {
+              "name": "button-label",
+              "description": "The browse files button text",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Browse Files'",
+              "fieldName": "buttonLabel"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-upload",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetUpload",
+            "module": "src/components/kemet-upload/kemet-upload.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-upload",
+          "declaration": {
+            "name": "KemetUpload",
+            "module": "src/components/kemet-upload/kemet-upload.js"
           }
         }
       ]
