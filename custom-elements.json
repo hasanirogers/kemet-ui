@@ -379,204 +379,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetButton",
-          "members": [
-            {
-              "kind": "method",
-              "name": "handleMouseOver",
-              "description": "Sets hover to true onMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut",
-              "description": "Sets hover to false onMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "description": "Handles click behavior",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles blur",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "description": "event object",
-                  "type": {
-                    "text": "object"
-                  }
-                }
-              ],
-              "description": "Handles keyup",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "privacy": "public",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "outline",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "formSubmitController",
-              "description": "Used only for form reactive controller",
-              "default": "new FormSubmitController(this)"
-            },
-            {
-              "kind": "field",
-              "name": "active",
-              "privacy": "public",
-              "description": "Determines whether or not the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "privacy": "public",
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "privacy": "public",
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "privacy": "public",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "description": "Determines whether or not the button is active",
-              "fieldName": "active"
-            },
-            {
-              "name": "hover",
-              "description": "Is true when the button is hovered",
-              "fieldName": "hover"
-            },
-            {
-              "name": "focused",
-              "description": "Is true when the button is focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "link",
-              "description": "The url a button should link too",
-              "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "description": "Determines whether not a button is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "type",
-              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "fieldName": "type"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-button",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-carousel/kemet-carousel-current.js",
       "declarations": [
         {
@@ -1414,6 +1216,204 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-button/kemet-button.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetButton",
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleMouseOver",
+              "description": "Sets hover to true onMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut",
+              "description": "Sets hover to false onMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "description": "Handles click behavior",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles blur",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "description": "event object",
+                  "type": {
+                    "text": "object"
+                  }
+                }
+              ],
+              "description": "Handles keyup",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "privacy": "public",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "outline",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "formSubmitController",
+              "description": "Used only for form reactive controller",
+              "default": "new FormSubmitController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "description": "Determines whether or not the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "privacy": "public",
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "privacy": "public",
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "privacy": "public",
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "privacy": "public",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "description": "Determines whether or not the button is active",
+              "fieldName": "active"
+            },
+            {
+              "name": "hover",
+              "description": "Is true when the button is hovered",
+              "fieldName": "hover"
+            },
+            {
+              "name": "focused",
+              "description": "Is true when the button is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "link",
+              "description": "The url a button should link too",
+              "fieldName": "link"
+            },
+            {
+              "name": "outlined",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "type",
+              "description": "Controls the type of button\nstandard | text | circle | rounded | pill",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-button",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-checkbox/kemet-checkbox.js",
       "declarations": [
         {
@@ -1691,6 +1691,151 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-combo/kemet-combo.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCombo",
+          "members": [
+            {
+              "kind": "method",
+              "name": "makeOptions"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleSelection",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleOptionKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInputKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "privacy": "public",
+              "description": "An array of items listed for the combo box",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "attribute": "options"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "privacy": "public",
+              "description": "Uniquely identifies the component. Should match the slug used in a control.",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "filteredOptions",
+              "privacy": "public",
+              "description": "Used internally",
+              "attribute": "filteredOptions"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "privacy": "public",
+              "description": "Controls the display of the combo box",
+              "attribute": "show",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-combo-selection",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Fires when a selection has been made"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slug",
+              "description": "Uniquely identifies the component. Should match the slug used in a control.",
+              "fieldName": "slug"
+            },
+            {
+              "name": "options",
+              "description": "An array of items listed for the combo box",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "fieldName": "options"
+            },
+            {
+              "name": "filteredOptions",
+              "description": "Used internally",
+              "fieldName": "filteredOptions"
+            },
+            {
+              "name": "show",
+              "description": "Controls the display of the combo box",
+              "fieldName": "show"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-combo",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCombo",
+            "module": "src/components/kemet-combo/kemet-combo.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-combo",
+          "declaration": {
+            "name": "KemetCombo",
+            "module": "src/components/kemet-combo/kemet-combo.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-count/kemet-count.js",
       "declarations": [
         {
@@ -1781,143 +1926,6 @@
           "declaration": {
             "name": "KemetCount",
             "module": "src/components/kemet-count/kemet-count.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-combo/kemet-combo.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCombo",
-          "members": [
-            {
-              "kind": "method",
-              "name": "makeOptions"
-            },
-            {
-              "kind": "method",
-              "name": "handleInput",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleSelection",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleOptionKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleInputKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "description": "Uniquely identifies the component. Should match the slug used in a control.",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "options",
-              "privacy": "public",
-              "description": "An array of items listed for the combo box",
-              "attribute": "options"
-            },
-            {
-              "kind": "field",
-              "name": "filteredOptions",
-              "privacy": "public",
-              "description": "Used internally",
-              "attribute": "filteredOptions"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "privacy": "public",
-              "description": "Controls the display of the combo box",
-              "attribute": "show",
-              "reflects": true
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-combo-selection",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Fires when a selection has been made"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "slug",
-              "description": "Uniquely identifies the component. Should match the slug used in a control.",
-              "fieldName": "slug"
-            },
-            {
-              "name": "options",
-              "description": "An array of items listed for the combo box",
-              "fieldName": "options"
-            },
-            {
-              "name": "filteredOptions",
-              "description": "Used internally",
-              "fieldName": "filteredOptions"
-            },
-            {
-              "name": "show",
-              "description": "Controls the display of the combo box",
-              "fieldName": "show"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-combo",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-combo",
-          "declaration": {
-            "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.js"
           }
         }
       ]

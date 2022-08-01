@@ -78,6 +78,11 @@ export default class KemetCombo extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+    this.options = [];
+  }
+
   firstUpdated() {
     // standard properties
     this.field = this.closest('kemet-field');
@@ -111,7 +116,7 @@ export default class KemetCombo extends LitElement {
   makeOptions() {
     if (this.input) {
       this.filteredOptions = this.options.filter(
-        option => option.toLowerCase().indexOf(this.input.value.toLowerCase()) !== -1,
+        option => option.toLowerCase().indexOf(this.input.value?.toLowerCase()) !== -1,
       );
 
       const options = this.filteredOptions.map(
