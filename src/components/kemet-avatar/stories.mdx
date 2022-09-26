@@ -1,0 +1,77 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories.js';
+import './kemet-avatar.js';
+import './kemet-avatars.js';
+
+<Meta title="Components/Avatar" component="kemet-avatar" />
+
+# Kemet Avatar
+
+A representation of a person or thing.
+
+
+## How to use
+
+```html
+<kemet-avatar initials="KU"></kemet-avatar>
+```
+
+## How to import
+
+<br />
+
+### JavaScript
+```javascript
+import 'kemet-ui/dist/components/kemet-avatar/kemet-avatar.js';
+import 'kemet-ui/dist/components/kemet-avatar/kemet-avatars.js';
+```
+
+### HTML
+```html
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-avatar/kemet-avatar.js" type="module"></script>
+<script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-avatar/kemet-avatars.js" type="module"></script>
+```
+
+## Stories
+
+<Canvas>
+  <Story name="Standard" story={stories.Standard} />
+</Canvas>
+
+<ArgsTable story="Standard" />
+
+<Canvas>
+  <Story name="Multiple" story={stories.Multiple} />
+</Canvas>
+
+<ArgsTable story="Multiple" />
+
+
+## API
+
+<br />
+
+### &lt;kemet-avatar&gt;
+<ArgsTable of="kemet-avatar" />
+
+#### CSS
+
+| css                             | description                             | default                  |
+| ------------------------------- | --------------------------------------- | ------------------------ |
+| --kemet-avatar-color            | The color of the text.                  | var(--kemet-color-white) |
+| --kemet-avatar-background-color | The color of the background.            | var(--kemet-color-gray4) |
+| --kemet-avatar-rounded-radius   | The border radius of the rounded type.  | 1rem                     |
+| --kemet-avatar-initials-margin  | The space around the initials.          | 1rem                     |
+| ::part(initials)                | The element that contains the initials. |                          |
+
+
+<br />
+
+### &lt;kemet-avatars&gt;
+
+#### CSS
+
+| css                     | description                | default                            |
+| ----------------------- | -------------------------- | ---------------------------------- |
+| --kemet-avatars-squeeze | The space between avatars. | -1.5rem                            |
+| --kemet-avatars-border  | The border on each avatar. | 4px solid var(--kemet-color-white) |

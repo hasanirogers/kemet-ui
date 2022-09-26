@@ -166,7 +166,7 @@ export default class KemetField extends LitElement {
   render() {
     return html`
       <label for="${this.slug}" id="${this.slug}-label" part="label">
-        <span>${this.label}${this.makeStatusIcon()}</span>
+        <span part="text">${this.label}${this.makeStatusIcon()}</span>
         <slot name="input"></slot>
       </label>
       ${this.makeStatusMessage()}
