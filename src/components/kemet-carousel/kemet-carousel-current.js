@@ -1,5 +1,17 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ *
+ * @since 1.1.0
+ * @status stable
+ *
+ * @tagname kemet-carousel-current
+ * @summary Displays the active slide number.
+ *
+ * @prop {number} current - The current slide number.
+ *
+ */
+
 export class KemetCarouselCurrent extends LitElement {
   static get styles() {
     return [
@@ -13,9 +25,7 @@ export class KemetCarouselCurrent extends LitElement {
 
   static get properties() {
     return {
-      current: {
-        type: Number,
-      },
+      current: { type: Number },
     };
   }
 

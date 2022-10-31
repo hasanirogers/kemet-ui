@@ -1,4 +1,28 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-scroll-snap-paginator
+ * @summary The scroll snap's pagination.
+ *
+ * @prop {array} slides - Information about each slide.
+ * @prop {string} icon - A string representing which icon to use for pagination. Supports icons used in kemet-icon.
+ * @prop {number} size - The size in pixels of the icons.
+ * @prop {boolean} center - Determines whether to center the pagination items.
+ * @prop {boolean} hideFocusedLinks - Will hide inactive pagination items if set to true.
+ * @prop {boolean} useNumberPages - If set to true, the pages in the pagination iterator will appear as a set of numbers.
+ * @prop {boolean} useLabelPages - If set to true, the pages in the pagination iterator will appear as the label set on the slide.
+ *
+ * @cssproperty --kemet-scroll-snap-paginator-padding - The padding on the container. Default: 1rem 0.
+ * @cssproperty --kemet-scroll-snap-paginator-gap - The space between pagination items. Default: 0.5rem.
+ * @cssproperty --kemet-scroll-snap-paginator-link-color - The color of a linkable pagination item. Default: var(--kemet-color-primary).
+ *
+ * @event kemet-scroll-snap-focus - Fires when a set of slides are focused on.
+ *
+ */
 
 export default class KemetScrollSnapPaginator extends LitElement {
   static get styles() {
@@ -26,50 +50,28 @@ export default class KemetScrollSnapPaginator extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Information about each slide.
-       */
       slides: {
         type: Array,
       },
-      /**
-       * A string representing which icon to use for pagination. Supports icons used in kemet-icon.
-       */
       icon: {
         type: String,
       },
-      /**
-       * The size in pixels of the icons.
-       */
       size: {
         type: Number,
       },
-      /**
-       * Determines whether to center the pagination items.
-       */
       center: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Will hide inactive pagination items if set to true.
-       */
       hideFocusedLinks: {
         type: Boolean,
         attribute: 'hide-focused-links',
       },
-      /**
-       * If set to true, the pages in the pagination iterator will appear as a set of numbers.
-       */
       useNumberPages: {
         type: Boolean,
         reflect: true,
         attribute: 'use-number-pages',
       },
-      /**
-       * If set to true, the pages in the pagination iterator will appear as the label set on
-       * the slide.
-       */
       useLabelPages: {
         type: Boolean,
         reflect: true,
@@ -149,14 +151,7 @@ export default class KemetScrollSnapPaginator extends LitElement {
   }
 
   slideLink(index) {
-    /**
-     * Fires when a set of slides are focused on.
-     */
-    this.dispatchEvent(new CustomEvent('kemet-scroll-snap-focus', {
-      bubbles: true,
-      composed: true,
-      detail: index,
-    }));
+    emitEvent(this, 'kemet-scroll-snap-focus', index);
   }
 
   handleKeyboardInput(event, id) {

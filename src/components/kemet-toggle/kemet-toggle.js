@@ -1,5 +1,42 @@
 import { html, css, LitElement } from 'lit';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-toggle
+ * @summary A toggle switch for forms.
+ *
+ * @prop {string} name - The name on the input field
+ * @prop {boolean} checked - Determines whether or not the toggle is checked
+ * @prop {boolean} disabled - Determines whether or not the toggle is disabled
+ * @prop {string} label - A description of the toggle's purpose
+ * @prop {boolean} show - Determines whether or not to show text options
+ * @prop {boolean} squared - Displays the toggle as squared instead of rounded
+ * @prop {string} optionChecked - The checked option text
+ * @prop {string} optionUnchecked - The unchecked option text
+ *
+ * @csspart label - The label element.
+ * @csspart control - The control element.
+ * @csspart text - The label text.
+ * @csspart checked - The checked text.
+ * @csspart unchecked - The unchecked text.
+ *
+ * @cssproperty --kemet-toggle-width - The width of the entire toggle. Default: 3.5rem.
+ * @cssproperty --kemet-toggle-height - The height of the entire toggle. Default:2rem.
+ * @cssproperty --kemet-toggle-handle-diameter - The diameter of the handle. Default: 1.6rem.
+ * @cssproperty --kemet-toggle-track-border - The border of the track. Default: none.
+ * @cssproperty --kemet-toggle-track-color - The color of the track. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-toggle-track-shadow - The shadow on the track. Default: inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1).
+ * @cssproperty --kemet-toggle-handle-border - The border on the handle. Default: none.
+ * @cssproperty --kemet-toggle-handle-color - The color of the handle. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-toggle-handle-shadow - The shadow on the handle. Default: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2).
+ *
+ * @event kemet-toggle-change - Fires when the toggle changes state
+ *
+ */
 
 export default class KemetToggle extends LitElement {
   static get styles() {
@@ -91,53 +128,29 @@ export default class KemetToggle extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The name on the input field
-       */
       name: {
         type: String,
       },
-      /**
-       * Determines whether or not the toggle is checked
-       */
       checked: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Determines whether or not the toggle is disabled
-       */
       disabled: {
         type: Boolean,
       },
-      /**
-       * A description of the toggle's purpose
-       */
       label: {
         type: String,
       },
-      /**
-       * Determines whether or not to show text options
-       */
       show: {
         type: Boolean,
       },
-      /**
-       * Displays the toggle as squared instead of rounded
-       */
       squared: {
         type: Boolean,
       },
-      /**
-       * The checked option text
-       */
       optionChecked: {
         type: String,
         attribute: 'option-checked',
       },
-      /**
-       * The unchecked option text
-       */
       optionUnchecked: {
         type: String,
         attribute: 'option-unchecked',
@@ -158,9 +171,7 @@ export default class KemetToggle extends LitElement {
     this.optionUnchecked = 'off';
     this.value = this.checked ? this.optionChecked : this.optionUnchecked;
 
-    /**
-     * Used only for form reactive controller
-     */
+    /** @internal */
     this.formSubmitController = new FormSubmitController(this);
   }
 
@@ -191,17 +202,7 @@ export default class KemetToggle extends LitElement {
   handleChange() {
     this.checked = !this.checked;
     this.value = this.checked ? this.optionChecked : this.optionUnchecked;
-
-    /**
-     * Fires when the toggle changes state
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-toggle-change', {
-        bubbles: true,
-        composed: true,
-        detail: true,
-      }),
-    );
+    emitEvent(this, 'kemet-toggle-change', true);
   }
 
   makeUncheckedOption() {

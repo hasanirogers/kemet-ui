@@ -1,5 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { polyfill } from 'mobile-drag-drop';
+import { emitEvent } from '../../utilities/misc/events.js';
 
 const getMouseOffset = (event) => {
   const targetRect = event.target.getBoundingClientRect();
@@ -15,6 +16,16 @@ const getElementVerticalCenter = (element) => {
   const rect = element.getBoundingClientRect();
   return (rect.bottom - rect.top) / 2;
 };
+
+/**
+ * @since 1.3.0
+ * @status stable
+ *
+ * @tagname kemet-sortable
+ * @summary A list that can be sorted by drag and drop.
+ *
+ * @event kemet-sortable-drag-end - Fires when an item has been moved to a new spot.
+ */
 
 export default class KemetSortable extends LitElement {
   static get styles() {
@@ -72,20 +83,11 @@ export default class KemetSortable extends LitElement {
     event.preventDefault();
     this.sortableItem.ghost = false;
 
-    /**
-     * Fires when an item has been moved to a new spot
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-sortable-drag-end', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          event,
-          current: this.sortableItem,
-          all: this.querySelectorAll('kemet-sortable-item'),
-        },
-      }),
-    );
+    emitEvent(this, 'kemet-sortable-drag-end', {
+      event,
+      current: this.sortableItem,
+      all: this.querySelectorAll('kemet-sortable-item'),
+    });
   }
 }
 

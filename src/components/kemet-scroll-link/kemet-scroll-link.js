@@ -1,5 +1,19 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-scroll-link
+ * @summary A component that adds a smooth scrolling link to an target..
+ *
+ * @prop {object} element - A DOM element that establishes the context of scrolling.
+ * @prop {object} target - A DOM element that represents the destination of the scroll link. If no target is specified it will default to the top of the page.
+ * @prop {number} xOffset - Allows the horizontal scrolling to stop short of the given value.
+ * @prop {number} yOffset - Allows the vertical scrolling to stop short of the given value.
+ *
+ */
+
 export default class KemetScrollLink extends LitElement {
   static get styles() {
     return css`
@@ -12,30 +26,17 @@ export default class KemetScrollLink extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * A DOM element that establishes the context of scrolling.
-       */
       element: {
         type: Object,
       },
-      /**
-       * A DOM element that represents the destination of the scroll link.
-       * If no target is specified it will default to the top of the page.
-       */
       target: {
         type: Object,
       },
-      /**
-       * Allows the horizontal scrolling to stop short of the given value.
-       */
       xOffset: {
         type: Number,
         attribute: 'x-offset',
         reflect: true,
       },
-      /**
-       * Allows the vertical scrolling to stop short of the given value.
-       */
       yOffset: {
         type: Number,
         attribute: 'y-offset',
@@ -56,6 +57,7 @@ export default class KemetScrollLink extends LitElement {
 
   firstUpdated() {
     // standard properties
+    /** @internal */
     this.keyCodes = {
       ENTER: 13,
       SPACE: 32,

@@ -77,4 +77,14 @@ export const parameters = {
       },
     ],
   },
+  html: {
+    prettier: {
+      tabWidth: 2,
+      useTabs: false,
+      printWidth: 180,
+      htmlWhitespaceSensitivity: 'strict',
+    },
+    removeComments: true,
+    removeEmptyComments: true,
+  },
 };

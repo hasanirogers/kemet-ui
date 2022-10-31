@@ -3,6 +3,30 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-textarea
+ * @summary An enhanced textarea element.
+ *
+ * @csspart textarea
+ *
+ * @cssproperty --kemet-textarea-padding - The padding on the textarea. Default: 1rem.
+ * @cssproperty --kemet-textarea-border - The border of the textarea. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty --kemet-textarea-border-color-error - The border of the error state. Default: 1px solid var(--kemet-color-error).
+ * @cssproperty --kemet-textarea-border-color-success - The border of the success state. Default: 1px solid var(--kemet-color-success).
+ * @cssproperty --kemet-textarea-border-color-warning - The border of the warning state. Default: 1px solid var(--kemet-color-warning).
+ * @cssproperty --kemet-textarea-border-radius-rounded - The border radius on rounded. Default: var(--kemet-border-radius).
+ * @cssproperty --kemet-textarea-border-filled - The border on filled. Default:  none.
+ * @cssproperty --kemet-textarea-color-filled - The color on filled. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-textarea-background-color-filled - The background-color on filled. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-textarea-background-color-error - The error state background color. Default: var(--kemet-color-error).
+ * @cssproperty --kemet-textarea-background-color-success - The success state background color. Default: var(--kemet-color-success).
+ * @cssproperty --kemet-textarea-background-color-warning - The warning state background color. Default: var(--kemet-color-warning).
+ *
+ */
+
 export default class KemetTextarea extends LitElement {
   static get styles() {
     return [
@@ -76,111 +100,60 @@ export default class KemetTextarea extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Used for the id of the input
-       */
       slug: {
         type: String,
       },
-      /**
-       * The name of the input
-       */
       name: {
         type: String,
       },
-      /**
-       * The placeholder attribute
-       */
       placeholder: {
         type: String,
       },
-      /**
-       * The minlength attribute
-       */
       minlength: {
         type: String,
       },
-      /**
-       * The maxlength attribute
-       */
       maxlength: {
         type: String,
       },
-      /**
-       * The input mode attribute
-       */
       inputmode: {
         type: String,
       },
-      /**
-       * The autofocus attribute
-       */
       autofocus: {
         type: Boolean,
       },
-      /**
-       * The disable attribute
-       */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The readonly attribute
-       */
       readonly: {
         type: Boolean,
       },
-      /**
-       * The required attribute
-       */
       required: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The input's value
-       */
       value: {
         type: String,
       },
-      /**
-       * States whether or not the input is invalid
-       */
       invalid: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The status of the input
-       */
       status: {
         type: String,
         reflect: true,
       },
-      /**
-       * The rows of the textarea
-       */
       rows: {
         type: Number,
       },
-      /**
-       * Activates validation on blur
-       */
       validateOnBlur: {
         type: Boolean,
         attribute: 'validate-on-blur',
       },
-      /**
-       * Displays a filled textarea
-       */
       filled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Displays a rounded corners
-       */
       rounded: {
         type: Boolean,
         reflect: true,
@@ -198,9 +171,7 @@ export default class KemetTextarea extends LitElement {
     this.status = 'standard';
     this.rows = 4;
 
-    /**
-     * Used only for form reactive controller
-     */
+    /** @internal */
     this.formSubmitController = new FormSubmitController(this);
   }
 

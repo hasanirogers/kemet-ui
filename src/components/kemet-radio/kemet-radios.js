@@ -1,5 +1,28 @@
 import { html, css, LitElement } from 'lit';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-radios
+ * @summary A group of radio buttons.
+ *
+ * @prop {string} legend - The legend text for the fieldset
+ * @prop {string} axis - The direction of the button's layout
+ * @prop {string} value - The value of the selected radio button
+ * @prop {string} name - The name of the radio button set
+ * @prop {string} status - The status of the radio button set
+ * @prop {string} message - Validation message for the user
+ * @prop {boolean} required - Determines whether or not the radio button set is required
+ *
+ * @csspart fieldset - The fieldset element.
+ * @csspart legend - The legend element.
+ *
+ * @event kemet-radios-change - Fires when the state of the checkbox changes
+ *
+ */
 
 export default class KemetRadios extends LitElement {
   static get styles() {
@@ -49,47 +72,26 @@ export default class KemetRadios extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The legend text for the fieldset
-       */
       legend: {
         type: String,
       },
-      /**
-       * The direction of the button's layout
-       */
       axis: {
         type: String,
         reflect: true,
       },
-      /**
-       * The value of the selected radio button
-       */
       value: {
         type: String,
       },
-      /**
-       * The name of the radio button set
-       */
       name: {
         type: String,
       },
-      /**
-       * The status of the radio button set
-       */
       status: {
         type: String,
         reflect: true,
       },
-      /**
-       * Validation message for the user
-       */
       message: {
         type: String,
       },
-      /**
-       * Determines whether or not the radio button set is required
-       */
       required: {
         type: Boolean,
       },
@@ -105,9 +107,7 @@ export default class KemetRadios extends LitElement {
     this.name = 'radios';
     this.status = 'standard';
 
-    /**
-     * Used only for form reactive controller
-     */
+    /** @internal */
     this.formSubmitController = new FormSubmitController(this);
   }
 
@@ -141,16 +141,7 @@ export default class KemetRadios extends LitElement {
       this.value = target.value;
       this.status = 'standard';
 
-      /**
-       * Fires when the state of the checkbox changes
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-radios-change', {
-          bubbles: true,
-          composed: true,
-          detail: target,
-        }),
-      );
+      emitEvent(this, 'kemet-radios-change', target);
     }
   }
 

@@ -1,4 +1,23 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-count
+ * @summary Maintains a character count for a input field. Is to be used only in the component slot of a Field component.
+ *
+ * @prop {string} message - The text label shown to users
+ * @prop {number} remaining - The number of characters remaining
+ * @prop {number} limit - The maximum number of characters allowed
+ * @prop {boolean} validateImmediately - Set to true if the field should validate as soon as the character limit is reached
+ *
+ * @cssproperty --kemet-count-font-size - The font size. Default: 90%.
+ *
+ * @event kemet-count-status - Fires when there's a change in status.
+ *
+ */
 
 export default class KemetCount extends LitElement {
   static get styles() {
@@ -15,27 +34,15 @@ export default class KemetCount extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The text label shown to users
-       */
       message: {
         type: String,
       },
-      /**
-       * The number of characters remaining
-       */
       remaining: {
         type: Number,
       },
-      /**
-       * The maximum number of characters allowed
-       */
       limit: {
         type: Number,
       },
-      /**
-       * Set to true if the field should validate as soon as the character limit is reached
-       */
       validateImmediately: {
         type: Boolean,
         attribute: 'validate-immediately',
@@ -62,39 +69,21 @@ export default class KemetCount extends LitElement {
             this.inputSlot.status = 'error';
             this.inputSlot.invalid = true;
 
-            /**
-             * Fires when there's a change in status.
-             */
-            this.dispatchEvent(
-              new CustomEvent('kemet-count-status', {
-                bubbles: true,
-                composed: true,
-                detail: {
-                  status: 'error',
-                  validity: nativeElement.validity,
-                  element: this.inputSlot,
-                },
-              }),
-            );
+            emitEvent(this, 'kemet-count-status', {
+              status: 'error',
+              validity: nativeElement.validity,
+              element: this.inputSlot,
+            });
           }
         } else {
           this.inputSlot.status = 'standard';
           nativeElement.checkValidity();
 
-          /**
-           * Fires when there's a change in status.
-           */
-          this.dispatchEvent(
-            new CustomEvent('kemet-count-status', {
-              bubbles: true,
-              composed: true,
-              detail: {
-                status: 'standard',
-                validity: nativeElement.validity,
-                element: this.inputSlot,
-              },
-            }),
-          );
+          emitEvent(this, 'kemet-count-status', {
+            status: 'standard',
+            validity: nativeElement.validity,
+            element: this.inputSlot,
+          });
         }
       }
     });

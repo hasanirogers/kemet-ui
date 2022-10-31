@@ -1,4 +1,19 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ *
+ * @since 1.1.0
+ * @status stable
+ *
+ * @tagname kemet-carousel-next
+ * @summary A link to the next slide in the carousel.
+ *
+ * @prop {boolean} disabled - Deactivates the button.
+ *
+ * @event kemet-carousel-next
+ *
+ */
 
 export default class KemetCarouselNext extends LitElement {
   static get styles() {
@@ -17,10 +32,7 @@ export default class KemetCarouselNext extends LitElement {
 
   static get properties() {
     return {
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
+      disabled: { type: Boolean, reflect: true },
     };
   }
 
@@ -34,11 +46,7 @@ export default class KemetCarouselNext extends LitElement {
 
   next() {
     if (!this.disabled) {
-      this.dispatchEvent(new CustomEvent('kemet-carousel-next', {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      }));
+      emitEvent(this, 'kemet-carousel-next', this);
     }
   }
 }

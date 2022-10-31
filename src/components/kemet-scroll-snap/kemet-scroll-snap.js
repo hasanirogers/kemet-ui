@@ -1,4 +1,30 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-scroll-snap
+ * @summary A scroll-snap implementation for responsive sliders.
+ *
+ * @prop {string} axis - Determines the direction the component flows. Values include: (horizontal | vertical)
+ * @prop {string} pagination - Determines where to display the paginator. Values include: (top | right | bottom | left)
+ *
+ * @slot slides - Place your slides here.
+ * @slot pagination - Place the paginator component here if you want one.
+ *
+ * @csspart slides - The slides container.
+ * @csspart pagination - The pagination element.
+ *
+ * @cssproperty --kemet-scroll-snap-gap - Space between the slides. Default: 1.5rem.
+ * @cssproperty --kemet-scroll-snap-horizontal-max-width - The horizontal max width of the container. Default: 1024px.
+ * @cssproperty --kemet-scroll-snap-vertical-height - The vertical height of the container. Default: 100vh.
+ * @cssproperty --kemet-scroll-snap-slides-vertical-padding - Padding on the vertical axis. Default: 0 2rem.
+ *
+ * @event kemet-scroll-snap-make-slides - Fires when slide data has been created.
+ *
+ */
 
 export default class KemetScrollSnap extends LitElement {
   static get styles() {
@@ -58,16 +84,10 @@ export default class KemetScrollSnap extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Determines the direction the component flows. Values include: (horizontal|vertical)
-       */
       axis: {
         type: String,
         reflect: true,
       },
-      /**
-       * Determines where to display the paginator. Values include: (top | right | bottom | left)
-       */
       pagination: {
         type: String,
         reflect: true,
@@ -154,15 +174,7 @@ export default class KemetScrollSnap extends LitElement {
     });
 
     this.slides = slides;
-
-    /**
-     * Fires when slide data has been created.
-     */
-    this.dispatchEvent(new CustomEvent('kemet-scroll-snap-make-slides', {
-      bubbles: true,
-      composed: true,
-      detail: this.slides,
-    }));
+    emitEvent(this, 'kemet-scroll-snap-make-slides', this.slides);
   }
 
   focusSlide(index) {

@@ -1,5 +1,47 @@
 import { html, css, LitElement } from 'lit';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-select
+ * @summary An enhanced select element.
+ *
+ * @prop {string} slug - A string the uniquely identifies the select
+ * @prop {string} name - The name of the select
+ * @prop {string} value - The value of the select
+ * @prop {array} options - The options the select contains
+ * @prop {string} status - The status of the select
+ * @prop {boolean} required - Determines whether or not the field is required
+ * @prop {boolean} disabled - Determines whether or not the field is disabled
+ * @prop {boolean} multiple - Support of multiple choice selections
+ * @prop {string} icon - The dropdown icon
+ * @prop {number} iconSize - The dropdown icon size
+ * @prop {boolean} filled - Displays a filled select
+ * @prop {boolean} rounded - Displays rounded corners
+ *
+ * @csspart select
+ *
+ * @cssproperty --kemet-select-padding - The padding on the textarea. Default: 1rem.
+ * @cssproperty --kemet-select-border - The border of the textarea. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty --kemet-select-border-color-error - The border of the error state. Default: 1px solid var(--kemet-color-error).
+ * @cssproperty --kemet-select-border-color-success - The border of the success state. Default: 1px solid var(--kemet-color-success).
+ * @cssproperty --kemet-select-border-color-warning - The border of the warning state. Default: 1px solid var(--kemet-color-warning).
+ * @cssproperty --kemet-select-border-radius-rounded - The border radius on rounded. Default: var(--kemet-border-radius).
+ * @cssproperty --kemet-select-border-filled - The border on filled. Default: none.
+ * @cssproperty --kemet-select-color-filled - The color on filled. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-select-background-color-filled - The background-color on filled. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-select-background-color-error - The error state background color. Default: var(--kemet-color-error).
+ * @cssproperty --kemet-select-background-color-success - The success state background color. Default: var(--kemet-color-success).
+ * @cssproperty --kemet-select-background-color-warning - The warning state background color. Default: var(--kemet-color-warning).
+ * @cssproperty --kemet-select-icon-right - The space on the right of the icon. Default: 1rem.
+ *
+ * @event kemet-input-focused - Fires when the input receives and loses focus
+ * @event kemet-input-status - Fires when there's a change in status
+ *
+ */
 
 export default class KemetSelect extends LitElement {
   static get styles() {
@@ -75,80 +117,44 @@ export default class KemetSelect extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * A string the uniquely identifies the select
-       */
       slug: {
         type: String,
       },
-      /**
-       * The name of the select
-       */
       name: {
         type: String,
       },
-      /**
-       * The value of the select
-       */
       value: {
         type: String,
       },
-      /**
-       * The options the select contains
-       */
       options: {
         type: Array,
       },
-      /**
-       * The status of the select
-       */
       status: {
         type: String,
         reflect: true,
       },
-      /**
-       * Determines whether or not the field is required
-       */
       required: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Determines whether or not the field is disabled
-       */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Support of multiple choice selections
-       */
       multiple: {
         type: Boolean,
       },
-      /**
-       * The dropdown icon
-       */
       icon: {
         type: String,
       },
-      /**
-       * The dropdown icon size
-       */
       iconSize: {
         type: Number,
         attribute: 'icon-size',
       },
-      /**
-       * Displays a filled select
-       */
       filled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Displays rounded corners
-       */
       rounded: {
         type: Boolean,
         reflect: true,
@@ -164,12 +170,10 @@ export default class KemetSelect extends LitElement {
     this.icon = 'chevron-down';
     this.iconSize = 16;
 
-    /**
-     * Used only for form reactive controller
-     */
+    /** @internal */
     this.formSubmitController = new FormSubmitController(this);
 
-    // elements
+    /** @internal */
     this.control = this.closest('kemet-field');
   }
 
@@ -178,7 +182,7 @@ export default class KemetSelect extends LitElement {
     this.select = this.shadowRoot.querySelector('select');
     this.selectedOption = this.querySelector('[selected]');
 
-    this.value = this.selecltedOption ? this.selectedOption.value : '';
+    this.value = this.selectedOption ? this.selectedOption.value : '';
   }
 
   render() {
@@ -247,17 +251,7 @@ export default class KemetSelect extends LitElement {
    */
   handleFocus() {
     this.hasFocus = true;
-
-    /**
-     * Fires when the input receives and loses focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-input-focused', {
-        bubbles: true,
-        composed: true,
-        detail: true,
-      }),
-    );
+    emitEvent(this, 'kemet-input-focused', true);
   }
 
   /**
@@ -266,17 +260,7 @@ export default class KemetSelect extends LitElement {
    */
   handleBlur() {
     this.hasFocus = false;
-
-    /**
-     * Fires when the input receives and loses focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-input-focused', {
-        bubbles: true,
-        composed: true,
-        detail: false,
-      }),
-    );
+    emitEvent(this, 'kemet-input-focused', false);
 
     this.select.checkValidity();
 
@@ -285,17 +269,11 @@ export default class KemetSelect extends LitElement {
       this.status = 'error';
       this.control.status = 'error';
 
-      this.dispatchEvent(
-        new CustomEvent('kemet-input-status', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            status: 'error',
-            validity: this.select.validity,
-            element: this,
-          },
-        }),
-      );
+      emitEvent(this, 'kemet-input-status', {
+        status: 'error',
+        validity: this.select.validity,
+        element: this,
+      });
     }
   }
 
@@ -310,20 +288,11 @@ export default class KemetSelect extends LitElement {
       this.invalid = false;
       this.status = 'standard';
 
-      /**
-       * Fires when there's a change in status
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-input-status', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            status: 'standard',
-            validity: this.select.validity,
-            element: this,
-          },
-        }),
-      );
+      emitEvent(this, 'kemet-input-status', {
+        status: 'standard',
+        validity: this.select.validity,
+        element: this,
+      });
     }
   }
 
@@ -335,20 +304,11 @@ export default class KemetSelect extends LitElement {
     this.invalid = true;
     this.status = 'error';
 
-    /**
-     * Fires when there's a change in status
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-input-status', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          status: 'error',
-          validity: this.select.validity,
-          element: this,
-        },
-      }),
-    );
+    emitEvent(this, 'kemet-input-status', {
+      status: 'error',
+      validity: this.select.validity,
+      element: this,
+    });
   }
 
   /**

@@ -1,5 +1,15 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ * @since 1.3.0
+ * @status stable
+ *
+ * @tagname kemet-sortable-item
+ * @summary An item in a sortable list.
+ *
+ * @prop {boolean} ghost - Automatically set to true when an item is dragged to a new spot.
+ */
+
 export default class KemetSortableItem extends LitElement {
   static get styles() {
     return [
@@ -21,11 +31,7 @@ export default class KemetSortableItem extends LitElement {
 
   static get properties() {
     return {
-      /* Automatically set to true when an item is dragged to a new spot */
-      ghost: {
-        type: Boolean,
-        reflect: true,
-      },
+      ghost: { type: Boolean, reflect: true },
     };
   }
 

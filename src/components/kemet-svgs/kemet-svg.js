@@ -1,5 +1,22 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-svg
+ * @summary A svg from a set of custom SVGs.
+ *
+ * @prop {string} set - Defines which set of svgs is referenced.
+ * @prop {string} svg - The name (id) of the svg to be displayed.
+ * @prop {number} size - Sets the width and height of a the svg to the given value in pixels.
+ * @prop {string} ratio - The value for the preserveAspectRatio attribute of the svg.
+ * @prop {string} viewBox - The value for the viewBox attribute of the svg.
+ *
+ * @csspart svg - The svg element.
+ *
+ */
+
 export default class KemetSVG extends LitElement {
   static get styles() {
     return css`
@@ -16,33 +33,18 @@ export default class KemetSVG extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Defines which set of svgs is referenced.
-       */
       set: {
         type: String,
       },
-      /**
-       * The name (id) of the svg to be displayed.
-       */
       svg: {
         type: String,
       },
-      /**
-       * Sets the width and height of a the svg to the given value in pixels.
-       */
       size: {
         type: Number,
       },
-      /**
-       * The value for the preserveAspectRatio attribute of the svg.
-       */
       ratio: {
         type: String,
       },
-      /**
-       * The value for the viewBox attribute of the svg.
-       */
       viewBox: {
         type: String,
       },

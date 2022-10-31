@@ -5,10 +5,10 @@
   "main": "index.js",
   "watch": {
     "build": "src/**/*.*",
-    "analyze": "src/components/**/*.js"
+    "analyze": "src/components/**/kemet-*.js"
   },
   "scripts": {
-    "analyze": "custom-elements-manifest analyze --litelement --globs \"src/components/kemet-*/kemet-*.js\"",
+    "analyze": "custom-elements-manifest analyze --litelement --globs \"src/components/**/kemet-*.js\"",
     "build": "npm run css:build && npm run js:build",
     "css:build": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
     "deploy": "build-storybook && node deploy.js",
@@ -49,6 +49,7 @@
       "@open-wc/eslint-config"
     ],
     "rules": {
+      "max-len": "off",
       "no-param-reassign": "off",
       "no-use-before-define": "off",
       "no-multi-assign": "off",
@@ -73,23 +74,24 @@
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-react": "^7.14.5",
-    "@custom-elements-manifest/analyzer": "^0.6.3",
+    "@custom-elements-manifest/analyzer": "^0.6.4",
     "@open-wc/eslint-config": "^7.0.0",
     "@open-wc/testing": "^3.1.6",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-multi-entry": "^4.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@storybook/addon-a11y": "^6.5.9",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/addons": "^6.5.9",
+    "@storybook/addon-a11y": "^6.5.12",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addons": "^6.5.12",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/theming": "^6.5.9",
-    "@storybook/web-components": "^6.5.9",
+    "@storybook/theming": "^6.5.12",
+    "@storybook/web-components": "^6.5.12",
     "@web/dev-server": "^0.1.32",
     "@web/dev-server-rollup": "^0.3.18",
     "@web/test-runner": "^0.13.31",
+    "@whitespace/storybook-addon-html": "^5.0.0",
     "babel-loader": "^8.2.2",
     "concurrently": "^7.2.1",
     "css-loader": "5.2.6",

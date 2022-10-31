@@ -1,4 +1,19 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ *
+ * @since 1.1.0
+ * @status stable
+ *
+ * @tagname kemet-carousel-first
+ * @summary A link to the first slide in the carousel.
+ *
+ * @prop {boolean} disabled - Deactivates the button.
+ *
+ * @event kemet-carousel-first
+ *
+ */
 
 export class KemetCarouselFirst extends LitElement {
   static get styles() {
@@ -17,10 +32,7 @@ export class KemetCarouselFirst extends LitElement {
 
   static get properties() {
     return {
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
+      disabled: { type: Boolean, reflect: true },
     };
   }
 
@@ -34,11 +46,7 @@ export class KemetCarouselFirst extends LitElement {
 
   first() {
     if (!this.disabled) {
-      this.dispatchEvent(new CustomEvent('kemet-carousel-first', {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      }));
+      emitEvent(this, 'kemet-carousel-first', this);
     }
   }
 }

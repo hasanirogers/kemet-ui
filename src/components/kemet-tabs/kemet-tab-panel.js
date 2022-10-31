@@ -1,5 +1,19 @@
 import { LitElement, html, css } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-tab-panel
+ * @summary A panel in a set of tabs.
+ *
+ * @prop {boolean} selected - Is true when a panel is selected
+ * @prop {string} panel - Identifies the panel to be linked by a tab
+ *
+ * @cssproperty --kemet-tab-panel-fade-speed - The fade speed. Default: 0.5s.
+ *
+ */
+
 export default class KemetTabPanel extends LitElement {
   static get styles() {
     return css`
@@ -39,16 +53,10 @@ export default class KemetTabPanel extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Is true when a panel is selected
-       */
       selected: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Identifies the panel to be linked by a tab
-       */
       panel: {
         type: String,
       },

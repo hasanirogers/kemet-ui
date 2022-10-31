@@ -1,10 +1,22 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
 
 const keyCodes = {
   ENTER: 13,
   SPACE: 32,
   ESC: 27,
 };
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-popover-close
+ * @summary A close button for the popover
+ *
+ * @event kemet-popover-close-btn
+ *
+ */
 
 export default class KemetPopoverClose extends LitElement {
   static get styles() {
@@ -30,13 +42,7 @@ export default class KemetPopoverClose extends LitElement {
   }
 
   close() {
-    this.dispatchEvent(
-      new CustomEvent('kemet-popover-close-btn', {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      }),
-    );
+    emitEvent(this, 'kemet-popover-close-btn', this);
   }
 
   handleKeyboard(event) {

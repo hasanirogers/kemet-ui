@@ -1,4 +1,15 @@
 import { LitElement, html, css } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-flipcard-trigger
+ * @summary Triggers a flipcard component to flip.
+ *
+ * @event kemet-flipcard-flipped - Fires when a flipcard is flipped
+ */
 
 export default class KemetFlipcardTrigger extends LitElement {
   static get styles() {
@@ -25,11 +36,7 @@ export default class KemetFlipcardTrigger extends LitElement {
   }
 
   trigger() {
-    this.dispatchEvent(new CustomEvent('kemet-flipcard-flipped', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+    emitEvent(this, 'kemet-flipcard-flipped', this);
   }
 
   handleKeyup(event) {

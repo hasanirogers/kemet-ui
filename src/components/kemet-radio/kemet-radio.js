@@ -1,6 +1,39 @@
 import { html, css, LitElement } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-radio
+ * @summary An enhanced radio button.
+ *
+ * @prop {string} label - The text next to the radio button
+ * @prop {boolean} checked - Determines whether or not the button is checked
+ * @prop {string} name - The name of the field
+ * @prop {string} value - The value of the radio button
+ * @prop {boolean} disabled - Determines if the button should be disabled
+ * @prop {boolean} focused - Is true when the button is focused on
+ * @prop {boolean} filled - Displayed the button as a filled button
+ *
+ * @csspart label - The label that contains the radio button.
+ * @csspart button - The radio button.
+ * @csspart text - The text next to the radio button.
+ * @csspart dot - The circle that fills the radio button.
+ *
+ * @cssproperty --kemet-radio-size - The size of the radio button. Default: 18px.
+ * @cssproperty --kemet-radio-border - The outer border of the radio button. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty --kemet-radio-dot-color - The color of the radio button's dot. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-radio-dot-border-width - The border width of the radio button's dot. Default: 3px.
+ * @cssproperty --kemet-radio-dot-border-color - The border color of the radio button's dot. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-radio-dot-color-filled - The filled color of the radio button. Default: var(--kemet-color-white).
+ *
+ * @event kemet-radio-focused -  Fires when the checkbox loses or receives focus
+ * @event kemet-radio-focused - Fires when the checkbox loses or receives focus
+ *
+ */
 
 export default class KemetRadio extends LitElement {
   static get styles() {
@@ -70,48 +103,27 @@ export default class KemetRadio extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The text next to the radio button
-       */
       label: {
         type: String,
       },
-      /**
-       * Determines whether or not the button is checked
-       */
       checked: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The name of the field
-       */
       name: {
         type: String,
       },
-      /**
-       * The value of the radio button
-       */
       value: {
         type: String,
       },
-      /**
-       * Determines if the button should be disabled
-       */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Is true when the button is focused on
-       */
       focused: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Displayed the button as a filled button
-       */
       filled: {
         type: Boolean,
         reflect: true,
@@ -171,32 +183,12 @@ export default class KemetRadio extends LitElement {
 
   handleBlur() {
     this.focused = false;
-
-    /**
-     * Fires when the checkbox loses or receives focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-radio-focused', {
-        bubbles: true,
-        composed: true,
-        detail: false,
-      }),
-    );
+    emitEvent(this, 'kemet-radio-focused', false);
   }
 
   handleFocus() {
     this.focused = true;
-
-    /**
-     * Fires when the checkbox loses or receives focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-radio-focused', {
-        bubbles: true,
-        composed: true,
-        detail: true,
-      }),
-    );
+    emitEvent(this, 'kemet-radio-focused', true);
   }
 
   makeDot() {

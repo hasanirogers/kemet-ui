@@ -1,5 +1,38 @@
 import { LitElement, html } from 'lit';
-import { stylesBase, stylesEffects } from './kemet-drawer.styles.js';
+import { stylesBase, stylesEffects } from './styles.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-drawer
+ * @summary A component that adds an off-canvas menu with different effects.
+ *
+ * @prop {boolean} opened - Determines if the drawer is opened or not.
+ * @prop {string} effect - The animation effect for opening and closing the drawer. Values include: (slide | reveal | push | scale)
+ * @prop {string} side - Allows you to control which side the drawer opens from. Values include: (left | right | top | bottom)
+ * @prop {boolean} overlay - Adds a overlay over the content section of the Drawer when opened
+ *
+ * @slot navigation - The off-screen nav area of your app or site
+ * @slot content - The main content area of your app or site.
+ *
+ * @csspart container
+ * @csspart drawer
+ * @csspart pusher
+ * @csspart content
+ * @csspart wrapper
+ *
+ * @cssproperty --kemet-drawer-width - The width of the drawer. Default: 300px.
+ * @cssproperty --kemet-drawer-height - The height of the drawer. Default:  100%.
+ * @cssproperty --kemet-drawer-color - The text color of the drawer. Default:  #fafafa.
+ * @cssproperty --kemet-drawer-background-color - The background color of the drawer. Default: #202020.
+ * @cssproperty --kemet-drawer-overlay-color - The color of the overlay. Default: rgba(0, 0, 0, 0.2).
+ *
+ * @event kemet-drawer-opened - Fires when the drawer opens.
+ * @event kemet-drawer-closed - Fires when the drawer closes.
+ *
+ */
 
 export default class KemetDrawer extends LitElement {
   static get styles() {
@@ -8,32 +41,18 @@ export default class KemetDrawer extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Determines if the drawer is opened or not.
-       */
       opened: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The animation effect for opening and closing the drawer.
-       * Values include: (slide | reveal | push | scale)
-       */
       effect: {
         type: String,
         reflect: true,
       },
-      /**
-       * Allows you to control which side the drawer opens from.
-       * Values include: (left | right | top | bottom)
-       */
       side: {
         type: String,
         reflect: true,
       },
-      /**
-       * Adds a overlay over the content section of the Drawer when opened
-       */
       overlay: {
         type: Boolean,
         reflect: true,
@@ -61,29 +80,11 @@ export default class KemetDrawer extends LitElement {
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
-      /**
-       * Fires when the drawer opens.
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-drawer-opened', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-drawer-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      /**
-       * Fires when the drawer closes.
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-drawer-closed', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-drawer-closed', this);
     }
   }
 

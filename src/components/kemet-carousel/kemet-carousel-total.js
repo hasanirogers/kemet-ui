@@ -1,5 +1,17 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ *
+ * @since 1.1.0
+ * @status stable
+ *
+ * @tagname kemet-carousel-total
+ * @summary Displays the total slide number.
+ *
+ * @prop {number} total - The total number of slides.
+ *
+ */
+
 export class KemetCarouselTotal extends LitElement {
   static get styles() {
     return [
@@ -13,9 +25,7 @@ export class KemetCarouselTotal extends LitElement {
 
   static get properties() {
     return {
-      total: {
-        type: Number,
-      },
+      total: { type: Number },
     };
   }
 
