@@ -1,5 +1,17 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ *
+ * @since 1.1.0
+ * @status stable
+ *
+ * @tagname kemet-carousel-slide
+ * @summary A container for a slide in the carousel.
+ *
+ * @prop {boolean} selected - Determines if the slide is selected.
+ *
+ */
+
 export default class KemetCarouselSlide extends LitElement {
   static get styles() {
     return [
@@ -20,17 +32,8 @@ export default class KemetCarouselSlide extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Determines if the slide is selected
-       */
-      selected: {
-        type: Boolean,
-        reflect: true,
-      },
-      'aria-hidden': {
-        type: String,
-        reflect: true,
-      },
+      selected: { type: Boolean, reflect: true },
+      'aria-hidden': { type: String, reflect: true },
     };
   }
 

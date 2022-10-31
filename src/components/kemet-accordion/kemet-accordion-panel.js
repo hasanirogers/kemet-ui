@@ -1,5 +1,31 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
 import '../kemet-icon/kemet-icon.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-accordion-panel
+ * @summary A blade for an accordion.
+ *
+ * @prop {boolean} opened - Determines the opened state of the panel
+ * @prop {string} maxHeight - Sets the max height of the panel's body
+ * @prop {string} slug - Uniquely identifies a panel for accessibility purposes
+ *
+ * @slot trigger - The trigger button that opens and closes the panel.
+ * @slot body - The body content of the panel.
+ * @slot icon - The icon for the panel.
+ *
+ * @cssproperty --kemet-accordion-panel-transition-speed - The speed of the opening and closing effect. Default: 0.3s.
+ *
+ * @csspart trigger - Contains the trigger for the panel.
+ * @csspart body - Contains the body for the panel.
+ *
+ * @event kemet-accordion-panel-opened - Fires when a panel is opened
+ * @event kemet-accordion-panel-closed - Fires when a panel is closed
+ *
+ */
 
 export default class KemetAccordionPanel extends LitElement {
   static get styles() {
@@ -43,23 +69,14 @@ export default class KemetAccordionPanel extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Determines the opened state of the panel
-       */
       opened: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Sets the max height of the panel's body
-       */
       maxHeight: {
         type: String,
         attribute: 'max-height',
       },
-      /**
-       * Uniquely identifies a panel for accessibility purposes
-       */
       slug: {
         type: String,
       },
@@ -76,6 +93,7 @@ export default class KemetAccordionPanel extends LitElement {
   }
 
   firstUpdated() {
+    /** @internal */
     this.focusableSelector = 'body, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
     this.bodyElement = this.querySelector('[slot="body"]');
     this.bodyElementFirst = this.bodyElement.querySelector(':first-child');
@@ -88,32 +106,12 @@ export default class KemetAccordionPanel extends LitElement {
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
       this.maxHeight = `${this.bodyElement.offsetHeight}px`;
-
-      /**
-       * Fires when a panel is opened
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-accordion-panel-opened', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-accordion-panel-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
       this.maxHeight = '0px';
-
-      /**
-       * Fires when a panel is closed
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-accordion-panel-closed', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-accordion-panel-closed', this);
     }
 
     this.a11y();

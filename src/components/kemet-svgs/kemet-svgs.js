@@ -1,5 +1,16 @@
 import { LitElement, html, css } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-svgs
+ * @summary A set of SVG graphics that can be referenced any where in a page or app.
+ *
+ * @prop {string} set - Defines the name for the set of svgs.
+ *
+ */
+
 export default class KemetSVGs extends LitElement {
   static get styles() {
     return css`
@@ -11,9 +22,6 @@ export default class KemetSVGs extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Defines the name for the set of svgs.
-       */
       set: {
         type: String,
       },

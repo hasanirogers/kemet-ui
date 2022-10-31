@@ -1,10 +1,43 @@
 import { html, css, LitElement } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { emitEvent } from '../../utilities/misc/events.js';
 
 const preventDefaults = (event) => {
   event.preventDefault();
   event.stopPropagation();
 };
+
+/**
+ * @since 1.3.0
+ * @status stable
+ *
+ * @tagname kemet-upload
+ * @summary An interface for uploading files.
+ *
+ * @prop {string} slug - A unique identifier for the component
+ * @prop {string} accept - Determines what file types are accepted
+ * @prop {boolean} multiple - Allows for multiple files
+ * @prop {boolean} over - Automatically is true when a file is being dragged over the upload area
+ * @prop {string} heading - Descriptive text for the upload area
+ * @prop {boolean} mobile - Displays the component in a mobile context
+ * @prop {string} breakpoint - Controls the point at which the component is considered mobile
+ * @prop {boolean} noDragDrop - If true if drag and drop support is not detected
+ * @prop {number} maxSize - The maximum file size for uploads
+ * @prop {string} buttonLabel - The browse files button text
+ *
+ * @event kemet-upload-change - Fires when files have been added
+ *
+ * @csspart upload - The area where files are dropped.
+ * @csspart heading - The description in the upload area.
+ * @csspart button - The button in the upload area.
+ * @csspart files - The area where uploaded files are listed.
+ *
+ * @cssproperty --kemet-upload-color - The default text color. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-upload-height - The height. Default: 364px.
+ * @cssproperty --kemet-upload-border - The border. Default: 1rem solid var(--kemet-color-white).
+ * @cssproperty --kemet-upload-background-color - The background color. Default: var(--kemet-color-primary).
+ *
+ */
 
 export default class KemetUpload extends LitElement {
   static get styles() {
@@ -87,73 +120,16 @@ export default class KemetUpload extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * A unique identifier for the component
-       */
-      slug: {
-        type: String,
-      },
-      /**
-       * Determines what file types are accepted
-       */
-      accept: {
-        type: String,
-      },
-      /**
-       * Allows for multiple files
-       */
-      multiple: {
-        type: Boolean,
-      },
-      /**
-       * Automatically is true when a file is being dragged over the upload area
-       */
-      over: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Descriptive text for the upload area
-       */
-      heading: {
-        type: String,
-      },
-      /**
-       * Displays the component in a mobile context
-       */
-      mobile: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Controls the point at which the component is considered mobile
-       */
-      breakpoint: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * If true if drag and drop support is not detected
-       */
-      noDragDrop: {
-        type: Boolean,
-        reflect: true,
-        attribute: 'no-drag-drop',
-      },
-      /**
-       * The maximum file size for uploads
-       */
-      maxSize: {
-        type: Number,
-        attribute: 'max-size',
-      },
-      /**
-       * The browse files button text
-       */
-      buttonLabel: {
-        type: String,
-        attribute: 'button-label',
-      },
+      slug: { type: String },
+      accept: { type: String },
+      multiple: { type: Boolean },
+      over: { type: Boolean, reflect: true },
+      heading: { type: String },
+      mobile: { type: Boolean, reflect: true },
+      breakpoint: { type: String, reflect: true },
+      noDragDrop: { type: Boolean, reflect: true, attribute: 'no-drag-drop' },
+      maxSize: { type: Number, attribute: 'max-size' },
+      buttonLabel: { type: String, attribute: 'button-label' },
     };
   }
 
@@ -209,37 +185,19 @@ export default class KemetUpload extends LitElement {
   }
 
   handleChange(event) {
-    /**
-     * Fires when files have been added
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-upload-change', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          event,
-          files: this.fileInputElement.files,
-          fileElement: this.fileInputElement,
-        },
-      }),
-    );
+    emitEvent(this, 'kemet-upload-change', {
+      event,
+      files: this.fileInputElement.files,
+      fileElement: this.fileInputElement,
+    });
   }
 
   handleDrop(event) {
-    /**
-     * Fires when files have been added
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-upload-change', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          event,
-          files: event?.dataTransfer.files || [],
-          fileElement: this.fileInputElement,
-        },
-      }),
-    );
+    emitEvent(this, 'kemet-upload-change', {
+      event,
+      files: event?.dataTransfer.files || [],
+      fileElement: this.fileInputElement,
+    });
   }
 
   isMobile() {

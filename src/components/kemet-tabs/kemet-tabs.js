@@ -1,7 +1,48 @@
 /* eslint-disable no-lonely-if */
 /* eslint-disable no-case-declarations */
 import { LitElement, html } from 'lit';
-import { stylesKemetTabs } from './kemet-tabs.styles.js';
+import { stylesKemetTabs } from './styles.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-tabs
+ * @summary A group of tabs and panels.
+ *
+ * @prop {string} selected - The selected tab by name
+ * @prop {number} selectedIndex - The selected tab by index
+ * @prop {number} panelPosition - Positions the current panel
+ * @prop {string} panelEffect - The transition effect for panels
+ * @prop {boolean} swipe - Determines whether or not to enable swipe behavior
+ * @prop {string} placement - Places the tabs to the top, right, bottom, or left
+ * @prop {boolean} divider - Determines whether or not to show a divider line
+ * @prop {string} tabsAlign - Spacing alignment of the tabs
+ * @prop {object} ink - An object that contains information about the ink
+ * @prop {boolean} hideInk - Determines whether or not to hide the ink
+ * @prop {boolean} overflow - Is true when the space of the tabs is larger than it's container
+ *
+ * @slot tab - Place the tabs here.
+ * @slot panel - Place the panels here.
+ *
+ * @csspart links - The container for the tablist.
+ * @csspart tablist - Contains the tabs.
+ * @csspart panels - Contains the panels.
+ * @csspart ink - The ink element.
+ * @csspart divider - The divider element.
+ *
+ * @cssproperty --kemet-tabs-ink-size - The thickness of the ink. Default: 6px.
+ * @cssproperty --kemet-tabs-ink-radius - The radius on the ink. Default:  6px.
+ * @cssproperty --kemet-tabs-ink-color - The color of the ink. Default:  var(--kemet-color-primary).
+ * @cssproperty --kemet-tabs-divider-size - The thickness of the divider. Default: 1px.
+ * @cssproperty --kemet-tabs-divider-color - The color of the divider. Default:  var(--kemet-color-gray4).
+ * @cssproperty --kemet-tabs-transition-speed - The transition speed of the panels. Default:  0.5s.
+ * @cssproperty --kemet-tabs-spacer - The space between tabs and panels. Default:  1rem.
+ *
+ * @event kemet-tab-changed - Fires when a tab is changed
+ *
+ */
 
 export default class KemetTabs extends LitElement {
   static get styles() {
@@ -10,76 +51,43 @@ export default class KemetTabs extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The selected tab by name
-       */
       selected: {
         type: String,
         reflect: true,
       },
-      /**
-       * The selected tab by index
-       */
       selectedIndex: {
         type: Number,
       },
-      /**
-       * Positions the current panel
-       */
       panelPosition: {
         type: Number,
       },
-      /**
-       * The transition effect for panels
-       */
       panelEffect: {
         type: String,
         reflect: true,
         attribute: 'panel-effect',
       },
-      /**
-       * Determines whether or not to enable swipe behavior
-       */
       swipe: {
         type: Boolean,
       },
-      /**
-       * Places the tabs to the top, right, bottom, or left
-       */
       placement: {
         type: String,
         reflect: true,
       },
-      /**
-       * Determines whether or not to show a divider line
-       */
       divider: {
         type: Boolean,
       },
-      /**
-       * Spacing alignment of the tabs
-       */
       tabsAlign: {
         type: String,
         reflect: true,
         attribute: 'tabs-align',
       },
-      /**
-       * An object that contains information about the ink
-       */
       ink: {
         type: Object,
       },
-      /**
-       * Determines whether or not to hide the ink
-       */
       hideInk: {
         type: Boolean,
         attribute: 'hide-ink',
       },
-      /**
-       * Is true when the space of the tabs is larger than it's container
-       */
       overflow: {
         type: Boolean,
         reflect: true,
@@ -370,13 +378,7 @@ export default class KemetTabs extends LitElement {
   }
 
   dispatchTabChange() {
-    const tabChanged = new CustomEvent('kemet-tab-changed', {
-      bubbles: true,
-      composed: true,
-      detail: this.selected,
-    });
-
-    this.dispatchEvent(tabChanged);
+    emitEvent(this, 'kemet-tab-changed', this.selected);
   }
 
   tabSelectedChange(event) {

@@ -52,12 +52,11 @@ Standard.argTypes = {
 const TemplateMultiple = ({
   squeeze,
   numOfAvatars,
-  border,
 }) => {
   const avatars = [];
 
   for (let i = 0; i < numOfAvatars; i += 1) {
-    avatars.push(html`<kemet-avatar circle image="https://via.placeholder.com/64x64"></kemet-avatar>\n`);
+    avatars.push(html`<kemet-avatar circle image="https://via.placeholder.com/64x64" kemet-border="all-4 solid white"></kemet-avatar>\n`);
   }
 
   return html`
@@ -66,7 +65,7 @@ const TemplateMultiple = ({
         --kemet-avatars-squeeze: ${squeeze};
       }
     </style>
-    <kemet-avatars ?border=${border} kemet-margin="tiny:normal">
+    <kemet-avatars kemet-margin="tiny:normal">
       ${avatars}
     </kemet-avatars>
   `;
@@ -75,7 +74,6 @@ export const Multiple = TemplateMultiple.bind({});
 Multiple.args = {
   squeeze: '-1.5rem',
   numOfAvatars: 3,
-  border: true,
 };
 Multiple.argTypes = {
   squeeze: {
@@ -83,8 +81,5 @@ Multiple.argTypes = {
   },
   numOfAvatars: {
     control: { type: 'number' },
-  },
-  border: {
-    control: { type: 'boolean' },
   },
 };

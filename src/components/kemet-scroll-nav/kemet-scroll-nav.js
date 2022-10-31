@@ -1,5 +1,24 @@
 import { LitElement, html, css } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-scroll-nav
+ * @summary An element that transforms at a scroll point.
+ *
+ * @prop {string} effect - Determines where the transform point is activated. Values include: (sticky | resize)
+ * @prop {boolean} transform - Whether or not the nav has shifted into a new state.
+ * @prop {number} offset - Allows for an arbitrary adjustment of the transform point in pixels. Works with negative values.
+ *
+ * @cssproperty --kemet-scroll-nav-padding - The padding of the nav. Default: 1rem 2rem.
+ * @cssproperty --kemet-scroll-nav-background - The background color of the nav. Default: #fafafa.
+ * @cssproperty --kemet-scroll-nav-transition - The transition speed of the transformation. Default: 300ms.
+ * @cssproperty --kemet-scroll-nav-resize-height - The height of the pre-transformed nav. Default: 400px.
+ * @cssproperty --kemet-scroll-nav-resize-height-transformed - The height of the transformed nav. Default: 100px.
+ *
+ */
+
 export default class KemetScrollNav extends LitElement {
   static get styles() {
     return [
@@ -32,24 +51,14 @@ export default class KemetScrollNav extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Determines where the transform point is activated. Values include: (sticky | resize)
-       */
       effect: {
         type: String,
         reflect: true,
       },
-      /**
-       * Whether or not the nav has shifted into a new state.
-       */
       transform: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Allows for an arbitrary adjustment of the transform point in pixels.
-       * Works with negative values.
-       */
       offset: {
         type: Number,
       },

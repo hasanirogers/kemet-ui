@@ -1,4 +1,33 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-field
+ * @summary Used in combination with Input, Select, and Textarea, to make a Field.
+ *
+ * @prop {string} slug - Uniquely identifies the control. Use the same slug for slotted sub components.
+ * @prop {string} label - The label text
+ * @prop {string} message - The validation message for error or success
+ * @prop {boolean} focused - Determines if the containing input is focused
+ * @prop {string} status - The validation status of standard, error, or success
+ * @prop {boolean} filled - Is true when the containing input has a value
+ * @prop {number} length - The length of the containing input
+ * @prop {boolean} disabled - Determines the disabled state of the control
+ * @prop {string} errorIcon - The icon while in an error or warning state
+ * @prop {string} successIcon - The icon while in an success state
+ *
+ * @slot component - Allows sub components of the field to display.
+ *
+ * @csspart label - The label of the field.
+ * @csspart message - The validation message of the field.
+ * @csspart text - The text in the label.
+ *
+ * @event kemet-field-input - Fires when input fires on the input slot
+ *
+ */
 
 export default class KemetField extends LitElement {
   static get styles() {
@@ -67,68 +96,38 @@ export default class KemetField extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Uniquely identifies the control. Use the same slug for slotted sub components.
-       */
       slug: {
         type: String,
       },
-      /**
-       * The label text
-       */
       label: {
         type: String,
       },
-      /**
-       * The validation message for error or success
-       */
       message: {
         type: String,
       },
-      /**
-       * Determines if the containing input is focused
-       */
       focused: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The validation status of standard, error, or success
-       */
       status: {
         type: String,
         reflect: true,
       },
-      /**
-       * Is true when the containing input has a value
-       */
       filled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The length of the containing input
-       */
       length: {
         type: Number,
       },
-      /**
-       * Determines the disabled state of the control
-       */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The icon while in an error or warning state
-       */
       errorIcon: {
         type: String,
         attribute: 'error-icon',
       },
-      /**
-       * The icon while in an success state
-       */
       successIcon: {
         type: String,
         attribute: 'success-icon',
@@ -207,15 +206,7 @@ export default class KemetField extends LitElement {
   }
 
   handleInput(event) {
-    /**
-     * Fires when input fires on the input slot
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-field-input', {
-        bubbles: false,
-        detail: event.detail.length,
-      }),
-    );
+    emitEvent(this, 'kemet-field-input', event.detail.length);
 
     if (event.detail === '') {
       this.filled = false;

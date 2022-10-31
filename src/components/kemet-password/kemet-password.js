@@ -1,128 +1,45 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesBase } from './styles.js';
+
+/**
+ * @since 1.2.0
+ * @status stable
+ *
+ * @tagname kemet-password
+ * @summary Gauges the strength of a password entered by the user.
+ *
+ * @prop {array} rules - An array of objects containing the rules the password must meet.
+ * @prop {boolean} show - Controls the display of the component.
+ * @prop {string} value - The value of the input component.
+ * @prop {string} message - A message that is above the rules.
+ * @prop {string} strength - The strength of the password. Weak | Better | Strong.
+ * @prop {string} icon
+ * @prop {number} iconSize
+ *
+ * @event kemet-password-status - Fires when there's a change in status.
+ *
+ * @csspart status - The status message.
+ * @csspart indicator - The strength indicator bars.
+ * @csspart message - A message to display to the user.
+ * @csspart rules - A description of rules to follow.
+ *
+ */
 
 export default class KemetPassword extends LitElement {
   static get styles() {
-    return [
-      css`
-        :host {
-          color: inherit;
-          display: none;
-        }
-
-        :host([show]) {
-          display: block;
-        }
-
-        p {
-          margin: 1.6rem 0;
-        }
-
-        .status {
-          display: grid;
-          align-items: center;
-          grid-template-columns: 1fr auto;
-          line-height: 1;
-          margin-top: 0.8rem;
-        }
-
-        .status > span {
-          text-transform: capitalize;
-        }
-
-        .status--weak,
-        .status--better {
-          color: var(--kemet-color-error);
-        }
-
-        .status--strong {
-          color: var(--kemet-color-success);
-        }
-
-        .indicator {
-          display: flex;
-          gap: 0.4rem;
-          margin: 0;
-          list-style: none;
-        }
-
-        .indicator li {
-          width: 1.6rem;
-          height: 0.2rem;
-          background-color: var(--fds-color--gray2);
-        }
-
-        .status--weak .indicator li:nth-child(1) {
-          background-color: var(--kemet-color-error);
-        }
-
-        .status--better .indicator li:nth-child(1),
-        .status--better .indicator li:nth-child(2) {
-          background-color: var(--kemet-color-error);
-        }
-
-        .status--strong .indicator li {
-          background-color: var(--kemet-color-success);
-        }
-
-        .rules {
-          color: var(--kemet-color-primary);
-          list-style: none;
-          font-size: 90%;
-          padding-left: 2rem;
-        }
-
-        .rules li {
-          position: relative;
-        }
-
-        .rules kemet-icon {
-          color: var(--kemet-color-success);
-          position: absolute;
-          left: -2.4rem;
-        }
-      `,
-    ];
+    return [stylesBase];
   }
 
   static get properties() {
     return {
-      /**
-       * An array of objects containing the rules the password must meet
-       */
-      rules: {
-        type: Array,
-      },
-      /**
-       * Controls the display of the component
-       */
-      show: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The value of the input component
-       */
-      value: {
-        type: String,
-      },
-      /**
-       * A message that is above the rules
-       */
-      message: {
-        type: String,
-      },
-      /**
-       * The strength of the password. Weak | Better | Strong
-       */
-      strength: {
-        type: String,
-      },
-      icon: {
-        type: String,
-      },
-      iconSize: {
-        type: Number,
-      },
+      rules: { type: Array },
+      show: { type: Boolean, reflect: true },
+      value: { type: String },
+      message: { type: String },
+      strength: { type: String },
+      icon: { type: String },
+      iconSize: { type: Number },
     };
   }
 
@@ -244,20 +161,11 @@ export default class KemetPassword extends LitElement {
         this.status = 'success';
       }
 
-      /**
-       * Fires when there's a change in status.
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-password-status', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            status: this.status,
-            validity: { meetsPasswordCriteria: this.status === 'success' },
-            element: this,
-          },
-        }),
-      );
+      emitEvent(this, 'kemet-password-status', {
+        status: this.status,
+        validity: { meetsPasswordCriteria: this.status === 'success' },
+        element: this,
+      });
     }, 1);
   }
 

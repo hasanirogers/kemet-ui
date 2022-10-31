@@ -1,5 +1,21 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-badge
+ * @summary Badges display the status of information.
+ *
+ * @prop {string} status - The status of the badge
+ * @prop {boolean} circle - Displays the badge in a circle
+ * @prop {boolean} pill - Rounds the corners on the badge
+ * @prop {number} circlePadding - Padding on the badge as a circle
+ *
+ * @cssproperty --kemet-badge-padding - The padding of the badge. Default: 10px.
+ *
+ */
+
 export default class KemetBadge extends LitElement {
   static get styles() {
     return [
@@ -46,30 +62,18 @@ export default class KemetBadge extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The status of the badge
-       */
       status: {
         type: String,
         reflect: true,
       },
-      /**
-       * Displays the badge in a circle
-       */
       circle: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Rounds the corners on the badge
-       */
       pill: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Padding on the badge as a circle
-       */
       circlePadding: {
         type: Number,
         attribute: 'circle-padding',

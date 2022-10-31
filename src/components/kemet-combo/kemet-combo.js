@@ -1,4 +1,33 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-combo
+ * @summary Allows the user to select a choice filtered through an Input. May only be used as a component of Field.
+ *
+ * @prop {string} slug - Uniquely identifies the component. Should match the slug used in a control.
+ * @prop {array} options - An array of items listed for the combo box
+ * @prop {boolean} show - Controls the display of the combo box
+ *
+ * @csspart combobox - The combo's container element.
+ * @csspart listbox - The list element in the combo.
+ *
+ * @cssproperty --kemet-combo-width - The width of the combo box. Default: calc(100% - 2px).
+ * @cssproperty --kemet-combo-margin - The margins on the combo box. Default: 1rem auto.
+ * @cssproperty --kemet-combo-max-height - The max height of the combo box. Default: calc(5 * 3rem).
+ * @cssproperty --kemet-combo-border - The border of the combo box. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty --kemet-combo-border-radius - The border radius of the combo box. Default: var(--kemet-border-radius).
+ * @cssproperty --kemet-combo-background-color - The background color of the combo box. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-combo-shadow - The shadow of the combo box. Default: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1).
+ * @cssproperty --kemet-combo-hover-color - The hover item's text color. Default:  var(--kemet-color-white).
+ * @cssproperty --kemet-combo-hover-background-color - The hover item's background color. Default: var(--kemet-color-primary).
+ *
+ * @event kemet-combo-selection - Fires when a selection has been made
+ *
+ */
 
 export default class KemetCombo extends LitElement {
   static get styles() {
@@ -50,27 +79,16 @@ export default class KemetCombo extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Uniquely identifies the component. Should match the slug used in a control.
-       */
       slug: {
         type: String,
       },
-      /**
-       * An array of items listed for the combo box
-       */
       options: {
         type: Array,
       },
-      /**
-       * Used internally
-       */
+      /** @internal */
       filteredOptions: {
         type: Array,
       },
-      /**
-       * Controls the display of the combo box
-       */
       show: {
         type: Boolean,
         reflect: true,
@@ -153,20 +171,11 @@ export default class KemetCombo extends LitElement {
     this.input.value = event.target.innerText;
     this.show = false;
 
-    /**
-     * Fires when a selection has been made
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-combo-selection', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          element: event.target,
-          text: event.target.innerText,
-          id: event.target.getAttribute('id'),
-        },
-      }),
-    );
+    emitEvent(this, 'kemet-combo-section', {
+      element: event.target,
+      text: event.target.innerText,
+      id: event.target.getAttribute('id'),
+    });
   }
 
   handleOptionKeyDown(event) {

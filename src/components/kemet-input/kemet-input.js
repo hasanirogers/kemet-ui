@@ -2,6 +2,72 @@ import { html, css, LitElement } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-input
+ * @summary An enhanced input element.
+ *
+ * @prop {string} slug - Used for the id of the input. Should match the slug used in a control if applicable.
+ * @prop {string} name - The name of the input
+ * @prop {string} placeholder - The placeholder attribute
+ * @prop {string} minlength - The minlength attribute
+ * @prop {string} maxlength - The maxlength attribute
+ * @prop {string} min - The min attribute
+ * @prop {string} max - The max attribute
+ * @prop {string} step - The step attribute
+ * @prop {string} autocomplete - The autocomplete attribute
+ * @prop {string} pattern - The pattern attribute
+ * @prop {string} inputmode - The input mode attribute
+ * @prop {boolean} autofocus - The autofocus attribute
+ * @prop {boolean} disabled - The disable attribute
+ * @prop {boolean} readonly - The readonly attribute
+ * @prop {boolean} required - The required attribute
+ * @prop {string} type - The type of input
+ * @prop {string} value - The input's value
+ * @prop {boolean} invalid - States whether or not the input is invalid
+ * @prop {string} status - The status of the input
+ * @prop {boolean} validateOnBlur - Activates validation on blur
+ * @prop {string} ariaAutoComplete - Aria Autocomplete
+ * @prop {string} ariaControls - Aria Controls
+ * @prop {string} ariaActiveDescendant - Aria Active Descendant
+ * @prop {boolean} rounded - Displays rounded corners
+ * @prop {boolean} filled - Displays a filled input box
+ * @prop {string} iconRight - Custom Icon to the right of the input
+ * @prop {string} iconLeft - Custom Icon to the left of the input
+ * @prop {number} iconSize - Size of the icons
+ * @prop {object} validity - The HTML5 validity object.
+ * @prop {boolean} isPasswordVisible - Manages password visibility
+ * @prop {string} inputType - Input Type of keypress handled through handleInput(e)
+ * @prop {boolean} focused - Determines if the input is focused
+ *
+ * @csspart input
+ *
+ * @cssproperty --kemet-input-height - The height of the input. Default: 50px.
+ * @cssproperty -kemet-input-padding - The padding on the input. Default: 0.5rem 1rem.
+ * @cssproperty -kemet-input-border - The border of the input. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty -kemet-input-border-color-error -  The border of the error state. Default: 1px solid var(--kemet-color-error).
+ * @cssproperty -kemet-input-border-color-success - The border of the success state. Default: 1px solid var(--kemet-color-success).
+ * @cssproperty -kemet-input-border-color-warning - The border of the warning state. Default: 1px solid var(--kemet-color-warning) |
+ * @cssproperty -kemet-input-icon-left-padding - The icon-left padding. Default: 3rem.
+ * @cssproperty -kemet-input-icon-right-padding - The icon-right padding. Default: 3rem.
+ * @cssproperty -kemet-input-border-radius-rounded - The border radius on rounded. Default: var(--kemet-border-radius).
+ * @cssproperty -kemet-input-border-filled - The border on filled. Default: none.
+ * @cssproperty -kemet-input-color-filled - The color on filled. Default: var(--kemet-color-white).
+ * @cssproperty -kemet-input-background-color-filled - The background-color on filled. Default: var(--kemet-color-primary).
+ * @cssproperty -kemet-input-background-color-error - The error state background color. Default: var(--kemet-color-error).
+ * @cssproperty -kemet-input-background-color-success - The success state background color. Default: var(--kemet-color-success).
+ * @cssproperty -kemet-input-background-color-warning - The warning state background color. Default: var(--kemet-color-warning).
+ *
+ * @event kemet-input-focused - Fires when the input receives and loses focus
+ * @event kemet-input-status Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element.
+ * Use the validity object to support custom validation messages.
+ * @event kemet-input-input - Fires when the input receives input
+ *
+ */
 
 export default class KemetInput extends LitElement {
   static get styles() {
@@ -122,209 +188,113 @@ export default class KemetInput extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Used for the id of the input. Should match the slug used in a control if applicable.
-       */
       slug: {
         type: String,
       },
-      /**
-       * The name of the input
-       */
       name: {
         type: String,
       },
-      /**
-       * The placeholder attribute
-       */
       placeholder: {
         type: String,
       },
-      /**
-       * The minlength attribute
-       */
       minlength: {
         type: String,
       },
-      /**
-       * The maxlength attribute
-       */
       maxlength: {
         type: String,
       },
-      /**
-       * The min attribute
-       */
       min: {
         type: String,
       },
-      /**
-       * The max attribute
-       */
       max: {
         type: String,
       },
-      /**
-       * The step attribute
-       */
       step: {
         type: String,
       },
-      /**
-       * The autocomplete attribute
-       */
       autocomplete: {
         type: String,
       },
-      /**
-       * The pattern attribute
-       */
       pattern: {
         type: String,
       },
-      /**
-       * The input mode attribute
-       */
       inputmode: {
         type: String,
       },
-      /**
-       * The autofocus attribute
-       */
       autofocus: {
         type: Boolean,
       },
-      /**
-       * The disable attribute
-       */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The readonly attribute
-       */
       readonly: {
         type: Boolean,
       },
-      /**
-       * The required attribute
-       */
       required: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The type of input
-       */
       type: {
         type: String,
       },
-      /**
-       * The input's value
-       */
       value: {
         type: String,
       },
-      /**
-       * States whether or not the input is invalid
-       */
       invalid: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The status of the input
-       */
       status: {
         type: String,
         reflect: true,
       },
-      /**
-       * Activates validation on blur
-       */
       validateOnBlur: {
         type: Boolean,
         attribute: 'validate-on-blur',
       },
-      /**
-       * Aria Autocomplete
-       */
       ariaAutoComplete: {
         type: String,
         attribute: 'aria-autocomplete',
       },
-      /**
-       * Aria Controls
-       */
       ariaControls: {
         type: String,
         attribute: 'aria-controls',
       },
-      /**
-       * Aria Active Descendant
-       */
       ariaActiveDescendant: {
         type: String,
         attribute: 'aria-activedescendant',
       },
-      /**
-       * Displays rounded corners
-       */
       rounded: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Displays a filled input box
-       */
       filled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Custom Icon to the right of the input
-       */
       iconRight: {
         type: String,
         reflect: true,
         attribute: 'icon-right',
       },
-      /**
-       * Custom Icon to the left of the input
-       */
       iconLeft: {
         type: String,
         reflect: true,
         attribute: 'icon-left',
       },
-      /**
-       * Size of the icons
-       */
       iconSize: {
         type: Number,
       },
-      /**
-       * The HTML5 validity object.
-       */
       validity: {
         type: Object,
       },
-      /**
-       * Manages password visibility
-       */
       isPasswordVisible: {
         type: Boolean,
       },
-      /**
-       * Input Type of keypress handled through handleInput(e)
-       */
       inputType: {
         type: String,
       },
-      /**
-       * Determines if the input is focused
-       */
       focused: {
         type: Boolean,
         reflect: true,
@@ -345,9 +315,7 @@ export default class KemetInput extends LitElement {
     this.isPasswordVisible = false;
     this.focused = false;
 
-    /**
-     * Used only for form reactive controller
-     */
+    /** @internal */
     this.formSubmitController = new FormSubmitController(this);
   }
 
@@ -476,17 +444,7 @@ export default class KemetInput extends LitElement {
    */
   handleFocus() {
     this.focused = true;
-
-    /**
-     * Fires when the input receives and loses focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-input-focused', {
-        bubbles: true,
-        composed: true,
-        detail: true,
-      }),
-    );
+    emitEvent(this, 'kemet-input-focused', true);
   }
 
   /**
@@ -500,17 +458,7 @@ export default class KemetInput extends LitElement {
     }
 
     this.focused = false;
-
-    /**
-     * Fires when the input receives and loses focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-input-focused', {
-        bubbles: true,
-        composed: true,
-        detail: false,
-      }),
-    );
+    emitEvent(this, 'kemet-input-focused', false);
   }
 
   /**
@@ -525,23 +473,11 @@ export default class KemetInput extends LitElement {
       this.status = 'standard';
       this.validity = this.input.validity;
 
-      /**
-       * Fires when there's a change in status.
-       * This event includes an object that reports:
-       * 1) the status. 2) HTML5 validity object. 3) the component element.
-       * Use the validity object to support custom validation messages.
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-input-status', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            status: 'standard',
-            validity: this.input.validity,
-            element: this,
-          },
-        }),
-      );
+      emitEvent(this, 'kemet-input-status', {
+        status: 'standard',
+        validity: this.input.validity,
+        element: this,
+      });
     }
   }
 
@@ -551,17 +487,7 @@ export default class KemetInput extends LitElement {
    */
   handleInput() {
     this.value = this.input.value;
-
-    /**
-     * Fires when the input receives input
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-input-input', {
-        bubbles: true,
-        composed: true,
-        detail: this.value,
-      }),
-    );
+    emitEvent(this, 'kemet-input-input', this.value);
   }
 
   /**
@@ -575,20 +501,11 @@ export default class KemetInput extends LitElement {
       this.invalid = true;
       this.status = 'error';
 
-      /**
-       * Fires when there's a change in status
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-input-status', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            status: 'error',
-            validity: this.input.validity,
-            element: this,
-          },
-        }),
-      );
+      emitEvent(this, 'kemet-input-status', {
+        status: 'error',
+        validity: this.input.validity,
+        element: this,
+      });
     }
   }
 
@@ -610,17 +527,7 @@ export default class KemetInput extends LitElement {
    */
   handleClear() {
     this.value = '';
-
-    /**
-     * Fires when the input receives input
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-input-input', {
-        bubbles: true,
-        composed: true,
-        detail: this.value,
-      }),
-    );
+    emitEvent(this, 'kemet-input-input', this.value);
   }
 
   /**

@@ -1,5 +1,27 @@
 import { html, LitElement } from 'lit';
-import { stylesBase, stylesEffects } from './kemet-modal.styles.js';
+import { stylesBase, stylesEffects } from './styles.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-modal
+ * @summary A dialog that has many built in effects and flexible styles.
+ *
+ * @csspart content - The main contents of the modal.
+ * @csspart overlay - The surrounding scrim of the modal.
+ *
+ * @cssproperty --kemet-modal-content-min-width - The minimum width of the content. Default: 0.
+ * @cssproperty --kemet-modal-content-max-width - The maximum width of the content. Default: none.
+ * @cssproperty --kemet-modal-content-background-color - The background color of the content. Default: --kemet-color-white.
+ * @cssproperty --kemet-modal-content-mobile-min-width - The min with of the mobile content. Default: 100%.
+ * @cssproperty --kemet-modal-content-mobile-min-height - The min height of the mobile content. Default: 80vh.
+ *
+ * @event kemet-modal-opened - Fires when the modal opens
+ * @event kemet-modal-closed - Fires when the modal closes
+ *
+ */
 
 export default class KemetModal extends LitElement {
   static get styles() {
@@ -47,6 +69,7 @@ export default class KemetModal extends LitElement {
 
   firstUpdated() {
     // standard properties
+    /** @internal */
     this.focusableSelector = 'body, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
     this.focusableElements = this.querySelectorAll(this.focusableSelector);
 
@@ -78,29 +101,11 @@ export default class KemetModal extends LitElement {
         this.focusableElements[0]?.focus();
       }, 100);
 
-      /**
-       * Fires when the modal opens
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-modal-opened', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-modal-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      /**
-       * Fires when the modal closes
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-modal-closed', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-modal-closed', this);
     }
 
     this.isMobile();

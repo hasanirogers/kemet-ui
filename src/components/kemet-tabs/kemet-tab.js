@@ -1,4 +1,24 @@
 import { LitElement, html, css } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-tab
+ * @summary A tab in a set of tabs.
+ *
+ * @prop {boolean} selected - Is true when the tab is selected
+ * @prop {string} link - Links to a panel name
+ * @prop {boolean} closable - Determines if the tab can be closed
+ *
+ * @cssproperty --kemet-tab-padding - The padding of the tab. Default: 1rem.
+ * @cssproperty --kemet-tab-color - The color of the selected tab. Default: var(--kemet-color-primary).
+ *
+ * @event kemet-tab-selected - Fires when a tab is selected
+ * @event kemet-tab-close - Fires when the tab should close
+ *
+ */
 
 export default class KemetTab extends LitElement {
   static get styles() {
@@ -27,22 +47,13 @@ export default class KemetTab extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Is true when the tab is selected
-       */
       selected: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Links to a panel name
-       */
       link: {
         type: String,
       },
-      /**
-       * Determines if the tab can be closed
-       */
       closable: {
         type: Boolean,
       },
@@ -72,14 +83,7 @@ export default class KemetTab extends LitElement {
   }
 
   select() {
-    /**
-     * Fires when a tab is selected
-     */
-    this.dispatchEvent(new CustomEvent('kemet-tab-selected', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+    emitEvent(this, 'kemet-tab-selected', this);
   }
 
   a11y() {
@@ -103,14 +107,7 @@ export default class KemetTab extends LitElement {
   }
 
   handleClosable() {
-    /**
-     * Fires when the tab should close
-     */
-    this.dispatchEvent(new CustomEvent('kemet-tab-close', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+    emitEvent(this, 'kemet-tab-close', this);
   }
 }
 

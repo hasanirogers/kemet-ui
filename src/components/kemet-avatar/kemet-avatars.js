@@ -1,5 +1,16 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ * @since 1.4.0
+ * @status stable
+ *
+ * @tagname kemet-avatars
+ * @summary Groups multiple avatars.
+ *
+ * @cssproperty --kemet-avatars-squeeze - The space between avatars. Default: -1.5rem.
+ *
+ */
+
 export default class KemetAvatars extends LitElement {
   static get styles() {
     return [
@@ -16,10 +27,6 @@ export default class KemetAvatars extends LitElement {
 
         ::slotted(kemet-avatar:not(:first-of-type)) {
           margin-left: var(--kemet-avatars-squeeze, -1.5rem);
-        }
-
-        :host([border]) ::slotted(kemet-avatar) {
-          border: var(--kemet-avatars-border, 4px solid var(--kemet-color-white));
         }
       `,
     ];

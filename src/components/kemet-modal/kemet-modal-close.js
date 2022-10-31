@@ -1,4 +1,16 @@
 import { css, html, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-modal-close
+ * @summary A close button for a modal.
+ *
+ * @event kemet-modal-close-pressed - Fires when the close button is pressed
+ *
+ */
 
 export default class KemetModalClose extends LitElement {
   static get styles() {
@@ -23,14 +35,7 @@ export default class KemetModalClose extends LitElement {
   }
 
   close() {
-    /**
-     * Fires when the close button is pressed
-     */
-    this.dispatchEvent(new CustomEvent('kemet-modal-close-pressed', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+    emitEvent(this, 'kemet-modal-close-press', this);
   }
 }
 

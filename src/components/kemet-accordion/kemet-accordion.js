@@ -1,5 +1,17 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-accordion
+ * @summary A component that acts like a standard accordion.
+ *
+ * @prop {number} currentPanel - The index value for the most recently opened panel
+ * @prop {boolean} togglePanels - Support for closing all inactive panels when one is opened
+ *
+ */
+
 export default class KemetAccordion extends LitElement {
   static get styles() {
     return [
@@ -13,15 +25,9 @@ export default class KemetAccordion extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The index value for the most recently opened panel
-       */
       currentPanel: {
         type: Number,
       },
-      /**
-       * Support for closing all inactive panels when one is opened
-       */
       togglePanels: {
         type: Boolean,
         attribute: 'toggle-panels',

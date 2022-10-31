@@ -1,6 +1,24 @@
 import { html, css, LitElement } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-rotator
+ * @summary A component that rotates through an array of text.
+ *
+ * @prop {number} activeSlide - The index number for the current slide.
+ * @prop {string} width - The width of the rotator block.
+ * @prop {string} height - The height of the rotator block.
+ * @prop {array} messages - Text in the rotator. Supports HTML.
+ * @prop {string} effect - The transition effect type.
+ * @prop {number} rotationSpeed - How fast, in seconds, each slide lasts. Stop the rotator with 0.
+ *
+ * @cssproperty --kemet-rotator-transition-speed - How long, in css time units, the transition effect lasts. Default: 500ms.
+ *
+ */
+
 export default class KemetRotator extends LitElement {
   static get styles() {
     return css`
@@ -77,40 +95,22 @@ export default class KemetRotator extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The index number for the current slide.
-       */
       activeSlide: {
         type: Number,
       },
-      /**
-       * The width of the rotator block.
-       */
       width: {
         type: String,
       },
-      /**
-       * The height of the rotator block.
-       */
       height: {
         type: String,
       },
-      /**
-       * Text in the rotator. Supports HTML.
-       */
       messages: {
         type: Array,
       },
-      /**
-       * The transition effect type.
-       */
       effect: {
         type: String,
         reflect: true,
       },
-      /**
-       * How fast, in seconds, each slide lasts. Stop the rotator with 0.
-       */
       rotationSpeed: {
         type: Number,
         attribute: 'rotation-speed',

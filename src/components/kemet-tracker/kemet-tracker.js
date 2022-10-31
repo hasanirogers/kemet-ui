@@ -1,5 +1,15 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ *
+ * @since 1.2.0
+ * @status stable
+ *
+ * @prop {number} total - The total number of steps
+ * @prop {string} breakpoint - The point at which the tracker goes from mobile to standard
+ *
+ */
+
 export default class KemetTracker extends LitElement {
   static get styles() {
     return [
@@ -15,18 +25,8 @@ export default class KemetTracker extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The total number of steps
-       */
-      total: {
-        type: Number,
-      },
-      /**
-       * The point at which the tracker goes from mobile to standard
-       */
-      breakpoint: {
-        type: String,
-      },
+      total: { type: Number },
+      breakpoint: { type: String },
     };
   }
 

@@ -2,6 +2,30 @@ import { html, css, LitElement } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-checkbox
+ * @summary An enhanced checkbox.
+ *
+ * @csspart label - The label element.
+ * @csspart text - The the label's text.
+ * @csspart mark - The icon of the check mark.
+ *
+ * @cssproperty --kemet-checkbox-size - The width and height of the checkbox. Default: 18px.
+ * @cssproperty --kemet-checkbox-color - The color of the checkbox's mark. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-checkbox-border - The border of the checkbox. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty --kemet-checkbox-border-radius - The border radius of the checkbox. Default: 4px.
+ * @cssproperty --kemet-checkbox-filled-color - The filled color of the checkbox's mark. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-checkbox-filled-background-color - The filled background color. Default: var(--kemet-color-primary).
+ *
+ * @event kemet-checkbox-change - Fires when the state of the checkbox changes
+ * @event kemet-checkbox-focused - Fires when the checkbox loses or receives focus
+ *
+ */
 
 export default class KemetCheckbox extends LitElement {
   static get styles() {
@@ -151,9 +175,7 @@ export default class KemetCheckbox extends LitElement {
     this.filled = false;
     this.status = 'standard';
 
-    /**
-     * Used only for form reactive controller
-     */
+    /** @internal */
     this.formSubmitController = new FormSubmitController(this);
   }
 
@@ -194,46 +216,17 @@ export default class KemetCheckbox extends LitElement {
   handleClick() {
     this.checked = !this.checked;
     this.indeterminate = false;
-
-    /**
-     * Fires when the state of the checkbox changes
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-checkbox-change', {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      }),
-    );
+    emitEvent(this, 'kemet-checkbox-change', this);
   }
 
   handleBlur() {
     this.focused = false;
-
-    /**
-     * Fires when the checkbox loses or receives focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-checkbox-focused', {
-        bubbles: true,
-        composed: true,
-        detail: false,
-      }),
-    );
+    emitEvent(this, 'kemet-checkbox-focused', false);
   }
 
   handleFocus() {
     this.focused = true;
-    /**
-     * Fires when the checkbox loses or receives focus
-     */
-    this.dispatchEvent(
-      new CustomEvent('kemet-checkbox-focused', {
-        bubbles: true,
-        composed: true,
-        detail: true,
-      }),
-    );
+    emitEvent(this, 'kemet-checkbox-focused', true);
   }
 
   handleChange() {

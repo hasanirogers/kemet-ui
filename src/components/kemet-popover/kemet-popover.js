@@ -1,5 +1,5 @@
 import { html, css, LitElement } from 'lit';
-import { tooltip, customTooltip } from './kemet-popover.tooltip.styles.js';
+import { tooltip, customTooltip } from './styles.tooltip.js';
 import {
   fade,
   scale,
@@ -9,13 +9,51 @@ import {
   flipVertical,
   sign,
   superScaled,
-} from './kemet-popover.effects.styles.js';
+} from './styles.effects.js';
+import { emitEvent } from '../../utilities/misc/events.js';
 
 const keyCodes = {
   ENTER: 13,
   SPACE: 32,
   ESC: 27,
 };
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-popover
+ * @summary Displays an element in position of a trigger. Also acts as a tooltip.
+ *
+ * @prop {boolean} opened - Determines whether or not the popover displays.
+ * @prop {string} effect - The opening and closing effect of the popover. Is optional. Values include: (fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)
+ * @prop {string} position - Determines the placement of the popover. Values include: (top | right | bottom | left)
+ * @prop {boolean} tooltip - Adds a built in tooltip to the popover.
+ * @prop {boolean} customTooltip - Adds a custom tooltip to the popover. Use the custom-tooltip slot to specify the custom tooltip.
+ * @prop {string} fireOn - Controls how the trigger should activate the popover. Values include: (click | hover)
+ * @prop {boolean} clickOutside - Allows the popover to be closed by clicking outside of its content.
+ * @prop {boolean} smart - Intelligently positions the popover.
+ *
+ * @slot trigger - Controls opening and closing the popover.
+ * @slot content - The contents of the popover.
+ * @slot custom-tooltip - Allows you to use an svg, image, custom css, etc for a custom tooltip.
+ *
+ * @csspart trigger - Contains the trigger for the popover.
+ * @csspart content - Contains the content for the popover.
+ * @csspart tooltip - Contains the tooltip for the popover.
+ * @csspart custom-tooltip - Contains the custom tooltip for the popover.
+ *
+ * @cssproperty --kemet-popover-width - The width of the popover contents. Default: 100%.
+ * @cssproperty --kemet-popover-height - The height of the popover contents. Default: auto.
+ * @cssproperty --kemet-popover-color - The text color of the popover's contents. Default: #fafafa.
+ * @cssproperty --kemet-popover-background-color - The background color of the popover's contents. Default: #202020.
+ * @cssproperty --kemet-popover-gap - The space between the trigger and content. Default: 0px.
+ * @cssproperty --kemet-popover-transition-speed - The speed of the opening and closing effect. Default: 0.3s.
+ *
+ * @event kemet-popover-opened - Fires when the popover opens.
+ * @event kemet-popover-closed - Fires when the popover closes.
+ *
+ */
 
 export default class KemetPopover extends LitElement {
   static get styles() {
@@ -121,62 +159,33 @@ export default class KemetPopover extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Determines whether or not the popover displays.
-       */
       opened: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The opening and closing effect of the popover. Is optional.
-       * Values include:
-       * (fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)
-       */
       effect: {
         string: String,
         reflect: true,
       },
-      /**
-       * Determines the placement of the popover.
-       * Values include: (top | right | bottom | left)
-       */
       position: {
         type: String,
         reflect: true,
       },
-      /**
-       * Adds a built in tooltip to the popover.
-       */
       tooltip: {
         type: Boolean,
       },
-      /**
-       * Adds a custom tooltip to the popover.
-       * Use the custom-tooltip slot to specify the custom tooltip.
-       */
       customTooltip: {
         type: Boolean,
         attribute: 'custom-tooltip',
       },
-      /**
-       * Controls how the trigger should activate the popover.
-       * Values include: (click | hover)
-       */
       fireOn: {
         type: String,
         attribute: 'fire-on',
       },
-      /**
-       * Allows the popover to be closed by clicking outside of its content.
-       */
       clickOutside: {
         type: Boolean,
         attribute: 'click-outside',
       },
-      /**
-       * Intelligently positions the popover.
-       */
       smart: {
         type: Boolean,
       },
@@ -221,29 +230,11 @@ export default class KemetPopover extends LitElement {
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
-      /**
-       * Fires when the popover opens.
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-popover-opened', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-popover-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      /**
-       * Fires when the popover closes.
-       */
-      this.dispatchEvent(
-        new CustomEvent('kemet-popover-closed', {
-          bubbles: true,
-          composed: true,
-          detail: this,
-        }),
-      );
+      emitEvent(this, 'kemet-popover-closed', this);
     }
 
     this.smartContent();

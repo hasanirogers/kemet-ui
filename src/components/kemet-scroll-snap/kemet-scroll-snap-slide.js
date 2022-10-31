@@ -1,5 +1,21 @@
 import { html, css, LitElement } from 'lit';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-scroll-snap-slide
+ * @summary A slide in a scroll snap component.
+ *
+ * @prop {boolean} focused - Is true when the slide is fully visible in it's container.
+ * @prop {string} index - Identifies the slide.
+ * @prop {string} label - Labels the slide.
+ *
+ * @cssproperty --kemet-scroll-snap-slide-width - The width of the slide. Default: 100%.
+ * @cssproperty --kemet-scroll-snap-slide-align - The slide alignment. Default: center.
+ *
+ */
+
 export default class KemetScrollSnapSlide extends LitElement {
   static get styles() {
     return css`
@@ -14,23 +30,14 @@ export default class KemetScrollSnapSlide extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Is true when the slide is fully visible in it's container.
-       */
       focused: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Identifies the slide.
-       */
       index: {
         type: String,
         reflect: true,
       },
-      /**
-       * Labels the slide.
-       */
       label: {
         type: String,
         reflect: true,

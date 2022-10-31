@@ -1,5 +1,5 @@
 import { html, css, LitElement } from 'lit';
-import { stylesLoaders } from './kemet-upload-file.loaders.styles.js';
+import { stylesLoaders } from './styles.js';
 
 const formatBytes = (bytes, decimals = 2) => {
   if (bytes === 0) return '0 Bytes';
@@ -13,6 +13,33 @@ const formatBytes = (bytes, decimals = 2) => {
   // eslint-disable-next-line no-restricted-properties
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 };
+
+/**
+ * @since 1.3.0
+ * @status stable
+ *
+ * @tagname kemet-upload-file
+ * @summary A file in the upload.
+ *
+ * @prop {string} name - The name of the file
+ * @prop {number} loaded - The number of bytes loaded
+ * @prop {number} size - The file size in bytes
+ * @prop {string} type - The file type
+ * @prop {string} status - The status of the file. Values are complete | uploading | error.
+ * @prop {number} percent - Percentage of file completion that's calculated by the loaded property.
+ * @prop {string} message - An error message to give to users
+ *
+ * @cssproperty --kemet-upload-file-color - The default text color. Default: var(--kemet-color-gray7).
+ * @cssproperty --kemet-upload-file-padding - The padding around the file. Default: 0.5rem 1rem.
+ * @cssproperty --kemet-upload-file-border - The border around the file. Default: 1px solid var(--kemet-color-primary).
+ *
+ * @csspart percentage - Area that displays the percentage.
+ * @csspart filename - Area that displays file name.
+ * @csspart loaded - Area that displays how much has uploaded.
+ * @csspart message - Area for the error message.
+ * @csspart indicator - Area for status icon.
+ *
+ */
 
 export default class KemetUploadFile extends LitElement {
   static get styles() {
@@ -68,49 +95,13 @@ export default class KemetUploadFile extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * The name of the file
-       */
-      name: {
-        type: String,
-      },
-      /**
-       * The number of bytes loaded
-       */
-      loaded: {
-        type: Number,
-      },
-      /**
-       * The file size in bytes
-       */
-      size: {
-        type: Number,
-      },
-      /**
-       * The file type
-       */
-      type: {
-        type: String,
-      },
-      /**
-       * The status of the file. Values are complete | uploading | error.
-       */
-      status: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * A percentage of file completion that's calculated by the loaded property
-       */
-      percent: {
-        type: Number,
-      },
-      /**
-       * An error message to give to users
-       */
-      message: {
-        type: String,
-      },
+      name: { type: String },
+      loaded: { type: Number },
+      size: { type: Number },
+      type: { type: String },
+      status: { type: String, reflect: true },
+      percent: { type: Number },
+      message: { type: String },
     };
   }
 

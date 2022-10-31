@@ -1,4 +1,22 @@
 import { html, css, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-draggable
+ * @summary A draggable element with the ability to remember its position.
+ *
+ * @prop {string} memory - A unique identifier used to store the element's position in local storage.
+ * @prop {string} top - The elements top position in pixels.
+ * @prop {string} left - The element's left position in pixels.
+ * @prop {boolean} measure - If set to true, will measure the width and height of the element's content and apply it to the host element.
+ *
+ * @event kemet-draggable-start
+ * @event kemet-draggable-stop
+ *
+ */
 
 export default class KemetDraggable extends LitElement {
   static get styles() {
@@ -15,28 +33,15 @@ export default class KemetDraggable extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * A unique identifier used to store the element's position in local storage.
-       */
       memory: {
         type: String,
       },
-      /**
-       * The elements top position in pixels.
-       */
       top: {
         type: String,
       },
-      /**
-       * The element's left position in pixels.
-       */
       left: {
         type: String,
       },
-      /**
-       * If set to true, will measure the width and height
-       * of the element's content and apply it to the host element.
-       */
       measure: {
         type: Boolean,
       },
@@ -54,6 +59,7 @@ export default class KemetDraggable extends LitElement {
 
   firstUpdated() {
     // standard properties
+    /** @internal */
     this.position1 = 0;
     this.position2 = 0;
     this.position3 = 0;
@@ -93,11 +99,7 @@ export default class KemetDraggable extends LitElement {
     document.addEventListener('mouseup', this.mouseUp);
     document.addEventListener('mousemove', this.mouseMove);
 
-    this.dispatchEvent(new CustomEvent('kemet-draggable-start', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+    emitEvent(this, 'kemet-draggable-start', this);
   }
 
   drag(event) {
@@ -125,11 +127,7 @@ export default class KemetDraggable extends LitElement {
       localStorage.setItem(this.memory, JSON.stringify(savedPosition));
     }
 
-    this.dispatchEvent(new CustomEvent('kemet-draggable-stop', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+    emitEvent(this, 'kemet-draggable-stop', this);
   }
 
   measureContent() {

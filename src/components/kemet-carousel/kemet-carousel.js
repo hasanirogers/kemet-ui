@@ -1,126 +1,71 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesCarousel } from './styles.js';
+
+/**
+ *
+ * @since 1.1.0
+ * @status stable
+ *
+ * @tagname kemet-carousel
+ * @summary The Carousel allows you to click or swipe through content.
+ *
+ * @prop {number} index - The current slide index.
+ * @prop {number} total - The total amount of slides.
+ * @prop {string} sliderWidth - The width of the slider.
+ * @prop {string} sliderTranslateX - The X position of the slider.
+ * @prop {boolean} inner - Displays the toolbar inside the carousel container.
+ * @prop {boolean} arrows - Determines whether or not to display arrows.
+ * @prop {object} options - Default options for the carousel.
+ * @prop {object} breakpoints - Options at different breakpoints for the carousel. Is mobile first.
+ *
+ * @event kemet-carousel-change-start - Fires with the a slide has begun to change.
+ * @event kemet-carousel-change-finished - Fires when a slide has changed and finished animating
+ *
+ * @slot slides - Place the slide elements here.
+ * @slot toolbar - Allows you to construct a toolbar within the carousel. Place things like pagination here.
+ * @slot prev - A slot for the previous arrow.
+ * @slot next - A slot for the next arrow.
+ * @slot information - Allows you to enter custom HTML such as a slide description to be used in the toolbar.
+ *
+ * @cssproperty --kemet-carousel-width - The width of the carousel. Default: 100%.
+ * @cssproperty --kemet-carousel-height - The height of the carousel. Default: auto.
+ * @cssproperty --kemet-carousel-toolbar-gap - The space between items in the toolbar. Default: 1rem.
+ * @cssproperty --kemet-carousel-toolbar-justify-content - The cross axis alignment of the toolbar. Default: center.
+ * @cssproperty --kemet-carousel-toolbar-padding - The padding of the toolbar. Default: 1rem.
+ * @cssproperty --kemet-carousel-toolbar-inner-width - The inner toolbar width. Default: 100%.
+ * @cssproperty --kemet-carousel-toolbar-inner-bottom - The bottom position of the inner toolbar. Default: 0.
+ * @cssproperty --kemet-carousel-toolbar-inner-top - The top position of the inner toolbar. Default: auto.
+ * @cssproperty --kemet-carousel-toolbar-inner-color - The inner toolbar text color. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-carousel-toolbar-inner-background-color - The inner toolbar background color. Default: rgba(0, 0, 0, 0.4).
+ * @cssproperty --kemet-carousel-slides-border - The border around the slides. Default: 1px solid var(--kemet-color-gray1).
+ * @cssproperty --kemet-carousel-transition-speed - The transition speed of the slides. Default: 300ms.
+ * @cssproperty --kemet-carousel-arrows-opacity - The arrows start opacity. Default: 0.25.
+ * @cssproperty --kemet-carousel-arrows-opacity-hover - The arrows however opacity. Default: 1.
+ * @cssproperty --kemet-carousel-arrows-transition-speed - The arrows transition speed. Default: 300ms.
+ *
+ * @csspart container - Contains the slides and toolbar.
+ * @csspart slides - Wrapper for the slider.
+ * @csspart slider - Contains the slides.
+ * @csspart toolbar - Contains the toolbar.
+ *
+ */
 
 export default class KemetCarousel extends LitElement {
   static get styles() {
-    return css`
-      :host,
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
-      :host {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        align-items: center;
-        width: var(--kemet-carousel-width, 100%);
-        height: var(--kemet-carousel-height, auto);
-        overflow: visible;
-      }
-
-      :host([arrows]) {
-        grid-template-columns: auto minmax(0, 1fr) auto;
-      }
-
-      .toolbar {
-        display: flex;
-        gap: var(--kemet-carousel-toolbar-gap, 1rem);
-        align-items: center;
-        justify-content: var(--kemet-carousel-toolbar-justify-content, center);
-        line-height: 1;
-        padding: var(--kemet-carousel-toolbar-padding, 1rem);
-      }
-
-      :host([inner]) .toolbar {
-        width: var(--kemet-carousel-toolbar-inner-width, 100%);
-        position: absolute;
-        bottom: var(--kemet-carousel-toolbar-inner-bottom, 0);
-        top: var(--kemet-carousel-toolbar-inner-top, auto);
-        color: var(--kemet-carousel-toolbar-inner-color, var(--kemet-color-white));
-        background-color: var(--kemet-carousel-toolbar-inner-background-color, rgba(0, 0, 0, 0.4));
-      }
-
-      .slides {
-        overflow: hidden;
-        position: relative;
-        padding: 1rem 0;
-        border: var(--kemet-carousel-slides-border, 1px solid var(--kemet-color-gray1));
-      }
-
-      .slider {
-        display: flex;
-        flex-wrap: nowrap;
-        transition: transform var(--kemet-carousel-transition-speed, 300ms) ease;
-      }
-
-      ::slotted([slot='next']),
-      ::slotted([slot='prev']) {
-        opacity: var(--kemet-carousel-arrows-opacity, 0.25);
-        transition: opacity var(--kemet-carousel-arrows-transition-speed, 300ms) ease-in-out;
-      }
-
-      :host(:hover) ::slotted([slot='next']),
-      :host(:hover) ::slotted([slot='prev']) {
-        opacity: var(--kemet-carousel-arrows-opacity-hover, 1);
-      }
-    `;
+    return [stylesCarousel];
   }
 
   static get properties() {
     return {
-      /**
-       * The current slide index.
-       */
-      index: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * The total amount of slides
-       */
-      total: {
-        type: Number,
-      },
-      /**
-       * The width of the slider
-       */
-      sliderWidth: {
-        type: String,
-      },
-      /**
-       * The X position of the slider
-       */
-      sliderTranslateX: {
-        type: String,
-      },
-      /**
-       * Displays the toolbar inside the carousel container
-       */
-      inner: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Determines whether or not to display arrows
-       */
-      arrows: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Default options for the carousel
-       */
-      options: {
-        type: Object,
-      },
-      /**
-       * Options are different breakpoints for the carousel. Is mobile first.
-       */
-      breakpoints: {
-        type: Object,
-      },
+      index: { type: Number, reflect: true },
+      total: { type: Number },
+      sliderWidth: { type: String },
+      sliderTranslateX: { type: String },
+      inner: { type: Boolean, reflect: true },
+      arrows: { type: Boolean, reflect: true },
+      options: { type: Object },
+      breakpoints: { type: Object },
     };
   }
 
@@ -414,15 +359,7 @@ export default class KemetCarousel extends LitElement {
       currentSlide.selected = true;
 
       // notify consumers of slide change
-
-      /**
-       * Fires with the a slide has begun to change
-       */
-      this.dispatchEvent(new CustomEvent('kemet-carousel-change-start', {
-        bubbles: true,
-        composed: true,
-        detail: this,
-      }));
+      emitEvent(this, 'kemet-carousel-change-start', this);
 
       // update information element
       this.updateInformation();
@@ -458,14 +395,7 @@ export default class KemetCarousel extends LitElement {
       currentElement.current = this.index + 1;
     }
 
-    /**
-     * Fires when a slide has changed and finished animating
-     */
-    this.dispatchEvent(new CustomEvent('kemet-carousel-change-finished', {
-      bubbles: true,
-      composed: true,
-      detail: this,
-    }));
+    emitEvent(this, 'kemet-carousel-change-finished', this);
   }
 
   handleLink(event) {

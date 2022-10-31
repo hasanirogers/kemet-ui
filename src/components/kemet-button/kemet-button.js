@@ -2,6 +2,47 @@ import { html, css, LitElement } from 'lit';
 import '../kemet-icon/kemet-icon.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 
+/**
+ * @since 1.0.0
+ * @status stable
+ *
+ * @tagname kemet-button
+ * @summary A versatile button that can be used either to submit a form, trigger an action, or link to content.
+ *
+ * @prop {boolean} active - Determines whether or not the button is active
+ * @prop {boolean} hover - Is true when the button is hovered
+ * @prop {boolean} focused - Is true when the button is focused
+ * @prop {string} link - The url a button should link too
+ * @prop {boolean} outlined - Outline style for a button
+ * @prop {boolean} disabled - Determines whether not a button is disabled
+ * @prop {string} type - Controls the type of button. standard | text | circle | rounded | pill
+ *
+ * @slot left - Allows you to place an icon to the left of the button text.
+ * @slot right - Allows you to place an icon to the right of the button text.
+ *
+ * @csspart button - The button or anchor element.
+ *
+ * @cssproperty --kemet-button-font-size - The font size. Default: inherit.
+ * @cssproperty --kemet-button-color - The text color. Default: --kemet-color-white.
+ * @cssproperty --kemet-button-width - The width. Default: auto.
+ * @cssproperty --kemet-button-height - The height. Default:  auto.
+ * @cssproperty --kemet-button-border - The border. Default: 0.
+ * @cssproperty --kemet-button-border-radius - The border radius. Default: 0.
+ * @cssproperty --kemet-button-transition-speed - The transition speed of the hover effect. Default: 300ms.
+ * @cssproperty --kemet-button-background-color - The background color. Default: --kemet-color-primary.
+ * @cssproperty --kemet-button-hover-brightness - The brightness of the hover effect. Default: 1.25.
+ * @cssproperty --kemet-button-gap - The gap between the button and icons. Default: 0.5rem.
+ * @cssproperty --kemet-button-padding - The button padding. Default: 1rem 1.25rem.
+ * @cssproperty --kemet-button-hover-decoration - The decoration for a text button's hover. Default: underline.
+ * @cssproperty --kemet-button-circle-size - The diameter of a circle button. Default: 50px.
+ * @cssproperty --kemet-button-rounded-amount - The border radius of the rounded button. Default: 6px.
+ * @cssproperty --kemet-button-border-width - The width of the outline border. Default: 1px.
+ * @cssproperty --kemet-button-border-style - The style of the outline border. Default: solid.
+ * @cssproperty --kemet-button-border-color - The color of the outline border. Default: --kemet-color-primary.
+ * @cssproperty --kemet-button-disabled-opacity - The opacity of the disabled state. Default: 0.5.
+ *
+ */
+
 export default class KemetButton extends LitElement {
   static get styles() {
     return [
@@ -80,51 +121,29 @@ export default class KemetButton extends LitElement {
 
   static get properties() {
     return {
-      /**
-       * Determines whether or not the button is active
-       */
       active: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Is true when the button is hovered
-       */
       hover: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Is true when the button is focused
-       */
       focused: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * The url a button should link too
-       */
       link: {
         type: String,
       },
-      /**
-       * Outline style for a button
-       */
       outlined: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Determines whether not a button is disabled
-       */
       disabled: {
         type: Boolean,
         reflect: true,
       },
-      /**
-       * Controls the type of button
-       * standard | text | circle | rounded | pill
-       */
       type: {
         type: String,
         reflect: true,
@@ -145,9 +164,7 @@ export default class KemetButton extends LitElement {
     this.outline = false;
     this.disable = false;
 
-    /**
-      * Used only for form reactive controller
-      */
+    /** @internal */
     this.formSubmitController = new FormSubmitController(this);
   }
 

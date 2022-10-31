@@ -1,170 +1,59 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { stylesStep } from './styles.js';
+
+/**
+ *
+ * @since 1.2.0
+ * @status stable
+ *
+ * @tagname kemet-tracker-step
+ * @summary A step in the Tracker
+ *
+ * @prop {number} step - The current step number
+ * @prop {boolean} completed - Determines whether or not a step renders as complete
+ * @prop {boolean} current - Determines whether or not a step renders as the current step
+ * @prop {boolean} last - Is automatically added to the last step
+ * @prop {boolean} mobile - Determines if a step should render as mobile
+ * @prop {boolean} hideDotContent - Hides the label inside of a dot
+ * @prop {number} completedSize - The icon size for the completed check mark
+ *
+ * @cssproperty --kemet-tracker-step-dot-font-size - The font size. Default: 90%
+ * @cssproperty --kemet-tracker-step-dot-color - The text color. Default: var(--kemet-color-primary)
+ * @cssproperty --kemet-tracker-step-dot-border - Border around a dot. Default: 1px solid var(--kemet-color-primary)
+ * @cssproperty --kemet-tracker-step-dot-size - Width and height of a dot. Default: 50px
+ * @cssproperty --kemet-tracker-step-dot-size-mobile - Mobile width and height of a dot. Default: 25px
+ * @cssproperty --kemet-tracker-step-dot-gap - Space between a dot and connector line. Default: 4px
+ * @cssproperty --kemet-tracker-step-dot-transition - Transition of a dot. Default: all 300ms ease-in-out
+ * @cssproperty --kemet-tracker-step-dot-fill-color - Fill color of a dot. Default: transparent
+ * @cssproperty --kemet-tracker-step-dot-background-color - Color of the background a dot is on. Default: var(--kemet-color-white)
+ * @cssproperty --kemet-tracker-step-current-color - Current dot text color. Default: var(--kemet-color-white)
+ * @cssproperty --kemet-tracker-step-current-fill-color - Current dot fill color. Default: var(--kemet-color-primary)
+ * @cssproperty --kemet-tracker-step-completed-color - Text color of a completed dot. Default: var(--kemet-color-white)
+ * @cssproperty --kemet-tracker-step-completed-fill-color - Background color of a completed dot. Default: var(--kemet-color-success)
+ * @cssproperty --kemet-tracker-step-completed-line-color - Completed connector line color. Default: var(--kemet-color-primary)
+ * @cssproperty --kemet-tracker-step-completed-line-weight - Completed line weight. Default: 3px
+ * @cssproperty --kemet-tracker-step-standard-line-weight - Standard line weight. Default: 1px
+ *
+ * @csspart dot - The container for the dot.
+ * @csspart line - A connector line from dot to dot.
+ * @csspart completed-line - A completed connector line.
+ *
+ */
 
 export default class KemetTrackerStep extends LitElement {
   static get styles() {
-    return [
-      css`
-        :host {
-          --kemet-tracker-step-dot-size: 50px;
-          --kemet-tracker-step-dot-size-mobile: 25px;
-          --kemet-tracker-step-dot-gap: 4px;
-          --kemet-tracker-step-standard-line-weight: 1px;
-          --kemet-tracker-step-completed-line-weight: 3px;
-          --kemet-tracker-step-dot-transition: all 300ms ease-in-out;
-
-          position: relative;
-          width: 100%;
-          text-align: center;
-        }
-
-        .dot {
-          font-size: var(--kemet-tracker-step-dot-font-size, 90%);
-          color: var(--kemet-tracker-step-dot-color, var(--kemet-color-primary));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto;
-          position: relative;
-          z-index: 1;
-          width: var(--kemet-tracker-step-dot-size);
-          height: var(--kemet-tracker-step-dot-size);
-          border-radius: 100%;
-          transition: var(--kemet-tracker-step-dot-transition);
-          background-color: var(--kemet-tracker-step-dot-background-color, var(--kemet-color-white));
-        }
-
-        .dot::after {
-          content: "";
-          width: unset;
-          height: unset;
-          position: absolute;
-          top: var(--kemet-tracker-step-dot-gap);
-          left: var(--kemet-tracker-step-dot-gap);
-          right: var(--kemet-tracker-step-dot-gap);
-          bottom: var(--kemet-tracker-step-dot-gap);
-          z-index: -1;
-          border-radius: 100%;
-          transition: var(--kemet-tracker-step-dot-transition);
-          border: var(--kemet-tracker-step-dot-border, 1px solid var(--kemet-color-primary));
-          background-color: var(--kemet-tracker-step-dot-fill-color, transparent);
-        }
-
-        :host([completed]) .dot {
-          color: var(--kemet-tracker-step-completed-color, var(--kemet-color-white));
-        }
-
-        :host([completed]) .dot::after {
-          border: 0;
-          background-color: var(--kemet-tracker-step-completed-fill-color, var(--kemet-color-success));
-        }
-
-        :host([current]) .dot.animate {
-          color: var(--kemet-tracker-step-current-color, var(--kemet-color-white));
-        }
-
-        :host([current]) .dot.animate::after {
-          border: 0;
-          background-color: var(--kemet-tracker-step-current-fill-color, var(--kemet-color-primary));
-        }
-
-        :host([mobile]) .dot {
-          width: var(--kemet-tracker-step-dot-size-mobile);
-          height: var(--kemet-tracker-step-dot-size-mobile);
-        }
-
-        .line {
-          display: block;
-          position: absolute;
-          left: 50%;
-          right: 0;
-          bottom: 0;
-          width: 100%;
-
-          /* standard */
-          top: calc((var(--kemet-tracker-step-dot-size) - var(--kemet-tracker-step-standard-line-weight)) / 2);
-          height: var(--kemet-tracker-step-standard-line-weight);
-          background-color: var(--kemet-tracker-step-line-color, var(--kemet-color-primary));
-        }
-
-        .line.completed {
-          width: 100%;
-          transform: scaleX(0);
-          transform-origin: left center;
-          top: calc((var(--kemet-tracker-step-dot-size) - var(--kemet-tracker-step-completed-line-weight)) / 2);
-          height: var(--kemet-tracker-step-completed-line-weight);
-          background-color: var(--kemet-tracker-step-completed-line-color, var(--kemet-color-primary));
-          animation-name: grow;
-          animation-delay: 1s;
-          animation-duration: 600ms;
-          animation-fill-mode: forwards;
-        }
-
-        :host([mobile]) .line {
-          top: calc((var(--kemet-tracker-step-dot-size-mobile) - var(--kemet-tracker-step-standard-line-weight)) / 2);
-        }
-
-        :host([mobile]) .line.completed {
-          top: calc((var(--kemet-tracker-step-dot-size-mobile) - var(--kemet-tracker-step-completed-line-weight)) / 2);
-        }
-
-        @keyframes grow {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-      `,
-    ];
+    return [stylesStep];
   }
 
   static get properties() {
     return {
-      /**
-       * The current step number
-       */
-      step: {
-        type: Number,
-      },
-      /**
-       * Determines whether or not a step renders as complete
-       */
-      completed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Determines whether or not a step renders as the current step
-       */
-      current: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Is automatically added to the last step
-       */
-      last: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Determines if a step should render as mobile
-       */
-      mobile: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Hides the label inside of a dot
-       */
-      hideDotContent: {
-        type: Boolean,
-        reflect: true,
-        attribute: 'hide-dot-content',
-      },
-      /**
-       * The icon size for the completed check mark
-       */
-      completedSize: {
-        type: Number,
-      },
+      step: { type: Number },
+      completed: { type: Boolean, reflect: true },
+      current: { type: Boolean, reflect: true },
+      last: { type: Boolean, reflect: true },
+      mobile: { type: Boolean, reflect: true },
+      hideDotContent: { type: Boolean, reflect: true, attribute: 'hide-dot-content' },
+      completedSize: { type: Number },
     };
   }
 
