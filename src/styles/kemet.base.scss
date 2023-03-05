@@ -1,0 +1,21 @@
+@use './shared/helpers' as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+@include makeRoot;
+
+html {
+  color: var(--kemet-color-text);
+}
+
+[theme='dark'] {
+  --kemet-color-text: var(--kemet-color-white);
+  --kemet-color-foreground: var(--kemet-color-primary);
+  --kemet-color-background: var(--kemet-color-white);
+
+  @include makeElevationDark;
+}

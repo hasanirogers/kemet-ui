@@ -157,6 +157,7 @@ $spacers: (
 /// @group config-variables
 
 $colors: (
+  // base colors
   white: rgba(255, 255, 255, 1),
   white-10: rgba(255, 255, 255, 0.1),
   white-20: rgba(255, 255, 255, 0.2),
@@ -202,12 +203,15 @@ $colors: (
   primary-80: rgba(12, 74, 110, 0.8),
   primary-90: rgba(12, 74, 110, 0.9),
 
-  link: rgba(12, 74, 110, 1),
-
   error: rgba(197, 48, 48, 1),
   success: rgba(22, 163, 74, 1),
   neutral: rgba(82, 82, 91, 1),
   warning: rgba(217, 119, 6, 1),
+
+  // theme colors
+  text: var(--kemet-color-gray9),
+  foreground: var(--kemet-color-white),
+  background: var(--kemet-color-primary)
 ) !default;
 
 

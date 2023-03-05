@@ -21,7 +21,7 @@ Standard.args = {
   width: '1',
   side: 'all',
   style: 'solid',
-  color: 'primary',
+  color: 'auto',
   radius: 'none',
 };
 Standard.argTypes = {
@@ -39,7 +39,7 @@ Standard.argTypes = {
   },
   color: {
     control: { type: 'select' },
-    options: ['primary', 'black', 'white', 'gray1', 'gray2', 'gray3', 'gray4', 'gray5', 'gray6', 'gray7', 'gray8', 'gray9', 'gray10'],
+    options: ['auto', 'primary', 'black', 'white', 'gray1', 'gray2', 'gray3', 'gray4', 'gray5', 'gray6', 'gray7', 'gray8', 'gray9', 'gray10'],
   },
   radius: {
     control: { type: 'select' },

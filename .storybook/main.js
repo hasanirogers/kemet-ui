@@ -9,5 +9,6 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/preset-scss',
     '@whitespace/storybook-addon-html',
+    './addons/themes/preset',
   ],
 };

@@ -53,13 +53,13 @@ export default class KemetButton extends LitElement {
           align-items: center;
           justify-content: center;
           font-size: var(--kemet-button-font-size, inherit);
-          color: var(--kemet-button-color, var(--kemet-color-white));
+          color: var(--kemet-button-color, var(--kemet-color-foreground));
           width: var(--kemet-button-width, auto);
           height: var(--kemet-button-height, auto);
           border: var(--kemet-button-border, 0);
           border-radius: var(--kemet-button-border-radius, 0);
           transition: filter var(--kemet-button-transition-speed, 300ms) ease;
-          background-color: var(--kemet-button-background-color, var(--kemet-color-primary));
+          background-color: var(--kemet-button-background-color, var(--kemet-color-background));
         }
 
         :host(:hover:not([disabled])) {

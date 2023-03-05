@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'config' as *;
 @use '../components/config' as *;
 
@@ -241,7 +242,7 @@
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @for $i from 1 through $flexgridcolumns {
-        $base: 100/$i;
+        $base: math.div(100, $i);
 
         [kemet-basis*="#{$breakpoint}:#{$i}-columns"] > * {
           flex: 0 0 unquote($base+'%');
@@ -315,20 +316,34 @@
     $name: '' + $color;
 
     [kemet-color="#{$name}"] {
-      color: $value;
+      color: var(--kemet-color-#{'' + $color});
     }
 
     [kemet-background-color="#{$name}"] {
-      background-color: $value;
+      background-color: var(--kemet-color-#{'' + $color});
     }
+  }
+
+  [kemet-color='auto'] {
+    color: var(--kemet-color-foreground);
+  }
+
+  [kemet-background-color='auto'] {
+    background-color: var(--kemet-color-background);
   }
 }
 
 @mixin makeElevation {
   @each $layer, $value in $elevation {
     [kemet-elevation="#{$layer}"] {
-      box-shadow: $value;
+      box-shadow: var(--kemet-elevation-#{'' + $layer});
     }
+  }
+}
+
+@mixin makeElevationDark {
+  @each $layer, $value in $elevation {
+    --kemet-elevation-#{"" + $layer}: none;
   }
 }
 
@@ -342,6 +357,10 @@
     [kemet-border*="#{$name}"] {
       border-color: $value;
     }
+  }
+
+  [kemet-border*='auto'] {
+    border-color: var(--kemet-color-background);
   }
 
   @each $width, $value in $borderwidths {
@@ -402,6 +421,30 @@
   @each $size, $value in $borderradiuses {
     [kemet-border-radius="#{$size}"] {
       border-radius: $value;
+    }
+  }
+}
+
+@mixin makeRoot {
+  :root {
+    // handle colors
+    @each $color, $value in $colors {
+      --kemet-color-#{"" + $color}: #{$value};
+    }
+
+    // handle border radiuses
+    @each $size, $value in $borderradiuses {
+      --kemet-border-radius-#{"" + $size}: #{$value};
+    }
+
+    // handle elevation
+    @each $layer, $value in $elevation {
+      --kemet-elevation-#{"" + $layer}: #{$value};
+    }
+
+    // handle spacers
+    @each $size, $value in $spacers {
+      --kemet-spacer-#{"" + $size}: #{$value};
     }
   }
 }
