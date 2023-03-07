@@ -66,10 +66,10 @@
               "kind": "field",
               "name": "opened",
               "privacy": "public",
-              "default": "undefined",
               "type": {
                 "text": "boolean"
               },
+              "default": "undefined",
               "description": "Determines the opened state of the panel",
               "attribute": "opened",
               "reflects": true
@@ -110,12 +110,12 @@
           "attributes": [
             {
               "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
               "default": "undefined",
               "resolveInitializer": {
                 "module": "src/components/kemet-accordion/kemet-accordion-panel.js"
-              },
-              "type": {
-                "text": "boolean"
               },
               "description": "Determines the opened state of the panel",
               "fieldName": "opened"
@@ -230,10 +230,10 @@
               "kind": "field",
               "name": "currentPanel",
               "privacy": "public",
-              "default": "undefined",
               "type": {
                 "text": "number"
               },
+              "default": "undefined",
               "description": "The index value for the most recently opened panel",
               "attribute": "currentPanel"
             }
@@ -241,12 +241,12 @@
           "attributes": [
             {
               "name": "currentPanel",
+              "type": {
+                "text": "number"
+              },
               "default": "undefined",
               "resolveInitializer": {
                 "module": "src/components/kemet-accordion/kemet-accordion.js"
-              },
-              "type": {
-                "text": "number"
               },
               "description": "The index value for the most recently opened panel",
               "fieldName": "currentPanel"
@@ -1807,6 +1807,9 @@
               "kind": "field",
               "name": "'aria-hidden'",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "'aria-hidden'",
               "reflects": true
             }
@@ -1823,6 +1826,9 @@
             },
             {
               "name": "'aria-hidden'",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "'aria-hidden'"
             }
           ],
@@ -2498,6 +2504,9 @@
               "kind": "field",
               "name": "checked",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "checked",
               "reflects": true
             },
@@ -2505,6 +2514,9 @@
               "kind": "field",
               "name": "indeterminate",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "indeterminate",
               "reflects": true
             },
@@ -2512,12 +2524,18 @@
               "kind": "field",
               "name": "value",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "value"
             },
             {
               "kind": "field",
               "name": "focused",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "focused",
               "reflects": true
             },
@@ -2525,6 +2543,9 @@
               "kind": "field",
               "name": "message",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "message"
             }
           ],
@@ -2549,10 +2570,16 @@
             },
             {
               "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "checked"
             },
             {
               "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "indeterminate"
             },
             {
@@ -2565,6 +2592,9 @@
             },
             {
               "name": "value",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "value"
             },
             {
@@ -2585,6 +2615,9 @@
             },
             {
               "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "focused"
             },
             {
@@ -2613,6 +2646,9 @@
             },
             {
               "name": "message",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "message"
             }
           ],
@@ -2777,6 +2813,9 @@
               "kind": "field",
               "name": "filteredOptions",
               "privacy": "public",
+              "type": {
+                "text": "array"
+              },
               "attribute": "filteredOptions"
             }
           ],
@@ -2806,6 +2845,9 @@
             },
             {
               "name": "filteredOptions",
+              "type": {
+                "text": "array"
+              },
               "fieldName": "filteredOptions"
             },
             {
@@ -3183,10 +3225,10 @@
               "kind": "field",
               "name": "opened",
               "privacy": "public",
-              "default": "undefined",
               "type": {
                 "text": "boolean"
               },
+              "default": "undefined",
               "description": "Determines if the drawer is opened or not.",
               "attribute": "opened",
               "reflects": true
@@ -3241,12 +3283,12 @@
           "attributes": [
             {
               "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
               "default": "undefined",
               "resolveInitializer": {
                 "module": "src/components/kemet-drawer/kemet-drawer.js"
-              },
-              "type": {
-                "text": "boolean"
               },
               "description": "Determines if the drawer is opened or not.",
               "fieldName": "opened"
@@ -5167,6 +5209,9 @@
               "kind": "field",
               "name": "effect",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "effect",
               "reflects": true
             },
@@ -5174,6 +5219,9 @@
               "kind": "field",
               "name": "mobile",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "mobile",
               "reflects": true
             }
@@ -5199,6 +5247,9 @@
             },
             {
               "name": "effect",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "effect"
             },
             {
@@ -5219,6 +5270,9 @@
             },
             {
               "name": "mobile",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "mobile"
             }
           ],
@@ -9001,36 +9055,54 @@
               "kind": "field",
               "name": "placeholder",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "placeholder"
             },
             {
               "kind": "field",
               "name": "minlength",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "minlength"
             },
             {
               "kind": "field",
               "name": "maxlength",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "maxlength"
             },
             {
               "kind": "field",
               "name": "inputmode",
               "privacy": "public",
+              "type": {
+                "text": "string"
+              },
               "attribute": "inputmode"
             },
             {
               "kind": "field",
               "name": "autofocus",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "autofocus"
             },
             {
               "kind": "field",
               "name": "disabled",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "disabled",
               "reflects": true
             },
@@ -9038,12 +9110,18 @@
               "kind": "field",
               "name": "readonly",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "readonly"
             },
             {
               "kind": "field",
               "name": "required",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "required",
               "reflects": true
             },
@@ -9051,6 +9129,9 @@
               "kind": "field",
               "name": "invalid",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "invalid",
               "reflects": true
             },
@@ -9058,12 +9139,18 @@
               "kind": "field",
               "name": "validateOnBlur",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "validate-on-blur"
             },
             {
               "kind": "field",
               "name": "filled",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "filled",
               "reflects": true
             },
@@ -9071,6 +9158,9 @@
               "kind": "field",
               "name": "rounded",
               "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
               "attribute": "rounded",
               "reflects": true
             }
@@ -9117,34 +9207,58 @@
             },
             {
               "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "placeholder"
             },
             {
               "name": "minlength",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "minlength"
             },
             {
               "name": "maxlength",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "maxlength"
             },
             {
               "name": "inputmode",
+              "type": {
+                "text": "string"
+              },
               "fieldName": "inputmode"
             },
             {
               "name": "autofocus",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "autofocus"
             },
             {
               "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "disabled"
             },
             {
               "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "readonly"
             },
             {
               "name": "required",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "required"
             },
             {
@@ -9157,6 +9271,9 @@
             },
             {
               "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "invalid"
             },
             {
@@ -9177,14 +9294,23 @@
             },
             {
               "name": "validate-on-blur",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "validateOnBlur"
             },
             {
               "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "filled"
             },
             {
               "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
               "fieldName": "rounded"
             }
           ],

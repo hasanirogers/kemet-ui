@@ -1,4 +1,4 @@
-import { html } from 'lit/static-html';
+import { html } from 'lit';
 
 import './kemet-modal.js';
 import './kemet-modal-close.js';
