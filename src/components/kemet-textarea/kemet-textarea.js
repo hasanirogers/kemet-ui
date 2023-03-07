@@ -37,12 +37,14 @@ export default class KemetTextarea extends LitElement {
         }
 
         textarea {
+          color: var(--kemet-color-text);
           display: block;
           width: 100%;
           padding: var(--kemet-textarea-padding, 1rem);
-          border: var(--kemet-textarea-border, 1px solid var(--kemet-color-primary));
+          border: var(--kemet-textarea-border, 1px solid var(--kemet-color-background));
           appearance: none;
           box-sizing: border-box;
+          background: transparent;
         }
 
         :host([status='error']) textarea {

@@ -80,7 +80,7 @@ export default class KemetRadio extends LitElement {
           padding: 0;
           border-radius: 50%;
           background: none;
-          border: var(--kemet-radio-border, 1px solid var(--kemet-color-primary));
+          border: var(--kemet-radio-border, 1px solid var(--kemet-color-background));
         }
 
         [part='dot'] {

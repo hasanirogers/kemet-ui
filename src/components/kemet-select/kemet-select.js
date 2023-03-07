@@ -25,7 +25,7 @@ import { emitEvent } from '../../utilities/misc/events.js';
  * @csspart select
  *
  * @cssproperty --kemet-select-padding - The padding on the textarea. Default: 1rem.
- * @cssproperty --kemet-select-border - The border of the textarea. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty --kemet-select-border - The border of the textarea. Default: 1px solid var(--kemet-color-background).
  * @cssproperty --kemet-select-border-color-error - The border of the error state. Default: 1px solid var(--kemet-color-error).
  * @cssproperty --kemet-select-border-color-success - The border of the success state. Default: 1px solid var(--kemet-color-success).
  * @cssproperty --kemet-select-border-color-warning - The border of the warning state. Default: 1px solid var(--kemet-color-warning).
@@ -53,14 +53,19 @@ export default class KemetSelect extends LitElement {
         }
 
         select {
+          color: var(--kemet-color-text);
           display: block;
           font-size: 1rem;
           width: 100%;
           padding: var(--kemet-select-padding, 1rem);
-          border: var(--kemet-select-border, 1px solid var(--kemet-color-primary));
+          border: var(--kemet-select-border, 1px solid var(--kemet-color-background));
           appearance: none;
           box-sizing: border-box;
           background-color: transparent;
+        }
+
+        option {
+          color: var(--kemet-color-black);
         }
 
         :host([status='error']) select {

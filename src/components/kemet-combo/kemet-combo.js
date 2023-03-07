@@ -20,8 +20,8 @@ import { emitEvent } from '../../utilities/misc/events.js';
  * @cssproperty --kemet-combo-max-height - The max height of the combo box. Default: calc(5 * 3rem).
  * @cssproperty --kemet-combo-border - The border of the combo box. Default: 1px solid var(--kemet-color-primary).
  * @cssproperty --kemet-combo-border-radius - The border radius of the combo box. Default: var(--kemet-border-radius).
- * @cssproperty --kemet-combo-background-color - The background color of the combo box. Default: var(--kemet-color-white).
- * @cssproperty --kemet-combo-shadow - The shadow of the combo box. Default: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1).
+ * @cssproperty --kemet-combo-background-color - The background color of the combo box. Default: var(--kemet-color-white-to-black).
+ * @cssproperty --kemet-combo-shadow - The shadow of the combo box. Default: var(--kemet-elevation-layer5).
  * @cssproperty --kemet-combo-hover-color - The hover item's text color. Default:  var(--kemet-color-white).
  * @cssproperty --kemet-combo-hover-background-color - The hover item's background color. Default: var(--kemet-color-primary).
  *
@@ -57,10 +57,10 @@ export default class KemetCombo extends LitElement {
           margin: 0;
           padding: 0;
           overflow-y: scroll;
-          border: var(--kemet-combo-border, 1px solid var(--kemet-color-primary));
+          border: var(--kemet-combo-border, 1px solid var(--kemet-color-background));
           border-radius: var(--kemet-combo-border-radius, var(--kemet-border-radius));
-          background-color: var(--kemet-combo-background-color, var(--kemet-color-white));
-          box-shadow: var(--kemet-combo-shadow, 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1));
+          background-color: var(--kemet-combo-background-color, var(--kemet-color-white-to-black));
+          box-shadow: var(--kemet-combo-shadow, var(--kemet-elevation-layer5));
         }
         li {
           line-height: 3rem;

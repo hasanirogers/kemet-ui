@@ -432,6 +432,8 @@
       --kemet-color-#{"" + $color}: #{$value};
     }
 
+    --kemet-color-white-to-black: var(--kemet-color-white);
+
     // handle border radiuses
     @each $size, $value in $borderradiuses {
       --kemet-border-radius-#{"" + $size}: #{$value};

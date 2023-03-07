@@ -79,14 +79,16 @@ export default class KemetInput extends LitElement {
         }
 
         input {
+          color: var(--kemet-color-text);
           display: block;
           font-size: 1rem;
           width: 100%;
           height: var(--kemet-input-height, 50px);
           padding: var(--kemet-input-padding, 0.5rem 1rem);
-          border: var(--kemet-input-border, 1px solid var(--kemet-color-primary));
+          border: var(--kemet-input-border, 1px solid var(--kemet-color-background));
           appearance: none;
           box-sizing: border-box;
+          background-color: transparent;
         }
 
         input[type='color'] {
@@ -152,7 +154,7 @@ export default class KemetInput extends LitElement {
         }
 
         kemet-icon {
-          color: var(--kemet-color-primary);
+          color: var(--kemet-color-text);
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
