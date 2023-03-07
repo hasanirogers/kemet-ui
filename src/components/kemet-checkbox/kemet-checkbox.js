@@ -68,13 +68,13 @@ export default class KemetCheckbox extends LitElement {
         }
 
         [part='checkbox'] {
-          color: var(--kemet-checkbox-color, var(--kemet-color-primary));
+          color: var(--kemet-checkbox-color, var(--kemet-color-background));
           display: flex;
           align-items: center;
           justify-content: center;
           width: var(--kemet-checkbox-size, 18px);
           height: var(--kemet-checkbox-size, 18px);
-          border: var(--kemet-checkbox-border, 1px solid var(--kemet-color-primary));
+          border: var(--kemet-checkbox-border, 1px solid var(--kemet-color-background));
         }
 
         :host([rounded]) [part='checkbox'] {
