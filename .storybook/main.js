@@ -10,7 +10,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/preset-scss',
-    //'@whitespace/storybook-addon-html',
+    '@whitespace/storybook-addon-html',
     './addons/themes/preset',
   ],
 };

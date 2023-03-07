@@ -88,7 +88,7 @@ export default class KemetButton extends LitElement {
         }
 
         :host([type='text']) {
-          --kemet-button-color: var(--kemet-color-primary);
+          --kemet-button-color: var(--kemet-color-text);
           --kemet-button-background-color: none;
         }
 
@@ -111,9 +111,9 @@ export default class KemetButton extends LitElement {
         }
 
         :host([outlined]) {
-          --kemet-button-color: var(--kemet-color-primary);
-          --kemet-button-background-color: var(--kemet-color-white);
-          --kemet-button-border: var(--kemet-button-border-width, 1px) var(--kemet-button-border-style, solid) var(--kemet-button-border-color, var(--kemet-color-primary));
+          --kemet-button-color: var(--kemet-color-background);
+          --kemet-button-background-color: transparent;
+          --kemet-button-border: var(--kemet-button-border-width, 1px) var(--kemet-button-border-style, solid) var(--kemet-button-border-color, var(--kemet-color-background));
         }
       `,
     ];
