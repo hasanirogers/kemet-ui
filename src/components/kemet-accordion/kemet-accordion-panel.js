@@ -40,10 +40,11 @@ export default class KemetAccordionPanel extends LitElement {
         :host {
           display: block;
           padding: 1.5rem 1rem;
-          border-bottom: 1px solid var(--kemet-color-primary);
+          border-bottom: 1px solid var(--kemet-color-background);
         }
 
         .trigger {
+          color: inherit;
           cursor: pointer;
           display: grid;
           gap: 1rem;

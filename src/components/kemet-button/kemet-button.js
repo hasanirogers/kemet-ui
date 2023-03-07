@@ -23,13 +23,13 @@ import { FormSubmitController } from '../../utilities/controllers/forms.js';
  * @csspart button - The button or anchor element.
  *
  * @cssproperty --kemet-button-font-size - The font size. Default: inherit.
- * @cssproperty --kemet-button-color - The text color. Default: --kemet-color-white.
+ * @cssproperty --kemet-button-color - The text color. Default: --kemet-color-foreground.
  * @cssproperty --kemet-button-width - The width. Default: auto.
  * @cssproperty --kemet-button-height - The height. Default:  auto.
  * @cssproperty --kemet-button-border - The border. Default: 0.
  * @cssproperty --kemet-button-border-radius - The border radius. Default: 0.
  * @cssproperty --kemet-button-transition-speed - The transition speed of the hover effect. Default: 300ms.
- * @cssproperty --kemet-button-background-color - The background color. Default: --kemet-color-primary.
+ * @cssproperty --kemet-button-background-color - The background color. Default: --kemet-color-background.
  * @cssproperty --kemet-button-hover-brightness - The brightness of the hover effect. Default: 1.25.
  * @cssproperty --kemet-button-gap - The gap between the button and icons. Default: 0.5rem.
  * @cssproperty --kemet-button-padding - The button padding. Default: 1rem 1.25rem.
