@@ -12,7 +12,7 @@ export const stylesBase = css`
     align-items: var(--kemet-alert-align-items, center);
     opacity: 0;
     padding: var(--kemet-alert-padding);
-    border: var(--kemet-alert-border, 1px solid var(--kemet-color-gray2));
+    border: var(--kemet-alert-border, 1px solid var(--kemet-alert-status-color));
     transition: opacity 300ms ease;
   }
 
@@ -37,7 +37,7 @@ export const stylesBase = css`
   }
 
   :host([status="standard"]) {
-    --kemet-alert-status-color: var(--kemet-color-black);
+    --kemet-alert-status-color: var(--kemet-color-text);
   }
 
   :host([status="primary"]) {
