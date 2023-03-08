@@ -25,8 +25,8 @@ export const stylesBase = css`
   }
 
   :host([outlined]) button {
-    color: var(--kemet-fab-outlined-color, var(--kemet-color-primary));
-    border: var(--kemet-fab-outlined-border, 1px solid var(--kemet-color-primary));
+    color: var(--kemet-fab-outlined-color, var(--kemet-color-background));
+    border: var(--kemet-fab-outlined-border, 1px solid var(--kemet-color-background));
     background-color: transparent;
   }
 
@@ -86,7 +86,7 @@ export const stylesBase = css`
   }
 
   :host([outlined]) .text {
-    color: var(--kemet-fab-outlined-color, var(--kemet-color-primary));
+    color: var(--kemet-fab-outlined-color, var(--kemet-color-background));
   }
 
   :host([expanded]) .text {
