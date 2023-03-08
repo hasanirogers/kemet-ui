@@ -11,11 +11,11 @@ export default {
 const Template = ({
   width = '50%',
   height = 'auto',
-  frontColor = '#202020',
-  frontBackgroundColor = '#fafafa',
-  backColor = '#202020',
-  backBackgroundColor = '#fafafa',
-  border = '2px solid var(--kemet-color-primary)',
+  frontColor = 'var(--kemet-color-text)',
+  frontBackgroundColor = 'transparent',
+  backColor = 'var(--kemet-color-text)',
+  backBackgroundColor = 'transparent',
+  border = '2px solid var(--kemet-color-background)',
   borderRadius = '0',
   ratio = '16/9',
   flipped = false,
@@ -37,7 +37,7 @@ const Template = ({
       --kemet-flipcard-ratio: ${ratio};
     }
   </style>
-  <kemet-flipcard ?flipped="${flipped}" ?measure="${measure}" axis="${axis}" ?flip-on-hover="${flipOnHover}" ?rounded=${rounded}>
+  <kemet-flipcard ?flipped="${flipped}" ?measure="${measure}" axis="${axis}" ?flip-on-hover="${flipOnHover}" ?rounded=${rounded} kemet-margin="tiny:normal">
     <div slot="front" kemet-elevation="layer5" kemet-padding="tiny:normal">
       <p>This is the front of the card.</p>
       <kemet-flipcard-trigger>
@@ -99,11 +99,11 @@ Flipcard.argTypes = {
 Flipcard.args = {
   width: '50%',
   height: 'auto',
-  frontColor: '#202020',
-  frontBackgroundColor: '#fafafa',
-  backColor: '#202020',
-  backBackgroundColor: '#fafafa',
-  border: '2px solid var(--kemet-color-primary)',
+  frontColor: 'var(--kemet-color-text)',
+  frontBackgroundColor: 'transparent',
+  backColor: 'var(--kemet-color-text)',
+  backBackgroundColor: 'transparent',
+  border: '2px solid var(--kemet-color-background)',
   borderRadius: '0',
   ratio: '16/9',
   flipped: false,
