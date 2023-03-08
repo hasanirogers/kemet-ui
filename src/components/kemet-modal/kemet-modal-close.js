@@ -18,9 +18,8 @@ export default class KemetModalClose extends LitElement {
       css`
         :host {
           position: absolute;
-          top: -0.5rem;
-          right: -0.5rem;
-          border: 2px solid white;
+          top: 0.5rem;
+          right: 0.5rem;
           border-radius: 50%;
           cursor: pointer;
         }
@@ -35,7 +34,7 @@ export default class KemetModalClose extends LitElement {
   }
 
   close() {
-    emitEvent(this, 'kemet-modal-close-press', this);
+    emitEvent(this, 'kemet-modal-close-pressed', this);
   }
 }
 

@@ -29,6 +29,7 @@ export const stylesBase = css`
     margin: auto;
     min-width: var(--kemet-modal-content-min-width, 0);
     max-width: var(--kemet-modal-content-max-width, none);
+    background-color: var(--kemet-modal-content-background-color, var(--kemet-color-white-to-primary));
   }
 
   :host([mobile]) .content {

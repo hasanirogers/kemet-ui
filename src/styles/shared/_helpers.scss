@@ -433,6 +433,7 @@
     }
 
     --kemet-color-white-to-black: var(--kemet-color-white);
+    --kemet-color-white-to-primary: var(--kemet-color-white);
 
     // handle border radiuses
     @each $size, $value in $borderradiuses {

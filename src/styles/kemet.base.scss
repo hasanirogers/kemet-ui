@@ -17,6 +17,7 @@ html {
   --kemet-color-foreground: var(--kemet-color-primary);
   --kemet-color-background: var(--kemet-color-white);
   --kemet-color-white-to-black: var(--kemet-color-black);
+  --kemet-color-white-to-primary: var(--kemet-color-primary);
 
   @include makeElevationDark;
 }

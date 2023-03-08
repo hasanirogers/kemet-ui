@@ -29,7 +29,7 @@ const Template = ({
     if (display) {
       return html`
         <kemet-modal-close tabindex="0" role="button" aria-label="Close Button">
-          <kemet-icon icon="x-circle-fill" size="24"></kemet-icon>
+          <kemet-icon icon="x-circle" size="24"></kemet-icon>
         </kemet-modal-close>
       `;
     }
@@ -48,7 +48,7 @@ const Template = ({
     </style>
     <kemet-button @click="${() => openModal()}">Open Modal</kemet-button>
     <kemet-modal ?opened=${opened} effect="${effect}" ?close-on-click="${closeOnClick}">
-      <div kemet-elevation="layer5" kemet-padding="tiny:large" kemet-background-color="white">
+      <div kemet-elevation="layer5" kemet-padding="tiny:normal">
         ${makeCloseBtn(displayCloseBtn)}
         <h2 kemet-margin="tiny:none">Modal Title</h2>
         <p>Your modal contents <a href="http://google.com">here</a>.</p>
