@@ -13,11 +13,16 @@ html {
 }
 
 [theme='dark'] {
+  // colors
   --kemet-color-text: var(--kemet-color-white);
   --kemet-color-foreground: var(--kemet-color-primary);
   --kemet-color-background: var(--kemet-color-white);
   --kemet-color-white-to-black: var(--kemet-color-black);
   --kemet-color-white-to-primary: var(--kemet-color-primary);
+  --kemet-color-gray1-to-transparent: transparent;
+  --kemet-color-primary-to-transparent: transparent;
+  // component specific
+  --kemet-upload-margin: 0;
 
   @include makeElevationDark;
 }

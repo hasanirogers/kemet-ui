@@ -29,7 +29,7 @@ const formatBytes = (bytes, decimals = 2) => {
  * @prop {number} percent - Percentage of file completion that's calculated by the loaded property.
  * @prop {string} message - An error message to give to users
  *
- * @cssproperty --kemet-upload-file-color - The default text color. Default: var(--kemet-color-gray7).
+ * @cssproperty --kemet-upload-file-color - The default text color. Default: var(--kemet-color-text).
  * @cssproperty --kemet-upload-file-padding - The padding around the file. Default: 0.5rem 1rem.
  * @cssproperty --kemet-upload-file-border - The border around the file. Default: 1px solid var(--kemet-color-primary).
  *
@@ -48,11 +48,13 @@ export default class KemetUploadFile extends LitElement {
         :host {
           --kemet-upload-file-ripple-color: var(--kemet-color-primary);
 
-          color: var(--kemet-upload-file-color, var(--kemet-color-gray7));
+          color: var(--kemet-upload-file-color, var(--kemet-color-text));
           display: grid;
           gap: 1rem;
           grid-template-columns: auto 1fr auto;
           align-items: center;
+          height: 100%;
+          max-height: 50%;
           padding: var(--kemet-upload-file-padding, 0.5rem 1rem);
           border: var(--kemet-upload-file-border, 1px solid var(--kemet-color-primary));
         }

@@ -34,8 +34,8 @@ const preventDefaults = (event) => {
  *
  * @cssproperty --kemet-upload-color - The default text color. Default: var(--kemet-color-white).
  * @cssproperty --kemet-upload-height - The height. Default: 364px.
- * @cssproperty --kemet-upload-border - The border. Default: 1rem solid var(--kemet-color-white).
- * @cssproperty --kemet-upload-background-color - The background color. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-upload-border - The border. Default: 1rem solid var(--kemet-color-gray1-to-transparent).
+ * @cssproperty --kemet-upload-background-color - The background color. Default: var(--kemet-color-primary-to-transparent).
  *
  */
 
@@ -48,8 +48,8 @@ export default class KemetUpload extends LitElement {
           display: grid;
           grid-template-columns: 1fr 1fr;
           height: var(--kemet-upload-height, 364px);
-          border: var(--kemet-upload-border, 1rem solid var(--kemet-color-white));
-          background-color: var(--kemet-upload-background-color, var(--kemet-color-primary));
+          border: var(--kemet-upload-border, 1rem solid var(--kemet-color-gray1-to-transparent));
+          background-color: var(--kemet-upload-background-color, var(--kemet-color-primary-to-transparent));
         }
 
         :host([mobile]) {
@@ -75,7 +75,7 @@ export default class KemetUpload extends LitElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin: 1rem;
+          margin: var(--kemet-upload-margin);
           flex-direction: column;
           border: 2px dashed var(--kemet-color-white);
         }
@@ -94,7 +94,7 @@ export default class KemetUpload extends LitElement {
           flex-direction: column;
           padding: 0 1rem;
           overflow: auto;
-          background-color: var(--kemet-color-white);
+          background-color: var(--kemet-color-gray1-to-transparent);
         }
 
         :host([mobile]) .files {
@@ -109,10 +109,6 @@ export default class KemetUpload extends LitElement {
 
         :host([no-drag-drop]) .heading {
           display: none;
-        }
-
-        ::slotted(:first-child) {
-          margin-top: 1rem;
         }
       `,
     ];

@@ -434,6 +434,8 @@
 
     --kemet-color-white-to-black: var(--kemet-color-white);
     --kemet-color-white-to-primary: var(--kemet-color-white);
+    --kemet-color-gray1-to-transparent: var(--kemet-color-gray1);
+    --kemet-color-primary-to-transparent: var(--kemet-color-primary);
 
     // handle border radiuses
     @each $size, $value in $borderradiuses {
@@ -449,5 +451,8 @@
     @each $size, $value in $spacers {
       --kemet-spacer-#{"" + $size}: #{$value};
     }
+
+    // component specific
+    --kemet-upload-margin: 1rem;
   }
 }

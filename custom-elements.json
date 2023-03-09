@@ -9993,7 +9993,7 @@
           "name": "KemetUploadFile",
           "cssProperties": [
             {
-              "description": "The default text color. Default: var(--kemet-color-gray7).",
+              "description": "The default text color. Default: var(--kemet-color-text).",
               "name": "--kemet-upload-file-color"
             },
             {
@@ -10218,11 +10218,11 @@
               "name": "--kemet-upload-height"
             },
             {
-              "description": "The border. Default: 1rem solid var(--kemet-color-white).",
+              "description": "The border. Default: 1rem solid var(--kemet-color-gray1-to-transparent).",
               "name": "--kemet-upload-border"
             },
             {
-              "description": "The background color. Default: var(--kemet-color-primary).",
+              "description": "The background color. Default: var(--kemet-color-primary-to-transparent).",
               "name": "--kemet-upload-background-color"
             }
           ],
