@@ -13,7 +13,7 @@ import { emitEvent } from '../../utilities/misc/events.js';
  * @prop {boolean} closable - Determines if the tab can be closed
  *
  * @cssproperty --kemet-tab-padding - The padding of the tab. Default: 1rem.
- * @cssproperty --kemet-tab-color - The color of the selected tab. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-tab-color - The color of the selected tab. Default: var(--kemet-color-background).
  *
  * @event kemet-tab-selected - Fires when a tab is selected
  * @event kemet-tab-close - Fires when the tab should close
@@ -35,7 +35,7 @@ export default class KemetTab extends LitElement {
 
       :host([selected]) {
         cursor: auto;
-        color: var(--kemet-tab-color, var(--kemet-color-primary));
+        color: var(--kemet-tab-color, var(--kemet-color-background));
       }
 
       kemet-icon {

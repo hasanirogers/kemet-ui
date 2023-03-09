@@ -8318,7 +8318,7 @@
               "name": "--kemet-tab-padding"
             },
             {
-              "description": "The color of the selected tab. Default: var(--kemet-color-primary).",
+              "description": "The color of the selected tab. Default: var(--kemet-color-background).",
               "name": "--kemet-tab-color"
             }
           ],
@@ -8455,7 +8455,7 @@
               "name": "--kemet-tabs-ink-radius"
             },
             {
-              "description": "The color of the ink. Default:  var(--kemet-color-primary).",
+              "description": "The color of the ink. Default:  var(--kemet-color-background).",
               "name": "--kemet-tabs-ink-color"
             },
             {

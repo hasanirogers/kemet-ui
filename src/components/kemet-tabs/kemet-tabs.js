@@ -34,7 +34,7 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  * @cssproperty --kemet-tabs-ink-size - The thickness of the ink. Default: 6px.
  * @cssproperty --kemet-tabs-ink-radius - The radius on the ink. Default:  6px.
- * @cssproperty --kemet-tabs-ink-color - The color of the ink. Default:  var(--kemet-color-primary).
+ * @cssproperty --kemet-tabs-ink-color - The color of the ink. Default:  var(--kemet-color-background).
  * @cssproperty --kemet-tabs-divider-size - The thickness of the divider. Default: 1px.
  * @cssproperty --kemet-tabs-divider-color - The color of the divider. Default:  var(--kemet-color-gray4).
  * @cssproperty --kemet-tabs-transition-speed - The transition speed of the panels. Default:  0.5s.

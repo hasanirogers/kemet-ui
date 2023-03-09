@@ -132,7 +132,7 @@ export const stylesKemetTabs = css`
     border-top-left-radius: var(--kemet-tabs-ink-radius);
     border-top-right-radius: var(--kemet-tabs-ink-radius);
     transition: all 300ms ease;
-    background-color: var(--kemet-tabs-ink-color, var(--kemet-color-primary));
+    background-color: var(--kemet-tabs-ink-color, var(--kemet-color-background));
   }
 
   :host([placement='right']) [part='ink'] {
