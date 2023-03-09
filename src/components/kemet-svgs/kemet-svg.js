@@ -66,7 +66,7 @@ export default class KemetSVG extends LitElement {
 
   render() {
     return html`
-      <svg part="svg" viewBox="${this.viewBox}" preserveAspectRatio="${this.ratio}"></svg>
+      <svg part="svg" viewBox="${this.viewBox}" preserveAspectRatio="${this.ratio}" fill="currentColor"></svg>
     `;
   }
 
