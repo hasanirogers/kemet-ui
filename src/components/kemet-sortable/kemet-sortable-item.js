@@ -18,7 +18,7 @@ export default class KemetSortableItem extends LitElement {
           cursor: grab;
           display: block;
           padding: 1rem;
-          border: 1px solid var(--kemet-color-primary);
+          border: 1px solid var(--kemet-color-background);
         }
 
         :host([ghost]) {
