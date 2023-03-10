@@ -1,4 +1,6 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { stylesBase } from './styles';
 
 /**
  * @since 1.4.0
@@ -25,63 +27,27 @@ import { html, css, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-avatar')
 export default class KemetAvatar extends LitElement {
-  static get styles() {
-    return [
-      css`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+  static styles = [stylesBase];
 
-        :host {
-          display: inline-flex;
-          color: var(--kemet-avatar-color, var(--kemet-color-white));
-          position: relative;
-          background-color: var(--kemet-avatar-background-color, var(--kemet-color-gray4));
-        }
+  @property({ type: String })
+  size: string;
 
-        :host([circle]) {
-          border-radius: 50%;
-        }
+  @property({ type: String })
+  image: string;
 
-        :host([circle]) > * {
-          border-radius: 50%;
-        }
+  @property({ type: String })
+  label: string;
 
-        :host([rounded]) {
-          border-radius: var(--kemet-avatar-rounded-radius, 1rem);
-        }
+  @property({ type: String })
+  initials: string;
 
-        :host([rounded]) > * {
-          border-radius: var(--kemet-avatar-rounded-radius, 1rem);
-        }
+  @property({ type: Boolean, reflect: true })
+  circle: boolean;
 
-        .initials {
-          margin: var(--kemet-avatar-initials-margin, 1rem);
-        }
-
-        ::slotted(kemet-badge) {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          border-radius: 50%;
-        }
-      `,
-    ];
-  }
-
-  static get properties() {
-    return {
-      size: { type: Number },
-      image: { type: String },
-      label: { type: String },
-      initials: { type: String },
-      circle: { type: Boolean, reflect: true },
-      rounded: { type: Boolean, reflect: true },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  rounded: boolean;
 
   firstUpdated() {
     this.makeSize();
@@ -114,5 +80,8 @@ export default class KemetAvatar extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-avatar') || customElements.define('kemet-avatar', KemetAvatar);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-avatar': KemetAvatar
+  }
+}
