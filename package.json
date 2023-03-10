@@ -5,10 +5,10 @@
   "main": "index.js",
   "watch": {
     "build": "src/**/*.*",
-    "analyze": "src/components/**/kemet-*.js"
+    "analyze": "src/components/**/kemet-*.*"
   },
   "scripts": {
-    "analyze": "custom-elements-manifest analyze --litelement --globs \"src/components/**/kemet-*.js\"",
+    "analyze": "custom-elements-manifest analyze --litelement --globs \"src/components/**/kemet-*.*\"",
     "build": "npm run build:css && npm run build:js",
     "build:css": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css src/styles/kemet.base.scss:dist/styles/kemet.base.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
     "build:js": "rollup -c config/rollup.mjs",
@@ -37,28 +37,6 @@
     "dist",
     "custom-elements.json"
   ],
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "@open-wc/eslint-config"
-    ],
-    "rules": {
-      "max-len": "off",
-      "no-param-reassign": "off",
-      "no-use-before-define": "off",
-      "no-multi-assign": "off",
-      "import/no-extraneous-dependencies": "off",
-      "lit/no-native-attributes": "off"
-    },
-    "ignorePatterns": [
-      "dist/**/*.js",
-      "src/utilities/controllers/**/*.js"
-    ]
-  },
   "browserslist": [
     "last 2 versions",
     "iOS >= 8"
@@ -71,6 +49,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.21.0",
+    "@babel/plugin-transform-typescript": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@custom-elements-manifest/analyzer": "^0.6.9",
     "@open-wc/eslint-config": "^9.2.2",
@@ -88,6 +70,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/theming": "^6.5.16",
     "@storybook/web-components": "^6.5.16",
+    "@web/dev-server-esbuild": "^0.3.3",
     "@web/test-runner": "^0.15.1",
     "@whitespace/storybook-addon-html": "^5.1.1",
     "babel-loader": "^9.1.2",

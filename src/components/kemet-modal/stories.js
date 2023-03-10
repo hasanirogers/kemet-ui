@@ -1,10 +1,5 @@
 import { html } from 'lit';
 
-import './kemet-modal.js';
-import './kemet-modal-close.js';
-import '../kemet-button/kemet-button.js';
-import '../kemet-icon/kemet-icon.js';
-
 export default {
   title: 'Kemet Modal',
   component: 'kemet-modal',

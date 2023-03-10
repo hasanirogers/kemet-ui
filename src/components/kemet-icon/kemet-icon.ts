@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { stylesBase } from './styles';
 
 /**
  * @since 1.0.0
@@ -15,40 +17,18 @@ import { html, css, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-icon')
 export default class KemetIcon extends LitElement {
-  static get properties() {
-    return {
-      icon: {
-        type: String,
-      },
-      set: {
-        type: String,
-      },
-      size: {
-        type: Number,
-      },
-    };
-  }
+  static styles = [stylesBase];
 
-  static get styles() {
-    return [
-      css`
-        :host {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-      `,
-    ];
-  }
+  @property({ type: String })
+  icon: string = 'alarm';
 
-  constructor() {
-    super();
+  @property({ type: String })
+  set: string = 'bootstrap';
 
-    this.set = 'bootstrap';
-    this.icon = 'alarm';
-    this.size = 16;
-  }
+  @property({ type: Number })
+  size: number = 16;
 
   updated() {
     this.getIcon();
@@ -77,7 +57,7 @@ export default class KemetIcon extends LitElement {
     }
 
     const svgElement = parser.parseFromString(svgString, 'image/svg+xml').documentElement;
-    const svgPrevious = this.shadowRoot.querySelector('svg');
+    const svgPrevious = this.shadowRoot?.querySelector('svg');
 
     if (svgElement.tagName === 'svg') {
       svgElement.setAttribute('id', this.icon);
@@ -86,7 +66,7 @@ export default class KemetIcon extends LitElement {
       svgElement.setAttribute('fill', 'currentColor');
 
       if (svgPrevious) svgPrevious.remove();
-      this.shadowRoot.appendChild(svgElement);
+      this.shadowRoot?.appendChild(svgElement);
     } else {
       console.error(`Could not find icon "${this.icon}" in set "${this.set}"`);
 
@@ -106,7 +86,7 @@ export default class KemetIcon extends LitElement {
       const errorIconElement = parser.parseFromString(errorIconString, 'image/svg+xml').documentElement;
 
       if (svgPrevious) svgPrevious.remove();
-      this.shadowRoot.appendChild(errorIconElement);
+      this.shadowRoot?.appendChild(errorIconElement);
     }
   }
 
@@ -124,6 +104,3 @@ export default class KemetIcon extends LitElement {
     return url;
   }
 }
-
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-icon') || customElements.define('kemet-icon', KemetIcon);

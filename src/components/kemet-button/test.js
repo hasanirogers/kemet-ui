@@ -1,6 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
-
-import './kemet-button.js';
+import './kemet-button.ts';
 
 const templates = {
   button: () => html`<kemet-button>Button</kemet-button>`,

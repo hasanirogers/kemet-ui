@@ -865,7 +865,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.js",
+      "path": "src/components/kemet-button/kemet-button.ts",
       "declarations": [
         {
           "kind": "class",
@@ -963,6 +963,78 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "Controls the type of button. standard | text | circle | rounded | pill",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
               "kind": "method",
               "name": "handleMouseOver",
               "description": "Sets hover to true onMouseOver",
@@ -1000,99 +1072,6 @@
               ],
               "description": "Handles keyup",
               "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "outline",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "active",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
             }
           ],
           "attributes": [
@@ -1133,6 +1112,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "false",
               "description": "Outline style for a button",
               "fieldName": "outlined"
             },
@@ -1141,6 +1121,7 @@
               "type": {
                 "text": "boolean"
               },
+              "default": "false",
               "description": "Determines whether not a button is disabled",
               "fieldName": "disabled"
             },
@@ -1169,7 +1150,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
+            "module": "src/components/kemet-button/kemet-button.ts"
           }
         },
         {
@@ -1177,7 +1158,7 @@
           "name": "kemet-button",
           "declaration": {
             "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.js"
+            "module": "src/components/kemet-button/kemet-button.ts"
           }
         }
       ]
@@ -4118,7 +4099,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-icon/kemet-icon.js",
+      "path": "src/components/kemet-icon/kemet-icon.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4126,28 +4107,8 @@
           "name": "KemetIcon",
           "members": [
             {
-              "kind": "method",
-              "name": "getIcon"
-            },
-            {
-              "kind": "method",
-              "name": "getUrl"
-            },
-            {
-              "kind": "field",
-              "name": "set",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bootstrap'",
-              "description": "The sprite map from an open source project that an icon belongs too. Values include: (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "attribute": "set"
-            },
-            {
               "kind": "field",
               "name": "icon",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -4157,14 +4118,31 @@
             },
             {
               "kind": "field",
+              "name": "set",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bootstrap'",
+              "description": "The sprite map from an open source project that an icon belongs too. Values include: (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
+              "attribute": "set"
+            },
+            {
+              "kind": "field",
               "name": "size",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
               "default": "16",
               "description": "The width and height of the icon in pixels.",
               "attribute": "size"
+            },
+            {
+              "kind": "method",
+              "name": "getIcon"
+            },
+            {
+              "kind": "method",
+              "name": "getUrl"
             }
           ],
           "attributes": [
@@ -4211,7 +4189,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
+            "module": "src/components/kemet-icon/kemet-icon.ts"
           }
         },
         {
@@ -4219,7 +4197,7 @@
           "name": "kemet-icon",
           "declaration": {
             "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.js"
+            "module": "src/components/kemet-icon/kemet-icon.ts"
           }
         }
       ]

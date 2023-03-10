@@ -1,5 +1,4 @@
 import { html } from 'lit-html';
-import './kemet-icon.js';
 
 const Template = args => html`
   <kemet-icon set="${args.set}" icon="${args.icon}" size="${args.size}"></kemet-icon>

@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { emitEvent } from '../../utilities/misc/events.js';
-import '../kemet-icon/kemet-icon.js';
+// import '../kemet-icon/kemet-icon.js';
 
 /**
  * @since 1.0.0

@@ -1,6 +1,9 @@
-import { html, css, LitElement } from 'lit';
-import '../kemet-icon/kemet-icon.js';
+import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { TypeType } from './types';
+import { stylesBase } from './styles';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import '../kemet-icon/kemet-icon';
 
 /**
  * @since 1.0.0
@@ -43,113 +46,33 @@ import { FormSubmitController } from '../../utilities/controllers/forms.js';
  *
  */
 
+@customElement('kemet-button')
 export default class KemetButton extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          font-size: var(--kemet-button-font-size, inherit);
-          color: var(--kemet-button-color, var(--kemet-color-foreground));
-          width: var(--kemet-button-width, auto);
-          height: var(--kemet-button-height, auto);
-          border: var(--kemet-button-border, 0);
-          border-radius: var(--kemet-button-border-radius, 0);
-          transition: filter var(--kemet-button-transition-speed, 300ms) ease;
-          background-color: var(--kemet-button-background-color, var(--kemet-color-background));
-        }
+  /** @internal */
+  formSubmitController: FormSubmitController;
 
-        :host(:hover:not([disabled])) {
-          filter: brightness(var(--kemet-button-hover-brightness, 1.25));
-        }
+  static styles = [stylesBase];
 
-        :host([disabled]) {
-          opacity: var(--kemet-button-disabled-opacity, 0.5);
-        }
+  @property({ type: Boolean, reflect: true })
+  active: boolean;
 
-        .button {
-          cursor: pointer;
-          text-decoration: none;
-          display: flex;
-          gap: var(--kemet-button-gap, 0.5rem);
-          align-items: center;
-          color: inherit;
-          font-size: inherit;
-          padding: var(--kemet-button-padding, 1rem 1.25rem);
-          border: 0;
-          background: none;
-        }
+  @property({ type: Boolean, reflect: true })
+  hover: boolean;
 
-        :host([disabled]) .button {
-          cursor: not-allowed;
-        }
+  @property({ type: Boolean, reflect: true })
+  focused: boolean;
 
-        :host([type='text']) {
-          --kemet-button-color: var(--kemet-color-text);
-          --kemet-button-background-color: none;
-        }
+  @property({ type: String })
+  link: string;
 
-        :host([type='text']:hover) {
-          text-decoration: var(--kemet-button-hover-decoration, underline);
-        }
+  @property({ type: Boolean, reflect: true })
+  outlined: boolean = false;
 
-        :host([type='circle']) {
-          --kemet-button-border-radius: 50%;
-          --kemet-button-width: var(--kemet-button-circle-size, 50px);
-          --kemet-button-height: var(--kemet-button-circle-size, 50px);
-        }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
-        :host([type='rounded']) {
-          --kemet-button-border-radius: var(--kemet-button-rounded-amount, 6px);
-        }
-
-        :host([type='pill']) {
-          --kemet-button-border-radius: 10rem;
-        }
-
-        :host([outlined]) {
-          --kemet-button-color: var(--kemet-color-background);
-          --kemet-button-background-color: transparent;
-          --kemet-button-border: var(--kemet-button-border-width, 1px) var(--kemet-button-border-style, solid) var(--kemet-button-border-color, var(--kemet-color-background));
-        }
-      `,
-    ];
-  }
-
-  static get properties() {
-    return {
-      active: {
-        type: Boolean,
-        reflect: true,
-      },
-      hover: {
-        type: Boolean,
-        reflect: true,
-      },
-      focused: {
-        type: Boolean,
-        reflect: true,
-      },
-      link: {
-        type: String,
-      },
-      outlined: {
-        type: Boolean,
-        reflect: true,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      type: {
-        type: String,
-        reflect: true,
-      },
-    };
-  }
+  @property({ type: String, reflect: true })
+  type: TypeType = 'standard';
 
   constructor() {
     super();
@@ -159,10 +82,6 @@ export default class KemetButton extends LitElement {
     this.addEventListener('mouseout', this.handleMouseOut.bind(this));
     this.addEventListener('blur', this.handleBlur.bind(this));
     this.addEventListener('keyup', event => this.handleKeyUp(event));
-
-    this.type = 'standard';
-    this.outline = false;
-    this.disable = false;
 
     /** @internal */
     this.formSubmitController = new FormSubmitController(this);
@@ -243,5 +162,8 @@ export default class KemetButton extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-button') || customElements.define('kemet-button', KemetButton);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-button': KemetButton
+  }
+}
