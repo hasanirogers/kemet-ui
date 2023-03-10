@@ -1,4 +1,6 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { stylesBase } from './styles';
 
 /**
  * @since 1.0.0
@@ -12,35 +14,27 @@ import { html, css, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-accordion')
 export default class KemetAccordion extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          display: block;
-        }
-      `,
-    ];
-  }
+  static styles = [stylesBase];
 
-  static get properties() {
-    return {
-      currentPanel: {
-        type: Number,
-      },
-      togglePanels: {
-        type: Boolean,
-        attribute: 'toggle-panels',
-      },
-    };
-  }
+  @property({ type: Number })
+  currentPanel: number;
+
+  @property({ type: Boolean, attribute: 'toggle-panels '})
+  togglePanels: boolean = false;
+
+  @state()
+  panels: any;
+
+  @state()
+  onKeyDown: (event: any) => any;
+
+  @state()
+  currentPanelFocus: number;
 
   constructor() {
     super();
-
-    // managed properties
-    this.togglePanels = false;
-    this.currentPanel = undefined;
 
     // bindings
     this.addEventListener('kemet-accordion-panel-opened', this.handlePanelOpened.bind(this));
@@ -51,7 +45,7 @@ export default class KemetAccordion extends LitElement {
   }
 
   render() {
-    return html`<slot @slotchange=${event => this.handleSlotChange(event)}></slot>`;
+    return html`<slot @slotchange=${() => this.handleSlotChange()}></slot>`;
   }
 
   handleSlotChange() {
@@ -65,7 +59,7 @@ export default class KemetAccordion extends LitElement {
 
   handlePanelOpened(event) {
     if (this.togglePanels) {
-      this.panels.forEach((panel) => {
+      this.panels.forEach((panel: any) => {
         if (panel !== event.detail) {
           panel.opened = false;
         }
@@ -141,5 +135,8 @@ export default class KemetAccordion extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-accordion') || customElements.define('kemet-accordion', KemetAccordion);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-accordion': KemetAccordion
+  }
+}

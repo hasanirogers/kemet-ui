@@ -1,4 +1,5 @@
 import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
 import { stylesBase } from './styles.js';
 
@@ -32,21 +33,27 @@ import { stylesBase } from './styles.js';
  *
  */
 
+@customElement('kemet-alert')
 export default class KemetAlert extends LitElement {
-  static get styles() {
-    return [stylesBase];
-  }
+  static styles = [stylesBase];
 
-  static get properties() {
-    return {
-      opened: { type: Boolean, reflect: true },
-      reveal: { type: Boolean, reflect: true },
-      closable: { type: Boolean, reflect: true },
-      borderStatus: { type: String, reflect: true, attribute: 'border-status' },
-      hidden: { type: Boolean, reflect: true },
-      overlay: { type: String, reflect: true },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  opened: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  reveal: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  closable: boolean;
+
+  @property({ type: String, reflect: true, attribute: 'border-status' })
+  borderStatus: string;
+
+  @property({ type: Boolean, reflect: true })
+  hidden: boolean;
+
+  @property({ type: String, reflect: true })
+  overlay: string;
 
   shouldUpdate(prevProps) {
     if (prevProps.has('opened') && !prevProps.get('opened')) {
@@ -102,5 +109,8 @@ export default class KemetAlert extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-alert') || customElements.define('kemet-alert', KemetAlert);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-alert': KemetAlert
+  }
+}

@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 import * as stories from './stories.js'
-import './kemet-accordion.js';
-import './kemet-accordion-panel.js';
+import './kemet-accordion';
+import './kemet-accordion-panel';
 
-<Meta title="Components/Accordion" component="kemet-popover" />
+<Meta title="Components/Accordion" component="kemet-accordion" />
 
 # Kemet Accordion
 
@@ -68,14 +68,3 @@ import 'kemet-ui/dist/components/kemet-accordion/kemet-accordion-panel.js';
 | method    | description                |
 | --------- | -------------------------- |
 | .toggle() | Opens or closes the panel. |
-
-
-#### CSS
-
-| css                                      | description                                  | default |
-| ---------------------------------------- | -------------------------------------------- | ------- |
-| --kemet-accordion-panel-transition-speed | The speed of the opening and closing effect. | 0.3s    |
-| ::part(trigger)                          | Contains the trigger for the panel.          |         |
-| ::part(body)                             | Contains the body for the panel.             |         |
-
-

@@ -4,7 +4,7 @@ import {
   expect,
 } from '@open-wc/testing';
 
-import './kemet-alert.js';
+import './kemet-alert.ts';
 
 const templates = {
   default: () => html`

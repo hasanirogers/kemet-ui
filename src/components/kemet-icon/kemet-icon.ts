@@ -104,3 +104,9 @@ export default class KemetIcon extends LitElement {
     return url;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-icon': KemetIcon
+  }
+}

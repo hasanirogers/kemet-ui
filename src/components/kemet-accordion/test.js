@@ -1,7 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-accordion.js';
-import './kemet-accordion-panel.js';
+import './kemet-accordion.ts';
+import './kemet-accordion-panel.ts';
 
 describe('KemetAccordion', () => {
   it('has the correct default props', async () => {

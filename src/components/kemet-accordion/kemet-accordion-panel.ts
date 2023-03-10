@@ -1,6 +1,7 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
-// import '../kemet-icon/kemet-icon.js';
+import { stylesPanel } from './styles';
 
 /**
  * @since 1.0.0
@@ -27,86 +28,45 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-accordion-panel')
 export default class KemetAccordionPanel extends LitElement {
-  static get styles() {
-    return [
-      css`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+  static styles = [stylesPanel];
 
-        :host {
-          display: block;
-          padding: 1.5rem 1rem;
-          border-bottom: 1px solid var(--kemet-color-background);
-        }
+  @property({ type: Boolean, reflect: true })
+  opened: boolean | undefined = undefined;
 
-        .trigger {
-          color: inherit;
-          cursor: pointer;
-          display: grid;
-          gap: 1rem;
-          grid-template-columns: 1fr auto;
-          width: 100%;
-          text-align: left;
-          padding: 0;
-          border: none;
-          background: none;
-        }
+  @property({ type: String, attribute: 'max-height'})
+  maxHeight: string = '0px';
 
-        .body {
-          overflow: hidden;
-          transition: all var(--kemet-accordion-panel-transition-speed, 300ms) ease;
-        }
+  @property({ type: String })
+  slug: string = 'panel';
 
-        ::slotted([slot='body']) {
-          padding: 1rem 0;
-        }
-      `,
-    ];
-  }
+  @state()
+  focusableSelector: string;
 
-  static get properties() {
-    return {
-      opened: {
-        type: Boolean,
-        reflect: true,
-      },
-      maxHeight: {
-        type: String,
-        attribute: 'max-height',
-      },
-      slug: {
-        type: String,
-      },
-    };
-  }
+  @state()
+  bodyElement: HTMLElement | null;
 
-  constructor() {
-    super();
+  @state()
+  bodyElementFirst: HTMLElement | null | undefined;
 
-    // managed properties
-    this.opened = undefined;
-    this.maxHeight = '0px';
-    this.slug = 'panel';
-  }
+  @state()
+  bodyElementLast: HTMLElement | null | undefined;
 
   firstUpdated() {
     /** @internal */
     this.focusableSelector = 'body, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
     this.bodyElement = this.querySelector('[slot="body"]');
-    this.bodyElementFirst = this.bodyElement.querySelector(':first-child');
-    this.bodyElementLast = this.bodyElement.querySelector(':last-child');
+    this.bodyElementFirst = this.bodyElement?.querySelector(':first-child');
+    this.bodyElementLast = this.bodyElement?.querySelector(':last-child');
 
-    if (this.bodyElementFirst) this.bodyElementFirst.style.marginTop = 0;
-    if (this.bodyELementLast) this.bodyElementLast.style.marginBottom = 0;
+    if (this.bodyElementFirst) this.bodyElementFirst.style.marginTop = '0';
+    if (this.bodyElementLast) this.bodyElementLast.style.marginBottom = '0';
   }
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
-      this.maxHeight = `${this.bodyElement.offsetHeight}px`;
+      this.maxHeight = `${this.bodyElement?.offsetHeight}px`;
       emitEvent(this, 'kemet-accordion-panel-opened', this);
     }
 
@@ -141,29 +101,29 @@ export default class KemetAccordionPanel extends LitElement {
   }
 
   focusableBodyElements() {
-    const focusableElements = this.bodyElement.querySelectorAll(this.focusableSelector);
+    const focusableElements = this.bodyElement?.querySelectorAll(this.focusableSelector);
 
     if (this.opened) {
-      focusableElements.forEach((element) => {
+      focusableElements?.forEach((element) => {
         element.removeAttribute('tabindex');
       });
     } else {
-      focusableElements.forEach((element) => {
+      focusableElements?.forEach((element) => {
         element.setAttribute('tabindex', '-1');
       });
     }
   }
 
   a11y() {
-    const trigger = this.shadowRoot.querySelector('.trigger');
-    const body = this.shadowRoot.querySelector('.body');
+    const trigger = this.shadowRoot?.querySelector('.trigger');
+    const body = this.shadowRoot?.querySelector('.body');
 
-    trigger.setAttribute('id', `${this.slug}-button`);
-    trigger.setAttribute('aria-controls', `${this.slug}-content`);
+    trigger?.setAttribute('id', `${this.slug}-button`);
+    trigger?.setAttribute('aria-controls', `${this.slug}-content`);
 
-    body.setAttribute('id', `${this.slug}-content`);
-    body.setAttribute('aria-labelledby', `${this.slug}-button`);
-    body.setAttribute('aria-hidden', `${!this.opened}`);
+    body?.setAttribute('id', `${this.slug}-content`);
+    body?.setAttribute('aria-labelledby', `${this.slug}-button`);
+    body?.setAttribute('aria-hidden', `${!this.opened}`);
   }
 
   handleKeyDown(event) {
@@ -173,5 +133,8 @@ export default class KemetAccordionPanel extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-accordion-panel') || customElements.define('kemet-accordion-panel', KemetAccordionPanel);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-accordion-panel': KemetAccordionPanel
+  }
+}
