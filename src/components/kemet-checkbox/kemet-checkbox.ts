@@ -1,8 +1,11 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesBase } from './styles';
+import { TypeStatus } from './types';
 
 /**
  * @since 1.0.0
@@ -10,6 +13,19 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  * @tagname kemet-checkbox
  * @summary An enhanced checkbox.
+ *
+ * @prop {string} label - Label text for the checkbox
+ * @prop {boolean} checked - Determines if the checkbox is selected
+ * @prop {boolean} indeterminate - An indeterminate selection status
+ * @prop {string} name - Name of the checkbox
+ * @prop {string} value - Value of the checkbox
+ * @prop {boolean} disabled - Determines if a checkbox is disabled
+ * @prop {boolean} required - Determines if a checkbox is required
+ * @prop {boolean} focused - Is true when the checkbox is focused
+ * @prop {boolean} rounded - Gives the checkbox rounded edges
+ * @prop {boolean} filled - Fills the checkbox with color
+ * @prop {string} status - The status of the checkbox
+ * @prop {string} message - Message associated with checkbox status
  *
  * @csspart label - The label element.
  * @csspart text - The the label's text.
@@ -27,160 +43,58 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-checkbox')
 export default class KemetCheckbox extends LitElement {
-  static get styles() {
-    return [
-      css`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+  /** @internal */
+  formSubmitController: FormSubmitController;
 
-        :host {
-          display: inline-block;
-        }
+  static styles = [stylesBase];
 
-        :host([disabled]) {
-          opacity: 0.5;
-        }
+  @property({ type: String })
+  label: string = '';
 
-        label {
-          display: inline-flex;
-          gap: 0.5rem;
-          align-items: center;
-        }
+  @property({ type: Boolean, reflect: true })
+  checked: boolean;
 
-        input {
-          cursor: pointer;
-          margin: 0;
-          padding: 0;
-          width: var(--kemet-checkbox-size, 18px);
-          height: var(--kemet-checkbox-size, 18px);
-          position: absolute;
-          opacity: 0;
-        }
+  @property({ type: Boolean, reflect: true })
+  indeterminate: boolean;
 
-        button {
-          margin: 0;
-          border: none;
-          background: none;
-        }
+  @property( { type: String })
+  name: string = 'checkbox';
 
-        [part='checkbox'] {
-          color: var(--kemet-checkbox-color, var(--kemet-color-background));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: var(--kemet-checkbox-size, 18px);
-          height: var(--kemet-checkbox-size, 18px);
-          border: var(--kemet-checkbox-border, 1px solid var(--kemet-color-background));
-        }
+  @property({ type: String })
+  value: any;
 
-        :host([rounded]) [part='checkbox'] {
-          border-radius: var(--kemet-checkbox-border-radius, 4px);
-        }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
-        :host([filled][checked]) [part='checkbox'],
-        :host([filled][indeterminate]) [part='checkbox'] {
-          border: none;
-          background-color: var(--kemet-checkbox-filled-background-color, var(--kemet-color-primary));
-        }
+  @property({ type: Boolean, reflect: true })
+  required: boolean = false;
 
-        [part='mark'] {
-          display: flex;
-          width: calc(var(--kemet-checkbox-size, 18px) - 4px);
-          height: calc(var(--kemet-checkbox-size, 18px) - 4px);
-        }
+  @property({ type: Boolean, reflect: true })
+  focused: boolean;
 
-        :host([filled][checked]) [part='mark'],
-        :host([filled][indeterminate]) [part='mark'] {
-          color: var(--kemet-checkbox-filled-color, var(--kemet-color-white));
-        }
+  @property({ type: Boolean, reflect: true })
+  rounded: boolean = false;
 
-        [part='message'] {
-          display: block;
-          margin-top: 0.5rem;
-        }
+  @property({ type: Boolean, reflect: true })
+  filled: boolean = false;
 
-        :host([status='error']) [part='message'] {
-          color: var(--kemet-color-error);
-        }
+  @property({ type: String, reflect: true })
+  status: TypeStatus = 'standard';
 
-        :host([status='warning']) [part='message'] {
-          color: var(--kemet-color-error);
-        }
-      `,
-    ];
-  }
+  @property({ type: String })
+  message: string;
 
-  static get properties() {
-    return {
-      label: {
-        type: String,
-      },
-      checked: {
-        type: Boolean,
-        reflect: true,
-      },
-      indeterminate: {
-        type: Boolean,
-        reflect: true,
-      },
-      name: {
-        type: String,
-      },
-      value: {
-        type: String,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      focused: {
-        type: Boolean,
-        reflect: true,
-      },
-      rounded: {
-        type: Boolean,
-        reflect: true,
-      },
-      filled: {
-        type: Boolean,
-        reflect: true,
-      },
-      status: {
-        type: String,
-        reflect: true,
-      },
-      message: {
-        type: String,
-      },
-    };
-  }
+  @query('input')
+  input: HTMLInputElement;
+
 
   constructor() {
     super();
 
-    // managed properties
-    this.label = '';
-    this.name = 'checkbox';
-    this.disabled = false;
-    this.required = false;
-    this.rounded = false;
-    this.filled = false;
-    this.status = 'standard';
-
     /** @internal */
     this.formSubmitController = new FormSubmitController(this);
-  }
-
-  firstUpdated() {
-    this.input = this.shadowRoot.querySelector('input');
   }
 
   render() {
@@ -287,5 +201,8 @@ export default class KemetCheckbox extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-checkbox') || customElements.define('kemet-checkbox', KemetCheckbox);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-checkbox': KemetCheckbox
+  }
+}
