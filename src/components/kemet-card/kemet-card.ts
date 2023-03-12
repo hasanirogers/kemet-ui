@@ -1,5 +1,6 @@
 import { html, LitElement } from 'lit';
-import { stylesBase } from './styles.js';
+import { customElement, property } from 'lit/decorators.js';
+import { stylesBase } from './styles';
 
 /**
  * @since 1.4.0
@@ -38,16 +39,12 @@ import { stylesBase } from './styles.js';
  *
  */
 
+@customElement('kemet-card')
 export default class KemetCard extends LitElement {
-  static get styles() {
-    return [stylesBase];
-  }
+  static styles = [stylesBase];
 
-  static get properties() {
-    return {
-      center: { type: Boolean, reflect: true },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  center: boolean;
 
   render() {
     return html`
@@ -65,5 +62,8 @@ export default class KemetCard extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-card') || customElements.define('kemet-card', KemetCard);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-card': KemetCard
+  }
+}
