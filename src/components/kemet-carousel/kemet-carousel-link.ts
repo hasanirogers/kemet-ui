@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
 
 /**
@@ -19,32 +20,32 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-carousel-link')
 export default class KemetCarouselLink extends LitElement {
-  static get properties() {
-    return {
-      slide: { type: Number, reflect: true },
-      selected: { type: Boolean, reflect: true },
-      disabled: { type: Boolean, reflect: true },
-    };
-  }
+  static styles = [
+    css`
+      :host([selected]) {
+        color: var(--kemet-carousel-link-selected-color, var(--kemet-color-primary));
+      }
 
-  static get styles() {
-    return [
-      css`
-        :host([selected]) {
-          color: var(--kemet-carousel-link-selected-color, var(--kemet-color-primary));
-        }
+      :host(:not([selected])) {
+        cursor: pointer;
+      }
 
-        :host(:not([selected])) {
-          cursor: pointer;
-        }
+      :host([disabled]) {
+        cursor: not-allowed;
+      }
+    `,
+  ];
 
-        :host([disabled]) {
-          cursor: not-allowed;
-        }
-      `,
-    ];
-  }
+  @property({ type: Number, reflect: true })
+  slide: number;
+
+  @property({ type: Boolean, reflect: true })
+  selected: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean;
 
   render() {
     return html`
@@ -61,5 +62,8 @@ export default class KemetCarouselLink extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-carousel-link') || customElements.define('kemet-carousel-link', KemetCarouselLink);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-carousel-link': KemetCarouselLink
+  }
+}

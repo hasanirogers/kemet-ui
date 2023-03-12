@@ -1,14 +1,14 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-carousel.js';
-import './kemet-carousel-link.js';
-import './kemet-carousel-first.js';
-import './kemet-carousel-last.js';
-import './kemet-carousel-next.js';
-import './kemet-carousel-prev.js';
-import './kemet-carousel-slide.js';
-import './kemet-carousel-current.js';
-import './kemet-carousel-total.js';
+import './kemet-carousel.ts';
+import './kemet-carousel-link.ts';
+import './kemet-carousel-first.ts';
+import './kemet-carousel-last.ts';
+import './kemet-carousel-next.ts';
+import './kemet-carousel-prev.ts';
+import './kemet-carousel-slide.ts';
+import './kemet-carousel-current.ts';
+import './kemet-carousel-total.ts';
 
 const template = () => html`
   <kemet-carousel>

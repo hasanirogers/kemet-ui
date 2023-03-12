@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 /**
  *
@@ -12,34 +13,34 @@ import { html, css, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-carousel-slide')
 export default class KemetCarouselSlide extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host,
-        :host *,
-        :host *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+  static styles = [
+    css`
+      :host,
+      :host *,
+      :host *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-        :host {
-          flex: 0 0 auto;
-        }
-      `,
-    ];
-  }
+      :host {
+        flex: 0 0 auto;
+      }
+    `,
+  ];
+
+  @property({ type: Boolean, reflect: true })
+  selected: boolean = false;
 
   static get properties() {
     return {
-      selected: { type: Boolean, reflect: true },
       'aria-hidden': { type: String, reflect: true },
     };
   }
 
   constructor() {
     super();
-    this.selected = false;
     this['aria-hidden'] = 'true';
   }
 
@@ -50,5 +51,8 @@ export default class KemetCarouselSlide extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-carousel-slide') || customElements.define('kemet-carousel-slide', KemetCarouselSlide);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-carousel-slide': KemetCarouselSlide
+  }
+}

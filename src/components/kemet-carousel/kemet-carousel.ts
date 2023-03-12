@@ -1,6 +1,8 @@
 import { html, LitElement } from 'lit';
+import { customElement, property, state, query } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
 import { stylesCarousel } from './styles.js';
+import { KemetCarouselCurrentInterface, KemetCarouselLinkInterface, KemetCarouselSlideInterface } from './types.js';
 
 /**
  *
@@ -51,53 +53,95 @@ import { stylesCarousel } from './styles.js';
  *
  */
 
+@customElement('kemet-carousel')
 export default class KemetCarousel extends LitElement {
-  static get styles() {
-    return [stylesCarousel];
-  }
+  static styles = [stylesCarousel];
 
-  static get properties() {
-    return {
-      index: { type: Number, reflect: true },
-      total: { type: Number },
-      sliderWidth: { type: String },
-      sliderTranslateX: { type: String },
-      inner: { type: Boolean, reflect: true },
-      arrows: { type: Boolean, reflect: true },
-      options: { type: Object },
-      breakpoints: { type: Object },
-    };
-  }
+  @property({ type: Number, reflect: true })
+  index: number = 0;
+
+  @property({ type: Number })
+  total: number = 0;
+
+  @property({ type: String })
+  sliderWidth: string = 'auto';
+
+  @property({ type: String })
+  sliderTranslateX: string = '0';
+
+  @property({ type: Boolean, reflect: true })
+  inner: boolean = false;
+
+  @property({ type: Boolean, reflect: true })
+  arrows: boolean = false;
+
+  @property({ type: Object })
+  options: object = {
+    perView: 1,
+    perMove: 1,
+    gap: 12,
+    slideshow: 0,
+    rewind: true,
+    center: false,
+  };
+
+  @property({ type: Object })
+  breakpoints: object = {
+    768: {
+      perView: 2,
+      gap: 24,
+      rewind: false,
+    },
+    1280: {
+      perView: 2.5,
+      center: true,
+    },
+  };
+
+
+  @state()
+  slides: any[] = [];
+
+  @state()
+  links: any[] = [];
+
+  @state()
+  toolbarSlotElement: HTMLElement | null;
+
+  @state()
+  informationElement: HTMLElement | null;
+
+  @state()
+  swipeMove: (event) => void;
+
+  @state()
+  handleSlideShow: any;
+
+  @state()
+  startX: number;
+
+  @state()
+  slideWidth: number;
+
+  @state()
+  informationSlot: HTMLElement;
+
+
+  @query('#container')
+  containerElement: HTMLElement;
+
+  @query('#slides')
+  slidesElement: HTMLElement;
+
+  @query('#slider')
+  sliderElement: HTMLElement;
+
+  @query('#toolbar')
+  toolbarElement: HTMLElement;
+
 
   constructor() {
     super();
-
-    // managed properties
-    this.index = 0;
-    this.total = 0;
-    this.sliderWidth = 'auto';
-    this.sliderTranslateX = '0';
-    this.inner = false;
-    this.arrows = false;
-    this.options = {
-      perView: 1,
-      perMove: 1,
-      gap: 12,
-      slideshow: 0,
-      rewind: true,
-      center: false,
-    };
-    this.breakpoints = {
-      768: {
-        perView: 2,
-        gap: 24,
-        rewind: false,
-      },
-      1280: {
-        perView: 2.5,
-        center: true,
-      },
-    };
 
     // bindings
     this.addEventListener('kemet-carousel-first', this.handleFirst.bind(this));
@@ -108,15 +152,7 @@ export default class KemetCarousel extends LitElement {
   }
 
   firstUpdated() {
-    // standard properties
-    this.slides = [];
-    this.links = [];
-
     // elements
-    this.containerElement = this.shadowRoot.querySelector('[part="container"]');
-    this.slidesElement = this.shadowRoot.querySelector('[part="slides"]');
-    this.sliderElement = this.shadowRoot.querySelector('[part="slider"]');
-    this.toolbarElement = this.shadowRoot.querySelector('[part="toolbar"]');
     this.toolbarSlotElement = this.querySelector('[slot="toolbar"]');
     this.informationElement = this.querySelector('kemet-carousel-information');
 
@@ -127,7 +163,7 @@ export default class KemetCarousel extends LitElement {
       this.updateIndex(this.index);
     });
 
-    this.sliderElement.addEventListener('transitionend', this.handleTransitionEnd.bind(this));
+    this.sliderElement?.addEventListener('transitionend', this.handleTransitionEnd.bind(this));
 
     // methods
     this.swipeMove = (event) => {
@@ -164,8 +200,9 @@ export default class KemetCarousel extends LitElement {
   render() {
     return html`
       <slot name="prev" @slotchange=${this.handleArrows}></slot>
-      <div class="container" part="container">
+      <div id="container" class="container" part="container">
         <section
+          id="slides"
           class="slides"
           part="slides"
           @mousedown=${this.swipeStart}
@@ -174,7 +211,7 @@ export default class KemetCarousel extends LitElement {
           @touchend=${this.swipeEnd}
           @mouseleave=${this.swipeLeave}
         >
-          <div class="slider" part="slider" style="width:${this.sliderWidth}; transform:translateX(${this.sliderTranslateX});">
+          <div id="slider" class="slider" part="slider" style="width:${this.sliderWidth}; transform:translateX(${this.sliderTranslateX});">
             <slot name="slides" @slotchange="${this.handleSlotChange}"></slot>
           </div>
         </section>
@@ -224,7 +261,7 @@ export default class KemetCarousel extends LitElement {
   }
 
   setSlideSize() {
-    this.slideWidth = this.containerElement.offsetWidth / this.getOption('perView');
+    this.slideWidth = this.containerElement?.offsetWidth as number / this.getOption('perView');
 
     this.slides.forEach((slide) => {
       slide.style.marginLeft = `${this.getOption('gap') / 2}px`;
@@ -245,7 +282,7 @@ export default class KemetCarousel extends LitElement {
   makeToolbar() {
     if (this.toolbarSlotElement) {
       return html`
-        <section class="toolbar" part="toolbar">
+        <section id="toolbar" class="toolbar" part="toolbar">
           <slot name="toolbar"></slot>
         </section>
       `;
@@ -255,8 +292,8 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleSlotChange() {
-    const slides = this.querySelectorAll('kemet-carousel-slide');
-    const links = this.querySelectorAll('kemet-carousel-link');
+    const slides = this.querySelectorAll('kemet-carousel-slide') as NodeListOf<KemetCarouselSlideInterface>;
+    const links = this.querySelectorAll('kemet-carousel-link') as NodeListOf<KemetCarouselLinkInterface>;
 
     // handle slides
     slides.forEach((slide) => {
@@ -389,7 +426,7 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleTransitionEnd() {
-    const currentElement = this.querySelector('kemet-carousel-current');
+    const currentElement = this.querySelector('kemet-carousel-current') as KemetCarouselCurrentInterface;
 
     if (currentElement) {
       currentElement.current = this.index + 1;
@@ -418,5 +455,8 @@ export default class KemetCarousel extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-carousel') || customElements.define('kemet-carousel', KemetCarousel);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-carousel': KemetCarousel
+  }
+}

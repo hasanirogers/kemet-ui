@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
 
 /**
@@ -15,26 +16,22 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-carousel-prev')
 export class KemetCarouselPrev extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          cursor: pointer;
-        }
+  static styles = [
+    css`
+      :host {
+        cursor: pointer;
+      }
 
-        :host([disabled]) {
-          cursor: not-allowed;
-        }
-      `,
-    ];
-  }
+      :host([disabled]) {
+        cursor: not-allowed;
+      }
+    `,
+  ];
 
-  static get properties() {
-    return {
-      disabled: { type: Boolean, reflect: true },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean;
 
   render() {
     return html`
@@ -51,5 +48,8 @@ export class KemetCarouselPrev extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-carousel-prev') || customElements.define('kemet-carousel-prev', KemetCarouselPrev);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-carousel-prev': KemetCarouselPrev
+  }
+}
