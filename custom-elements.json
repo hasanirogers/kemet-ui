@@ -3002,7 +3002,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.js",
+      "path": "src/components/kemet-count/kemet-count.ts",
       "declarations": [
         {
           "kind": "class",
@@ -3018,7 +3018,6 @@
             {
               "kind": "field",
               "name": "message",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -3028,7 +3027,6 @@
             {
               "kind": "field",
               "name": "remaining",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -3038,7 +3036,6 @@
             {
               "kind": "field",
               "name": "limit",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -3048,12 +3045,39 @@
             {
               "kind": "field",
               "name": "validateImmediately",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Set to true if the field should validate as soon as the character limit is reached",
               "attribute": "validate-immediately"
+            },
+            {
+              "kind": "field",
+              "name": "field",
+              "type": {
+                "text": "KemetFieldInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inputSlot",
+              "type": {
+                "text": "KemetInputInterface | KemetTextareaInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "textarea",
+              "type": {
+                "text": "HTMLTextAreaElement"
+              }
             }
           ],
           "events": [
@@ -3111,7 +3135,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
+            "module": "src/components/kemet-count/kemet-count.ts"
           }
         },
         {
@@ -3119,7 +3143,7 @@
           "name": "kemet-count",
           "declaration": {
             "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.js"
+            "module": "src/components/kemet-count/kemet-count.ts"
           }
         }
       ]

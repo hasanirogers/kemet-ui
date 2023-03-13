@@ -1,5 +1,9 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { KemetFieldInterface } from '../kemet-field/types';
+import { KemetInputInterface } from '../kemet-input/types';
+import { KemetTextareaInterface } from '../kemet-textarea/types';
 
 /**
  * @since 1.0.0
@@ -19,36 +23,41 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-count')
 export default class KemetCount extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          display: block;
-          font-size: var(--kemet-count-font-size, 90%);
-          margin-top: 0.8rem;
-        }
-      `,
-    ];
-  }
+  static styles = [
+    css`
+      :host {
+        display: block;
+        font-size: var(--kemet-count-font-size, 90%);
+        margin-top: 0.8rem;
+      }
+    `,
+  ];
 
-  static get properties() {
-    return {
-      message: {
-        type: String,
-      },
-      remaining: {
-        type: Number,
-      },
-      limit: {
-        type: Number,
-      },
-      validateImmediately: {
-        type: Boolean,
-        attribute: 'validate-immediately',
-      },
-    };
-  }
+  @property({ type: String })
+  message: string;
+
+  @property({ type: Number })
+  remaining: number;
+
+  @property({ type: Number })
+  limit: number;
+
+  @property({ type: Boolean, attribute: 'validate-immediately' })
+  validateImmediately: boolean;
+
+  @state()
+  field: KemetFieldInterface;
+
+  @state()
+  inputSlot: KemetInputInterface | KemetTextareaInterface;
+
+  @state()
+  input: HTMLInputElement;
+
+  @state()
+  textarea: HTMLTextAreaElement;
 
   firstUpdated() {
     this.field = this.closest('kemet-field');
@@ -56,14 +65,14 @@ export default class KemetCount extends LitElement {
 
     this.remaining = this.limit - this.field.length;
 
-    this.field.addEventListener('kemet-field-input', (event) => {
+    this.field.addEventListener('kemet-field-input', (event: CustomEvent) => {
       this.remaining = this.limit - event.detail;
 
       const nativeElement = this.input || this.textarea;
 
       if (nativeElement) {
         if (this.remaining < 0) {
-          nativeElement.validity.passedLimit = true;
+          // nativeElement.validity.passedLimit = true;
 
           if (this.validateImmediately) {
             this.inputSlot.status = 'error';
@@ -97,5 +106,9 @@ export default class KemetCount extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-count') || customElements.define('kemet-count', KemetCount);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-count': KemetCount
+  }
+}
+
