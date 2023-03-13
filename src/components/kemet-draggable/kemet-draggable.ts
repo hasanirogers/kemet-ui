@@ -74,7 +74,6 @@ export default class KemetDraggable extends LitElement {
     this.position4 = 0;
     this.mouseMove = event => this.drag(event);
     this.mouseUp = () => this.stopDrag();
-    this.draggableElement = this.shadowRoot.getElementById('draggable');
 
     const savedPosition = JSON.parse(localStorage.getItem(this.memory));
 
@@ -118,8 +117,8 @@ export default class KemetDraggable extends LitElement {
     this.position3 = event.clientX;
     this.position4 = event.clientY;
 
-    this.top = `${this.draggableElement.offsetTop - this.position2}px`;
-    this.left = `${this.draggableElement.offsetLeft - this.position1}px`;
+    this.top = `${this.draggableElement?.offsetTop - this.position2}px`;
+    this.left = `${this.draggableElement?.offsetLeft - this.position1}px`;
   }
 
   stopDrag() {
@@ -139,8 +138,8 @@ export default class KemetDraggable extends LitElement {
   }
 
   measureContent() {
-    this.style.width = `${this.draggableElement.offsetWidth}px`;
-    this.style.height = `${this.draggableElement.offsetHeight}px`;
+    this.style.width = `${this.draggableElement?.offsetWidth}px`;
+    this.style.height = `${this.draggableElement?.offsetHeight}px`;
   }
 }
 
