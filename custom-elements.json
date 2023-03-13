@@ -3347,7 +3347,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-drawer/kemet-drawer.js",
+      "path": "src/components/kemet-drawer/kemet-drawer.ts",
       "declarations": [
         {
           "kind": "class",
@@ -3406,7 +3406,6 @@
             {
               "kind": "field",
               "name": "opened",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -3418,7 +3417,6 @@
             {
               "kind": "field",
               "name": "effect",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -3430,7 +3428,6 @@
             {
               "kind": "field",
               "name": "side",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -3442,7 +3439,6 @@
             {
               "kind": "field",
               "name": "overlay",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -3470,7 +3466,7 @@
               },
               "default": "undefined",
               "resolveInitializer": {
-                "module": "src/components/kemet-drawer/kemet-drawer.js"
+                "module": "src/components/kemet-drawer/kemet-drawer.ts"
               },
               "description": "Determines if the drawer is opened or not.",
               "fieldName": "opened"
@@ -3518,7 +3514,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetDrawer",
-            "module": "src/components/kemet-drawer/kemet-drawer.js"
+            "module": "src/components/kemet-drawer/kemet-drawer.ts"
           }
         },
         {
@@ -3526,7 +3522,7 @@
           "name": "kemet-drawer",
           "declaration": {
             "name": "KemetDrawer",
-            "module": "src/components/kemet-drawer/kemet-drawer.js"
+            "module": "src/components/kemet-drawer/kemet-drawer.ts"
           }
         }
       ]

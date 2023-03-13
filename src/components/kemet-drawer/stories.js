@@ -1,7 +1,5 @@
 import { html } from 'lit';
 
-import './kemet-drawer.js';
-
 export default {
   title: 'Kemet Drawer',
   component: 'kemet-drawer',

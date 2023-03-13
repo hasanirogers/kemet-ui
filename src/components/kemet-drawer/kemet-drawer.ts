@@ -1,6 +1,8 @@
 import { LitElement, html } from 'lit';
-import { stylesBase, stylesEffects } from './styles.js';
+import { stylesBase, stylesEffects } from './styles';
+import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { TypeEffect, TypeSide } from './types';
 
 /**
  * @since 1.0.0
@@ -34,45 +36,26 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-drawer')
 export default class KemetDrawer extends LitElement {
-  static get styles() {
-    return [stylesBase, stylesEffects];
-  }
+  static styles = [stylesBase, stylesEffects];
 
-  static get properties() {
-    return {
-      opened: {
-        type: Boolean,
-        reflect: true,
-      },
-      effect: {
-        type: String,
-        reflect: true,
-      },
-      side: {
-        type: String,
-        reflect: true,
-      },
-      overlay: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  opened: boolean = undefined;
 
-  constructor() {
-    super();
+  @property({ type: String, reflect: true })
+  effect: TypeEffect = 'slide';
 
-    // managed properties
-    this.opened = undefined;
-    this.effect = 'slide';
-    this.side = 'left';
-    this.overlay = false;
-  }
+  @property({ type: String, reflect: true })
+  side: TypeSide = 'left';
+
+  @property({ type: Boolean, reflect: true })
+  overlay: boolean = false;
 
   firstUpdated() {
     this.addEventListener('click', (event) => {
-      if (this.opened && event.target.tagName.toLowerCase() === 'kemet-drawer') {
+      const targetElement = event.target as HTMLElement;
+      if (this.opened && targetElement.tagName.toLowerCase() === 'kemet-drawer') {
         this.opened = false;
       }
     });
@@ -106,5 +89,8 @@ export default class KemetDrawer extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-drawer') || customElements.define('kemet-drawer', KemetDrawer);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-drawer': KemetDrawer
+  }
+}
