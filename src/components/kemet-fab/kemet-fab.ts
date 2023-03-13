@@ -1,5 +1,6 @@
 import { html, LitElement } from 'lit';
-import { stylesBase } from './styles.js';
+import { customElement, property } from 'lit/decorators.js';
+import { stylesBase } from './styles';
 
 /**
  * @since 1.2.0
@@ -31,29 +32,27 @@ import { stylesBase } from './styles.js';
  *
  */
 
+@customElement('kemet-fab')
 export default class KemetFAB extends LitElement {
-  static get styles() {
-    return [stylesBase];
-  }
+  static styles = [stylesBase];
 
-  static get properties() {
-    return {
-      expanded: { type: Boolean, reflect: true },
-      outlined: { type: Boolean, reflect: true },
-      disabled: { type: Boolean, reflect: true },
-      pill: { type: Boolean, reflect: true },
-      expandPoint: { type: Number, attribute: 'expand-point' },
-      collapsePoint: { type: Number, attribute: 'collapse-point' },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  expanded: boolean = false;
 
-  constructor() {
-    super();
+  @property({ type: Boolean, reflect: true })
+  outlined: boolean = false;
 
-    this.outlined = false;
-    this.disabled = false;
-    this.expanded = false;
-  }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
+
+  @property({ type: Boolean, reflect: true })
+  pill: boolean;
+
+  @property({ type: Number, attribute: 'expand-point' })
+  expandPoint: number;
+
+  @property({ type: Number, attribute: 'collapse-point' })
+  collapsePoint: number;
 
   firstUpdated() {
     // events
@@ -106,5 +105,8 @@ export default class KemetFAB extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-fab') || customElements.define('kemet-fab', KemetFAB);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-fab': KemetFAB
+  }
+}

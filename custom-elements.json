@@ -3529,7 +3529,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-fab/kemet-fab.js",
+      "path": "src/components/kemet-fab/kemet-fab.ts",
       "declarations": [
         {
           "kind": "class",
@@ -3587,21 +3587,19 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "handleMouseOver"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut"
-            },
-            {
-              "kind": "method",
-              "name": "handleScroll"
+              "kind": "field",
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "The expanded state of the button.",
+              "attribute": "expanded",
+              "reflects": true
             },
             {
               "kind": "field",
               "name": "outlined",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -3613,7 +3611,6 @@
             {
               "kind": "field",
               "name": "disabled",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -3624,20 +3621,7 @@
             },
             {
               "kind": "field",
-              "name": "expanded",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "The expanded state of the button.",
-              "attribute": "expanded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "pill",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -3648,7 +3632,6 @@
             {
               "kind": "field",
               "name": "expandPoint",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -3658,12 +3641,23 @@
             {
               "kind": "field",
               "name": "collapsePoint",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
               "description": "The distance, in pixels, where the fab should automatically collapse.",
               "attribute": "collapse-point"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOver"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut"
+            },
+            {
+              "kind": "method",
+              "name": "handleScroll"
             }
           ],
           "attributes": [
@@ -3734,7 +3728,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.js"
+            "module": "src/components/kemet-fab/kemet-fab.ts"
           }
         },
         {
@@ -3742,7 +3736,7 @@
           "name": "kemet-fab",
           "declaration": {
             "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.js"
+            "module": "src/components/kemet-fab/kemet-fab.ts"
           }
         }
       ]
@@ -9055,6 +9049,289 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-toggle/kemet-toggle.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetToggle",
+          "cssProperties": [
+            {
+              "description": "The width of the entire toggle. Default: 3.5rem.",
+              "name": "--kemet-toggle-width"
+            },
+            {
+              "description": "The height of the entire toggle. Default:2rem.",
+              "name": "--kemet-toggle-height"
+            },
+            {
+              "description": "The diameter of the handle. Default: 1.6rem.",
+              "name": "--kemet-toggle-handle-diameter"
+            },
+            {
+              "description": "The border of the track. Default: none.",
+              "name": "--kemet-toggle-track-border"
+            },
+            {
+              "description": "The color of the track. Default: var(--kemet-color-white).",
+              "name": "--kemet-toggle-track-color"
+            },
+            {
+              "description": "The shadow on the track. Default: inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1).",
+              "name": "--kemet-toggle-track-shadow"
+            },
+            {
+              "description": "The border on the handle. Default: none.",
+              "name": "--kemet-toggle-handle-border"
+            },
+            {
+              "description": "The color of the handle. Default: var(--kemet-color-primary).",
+              "name": "--kemet-toggle-handle-color"
+            },
+            {
+              "description": "The shadow on the handle. Default: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2).",
+              "name": "--kemet-toggle-handle-shadow"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The label element.",
+              "name": "label"
+            },
+            {
+              "description": "The control element.",
+              "name": "control"
+            },
+            {
+              "description": "The label text.",
+              "name": "text"
+            },
+            {
+              "description": "The checked text.",
+              "name": "checked"
+            },
+            {
+              "description": "The unchecked text.",
+              "name": "unchecked"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "handleChange"
+            },
+            {
+              "kind": "method",
+              "name": "makeUncheckedOption"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckedOption"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'toggle-switch'",
+              "description": "The name on the input field",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not the toggle is disabled",
+              "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not the toggle is checked",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not to show text options",
+              "attribute": "show"
+            },
+            {
+              "kind": "field",
+              "name": "squared",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the toggle as squared instead of rounded",
+              "attribute": "squared"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "A description of the toggle's purpose",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "optionChecked",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "description": "The checked option text",
+              "attribute": "option-checked"
+            },
+            {
+              "kind": "field",
+              "name": "optionUnchecked",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'off'",
+              "description": "The unchecked option text",
+              "attribute": "option-unchecked"
+            },
+            {
+              "kind": "field",
+              "name": "value"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when the toggle changes state",
+              "name": "kemet-toggle-change"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'toggle-switch'",
+              "description": "The name on the input field",
+              "fieldName": "name"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not the toggle is checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not the toggle is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "A description of the toggle's purpose",
+              "fieldName": "label"
+            },
+            {
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not to show text options",
+              "fieldName": "show"
+            },
+            {
+              "name": "squared",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the toggle as squared instead of rounded",
+              "fieldName": "squared"
+            },
+            {
+              "name": "option-checked",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "description": "The checked option text",
+              "fieldName": "optionChecked"
+            },
+            {
+              "name": "option-unchecked",
+              "type": {
+                "text": "string"
+              },
+              "default": "'off'",
+              "description": "The unchecked option text",
+              "fieldName": "optionUnchecked"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-toggle",
+          "summary": "A toggle switch for forms.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetToggle",
+            "module": "src/components/kemet-toggle/kemet-toggle.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-toggle",
+          "declaration": {
+            "name": "KemetToggle",
+            "module": "src/components/kemet-toggle/kemet-toggle.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-textarea/kemet-textarea.js",
       "declarations": [
         {
@@ -9513,289 +9790,6 @@
           "declaration": {
             "name": "KemetTextarea",
             "module": "src/components/kemet-textarea/kemet-textarea.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-toggle/kemet-toggle.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetToggle",
-          "cssProperties": [
-            {
-              "description": "The width of the entire toggle. Default: 3.5rem.",
-              "name": "--kemet-toggle-width"
-            },
-            {
-              "description": "The height of the entire toggle. Default:2rem.",
-              "name": "--kemet-toggle-height"
-            },
-            {
-              "description": "The diameter of the handle. Default: 1.6rem.",
-              "name": "--kemet-toggle-handle-diameter"
-            },
-            {
-              "description": "The border of the track. Default: none.",
-              "name": "--kemet-toggle-track-border"
-            },
-            {
-              "description": "The color of the track. Default: var(--kemet-color-white).",
-              "name": "--kemet-toggle-track-color"
-            },
-            {
-              "description": "The shadow on the track. Default: inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1).",
-              "name": "--kemet-toggle-track-shadow"
-            },
-            {
-              "description": "The border on the handle. Default: none.",
-              "name": "--kemet-toggle-handle-border"
-            },
-            {
-              "description": "The color of the handle. Default: var(--kemet-color-primary).",
-              "name": "--kemet-toggle-handle-color"
-            },
-            {
-              "description": "The shadow on the handle. Default: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2).",
-              "name": "--kemet-toggle-handle-shadow"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The label element.",
-              "name": "label"
-            },
-            {
-              "description": "The control element.",
-              "name": "control"
-            },
-            {
-              "description": "The label text.",
-              "name": "text"
-            },
-            {
-              "description": "The checked text.",
-              "name": "checked"
-            },
-            {
-              "description": "The unchecked text.",
-              "name": "unchecked"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "handleChange"
-            },
-            {
-              "kind": "method",
-              "name": "makeUncheckedOption"
-            },
-            {
-              "kind": "method",
-              "name": "makeCheckedOption"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'toggle-switch'",
-              "description": "The name on the input field",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not the toggle is disabled",
-              "attribute": "disabled"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not the toggle is checked",
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not to show text options",
-              "attribute": "show"
-            },
-            {
-              "kind": "field",
-              "name": "squared",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the toggle as squared instead of rounded",
-              "attribute": "squared"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "A description of the toggle's purpose",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "optionChecked",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'on'",
-              "description": "The checked option text",
-              "attribute": "option-checked"
-            },
-            {
-              "kind": "field",
-              "name": "optionUnchecked",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'off'",
-              "description": "The unchecked option text",
-              "attribute": "option-unchecked"
-            },
-            {
-              "kind": "field",
-              "name": "value"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when the toggle changes state",
-              "name": "kemet-toggle-change"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "'toggle-switch'",
-              "description": "The name on the input field",
-              "fieldName": "name"
-            },
-            {
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not the toggle is checked",
-              "fieldName": "checked"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not the toggle is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "A description of the toggle's purpose",
-              "fieldName": "label"
-            },
-            {
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not to show text options",
-              "fieldName": "show"
-            },
-            {
-              "name": "squared",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the toggle as squared instead of rounded",
-              "fieldName": "squared"
-            },
-            {
-              "name": "option-checked",
-              "type": {
-                "text": "string"
-              },
-              "default": "'on'",
-              "description": "The checked option text",
-              "fieldName": "optionChecked"
-            },
-            {
-              "name": "option-unchecked",
-              "type": {
-                "text": "string"
-              },
-              "default": "'off'",
-              "description": "The unchecked option text",
-              "fieldName": "optionUnchecked"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-toggle",
-          "summary": "A toggle switch for forms.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetToggle",
-            "module": "src/components/kemet-toggle/kemet-toggle.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-toggle",
-          "declaration": {
-            "name": "KemetToggle",
-            "module": "src/components/kemet-toggle/kemet-toggle.js"
           }
         }
       ]
