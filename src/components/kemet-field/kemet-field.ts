@@ -1,5 +1,11 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { KemetComboInterface } from '../kemet-combo/types.js';
+import { KemetInputInterface } from '../kemet-input/types.js';
+import { KemetTextareaInterface } from '../kemet-textarea/types.js';
+import { stylesBase } from './styles';
+import { TypeStatus } from './types';
 
 /**
  * @since 1.0.0
@@ -29,119 +35,48 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-field')
 export default class KemetField extends LitElement {
-  static get styles() {
-    return [
-      css`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+  static styles = [stylesBase];
 
-        :host {
-          display: block;
-        }
+  @property({ type: String })
+  slug: string;
 
-        :host([disabled]) {
-          opacity: 0.5;
-        }
+  @property({ type: String })
+  label: string;
 
-        label {
-          position: relative;
-          display: block;
-        }
+  @property({ type: String })
+  message: string;
 
-        label span {
-          color: inherit;
-          display: inline-flex;
-          gap: 0.5rem;
-          align-items: center;
-          margin-bottom: 0.8rem;
-        }
+  @property({ type: Boolean, reflect: true })
+  focused: boolean;
 
-        :host([status='error']) kemet-icon {
-          color: var(--kemet-color-error);
-        }
+  @property({ type: String, reflect: true })
+  status: TypeStatus = 'standard';
 
-        :host([status='success']) kemet-icon {
-          color: var(--kemet-color-success);
-        }
+  @property({ type: Boolean, reflect: true })
+  filled: boolean;
 
-        :host([status='warning']) kemet-icon {
-          color: var(--kemet-color-warning);
-        }
+  @property({ type: Number })
+  length: number;
 
-        .message {
-          font-size: 0.9rem;
-          line-height: 1;
-          display: block;
-          margin-top: 0.8rem;
-        }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean;
 
-        :host([status='error']) .message {
-          color: var(--kemet-color-error);
-        }
+  @property({ type: String, attribute: 'error-icon' })
+  errorIcon: string = 'exclamation-triangle-fill';
 
-        :host([status='success']) .message {
-          color: var(--kemet-color-success);
-        }
+  @property({ type: String, attribute: 'success-icon' })
+  successIcon: string = 'check-lg';
 
-        :host([status='warning']) .message {
-          color: var(--kemet-color-warning);
-        }
-      `,
-    ];
-  }
+  @state()
+  slotInput: KemetInputInterface | KemetTextareaInterface;
 
-  static get properties() {
-    return {
-      slug: {
-        type: String,
-      },
-      label: {
-        type: String,
-      },
-      message: {
-        type: String,
-      },
-      focused: {
-        type: Boolean,
-        reflect: true,
-      },
-      status: {
-        type: String,
-        reflect: true,
-      },
-      filled: {
-        type: Boolean,
-        reflect: true,
-      },
-      length: {
-        type: Number,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      errorIcon: {
-        type: String,
-        attribute: 'error-icon',
-      },
-      successIcon: {
-        type: String,
-        attribute: 'success-icon',
-      },
-    };
-  }
+  @state()
+  slotCombo: KemetComboInterface;
 
   constructor() {
     super();
-
-    // managed properties
-    this.status = 'standard';
-    this.errorIcon = 'exclamation-triangle-fill';
-    this.successIcon = 'check-lg';
 
     // listeners
     this.addEventListener('kemet-input-focused', event => this.handleFocused(event));
@@ -220,5 +155,8 @@ export default class KemetField extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-field') || customElements.define('kemet-field', KemetField);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-field': KemetField
+  }
+}

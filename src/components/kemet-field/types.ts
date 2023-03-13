@@ -1,3 +1,5 @@
+export type TypeStatus = 'standard' | 'error' | 'success' | 'warning';
+
 export interface KemetFieldInterface extends HTMLElement {
   slug?: string,
   label?: string,
