@@ -1,5 +1,8 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { KemetFieldInterface } from '../kemet-field/types';
+import { stylesBase } from './styles';
 
 /**
  * @since 1.0.0
@@ -29,77 +32,27 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-combo')
 export default class KemetCombo extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          opacity: 0;
-          width: var(--kemet-combo-width, calc(100% - 2px));
-          margin: var(--kemet-combo-margin, 1rem auto);
-          pointer-events: none;
-          display: block;
-          position: relative;
-          transition: opacity 0.3s ease-in-out;
-        }
+  static styles = [stylesBase];
 
-        :host([show]) {
-          opacity: 1;
-          pointer-events: auto;
-        }
+  @property({ type: String })
+  slug: string;
 
-        ul {
-          width: 100%;
-          max-height: var(--kemet-combo-max-height, calc(5 * 3rem));
-          position: absolute;
-          z-index: 1;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          overflow-y: scroll;
-          border: var(--kemet-combo-border, 1px solid var(--kemet-color-background));
-          border-radius: var(--kemet-combo-border-radius, var(--kemet-border-radius));
-          background-color: var(--kemet-combo-background-color, var(--kemet-color-white-to-black));
-          box-shadow: var(--kemet-combo-shadow, var(--kemet-elevation-layer5));
-        }
-        li {
-          line-height: 3rem;
-          padding: 0 1.5rem;
-          cursor: pointer;
-        }
-        li:hover,
-        li:focus {
-          color: var(--kemet-combo-hover-color, var(--kemet-color-white));
-          outline: none;
-          background-color: var(--kemet-combo-hover-background-color, var(--kemet-color-primary));
-        }
-      `,
-    ];
-  }
+  @property({ type: Array })
+  options: any[] = [];
 
-  static get properties() {
-    return {
-      slug: {
-        type: String,
-      },
-      options: {
-        type: Array,
-      },
-      /** @internal */
-      filteredOptions: {
-        type: Array,
-      },
-      show: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  show: boolean;
 
-  constructor() {
-    super();
-    this.options = [];
-  }
+  @state()
+  filteredOptions: any[];
+
+  @state()
+  field: KemetFieldInterface;
+
+  @state()
+  input: HTMLInputElement;
 
   firstUpdated() {
     // standard properties
@@ -193,11 +146,12 @@ export default class KemetCombo extends LitElement {
 
     if (event.code === 'ArrowUp') {
       const previous = event.target.previousElementSibling;
+      const lastChild = this.shadowRoot.querySelector('li:last-child') as HTMLElement;
 
       if (previous) {
         previous.focus();
       } else {
-        this.shadowRoot.querySelector('li:last-child').focus();
+        lastChild.focus();
       }
     }
 
@@ -222,5 +176,8 @@ export default class KemetCombo extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-combo') || customElements.define('kemet-combo', KemetCombo);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-combo': KemetCombo
+  }
+}

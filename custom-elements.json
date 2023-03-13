@@ -4,7 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion-panel.js",
+      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
       "declarations": [
         {
           "kind": "class",
@@ -42,6 +42,65 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "undefined",
+              "description": "Determines the opened state of the panel",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "maxHeight",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "attribute": "max-height"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "focusableSelector",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "bodyElement",
+              "type": {
+                "text": "HTMLElement | null"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "bodyElementFirst",
+              "type": {
+                "text": "HTMLElement | null | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "bodyElementLast",
+              "type": {
+                "text": "HTMLElement | null | undefined"
+              }
+            },
+            {
               "kind": "method",
               "name": "toggle"
             },
@@ -61,40 +120,6 @@
                   "name": "event"
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "opened",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "undefined",
-              "description": "Determines the opened state of the panel",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "maxHeight",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "attribute": "max-height"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "attribute": "slug"
             }
           ],
           "events": [
@@ -115,7 +140,7 @@
               },
               "default": "undefined",
               "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.js"
+                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
               },
               "description": "Determines the opened state of the panel",
               "fieldName": "opened"
@@ -154,7 +179,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.js"
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         },
         {
@@ -162,20 +187,60 @@
           "name": "kemet-accordion-panel",
           "declaration": {
             "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.js"
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion.js",
+      "path": "src/components/kemet-accordion/kemet-accordion.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
           "name": "KemetAccordion",
           "members": [
+            {
+              "kind": "field",
+              "name": "currentPanel",
+              "type": {
+                "text": "number"
+              },
+              "description": "The index value for the most recently opened panel",
+              "attribute": "currentPanel"
+            },
+            {
+              "kind": "field",
+              "name": "togglePanels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "attribute": "toggle-panels "
+            },
+            {
+              "kind": "field",
+              "name": "panels",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "onKeyDown",
+              "type": {
+                "text": "(event: any) => any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "currentPanelFocus",
+              "type": {
+                "text": "number"
+              }
+            },
             {
               "kind": "method",
               "name": "handleSlotChange"
@@ -214,28 +279,6 @@
             {
               "kind": "method",
               "name": "collapseAll"
-            },
-            {
-              "kind": "field",
-              "name": "togglePanels",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "attribute": "toggle-panels"
-            },
-            {
-              "kind": "field",
-              "name": "currentPanel",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "undefined",
-              "description": "The index value for the most recently opened panel",
-              "attribute": "currentPanel"
             }
           ],
           "attributes": [
@@ -244,15 +287,11 @@
               "type": {
                 "text": "number"
               },
-              "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion.js"
-              },
               "description": "The index value for the most recently opened panel",
               "fieldName": "currentPanel"
             },
             {
-              "name": "toggle-panels",
+              "name": "toggle-panels ",
               "type": {
                 "text": "boolean"
               },
@@ -276,7 +315,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.js"
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         },
         {
@@ -284,14 +323,14 @@
           "name": "kemet-accordion",
           "declaration": {
             "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.js"
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.js",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
           "kind": "class",
@@ -337,17 +376,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "makeCloseBtn"
-            },
-            {
-              "kind": "method",
-              "name": "handleMotion"
-            },
-            {
               "kind": "field",
               "name": "opened",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -358,7 +388,6 @@
             {
               "kind": "field",
               "name": "reveal",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -369,7 +398,6 @@
             {
               "kind": "field",
               "name": "closable",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -380,7 +408,6 @@
             {
               "kind": "field",
               "name": "borderStatus",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -391,7 +418,6 @@
             {
               "kind": "field",
               "name": "hidden",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -402,13 +428,20 @@
             {
               "kind": "field",
               "name": "overlay",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
               "description": "Fixes the alert over content in specified position.",
               "attribute": "overlay",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeCloseBtn"
+            },
+            {
+              "kind": "method",
+              "name": "handleMotion"
             }
           ],
           "events": [
@@ -486,7 +519,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.js"
+            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         },
         {
@@ -494,14 +527,14 @@
           "name": "kemet-alert",
           "declaration": {
             "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.js"
+            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.js",
+      "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
           "kind": "class",
@@ -539,17 +572,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "makeSize"
-            },
-            {
-              "kind": "method",
-              "name": "makeContent"
-            },
-            {
               "kind": "field",
               "name": "size",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -559,7 +583,6 @@
             {
               "kind": "field",
               "name": "image",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -569,7 +592,6 @@
             {
               "kind": "field",
               "name": "label",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -579,7 +601,6 @@
             {
               "kind": "field",
               "name": "initials",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -589,7 +610,6 @@
             {
               "kind": "field",
               "name": "circle",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -600,13 +620,20 @@
             {
               "kind": "field",
               "name": "rounded",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Displays with rounded corners",
               "attribute": "rounded",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeSize"
+            },
+            {
+              "kind": "method",
+              "name": "makeContent"
             }
           ],
           "attributes": [
@@ -674,7 +701,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.js"
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         },
         {
@@ -682,14 +709,14 @@
           "name": "kemet-avatar",
           "declaration": {
             "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.js"
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.js",
+      "path": "src/components/kemet-avatar/kemet-avatars.ts",
       "declarations": [
         {
           "kind": "class",
@@ -717,7 +744,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.js"
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         },
         {
@@ -725,14 +752,14 @@
           "name": "kemet-avatars",
           "declaration": {
             "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.js"
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.js",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
       "declarations": [
         {
           "kind": "class",
@@ -746,13 +773,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
               "kind": "field",
               "name": "status",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -763,20 +785,7 @@
             },
             {
               "kind": "field",
-              "name": "pill",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "circle",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -787,14 +796,28 @@
             },
             {
               "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "circlePadding",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
               "default": "0",
               "description": "Padding on the badge as a circle",
               "attribute": "circle-padding"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
             }
           ],
           "attributes": [
@@ -850,7 +873,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.js"
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         },
         {
@@ -858,7 +881,7 @@
           "name": "kemet-badge",
           "declaration": {
             "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.js"
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         }
       ]
@@ -1165,7 +1188,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-card/kemet-card.js",
+      "path": "src/components/kemet-card/kemet-card.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1269,7 +1292,6 @@
             {
               "kind": "field",
               "name": "center",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -1303,7 +1325,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.js"
+            "module": "src/components/kemet-card/kemet-card.ts"
           }
         },
         {
@@ -1311,14 +1333,14 @@
           "name": "kemet-card",
           "declaration": {
             "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.js"
+            "module": "src/components/kemet-card/kemet-card.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-current.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-current.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1328,12 +1350,18 @@
             {
               "kind": "field",
               "name": "current",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
               "description": "The current slide number.",
               "attribute": "current"
+            },
+            {
+              "kind": "field",
+              "name": "carousel",
+              "type": {
+                "text": "KemetCarouselInterface | null"
+              }
             }
           ],
           "attributes": [
@@ -1361,7 +1389,7 @@
           "name": "KemetCarouselCurrent",
           "declaration": {
             "name": "KemetCarouselCurrent",
-            "module": "src/components/kemet-carousel/kemet-carousel-current.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-current.ts"
           }
         },
         {
@@ -1369,14 +1397,14 @@
           "name": "kemet-carousel-current",
           "declaration": {
             "name": "KemetCarouselCurrent",
-            "module": "src/components/kemet-carousel/kemet-carousel-current.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-current.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-first.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-first.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1384,19 +1412,18 @@
           "name": "KemetCarouselFirst",
           "members": [
             {
-              "kind": "method",
-              "name": "first"
-            },
-            {
               "kind": "field",
               "name": "disabled",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Deactivates the button.",
               "attribute": "disabled",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "first"
             }
           ],
           "events": [
@@ -1429,7 +1456,7 @@
           "name": "KemetCarouselFirst",
           "declaration": {
             "name": "KemetCarouselFirst",
-            "module": "src/components/kemet-carousel/kemet-carousel-first.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-first.ts"
           }
         },
         {
@@ -1437,14 +1464,14 @@
           "name": "kemet-carousel-first",
           "declaration": {
             "name": "KemetCarouselFirst",
-            "module": "src/components/kemet-carousel/kemet-carousel-first.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-first.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-last.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-last.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1452,19 +1479,18 @@
           "name": "KemetCarouselLast",
           "members": [
             {
-              "kind": "method",
-              "name": "last"
-            },
-            {
               "kind": "field",
               "name": "disabled",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Deactivates the button.",
               "attribute": "disabled",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "last"
             }
           ],
           "events": [
@@ -1497,7 +1523,7 @@
           "name": "KemetCarouselLast",
           "declaration": {
             "name": "KemetCarouselLast",
-            "module": "src/components/kemet-carousel/kemet-carousel-last.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-last.ts"
           }
         },
         {
@@ -1505,14 +1531,14 @@
           "name": "kemet-carousel-last",
           "declaration": {
             "name": "KemetCarouselLast",
-            "module": "src/components/kemet-carousel/kemet-carousel-last.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-last.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-link.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-link.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1526,13 +1552,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "changed"
-            },
-            {
               "kind": "field",
               "name": "slide",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -1542,7 +1563,6 @@
             {
               "kind": "field",
               "name": "selected",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -1553,13 +1573,16 @@
             {
               "kind": "field",
               "name": "disabled",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Deactivates the button.",
               "attribute": "disabled",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "changed"
             }
           ],
           "events": [
@@ -1607,7 +1630,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselLink",
-            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-link.ts"
           }
         },
         {
@@ -1615,14 +1638,14 @@
           "name": "kemet-carousel-link",
           "declaration": {
             "name": "KemetCarouselLink",
-            "module": "src/components/kemet-carousel/kemet-carousel-link.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-link.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-next.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-next.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1630,19 +1653,18 @@
           "name": "KemetCarouselNext",
           "members": [
             {
-              "kind": "method",
-              "name": "next"
-            },
-            {
               "kind": "field",
               "name": "disabled",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Deactivates the button.",
               "attribute": "disabled",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "next"
             }
           ],
           "events": [
@@ -1675,7 +1697,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselNext",
-            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-next.ts"
           }
         },
         {
@@ -1683,14 +1705,14 @@
           "name": "kemet-carousel-next",
           "declaration": {
             "name": "KemetCarouselNext",
-            "module": "src/components/kemet-carousel/kemet-carousel-next.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-next.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-prev.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-prev.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1698,19 +1720,18 @@
           "name": "KemetCarouselPrev",
           "members": [
             {
-              "kind": "method",
-              "name": "prev"
-            },
-            {
               "kind": "field",
               "name": "disabled",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Deactivates the button.",
               "attribute": "disabled",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "prev"
             }
           ],
           "events": [
@@ -1743,7 +1764,7 @@
           "name": "KemetCarouselPrev",
           "declaration": {
             "name": "KemetCarouselPrev",
-            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-prev.ts"
           }
         },
         {
@@ -1751,14 +1772,14 @@
           "name": "kemet-carousel-prev",
           "declaration": {
             "name": "KemetCarouselPrev",
-            "module": "src/components/kemet-carousel/kemet-carousel-prev.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-prev.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-slide.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-slide.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1768,7 +1789,6 @@
             {
               "kind": "field",
               "name": "selected",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -1828,7 +1848,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselSlide",
-            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-slide.ts"
           }
         },
         {
@@ -1836,14 +1856,14 @@
           "name": "kemet-carousel-slide",
           "declaration": {
             "name": "KemetCarouselSlide",
-            "module": "src/components/kemet-carousel/kemet-carousel-slide.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-slide.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-total.js",
+      "path": "src/components/kemet-carousel/kemet-carousel-total.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1853,12 +1873,18 @@
             {
               "kind": "field",
               "name": "total",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
               "description": "The total number of slides.",
               "attribute": "total"
+            },
+            {
+              "kind": "field",
+              "name": "carousel",
+              "type": {
+                "text": "KemetCarouselInterface | null"
+              }
             }
           ],
           "attributes": [
@@ -1886,7 +1912,7 @@
           "name": "KemetCarouselTotal",
           "declaration": {
             "name": "KemetCarouselTotal",
-            "module": "src/components/kemet-carousel/kemet-carousel-total.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-total.ts"
           }
         },
         {
@@ -1894,14 +1920,14 @@
           "name": "kemet-carousel-total",
           "declaration": {
             "name": "KemetCarouselTotal",
-            "module": "src/components/kemet-carousel/kemet-carousel-total.js"
+            "module": "src/components/kemet-carousel/kemet-carousel-total.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel.js",
+      "path": "src/components/kemet-carousel/kemet-carousel.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2010,6 +2036,182 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The current slide index.",
+              "attribute": "index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "total",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The total amount of slides.",
+              "attribute": "total"
+            },
+            {
+              "kind": "field",
+              "name": "sliderWidth",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "description": "The width of the slider.",
+              "attribute": "sliderWidth"
+            },
+            {
+              "kind": "field",
+              "name": "sliderTranslateX",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0'",
+              "description": "The X position of the slider.",
+              "attribute": "sliderTranslateX"
+            },
+            {
+              "kind": "field",
+              "name": "inner",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the toolbar inside the carousel container.",
+              "attribute": "inner",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "arrows",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not to display arrows.",
+              "attribute": "arrows",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n    perView: 1,\n    perMove: 1,\n    gap: 12,\n    slideshow: 0,\n    rewind: true,\n    center: false,\n  }",
+              "description": "Default options for the carousel.",
+              "attribute": "options"
+            },
+            {
+              "kind": "field",
+              "name": "breakpoints",
+              "type": {
+                "text": "object"
+              },
+              "default": "{\n    768: {\n      perView: 2,\n      gap: 24,\n      rewind: false,\n    },\n    1280: {\n      perView: 2.5,\n      center: true,\n    },\n  }",
+              "description": "Options at different breakpoints for the carousel. Is mobile first.",
+              "attribute": "breakpoints"
+            },
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "any[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "links",
+              "type": {
+                "text": "any[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "toolbarSlotElement",
+              "type": {
+                "text": "HTMLElement | null"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "informationElement",
+              "type": {
+                "text": "HTMLElement | null"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "swipeMove",
+              "type": {
+                "text": "(event) => void"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "handleSlideShow",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "startX",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "slideWidth",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "informationSlot",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "containerElement",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "slidesElement",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "sliderElement",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "toolbarElement",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
             {
               "kind": "method",
               "name": "swipeStart",
@@ -2120,97 +2322,6 @@
                   "name": "option"
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "index",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The current slide index.",
-              "attribute": "index",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "total",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The total amount of slides.",
-              "attribute": "total"
-            },
-            {
-              "kind": "field",
-              "name": "sliderWidth",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "description": "The width of the slider.",
-              "attribute": "sliderWidth"
-            },
-            {
-              "kind": "field",
-              "name": "sliderTranslateX",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'0'",
-              "description": "The X position of the slider.",
-              "attribute": "sliderTranslateX"
-            },
-            {
-              "kind": "field",
-              "name": "inner",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the toolbar inside the carousel container.",
-              "attribute": "inner",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "arrows",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not to display arrows.",
-              "attribute": "arrows",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "options",
-              "privacy": "public",
-              "type": {
-                "text": "object"
-              },
-              "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 12,\n      slideshow: 0,\n      rewind: true,\n      center: false,\n    }",
-              "description": "Default options for the carousel.",
-              "attribute": "options"
-            },
-            {
-              "kind": "field",
-              "name": "breakpoints",
-              "privacy": "public",
-              "type": {
-                "text": "object"
-              },
-              "default": "{\n      768: {\n        perView: 2,\n        gap: 24,\n        rewind: false,\n      },\n      1280: {\n        perView: 2.5,\n        center: true,\n      },\n    }",
-              "description": "Options at different breakpoints for the carousel. Is mobile first.",
-              "attribute": "breakpoints"
             }
           ],
           "events": [
@@ -2283,7 +2394,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      perView: 1,\n      perMove: 1,\n      gap: 12,\n      slideshow: 0,\n      rewind: true,\n      center: false,\n    }",
+              "default": "{\n    perView: 1,\n    perMove: 1,\n    gap: 12,\n    slideshow: 0,\n    rewind: true,\n    center: false,\n  }",
               "description": "Default options for the carousel.",
               "fieldName": "options"
             },
@@ -2292,7 +2403,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n      768: {\n        perView: 2,\n        gap: 24,\n        rewind: false,\n      },\n      1280: {\n        perView: 2.5,\n        center: true,\n      },\n    }",
+              "default": "{\n    768: {\n      perView: 2,\n      gap: 24,\n      rewind: false,\n    },\n    1280: {\n      perView: 2.5,\n      center: true,\n    },\n  }",
               "description": "Options at different breakpoints for the carousel. Is mobile first.",
               "fieldName": "breakpoints"
             }
@@ -2312,7 +2423,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarousel",
-            "module": "src/components/kemet-carousel/kemet-carousel.js"
+            "module": "src/components/kemet-carousel/kemet-carousel.ts"
           }
         },
         {
@@ -2320,14 +2431,14 @@
           "name": "kemet-carousel",
           "declaration": {
             "name": "KemetCarousel",
-            "module": "src/components/kemet-carousel/kemet-carousel.js"
+            "module": "src/components/kemet-carousel/kemet-carousel.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-checkbox/kemet-checkbox.js",
+      "path": "src/components/kemet-checkbox/kemet-checkbox.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2375,6 +2486,136 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Label text for the checkbox",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the checkbox is selected",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "An indeterminate selection status",
+              "attribute": "indeterminate",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'checkbox'",
+              "description": "Name of the checkbox",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "description": "Value of the checkbox",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines if a checkbox is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines if a checkbox is required",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the checkbox is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Gives the checkbox rounded edges",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Fills the checkbox with color",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "The status of the checkbox",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "description": "Message associated with checkbox status",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement"
+              }
+            },
+            {
               "kind": "method",
               "name": "click"
             },
@@ -2405,129 +2646,6 @@
             {
               "kind": "method",
               "name": "checkValidity"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'checkbox'",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "attribute": "indeterminate",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "message"
             }
           ],
           "events": [
@@ -2547,6 +2665,7 @@
                 "text": "string"
               },
               "default": "''",
+              "description": "Label text for the checkbox",
               "fieldName": "label"
             },
             {
@@ -2554,6 +2673,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Determines if the checkbox is selected",
               "fieldName": "checked"
             },
             {
@@ -2561,6 +2681,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "An indeterminate selection status",
               "fieldName": "indeterminate"
             },
             {
@@ -2569,6 +2690,7 @@
                 "text": "string"
               },
               "default": "'checkbox'",
+              "description": "Name of the checkbox",
               "fieldName": "name"
             },
             {
@@ -2576,6 +2698,7 @@
               "type": {
                 "text": "string"
               },
+              "description": "Value of the checkbox",
               "fieldName": "value"
             },
             {
@@ -2584,6 +2707,7 @@
                 "text": "boolean"
               },
               "default": "false",
+              "description": "Determines if a checkbox is disabled",
               "fieldName": "disabled"
             },
             {
@@ -2592,6 +2716,7 @@
                 "text": "boolean"
               },
               "default": "false",
+              "description": "Determines if a checkbox is required",
               "fieldName": "required"
             },
             {
@@ -2599,6 +2724,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Is true when the checkbox is focused",
               "fieldName": "focused"
             },
             {
@@ -2607,6 +2733,7 @@
                 "text": "boolean"
               },
               "default": "false",
+              "description": "Gives the checkbox rounded edges",
               "fieldName": "rounded"
             },
             {
@@ -2615,6 +2742,7 @@
                 "text": "boolean"
               },
               "default": "false",
+              "description": "Fills the checkbox with color",
               "fieldName": "filled"
             },
             {
@@ -2623,6 +2751,7 @@
                 "text": "string"
               },
               "default": "'standard'",
+              "description": "The status of the checkbox",
               "fieldName": "status"
             },
             {
@@ -2630,6 +2759,7 @@
               "type": {
                 "text": "string"
               },
+              "description": "Message associated with checkbox status",
               "fieldName": "message"
             }
           ],
@@ -2648,7 +2778,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+            "module": "src/components/kemet-checkbox/kemet-checkbox.ts"
           }
         },
         {
@@ -2656,14 +2786,14 @@
           "name": "kemet-checkbox",
           "declaration": {
             "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.js"
+            "module": "src/components/kemet-checkbox/kemet-checkbox.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-combo/kemet-combo.js",
+      "path": "src/components/kemet-combo/kemet-combo.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2719,6 +2849,56 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "description": "Uniquely identifies the component. Should match the slug used in a control.",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "description": "An array of items listed for the combo box",
+              "attribute": "options"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Controls the display of the combo box",
+              "attribute": "show",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filteredOptions",
+              "type": {
+                "text": "any[]"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "field",
+              "type": {
+                "text": "KemetFieldInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement"
+              }
+            },
+            {
               "kind": "method",
               "name": "makeOptions"
             },
@@ -2757,47 +2937,6 @@
                   "name": "event"
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "options",
-              "privacy": "public",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]",
-              "description": "An array of items listed for the combo box",
-              "attribute": "options"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Uniquely identifies the component. Should match the slug used in a control.",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Controls the display of the combo box",
-              "attribute": "show",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filteredOptions",
-              "privacy": "public",
-              "type": {
-                "text": "array"
-              },
-              "attribute": "filteredOptions"
             }
           ],
           "events": [
@@ -2825,13 +2964,6 @@
               "fieldName": "options"
             },
             {
-              "name": "filteredOptions",
-              "type": {
-                "text": "array"
-              },
-              "fieldName": "filteredOptions"
-            },
-            {
               "name": "show",
               "type": {
                 "text": "boolean"
@@ -2855,7 +2987,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.js"
+            "module": "src/components/kemet-combo/kemet-combo.ts"
           }
         },
         {
@@ -2863,7 +2995,7 @@
           "name": "kemet-combo",
           "declaration": {
             "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.js"
+            "module": "src/components/kemet-combo/kemet-combo.ts"
           }
         }
       ]
