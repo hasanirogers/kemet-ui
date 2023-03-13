@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
 
 /**
@@ -18,44 +19,51 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-draggable')
 export default class KemetDraggable extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        display: inline-block;
-      }
+  static styles = [css`
+    :host {
+      display: inline-block;
+    }
 
-      #draggable {
-        position: absolute;
-      }
-    `;
-  }
+    #draggable {
+      position: absolute;
+    }
+  `];
 
-  static get properties() {
-    return {
-      memory: {
-        type: String,
-      },
-      top: {
-        type: String,
-      },
-      left: {
-        type: String,
-      },
-      measure: {
-        type: Boolean,
-      },
-    };
-  }
+  @property({ type: String })
+  memory: string;
 
-  constructor() {
-    super();
+  @property({ type: String })
+  top: string = 'auto';
 
-    // managed properties defaults
-    this.top = 'auto';
-    this.left = 'auto';
-    this.measure = false;
-  }
+  @property({ type: String })
+  left: string = 'auto';
+
+  @property({ type: Boolean })
+  measure: boolean = false;
+
+  @state()
+  position1: number;
+
+  @state()
+  position2: number;
+
+  @state()
+  position3: number;
+
+  @state()
+  position4: number;
+
+  @state()
+  mouseMove: (event) => void;
+
+  @state()
+  mouseUp: () => void;
+
+  @query('#draggable')
+  draggableElement: HTMLElement;
+
 
   firstUpdated() {
     // standard properties
@@ -136,5 +144,8 @@ export default class KemetDraggable extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-draggable') || customElements.define('kemet-draggable', KemetDraggable);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-draggable': KemetDraggable
+  }
+}

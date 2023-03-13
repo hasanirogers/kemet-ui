@@ -1,8 +1,6 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import './kemet-draggable.js';
-
 const Template = ({
   text = 'Drag Me',
   memory = null,

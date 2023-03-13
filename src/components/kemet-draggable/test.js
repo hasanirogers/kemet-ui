@@ -2,7 +2,7 @@ import {
   html, fixture, expect, oneEvent,
 } from '@open-wc/testing';
 
-import './kemet-draggable.js';
+import './kemet-draggable.ts';
 
 describe('KemetDraggable', () => {
   it('has the correct defaults', async () => {

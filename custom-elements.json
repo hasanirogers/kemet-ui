@@ -3150,13 +3150,101 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-draggable/kemet-draggable.js",
+      "path": "src/components/kemet-draggable/kemet-draggable.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
           "name": "KemetDraggable",
           "members": [
+            {
+              "kind": "field",
+              "name": "memory",
+              "type": {
+                "text": "string"
+              },
+              "description": "A unique identifier used to store the element's position in local storage.",
+              "attribute": "memory"
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "description": "The elements top position in pixels.",
+              "attribute": "top"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "description": "The element's left position in pixels.",
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, will measure the width and height of the element's content and apply it to the host element.",
+              "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "position1",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "position2",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "position3",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "position4",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "mouseMove",
+              "type": {
+                "text": "(event) => void"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "mouseUp",
+              "type": {
+                "text": "() => void"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "draggableElement",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
             {
               "kind": "method",
               "name": "startDrag",
@@ -3182,49 +3270,6 @@
             {
               "kind": "method",
               "name": "measureContent"
-            },
-            {
-              "kind": "field",
-              "name": "top",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "description": "The elements top position in pixels.",
-              "attribute": "top"
-            },
-            {
-              "kind": "field",
-              "name": "left",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "description": "The element's left position in pixels.",
-              "attribute": "left"
-            },
-            {
-              "kind": "field",
-              "name": "measure",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, will measure the width and height of the element's content and apply it to the host element.",
-              "attribute": "measure"
-            },
-            {
-              "kind": "field",
-              "name": "memory",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "A unique identifier used to store the element's position in local storage.",
-              "attribute": "memory"
             }
           ],
           "events": [
@@ -3287,7 +3332,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
+            "module": "src/components/kemet-draggable/kemet-draggable.ts"
           }
         },
         {
@@ -3295,7 +3340,7 @@
           "name": "kemet-draggable",
           "declaration": {
             "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.js"
+            "module": "src/components/kemet-draggable/kemet-draggable.ts"
           }
         }
       ]
