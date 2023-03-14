@@ -1,5 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
-import './kemet-modal.js';
+import './kemet-modal.ts';
 
 describe('KemetModal', () => {
   it('has the correct default props', async () => {

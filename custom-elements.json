@@ -5260,7 +5260,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-modal/kemet-modal-close.js",
+      "path": "src/components/kemet-modal/kemet-modal-close.ts",
       "declarations": [
         {
           "kind": "class",
@@ -5293,7 +5293,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetModalClose",
-            "module": "src/components/kemet-modal/kemet-modal-close.js"
+            "module": "src/components/kemet-modal/kemet-modal-close.ts"
           }
         },
         {
@@ -5301,14 +5301,14 @@
           "name": "kemet-modal-close",
           "declaration": {
             "name": "KemetModalClose",
-            "module": "src/components/kemet-modal/kemet-modal-close.js"
+            "module": "src/components/kemet-modal/kemet-modal-close.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-modal/kemet-modal.js",
+      "path": "src/components/kemet-modal/kemet-modal.ts",
       "declarations": [
         {
           "kind": "class",
@@ -5348,6 +5348,66 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "effect",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "effect",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closeOnClick",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "close-on-click"
+            },
+            {
+              "kind": "field",
+              "name": "breakpoint",
+              "type": {
+                "text": "string"
+              },
+              "default": "'600px'",
+              "attribute": "breakpoint"
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "mobile",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focusableSelector",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "focusableElements",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
               "kind": "method",
               "name": "isMobile"
             },
@@ -5359,57 +5419,6 @@
                   "name": "event"
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "opened",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closeOnClick",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "close-on-click"
-            },
-            {
-              "kind": "field",
-              "name": "breakpoint",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'600px'",
-              "attribute": "breakpoint"
-            },
-            {
-              "kind": "field",
-              "name": "effect",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "effect",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "mobile",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "attribute": "mobile",
-              "reflects": true
             }
           ],
           "events": [
@@ -5477,7 +5486,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetModal",
-            "module": "src/components/kemet-modal/kemet-modal.js"
+            "module": "src/components/kemet-modal/kemet-modal.ts"
           }
         },
         {
@@ -5485,7 +5494,7 @@
           "name": "kemet-modal",
           "declaration": {
             "name": "KemetModal",
-            "module": "src/components/kemet-modal/kemet-modal.js"
+            "module": "src/components/kemet-modal/kemet-modal.ts"
           }
         }
       ]

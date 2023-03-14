@@ -1,4 +1,5 @@
 import { css, html, LitElement } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
 
 /**
@@ -12,20 +13,19 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-modal-close')
 export default class KemetModalClose extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          position: absolute;
-          top: 0.5rem;
-          right: 0.5rem;
-          border-radius: 50%;
-          cursor: pointer;
-        }
-      `,
-    ];
-  }
+  static styles = [
+    css`
+      :host {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    `,
+  ];
 
   render() {
     return html`
@@ -38,5 +38,8 @@ export default class KemetModalClose extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-modal-close') || customElements.define('kemet-modal-close', KemetModalClose);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-modal-close': KemetModalClose
+  }
+}

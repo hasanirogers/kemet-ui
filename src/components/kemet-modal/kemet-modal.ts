@@ -1,6 +1,8 @@
 import { html, LitElement } from 'lit';
-import { stylesBase, stylesEffects } from './styles.js';
+import { customElement, property, state } from 'lit/decorators.js';
+import { stylesBase, stylesEffects } from './styles';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { TypeEffect } from './types';
 
 /**
  * @since 1.0.0
@@ -8,6 +10,12 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  * @tagname kemet-modal
  * @summary A dialog that has many built in effects and flexible styles.
+ *
+ * @prop {boolean} opened
+ * @prop {string} effect
+ * @prop {boolean} closeOnClick
+ * @prop {string} breakpoint
+ * @prop {boolean} mobile
  *
  * @csspart content - The main contents of the modal.
  * @csspart overlay - The surrounding scrim of the modal.
@@ -23,45 +31,33 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-modal')
 export default class KemetModal extends LitElement {
-  static get styles() {
-    return [
-      stylesBase,
-      stylesEffects,
-    ];
-  }
+  static styles = [stylesBase, stylesEffects];
 
-  static get properties() {
-    return {
-      opened: {
-        type: Boolean,
-        reflect: true,
-      },
-      effect: {
-        type: String,
-        reflect: true,
-      },
-      closeOnClick: {
-        type: Boolean,
-        attribute: 'close-on-click',
-      },
-      breakpoint: {
-        type: String,
-      },
-      mobile: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  opened: boolean = false;
+
+  @property({ type: String, reflect: true })
+  effect: TypeEffect;
+
+  @property({ type: Boolean, attribute: 'close-on-click' })
+  closeOnClick: boolean = false;
+
+  @property({ type: String })
+  breakpoint: string = '600px';
+
+  @property({ type: Boolean, reflect: true })
+  mobile: boolean;
+
+  @state()
+  focusableSelector: string;
+
+  @state()
+  focusableElements: any;
 
   constructor() {
     super();
-
-    // managed properties
-    this.opened = false;
-    this.closeOnClick = false;
-    this.breakpoint = '600px';
 
     // bindings
     this.addEventListener('kemet-modal-close-pressed', () => { this.opened = false; });
@@ -81,7 +77,8 @@ export default class KemetModal extends LitElement {
     });
 
     this.addEventListener('click', (event) => {
-      if (this.opened && this.closeOnClick && event.target.tagName.toLowerCase() === 'kemet-modal') {
+      const targetElement = event.target as HTMLElement;
+      if (this.opened && this.closeOnClick && targetElement.tagName.toLowerCase() === 'kemet-modal') {
         this.opened = false;
       }
     });
@@ -141,5 +138,8 @@ export default class KemetModal extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-modal') || customElements.define('kemet-modal', KemetModal);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-modal': KemetModal
+  }
+}
