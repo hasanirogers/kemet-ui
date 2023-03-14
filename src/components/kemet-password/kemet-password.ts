@@ -1,6 +1,11 @@
 import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
-import { stylesBase } from './styles.js';
+import { KemetFieldInterface } from '../kemet-field/types.js';
+import { KemetInputInterface } from '../kemet-input/types.js';
+import { KemetTextareaInterface } from '../kemet-textarea/types.js';
+import { stylesBase } from './styles';
+import { TypeStatus } from './types';
 
 /**
  * @since 1.2.0
@@ -26,44 +31,48 @@ import { stylesBase } from './styles.js';
  *
  */
 
+@customElement('kemet-password')
 export default class KemetPassword extends LitElement {
-  static get styles() {
-    return [stylesBase];
-  }
+  static styles = [stylesBase];
 
-  static get properties() {
-    return {
-      rules: { type: Array },
-      show: { type: Boolean, reflect: true },
-      value: { type: String },
-      message: { type: String },
-      strength: { type: String },
-      icon: { type: String },
-      iconSize: { type: Number },
-    };
-  }
+  @property({ type: Array })
+  rules: any[] = [
+    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },
+    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },
+    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },
+  ];
 
-  constructor() {
-    super();
+  @property({ type: Boolean, reflect: true })
+  show: boolean;
 
-    // managed properties
-    this.rules = [
-      { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },
-      { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },
-      { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },
-    ];
-    this.message = 'Please make sure you meet all the requirements.';
-    this.icon = 'check2';
-    this.iconSize = 16;
-  }
+  @property({ type: String })
+  value: string;
+
+  @property({ type: String })
+  message: string = 'Please make sure you meet all the requirements.';
+
+  @property({ type: String })
+  strength: string;
+
+  @property({ type: String })
+  icon: string = 'check2';
+
+  @property({ type: Number })
+  iconSize: number = 16;
+
+  @state()
+  status: TypeStatus;
+
+  @state()
+  field: KemetFieldInterface;
+
+  @state()
+  input: KemetInputInterface | KemetTextareaInterface;
 
   firstUpdated() {
-    // standard properties
+    // elements
     this.field = this.closest('kemet-field');
     this.input = this.field.querySelector('[slot="input"]');
-
-    // managed properties
-    this.slug = this.field.slug;
 
     // events listeners
     this.input.addEventListener('kemet-input-input', this.handleInput.bind(this));
@@ -182,5 +191,8 @@ export default class KemetPassword extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-password') || customElements.define('kemet-password', KemetPassword);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-password': KemetPassword
+  }
+}

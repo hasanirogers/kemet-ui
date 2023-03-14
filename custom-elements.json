@@ -5501,7 +5501,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-password/kemet-password.js",
+      "path": "src/components/kemet-password/kemet-password.ts",
       "declarations": [
         {
           "kind": "class",
@@ -5526,6 +5526,93 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "rules",
+              "type": {
+                "text": "array"
+              },
+              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
+              "description": "An array of objects containing the rules the password must meet.",
+              "attribute": "rules"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Controls the display of the component.",
+              "attribute": "show",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "description": "The value of the input component.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Please make sure you meet all the requirements.'",
+              "description": "A message that is above the rules.",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "strength",
+              "type": {
+                "text": "string"
+              },
+              "description": "The strength of the password. Weak | Better | Strong.",
+              "attribute": "strength"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'check2'",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "attribute": "iconSize"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "field",
+              "type": {
+                "text": "KemetFieldInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "KemetInputInterface | KemetTextareaInterface"
+              }
+            },
             {
               "kind": "method",
               "name": "makeRules",
@@ -5581,79 +5668,6 @@
               "name": "visibility",
               "description": "Determines whether to show or hide the component",
               "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "rules",
-              "privacy": "public",
-              "type": {
-                "text": "array"
-              },
-              "default": "[\n      { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n      { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n      { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n    ]",
-              "description": "An array of objects containing the rules the password must meet.",
-              "attribute": "rules"
-            },
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'Please make sure you meet all the requirements.'",
-              "description": "A message that is above the rules.",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'check2'",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "iconSize",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "attribute": "iconSize"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Controls the display of the component.",
-              "attribute": "show",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The value of the input component.",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "strength",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The strength of the password. Weak | Better | Strong.",
-              "attribute": "strength"
             }
           ],
           "events": [
@@ -5668,7 +5682,7 @@
               "type": {
                 "text": "array"
               },
-              "default": "[\n      { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n      { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n      { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n    ]",
+              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
               "description": "An array of objects containing the rules the password must meet.",
               "fieldName": "rules"
             },
@@ -5737,7 +5751,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetPassword",
-            "module": "src/components/kemet-password/kemet-password.js"
+            "module": "src/components/kemet-password/kemet-password.ts"
           }
         },
         {
@@ -5745,7 +5759,7 @@
           "name": "kemet-password",
           "declaration": {
             "name": "KemetPassword",
-            "module": "src/components/kemet-password/kemet-password.js"
+            "module": "src/components/kemet-password/kemet-password.ts"
           }
         }
       ]
