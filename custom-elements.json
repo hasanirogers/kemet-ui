@@ -6149,7 +6149,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-radio/kemet-radio.js",
+      "path": "src/components/kemet-radio/kemet-radio.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6201,6 +6201,82 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The text next to the radio button",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not the button is checked",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the field",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "description": "The value of the radio button",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines if the button should be disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused on",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displayed the button as a filled button",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement"
+              }
+            },
+            {
               "kind": "method",
               "name": "click"
             },
@@ -6223,82 +6299,6 @@
             {
               "kind": "method",
               "name": "makeDot"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The text next to the radio button",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The name of the field",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines if the button should be disabled",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not the button is checked",
-              "attribute": "checked",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The value of the radio button",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused on",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displayed the button as a filled button",
-              "attribute": "filled",
-              "reflects": true
             }
           ],
           "events": [
@@ -6382,7 +6382,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetRadio",
-            "module": "src/components/kemet-radio/kemet-radio.js"
+            "module": "src/components/kemet-radio/kemet-radio.ts"
           }
         },
         {
@@ -6390,14 +6390,14 @@
           "name": "kemet-radio",
           "declaration": {
             "name": "KemetRadio",
-            "module": "src/components/kemet-radio/kemet-radio.js"
+            "module": "src/components/kemet-radio/kemet-radio.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-radio/kemet-radios.js",
+      "path": "src/components/kemet-radio/kemet-radios.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6414,6 +6414,82 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "legend",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The legend text for the fieldset",
+              "attribute": "legend"
+            },
+            {
+              "kind": "field",
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "description": "The direction of the button's layout",
+              "attribute": "axis",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "description": "The value of the selected radio button",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'radios'",
+              "description": "The name of the radio button set",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "The status of the radio button set",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "description": "Validation message for the user",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not the radio button set is required",
+              "attribute": "required"
+            },
+            {
+              "kind": "field",
+              "name": "radios",
+              "type": {
+                "text": "any"
+              }
+            },
             {
               "kind": "method",
               "name": "handleClick",
@@ -6443,82 +6519,6 @@
             {
               "kind": "method",
               "name": "checkValidity"
-            },
-            {
-              "kind": "field",
-              "name": "legend",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The legend text for the fieldset",
-              "attribute": "legend"
-            },
-            {
-              "kind": "field",
-              "name": "axis",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'horizontal'",
-              "description": "The direction of the button's layout",
-              "attribute": "axis",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'radios'",
-              "description": "The name of the radio button set",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "The status of the radio button set",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The value of the selected radio button",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "message",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Validation message for the user",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not the radio button set is required",
-              "attribute": "required"
             }
           ],
           "events": [
@@ -6604,7 +6604,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetRadios",
-            "module": "src/components/kemet-radio/kemet-radios.js"
+            "module": "src/components/kemet-radio/kemet-radios.ts"
           }
         },
         {
@@ -6612,7 +6612,7 @@
           "name": "kemet-radios",
           "declaration": {
             "name": "KemetRadios",
-            "module": "src/components/kemet-radio/kemet-radios.js"
+            "module": "src/components/kemet-radio/kemet-radios.ts"
           }
         }
       ]

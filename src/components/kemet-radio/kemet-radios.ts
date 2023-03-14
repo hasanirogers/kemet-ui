@@ -1,6 +1,9 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesRadios } from './styles';
+import { KemetRadioInterface, KemetRadiosInterface, TypeAxis, TypeStatus } from './types';
 
 /**
  * @since 1.0.0
@@ -24,88 +27,39 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-radios')
 export default class KemetRadios extends LitElement {
-  static get styles() {
-    return [
-      css`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+  formSubmitController: FormSubmitController;
 
-        :host {
-          display: block;
-        }
+  static styles = [stylesRadios];
 
-        fieldset {
-          border: 0;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          gap: 0.5rem;
-        }
+  @property({ type: String })
+  legend: string = '';
 
-        legend {
-          margin-bottom: 1rem;
-        }
+  @property({ type: String, reflect: true })
+  axis: TypeAxis = 'horizontal';
 
-        :host([axis='vertical']) fieldset {
-          flex-direction: column;
-        }
+  @property({ type: String })
+  value: string;
 
-        [part='message'] {
-          display: block;
-          margin-top: 0.5rem;
-        }
+  @property({ type: String })
+  name: string = 'radios';
 
-        :host([status='error']) [part='message'] {
-          color: var(--kemet-color-error);
-        }
+  @property({ type: String, reflect: true })
+  status: TypeStatus = 'standard';
 
-        :host([status='warning']) [part='message'] {
-          color: var(--kemet-color-error);
-        }
-      `,
-    ];
-  }
+  @property({ type: String })
+  message: string;
 
-  static get properties() {
-    return {
-      legend: {
-        type: String,
-      },
-      axis: {
-        type: String,
-        reflect: true,
-      },
-      value: {
-        type: String,
-      },
-      name: {
-        type: String,
-      },
-      status: {
-        type: String,
-        reflect: true,
-      },
-      message: {
-        type: String,
-      },
-      required: {
-        type: Boolean,
-      },
-    };
-  }
+  @property({ type: String })
+  required: string;
+
+  @state()
+  radios: any;
+
 
   constructor() {
     super();
-
-    // managed properties
-    this.legend = '';
-    this.axis = 'horizontal';
-    this.name = 'radios';
-    this.status = 'standard';
 
     /** @internal */
     this.formSubmitController = new FormSubmitController(this);
@@ -149,10 +103,10 @@ export default class KemetRadios extends LitElement {
     const radios = Array.from(this.radios);
     const arrowKeys = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'];
     const forwardKeys = ['ArrowRight', 'ArrowDown'];
-    const shift = forwardKeys.includes(event.key) ? 1 : -1;
-    const checkedIndex = radios.findIndex(radio => radio.checked) ?? radios[0];
+    const shift: number = forwardKeys.includes(event.key) ? 1 : -1;
+    const checkedIndex: any = radios.findIndex((radio: KemetRadioInterface) => radio.checked) ?? radios[0];
 
-    let index = checkedIndex + shift;
+    let index: number = checkedIndex + shift;
 
     if (arrowKeys.includes(event.key)) {
       if (index < 0) {
@@ -176,7 +130,7 @@ export default class KemetRadios extends LitElement {
 
   handleSlotChange() {
     const radios = Array.from(this.radios);
-    const checkedRadio = radios.find(radio => radio.checked);
+    const checkedRadio = radios.find((radio: KemetRadioInterface) => radio.checked) as KemetRadioInterface;
 
     this.radios.forEach((radio) => {
       radio.tabIndex = -1;
@@ -205,5 +159,9 @@ export default class KemetRadios extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-radios') || customElements.define('kemet-radios', KemetRadios);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-radios': KemetRadios
+  }
+}
+

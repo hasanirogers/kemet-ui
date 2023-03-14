@@ -1,7 +1,10 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesRadio } from './styles';
+import { KemetRadioInterface } from './types.js';
 
 /**
  * @since 1.0.0
@@ -35,112 +38,38 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-radio')
 export default class KemetRadio extends LitElement {
-  static get styles() {
-    return [
-      css`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+  static styles = [stylesRadio];
 
-        :host {
-          display: inline-block;
-        }
+  @property({ type: String })
+  label: string = '';
 
-        :host([disabled]) {
-          opacity: 0.5;
-        }
+  @property({ type: Boolean, reflect: true })
+  checked: boolean;
 
-        label {
-          cursor: pointer;
-          display: inline-flex;
-          gap: 0.5rem;
-          align-items: center;
-          margin-right: 0.5rem;
-        }
+  @property({ type: String })
+  name: string;
 
-        input {
-          cursor: pointer;
-          margin: 0;
-          padding: 0;
-          width: var(--kemet-radio-size, 18px);
-          height: var(--kemet-radio-size, 18px);
-          position: absolute;
-          opacity: 0;
-        }
+  @property({ type: String })
+  value: string;
 
-        button {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: var(--kemet-radio-size, 18px);
-          height: var(--kemet-radio-size, 18px);
-          padding: 0;
-          border-radius: 50%;
-          background: none;
-          border: var(--kemet-radio-border, 1px solid var(--kemet-color-background));
-        }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean = false;
 
-        [part='dot'] {
-          display: inline-flex;
-          border-radius: 50%;
-          width: var(--kemet-radio-size, 18px);
-          height: var(--kemet-radio-size, 18px);
-          background: var(--kemet-radio-dot-color, var(--kemet-color-primary));
-          border: var(--kemet-radio-border, 1px solid var(--kemet-color-primary));
-          box-shadow: inset 0px 0px 0px var(--kemet-radio-dot-border-width, 3px) var(--kemet-radio-dot-border-color, var(--kemet-color-white));
-        }
+  @property({ type: Boolean, reflect: true })
+  focused: boolean;
 
-        :host([filled]) [part='dot'] {
-          background: var(--kemet-radio-dot-color-filled, var(--kemet-color-white));
-          box-shadow: inset 0px 0px 0px var(--kemet-radio-dot-border-width, 4px) var(--kemet-radio-dot-border-color, var(--kemet-color-primary));
-        }
-      `,
-    ];
-  }
+  @property({ type: Boolean, reflect: true })
+  filled: boolean;
 
-  static get properties() {
-    return {
-      label: {
-        type: String,
-      },
-      checked: {
-        type: Boolean,
-        reflect: true,
-      },
-      name: {
-        type: String,
-      },
-      value: {
-        type: String,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      focused: {
-        type: Boolean,
-        reflect: true,
-      },
-      filled: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-  }
-
-  constructor() {
-    super();
-
-    // managed properties
-    this.label = '';
-    this.name = this.closest('kemet-radios').name || 'radio-button';
-    this.disabled = false;
-  }
+  @state()
+  input: HTMLInputElement;
 
   firstUpdated() {
+    const radiosElement = this.closest('kemet-radios') as KemetRadioInterface;
+
+    this.name = radiosElement.name || 'radio-button';
     this.input = this.shadowRoot.querySelector('input');
     this.setAttribute('role', 'radio');
 
@@ -202,5 +131,8 @@ export default class KemetRadio extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-radio') || customElements.define('kemet-radio', KemetRadio);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-radio': KemetRadio
+  }
+}
