@@ -4422,7 +4422,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-input/kemet-input.js",
+      "path": "src/components/kemet-input/kemet-input.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4496,6 +4496,333 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'input'",
+              "description": "The name of the input",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "description": "The placeholder attribute",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "minlength",
+              "type": {
+                "text": "string"
+              },
+              "description": "The minlength attribute",
+              "attribute": "minlength"
+            },
+            {
+              "kind": "field",
+              "name": "maxlength",
+              "type": {
+                "text": "string"
+              },
+              "description": "The maxlength attribute",
+              "attribute": "maxlength"
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "type": {
+                "text": "string"
+              },
+              "description": "The min attribute",
+              "attribute": "min"
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "type": {
+                "text": "string"
+              },
+              "description": "The max attribute",
+              "attribute": "max"
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "type": {
+                "text": "string"
+              },
+              "description": "The step attribute",
+              "attribute": "step"
+            },
+            {
+              "kind": "field",
+              "name": "autocomplete",
+              "type": {
+                "text": "string"
+              },
+              "description": "The autocomplete attribute",
+              "attribute": "autocomplete"
+            },
+            {
+              "kind": "field",
+              "name": "pattern",
+              "type": {
+                "text": "string"
+              },
+              "description": "The pattern attribute",
+              "attribute": "pattern"
+            },
+            {
+              "kind": "field",
+              "name": "inputmode",
+              "type": {
+                "text": "string"
+              },
+              "description": "The input mode attribute",
+              "attribute": "inputmode"
+            },
+            {
+              "kind": "field",
+              "name": "autofocus",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The autofocus attribute",
+              "attribute": "autofocus"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The disable attribute",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The readonly attribute",
+              "attribute": "readonly"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The required attribute",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'text'",
+              "description": "The type of input",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The input's value",
+              "attribute": "value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "States whether or not the input is invalid",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "The status of the input",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "validateOnBlur",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Activates validation on blur",
+              "attribute": "validate-on-blur"
+            },
+            {
+              "kind": "field",
+              "name": "ariaAutoComplete",
+              "type": {
+                "text": "string"
+              },
+              "description": "Aria Autocomplete",
+              "attribute": "aria-autocomplete"
+            },
+            {
+              "kind": "field",
+              "name": "ariaControls",
+              "type": {
+                "text": "string"
+              },
+              "description": "Aria Controls",
+              "attribute": "aria-controls"
+            },
+            {
+              "kind": "field",
+              "name": "ariaActiveDescendant",
+              "type": {
+                "text": "string"
+              },
+              "description": "Aria Active Descendant",
+              "attribute": "aria-activedescendant"
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a filled input box",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconRight",
+              "type": {
+                "text": "string"
+              },
+              "description": "Custom Icon to the right of the input",
+              "attribute": "icon-right",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconLeft",
+              "type": {
+                "text": "string"
+              },
+              "description": "Custom Icon to the left of the input",
+              "attribute": "icon-left",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "20",
+              "description": "Size of the icons",
+              "attribute": "iconSize"
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "type": {
+                "text": "object"
+              },
+              "description": "The HTML5 validity object.",
+              "attribute": "validity"
+            },
+            {
+              "kind": "field",
+              "name": "isPasswordVisible",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Manages password visibility",
+              "attribute": "isPasswordVisible"
+            },
+            {
+              "kind": "field",
+              "name": "inputType",
+              "type": {
+                "text": "string"
+              },
+              "description": "Input Type of keypress handled through handleInput(e)",
+              "attribute": "inputType"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines if the input is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "field",
+              "type": {
+                "text": "KemetFieldInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HTMLFormElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement"
+              }
+            },
             {
               "kind": "method",
               "name": "makeIconRight",
@@ -4621,343 +4948,6 @@
               "name": "focus",
               "description": "Focuses the standard input",
               "privacy": "public"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'input'",
-              "description": "The name of the input",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'text'",
-              "description": "The type of input",
-              "attribute": "type"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "The input's value",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "The status of the input",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "iconSize",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "20",
-              "description": "Size of the icons",
-              "attribute": "iconSize"
-            },
-            {
-              "kind": "field",
-              "name": "validateOnBlur",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Activates validation on blur",
-              "attribute": "validate-on-blur"
-            },
-            {
-              "kind": "field",
-              "name": "isPasswordVisible",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Manages password visibility",
-              "attribute": "isPasswordVisible"
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines if the input is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "placeholder",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The placeholder attribute",
-              "attribute": "placeholder"
-            },
-            {
-              "kind": "field",
-              "name": "minlength",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The minlength attribute",
-              "attribute": "minlength"
-            },
-            {
-              "kind": "field",
-              "name": "maxlength",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The maxlength attribute",
-              "attribute": "maxlength"
-            },
-            {
-              "kind": "field",
-              "name": "min",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The min attribute",
-              "attribute": "min"
-            },
-            {
-              "kind": "field",
-              "name": "max",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The max attribute",
-              "attribute": "max"
-            },
-            {
-              "kind": "field",
-              "name": "step",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The step attribute",
-              "attribute": "step"
-            },
-            {
-              "kind": "field",
-              "name": "autocomplete",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The autocomplete attribute",
-              "attribute": "autocomplete"
-            },
-            {
-              "kind": "field",
-              "name": "pattern",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The pattern attribute",
-              "attribute": "pattern"
-            },
-            {
-              "kind": "field",
-              "name": "inputmode",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The input mode attribute",
-              "attribute": "inputmode"
-            },
-            {
-              "kind": "field",
-              "name": "autofocus",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The autofocus attribute",
-              "attribute": "autofocus"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The disable attribute",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "readonly",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The readonly attribute",
-              "attribute": "readonly"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The required attribute",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "invalid",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "States whether or not the input is invalid",
-              "attribute": "invalid",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "ariaAutoComplete",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Aria Autocomplete",
-              "attribute": "aria-autocomplete"
-            },
-            {
-              "kind": "field",
-              "name": "ariaControls",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Aria Controls",
-              "attribute": "aria-controls"
-            },
-            {
-              "kind": "field",
-              "name": "ariaActiveDescendant",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Aria Active Descendant",
-              "attribute": "aria-activedescendant"
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays rounded corners",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays a filled input box",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "iconRight",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Custom Icon to the right of the input",
-              "attribute": "icon-right",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "iconLeft",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Custom Icon to the left of the input",
-              "attribute": "icon-left",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "validity",
-              "privacy": "public",
-              "type": {
-                "text": "object"
-              },
-              "description": "The HTML5 validity object.",
-              "attribute": "validity"
-            },
-            {
-              "kind": "field",
-              "name": "inputType",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Input Type of keypress handled through handleInput(e)",
-              "attribute": "inputType"
             }
           ],
           "events": [
@@ -5255,7 +5245,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetInput",
-            "module": "src/components/kemet-input/kemet-input.js"
+            "module": "src/components/kemet-input/kemet-input.ts"
           }
         },
         {
@@ -5263,7 +5253,7 @@
           "name": "kemet-input",
           "declaration": {
             "name": "KemetInput",
-            "module": "src/components/kemet-input/kemet-input.js"
+            "module": "src/components/kemet-input/kemet-input.ts"
           }
         }
       ]

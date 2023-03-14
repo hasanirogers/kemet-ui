@@ -1,3 +1,7 @@
+export type TypeStatus = 'standard' | 'error' | 'success' | 'warning';
+export type TypeAriaAutoComplete = 'inline' | 'list' | 'both' | 'none';
+export type TypeAutoComplete = 'on' | 'off' | 'additional-name' | 'address-level1' | 'address-level2' | 'address-level3' | 'address-level4' | 'address-line1' | 'address-line2' | 'address-line3' | 'bday' | 'bday-year' | 'bday-day' | 'bday-month' | 'billing' | 'cc-additional-name';
+
 export interface KemetInputInterface extends HTMLElement {
   slug?: string;
   name?: string;

@@ -1,8 +1,12 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { KemetFieldInterface } from '../kemet-field/types.js';
+import { stylesBase } from './styles';
+import { TypeAriaAutoComplete, TypeAutoComplete, TypeStatus } from './types';
 
 /**
  * @since 1.0.0
@@ -69,253 +73,120 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-input')
 export default class KemetInput extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          position: relative;
-          display: block;
-        }
+  /** @internal */
+  formSubmitController: FormSubmitController;
 
-        input {
-          color: var(--kemet-color-text);
-          display: block;
-          font-size: 1rem;
-          width: 100%;
-          height: var(--kemet-input-height, 50px);
-          padding: var(--kemet-input-padding, 0.5rem 1rem);
-          border: var(--kemet-input-border, 1px solid var(--kemet-color-background));
-          appearance: none;
-          box-sizing: border-box;
-          background-color: transparent;
-        }
+  static styles = [stylesBase];
 
-        input[type='color'] {
-          min-width: 10rem;
-        }
+  @property({ type: String })
+  slug: string;
 
-        input[type='search']::-webkit-search-decoration,
-        input[type='search']::-webkit-search-cancel-button,
-        input[type='search']::-webkit-search-results-button,
-        input[type='search']::-webkit-search-results-decoration {
-          display: none;
-        }
+  @property({ type: String })
+  name: string = 'input';
 
-        :host([status='error']) input {
-          border: var(--kemet-input-border-color-error, 1px solid var(--kemet-color-error));
-        }
+  @property({ type: String })
+  placeholder: string;
 
-        :host([status='success']) input {
-          border: var(--kemet-input-border-color-success, 1px solid var(--kemet-color-success));
-        }
+  @property({ type: Number })
+  minlength: number;
 
-        :host([status='warning']) input {
-          border: var(--kemet-input-border-color-warning, 1px solid var(--kemet-color-warning));
-        }
+  @property({ type: Number })
+  maxlength: number;
 
-        :host([disabled]) input {
-          opacity: 0.5;
-        }
+  @property({ type: String })
+  min: string;
 
-        :host([icon-left]) input {
-          padding-left: var(--kemet-input-icon-left-padding, 3rem);
-        }
+  @property({ type: String })
+  max: string;
 
-        :host([icon-right]) input {
-          padding-right: var(--kemet-input-icon-right-padding, 3rem);
-        }
+  @property({ type: Number })
+  step: number;
 
-        :host([rounded]) input {
-          border-radius: var(--kemet-input-border-radius-rounded, var(--kemet-border-radius));
-        }
+  @property({ type: String })
+  autocomplete: TypeAutoComplete;
 
-        :host([filled]) input {
-          border: var(--kemet-input-border-filled, none);
-          color: var(--kemet-input-color-filled, var(--kemet-color-white));
-          background-color: var(--kemet-input-background-color-filled, var(--kemet-color-primary));
-        }
+  @property({ type: String })
+  pattern: string;
 
-        :host([filled]) kemet-icon,
-        :host([filled]) input::placeholder {
-          color: var(--kemet-input-color-filled, var(--kemet-color-white));
-        }
+  @property({ type: String })
+  inputmode: string;
 
-        :host([status='error'][filled]) input {
-          background-color: var(--kemet-input-background-color-error, var(--kemet-color-error));
-        }
+  @property({ type: Boolean })
+  autofocus: boolean;
 
-        :host([status='success'][filled]) input {
-          background-color: var(--kemet-input-background-color-success, var(--kemet-color-success));
-        }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean;
 
-        :host([status='warning'][filled]) input {
-          background-color: var(--kemet-input-background-color-warning, var(--kemet-color-warning));
-        }
+  @property({ type: Boolean })
+  readonly: boolean;
 
-        kemet-icon {
-          color: var(--kemet-color-text);
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-        }
+  @property({ type: Boolean, reflect: true })
+  required: boolean;
 
-        kemet-icon.left {
-          left: 1rem;
-        }
+  @property({ type: String })
+  type: string = 'text';
 
-        kemet-icon.right {
-          right: 1rem;
-        }
+  @property({ type: String, reflect: true })
+  value: string = '';
 
-        kemet-icon.eye,
-        kemet-icon.search {
-          cursor: pointer;
-        }
+  @property({ type: Boolean, reflect: true })
+  invalid: boolean;
 
-        :host([status='error']) kemet-icon {
-          color: var(--kemet-color-error);
-        }
+  @property({ type: String, reflect: true })
+  status: TypeStatus = 'standard';
 
-        :host([status='warning']) kemet-icon {
-          color: var(--kemet-color-error);
-        }
+  @property({ type: Boolean, attribute: 'validate-on-blur' })
+  validateOnBlur: boolean = false;
 
-        :host([status='success']) kemet-icon {
-          color: var(--kemet-color-success);
-        }
-      `,
-    ];
-  }
+  @property({ type: String, attribute: 'aria-autocomplete' })
+  ariaAutoComplete: TypeAriaAutoComplete;
 
-  static get properties() {
-    return {
-      slug: {
-        type: String,
-      },
-      name: {
-        type: String,
-      },
-      placeholder: {
-        type: String,
-      },
-      minlength: {
-        type: String,
-      },
-      maxlength: {
-        type: String,
-      },
-      min: {
-        type: String,
-      },
-      max: {
-        type: String,
-      },
-      step: {
-        type: String,
-      },
-      autocomplete: {
-        type: String,
-      },
-      pattern: {
-        type: String,
-      },
-      inputmode: {
-        type: String,
-      },
-      autofocus: {
-        type: Boolean,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      readonly: {
-        type: Boolean,
-      },
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      type: {
-        type: String,
-      },
-      value: {
-        type: String,
-      },
-      invalid: {
-        type: Boolean,
-        reflect: true,
-      },
-      status: {
-        type: String,
-        reflect: true,
-      },
-      validateOnBlur: {
-        type: Boolean,
-        attribute: 'validate-on-blur',
-      },
-      ariaAutoComplete: {
-        type: String,
-        attribute: 'aria-autocomplete',
-      },
-      ariaControls: {
-        type: String,
-        attribute: 'aria-controls',
-      },
-      ariaActiveDescendant: {
-        type: String,
-        attribute: 'aria-activedescendant',
-      },
-      rounded: {
-        type: Boolean,
-        reflect: true,
-      },
-      filled: {
-        type: Boolean,
-        reflect: true,
-      },
-      iconRight: {
-        type: String,
-        reflect: true,
-        attribute: 'icon-right',
-      },
-      iconLeft: {
-        type: String,
-        reflect: true,
-        attribute: 'icon-left',
-      },
-      iconSize: {
-        type: Number,
-      },
-      validity: {
-        type: Object,
-      },
-      isPasswordVisible: {
-        type: Boolean,
-      },
-      inputType: {
-        type: String,
-      },
-      focused: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-  }
+  @property({ type: String, attribute: 'aria-controls' })
+  ariaControls: string;
+
+  @property({ type: String, attribute: 'aria-activedescendant' })
+  ariaActiveDescendant: string;
+
+  @property({ type: Boolean, reflect: true })
+  rounded: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  filled: boolean;
+
+  @property({ type: String, reflect: true, attribute: 'icon-right' })
+  iconRight: string;
+
+  @property({ type: String, reflect: true, attribute: 'icon-left' })
+  iconLeft: string;
+
+  @property({ type: Number })
+  iconSize: number = 20;
+
+  @property({ type: Object })
+  validity: object;
+
+  @property({ type: Boolean })
+  isPasswordVisible: boolean = false;;
+
+  @property({ type: String })
+  inputType: string;
+
+  @property({ type: Boolean, reflect: true })
+  focused: boolean = false;
+
+  @state()
+  field: KemetFieldInterface;
+
+  @state()
+  form: HTMLFormElement;
+
+  @state()
+  input: HTMLInputElement;
 
   constructor() {
     super();
-
-    // managed properties
-    this.name = 'input';
-    this.type = 'text';
-    this.value = '';
-    this.status = 'standard';
-    this.iconSize = 20;
-    this.validateOnBlur = false;
-    this.isPasswordVisible = false;
-    this.focused = false;
 
     /** @internal */
     this.formSubmitController = new FormSubmitController(this);
@@ -455,8 +326,8 @@ export default class KemetInput extends LitElement {
    */
   handleBlur() {
     if (this.validateOnBlur && this.form && !this.form.noValidate) {
-      this.input.checkValidity();
-      this.validity = this.input.validity;
+      this.input?.checkValidity();
+      this.validity = this.input?.validity;
     }
 
     this.focused = false;
@@ -497,7 +368,7 @@ export default class KemetInput extends LitElement {
    * @private
    */
   handleInvalid() {
-    this.validity = this.input.validity;
+    this.validity = this.input?.validity;
 
     if (this.validateOnBlur) {
       this.invalid = true;
@@ -505,7 +376,7 @@ export default class KemetInput extends LitElement {
 
       emitEvent(this, 'kemet-input-status', {
         status: 'error',
-        validity: this.input.validity,
+        validity: this.input?.validity,
         element: this,
       });
     }
@@ -554,7 +425,7 @@ export default class KemetInput extends LitElement {
    * @returns {boolean}
    */
   checkValidity() {
-    return this.input.checkValidity();
+    return this.input?.checkValidity();
   }
 
   /**
@@ -562,9 +433,12 @@ export default class KemetInput extends LitElement {
    * @public
    */
   focus() {
-    this.input.focus();
+    this.input?.focus();
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-input') || customElements.define('kemet-input', KemetInput);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-input': KemetInput
+  }
+}
