@@ -1,7 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-flipcard.js';
-import './kemet-flipcard-trigger.js';
+import './kemet-flipcard.ts';
+import './kemet-flipcard-trigger.ts';
 
 describe('KemetFlipcard', () => {
   it('has the correct defaults', async () => {

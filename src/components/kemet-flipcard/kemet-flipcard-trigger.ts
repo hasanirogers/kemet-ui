@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { keyCodes } from '../../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -11,23 +13,15 @@ import { emitEvent } from '../../utilities/misc/events.js';
  * @event kemet-flipcard-flipped - Fires when a flipcard is flipped
  */
 
+@customElement('kemet-flipcard-trigger')
 export default class KemetFlipcardTrigger extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          cursor: pointer;
-        }
-      `,
-    ];
-  }
-
-  firstUpdated() {
-    this.keyCodes = {
-      ENTER: 13,
-      SPACE: 32,
-    };
-  }
+  static styles = [
+    css`
+      :host {
+        cursor: pointer;
+      }
+    `,
+  ];
 
   render() {
     return html`
@@ -42,11 +36,14 @@ export default class KemetFlipcardTrigger extends LitElement {
   handleKeyup(event) {
     event.preventDefault();
 
-    if (event.keyCode === this.keyCodes.ENTER) {
+    if (event.keyCode === keyCodes.ENTER) {
       this.trigger();
     }
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-flipcard-trigger') || customElements.define('kemet-flipcard-trigger', KemetFlipcardTrigger);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-flipcard-trigger': KemetFlipcardTrigger
+  }
+}

@@ -4047,7 +4047,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.js",
+      "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4089,7 +4089,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetFlipcardTrigger",
-            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
+            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.ts"
           }
         },
         {
@@ -4097,14 +4097,14 @@
           "name": "kemet-flipcard-trigger",
           "declaration": {
             "name": "KemetFlipcardTrigger",
-            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.js"
+            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-flipcard/kemet-flipcard.js",
+      "path": "src/components/kemet-flipcard/kemet-flipcard.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4166,13 +4166,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "determineHeight"
-            },
-            {
               "kind": "field",
               "name": "axis",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -4183,7 +4178,6 @@
             {
               "kind": "field",
               "name": "flipped",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -4194,7 +4188,6 @@
             {
               "kind": "field",
               "name": "flipOnHover",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -4204,7 +4197,6 @@
             {
               "kind": "field",
               "name": "height",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -4214,12 +4206,43 @@
             {
               "kind": "field",
               "name": "measure",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
               "attribute": "measure"
+            },
+            {
+              "kind": "field",
+              "name": "frontChildren",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "backChildren",
+              "type": {
+                "text": "HTMLSlotElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "frontElement",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "backElement",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "determineHeight"
             }
           ],
           "attributes": [
@@ -4279,7 +4302,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetFlipcard",
-            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
+            "module": "src/components/kemet-flipcard/kemet-flipcard.ts"
           }
         },
         {
@@ -4287,7 +4310,7 @@
           "name": "kemet-flipcard",
           "declaration": {
             "name": "KemetFlipcard",
-            "module": "src/components/kemet-flipcard/kemet-flipcard.js"
+            "module": "src/components/kemet-flipcard/kemet-flipcard.ts"
           }
         }
       ]

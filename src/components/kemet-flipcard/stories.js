@@ -1,7 +1,4 @@
-import { html } from 'lit-html';
-
-import './kemet-flipcard.js';
-import './kemet-flipcard-trigger.js';
+import { html } from 'lit';
 
 export default {
   title: 'Kemet Flipcard',
