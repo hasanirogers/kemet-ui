@@ -6619,7 +6619,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-rotator/kemet-rotator.js",
+      "path": "src/components/kemet-rotator/kemet-rotator.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6633,21 +6633,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "makeMessages"
-            },
-            {
-              "kind": "method",
-              "name": "setDimensions"
-            },
-            {
-              "kind": "method",
-              "name": "nextSlide"
-            },
-            {
               "kind": "field",
               "name": "activeSlide",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -6657,8 +6644,27 @@
             },
             {
               "kind": "field",
+              "name": "width",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "description": "The width of the rotator block.",
+              "attribute": "width"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "string"
+              },
+              "default": "'auto'",
+              "description": "The height of the rotator block.",
+              "attribute": "height"
+            },
+            {
+              "kind": "field",
               "name": "messages",
-              "privacy": "public",
               "type": {
                 "text": "array"
               },
@@ -6669,7 +6675,6 @@
             {
               "kind": "field",
               "name": "effect",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -6681,7 +6686,6 @@
             {
               "kind": "field",
               "name": "rotationSpeed",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -6691,25 +6695,22 @@
             },
             {
               "kind": "field",
-              "name": "width",
-              "privacy": "public",
+              "name": "prevSlide",
               "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "description": "The width of the rotator block.",
-              "attribute": "width"
+                "text": "number | null"
+              }
             },
             {
-              "kind": "field",
-              "name": "height",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'auto'",
-              "description": "The height of the rotator block.",
-              "attribute": "height"
+              "kind": "method",
+              "name": "makeMessages"
+            },
+            {
+              "kind": "method",
+              "name": "setDimensions"
+            },
+            {
+              "kind": "method",
+              "name": "nextSlide"
             }
           ],
           "attributes": [
@@ -6783,7 +6784,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetRotator",
-            "module": "src/components/kemet-rotator/kemet-rotator.js"
+            "module": "src/components/kemet-rotator/kemet-rotator.ts"
           }
         },
         {
@@ -6791,7 +6792,7 @@
           "name": "kemet-rotator",
           "declaration": {
             "name": "KemetRotator",
-            "module": "src/components/kemet-rotator/kemet-rotator.js"
+            "module": "src/components/kemet-rotator/kemet-rotator.ts"
           }
         }
       ]

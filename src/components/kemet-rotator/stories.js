@@ -1,7 +1,5 @@
 import { html } from 'lit';
 
-import './kemet-rotator.js';
-
 const Template = ({
   message1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   message2 = 'Praesent ornare porta nulla.',

@@ -1,5 +1,8 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { stylesRotator } from './styles';
+import { TypeEffect } from './types';
 
 /**
  * @since 1.0.0
@@ -19,116 +22,31 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
  *
  */
 
+@customElement('kemet-rotator')
 export default class KemetRotator extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        display: flex;
-      }
+  static styles = [stylesRotator];
 
-      .rotator__slide {
-        pointer-events: none;
-      }
+  @property({ type: Number })
+  activeSlide: number = 0;
 
-      .rotator__slide--active {
-        pointer-events: auto;
-      }
+  @property({ type: String })
+  width: string = 'auto';
 
-      /* fade effect */
-      :host([effect="fade"]) .rotator {
-        display: inline-flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-      }
+  @property({ type: String })
+  height: string = 'auto';
 
-      :host([effect="fade"]) .rotator__slide {
-        width: 100%;
-        flex: none;
-        opacity: 0;
-        box-sizing: border-box;
-        transition: all var(--kemet-rotator-transition-speed, 500ms) ease;
-      }
+  @property({ type: Array })
+  messages: any[] = [];
 
-      :host([effect="fade"]) .rotator__slide:not(:first-child) {
-        margin-left: -100%; /* this is the bulk of the overlay trick */
-      }
+  @property({ type: String, reflect: true })
+  effect: TypeEffect = 'fade';
 
-      :host([effect="fade"]) .rotator__slide--active {
-        opacity: 1;
-      }
+  @property({ type: Number, attribute: 'rotation-speed' })
+  rotationSpeed: number = 3;
 
-      /* flip effect */
-      :host([effect="flip"]) .rotator {
-        display: flex;
-        position: relative;
+  @state()
+  prevSlide: number | null;
 
-        perspective: 500;
-      }
-
-      :host([effect="flip"]) .rotator__slide {
-        display: block;
-        width: auto;
-        position: absolute;
-        top: -20px;
-        left: 0;
-
-        opacity: 0;
-
-        transform: rotateX(90deg);
-        transform-origin: 0% 0%;
-        transition: all var(--kemet-rotator-transition-speed, 500ms) ease;
-      }
-
-      :host([effect="flip"]) .rotator__slide--active {
-        top: 0;
-        opacity: 1;
-
-        transform: rotateX(0deg);
-      }
-
-      :host([effect="flip"]) .rotator__slide--prev {
-        top: 40px;;
-        transform: rotateX(-90deg);
-      }
-    `;
-  }
-
-  static get properties() {
-    return {
-      activeSlide: {
-        type: Number,
-      },
-      width: {
-        type: String,
-      },
-      height: {
-        type: String,
-      },
-      messages: {
-        type: Array,
-      },
-      effect: {
-        type: String,
-        reflect: true,
-      },
-      rotationSpeed: {
-        type: Number,
-        attribute: 'rotation-speed',
-      },
-    };
-  }
-
-  constructor() {
-    super();
-
-    // managed properties
-    this.activeSlide = 0;
-    this.messages = [];
-    this.effect = 'fade';
-    this.rotationSpeed = 3;
-    this.width = 'auto';
-    this.height = 'auto';
-  }
 
   firstUpdated() {
     // standard properties
@@ -186,7 +104,7 @@ export default class KemetRotator extends LitElement {
       const slides = this.shadowRoot.querySelectorAll('.rotator__slide');
       let tallest = 0;
 
-      slides.forEach((slide) => {
+      slides.forEach((slide: HTMLElement) => {
         if (slide.offsetHeight > tallest) {
           tallest = slide.offsetHeight;
         }
@@ -207,5 +125,8 @@ export default class KemetRotator extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-rotator') || customElements.define('kemet-rotator', KemetRotator);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-rotator': KemetRotator
+  }
+}
