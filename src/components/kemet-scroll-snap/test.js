@@ -1,6 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
-
-import './kemet-scroll-snap.js';
+import './kemet-scroll-snap.ts';
 
 describe('KemetScrollSnap', () => {
   it('has the proper default attributes', async () => {

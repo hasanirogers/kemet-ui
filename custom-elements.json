@@ -330,135 +330,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetBadge",
-          "cssProperties": [
-            {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
@@ -882,6 +753,135 @@
           "declaration": {
             "name": "KemetAvatars",
             "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetBadge",
+          "cssProperties": [
+            {
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-badge",
+          "summary": "Badges display the status of information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-badge",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         }
       ]
@@ -7071,7 +7071,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7092,6 +7092,78 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "description": "Information about each slide.",
+              "attribute": "slides"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'circle-fill'",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The size in pixels of the icons.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether to center the pagination items.",
+              "attribute": "center",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideFocusedLinks",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Will hide inactive pagination items if set to true.",
+              "attribute": "hide-focused-links"
+            },
+            {
+              "kind": "field",
+              "name": "useNumberPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
+              "attribute": "use-number-pages",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "useLabelPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
+              "attribute": "use-label-pages",
+              "reflects": true
+            },
             {
               "kind": "method",
               "name": "makePagination"
@@ -7128,85 +7200,6 @@
                   "name": "id"
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "slides",
-              "privacy": "public",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]",
-              "description": "Information about each slide.",
-              "attribute": "slides"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'circle-fill'",
-              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The size in pixels of the icons.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "hideFocusedLinks",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Will hide inactive pagination items if set to true.",
-              "attribute": "hide-focused-links"
-            },
-            {
-              "kind": "field",
-              "name": "useNumberPages",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
-              "attribute": "use-number-pages",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "useLabelPages",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
-              "attribute": "use-label-pages",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "center",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether to center the pagination items.",
-              "attribute": "center",
-              "reflects": true
             }
           ],
           "events": [
@@ -7294,7 +7287,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollSnapPaginator",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js"
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
           }
         },
         {
@@ -7302,14 +7295,14 @@
           "name": "kemet-scroll-snap-paginator",
           "declaration": {
             "name": "KemetScrollSnapPaginator",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js"
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7327,13 +7320,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "addTabIndex"
-            },
-            {
               "kind": "field",
               "name": "focused",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -7344,9 +7332,8 @@
             {
               "kind": "field",
               "name": "index",
-              "privacy": "public",
               "type": {
-                "text": "string"
+                "text": "number"
               },
               "description": "Identifies the slide.",
               "attribute": "index",
@@ -7355,13 +7342,16 @@
             {
               "kind": "field",
               "name": "label",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
               "description": "Labels the slide.",
               "attribute": "label",
               "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "addTabIndex"
             }
           ],
           "attributes": [
@@ -7376,7 +7366,7 @@
             {
               "name": "index",
               "type": {
-                "text": "string"
+                "text": "number"
               },
               "description": "Identifies the slide.",
               "fieldName": "index"
@@ -7405,7 +7395,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollSnapSlide",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js"
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
           }
         },
         {
@@ -7413,14 +7403,14 @@
           "name": "kemet-scroll-snap-slide",
           "declaration": {
             "name": "KemetScrollSnapSlide",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.js"
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap.js",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7466,6 +7456,42 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
+              "attribute": "axis",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pagination",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bottom'",
+              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
+              "attribute": "pagination",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isTouchDevice",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "any[]"
+              }
+            },
+            {
               "kind": "method",
               "name": "setFocusedSlides"
             },
@@ -7485,30 +7511,6 @@
             {
               "kind": "method",
               "name": "setVerticalAttribute"
-            },
-            {
-              "kind": "field",
-              "name": "axis",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'horizontal'",
-              "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
-              "attribute": "axis",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pagination",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bottom'",
-              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
-              "attribute": "pagination",
-              "reflects": true
             }
           ],
           "events": [
@@ -7552,7 +7554,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollSnap",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.js"
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
           }
         },
         {
@@ -7560,7 +7562,7 @@
           "name": "kemet-scroll-snap",
           "declaration": {
             "name": "KemetScrollSnap",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.js"
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
           }
         }
       ]

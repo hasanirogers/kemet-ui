@@ -1,5 +1,7 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesScrollSnapPaginator } from './styles';
 
 /**
  * @since 1.0.0
@@ -24,79 +26,37 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-scroll-snap-paginator')
 export default class KemetScrollSnapPaginator extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        margin: auto;
-        padding: var(--kemet-scroll-snap-paginator-padding, 1rem 0);
-      }
+  static styles = [stylesScrollSnapPaginator];
 
-      nav {
-        display: flex;
-        gap: var(--kemet-scroll-snap-paginator-gap, 0.5rem);
-      }
+  @property({ type: Array })
+  slides: any[] = [];
 
-      :host([center]) nav {
-        justify-content: center;
-      }
+  @property({ type: String })
+  icon: string = 'circle-fill';
 
-      .link {
-        cursor: pointer;
-        color: var(--kemet-scroll-snap-paginator-link-color, var(--kemet-color-primary));
-      }
-    `;
-  }
+  @property({ type: Number })
+  size: number = 16;
 
-  static get properties() {
-    return {
-      slides: {
-        type: Array,
-      },
-      icon: {
-        type: String,
-      },
-      size: {
-        type: Number,
-      },
-      center: {
-        type: Boolean,
-        reflect: true,
-      },
-      hideFocusedLinks: {
-        type: Boolean,
-        attribute: 'hide-focused-links',
-      },
-      useNumberPages: {
-        type: Boolean,
-        reflect: true,
-        attribute: 'use-number-pages',
-      },
-      useLabelPages: {
-        type: Boolean,
-        reflect: true,
-        attribute: 'use-label-pages',
-      },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  center: boolean;
 
-  constructor() {
-    super();
+  @property({ type: Boolean, attribute: 'hide-focused-links' })
+  hideFocusedLinks: boolean = false;
 
-    // managed properties
-    this.slides = [];
-    this.icon = 'circle-fill';
-    this.size = 16;
-    this.hideFocusedLinks = false;
-    this.useNumberPages = false;
-    this.useLabelPages = false;
-  }
+  @property({ type: Boolean, reflect: true, attribute: 'use-number-pages' })
+  useNumberPages: boolean = false;
+
+  @property({ type: Boolean, reflect: true, attribute: 'use-label-pages' })
+  useLabelPages: boolean = false;
+
 
   updated() {
     const scrollSnapElement = this.closest('kemet-scroll-snap');
 
     if (scrollSnapElement) {
-      scrollSnapElement.addEventListener('kemet-scroll-snap-make-slides', (event) => {
+      scrollSnapElement.addEventListener('kemet-scroll-snap-make-slides', (event: CustomEvent) => {
         this.slides = event.detail;
       });
     }
@@ -161,5 +121,8 @@ export default class KemetScrollSnapPaginator extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-scroll-snap-paginator') || customElements.define('kemet-scroll-snap-paginator', KemetScrollSnapPaginator);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-scroll-snap-paginator': KemetScrollSnapPaginator
+  }
+}

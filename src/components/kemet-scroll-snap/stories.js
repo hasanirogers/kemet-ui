@@ -1,8 +1,4 @@
-import { html } from 'lit-html';
-
-import './kemet-scroll-snap.js';
-import './kemet-scroll-snap-slide.js';
-import './kemet-scroll-snap-paginator.js';
+import { html } from 'lit';
 
 const Template = ({
   showPagination = true,

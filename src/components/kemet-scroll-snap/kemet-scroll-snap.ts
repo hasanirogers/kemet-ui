@@ -1,5 +1,8 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesScrollSnap } from './styles';
+import { KemetScrollSnapSlideInterface, TypeAxis, TypePagination } from './types';
 
 /**
  * @since 1.0.0
@@ -26,83 +29,26 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-scroll-snap')
 export default class KemetScrollSnap extends LitElement {
-  static get styles() {
-    return css`
-      *,
-      *::after,
-      *::before {
-        box-sizing: border-box;
-      }
+  static styles = [stylesScrollSnap];
 
-      :host {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
+  @property({ type: String, reflect: true })
+  axis: TypeAxis = 'horizontal';
 
-      :host([axis='horizontal']) {
-        margin: auto;
-        max-width: var(--kemet-scroll-snap-horizontal-max-width, 1024px);
-      }
+  @property({ type: String, reflect: true })
+  pagination: TypePagination = 'bottom';
 
-      :host([pagination="left"]),
-      :host([pagination="right"]) {
-        flex-direction: row;
-      }
+  @state()
+  isTouchDevice: boolean;
 
-      :host([pagination="none"]) ::slotted([slot="pagination"]) {
-        display: none;
-      }
-
-      :host([pagination="top"]) ::slotted([slot="pagination"]),
-      :host([pagination="left"]) ::slotted([slot="pagination"]) {
-        order: -1;
-      }
-
-
-      ::slotted([slot="slides"]) {
-        display: flex;
-        gap: var(--kemet-scroll-snap-gap, 1.5rem);
-        scroll-snap-type: x mandatory;
-        overflow-x: scroll;
-      }
-
-      /* vertical */
-      :host([axis="vertical"]) {
-        height: var(--kemet-scroll-snap-vertical-height, 100vh);
-      }
-
-      :host([axis="vertical"]) ::slotted([slot="slides"]) {
-        flex-direction: column;
-        overflow-x: hidden;
-        scroll-snap-type: y mandatory;
-        padding: var(--kemet-scroll-snap-slides-vertical-padding, 0 2rem);
-      }
-    `;
-  }
-
-  static get properties() {
-    return {
-      axis: {
-        type: String,
-        reflect: true,
-      },
-      pagination: {
-        type: String,
-        reflect: true,
-      },
-    };
-  }
+  @state()
+  slides: any[];
 
   constructor() {
     super();
 
-    // managed properties
-    this.axis = 'horizontal';
-    this.pagination = 'bottom';
-
-    this.addEventListener('kemet-scroll-snap-focus', (event) => {
+    this.addEventListener('kemet-scroll-snap-focus', (event: CustomEvent) => {
       this.focusSlide(event.detail);
     });
   }
@@ -163,7 +109,7 @@ export default class KemetScrollSnap extends LitElement {
     const slides = [];
 
     this.querySelectorAll('kemet-scroll-snap-slide').forEach((element, index) => {
-      const slide = element;
+      const slide = element as KemetScrollSnapSlideInterface;
 
       slide.index = index;
       slides.push({
@@ -189,5 +135,8 @@ export default class KemetScrollSnap extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-scroll-snap') || customElements.define('kemet-scroll-snap', KemetScrollSnap);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-scroll-snap': KemetScrollSnap
+  }
+}
