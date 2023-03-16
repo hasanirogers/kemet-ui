@@ -1,6 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
-
-import './kemet-scroll-nav.js';
+import './kemet-scroll-nav.ts';
 
 describe('KemetScrollNav', () => {
   it('has the correct defaults', async () => {

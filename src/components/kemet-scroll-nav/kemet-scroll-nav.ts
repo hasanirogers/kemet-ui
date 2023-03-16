@@ -1,4 +1,7 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { stylesScrollNav } from './styles';
+import { TypeEffect } from './types';
 
 /**
  * @since 1.0.0
@@ -19,59 +22,19 @@ import { LitElement, html, css } from 'lit';
  *
  */
 
+@customElement('kemet-scroll-nav')
 export default class KemetScrollNav extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          display: block;
-          box-sizing: border-box;
-          padding: var(--kemet-scroll-nav-padding, 1rem 2rem);
-          background-color: var(--kemet-scroll-nav-background, #fafafa);
-          transition: all var(--kemet-scroll-nav-transition, 300ms) ease;
-        }
+  static styles = [stylesScrollNav];
 
-        :host([transform]),
-        :host([effect="resize"]) {
-          position: fixed;
-          top: 0;
-          width: 100%;
-        }
+  @property({ type: String, reflect: true })
+  effect: TypeEffect = 'sticky';
 
-        :host([effect="resize"]) {
-          height: var(--kemet-scroll-nav-resize-height, 400px);
-        }
+  @property({ type: Boolean, reflect: true })
+  transform: boolean = false;
 
-        :host([transform][effect="resize"]) {
-          height: var(--kemet-scroll-nav-resize-height-transformed, 100px);
-        }
-      `,
-    ];
-  }
+  @property({ type: Number })
+  offset: number = 0;
 
-  static get properties() {
-    return {
-      effect: {
-        type: String,
-        reflect: true,
-      },
-      transform: {
-        type: Boolean,
-        reflect: true,
-      },
-      offset: {
-        type: Number,
-      },
-    };
-  }
-
-  constructor() {
-    super();
-
-    this.effect = 'sticky';
-    this.transform = false;
-    this.offset = 0;
-  }
 
   render() {
     return html`
@@ -103,5 +66,9 @@ export default class KemetScrollNav extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-scroll-nav') || customElements.define('kemet-scroll-nav', KemetScrollNav);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-scroll-nav': KemetScrollNav
+  }
+}
+

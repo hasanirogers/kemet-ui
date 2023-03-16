@@ -1,7 +1,5 @@
 import { html } from 'lit';
 
-import './kemet-scroll-nav.js';
-
 const TemplateResize = () => html`
   <style>
     article {
