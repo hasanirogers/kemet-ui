@@ -1,7 +1,5 @@
 import { html } from 'lit';
 
-import './kemet-scroll-link.js';
-
 const Template = () => html`
   <style>
     body {

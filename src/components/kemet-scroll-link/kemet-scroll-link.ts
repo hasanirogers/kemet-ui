@@ -1,4 +1,6 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { keyCodes } from '../../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -14,54 +16,32 @@ import { html, css, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-scroll-link')
 export default class KemetScrollLink extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        cursor: pointer;
-        display: inline-block;
-      }
-    `;
-  }
+  static styles =  [css`
+    :host {
+      cursor: pointer;
+      display: inline-block;
+    }
+  `];
 
-  static get properties() {
-    return {
-      element: {
-        type: Object,
-      },
-      target: {
-        type: Object,
-      },
-      xOffset: {
-        type: Number,
-        attribute: 'x-offset',
-        reflect: true,
-      },
-      yOffset: {
-        type: Number,
-        attribute: 'y-offset',
-        reflect: true,
-      },
-    };
-  }
+  @property({ type: Object })
+  element: HTMLElement | Window = window;
 
-  constructor() {
-    super();
+  @property({ type: Object })
+  target: HTMLElement = document.querySelector('body');
 
-    // managed properties
-    this.element = this.element || window;
-    this.target = this.target || document.querySelector('body');
-    this.xOffset = 0;
-    this.yOffset = 0;
-  }
+  @property({ type: Number, attribute: 'x-offset', reflect: true })
+  xOffset: number = 0;
+
+  @property({ type: Number, attribute: 'y-offset', reflect: true })
+  yOffset: number = 0;
+
+  @state()
+  isSmoothSupported: boolean;
 
   firstUpdated() {
     // standard properties
-    /** @internal */
-    this.keyCodes = {
-      ENTER: 13,
-      SPACE: 32,
-    };
     this.isSmoothSupported = 'scrollBehavior' in document.documentElement.style;
   }
 
@@ -74,7 +54,7 @@ export default class KemetScrollLink extends LitElement {
   }
 
   handleKeyup(event) {
-    if (event.keyCode === this.keyCodes.ENTER || event.keyCode === this.keyCodes.SPACE) {
+    if (event.keyCode === keyCodes.ENTER || event.keyCode === keyCodes.SPACE) {
       this.handleScroll();
     }
   }
@@ -95,5 +75,9 @@ export default class KemetScrollLink extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-scroll-link') || customElements.define('kemet-scroll-link', KemetScrollLink);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-scroll-link': KemetScrollLink
+  }
+}
+

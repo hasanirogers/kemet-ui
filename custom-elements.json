@@ -6799,13 +6799,61 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-link/kemet-scroll-link.js",
+      "path": "src/components/kemet-scroll-link/kemet-scroll-link.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
           "name": "KemetScrollLink",
           "members": [
+            {
+              "kind": "field",
+              "name": "element",
+              "type": {
+                "text": "object"
+              },
+              "default": "window",
+              "description": "A DOM element that establishes the context of scrolling.",
+              "attribute": "element"
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "object"
+              },
+              "description": "A DOM element that represents the destination of the scroll link. If no target is specified it will default to the top of the page.",
+              "attribute": "target"
+            },
+            {
+              "kind": "field",
+              "name": "xOffset",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Allows the horizontal scrolling to stop short of the given value.",
+              "attribute": "x-offset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "yOffset",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Allows the vertical scrolling to stop short of the given value.",
+              "attribute": "y-offset",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isSmoothSupported",
+              "type": {
+                "text": "boolean"
+              }
+            },
             {
               "kind": "method",
               "name": "handleKeyup",
@@ -6818,50 +6866,6 @@
             {
               "kind": "method",
               "name": "handleScroll"
-            },
-            {
-              "kind": "field",
-              "name": "element",
-              "privacy": "public",
-              "type": {
-                "text": "object"
-              },
-              "description": "A DOM element that establishes the context of scrolling.",
-              "attribute": "element"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "privacy": "public",
-              "type": {
-                "text": "object"
-              },
-              "description": "A DOM element that represents the destination of the scroll link. If no target is specified it will default to the top of the page.",
-              "attribute": "target"
-            },
-            {
-              "kind": "field",
-              "name": "xOffset",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Allows the horizontal scrolling to stop short of the given value.",
-              "attribute": "x-offset",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "yOffset",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Allows the vertical scrolling to stop short of the given value.",
-              "attribute": "y-offset",
-              "reflects": true
             }
           ],
           "attributes": [
@@ -6869,6 +6873,10 @@
               "name": "element",
               "type": {
                 "text": "object"
+              },
+              "default": "window",
+              "resolveInitializer": {
+                "module": "src/components/kemet-scroll-link/kemet-scroll-link.ts"
               },
               "description": "A DOM element that establishes the context of scrolling.",
               "fieldName": "element"
@@ -6915,7 +6923,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollLink",
-            "module": "src/components/kemet-scroll-link/kemet-scroll-link.js"
+            "module": "src/components/kemet-scroll-link/kemet-scroll-link.ts"
           }
         },
         {
@@ -6923,7 +6931,7 @@
           "name": "kemet-scroll-link",
           "declaration": {
             "name": "KemetScrollLink",
-            "module": "src/components/kemet-scroll-link/kemet-scroll-link.js"
+            "module": "src/components/kemet-scroll-link/kemet-scroll-link.ts"
           }
         }
       ]
