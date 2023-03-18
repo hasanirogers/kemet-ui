@@ -2,8 +2,8 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { FormSubmitController } from '../../utilities/controllers/forms.js';
-import { KemetFieldInterface } from '../kemet-field/types.js';
+import { FormSubmitController } from '../../utilities/controllers/forms';
+import { KemetFieldInterface } from '../kemet-field/types';
 import { stylesTextarea } from './styles';
 import { TypeStatus } from './types';
 

@@ -3,7 +3,7 @@ export class FormSubmitController {
   form;
   options;
 
-  constructor(host, options) {
+  constructor(host, options = undefined) {
     (this.host = host).addController(this);
     this.options = {
       form: (input) => input.closest('form'),

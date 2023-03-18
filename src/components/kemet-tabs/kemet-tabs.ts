@@ -2,11 +2,9 @@
 /* eslint-disable no-case-declarations */
 import { LitElement, html } from 'lit';
 import { stylesKemetTabs } from './styles';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events';
 import { customElement, property, state } from 'lit/decorators.js';
 import { KemetTabInterface, KemetTabPanelInterface, TypePanelEffect, TypePlacement, TypeTabsAlign } from './types';
-import KemetTabPanel from './kemet-tab-panel';
-
 
 /**
  * @since 1.0.0

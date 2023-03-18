@@ -2,9 +2,9 @@ import { html, LitElement } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events';
 import { stylesRadio } from './styles';
-import { KemetRadioInterface } from './types.js';
+import { KemetRadioInterface } from './types';
 
 /**
  * @since 1.0.0

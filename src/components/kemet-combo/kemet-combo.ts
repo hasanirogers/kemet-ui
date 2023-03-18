@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events';
 import { KemetFieldInterface } from '../kemet-field/types';
 import { stylesBase } from './styles';
 

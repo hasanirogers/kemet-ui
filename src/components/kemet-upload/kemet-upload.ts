@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events';
 import { stylesUpload } from './styles';
 
 const preventDefaults = (event) => {

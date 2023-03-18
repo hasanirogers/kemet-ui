@@ -1,8 +1,8 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state, query } from 'lit/decorators.js';
-import { emitEvent } from '../../utilities/misc/events.js';
-import { stylesCarousel } from './styles.js';
-import { KemetCarouselCurrentInterface, KemetCarouselLinkInterface, KemetCarouselSlideInterface } from './types.js';
+import { emitEvent } from '../../utilities/misc/events';
+import { stylesCarousel } from './styles';
+import { KemetCarouselCurrentInterface, KemetCarouselLinkInterface, KemetCarouselSlideInterface } from './types';
 
 /**
  *

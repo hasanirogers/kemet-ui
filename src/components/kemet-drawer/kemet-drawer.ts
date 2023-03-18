@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
 import { stylesBase, stylesEffects } from './styles';
 import { customElement, property } from 'lit/decorators.js';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events';
 import { TypeEffect, TypeSide } from './types';
 
 /**

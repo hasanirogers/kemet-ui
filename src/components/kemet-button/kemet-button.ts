@@ -2,7 +2,7 @@ import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { TypeType } from './types';
 import { stylesBase } from './styles';
-import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import { FormSubmitController } from '../../utilities/controllers/forms';
 import '../kemet-icon/kemet-icon';
 
 /**
@@ -136,7 +136,7 @@ export default class KemetButton extends LitElement {
     }, 300);
 
     if (this.shadowRoot.querySelector('button')) {
-      this.formSubmitController.submit(this);
+      this.formSubmitController.submit();
     }
   }
 

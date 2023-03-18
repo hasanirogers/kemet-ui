@@ -1,10 +1,10 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { FormSubmitController } from '../../utilities/controllers/forms.js';
-import { emitEvent } from '../../utilities/misc/events.js';
-import { KemetFieldInterface } from '../kemet-field/types.js';
+import { FormSubmitController } from '../../utilities/controllers/forms';
+import { emitEvent } from '../../utilities/misc/events';
+import { KemetFieldInterface } from '../kemet-field/types';
 import { stylesSelect } from './styles';
-import { KemetOptionInterface } from './types.js';
+import { KemetOptionInterface } from './types';
 
 /**
  * @since 1.0.0

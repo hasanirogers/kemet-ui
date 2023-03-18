@@ -2,9 +2,9 @@ import { html, LitElement } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { FormSubmitController } from '../../utilities/controllers/forms.js';
-import { emitEvent } from '../../utilities/misc/events.js';
-import { KemetFieldInterface } from '../kemet-field/types.js';
+import { FormSubmitController } from '../../utilities/controllers/forms';
+import { emitEvent } from '../../utilities/misc/events';
+import { KemetFieldInterface } from '../kemet-field/types';
 import { stylesBase } from './styles';
 import { TypeAriaAutoComplete, TypeAutoComplete, TypeStatus } from './types';
 

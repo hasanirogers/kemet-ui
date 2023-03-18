@@ -1,9 +1,9 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { emitEvent } from '../../utilities/misc/events.js';
-import { KemetFieldInterface } from '../kemet-field/types.js';
-import { KemetInputInterface } from '../kemet-input/types.js';
-import { KemetTextareaInterface } from '../kemet-textarea/types.js';
+import { emitEvent } from '../../utilities/misc/events';
+import { KemetFieldInterface } from '../kemet-field/types';
+import { KemetInputInterface } from '../kemet-input/types';
+import { KemetTextareaInterface } from '../kemet-textarea/types';
 import { stylesBase } from './styles';
 import { TypeStatus } from './types';
 

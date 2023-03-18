@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { FormSubmitController } from '../../utilities/controllers/forms.js';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { FormSubmitController } from '../../utilities/controllers/forms';
+import { emitEvent } from '../../utilities/misc/events';
 import { stylesRadios } from './styles';
 import { KemetRadioInterface, KemetRadiosInterface, TypeAxis, TypeStatus } from './types';
 

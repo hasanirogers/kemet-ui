@@ -10,7 +10,7 @@ import {
   sign,
   superScaled,
 } from './styles.effects.js';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events.ts';
 
 const keyCodes = {
   ENTER: 13,

@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesKemetTab } from './styles';
 

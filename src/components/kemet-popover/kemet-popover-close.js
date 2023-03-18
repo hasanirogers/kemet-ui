@@ -1,5 +1,5 @@
 import { html, css, LitElement } from 'lit';
-import { emitEvent } from '../../utilities/misc/events.js';
+import { emitEvent } from '../../utilities/misc/events.ts';
 
 const keyCodes = {
   ENTER: 13,

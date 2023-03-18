@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { emitEvent } from '../../utilities/misc/events.js';
-import { stylesBase } from './styles.js';
+import { emitEvent } from '../../utilities/misc/events';
+import { stylesBase } from './styles';
 
 /**
  * @since 1.4.0
