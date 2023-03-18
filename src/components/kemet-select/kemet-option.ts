@@ -1,4 +1,5 @@
 import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 /**
  * @since 1.0.0
@@ -17,34 +18,27 @@ import { html, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-option')
 export default class KemetOption extends LitElement {
-  static get properties() {
-    return {
-      label: {
-        type: String,
-      },
-      value: {
-        type: String,
-      },
-      disabled: {
-        type: Boolean,
-      },
-      selected: {
-        type: Boolean,
-      },
-    };
-  }
+  @property({ type: String })
+  label: string;
 
-  constructor() {
-    super();
+  @property({ type: String })
+  value: string = '';
 
-    this.value = '';
-  }
+  @property({ type: Boolean })
+  disable: boolean;
+
+  @property({ type: Boolean })
+  selected: boolean;
 
   render() {
     return html`<slot></slot>`;
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-option') || customElements.define('kemet-option', KemetOption);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-option': KemetOption
+  }
+}

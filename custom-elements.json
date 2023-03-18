@@ -7569,7 +7569,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-select/kemet-option.js",
+      "path": "src/components/kemet-select/kemet-option.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7578,8 +7578,16 @@
           "members": [
             {
               "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "The label of the option",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
               "name": "value",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -7589,33 +7597,28 @@
             },
             {
               "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The label of the option",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
+              "name": "disable",
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether to disable the option",
-              "attribute": "disabled"
+              "attribute": "disable"
             },
             {
               "kind": "field",
               "name": "selected",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
               "description": "Selects the option if true",
               "attribute": "selected"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether to disable the option",
+              "name": "disabled",
+              "kind": "field"
             }
           ],
           "events": [
@@ -7647,12 +7650,11 @@
               "fieldName": "value"
             },
             {
-              "name": "disabled",
+              "name": "disable",
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether to disable the option",
-              "fieldName": "disabled"
+              "fieldName": "disable"
             },
             {
               "name": "selected",
@@ -7678,7 +7680,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetOption",
-            "module": "src/components/kemet-select/kemet-option.js"
+            "module": "src/components/kemet-select/kemet-option.ts"
           }
         },
         {
@@ -7686,14 +7688,14 @@
           "name": "kemet-option",
           "declaration": {
             "name": "KemetOption",
-            "module": "src/components/kemet-select/kemet-option.js"
+            "module": "src/components/kemet-select/kemet-option.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-select/kemet-select.js",
+      "path": "src/components/kemet-select/kemet-select.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7760,6 +7762,157 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "description": "A string the uniquely identifies the select",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'select'",
+              "description": "The name of the select",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "description": "The value of the select",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "type": {
+                "text": "array"
+              },
+              "description": "The options the select contains",
+              "attribute": "options"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "description": "The status of the select",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not the field is required",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not the field is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "multiple",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Support of multiple choice selections",
+              "attribute": "multiple"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'chevron-down'",
+              "description": "The dropdown icon",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The dropdown icon size",
+              "attribute": "icon-size"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a filled select",
+              "attribute": "filled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "select",
+              "type": {
+                "text": "HTMLSelectElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "selectedOption",
+              "type": {
+                "text": "HTMLOptionElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "optionElements",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hasFocus",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
               "kind": "method",
               "name": "makeOptions",
               "description": "Generates the option elements",
@@ -7810,134 +7963,6 @@
                   "text": "boolean"
                 }
               }
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'select'",
-              "description": "The name of the select",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'chevron-down'",
-              "description": "The dropdown icon",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "iconSize",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The dropdown icon size",
-              "attribute": "icon-size"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "A string the uniquely identifies the select",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The value of the select",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "options",
-              "privacy": "public",
-              "type": {
-                "text": "array"
-              },
-              "description": "The options the select contains",
-              "attribute": "options"
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The status of the select",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not the field is required",
-              "attribute": "required",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not the field is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "multiple",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Support of multiple choice selections",
-              "attribute": "multiple"
-            },
-            {
-              "kind": "field",
-              "name": "filled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays a filled select",
-              "attribute": "filled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays rounded corners",
-              "attribute": "rounded",
-              "reflects": true
             }
           ],
           "events": [
@@ -8066,7 +8091,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSelect",
-            "module": "src/components/kemet-select/kemet-select.js"
+            "module": "src/components/kemet-select/kemet-select.ts"
           }
         },
         {
@@ -8074,7 +8099,7 @@
           "name": "kemet-select",
           "declaration": {
             "name": "KemetSelect",
-            "module": "src/components/kemet-select/kemet-select.js"
+            "module": "src/components/kemet-select/kemet-select.ts"
           }
         }
       ]

@@ -1,6 +1,10 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { KemetFieldInterface } from '../kemet-field/types.js';
+import { stylesSelect } from './styles';
+import { KemetOptionInterface } from './types.js';
 
 /**
  * @since 1.0.0
@@ -43,137 +47,68 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-select')
 export default class KemetSelect extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          position: relative;
-          display: block;
-        }
+  formSubmitController: FormSubmitController;
 
-        select {
-          color: var(--kemet-color-text);
-          display: block;
-          font-size: 1rem;
-          width: 100%;
-          padding: var(--kemet-select-padding, 1rem);
-          border: var(--kemet-select-border, 1px solid var(--kemet-color-background));
-          appearance: none;
-          box-sizing: border-box;
-          background-color: transparent;
-        }
+  static styles = [stylesSelect];
 
-        option {
-          color: var(--kemet-color-black);
-        }
+  @property({ type: String })
+  slug: string;
 
-        :host([status='error']) select {
-          border: var(--kemet-select-border-color-error, 1px solid var(--kemet-color-error));
-        }
+  @property({ type: String })
+  name: string = 'select';
 
-        :host([status='success']) select {
-          border: var(--kemet-select-border-color-success, 1px solid var(--kemet-color-success));
-        }
+  @property({ type: String })
+  value: string;
 
-        :host([status='warning']) select {
-          border: var(--kemet-select-border-color-warning, 1px solid var(--kemet-color-warning));
-        }
+  @property({ type: Array })
+  options: any[];
 
-        :host([disabled]) select {
-          opacity: 0.5;
-        }
+  @property({ type: String, reflect: true })
+  status: string;
 
-        :host([rounded]) select {
-          border-radius: var(--kemet-select-border-radius-rounded, var(--kemet-border-radius));
-        }
+  @property({ type: Boolean, reflect: true })
+  required: boolean;
 
-        :host([filled]) select {
-          border: var(--kemet-select-border-filled, none);
-          color: var(--kemet-select-color-filled, var(--kemet-color-white));
-          background-color: var(--kemet-select-background-color-filled, var(--kemet-color-primary));
-        }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean;
 
-        :host([filled]) kemet-icon {
-          color: var(--kemet-select-color-filled, var(--kemet-color-white));
-        }
+  @property({ type: Boolean })
+  multiple: boolean;
 
-        :host([status='error'][filled]) select {
-          background-color: var(--kemet-select-background-color-error, var(--kemet-color-error));
-        }
+  @property({ type: String })
+  icon: string = 'chevron-down';
 
-        :host([status='success'][filled]) select {
-          background-color: var(--kemet-select-background-color-success, var(--kemet-color-success));
-        }
+  @property({ type: Number, attribute: 'icon-size' })
+  iconSize: number = 16;
 
-        :host([status='warning'][filled]) select {
-          background-color: var(--kemet-select-background-color-warning, var(--kemet-color-warning));
-        }
+  @property({ type: Boolean, reflect: true })
+  filled: boolean;
 
-        kemet-icon {
-          position: absolute;
-          right: var(--kemet-select-icon-right, 1rem);
-          top: 50%;
-          transform: translateY(-50%);
-        }
-      `,
-    ];
-  }
+  @property({ type: Boolean, reflect: true })
+  rounded: boolean;
 
-  static get properties() {
-    return {
-      slug: {
-        type: String,
-      },
-      name: {
-        type: String,
-      },
-      value: {
-        type: String,
-      },
-      options: {
-        type: Array,
-      },
-      status: {
-        type: String,
-        reflect: true,
-      },
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      multiple: {
-        type: Boolean,
-      },
-      icon: {
-        type: String,
-      },
-      iconSize: {
-        type: Number,
-        attribute: 'icon-size',
-      },
-      filled: {
-        type: Boolean,
-        reflect: true,
-      },
-      rounded: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-  }
+  @state()
+  invalid: boolean;
+
+  @state()
+  control: KemetFieldInterface;
+
+  @state()
+  select: HTMLSelectElement;
+
+  @state()
+  selectedOption: HTMLOptionElement;
+
+  @state()
+  optionElements: any;
+
+  @state()
+  hasFocus: boolean;
 
   constructor() {
     super();
-
-    // managed properties
-    this.name = 'select';
-    this.icon = 'chevron-down';
-    this.iconSize = 16;
 
     /** @internal */
     this.formSubmitController = new FormSubmitController(this);
@@ -183,10 +118,8 @@ export default class KemetSelect extends LitElement {
   }
 
   firstUpdated() {
-    // elements
     this.select = this.shadowRoot.querySelector('select');
     this.selectedOption = this.querySelector('[selected]');
-
     this.value = this.selectedOption ? this.selectedOption.value : '';
   }
 
@@ -326,5 +259,8 @@ export default class KemetSelect extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-select') || customElements.define('kemet-select', KemetSelect);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-select': KemetSelect
+  }
+}
