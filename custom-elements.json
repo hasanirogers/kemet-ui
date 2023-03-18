@@ -330,6 +330,210 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAlert",
+          "cssProperties": [
+            {
+              "description": "The padding on the alert. Default: 1rem.",
+              "name": "--kemet-alert-padding"
+            },
+            {
+              "description": "The thickness of the border. Default: 4px.",
+              "name": "--kemet-alert-border-thickness"
+            },
+            {
+              "description": "The status color. Default: inherit.",
+              "name": "--kemet-alert-status-color"
+            },
+            {
+              "description": "The alert's gap. Default: var(--kemet-alert-padding).",
+              "name": "--kemet-alert-gap"
+            },
+            {
+              "description": "The alert's alignment. Default: center.",
+              "name": "--kemet-alert-align-items"
+            },
+            {
+              "description": "The border around the alert. Default: 1px solid var(--kemet-color-gray2).",
+              "name": "--kemet-alert-border"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Container for the close button.",
+              "name": "close"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "attribute": "reveal",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "attribute": "closable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "borderStatus",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "attribute": "border-status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "attribute": "overlay",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeCloseBtn"
+            },
+            {
+              "kind": "method",
+              "name": "handleMotion"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when alert is opened.",
+              "name": "kemet-alert-opened"
+            },
+            {
+              "description": "Fires when alert is closed.",
+              "name": "kemet-alert-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "fieldName": "opened"
+            },
+            {
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "fieldName": "reveal"
+            },
+            {
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "fieldName": "closable"
+            },
+            {
+              "name": "border-status",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "fieldName": "borderStatus"
+            },
+            {
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "fieldName": "overlay"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-alert",
+          "summary": "Calls out important messages and notifications.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-alert",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
@@ -549,210 +753,6 @@
           "declaration": {
             "name": "KemetAvatars",
             "module": "src/components/kemet-avatar/kemet-avatars.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAlert",
-          "cssProperties": [
-            {
-              "description": "The padding on the alert. Default: 1rem.",
-              "name": "--kemet-alert-padding"
-            },
-            {
-              "description": "The thickness of the border. Default: 4px.",
-              "name": "--kemet-alert-border-thickness"
-            },
-            {
-              "description": "The status color. Default: inherit.",
-              "name": "--kemet-alert-status-color"
-            },
-            {
-              "description": "The alert's gap. Default: var(--kemet-alert-padding).",
-              "name": "--kemet-alert-gap"
-            },
-            {
-              "description": "The alert's alignment. Default: center.",
-              "name": "--kemet-alert-align-items"
-            },
-            {
-              "description": "The border around the alert. Default: 1px solid var(--kemet-color-gray2).",
-              "name": "--kemet-alert-border"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Container for the close button.",
-              "name": "close"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "attribute": "reveal",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "attribute": "closable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "borderStatus",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "attribute": "border-status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "attribute": "hidden",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "attribute": "overlay",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeCloseBtn"
-            },
-            {
-              "kind": "method",
-              "name": "handleMotion"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
-            },
-            {
-              "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "fieldName": "opened"
-            },
-            {
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "fieldName": "reveal"
-            },
-            {
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "fieldName": "closable"
-            },
-            {
-              "name": "border-status",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "fieldName": "borderStatus"
-            },
-            {
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "fieldName": "hidden"
-            },
-            {
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "fieldName": "overlay"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-alert",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         }
       ]
@@ -9645,7 +9645,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-toggle/kemet-toggle.js",
+      "path": "src/components/kemet-toggle/kemet-toggle.ts",
       "declarations": [
         {
           "kind": "class",
@@ -9713,21 +9713,8 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "handleChange"
-            },
-            {
-              "kind": "method",
-              "name": "makeUncheckedOption"
-            },
-            {
-              "kind": "method",
-              "name": "makeCheckedOption"
-            },
-            {
               "kind": "field",
               "name": "name",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -9737,19 +9724,7 @@
             },
             {
               "kind": "field",
-              "name": "disabled",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not the toggle is disabled",
-              "attribute": "disabled"
-            },
-            {
-              "kind": "field",
               "name": "checked",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -9760,8 +9735,27 @@
             },
             {
               "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether or not the toggle is disabled",
+              "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "A description of the toggle's purpose",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
               "name": "show",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -9772,7 +9766,6 @@
             {
               "kind": "field",
               "name": "squared",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -9782,19 +9775,7 @@
             },
             {
               "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "A description of the toggle's purpose",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
               "name": "optionChecked",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -9805,7 +9786,6 @@
             {
               "kind": "field",
               "name": "optionUnchecked",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -9815,7 +9795,22 @@
             },
             {
               "kind": "field",
-              "name": "value"
+              "name": "value",
+              "type": {
+                "text": "string | boolean"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleChange"
+            },
+            {
+              "kind": "method",
+              "name": "makeUncheckedOption"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckedOption"
             }
           ],
           "events": [
@@ -9913,7 +9908,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetToggle",
-            "module": "src/components/kemet-toggle/kemet-toggle.js"
+            "module": "src/components/kemet-toggle/kemet-toggle.ts"
           }
         },
         {
@@ -9921,7 +9916,7 @@
           "name": "kemet-toggle",
           "declaration": {
             "name": "KemetToggle",
-            "module": "src/components/kemet-toggle/kemet-toggle.js"
+            "module": "src/components/kemet-toggle/kemet-toggle.ts"
           }
         }
       ]
