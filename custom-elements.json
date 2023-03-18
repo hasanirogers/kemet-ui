@@ -10286,7 +10286,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-upload/kemet-upload-file.js",
+      "path": "src/components/kemet-upload/kemet-upload-file.ts",
       "declarations": [
         {
           "kind": "class",
@@ -10330,17 +10330,17 @@
           ],
           "members": [
             {
-              "kind": "method",
-              "name": "calculatePercent"
-            },
-            {
-              "kind": "method",
-              "name": "getStatusIcon"
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the file",
+              "attribute": "name"
             },
             {
               "kind": "field",
               "name": "loaded",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -10351,7 +10351,6 @@
             {
               "kind": "field",
               "name": "size",
-              "privacy": "public",
               "type": {
                 "text": "number"
               },
@@ -10361,29 +10360,7 @@
             },
             {
               "kind": "field",
-              "name": "percent",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Percentage of file completion that's calculated by the loaded property.",
-              "attribute": "percent"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "The name of the file",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
               "name": "type",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -10393,7 +10370,6 @@
             {
               "kind": "field",
               "name": "status",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -10403,13 +10379,30 @@
             },
             {
               "kind": "field",
+              "name": "percent",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Percentage of file completion that's calculated by the loaded property.",
+              "attribute": "percent"
+            },
+            {
+              "kind": "field",
               "name": "message",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
               "description": "An error message to give to users",
               "attribute": "message"
+            },
+            {
+              "kind": "method",
+              "name": "calculatePercent"
+            },
+            {
+              "kind": "method",
+              "name": "getStatusIcon"
             }
           ],
           "attributes": [
@@ -10488,7 +10481,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetUploadFile",
-            "module": "src/components/kemet-upload/kemet-upload-file.js"
+            "module": "src/components/kemet-upload/kemet-upload-file.ts"
           }
         },
         {
@@ -10496,14 +10489,14 @@
           "name": "kemet-upload-file",
           "declaration": {
             "name": "KemetUploadFile",
-            "module": "src/components/kemet-upload/kemet-upload-file.js"
+            "module": "src/components/kemet-upload/kemet-upload-file.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-upload/kemet-upload.js",
+      "path": "src/components/kemet-upload/kemet-upload.ts",
       "declarations": [
         {
           "kind": "class",
@@ -10547,6 +10540,118 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'upload'",
+              "description": "A unique identifier for the component",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "accept",
+              "type": {
+                "text": "string"
+              },
+              "description": "Determines what file types are accepted",
+              "attribute": "accept"
+            },
+            {
+              "kind": "field",
+              "name": "multiple",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Allows for multiple files",
+              "attribute": "multiple"
+            },
+            {
+              "kind": "field",
+              "name": "over",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Automatically is true when a file is being dragged over the upload area",
+              "attribute": "over",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "heading",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Drag & Drop Files'",
+              "description": "Descriptive text for the upload area",
+              "attribute": "heading"
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays the component in a mobile context",
+              "attribute": "mobile",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "breakpoint",
+              "type": {
+                "text": "string"
+              },
+              "default": "'600px'",
+              "description": "Controls the point at which the component is considered mobile",
+              "attribute": "breakpoint",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "noDragDrop",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "If true if drag and drop support is not detected",
+              "attribute": "no-drag-drop",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "maxSize",
+              "type": {
+                "text": "number"
+              },
+              "description": "The maximum file size for uploads",
+              "attribute": "max-size"
+            },
+            {
+              "kind": "field",
+              "name": "buttonLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Browse Files'",
+              "description": "The browse files button text",
+              "attribute": "button-label"
+            },
+            {
+              "kind": "field",
+              "name": "fileInputElement",
+              "type": {
+                "text": "HTMLInputElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "upload",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
               "kind": "method",
               "name": "handleChange",
               "parameters": [
@@ -10571,114 +10676,6 @@
             {
               "kind": "method",
               "name": "hasDragDrop"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'upload'",
-              "description": "A unique identifier for the component",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "breakpoint",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'600px'",
-              "description": "Controls the point at which the component is considered mobile",
-              "attribute": "breakpoint",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "buttonLabel",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'Browse Files'",
-              "description": "The browse files button text",
-              "attribute": "button-label"
-            },
-            {
-              "kind": "field",
-              "name": "heading",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "'Drag & Drop Files'",
-              "description": "Descriptive text for the upload area",
-              "attribute": "heading"
-            },
-            {
-              "kind": "field",
-              "name": "accept",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "description": "Determines what file types are accepted",
-              "attribute": "accept"
-            },
-            {
-              "kind": "field",
-              "name": "multiple",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Allows for multiple files",
-              "attribute": "multiple"
-            },
-            {
-              "kind": "field",
-              "name": "over",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Automatically is true when a file is being dragged over the upload area",
-              "attribute": "over",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "mobile",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays the component in a mobile context",
-              "attribute": "mobile",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "noDragDrop",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "If true if drag and drop support is not detected",
-              "attribute": "no-drag-drop",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "maxSize",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "description": "The maximum file size for uploads",
-              "attribute": "max-size"
             }
           ],
           "events": [
@@ -10788,7 +10785,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetUpload",
-            "module": "src/components/kemet-upload/kemet-upload.js"
+            "module": "src/components/kemet-upload/kemet-upload.ts"
           }
         },
         {
@@ -10796,7 +10793,7 @@
           "name": "kemet-upload",
           "declaration": {
             "name": "KemetUpload",
-            "module": "src/components/kemet-upload/kemet-upload.js"
+            "module": "src/components/kemet-upload/kemet-upload.ts"
           }
         }
       ]

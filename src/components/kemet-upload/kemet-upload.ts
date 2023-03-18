@@ -1,6 +1,8 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesUpload } from './styles';
 
 const preventDefaults = (event) => {
   event.preventDefault();
@@ -39,103 +41,45 @@ const preventDefaults = (event) => {
  *
  */
 
+@customElement('kemet-upload')
 export default class KemetUpload extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          color: var(--kemet-upload-color, var(--kemet-color-white));
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          height: var(--kemet-upload-height, 364px);
-          border: var(--kemet-upload-border, 1rem solid var(--kemet-color-gray1-to-transparent));
-          background-color: var(--kemet-upload-background-color, var(--kemet-color-primary-to-transparent));
-        }
+  static styles = [stylesUpload];
 
-        :host([mobile]) {
-          display: block;
-          height: auto;
-        }
+  @property({ type: String })
+  slug: string = 'upload';
 
-        input {
-          display: none;
-        }
+  @property({ type: String })
+  accept: string;
 
-        .button {
-          cursor: pointer;
-          font-size: 1rem;
-          display: block;
-          color: var(--kemet-color-white);
-          padding: 0.5rem 1rem;
-          border: 1px solid var(--kemet-color-white);
-          background-color: transparent;
-        }
+  @property({ type: Boolean })
+  multiple: boolean;
 
-        .upload {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: var(--kemet-upload-margin);
-          flex-direction: column;
-          border: 2px dashed var(--kemet-color-white);
-        }
+  @property({ type: Boolean, reflect: true })
+  over: boolean;
 
-        :host([over]) .upload {
-          background-color: green;
-        }
+  @property({ type: String })
+  heading: string = 'Drag & Drop Files';
 
-        :host([mobile]) .upload {
-          height: 280px;
-        }
+  @property({ type: Boolean, reflect: true })
+  mobile: boolean;
 
-        .files {
-          display: flex;
-          gap: 1rem;
-          flex-direction: column;
-          padding: 0 1rem;
-          overflow: auto;
-          background-color: var(--kemet-color-gray1-to-transparent);
-        }
+  @property({ type: String, reflect: true })
+  breakpoint: string = '600px';
 
-        :host([mobile]) .files {
-          padding: 0;
-          max-height: 280px;
-        }
+  @property({ type: Boolean, reflect: true, attribute: 'no-drag-drop' })
+  noDragDrop: boolean;
 
-        .heading {
-          font-size: 1.25rem;
-          margin: 0 0 2rem 0;
-        }
+  @property({ type: Number, attribute: 'max-size' })
+  maxSize: number;
 
-        :host([no-drag-drop]) .heading {
-          display: none;
-        }
-      `,
-    ];
-  }
+  @property({ type: String, attribute: 'button-label' })
+  buttonLabel: string = 'Browse Files';
 
-  static get properties() {
-    return {
-      slug: { type: String },
-      accept: { type: String },
-      multiple: { type: Boolean },
-      over: { type: Boolean, reflect: true },
-      heading: { type: String },
-      mobile: { type: Boolean, reflect: true },
-      breakpoint: { type: String, reflect: true },
-      noDragDrop: { type: Boolean, reflect: true, attribute: 'no-drag-drop' },
-      maxSize: { type: Number, attribute: 'max-size' },
-      buttonLabel: { type: String, attribute: 'button-label' },
-    };
-  }
+  @state()
+  fileInputElement: HTMLInputElement;
 
-  constructor() {
-    super();
-    this.slug = 'upload';
-    this.breakpoint = '600px';
-    this.buttonLabel = 'Browse Files';
-    this.heading = 'Drag & Drop Files';
-  }
+  @state()
+  upload: HTMLElement;
 
   firstUpdated() {
     this.fileInputElement = this.shadowRoot.querySelector('[type="file"]');
@@ -210,5 +154,8 @@ export default class KemetUpload extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-upload') || customElements.define('kemet-upload', KemetUpload);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-upload': KemetUpload
+  }
+}

@@ -1,5 +1,7 @@
 import { html, css, LitElement } from 'lit';
-import { stylesLoaders } from './styles.js';
+import { customElement, property } from 'lit/decorators.js';
+import { stylesUploadFile } from './styles';
+import { stylesLoaders } from './styles';
 
 const formatBytes = (bytes, decimals = 2) => {
   if (bytes === 0) return '0 Bytes';
@@ -41,78 +43,30 @@ const formatBytes = (bytes, decimals = 2) => {
  *
  */
 
+@customElement('kemet-upload-file')
 export default class KemetUploadFile extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          --kemet-upload-file-ripple-color: var(--kemet-color-primary);
+  static styles = [stylesUploadFile, stylesLoaders];
 
-          color: var(--kemet-upload-file-color, var(--kemet-color-text));
-          display: grid;
-          gap: 1rem;
-          grid-template-columns: auto 1fr auto;
-          align-items: center;
-          height: 100%;
-          max-height: 50%;
-          padding: var(--kemet-upload-file-padding, 0.5rem 1rem);
-          border: var(--kemet-upload-file-border, 1px solid var(--kemet-color-primary));
-        }
+  @property({ type: String })
+  name: string;
 
-        :host([status='error']) {
-          border: 1px solid var(--kemet-color-error);
-        }
+  @property({ type: Number })
+  loaded: number = 0;
 
-        :host([status='complete']) {
-          border: 1px solid var(--kemet-color-success);
-        }
+  @property({ type: Number })
+  size: number = 0;
 
-        h3 {
-          margin: 0;
-        }
+  @property({ type: String })
+  type: string;
 
-        .percentage {
-          font-size: clamp(2rem, 3vw, 2.5rem);
-          align-self: center;
-          justify-self: center;
-        }
+  @property({ type: String, reflect: true })
+  status: string;
 
-        .indicator {
-          transform: scale(0.8);
-        }
+  @property({ type: Number })
+  percent: number = 0;
 
-        :host([status='complete']) .message,
-        :host([status='complete']) .indicator {
-          color: var(--kemet-color-success);
-        }
-
-        :host([status='error']) .message,
-        :host([status='error']) .indicator {
-          color: var(--kemet-color-error);
-        }
-      `,
-      stylesLoaders,
-    ];
-  }
-
-  static get properties() {
-    return {
-      name: { type: String },
-      loaded: { type: Number },
-      size: { type: Number },
-      type: { type: String },
-      status: { type: String, reflect: true },
-      percent: { type: Number },
-      message: { type: String },
-    };
-  }
-
-  constructor() {
-    super();
-    this.loaded = 0;
-    this.size = 0;
-    this.percent = 0;
-  }
+  @property({ type: String })
+  message: string;
 
   updated() {
     this.percent = this.calculatePercent();
@@ -156,5 +110,8 @@ export default class KemetUploadFile extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-upload-file') || customElements.define('kemet-upload-file', KemetUploadFile);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-upload-file': KemetUploadFile
+  }
+}
