@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 
 /**
  *
@@ -10,25 +11,26 @@ import { html, css, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-tracker')
 export default class KemetTracker extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-        }
-      `,
-    ];
-  }
+  static styles = [
+    css`
+      :host {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+    `,
+  ];
 
-  static get properties() {
-    return {
-      total: { type: Number },
-      breakpoint: { type: String },
-    };
-  }
+  @property({ type: Number })
+  total: number;
+
+  @property({ type: String })
+  breakpoint: string;
+
+  @state()
+  steps: any;
 
   constructor() {
     super();
@@ -72,5 +74,8 @@ export default class KemetTracker extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-tracker') || customElements.define('kemet-tracker', KemetTracker);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-tracker': KemetTracker
+  }
+}

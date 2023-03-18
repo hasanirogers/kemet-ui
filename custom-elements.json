@@ -9923,7 +9923,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tracker/kemet-tracker-step.js",
+      "path": "src/components/kemet-tracker/kemet-tracker-step.ts",
       "declarations": [
         {
           "kind": "class",
@@ -10011,6 +10011,82 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current step number",
+              "attribute": "step"
+            },
+            {
+              "kind": "field",
+              "name": "completed",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not a step renders as complete",
+              "attribute": "completed",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "current",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not a step renders as the current step",
+              "attribute": "current",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "last",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is automatically added to the last step",
+              "attribute": "last",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if a step should render as mobile",
+              "attribute": "mobile",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideDotContent",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the label inside of a dot",
+              "attribute": "hide-dot-content",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "completedSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The icon size for the completed check mark",
+              "attribute": "completedSize"
+            },
+            {
+              "kind": "field",
+              "name": "tracker",
+              "type": {
+                "text": "KemetTrackerInterface"
+              }
+            },
+            {
               "kind": "method",
               "name": "makeLine"
             },
@@ -10029,82 +10105,6 @@
             {
               "kind": "method",
               "name": "handleCompletedLineEnd"
-            },
-            {
-              "kind": "field",
-              "name": "completedSize",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The icon size for the completed check mark",
-              "attribute": "completedSize"
-            },
-            {
-              "kind": "field",
-              "name": "step",
-              "privacy": "public",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current step number",
-              "attribute": "step"
-            },
-            {
-              "kind": "field",
-              "name": "completed",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not a step renders as complete",
-              "attribute": "completed",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "current",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not a step renders as the current step",
-              "attribute": "current",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "last",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is automatically added to the last step",
-              "attribute": "last",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "mobile",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if a step should render as mobile",
-              "attribute": "mobile",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hideDotContent",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the label inside of a dot",
-              "attribute": "hide-dot-content",
-              "reflects": true
             }
           ],
           "attributes": [
@@ -10181,7 +10181,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTrackerStep",
-            "module": "src/components/kemet-tracker/kemet-tracker-step.js"
+            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
           }
         },
         {
@@ -10189,14 +10189,14 @@
           "name": "kemet-tracker-step",
           "declaration": {
             "name": "KemetTrackerStep",
-            "module": "src/components/kemet-tracker/kemet-tracker-step.js"
+            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tracker/kemet-tracker.js",
+      "path": "src/components/kemet-tracker/kemet-tracker.ts",
       "declarations": [
         {
           "kind": "class",
@@ -10204,17 +10204,17 @@
           "name": "KemetTracker",
           "members": [
             {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "isMobile"
+              "kind": "field",
+              "name": "total",
+              "type": {
+                "text": "number"
+              },
+              "description": "The total number of steps",
+              "attribute": "total"
             },
             {
               "kind": "field",
               "name": "breakpoint",
-              "privacy": "public",
               "type": {
                 "text": "string"
               },
@@ -10224,13 +10224,18 @@
             },
             {
               "kind": "field",
-              "name": "total",
-              "privacy": "public",
+              "name": "steps",
               "type": {
-                "text": "number"
-              },
-              "description": "The total number of steps",
-              "attribute": "total"
+                "text": "any"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "isMobile"
             }
           ],
           "attributes": [
@@ -10266,7 +10271,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTracker",
-            "module": "src/components/kemet-tracker/kemet-tracker.js"
+            "module": "src/components/kemet-tracker/kemet-tracker.ts"
           }
         },
         {
@@ -10274,7 +10279,7 @@
           "name": "kemet-tracker",
           "declaration": {
             "name": "KemetTracker",
-            "module": "src/components/kemet-tracker/kemet-tracker.js"
+            "module": "src/components/kemet-tracker/kemet-tracker.ts"
           }
         }
       ]

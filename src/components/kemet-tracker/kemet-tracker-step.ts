@@ -1,5 +1,7 @@
 import { html, LitElement } from 'lit';
-import { stylesStep } from './styles.js';
+import { customElement, property, state } from 'lit/decorators.js';
+import { stylesStep } from './styles';
+import { KemetTrackerInterface } from './types';
 
 /**
  *
@@ -40,27 +42,34 @@ import { stylesStep } from './styles.js';
  *
  */
 
+@customElement('kemet-tracker-step')
 export default class KemetTrackerStep extends LitElement {
-  static get styles() {
-    return [stylesStep];
-  }
+  static styles = [stylesStep];
 
-  static get properties() {
-    return {
-      step: { type: Number },
-      completed: { type: Boolean, reflect: true },
-      current: { type: Boolean, reflect: true },
-      last: { type: Boolean, reflect: true },
-      mobile: { type: Boolean, reflect: true },
-      hideDotContent: { type: Boolean, reflect: true, attribute: 'hide-dot-content' },
-      completedSize: { type: Number },
-    };
-  }
+  @property({ type: Number })
+  step: number;
 
-  constructor() {
-    super();
-    this.completedSize = 16;
-  }
+  @property({ type: Boolean, reflect: true })
+  completed: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  current: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  last: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  mobile: boolean;
+
+  @property({ type: Boolean, reflect: true, attribute: 'hide-dot-content' })
+  hideDotContent: boolean;
+
+  @property({ type: Number })
+  completedSize: number = 16;
+
+  @state()
+  tracker: KemetTrackerInterface;
+
 
   firstUpdated() {
     this.tracker = this.closest('kemet-tracker');
@@ -124,5 +133,8 @@ export default class KemetTrackerStep extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-tracker-step') || customElements.define('kemet-tracker-step', KemetTrackerStep);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-tracker-step': KemetTrackerStep
+  }
+}
