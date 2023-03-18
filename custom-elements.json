@@ -8106,7 +8106,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-sortable/kemet-sortable-item.js",
+      "path": "src/components/kemet-sortable/kemet-sortable-item.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8116,7 +8116,6 @@
             {
               "kind": "field",
               "name": "ghost",
-              "privacy": "public",
               "type": {
                 "text": "boolean"
               },
@@ -8150,7 +8149,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSortableItem",
-            "module": "src/components/kemet-sortable/kemet-sortable-item.js"
+            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
           }
         },
         {
@@ -8158,20 +8157,27 @@
           "name": "kemet-sortable-item",
           "declaration": {
             "name": "KemetSortableItem",
-            "module": "src/components/kemet-sortable/kemet-sortable-item.js"
+            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-sortable/kemet-sortable.js",
+      "path": "src/components/kemet-sortable/kemet-sortable.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
           "name": "KemetSortable",
           "members": [
+            {
+              "kind": "field",
+              "name": "sortableItem",
+              "type": {
+                "text": "KemetSortableItemInterface"
+              }
+            },
             {
               "kind": "method",
               "name": "handleDragStart",
@@ -8221,7 +8227,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSortable",
-            "module": "src/components/kemet-sortable/kemet-sortable.js"
+            "module": "src/components/kemet-sortable/kemet-sortable.ts"
           }
         },
         {
@@ -8229,7 +8235,7 @@
           "name": "kemet-sortable",
           "declaration": {
             "name": "KemetSortable",
-            "module": "src/components/kemet-sortable/kemet-sortable.js"
+            "module": "src/components/kemet-sortable/kemet-sortable.ts"
           }
         }
       ]

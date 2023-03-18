@@ -1,6 +1,9 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
 import { polyfill } from 'mobile-drag-drop';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { stylesSortable } from './styles';
+import { KemetSortableItemInterface } from './types';
 
 const getMouseOffset = (event) => {
   const targetRect = event.target.getBoundingClientRect();
@@ -27,18 +30,12 @@ const getElementVerticalCenter = (element) => {
  * @event kemet-sortable-drag-end - Fires when an item has been moved to a new spot.
  */
 
+@customElement('kemet-sortable')
 export default class KemetSortable extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          display: flex;
-          gap: 1rem;
-          flex-direction: column;
-        }
-      `,
-    ];
-  }
+  static styles = [stylesSortable];
+
+  @state()
+  sortableItem: KemetSortableItemInterface;
 
   firstUpdated() {
     polyfill();
@@ -91,5 +88,8 @@ export default class KemetSortable extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-sortable') || customElements.define('kemet-sortable', KemetSortable);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-sortable': KemetSortable
+  }
+}
