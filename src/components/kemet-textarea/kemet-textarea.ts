@@ -1,7 +1,11 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms.js';
+import { KemetFieldInterface } from '../kemet-field/types.js';
+import { stylesTextarea } from './styles';
+import { TypeStatus } from './types';
 
 /**
  * @since 1.0.0
@@ -9,6 +13,25 @@ import { FormSubmitController } from '../../utilities/controllers/forms.js';
  *
  * @tagname kemet-textarea
  * @summary An enhanced textarea element.
+ *
+ * @prop {string} slug
+ * @prop {string}  name
+ * @prop {string}  placeholder
+ * @prop {number}  minlength
+ * @prop {number}  maxlength
+ * @prop {string}  inputmode
+ * @prop {boolean}  disabled
+ * @prop {boolean}  readonly
+ * @prop {boolean}  required
+ * @prop {string}  value
+ * @prop {boolean}  invalid
+ * @prop {TypeStatus}  status
+ * @prop {boolean}  validateOnBlur
+ * @prop {boolean}  rounded
+ * @prop {boolean}  filled
+ * @prop {number}  rows
+ * @prop {boolean} autocorrect
+ *
  *
  * @csspart textarea
  *
@@ -27,151 +50,83 @@ import { FormSubmitController } from '../../utilities/controllers/forms.js';
  *
  */
 
+@customElement('kemet-textarea')
 export default class KemetTextarea extends LitElement {
-  static get styles() {
-    return [
-      css`
-        :host {
-          position: relative;
-          display: block;
-        }
+  formSubmitController: FormSubmitController;
 
-        textarea {
-          color: var(--kemet-color-text);
-          display: block;
-          width: 100%;
-          padding: var(--kemet-textarea-padding, 1rem);
-          border: var(--kemet-textarea-border, 1px solid var(--kemet-color-background));
-          appearance: none;
-          box-sizing: border-box;
-          background: transparent;
-        }
+  static styles = [stylesTextarea];
 
-        :host([status='error']) textarea {
-          border: var(--kemet-textarea-border-color-error, 1px solid var(--kemet-color-error));
-        }
+  @property({ type: String })
+  slug: string = 'textarea';
 
-        :host([status='success']) textarea {
-          border: var(--kemet-textarea-border-color-success, 1px solid var(--kemet-color-success));
-        }
+  @property({ type: String })
+  name: string = 'textarea';
 
-        :host([status='warning']) textarea {
-          border: var(--kemet-textarea-border-color-warning, 1px solid var(--kemet-color-warning));
-        }
+  @property({ type: String })
+  placeholder: string;
 
-        :host([disabled]) textarea {
-          opacity: 0.5;
-        }
+  @property({ type: Number })
+  minlength: number;
 
-        :host([icon-left]) textarea {
-          padding-left: var(--kemet-textarea-icon-left-padding, 3rem);
-        }
+  @property({ type: Number })
+  maxlength: number;
 
-        :host([icon-right]) textarea {
-          padding-right: var(--kemet-textarea-icon-right-padding, 3rem);
-        }
+  @property({ type: String })
+  inputmode: string;
 
-        :host([rounded]) textarea {
-          border-radius: var(--kemet-textarea-border-radius-rounded, var(--kemet-border-radius));
-        }
+  @property({ type: Boolean })
+  autofocus: boolean;
 
-        :host([filled]) textarea {
-          border: var(--kemet-textarea-border-filled, none);
-          color: var(--kemet-textarea-color-filled, var(--kemet-color-white));
-          background-color: var(--kemet-textarea-background-color-filled, var(--kemet-color-primary));
-        }
+  @property({ type: Boolean, reflect: true })
+  disabled: boolean;
 
-        :host([filled]) textarea::placeholder {
-          color: var(--kemet-textarea-color-filled, var(--kemet-color-white));
-        }
+  @property({ type: Boolean })
+  readonly: boolean;
 
-        :host([status='error'][filled]) textarea {
-          background-color: var(--kemet-textarea-background-color-error, var(--kemet-color-error));
-        }
+  @property({ type: Boolean, reflect: true })
+  required: boolean;
 
-        :host([status='success'][filled]) textarea {
-          background-color: var(--kemet-textarea-background-color-success, var(--kemet-color-success));
-        }
+  @property({ type: String })
+  value: string = '';
 
-        :host([status='warning'][filled]) textarea {
-          background-color: var(--kemet-textarea-background-color-warning, var(--kemet-color-warning));
-        }
-      `,
-    ];
-  }
+  @property({ type: Boolean, reflect: true })
+  invalid: boolean;
 
-  static get properties() {
-    return {
-      slug: {
-        type: String,
-      },
-      name: {
-        type: String,
-      },
-      placeholder: {
-        type: String,
-      },
-      minlength: {
-        type: String,
-      },
-      maxlength: {
-        type: String,
-      },
-      inputmode: {
-        type: String,
-      },
-      autofocus: {
-        type: Boolean,
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-      readonly: {
-        type: Boolean,
-      },
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      value: {
-        type: String,
-      },
-      invalid: {
-        type: Boolean,
-        reflect: true,
-      },
-      status: {
-        type: String,
-        reflect: true,
-      },
-      rows: {
-        type: Number,
-      },
-      validateOnBlur: {
-        type: Boolean,
-        attribute: 'validate-on-blur',
-      },
-      filled: {
-        type: Boolean,
-        reflect: true,
-      },
-      rounded: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
-  }
+  @property({ type: String, reflect: true })
+  status: TypeStatus = 'standard';
+
+  @property({ type: Number })
+  rows: number = 4;
+
+  @property({ type: Boolean, attribute: 'validate-on-blur' })
+  validateOnBlur: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  filled: boolean;
+
+  @property({ type: Boolean, reflect: true })
+  rounded: boolean;
+
+  @property({ type: Boolean})
+  autocorrect: boolean;
+
+  @state()
+  form: HTMLFormElement;
+
+  @state()
+  control: KemetFieldInterface;
+
+  @state()
+  textarea: HTMLTextAreaElement;
+
+  @state()
+  hasFocus: boolean;
+
+  @state()
+  validity: ValidityState;
 
   constructor() {
     super();
-
-    // managed properties
-    this.slug = 'textarea';
-    this.name = 'textarea';
-    this.value = '';
-    this.status = 'standard';
-    this.rows = 4;
 
     /** @internal */
     this.formSubmitController = new FormSubmitController(this);
@@ -364,5 +319,9 @@ export default class KemetTextarea extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-textarea') || customElements.define('kemet-textarea', KemetTextarea);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-textarea': KemetTextarea
+  }
+}
+
