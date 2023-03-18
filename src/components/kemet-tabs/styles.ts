@@ -198,3 +198,59 @@ export const stylesKemetTabs = css`
     bottom: 1rem;
   }
 `;
+
+export const stylesKemetTab = css`
+  :host {
+    cursor: pointer;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: var(--kemet-tab-padding, 1rem);
+  }
+
+  :host([selected]) {
+    cursor: auto;
+    color: var(--kemet-tab-color, var(--kemet-color-background));
+  }
+
+  kemet-icon {
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+`;
+
+export const stylesKemetTabPanel = css`
+  :host {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  ::slotted(img) {
+    max-width: 100%;
+  }
+
+  :host(.fade) {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--kemet-tab-panel-fade-speed, 0.5s) ease;
+  }
+
+  :host(.fade[selected]) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  :host(.fade.push) {
+    margin-left: -100%;
+  }
+
+  :host(.vertical) {
+    display: none;
+  }
+
+  :host(.vertical[selected]) {
+    display: block;
+  }
+`;

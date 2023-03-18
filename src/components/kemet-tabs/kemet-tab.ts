@@ -1,5 +1,8 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { emitEvent } from '../../utilities/misc/events.js';
+import { customElement, property } from 'lit/decorators.js';
+import { stylesKemetTab } from './styles';
+
 
 /**
  * @since 1.0.0
@@ -20,52 +23,19 @@ import { emitEvent } from '../../utilities/misc/events.js';
  *
  */
 
+@customElement('kemet-tab')
 export default class KemetTab extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        cursor: pointer;
-        display: inline-flex;
-        flex: 0 0 auto;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        padding: var(--kemet-tab-padding, 1rem);
-      }
+  static styles = [stylesKemetTab];
 
-      :host([selected]) {
-        cursor: auto;
-        color: var(--kemet-tab-color, var(--kemet-color-background));
-      }
+  @property({ type: Boolean, reflect: true })
+  selected: boolean = false;
 
-      kemet-icon {
-        cursor: pointer;
-        margin-left: 0.5rem;
-      }
-    `;
-  }
+  @property({ type: String })
+  link: string;
 
-  static get properties() {
-    return {
-      selected: {
-        type: Boolean,
-        reflect: true,
-      },
-      link: {
-        type: String,
-      },
-      closable: {
-        type: Boolean,
-      },
-    };
-  }
+  @property({ type: Boolean })
+  closable: boolean;
 
-  constructor() {
-    super();
-
-    // property defaults
-    this.selected = false;
-  }
 
   firstUpdated() {
     this.addEventListener('click', this.select.bind(this));
@@ -111,4 +81,9 @@ export default class KemetTab extends LitElement {
   }
 }
 
-customElements.define('kemet-tab', KemetTab);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-tab': KemetTab
+  }
+}
+
