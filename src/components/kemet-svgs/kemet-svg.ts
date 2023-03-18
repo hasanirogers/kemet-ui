@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 /**
  * @since 1.0.0
@@ -17,47 +18,33 @@ import { html, css, LitElement } from 'lit';
  *
  */
 
+@customElement('kemet-svg')
 export default class KemetSVG extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        display: inline-block;
-      }
+  static styles = [css`
+    :host {
+      display: inline-block;
+    }
 
-      svg {
-        width: 100%;
-        height: 100%;
-      }
-    `;
-  }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  `];
 
-  static get properties() {
-    return {
-      set: {
-        type: String,
-      },
-      svg: {
-        type: String,
-      },
-      size: {
-        type: Number,
-      },
-      ratio: {
-        type: String,
-      },
-      viewBox: {
-        type: String,
-      },
-    };
-  }
+  @property({ type: String })
+  set: string;
 
-  constructor() {
-    super();
+  @property({ type: String })
+  svg: string = 'svgs';
 
-    this.set = 'svgs';
-    this.ratio = 'none';
-    this.viewBox = '0 0 128 128';
-  }
+  @property({ type: Number })
+  size: number;
+
+  @property({ type: String })
+  ratio: string = 'none';
+
+  @property({ type: String })
+  viewBox: string = '0 0 128 128';
 
   updated() {
     this.setSize();
@@ -107,5 +94,12 @@ export default class KemetSVG extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-svg') || customElements.define('kemet-svg', KemetSVG);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-svg': KemetSVG
+  }
+
+  interface Document {
+    kemetSVGs: any;
+  }
+}

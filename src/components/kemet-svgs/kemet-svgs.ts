@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 
 /**
  * @since 1.0.0
@@ -11,35 +12,27 @@ import { LitElement, html, css } from 'lit';
  *
  */
 
+@customElement('kemet-svgs')
 export default class KemetSVGs extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        display: none;
-      }
-    `;
-  }
+  static styles = [css`
+    :host {
+      display: none;
+    }
+  `];
 
-  static get properties() {
-    return {
-      set: {
-        type: String,
-      },
-    };
-  }
+  @property({ type: String })
+  set: string = 'svgs';
 
-  constructor() {
-    super();
+  @state()
+  slotElement: HTMLSlotElement;
 
-    this.set = 'svgs';
-  }
 
   firstUpdated() {
     this.slotElement = this.shadowRoot.querySelector('slot');
     document.kemetSVGs = document.kemetSVGs || {};
 
     this.populateIcons();
-    this.slotElement.addEventListener('slotchange', this.populateIcons());
+    this.slotElement.addEventListener('slotchange', () => this.populateIcons());
   }
 
   render() {
@@ -56,5 +49,12 @@ export default class KemetSVGs extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-svgs') || customElements.define('kemet-svgs', KemetSVGs);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-svgs': KemetSVGs
+  }
+
+  interface Document {
+    kemetSVGs: any;
+  }
+}

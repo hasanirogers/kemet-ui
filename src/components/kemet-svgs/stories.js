@@ -1,6 +1,4 @@
 import { html } from 'lit';
-import './kemet-svgs.js';
-import './kemet-svg.js';
 
 const getViewBox = (svg) => {
   let viewBox;
