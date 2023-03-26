@@ -330,135 +330,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetBadge",
-          "cssProperties": [
-            {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
@@ -536,6 +407,15 @@
             },
             {
               "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "borderStatus",
               "type": {
                 "text": "string"
@@ -607,6 +487,13 @@
               },
               "description": "Adds a close button to the alert.",
               "fieldName": "closable"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "fieldName": "status"
             },
             {
               "name": "border-status",
@@ -882,6 +769,135 @@
           "declaration": {
             "name": "KemetAvatars",
             "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetBadge",
+          "cssProperties": [
+            {
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-badge",
+          "summary": "Badges display the status of information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-badge",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         }
       ]
@@ -1386,7 +1402,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetCarouselCurrent",
+          "name": "default",
           "declaration": {
             "name": "KemetCarouselCurrent",
             "module": "src/components/kemet-carousel/kemet-carousel-current.ts"
@@ -1453,7 +1469,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetCarouselFirst",
+          "name": "default",
           "declaration": {
             "name": "KemetCarouselFirst",
             "module": "src/components/kemet-carousel/kemet-carousel-first.ts"
@@ -1520,7 +1536,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetCarouselLast",
+          "name": "default",
           "declaration": {
             "name": "KemetCarouselLast",
             "module": "src/components/kemet-carousel/kemet-carousel-last.ts"
@@ -1761,7 +1777,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetCarouselPrev",
+          "name": "default",
           "declaration": {
             "name": "KemetCarouselPrev",
             "module": "src/components/kemet-carousel/kemet-carousel-prev.ts"
@@ -1909,7 +1925,7 @@
       "exports": [
         {
           "kind": "js",
-          "name": "KemetCarouselTotal",
+          "name": "default",
           "declaration": {
             "name": "KemetCarouselTotal",
             "module": "src/components/kemet-carousel/kemet-carousel-total.ts"

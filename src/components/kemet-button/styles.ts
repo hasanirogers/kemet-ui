@@ -32,6 +32,7 @@ export const stylesBase = css`
     align-items: center;
     color: inherit;
     font-size: inherit;
+    width: 100%;
     padding: var(--kemet-button-padding, 1rem 1.25rem);
     border: 0;
     background: none;

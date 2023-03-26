@@ -1,3 +1,5 @@
+export type TypeStatus = 'standard' | 'error' | 'success' | 'warning' | 'primary';
+
 export interface KemetAlertInterface {
   opened: boolean,
   reveal: boolean,
@@ -5,4 +7,5 @@ export interface KemetAlertInterface {
   borderStatus: string,
   hidden: boolean,
   overlay: string,
+  status: TypeStatus,
 }

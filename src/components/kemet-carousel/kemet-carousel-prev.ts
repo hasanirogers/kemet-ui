@@ -17,7 +17,7 @@ import { emitEvent } from '../../utilities/misc/events';
  */
 
 @customElement('kemet-carousel-prev')
-export class KemetCarouselPrev extends LitElement {
+export default class KemetCarouselPrev extends LitElement {
   static styles = [
     css`
       :host {

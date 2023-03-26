@@ -19,6 +19,7 @@ export default class KemetTracker extends LitElement {
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        width: 100%;
       }
     `,
   ];

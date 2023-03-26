@@ -2,6 +2,7 @@ import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesBase } from './styles';
+import { TypeStatus } from './types';
 
 /**
  * @since 1.4.0
@@ -45,6 +46,9 @@ export default class KemetAlert extends LitElement {
 
   @property({ type: Boolean, reflect: true })
   closable: boolean;
+
+  @property({ type: String, reflect: true })
+  status: TypeStatus;
 
   @property({ type: String, reflect: true, attribute: 'border-status' })
   borderStatus: string;

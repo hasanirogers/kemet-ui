@@ -15,7 +15,7 @@ import { KemetCarouselInterface } from './types';
  */
 
 @customElement('kemet-carousel-total')
-export class KemetCarouselTotal extends LitElement {
+export default class KemetCarouselTotal extends LitElement {
   static styles = [
     css`
       :host {

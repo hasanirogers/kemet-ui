@@ -78,11 +78,11 @@ export default class KemetDrawer extends LitElement {
           <slot name="navigation"></slot>
         </nav>
         <div class="off-canvas__pusher" part="pusher">
-          <main class="off-canvas__content" part="content">
+          <div class="off-canvas__content" part="content">
             <div class="off-canvas__wrapper" part="wrapper">
               <slot name="content"></slot>
             </div>
-          </main>
+          </div>
         </div>
       </section>
     `;
