@@ -1,22 +1,11 @@
-import { html, css, LitElement } from 'lit';
-import { tooltip, customTooltip } from './styles.tooltip.js';
-import {
-  fade,
-  scale,
-  slide,
-  fall,
-  flipHorizontal,
-  flipVertical,
-  sign,
-  superScaled,
-} from './styles.effects.js';
-import { emitEvent } from '../../utilities/misc/events.ts';
-
-const keyCodes = {
-  ENTER: 13,
-  SPACE: 32,
-  ESC: 27,
-};
+import { html, LitElement } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { emitEvent } from '../../utilities/misc/events';
+import { keyCodes } from '../../utilities/misc/constants';
+import { TypeEffect, TypeFireOn, TypePosition } from './types';
+import { stylesPopover } from './styles';
+import { tooltip, customTooltip } from './styles.tooltip';
+import { fade, scale, slide, fall, flipHorizontal, flipVertical, sign, superScaled } from './styles.effects';
 
 /**
  * @since 1.0.0
@@ -55,167 +44,56 @@ const keyCodes = {
  *
  */
 
+@customElement('kemet-popover')
 export default class KemetPopover extends LitElement {
   static get styles() {
-    return [
-      css`
-        :host {
-          display: inline-block;
-          position: relative;
-          z-index: unset;
-        }
-
-        #trigger {
-          display: inline-block;
-          cursor: pointer;
-        }
-
-        ::slotted([slot="trigger"]) {
-          position: relative;
-          /* z-index: 2; */
-        }
-
-        #content {
-          visibility: hidden;
-          pointer-events: none;
-          width: var(--kemet-popover-width, 100%);
-          height: var(--kemet-popover-height, auto);
-          position: absolute;
-          z-index: -1;
-        }
-
-        :host([opened]) #content {
-          visibility: visible;
-          z-index: 9;
-          pointer-events: auto;
-        }
-
-        ::slotted([slot="content"]) {
-          color: var(--kemet-popover-color, #fafafa);
-          display: block;
-          position: relative;
-          z-index: 2;
-          cursor: default;
-          width: 100%;
-          padding: 1rem;
-          box-sizing: border-box;
-          background-color: var(--kemet-popover-background-color, #202020);
-          transform: translate(var(--kemet-popover-content-offset-x, 0), var(--kemet-popover-content-offset-y, 0));
-        }
-
-        :host([position="top"]) #content {
-          bottom: calc(100% + var(--kemet-popover-gap, 1rem));
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        :host([position="right"]) #content {
-          left: calc(100% + var(--kemet-popover-gap, 1rem));
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        :host([position="bottom"]) #content {
-          top: calc(100% + var(--kemet-popover-gap, 1rem));
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        :host([position="left"]) #content {
-          right: calc(100% + var(--kemet-popover-gap, 1rem));
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        #overlay {
-          display: none;
-        }
-
-        :host([opened]) #overlay {
-          display: block;
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 1;
-          width: 100%;
-          height: 100%;
-          min-height: 100vh;
-        }
-      `,
-      tooltip,
-      customTooltip,
-      fade,
-      scale,
-      slide,
-      fall,
-      flipHorizontal,
-      flipVertical,
-      sign,
-      superScaled,
-    ];
+    return [stylesPopover, tooltip, customTooltip, fade, scale, slide, fall, flipHorizontal, flipVertical, sign, superScaled];
   }
 
-  static get properties() {
-    return {
-      opened: {
-        type: Boolean,
-        reflect: true,
-      },
-      effect: {
-        string: String,
-        reflect: true,
-      },
-      position: {
-        type: String,
-        reflect: true,
-      },
-      tooltip: {
-        type: Boolean,
-      },
-      customTooltip: {
-        type: Boolean,
-        attribute: 'custom-tooltip',
-      },
-      fireOn: {
-        type: String,
-        attribute: 'fire-on',
-      },
-      clickOutside: {
-        type: Boolean,
-        attribute: 'click-outside',
-      },
-      smart: {
-        type: Boolean,
-      },
-    };
-  }
+  @property({ type: Boolean, reflect: true })
+  opened: boolean = false;
+
+  @property({ type: String, reflect: true })
+  effect: TypeEffect = null;
+
+  @property({ type: String, reflect: true })
+  position: TypePosition = 'top';
+
+  @property({ type: Boolean })
+  tooltip: boolean = false;
+
+  @property({ type: Boolean, attribute: 'custom-tooltip' })
+  customTooltip: boolean = false;
+
+  @property({ type: String, attribute: 'fire-on' })
+  fireOn: TypeFireOn = 'hover';
+
+  @property({ type: Boolean, attribute: 'click-outside' })
+  clickOutside: boolean = false;
+
+  @property({ type: Boolean })
+  smart: boolean = true;
+
+  @state()
+  focusableSelector: string;
+
+  @state()
+  focusableElements: any;
+
+  @state()
+  contentElement: any;
 
   constructor() {
     super();
-
-    this.opened = false;
-    this.effect = null;
-    this.position = 'top';
-    this.tooltip = false;
-    this.customTooltip = false;
-    this.fireOn = 'hover';
-    this.clickOutside = false;
-    this.smart = true;
-
     this.addEventListener('kemet-popover-close-btn', this.close.bind(this));
   }
 
   firstUpdated() {
-    // standard properties
+    const contentSlot = this.shadowRoot.querySelector('slot[name="content"]') as HTMLSlotElement;
+
+    this.contentElement = contentSlot.assignedNodes({ flatten: true })[0];
     this.focusableSelector = 'body, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable], kemet-popover-close';
     this.focusableElements = this.querySelectorAll(this.focusableSelector);
-
-    // eslint-disable-next-line prefer-destructuring
-    this.contentElement = this.shadowRoot
-      .querySelector('slot[name="content"]')
-      .assignedNodes({ flatten: true })[0];
 
     window.addEventListener('resize', () => {
       this.smartContent();
@@ -230,10 +108,13 @@ export default class KemetPopover extends LitElement {
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
+      console.log('opened');
       emitEvent(this, 'kemet-popover-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
+      console.log(prevProps);
+      console.log('closed');
       emitEvent(this, 'kemet-popover-closed', this);
     }
 
@@ -291,7 +172,7 @@ export default class KemetPopover extends LitElement {
     }
 
     if (event.keyCode === keyCodes.ENTER || event.keyCode === keyCodes.SPACE) {
-      this.toggle();
+      this.toggle(event);
     }
   }
 
@@ -414,5 +295,8 @@ export default class KemetPopover extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
-customElements.get('kemet-popover') || customElements.define('kemet-popover', KemetPopover);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-popover': KemetPopover
+  }
+}

@@ -1,11 +1,7 @@
 import { html, css, LitElement } from 'lit';
-import { emitEvent } from '../../utilities/misc/events.ts';
-
-const keyCodes = {
-  ENTER: 13,
-  SPACE: 32,
-  ESC: 27,
-};
+import { customElement } from 'lit/decorators.js';
+import { emitEvent } from '../../utilities/misc/events';
+import { keyCodes } from '../../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -18,20 +14,19 @@ const keyCodes = {
  *
  */
 
+@customElement('kemet-popover-close')
 export default class KemetPopoverClose extends LitElement {
-  static get styles() {
-    return [
-      css`
-        button {
-          font: inherit;
-          color: inherit;
-          cursor: pointer;
-          border: 0;
-          background: transparent;
-        }
-      `,
-    ];
-  }
+  static styles = [
+    css`
+      button {
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+        border: 0;
+        background: transparent;
+      }
+    `,
+  ];
 
   render() {
     return html`
@@ -54,4 +49,9 @@ export default class KemetPopoverClose extends LitElement {
   }
 }
 
-window.customElements.define('kemet-popover-close', KemetPopoverClose);
+declare global {
+  interface HTMLElementTagNameMap {
+    'kemet-popover-close': KemetPopoverClose
+  }
+}
+

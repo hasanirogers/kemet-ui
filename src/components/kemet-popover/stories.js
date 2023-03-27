@@ -1,6 +1,4 @@
-import { html } from 'lit-html';
-import './kemet-popover.js';
-import './kemet-popover-close.js';
+import { html } from 'lit';
 
 const Template = ({
   triggerText = 'Activate Popover',

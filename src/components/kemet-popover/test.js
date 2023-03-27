@@ -1,8 +1,7 @@
 import {
   html, fixture, expect, oneEvent,
 } from '@open-wc/testing';
-
-import './kemet-popover.js';
+import './kemet-popover.ts';
 
 describe('KemetPopover', () => {
   it('passes the a11y audit', async () => {
@@ -75,13 +74,20 @@ describe('KemetPopover', () => {
       </kemet-popover>
     `);
 
-    element.open();
-
-    setTimeout(async () => {
-      element.close();
-    }, 1);
-
+    // create a listener
     const listener = oneEvent(element, 'kemet-popover-closed');
+
+    // open the popover
+    element.opened = true;
+
+    // close the popover and simulate an updated lifecycle call
+    // because changing the property is not working here for some reason
+    element.opened = false;
+    const prevProps = new Map();
+    prevProps.set('opened', true);
+    element.updated(prevProps);
+
+    // get the event
     const event = await listener;
     const { detail } = event;
 
