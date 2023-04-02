@@ -2,3 +2,28 @@ a {
   color: var(--kemet-color-background);
   text-decoration: none;
 }
+
+.storybook {
+  &__canvas--middle {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__canvas--top-right {
+    position: fixed;
+    right: 0;
+  }
+
+  &__canvas--bottom-right {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__canvas--bottom-left {
+    position: fixed;
+    bottom: 0;
+  }
+}

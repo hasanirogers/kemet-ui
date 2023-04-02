@@ -1,6 +1,6 @@
 import { css } from 'lit';
 
-export const fade = css`
+export const stylesPopperFade = css`
   :host([effect="fade"]) #content {
     opacity: 0;
     transition: all var(--kemet-popover-transition-speed, 0.3s);
@@ -11,7 +11,7 @@ export const fade = css`
   }
 `;
 
-export const scale = css`
+export const stylesPopperScale = css`
   :host([effect="scale"]) #content {
     opacity: 0;
     transition: all var(--kemet-popover-transition-speed, 0.3s);
@@ -42,7 +42,7 @@ export const scale = css`
   }
 `;
 
-export const slide = css`
+export const stylesPopperSlide = css`
   :host([effect="slide"]) #content {
     opacity: 0;
     transition: all var(--kemet-popover-transition-speed, 0.3s) cubic-bezier(0.25, 0.5, 0.5, 0.9);
@@ -85,7 +85,7 @@ export const slide = css`
   }
 `;
 
-export const fall = css`
+export const stylesPopperFall = css`
   :host([effect="fall"]) {
     perspective: 1300px;
   }
@@ -133,7 +133,7 @@ export const fall = css`
   }
 `;
 
-export const flipHorizontal = css`
+export const stylesPopperFlipHorizontal = css`
   :host([effect="flip-horizontal"]) {
     perspective: 1300px;
   }
@@ -181,7 +181,7 @@ export const flipHorizontal = css`
   }
 `;
 
-export const flipVertical = css`
+export const stylesPopperFlipVertical = css`
   :host([effect="flip-vertical"]) {
     perspective: 1300px;
   }
@@ -229,7 +229,7 @@ export const flipVertical = css`
   }
 `;
 
-export const sign = css`
+export const stylesPopperSign = css`
   :host([effect="sign"]) {
     perspective: 1300px;
   }
@@ -281,7 +281,7 @@ export const sign = css`
   }
 `;
 
-export const superScaled = css`
+export const stylesPopperSuperScaled = css`
   :host([effect="super-scaled"]) #content {
     opacity: 0;
     transition: all var(--kemet-popover-transition-speed, 0.3s);

@@ -4,18 +4,18 @@ import { emitEvent } from '../../utilities/misc/events';
 import { keyCodes } from '../../utilities/misc/constants';
 
 /**
- * @since 1.0.0
+ * @since 2.0.0
  * @status stable
  *
- * @tagname kemet-popover-close
- * @summary A close button for the popover
+ * @tagname kemet-popper-close
+ * @summary A close button for the popper
  *
- * @event kemet-popover-close-btn
+ * @event kemet-popper-close-btn
  *
  */
 
-@customElement('kemet-popover-close')
-export default class KemetPopoverClose extends LitElement {
+@customElement('kemet-popper-close')
+export default class KemetPopperClose extends LitElement {
   static styles = [
     css`
       button {
@@ -37,7 +37,7 @@ export default class KemetPopoverClose extends LitElement {
   }
 
   close() {
-    emitEvent(this, 'kemet-popover-close-btn', this);
+    emitEvent(this, 'kemet-popper-close-btn', this);
   }
 
   handleKeyboard(event) {
@@ -51,7 +51,6 @@ export default class KemetPopoverClose extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'kemet-popover-close': KemetPopoverClose
+    'kemet-popper-close': KemetPopperClose
   }
 }
-

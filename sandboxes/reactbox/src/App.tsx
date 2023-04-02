@@ -21,6 +21,7 @@ import ViewIcon from './views/Icon/Icon';
 import ViewInput from './views/Input/Input';
 import ViewModal from './views/Modal/Modal';
 import ViewPassword from './views/Password/Password';
+import ViewPopper from './views/Popper/Popper';
 import ViewRadio from './views/Radio/Radio';
 import ViewRotator from './views/Rotator/Rotator';
 import ViewScrollLink from './views/ScrollLink/ScrollLink';
@@ -32,6 +33,7 @@ import ViewSVGs from './views/SVGs/SVGs';
 import ViewTabs from './views/Tabs/Tabs';
 import ViewTextarea from './views/Textarea/Textarea';
 import ViewToggle from './views/Toggle/Toggle';
+import ViewTooltip from './views/Tooltip/Tooltip';
 import ViewTracker from './views/Tracker/Tracker';
 import ViewUpload from './views/Upload/Upload';
 import { KemetDrawer, KemetIcon } from './WebComponents';
@@ -69,6 +71,7 @@ function App() {
     { path: "/input", element: <ViewInput /> },
     { path: "/modal", element: <ViewModal /> },
     { path: "/password", element: <ViewPassword /> },
+    { path: "/popper", element: <ViewPopper /> },
     { path: "/radio", element: <ViewRadio />},
     { path: "/rotator", element: <ViewRotator /> },
     { path: "/scrolllink", element: <ViewScrollLink /> },
@@ -80,6 +83,7 @@ function App() {
     { path: "/tabs", element: <ViewTabs /> },
     { path: "/textarea", element: <ViewTextarea /> },
     { path: "/toggle", element: <ViewToggle /> },
+    { path: "/tooltip", element: <ViewTooltip /> },
     { path: "/tracker", element: <ViewTracker /> },
     { path: "/upload", element: <ViewUpload /> }
   ]);

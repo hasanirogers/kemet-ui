@@ -26,7 +26,7 @@ const SiteNav = () => {
       <KemetButton link="/input">Input</KemetButton>
       <KemetButton link="/modal">Modal</KemetButton>
       <KemetButton link="/password">Password</KemetButton>
-      <KemetButton link="/popover">Popover</KemetButton>
+      <KemetButton link="/popper">Popper</KemetButton>
       <KemetButton link="/radio">Radio</KemetButton>
       <KemetButton link="/rotator">Rotator</KemetButton>
       <KemetButton link="/scrolllink">Scroll Link</KemetButton>
@@ -38,6 +38,7 @@ const SiteNav = () => {
       <KemetButton link="/tabs">Tabs</KemetButton>
       <KemetButton link="/textarea">Textarea</KemetButton>
       <KemetButton link="/toggle">Toggle</KemetButton>
+      <KemetButton link="/tooltip">Tooltip</KemetButton>
       <KemetButton link="/tracker">Tracker</KemetButton>
       <KemetButton link="/upload">Upload</KemetButton>
     </aside>
