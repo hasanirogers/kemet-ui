@@ -14,6 +14,7 @@ export interface KemetTabsInterface extends HTMLElement {
   ink?: any,
   hideInk?: boolean,
   overflow?: boolean,
+  measureHeightOffset?: number,
 }
 
 export interface KemetTabInterface extends HTMLElement {

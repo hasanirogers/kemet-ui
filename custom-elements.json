@@ -5782,406 +5782,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-popover/kemet-popover-close.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetPopoverClose",
-          "members": [
-            {
-              "kind": "method",
-              "name": "close"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyboard",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-popover-close-btn"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-popover-close",
-          "summary": "A close button for the popover",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetPopoverClose",
-            "module": "src/components/kemet-popover/kemet-popover-close.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-popover-close",
-          "declaration": {
-            "name": "KemetPopoverClose",
-            "module": "src/components/kemet-popover/kemet-popover-close.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-popover/kemet-popover.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetPopover",
-          "cssProperties": [
-            {
-              "description": "The width of the popover contents. Default: 100%.",
-              "name": "--kemet-popover-width"
-            },
-            {
-              "description": "The height of the popover contents. Default: auto.",
-              "name": "--kemet-popover-height"
-            },
-            {
-              "description": "The text color of the popover's contents. Default: #fafafa.",
-              "name": "--kemet-popover-color"
-            },
-            {
-              "description": "The background color of the popover's contents. Default: #202020.",
-              "name": "--kemet-popover-background-color"
-            },
-            {
-              "description": "The space between the trigger and content. Default: 0px.",
-              "name": "--kemet-popover-gap"
-            },
-            {
-              "description": "The speed of the opening and closing effect. Default: 0.3s.",
-              "name": "--kemet-popover-transition-speed"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the trigger for the popover.",
-              "name": "trigger"
-            },
-            {
-              "description": "Contains the content for the popover.",
-              "name": "content"
-            },
-            {
-              "description": "Contains the tooltip for the popover.",
-              "name": "tooltip"
-            },
-            {
-              "description": "Contains the custom tooltip for the popover.",
-              "name": "custom-tooltip"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Controls opening and closing the popover.",
-              "name": "trigger"
-            },
-            {
-              "description": "The contents of the popover.",
-              "name": "content"
-            },
-            {
-              "description": "Allows you to use an svg, image, custom css, etc for a custom tooltip.",
-              "name": "custom-tooltip"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not the popover displays.",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "effect",
-              "type": {
-                "text": "string"
-              },
-              "default": "null",
-              "description": "The opening and closing effect of the popover. Is optional. Values include: (fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
-              "attribute": "effect",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "string"
-              },
-              "default": "'top'",
-              "description": "Determines the placement of the popover. Values include: (top | right | bottom | left)",
-              "attribute": "position",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "tooltip",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Adds a built in tooltip to the popover.",
-              "attribute": "tooltip"
-            },
-            {
-              "kind": "field",
-              "name": "customTooltip",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Adds a custom tooltip to the popover. Use the custom-tooltip slot to specify the custom tooltip.",
-              "attribute": "custom-tooltip"
-            },
-            {
-              "kind": "field",
-              "name": "fireOn",
-              "type": {
-                "text": "string"
-              },
-              "default": "'hover'",
-              "description": "Controls how the trigger should activate the popover. Values include: (click | hover)",
-              "attribute": "fire-on"
-            },
-            {
-              "kind": "field",
-              "name": "clickOutside",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Allows the popover to be closed by clicking outside of its content.",
-              "attribute": "click-outside"
-            },
-            {
-              "kind": "field",
-              "name": "smart",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "true",
-              "description": "Intelligently positions the popover.",
-              "attribute": "smart"
-            },
-            {
-              "kind": "field",
-              "name": "focusableSelector",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "focusableElements",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "contentElement",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "open"
-            },
-            {
-              "kind": "method",
-              "name": "close"
-            },
-            {
-              "kind": "method",
-              "name": "toggle",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleFocusableDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "makeMeasure"
-            },
-            {
-              "kind": "method",
-              "name": "makeTooltip"
-            },
-            {
-              "kind": "method",
-              "name": "makeOverlay"
-            },
-            {
-              "kind": "method",
-              "name": "smartContent"
-            },
-            {
-              "kind": "method",
-              "name": "setPosition",
-              "parameters": [
-                {
-                  "name": "contentRect"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when the popover opens.",
-              "name": "kemet-popover-opened"
-            },
-            {
-              "description": "Fires when the popover closes.",
-              "name": "kemet-popover-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether or not the popover displays.",
-              "fieldName": "opened"
-            },
-            {
-              "name": "effect",
-              "type": {
-                "text": "string"
-              },
-              "default": "null",
-              "description": "The opening and closing effect of the popover. Is optional. Values include: (fade | scale | slide | fall | flip horizontal | flip vertical | sign | super scaled)",
-              "fieldName": "effect"
-            },
-            {
-              "name": "position",
-              "type": {
-                "text": "string"
-              },
-              "default": "'top'",
-              "description": "Determines the placement of the popover. Values include: (top | right | bottom | left)",
-              "fieldName": "position"
-            },
-            {
-              "name": "tooltip",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Adds a built in tooltip to the popover.",
-              "fieldName": "tooltip"
-            },
-            {
-              "name": "custom-tooltip",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Adds a custom tooltip to the popover. Use the custom-tooltip slot to specify the custom tooltip.",
-              "fieldName": "customTooltip"
-            },
-            {
-              "name": "fire-on",
-              "type": {
-                "text": "string"
-              },
-              "default": "'hover'",
-              "description": "Controls how the trigger should activate the popover. Values include: (click | hover)",
-              "fieldName": "fireOn"
-            },
-            {
-              "name": "click-outside",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Allows the popover to be closed by clicking outside of its content.",
-              "fieldName": "clickOutside"
-            },
-            {
-              "name": "smart",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "true",
-              "description": "Intelligently positions the popover.",
-              "fieldName": "smart"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-popover",
-          "summary": "Displays an element in position of a trigger. Also acts as a tooltip.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetPopover",
-            "module": "src/components/kemet-popover/kemet-popover.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-popover",
-          "declaration": {
-            "name": "KemetPopover",
-            "module": "src/components/kemet-popover/kemet-popover.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-popper/kemet-popper-close.ts",
       "declarations": [
         {
@@ -9206,6 +8806,15 @@
             },
             {
               "kind": "field",
+              "name": "measureHeightOffset",
+              "type": {
+                "text": "number"
+              },
+              "description": "If set, will dynamically measure the height of the tabs and set accordingly. This number gives extra spacing to the calculated height if needed.",
+              "attribute": "measure-height-offset"
+            },
+            {
+              "kind": "field",
               "name": "tabs",
               "type": {
                 "text": "any[]"
@@ -9305,6 +8914,10 @@
                   "name": "event"
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "measure"
             },
             {
               "kind": "method",
@@ -9458,6 +9071,14 @@
               },
               "description": "Is true when the space of the tabs is larger than it's container",
               "fieldName": "overflow"
+            },
+            {
+              "name": "measure-height-offset",
+              "type": {
+                "text": "number"
+              },
+              "description": "If set, will dynamically measure the height of the tabs and set accordingly. This number gives extra spacing to the calculated height if needed.",
+              "fieldName": "measureHeightOffset"
             }
           ],
           "superclass": {

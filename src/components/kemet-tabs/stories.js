@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 const NamedTemplate = ({
   selected = 'settings',
@@ -8,34 +9,35 @@ const NamedTemplate = ({
   tabsAlign = 'center',
   hideInk = false,
   placement = 'top',
+  measureHeightOffset,
 }) => html`
- <kemet-tabs selected="${selected}" panel-effect=${panelEffect} ?swipe=${swipe} ?divider=${divider} tabs-align=${tabsAlign} ?hide-ink=${hideInk} placement=${placement}>
-    <kemet-tab slot="tab" link="account">
-      <kemet-icon icon="person-circle"></kemet-icon>&nbsp;Account
-    </kemet-tab>
-    <kemet-tab slot="tab" link="settings">
-      <kemet-icon icon="gear"></kemet-icon>&nbsp;Settings
-    </kemet-tab>
-    <kemet-tab slot="tab" link="dashboard">
-      <kemet-icon icon="columns-gap"></kemet-icon>&nbsp;Dashboard
-    </kemet-tab>
-    <kemet-tab-panel panel="account" slot="panel">
-      <h3 kemet-margin-top="tiny:none">Account</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Tellus integer feugiat scelerisque varius morbi. Non odio euismod lacinia at quis. Dictum sit amet justo donec. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Sollicitudin ac orci phasellus egestas tellus rutrum tellus. Sed nisi lacus sed viverra tellus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Arcu dui vivamus arcu felis bibendum ut tristique. Dictum at tempor commodo ullamcorper a. Nisl nunc mi ipsum faucibus vitae. In eu mi bibendum neque.</p>
-    </kemet-tab-panel>
-    <kemet-tab-panel panel="settings" slot="panel">
-      <h3 kemet-margin-top="tiny:none">Settings</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Tellus integer feugiat scelerisque varius morbi. Non odio euismod lacinia at quis. Dictum sit amet justo donec. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Sollicitudin ac orci phasellus egestas tellus rutrum tellus. Sed nisi lacus sed viverra tellus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Arcu dui vivamus arcu felis bibendum ut tristique. Dictum at tempor commodo ullamcorper a. Nisl nunc mi ipsum faucibus vitae. In eu mi bibendum neque.</p>
-    </kemet-tab-panel>
-    <kemet-tab-panel panel="dashboard" slot="panel">
-      <h3 kemet-margin-top="tiny:none">Dashboard</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Tellus integer feugiat scelerisque varius morbi. Non odio euismod lacinia at quis. Dictum sit amet justo donec. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Sollicitudin ac orci phasellus egestas tellus rutrum tellus. Sed nisi lacus sed viverra tellus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Arcu dui vivamus arcu felis bibendum ut tristique. Dictum at tempor commodo ullamcorper a. Nisl nunc mi ipsum faucibus vitae. In eu mi bibendum neque.</p>
-    </kemet-tab-panel>
-  </kemet-tabs>
-`;
+    <kemet-tabs selected="${selected}" panel-effect=${panelEffect} ?swipe=${swipe} ?divider=${divider} tabs-align=${tabsAlign} ?hide-ink=${hideInk} placement=${placement} measure-height-offset=${ifDefined(measureHeightOffset)} kemet-margin="tiny:largest">
+      <kemet-tab slot="tab" link="account">
+        <kemet-icon icon="person-circle"></kemet-icon>&nbsp;Account
+      </kemet-tab>
+      <kemet-tab slot="tab" link="settings">
+        <kemet-icon icon="gear"></kemet-icon>&nbsp;Settings
+      </kemet-tab>
+      <kemet-tab slot="tab" link="dashboard">
+        <kemet-icon icon="columns-gap"></kemet-icon>&nbsp;Dashboard
+      </kemet-tab>
+      <kemet-tab-panel panel="account" slot="panel">
+        <h3 kemet-margin-top="tiny:none">Account</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </kemet-tab-panel>
+      <kemet-tab-panel panel="settings" slot="panel">
+        <h3 kemet-margin-top="tiny:none">Settings</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </kemet-tab-panel>
+      <kemet-tab-panel panel="dashboard" slot="panel">
+        <h3 kemet-margin-top="tiny:none">Dashboard</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Tellus integer feugiat scelerisque varius morbi. Non odio euismod lacinia at quis. Dictum sit amet justo donec. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Sollicitudin ac orci phasellus egestas tellus rutrum tellus. Sed nisi lacus sed viverra tellus. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Arcu dui vivamus arcu felis bibendum ut tristique. Dictum at tempor commodo ullamcorper a. Nisl nunc mi ipsum faucibus vitae. In eu mi bibendum neque.</p>
+      </kemet-tab-panel>
+    </kemet-tabs>
+    <hr />
+  `;
+
 export const SelectByName = NamedTemplate.bind({});
 SelectByName.args = {
   selected: 'settings',
@@ -68,6 +70,9 @@ SelectByName.argTypes = {
     control: { type: 'select' },
     options: ['top', 'right', 'bottom', 'left'],
   },
+  measureHeightOffset: {
+    control: { type: 'number' },
+  },
 };
 
 const IndexTemplate = ({
@@ -79,6 +84,7 @@ const IndexTemplate = ({
   placement = 'top',
   numOfTabs = 5,
   closable = true,
+  measureHeightOffset,
 }) => {
   const tabs = [];
   const panels = [];
@@ -97,7 +103,7 @@ const IndexTemplate = ({
   }
 
   return html`
-    <kemet-tabs panel-effect=${panelEffect} ?swipe=${swipe} ?divider=${divider} tabs-align=${tabsAlign} ?hide-ink=${hideInk} placement=${placement}>
+    <kemet-tabs panel-effect=${panelEffect} ?swipe=${swipe} ?divider=${divider} tabs-align=${tabsAlign} ?hide-ink=${hideInk} placement=${placement} measure-height-offset=${ifDefined(measureHeightOffset)} kemet-margin="tiny:largest">
       ${tabs}
       ${panels}
     </kemet-tabs>
@@ -141,5 +147,8 @@ SelectByIndex.argTypes = {
   placement: {
     control: { type: 'select' },
     options: ['top', 'right', 'bottom', 'left'],
+  },
+  measureHeightOffset: {
+    control: { type: 'number' },
   },
 };
