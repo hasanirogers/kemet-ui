@@ -1,0 +1,17 @@
+/* stylelint-disable selector-class-pattern */
+.storybook__intro > div {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: grid;
+  column-gap: 1rem;
+  grid-template-columns: auto 1fr;
+}
+
+.storybook__intro svg {
+  width: 96px;
+  height: 96px;
+  grid-row: span 2;
+  display: block;
+  margin-top: 1rem;
+  fill: var(--kemet-color-primary);
+}

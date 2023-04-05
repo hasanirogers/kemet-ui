@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import { Intro } from '../../.storybook/components/intro/Intro.tsx';
 
 <Meta title="Introduction" />
 
@@ -6,8 +7,4 @@ import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
 
 Kemet UI's Docs are done in Storybook so that you may configure each component yourself and generate the code for them. Here you'll find code examples and code samples for integrating Kemet UI into your app. The Docs are divided into three sections.
 
-**Styles**: Kemet UI ships with Core API and component styles. The Core API styles are required and sets all of Kemet UI's custom attributes and CSS Custom Properties. See the Config and Core API pages for more information. The component styles are optional and simply enhance the look of the components.
-
-**Templates**: You'll find various pre-cooked templates using Kemet UI here. These templates are largely inspired by popular frameworks such as Bootstrap and Foundation. While you can grab the code for the templates here, if you want to play with the templates by sure to [checkout this Stackblitz](https://stackblitz.com/edit/kemet-templates?file=index.html).
-
-**Components**: Kemet UI has a number of components which embed behavior for your UI. These components are highly flexible and each Story is written in a way that allows you to see how you can customize the look and feel of the component to suite your needs.
+<Intro />
