@@ -41,20 +41,23 @@ export default class KemetAccordionPanel extends LitElement {
   @property({ type: String })
   slug: string = 'panel';
 
+  /** @internal */
   @state()
   focusableSelector: string;
 
+  /** @internal */
   @state()
   bodyElement: HTMLElement | null;
 
+  /** @internal */
   @state()
   bodyElementFirst: HTMLElement | null | undefined;
 
+  /** @internal */
   @state()
   bodyElementLast: HTMLElement | null | undefined;
 
   firstUpdated() {
-    /** @internal */
     this.focusableSelector = 'body, a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
     this.bodyElement = this.querySelector('[slot="body"]');
     this.bodyElementFirst = this.bodyElement?.querySelector(':first-child');

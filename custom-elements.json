@@ -73,34 +73,6 @@
               "attribute": "slug"
             },
             {
-              "kind": "field",
-              "name": "focusableSelector",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "bodyElement",
-              "type": {
-                "text": "HTMLElement | null"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "bodyElementFirst",
-              "type": {
-                "text": "HTMLElement | null | undefined"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "bodyElementLast",
-              "type": {
-                "text": "HTMLElement | null | undefined"
-              }
-            },
-            {
               "kind": "method",
               "name": "toggle"
             },
@@ -219,27 +191,6 @@
               "default": "false",
               "description": "Support for closing all inactive panels when one is opened",
               "attribute": "toggle-panels "
-            },
-            {
-              "kind": "field",
-              "name": "panels",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "onKeyDown",
-              "type": {
-                "text": "(event: any) => any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "currentPanelFocus",
-              "type": {
-                "text": "number"
-              }
             },
             {
               "kind": "method",
@@ -2136,99 +2087,6 @@
               "attribute": "breakpoints"
             },
             {
-              "kind": "field",
-              "name": "slides",
-              "type": {
-                "text": "any[]"
-              },
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "links",
-              "type": {
-                "text": "any[]"
-              },
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "toolbarSlotElement",
-              "type": {
-                "text": "HTMLElement | null"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "informationElement",
-              "type": {
-                "text": "HTMLElement | null"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "swipeMove",
-              "type": {
-                "text": "(event) => void"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "handleSlideShow",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "startX",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "slideWidth",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "informationSlot",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "containerElement",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "slidesElement",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "sliderElement",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "toolbarElement",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
               "kind": "method",
               "name": "swipeStart",
               "parameters": [
@@ -3211,55 +3069,6 @@
               "default": "false",
               "description": "If set to true, will measure the width and height of the element's content and apply it to the host element.",
               "attribute": "measure"
-            },
-            {
-              "kind": "field",
-              "name": "position1",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "position2",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "position3",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "position4",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "mouseMove",
-              "type": {
-                "text": "(event) => void"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "mouseUp",
-              "type": {
-                "text": "() => void"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "draggableElement",
-              "type": {
-                "text": "HTMLElement"
-              }
             },
             {
               "kind": "method",
@@ -8806,15 +8615,6 @@
             },
             {
               "kind": "field",
-              "name": "measureHeightOffset",
-              "type": {
-                "text": "number"
-              },
-              "description": "If set, will dynamically measure the height of the tabs and set accordingly. This number gives extra spacing to the calculated height if needed.",
-              "attribute": "measure-height-offset"
-            },
-            {
-              "kind": "field",
               "name": "tabs",
               "type": {
                 "text": "any[]"
@@ -8844,6 +8644,13 @@
             {
               "kind": "field",
               "name": "links",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "panelsElement",
               "type": {
                 "text": "HTMLElement"
               }
@@ -8917,11 +8724,11 @@
             },
             {
               "kind": "method",
-              "name": "measure"
+              "name": "determineFade"
             },
             {
               "kind": "method",
-              "name": "determineFade"
+              "name": "determineStacked"
             },
             {
               "kind": "method",
@@ -9071,14 +8878,6 @@
               },
               "description": "Is true when the space of the tabs is larger than it's container",
               "fieldName": "overflow"
-            },
-            {
-              "name": "measure-height-offset",
-              "type": {
-                "text": "number"
-              },
-              "description": "If set, will dynamically measure the height of the tabs and set accordingly. This number gives extra spacing to the calculated height if needed.",
-              "fieldName": "measureHeightOffset"
             }
           ],
           "superclass": {

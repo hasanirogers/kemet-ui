@@ -3,6 +3,14 @@ a {
   text-decoration: none;
 }
 
+table {
+  width: 100%;
+}
+
+thead {
+  background: #f6f9fc;
+}
+
 .storybook {
   &__canvas--middle {
     display: flex;
@@ -26,4 +34,8 @@ a {
     position: fixed;
     bottom: 0;
   }
+}
+
+.sbdocs kemet-tab-panel {
+  padding: 0 4px;
 }

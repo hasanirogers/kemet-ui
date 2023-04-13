@@ -1,0 +1,47 @@
+import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import * as TrackerStories from './stories'
+
+<Meta of={TrackerStories} />
+
+# Kemet Tracker
+
+Displays the progress of a process such as a wizard of multi-step form.
+
+<kemet-tabs divider panel-effect="stacked">
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-tracker>
+      <kemet-tracker-step>Step 1</kemet-tracker-step>
+      <kemet-tracker-step>Step 2</kemet-tracker-step>
+      <kemet-tracker-step>Step 3</kemet-tracker-step>
+    </kemet-tracker>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/dist/components/kemet-tracker/kemet-tracker.js';
+    import 'kemet-ui/dist/components/kemet-tracker/kemet-tracker-step.js';
+    ```
+
+    ### Import HTML
+    ```html
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-tracker/kemet-tracker.js" type="module"></script>
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-tracker/kemet-tracker-step.js" type="module"></script>
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={TrackerStories.Standard}  />
+    <ArgsTable story={PRIMARY_STORY} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-tracker&gt;
+    <ArgsTable of="kemet-tracker" />
+
+    ### &lt;kemet-tracker-step&gt;
+    <ArgsTable of="kemet-tracker-step" />
+  </kemet-tab-panel>
+</kemet-tabs>

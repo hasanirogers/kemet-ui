@@ -14,10 +14,10 @@
     "outDir": "dist",
     "sourceMap": true,
     "inlineSources": true,
-    "rootDir": "./src",
+    "rootDir": "./",
     "declaration": true,
     "incremental": true
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "sandboxes"]
 }

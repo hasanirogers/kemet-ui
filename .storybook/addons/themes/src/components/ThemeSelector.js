@@ -6,9 +6,9 @@ import { TOOL_ID } from '../constants';
 export const ThemeSelector = () => {
   const [{ activeTheme }, updateGlobals] = useGlobals();
 
-  if (!activeTheme) {
-    updateGlobals({ activeTheme: 'light' });
-  }
+  // if (!activeTheme) {
+  //   updateGlobals({ activeTheme: 'light' });
+  // }
 
   const displayLinks = (closeLink) => {
     const links = [

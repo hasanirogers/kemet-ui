@@ -43,24 +43,31 @@ export default class KemetDraggable extends LitElement {
   @property({ type: Boolean })
   measure: boolean = false;
 
+  /** @internal */
   @state()
   position1: number;
 
+  /** @internal */
   @state()
   position2: number;
 
+  /** @internal */
   @state()
   position3: number;
 
+  /** @internal */
   @state()
   position4: number;
 
+  /** @internal */
   @state()
   mouseMove: (event) => void;
 
+  /** @internal */
   @state()
   mouseUp: () => void;
 
+  /** @internal */
   @query('#draggable')
   draggableElement: HTMLElement;
 

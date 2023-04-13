@@ -3,7 +3,7 @@
   display: grid;
   gap: 2rem;
   flex-wrap: wrap;
-  list-style: none;
+  list-style: none !important;
   grid-template-columns: repeat(2, 1fr);
   max-height: 50vh;
   overflow: auto;

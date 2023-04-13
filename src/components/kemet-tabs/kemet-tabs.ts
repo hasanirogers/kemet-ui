@@ -3,7 +3,7 @@
 import { LitElement, html } from 'lit';
 import { stylesKemetTabs } from './styles';
 import { emitEvent } from '../../utilities/misc/events';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { KemetTabInterface, KemetTabPanelInterface, TypePanelEffect, TypePlacement, TypeTabsAlign } from './types';
 
 /**
@@ -24,7 +24,6 @@ import { KemetTabInterface, KemetTabPanelInterface, TypePanelEffect, TypePlaceme
  * @prop {object} ink - An object that contains information about the ink
  * @prop {boolean} hideInk - Determines whether or not to hide the ink
  * @prop {boolean} overflow - Is true when the space of the tabs is larger than it's container
- * @prop {number} measureHeightOffset - If set, will dynamically measure the height of the tabs and set accordingly. This number gives extra spacing to the calculated height if needed.
  *
  * @slot tab - Place the tabs here.
  * @slot panel - Place the panels here.
@@ -84,9 +83,6 @@ export default class KemetTabs extends LitElement {
   @property({ type: Boolean, reflect: true })
   overflow: boolean;
 
-  @property({ type: Number, attribute: 'measure-height-offset' })
-  measureHeightOffset: number;
-
   @state()
   tabs: any[];
 
@@ -101,6 +97,9 @@ export default class KemetTabs extends LitElement {
 
   @state()
   links: HTMLElement;
+
+  @query('#panels')
+  panelsElement: HTMLElement;
 
 
   constructor() {
@@ -119,7 +118,6 @@ export default class KemetTabs extends LitElement {
     this.yDown = null;
 
     this.links = this.shadowRoot.getElementById('links');
-    setTimeout(() => this.measure());
   }
 
   render() {
@@ -144,6 +142,7 @@ export default class KemetTabs extends LitElement {
 
   updated() {
     this.determineFade();
+    this.determineStacked();
   }
 
   handleLinksSlotChange() {
@@ -399,35 +398,20 @@ export default class KemetTabs extends LitElement {
     this.selectTab();
     this.selectPanel();
     this.dispatchTabChange();
-    setTimeout(() => this.measure());
   }
 
-  measure() {
-    if (this.measureHeightOffset) {
-      const currentPanel = this.selected ?  this.querySelector(`kemet-tab-panel[selected]`) : this.panels[this.selectedIndex];
-      const clone = currentPanel.cloneNode(true);
-
-      clone.style.display = 'block';
-      clone.style.visibility = 'hidden';
-      clone.style.pointerEvents = 'none';
-
-      document.body.appendChild(clone);
-
-      setTimeout(() => {
-        const links = this.shadowRoot.querySelector('#links') as HTMLElement;
-        const linksHeight = links.offsetHeight;
-        const panelHeight = clone.offsetHeight;
-
-        this.style.height = `${linksHeight + panelHeight + this.measureHeightOffset}px`;
-        document.body.removeChild(clone);
-      }, 1);
-    }
-  }
 
   determineFade() {
     this.panels.forEach((panel) => {
       // add fade class if panel effect is fade
       if (this.panelEffect === 'fade') panel.classList.add('fade');
+    });
+  }
+
+  determineStacked() {
+    this.panels.forEach((panel) => {
+      // add fade class if panel effect is fade
+      if (this.panelEffect === 'stacked') panel.classList.add('stacked');
     });
   }
 

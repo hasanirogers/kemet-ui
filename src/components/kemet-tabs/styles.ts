@@ -253,4 +253,18 @@ export const stylesKemetTabPanel = css`
   :host(.vertical[selected]) {
     display: block;
   }
+
+  :host(.stacked) {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  :host(.stacked[selected]) {
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+  }
 `;

@@ -98,44 +98,55 @@ export default class KemetCarousel extends LitElement {
     },
   };
 
-
+  /** @internal */
   @state()
   slides: any[] = [];
 
+  /** @internal */
   @state()
   links: any[] = [];
 
+  /** @internal */
   @state()
   toolbarSlotElement: HTMLElement | null;
 
+  /** @internal */
   @state()
   informationElement: HTMLElement | null;
 
+  /** @internal */
   @state()
   swipeMove: (event) => void;
 
+  /** @internal */
   @state()
   handleSlideShow: any;
 
+  /** @internal */
   @state()
   startX: number;
 
+  /** @internal */
   @state()
   slideWidth: number;
 
+  /** @internal */
   @state()
   informationSlot: HTMLElement;
 
-
+  /** @internal */
   @query('#container')
   containerElement: HTMLElement;
 
+  /** @internal */
   @query('#slides')
   slidesElement: HTMLElement;
 
+  /** @internal */
   @query('#slider')
   sliderElement: HTMLElement;
 
+  /** @internal */
   @query('#toolbar')
   toolbarElement: HTMLElement;
 

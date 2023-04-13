@@ -1,0 +1,49 @@
+import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import * as RotatorStories from './stories'
+
+<Meta of={RotatorStories} />
+
+# Kemet Rotator
+
+A component that rotates through an array of text.
+
+<kemet-tabs measure-height="500" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-rotator messages='["my", "text", "here"]'></kemet-rotator>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/dist/components/kemet-rotator/kemet-rotator.js';
+    ```
+
+    ### Import HTML
+    ```html
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-rotator/kemet-rotator.js" type="module"></script>
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={RotatorStories.Standard}  />
+    <ArgsTable story={PRIMARY_STORY} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-rotator&gt;
+    <ArgsTable of="kemet-rotator" />
+
+    <br />
+
+    ### &lt;kemet-radio&gt;
+    <ArgsTable of="kemet-radio" />
+
+    #### Methods
+
+    - **.nextSlide()** - Calls the next slide.
+
+    <br /><hr />
+  </kemet-tab-panel>
+</kemet-tabs>

@@ -24,12 +24,15 @@ export default class KemetAccordion extends LitElement {
   @property({ type: Boolean, attribute: 'toggle-panels '})
   togglePanels: boolean = false;
 
+  /** @internal */
   @state()
   panels: any;
 
+  /** @internal */
   @state()
   onKeyDown: (event: any) => any;
 
+  /** @internal */
   @state()
   currentPanelFocus: number;
 

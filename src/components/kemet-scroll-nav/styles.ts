@@ -13,6 +13,7 @@ export const stylesScrollNav = css`
   :host([effect="resize"]) {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
   }
 
