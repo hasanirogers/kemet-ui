@@ -3,6 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import '../kemet-avatar';
+import '../kemet-avatars';
 
 import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
