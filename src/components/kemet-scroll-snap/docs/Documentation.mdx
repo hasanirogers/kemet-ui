@@ -1,0 +1,73 @@
+import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import * as ScrollSnapStories from './stories'
+
+<Meta of={ScrollSnapStories} />
+
+# Kemet Scroll Snap
+
+A scroll-snap implementation for responsive sliders.
+
+<kemet-tabs divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-scroll-snap>
+      <div slot="slides">
+        <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
+        <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
+        <kemet-scroll-snap-slide>[your content here]</kemet-scroll-snap-slide>
+      </div>
+      <kemet-scroll-snap-paginator slot="pagination"></kemet-scroll-snap-paginator>
+    </kemet-scroll-snap>
+    ```
+
+    **Note:** If you're interested in hiding the scrollbar while in horizontal here's how to do it with css:
+
+    ```css
+    kemet-scroll-snap[axis="horizontal"] [slot="slides"] {
+      scrollbar-width: none;
+    }
+
+    kemet-scroll-snap[axis="horizontal"] [slot="slides"]::-webkit-scrollbar {
+      display: none;
+      width: 0px;
+      background: transparent;
+    }
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/dist/components/kemet-scroll-snap/kemet-scroll-snap.js';
+    import 'kemet-ui/dist/components/kemet-scroll-snap/kemet-scroll-snap-slide.js';
+    import 'kemet-ui/dist/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js';
+    ```
+
+    ### Import HTML
+    ```html
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-snap/kemet-scroll-snap.js" type="module"></script>
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-snap/kemet-scroll-snap-slide.js" type="module"></script>
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-snap/kemet-scroll-snap-paginator.js" type="module"></script>
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={ScrollSnapStories.Standard}  />
+    <ArgsTable story={PRIMARY_STORY} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-scroll-snap&gt;
+    <ArgsTable of="kemet-scroll-snap" />
+
+    <br />
+
+    ### &lt;kemet-scroll-snap-slide&gt;
+    <ArgsTable of="kemet-scroll-snap-slide" />
+
+    <br />
+
+    ### &lt;kemet-scroll-snap-paginator&gt;
+    <ArgsTable of="kemet-scroll-snap-paginator" />
+  </kemet-tab-panel>
+</kemet-tabs>

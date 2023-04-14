@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-icon.js';
+import './kemet-icon.ts';
 
 describe('KemetIcon', () => {
   it('passes the a11y audit', async () => {

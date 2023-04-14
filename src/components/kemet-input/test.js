@@ -1,6 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
-
-import './kemet-input.js';
+import './kemet-input.ts';
 
 const templates = {
   input: () => html`<kemet-input name="input" value="input" validate-on-blur></kemet-input>`,
@@ -11,7 +10,7 @@ const templates = {
     <form>
       <kemet-field label="Input">
         <kemet-input slot="input" type="email" name="input" value="input" icon-left="check" icon-right="check"></kemet-input>
-        <kemet-count slot="component" message="characters remaining." limit="8" validate-immediately=""></kemet-count>
+        <kemet-count slot="component" message="characters remaining." limit="8" validate-immediately></kemet-count>
       </kemet-field>
       <kemet-button>Button</kemet-button>
     </form>

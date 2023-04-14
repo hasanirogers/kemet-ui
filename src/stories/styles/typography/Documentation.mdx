@@ -1,0 +1,18 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories'
+
+<Meta of={stories} />
+
+# Typography
+
+You can control the size of type with type-size.
+
+<Canvas name="Standard" of={stories.Standard} />
+
+<ArgsTable story="Standard" />
+
+## Multiple Responsive Sizes
+
+<br />
+
+<Canvas name="Multiple" of={stories.Multiple} />

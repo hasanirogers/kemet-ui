@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-rotator.js';
+import './kemet-rotator.ts';
 
 describe('KemetRotator', () => {
   it('has a the correct defaults', async () => {

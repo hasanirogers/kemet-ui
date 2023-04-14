@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories'
+
+<Meta of={stories} />
+
+# Visibility
+
+Use show and hide to control for visibility. Resize the screen to see the effect.
+
+<br />
+
+## Show
+
+<Canvas name="Show" of={stories.Show} />
+
+<ArgsTable story="Show" />
+
+<br />
+
+## Hide
+
+<Canvas name="Hide" of={stories.Hide} />
+
+<ArgsTable story="Hide" />

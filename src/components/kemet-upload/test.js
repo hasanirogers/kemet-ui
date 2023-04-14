@@ -5,8 +5,8 @@ import {
   oneEvent,
 } from '@open-wc/testing';
 
-import './kemet-upload.js';
-import './kemet-upload-file.js';
+import './kemet-upload.ts';
+import './kemet-upload-file.ts';
 
 const templates = {
   default: () => html`

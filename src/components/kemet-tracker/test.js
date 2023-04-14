@@ -1,7 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-tracker.js';
-import './kemet-tracker-step.js';
+import './kemet-tracker.ts';
+import './kemet-tracker-step.ts';
 
 const template = () => html`
   <kemet-tracker>

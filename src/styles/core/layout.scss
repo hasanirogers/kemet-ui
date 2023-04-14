@@ -1,5 +1,5 @@
-@use 'config' as *;
-@use 'helpers' as *;
+@use '../shared/config' as *;
+@use '../shared/helpers' as *;
 
 %flexitem {
   flex: 1;

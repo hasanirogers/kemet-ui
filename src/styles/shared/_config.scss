@@ -1,0 +1,358 @@
+///
+///  __   __   _ _ _ _   _ _       _ _   _ _ _ _   _ _ _ _ _
+/// |  | /  / |    _ _| |   \     /   | |   _ _ | |_ _   _ _|
+/// |  |/  /  |  |_ _   |    \   /    | |  |_ _       | |
+/// |     \   |   _ _|  |  \  \_/  /  | |   _ _|      | |
+/// |  |\  \  |  |_ _   |  |\     /|  | |  | _ _      | |
+/// |__| \__\ |_ _ _ _| |__| \_ _/ |__| |_ _ _ _|     |_|
+///
+///
+
+
+
+
+/// You can set gutters to whatever space you like.
+/// The defaults here should cover most needs.
+/// While you can add or remove plus/minus, zero is required
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$gutters: (
+  none: 0,
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  default: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+) !default;
+
+
+
+
+/// Controls breakpoint sizing.
+/// Must equal either "fives", "tens", or "twenties" exactly or Kemet will break
+/// Note: that -25 -75 will still be added if this is by tens or twenties.
+/// @type String
+/// @access public
+/// @group config-variables
+
+$flexiplier: 'tens' !default;
+
+
+
+
+/// The point where Kemet goes from a small "mobile" layout to a full layout.
+/// $stackpoint is used primarily to configure where autostack forces a mobile layout.
+/// @type String
+/// @access public
+/// @group config-variables
+
+$stackpoint: 767px !default;
+
+
+
+
+/// A map that defines Kemet's breakpoints
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$breakpoints: (
+  tiny: 0,
+  small: 321px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1440px
+) !default;
+
+
+
+
+/// A map that defines ranges for Kemet's visibility classes
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$breakranges: (
+  tiny: (0, 319px),
+  small: (320px, 767px),
+  medium: (768px, 1023px),
+  large: (1024px, 1439px),
+  huge: (1440px, 9999px)
+) !default;
+
+
+
+
+/// Determines the number of priority that can be set for the order attribute.
+/// @type Number
+/// @access public
+/// @group config-variables
+
+$order: 5 !default;
+
+
+
+
+/// The number of columns that can exist while using basis with flexgrid.
+/// @type Number
+/// @access public
+/// @group config-variables
+
+$flexgridcolumns: 12 !default;
+
+
+
+
+/// A map that defines sizes for type
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$typesizers: (
+  minus-3: 0.5rem,
+  minus-2: 0.75rem,
+  minus-1: 0.85rem,
+  base: 1rem,
+  plus-1: 1.125rem,
+  plus-2: 1.25rem,
+  plus-3: 1.5rem,
+  plus-4: 2rem,
+  plus-5: 2.25rem,
+  plus-6: 3rem
+) !default;
+
+
+
+
+/// A map that defines sizes for margins and padding helpers
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$spacers: (
+  none: 0,
+  auto: auto,
+  small: 1.5rem,
+  smaller: 1rem,
+  smallest: 0.5rem,
+  normal: 2rem,
+  large: 2.5rem,
+  larger: 3rem,
+  largest: 3.5rem
+) !default;
+
+
+
+
+/// A map that defines the colors
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$colors: (
+  // base colors
+  white: rgba(255, 255, 255, 1),
+  white-10: rgba(255, 255, 255, 0.1),
+  white-20: rgba(255, 255, 255, 0.2),
+  white-30: rgba(255, 255, 255, 0.3),
+  white-40: rgba(255, 255, 255, 0.4),
+  white-50: rgba(255, 255, 255, 0.5),
+  white-60: rgba(255, 255, 255, 0.6),
+  white-70: rgba(255, 255, 255, 0.7),
+  white-80: rgba(255, 255, 255, 0.8),
+  white-90: rgba(255, 255, 255, 0.9),
+  white-rich: rgba(242, 242, 242, 1),
+
+  black: rgba(0, 0, 0, 1),
+  black-10: rgba(0, 0, 0, 0.1),
+  black-20: rgba(0, 0, 0, 0.2),
+  black-30: rgba(0, 0, 0, 0.3),
+  black-40: rgba(0, 0, 0, 0.4),
+  black-50: rgba(0, 0, 0, 0.5),
+  black-60: rgba(0, 0, 0, 0.6),
+  black-70: rgba(0, 0, 0, 0.7),
+  black-80: rgba(0, 0, 0, 0.8),
+  black-90: rgba(0, 0, 0, 0.9),
+
+  gray1: #eff2f1,
+  gray2: #d7d7d7,
+  gray3: #bebebe,
+  gray4: #a4a4a4,
+  gray5: #8b8b8b,
+  gray6: #727270,
+  gray7: #585858,
+  gray8: #3f3f3f,
+  gray9: #262626,
+  gray10: #0c0c0c,
+
+  primary: rgba(12, 74, 110, 1),
+  primary-10: rgba(12, 74, 110, 0.1),
+  primary-20: rgba(12, 74, 110, 0.2),
+  primary-30: rgba(12, 74, 110, 0.3),
+  primary-40: rgba(12, 74, 110, 0.4),
+  primary-50: rgba(12, 74, 110, 0.5),
+  primary-60: rgba(12, 74, 110, 0.6),
+  primary-70: rgba(12, 74, 110, 0.7),
+  primary-80: rgba(12, 74, 110, 0.8),
+  primary-90: rgba(12, 74, 110, 0.9),
+
+  error: rgba(197, 48, 48, 1),
+  success: rgba(22, 163, 74, 1),
+  neutral: rgba(82, 82, 91, 1),
+  warning: rgba(217, 119, 6, 1),
+
+  // theme colors
+  text: var(--kemet-color-gray9),
+  foreground: var(--kemet-color-white),
+  background: var(--kemet-color-primary)
+) !default;
+
+
+
+
+/// A map that defines the box shadow elevation
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$elevation: (
+  none: 0 0 #0000,
+  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
+) !default;
+
+
+
+
+/// A map that defines the amount of border widths
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$borderwidths: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+) !default;
+
+
+
+
+/// A map that defines the sizes of border radiuses
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$borderradiuses: (
+  small: 3px,
+  medium: 6px,
+  large: 12px,
+) !default;
+
+
+
+
+/// Control whether or not order attributes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeorder: true !default;
+
+
+
+/// Control whether or not visibility classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makevisibility: true !default;
+
+
+
+
+/// Control whether or not text classes will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$maketext: true !default;
+
+
+
+
+/// Control whether or not responsive gutters will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeresponsivegutters: true !default;
+
+
+
+
+/// Control whether or not margin utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makespacers: true !default;
+
+
+
+
+/// Control whether or not color utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makecolors: true !default;
+
+
+
+
+/// Control whether or not elevation utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeelevation: true !default;
+
+
+
+
+/// Control whether or not border utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeborders: true !default;
+
+
+
+
+/// Control whether or not border radius utilities will be included.
+/// @type Boolean
+/// @access public
+/// @group config-variables
+
+$makeborderradiuses: true !default;

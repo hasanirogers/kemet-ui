@@ -1,0 +1,50 @@
+import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import * as UploadStories from './stories'
+
+<Meta of={UploadStories} />
+
+# Kemet Upload
+
+An interface for uploading files (actual upload script must be handled by your app).
+
+<kemet-tabs divider panel-effect="stacked">
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-upload>
+      <kemet-upload-file></kemet-upload-file>
+      <kemet-upload-file></kemet-upload-file>
+      <kemet-upload-file></kemet-upload-file>
+    </kemet-upload>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/dist/components/kemet-upload/kemet-upload.js';
+    import 'kemet-ui/dist/components/kemet-upload/kemet-upload-file.js';
+    ```
+
+    ### Import HTML
+    ```html
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-upload/kemet-upload.js" type="module"></script>
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-upload/kemet-upload-file.js" type="module"></script>
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    **Note** Kemet UI cannot provide actual upload functionality for you. You need to write your own upload script. You can do this by listening to the `kemet-upload-change` event. This event will give you the files that have been added. You'll need to dynamically insert a `kemet-upload-file` element for each of these files in the event. [Here's an example script](https://stackblitz.com/edit/kemet-upload-example?file=index.js) that demonstrates how to do this.
+    <Canvas of={UploadStories.Standard}  />
+    <ArgsTable story={PRIMARY_STORY} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-upload&gt;
+    <ArgsTable of="kemet-upload" />
+
+    <br />
+
+    ### &lt;kemet-upload-file&gt;
+    <ArgsTable of="kemet-upload-file" />
+  </kemet-tab-panel>
+</kemet-tabs>

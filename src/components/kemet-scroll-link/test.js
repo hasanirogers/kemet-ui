@@ -1,5 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
-import './kemet-scroll-link.js';
+import './kemet-scroll-link.ts';
 
 describe('KemetScrollLink', () => {
   it('has the correct defaults', async () => {

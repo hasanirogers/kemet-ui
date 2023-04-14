@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-drawer.js';
+import './kemet-drawer.ts';
 
 describe('KemetDrawer', () => {
   it('has the correct defaults', async () => {

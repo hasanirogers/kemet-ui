@@ -1,0 +1,54 @@
+import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import * as ScrollLinkStories from './stories'
+
+<Meta of={ScrollLinkStories} />
+
+# Kemet Scroll Link
+
+A component that adds a smooth scrolling link to an target.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <article>
+      <h1>Heading</h1>
+      ...
+    <article>
+    <kemet-scroll-link>
+      <button>Scroll to Top</button>
+    </kemet-scroll-link>
+    ```
+
+    ### JavaScript
+    ```js
+    const link = document.querySelector('kemet-scroll-link');
+    link.target = document.querySelector('h1');
+    ```
+
+    Use the target property on `kemet-scroll-link` to point to a DOM element that should be the destination of the link. In this example, we link to the first `h1`.
+
+    <br />
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/dist/components/kemet-scroll-link/kemet-scroll-link.js';
+    ```
+
+    ### Import HTML
+    ```html
+    <script src="https://unpkg.com/kemet-ui@latest/dist/components/kemet-scroll-link/kemet-scroll-link.js" type="module"></script>
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={ScrollLinkStories.Standard}  />
+    <ArgsTable story={PRIMARY_STORY} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-scroll-link&gt;
+    <ArgsTable of="kemet-scroll-link" />
+  </kemet-tab-panel>
+</kemet-tabs>

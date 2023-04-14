@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './kemet-svgs.js';
+import './kemet-svgs.ts';
 
 describe('KemetSVGs', () => {
   it('passes the a11y audit', async () => {

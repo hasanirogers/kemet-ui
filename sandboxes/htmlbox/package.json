@@ -1,0 +1,17 @@
+{
+  "name": "htmlbox",
+  "version": "1.0.0",
+  "description": "An html sandbox.",
+  "main": "index.js",
+  "scripts": {
+    "build": "cp -R ../../dist build",
+    "start": "npm run build && web-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+
+  },
+  "author": "Hasani Rogers <dev@hasanirogers.me>",
+  "license": "ISC",
+  "devDependencies": {
+    "@web/dev-server": "^0.1.37"
+  }
+}
