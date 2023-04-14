@@ -1,8 +1,18 @@
 import { html } from 'lit';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+import '../../../components/kemet-button/kemet-button';
+
+const meta: Meta = {
+  title: 'Templates / Bootstrap',
+};
+export default meta;
+
+type Story = StoryObj;
 
 const handleFormSubmit = (event) => {
   const form = event.srcElement;
-  const formData = new FormData(form);
+  const formData = new FormData(form) as any;
 
   for (const pair of formData.entries()) {
     console.log(`${pair[0]}: ${pair[1]}`);
@@ -151,4 +161,7 @@ const CheckoutTemplate = () => html`
     </footer>
   </main>
 `;
-export const Checkout = CheckoutTemplate.bind({});
+
+export const Checkout: Story = {
+  render: CheckoutTemplate,
+}

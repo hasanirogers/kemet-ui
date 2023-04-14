@@ -1,4 +1,12 @@
 import { html } from 'lit';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+const meta: Meta = {
+  title: 'Styles / Flexlist',
+};
+export default meta;
+
+type Story = StoryObj;
 
 const TemplateExample1 = () => html`
   <div kemet-layout="flexlist" kemet-gutters>
@@ -10,7 +18,6 @@ const TemplateExample1 = () => html`
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
   </div>
 `;
-export const Example1 = TemplateExample1.bind({});
 
 const TemplateExample2 = () => html`
   <div kemet-layout="flexlist" kemet-gutters>
@@ -22,7 +29,6 @@ const TemplateExample2 = () => html`
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
   </div>
 `;
-export const Example2 = TemplateExample2.bind({});
 
 const TemplateExample3 = () => html`
   <div kemet-layout="flexlist" kemet-gutters="">
@@ -34,4 +40,15 @@ const TemplateExample3 = () => html`
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
   </div>
 `;
-export const Example3 = TemplateExample3.bind({});
+
+export const Example1: Story = {
+  render: TemplateExample1,
+}
+
+export const Example2: Story = {
+  render: TemplateExample2,
+}
+
+export const Example3: Story = {
+  render: TemplateExample3,
+}

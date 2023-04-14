@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
-import * as stories from './foundation.stories.js';
+import * as stories from './stories';
 
-<Meta title="Templates/Zurb Foundation" />
+<Meta of={stories} />
 
 # Zurb Foundation Templates
 
@@ -11,30 +11,22 @@ The following templates have been inspired by Zurb Foundation templates. These t
 
 ## Agency
 
-<Canvas>
-  <Story story={stories.Agency} />
-</Canvas>
+<Canvas of={stories.Agency} />
 
 <br />
 
 ## ECommerce
 
-<Canvas>
-  <Story story={stories.eCommerce} />
-</Canvas>
+<Canvas story={stories.eCommerce} />
 
 <br />
 
 ## News
 
-<Canvas>
-  <Story story={stories.News} />
-</Canvas>
+<Canvas story={stories.News} />
 
 <br />
 
 ## Travel
 
-<Canvas>
-  <Story story={stories.Travel} />
-</Canvas>
+<Canvas story={stories.Travel} />

@@ -1,4 +1,12 @@
 import { html } from 'lit';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+const meta: Meta = {
+  title: 'Templates / Foundation',
+};
+export default meta;
+
+type Story = StoryObj;
 
 const AgencyTemplate = () => html`
   <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2" kemet-padding-bottom="tiny:small medium:none">
@@ -100,7 +108,6 @@ const AgencyTemplate = () => html`
     <div>
   </section>
 `;
-export const Agency = AgencyTemplate.bind({});
 
 const eCommerceTemplate = () => html`
   <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2" kemet-padding-bottom="tiny:small medium:none">
@@ -388,7 +395,6 @@ const eCommerceTemplate = () => html`
     <br /><br />
   </section>
 `;
-export const eCommerce = eCommerceTemplate.bind({});
 
 const NewsTemplate = () => html`
   <header kemet-padding="tiny:smallest" kemet-background-color="gray2">
@@ -718,7 +724,6 @@ const NewsTemplate = () => html`
     </section>
   </main>
 `;
-export const News = NewsTemplate.bind({});
 
 const TravelTemplate = () => html`
   <header kemet-layout="flexrow" kemet-align="middle" kemet-background-color="gray2" kemet-autostack kemet-padding="tiny:smallest">
@@ -899,4 +904,20 @@ const TravelTemplate = () => html`
     </div>
   </section>
 `;
-export const Travel = TravelTemplate.bind({});
+
+
+export const Agency: Story = {
+  render: AgencyTemplate,
+}
+
+export const eCommerce: Story = {
+  render: eCommerceTemplate,
+}
+
+export const News: Story = {
+  render: NewsTemplate,
+}
+
+export const Travel: Story = {
+  render: TravelTemplate
+}

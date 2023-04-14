@@ -1,15 +1,13 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
-import * as stories from './spacing.stories.js'
+import * as stories from './stories'
 
-<Meta title="Styles/Spacing" />
+<Meta of={stories} />
 
 # Spacing
 
 Allows you to add either margin on padding to an element.
 
-<Canvas>
-  <Story name="Standard" story={stories.Standard} />
-</Canvas>
+<Canvas name="Standard" of={stories.Standard} />
 
 <ArgsTable story="Standard" />
 
@@ -19,6 +17,4 @@ Allows you to add either margin on padding to an element.
 
 You can also change the spacing at multiple breakpoints.
 
-<Canvas>
-  <Story name="Multiple" story={stories.Multiple} />
-</Canvas>
+<Canvas name="Multiple" of={stories.Multiple} />

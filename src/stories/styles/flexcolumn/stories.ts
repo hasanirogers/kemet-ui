@@ -1,4 +1,12 @@
 import { html } from 'lit';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+const meta: Meta = {
+  title: 'Styles / Flexcolumn',
+};
+export default meta;
+
+type Story = StoryObj;
 
 const TemplateExample1 = () => html`
   <section kemet-layout="flexcolumn" kemet-gutters style="height:300px;">
@@ -7,7 +15,6 @@ const TemplateExample1 = () => html`
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">3</div></div>
   </section>
 `;
-export const Example1 = TemplateExample1.bind({});
 
 const TemplateExample2 = () => html`
   <section kemet-layout="flexcolumn" kemet-gutters style="height:300px;">
@@ -16,4 +23,30 @@ const TemplateExample2 = () => html`
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">3</div></div>
   </section>
 `;
-export const Example2 = TemplateExample2.bind({});
+
+export const Example1: Story = {
+  render: TemplateExample1,
+  args: {
+    layer: 'layer3',
+  },
+  argTypes: {
+    layer: {
+      control: { type: 'select' },
+      options: ['none', 'layer1', 'layer2', 'layer3', 'layer4', 'layer5', 'layer6', 'inner'],
+    },
+  }
+}
+
+export const Example2: Story = {
+  render: TemplateExample2,
+  args: {
+    layer: 'layer3',
+  },
+  argTypes: {
+    layer: {
+      control: { type: 'select' },
+      options: ['none', 'layer1', 'layer2', 'layer3', 'layer4', 'layer5', 'layer6', 'inner'],
+    },
+  }
+}
+

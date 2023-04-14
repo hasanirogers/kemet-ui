@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
-import * as stories from './flexgrid.stories.js'
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import * as stories from './stories'
 
-<Meta title="Styles/Flexgrid" />
+<Meta of={stories} />
 
 # Flexgrid
 
@@ -12,15 +12,12 @@ Flexgrid allows you to size a list of flex items to achieve effects similar to a
 ## Example 1
 
 Flexgrid allows you to size a list of flex items to achieve effects similar to a grid. Use breakpoint on each item to size them.
-<Canvas>
-  <Story name="Example1" story={stories.Example1} />
-</Canvas>
+<Canvas name="Example1" of={stories.Example1} />
 
 <br />
 
 ## Example 2
 
 Use basis on large flexgrids where you want specific columns and don't need individual control over items. You can change the columns at their respective breakpoints.
-<Canvas>
-  <Story name="Example2" story={stories.Example2} />
-</Canvas>
+<Canvas name="Example2" of={stories.Example2} />
+

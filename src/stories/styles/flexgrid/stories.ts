@@ -1,4 +1,12 @@
 import { html } from 'lit';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+const meta: Meta = {
+  title: 'Styles / Flexgrid',
+};
+export default meta;
+
+type Story = StoryObj;
 
 const TemplateExample1 = () => html`
   <section kemet-layout="flexgrid" kemet-gutters="plus-1">
@@ -16,7 +24,6 @@ const TemplateExample1 = () => html`
     </div>
   </section>
 `;
-export const Example1 = TemplateExample1.bind({});
 
 const TemplateExample2 = () => html`
   <section kemet-layout="flexgrid" kemet-gutters kemet-basis="tiny:4-columns medium:6-columns huge:12-columns">
@@ -34,4 +41,12 @@ const TemplateExample2 = () => html`
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">12</div></div>
   </section>
 `;
-export const Example2 = TemplateExample2.bind({});
+
+export const Example1: Story = {
+  render: TemplateExample1,
+}
+
+export const Example2: Story = {
+  render: TemplateExample2,
+}
+

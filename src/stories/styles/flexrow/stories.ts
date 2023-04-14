@@ -1,4 +1,12 @@
 import { html } from 'lit';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+const meta: Meta = {
+  title: 'Styles / Flexrow',
+};
+export default meta;
+
+type Story = StoryObj;
 
 const TemplateExample1 = () => html`
   <section kemet-layout="flexrow">
@@ -8,7 +16,6 @@ const TemplateExample1 = () => html`
     <div><div kemet-background-color="auto" kemet-color="auto" kemet-padding="tiny:smallest">4</div></div>
   </section>
 `;
-export const Example1 = TemplateExample1.bind({});
 
 const TemplateExample2 = () => html`
   <section kemet-layout="flexrow" kemet-autostack kemet-gutters>
@@ -18,7 +25,6 @@ const TemplateExample2 = () => html`
     <div><div kemet-background-color="auto" kemet-color="auto" kemet-padding="tiny:smallest">4</div></div>
   </section>
 `;
-export const Example2 = TemplateExample2.bind({});
 
 const TemplateExample3 = () => html`
   <section kemet-layout="flexrow" kemet-gutters="tiny:none medium:default large:plus-6">
@@ -28,7 +34,6 @@ const TemplateExample3 = () => html`
     <div><div kemet-background-color="auto" kemet-color="auto" kemet-padding="tiny:smallest">4</div></div>
   </section>
 `;
-export const Example3 = TemplateExample3.bind({});
 
 const TemplateExample4 = () => html`
   <section kemet-layout="flexrow" kemet-gutters="minus-1">
@@ -38,7 +43,6 @@ const TemplateExample4 = () => html`
     <div kemet-breakpoint="tiny:50"><div kemet-background-color="auto" kemet-color="auto" kemet-padding="tiny:smallest">4</div></div>
   </section>
 `;
-export const Example4 = TemplateExample4.bind({});
 
 const TemplateExample5 = () => html`
   <section kemet-layout="flexrow" kemet-gutters="plus-1" kemet-align="middle" style="height: 64px;">
@@ -55,7 +59,6 @@ const TemplateExample5 = () => html`
     </div>
   </section>
 `;
-export const Example5 = TemplateExample5.bind({});
 
 const TemplateExample6 = () => html`
   <section kemet-layout="flexrow" kemet-align-cross="between">
@@ -63,4 +66,27 @@ const TemplateExample6 = () => html`
     <div kemet-breakpoint="tiny:content"><div kemet-background-color="auto" kemet-color="auto" kemet-padding="tiny:smallest">Right</div></div>
   </section>
 `;
-export const Example6 = TemplateExample6.bind({});
+
+export const Example1: Story = {
+  render: TemplateExample1,
+}
+
+export const Example2: Story = {
+  render: TemplateExample2,
+}
+
+export const Example3: Story = {
+  render: TemplateExample3,
+}
+
+export const Example4: Story = {
+  render: TemplateExample4,
+}
+
+export const Example5: Story = {
+  render: TemplateExample5,
+}
+
+export const Example6: Story = {
+  render: TemplateExample6,
+}
