@@ -12,8 +12,7 @@ module.exports = {
   },
   ignorePatterns: [
     'dist/**/*.js',
-    'sandboxes/htmlbox/build/**/*.js',
-    'sandboxes/reactbox/build/**/*.js',
+    'sandboxes/**/*',
     'src/utilities/controllers/**/*.js',
   ],
   parser: '@babel/eslint-parser',

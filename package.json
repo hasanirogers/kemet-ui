@@ -9,7 +9,7 @@
   },
   "scripts": {
     "analyze": "custom-elements-manifest analyze --litelement --globs \"src/components/**/kemet-*.*\"",
-    "build": "npm run build:css && npm run build:ts && npm run build:rollup",
+    "build": "rimraf dist && npm run build:css && npm run build:ts && npm run build:rollup",
     "build:css": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css src/styles/kemet.base.scss:dist/styles/kemet.base.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
     "build:rollup": "rollup -c config/rollup.mjs",
     "build:ts": "tsc",

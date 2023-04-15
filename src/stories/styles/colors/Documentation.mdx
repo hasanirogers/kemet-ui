@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import * as stories from './stories';
+
+<Meta of={stories} />
+
+# Colors
+
+Kemet's config includes a number of generic colors to use out of the box for you to style with. Kemet will generate attribute values for `kemet-color` and `kemet-background-color` based how you have configured these colors. Checkout out the following to experiment with default values:
+
+<Canvas name="Standard" of={stories.Standard} />
+<ArgsTable story="Standard" />
+
+## Theme-ing
+
+Here you'll notice that if you set color to either `foreground` or `background` they colors will change between light and dark themes. These values are special theme values and you can configure Kemet to generate as many theme values as you wish.
+
+Here are the values for these colors:
+
+### light
+- foreground = white
+- background = primary
+
+### dark
+- foreground = primary
+- background = white
+
+### Special Custom Properties
+
+Kemet ships with a number of css custom properties that are specifically for theme-ing. They are as the following:
+
+| Property                             | Light Value                | Dark Value                 |
+| ------------------------------------ | -------------------------- | -------------------------- |
+| --kemet-color-text                   | var(--kemet-color-gray9)   | var(--kemet-color-white)   |
+| --kemet-color-foreground             | var(--kemet-color-white)   | var(--kemet-color-primary) |
+| --kemet-color-background             | var(--kemet-color-primary) | var(--kemet-color-white)   |
+| --kemet-color-white-to-black         | var(--kemet-color-white)   | var(--kemet-color-black)   |
+| --kemet-color-white-to-primary       | var(--kemet-color-white)   | var(--kemet-color-primary) |
+| --kemet-color-gray1-to-transparent   | var(--kemet-color-gray1)   | transparent                |
+| --kemet-color-primary-to-transparent | var(--kemet-color-primary) | transparent                |
+| --kemet-upload-margin                | 1rem                       | 0                          |
+
+Notice that there's more than colors here. `--kemet-upload-margin` is a component specific property that changes between themes. You can create as many properties as you need to style your own themes.
