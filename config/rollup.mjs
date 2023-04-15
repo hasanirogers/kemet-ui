@@ -3,8 +3,15 @@ import multi from '@rollup/plugin-multi-entry';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import pkgMinifyHTML from 'rollup-plugin-minify-html-literals';
+import copy from 'rollup-plugin-copy';
 
 const minifyHTML = pkgMinifyHTML.default;
+
+const copyConfig = {
+  targets: [
+    { src: 'src/styles', dest: 'dist' },
+  ],
+};
 
 export default [
   // for bundlers
@@ -14,7 +21,7 @@ export default [
       { file: 'dist/kemet-components.js', format: 'esm' },
       { file: 'dist/kemet-components.cjs', format: 'cjs' },
     ],
-    plugins: [resolve(), commonjs(), multi()],
+    plugins: [resolve(), commonjs(), multi(), copy(copyConfig)],
   },
   // for browsers
   {
