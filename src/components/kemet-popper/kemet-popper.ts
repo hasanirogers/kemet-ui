@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, query, queryAll, state } from 'lit/decorators.js';
-import { createPopper } from '@popperjs/core';
+import { createPopper } from '@popperjs/core/dist/esm';
 import { emitEvent } from '../../utilities/misc/events';
 import { keyCodes } from '../../utilities/misc/constants';
 import { TypeEffect, TypeFireOn, TypePlacement } from './types';
