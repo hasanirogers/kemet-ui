@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/web-components-webpack5';
+import type { StorybookConfig } from '@storybook/web-components-vite';
 import remarkGfm from 'remark-gfm';
 
 const config: StorybookConfig = {
@@ -21,7 +21,7 @@ const config: StorybookConfig = {
     '@whitespace/storybook-addon-html',
   ],
   framework: {
-    name: '@storybook/web-components-webpack5',
+    name: '@storybook/web-components-vite',
     options: {}
   },
   docs: {

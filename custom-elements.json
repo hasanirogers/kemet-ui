@@ -281,78 +281,29 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.ts",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAvatar",
+          "name": "KemetBadge",
           "cssProperties": [
             {
-              "description": "The color of the text. Default: var(--kemet-color-white).",
-              "name": "--kemet-avatar-color"
-            },
-            {
-              "description": "The color of the background. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-avatar-background-color"
-            },
-            {
-              "description": "The border radius of the rounded type. Default: 1rem.",
-              "name": "--kemet-avatar-rounded-radius"
-            },
-            {
-              "description": "The space around the initials. Default: 1rem.",
-              "name": "--kemet-avatar-initials-margin"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the initials for the avatar.",
-              "name": "initials"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon or element that indicates the status of the avatar.",
-              "name": "status"
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "size",
+              "name": "status",
               "type": {
                 "text": "string"
               },
-              "description": "The size in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "attribute": "image"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "attribute": "initials"
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -360,128 +311,81 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
+              "default": "false",
+              "description": "Displays the badge in a circle",
               "attribute": "circle",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "rounded",
+              "name": "pill",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays with rounded corners",
-              "attribute": "rounded",
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
               "reflects": true
             },
             {
-              "kind": "method",
-              "name": "makeSize"
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
             },
             {
               "kind": "method",
-              "name": "makeContent"
+              "name": "handleSlotChange"
             }
           ],
           "attributes": [
             {
-              "name": "size",
+              "name": "status",
               "type": {
                 "text": "string"
               },
-              "description": "The size in pixels.",
-              "fieldName": "size"
-            },
-            {
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "fieldName": "image"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "fieldName": "label"
-            },
-            {
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "fieldName": "initials"
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
             },
             {
               "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
+              "default": "false",
+              "description": "Displays the badge in a circle",
               "fieldName": "circle"
             },
             {
-              "name": "rounded",
+              "name": "pill",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays with rounded corners",
-              "fieldName": "rounded"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatar",
-          "summary": "A representation of a person or thing.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatar",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatars",
-          "cssProperties": [
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
             {
-              "description": "The space between avatars. Default: -1.5rem.",
-              "name": "--kemet-avatars-squeeze"
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
             }
           ],
-          "members": [],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-avatars",
-          "summary": "Groups multiple avatars.",
+          "tagName": "kemet-badge",
+          "summary": "Badges display the status of information.",
           "customElement": true
         }
       ],
@@ -490,16 +394,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-avatars",
+          "name": "kemet-badge",
           "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         }
       ]
@@ -726,29 +630,78 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
+      "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetBadge",
+          "name": "KemetAvatar",
           "cssProperties": [
             {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
+              "description": "The color of the text. Default: var(--kemet-color-white).",
+              "name": "--kemet-avatar-color"
+            },
+            {
+              "description": "The color of the background. Default: var(--kemet-color-gray4).",
+              "name": "--kemet-avatar-background-color"
+            },
+            {
+              "description": "The border radius of the rounded type. Default: 1rem.",
+              "name": "--kemet-avatar-rounded-radius"
+            },
+            {
+              "description": "The space around the initials. Default: 1rem.",
+              "name": "--kemet-avatar-initials-margin"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Contains the initials for the avatar.",
+              "name": "initials"
+            }
+          ],
+          "slots": [
+            {
+              "description": "A slot for an icon or element that indicates the status of the avatar.",
+              "name": "status"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "status",
+              "name": "size",
               "type": {
                 "text": "string"
               },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
+              "description": "The size in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "attribute": "initials"
             },
             {
               "kind": "field",
@@ -756,81 +709,85 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
-              "description": "Displays the badge in a circle",
+              "description": "Displays in a circle.",
               "attribute": "circle",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "pill",
+              "name": "rounded",
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
+              "description": "Displays with rounded corners",
+              "attribute": "rounded",
               "reflects": true
             },
             {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
+              "kind": "method",
+              "name": "makeSize"
             },
             {
               "kind": "method",
-              "name": "handleSlotChange"
+              "name": "makeContent"
             }
           ],
           "attributes": [
             {
-              "name": "status",
+              "name": "size",
               "type": {
                 "text": "string"
               },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
+              "description": "The size in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "fieldName": "image"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "fieldName": "label"
+            },
+            {
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "fieldName": "initials"
             },
             {
               "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
-              "description": "Displays the badge in a circle",
+              "description": "Displays in a circle.",
               "fieldName": "circle"
             },
             {
-              "name": "pill",
+              "name": "rounded",
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
+              "description": "Displays with rounded corners",
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
+          "tagName": "kemet-avatar",
+          "summary": "A representation of a person or thing.",
           "customElement": true
         }
       ],
@@ -839,150 +796,41 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-badge",
+          "name": "kemet-avatar",
           "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-card/kemet-card.ts",
+      "path": "src/components/kemet-avatar/kemet-avatars.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetCard",
+          "name": "KemetAvatars",
           "cssProperties": [
             {
-              "description": "The space around elements. Default: 1rem.",
-              "name": "--kemet-card-padding"
-            },
-            {
-              "description": "The color of the borders. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-card-border-color"
-            },
-            {
-              "description": "The color of the text. Default: var(--kemet-color-black).",
-              "name": "--kemet-card-color"
-            },
-            {
-              "description": "The max width of the card. Default: 360px.",
-              "name": "--kemet-card-max-width"
-            },
-            {
-              "description": "The border around the card. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-border"
-            },
-            {
-              "description": "The border radius of the card. Default: 0.",
-              "name": "--kemet-card-border-radius"
-            },
-            {
-              "description": "The background color. Default: var(--kemet-color-white).",
-              "name": "--kemet-card-background-color"
-            },
-            {
-              "description": "The body spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-body-padding"
-            },
-            {
-              "description": "The header spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-header-padding"
-            },
-            {
-              "description": "The header border. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-header-border-bottom"
-            },
-            {
-              "description": "The caption text color. Default: var(--kemet-color-white).",
-              "name": "--kemet-card-caption-color"
-            },
-            {
-              "description": "The caption spacing. Default: calc(var(--kemet-card-padding) / 2) var(--kemet-card-padding).",
-              "name": "--kemet-card-caption-padding"
-            },
-            {
-              "description": "The caption background color. Default: rgba(0,0,0,0.5).",
-              "name": "--kemet-card-caption-background-color"
-            },
-            {
-              "description": "The footer spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-footer-padding"
-            },
-            {
-              "description": "The footer border. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-footer-border-top"
+              "description": "The space between avatars. Default: -1.5rem.",
+              "name": "--kemet-avatars-squeeze"
             }
           ],
-          "cssParts": [
-            {
-              "description": "The media area of the card.",
-              "name": "media"
-            },
-            {
-              "description": "The main contents of the card.",
-              "name": "body"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            },
-            {
-              "description": "The cards's header.",
-              "name": "header"
-            },
-            {
-              "description": "A slot for images, videos, or embeds.",
-              "name": "media"
-            },
-            {
-              "description": "Text for the media slot.",
-              "name": "caption"
-            },
-            {
-              "description": "The card's footer.",
-              "name": "footer"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Centers the elements in the card.",
-              "attribute": "center",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Centers the elements in the card.",
-              "fieldName": "center"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-card",
-          "summary": "A highly configurable panel design to display media and information.",
+          "tagName": "kemet-avatars",
+          "summary": "Groups multiple avatars.",
           "customElement": true
         }
       ],
@@ -991,16 +839,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-card",
+          "name": "kemet-avatars",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         }
       ]
@@ -1301,6 +1149,158 @@
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-card/kemet-card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCard",
+          "cssProperties": [
+            {
+              "description": "The space around elements. Default: 1rem.",
+              "name": "--kemet-card-padding"
+            },
+            {
+              "description": "The color of the borders. Default: var(--kemet-color-gray4).",
+              "name": "--kemet-card-border-color"
+            },
+            {
+              "description": "The color of the text. Default: var(--kemet-color-black).",
+              "name": "--kemet-card-color"
+            },
+            {
+              "description": "The max width of the card. Default: 360px.",
+              "name": "--kemet-card-max-width"
+            },
+            {
+              "description": "The border around the card. Default: 1px solid var(--kemet-card-border-color).",
+              "name": "--kemet-card-border"
+            },
+            {
+              "description": "The border radius of the card. Default: 0.",
+              "name": "--kemet-card-border-radius"
+            },
+            {
+              "description": "The background color. Default: var(--kemet-color-white).",
+              "name": "--kemet-card-background-color"
+            },
+            {
+              "description": "The body spacing. Default: var(--kemet-card-padding).",
+              "name": "--kemet-card-body-padding"
+            },
+            {
+              "description": "The header spacing. Default: var(--kemet-card-padding).",
+              "name": "--kemet-card-header-padding"
+            },
+            {
+              "description": "The header border. Default: 1px solid var(--kemet-card-border-color).",
+              "name": "--kemet-card-header-border-bottom"
+            },
+            {
+              "description": "The caption text color. Default: var(--kemet-color-white).",
+              "name": "--kemet-card-caption-color"
+            },
+            {
+              "description": "The caption spacing. Default: calc(var(--kemet-card-padding) / 2) var(--kemet-card-padding).",
+              "name": "--kemet-card-caption-padding"
+            },
+            {
+              "description": "The caption background color. Default: rgba(0,0,0,0.5).",
+              "name": "--kemet-card-caption-background-color"
+            },
+            {
+              "description": "The footer spacing. Default: var(--kemet-card-padding).",
+              "name": "--kemet-card-footer-padding"
+            },
+            {
+              "description": "The footer border. Default: 1px solid var(--kemet-card-border-color).",
+              "name": "--kemet-card-footer-border-top"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The media area of the card.",
+              "name": "media"
+            },
+            {
+              "description": "The main contents of the card.",
+              "name": "body"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            },
+            {
+              "description": "The cards's header.",
+              "name": "header"
+            },
+            {
+              "description": "A slot for images, videos, or embeds.",
+              "name": "media"
+            },
+            {
+              "description": "Text for the media slot.",
+              "name": "caption"
+            },
+            {
+              "description": "The card's footer.",
+              "name": "footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "attribute": "center",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "fieldName": "center"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-card",
+          "summary": "A highly configurable panel design to display media and information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-card",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
           }
         }
       ]
@@ -6822,504 +6822,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetScrollSnapPaginator",
-          "cssProperties": [
-            {
-              "description": "The padding on the container. Default: 1rem 0.",
-              "name": "--kemet-scroll-snap-paginator-padding"
-            },
-            {
-              "description": "The space between pagination items. Default: 0.5rem.",
-              "name": "--kemet-scroll-snap-paginator-gap"
-            },
-            {
-              "description": "The color of a linkable pagination item. Default: var(--kemet-color-primary).",
-              "name": "--kemet-scroll-snap-paginator-link-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "slides",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]",
-              "description": "Information about each slide.",
-              "attribute": "slides"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'circle-fill'",
-              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The size in pixels of the icons.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether to center the pagination items.",
-              "attribute": "center",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hideFocusedLinks",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Will hide inactive pagination items if set to true.",
-              "attribute": "hide-focused-links"
-            },
-            {
-              "kind": "field",
-              "name": "useNumberPages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
-              "attribute": "use-number-pages",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "useLabelPages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
-              "attribute": "use-label-pages",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makePagination"
-            },
-            {
-              "kind": "method",
-              "name": "pageDisplay",
-              "parameters": [
-                {
-                  "name": "slide"
-                },
-                {
-                  "name": "visibleIndex"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "slideLink",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyboardInput",
-              "parameters": [
-                {
-                  "name": "event"
-                },
-                {
-                  "name": "id"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when a set of slides are focused on.",
-              "name": "kemet-scroll-snap-focus"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "slides",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]",
-              "description": "Information about each slide.",
-              "fieldName": "slides"
-            },
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'circle-fill'",
-              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
-              "fieldName": "icon"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The size in pixels of the icons.",
-              "fieldName": "size"
-            },
-            {
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether to center the pagination items.",
-              "fieldName": "center"
-            },
-            {
-              "name": "hide-focused-links",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Will hide inactive pagination items if set to true.",
-              "fieldName": "hideFocusedLinks"
-            },
-            {
-              "name": "use-number-pages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
-              "fieldName": "useNumberPages"
-            },
-            {
-              "name": "use-label-pages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
-              "fieldName": "useLabelPages"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-scroll-snap-paginator",
-          "summary": "The scroll snap's pagination.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetScrollSnapPaginator",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-scroll-snap-paginator",
-          "declaration": {
-            "name": "KemetScrollSnapPaginator",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetScrollSnapSlide",
-          "cssProperties": [
-            {
-              "description": "The width of the slide. Default: 100%.",
-              "name": "--kemet-scroll-snap-slide-width"
-            },
-            {
-              "description": "The slide alignment. Default: center.",
-              "name": "--kemet-scroll-snap-slide-align"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the slide is fully visible in it's container.",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "index",
-              "type": {
-                "text": "number"
-              },
-              "description": "Identifies the slide.",
-              "attribute": "index",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the slide.",
-              "attribute": "label",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "addTabIndex"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the slide is fully visible in it's container.",
-              "fieldName": "focused"
-            },
-            {
-              "name": "index",
-              "type": {
-                "text": "number"
-              },
-              "description": "Identifies the slide.",
-              "fieldName": "index"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the slide.",
-              "fieldName": "label"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-scroll-snap-slide",
-          "summary": "A slide in a scroll snap component.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetScrollSnapSlide",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-scroll-snap-slide",
-          "declaration": {
-            "name": "KemetScrollSnapSlide",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetScrollSnap",
-          "cssProperties": [
-            {
-              "description": "Space between the slides. Default: 1.5rem.",
-              "name": "--kemet-scroll-snap-gap"
-            },
-            {
-              "description": "The horizontal max width of the container. Default: 1024px.",
-              "name": "--kemet-scroll-snap-horizontal-max-width"
-            },
-            {
-              "description": "The vertical height of the container. Default: 100vh.",
-              "name": "--kemet-scroll-snap-vertical-height"
-            },
-            {
-              "description": "Padding on the vertical axis. Default: 0 2rem.",
-              "name": "--kemet-scroll-snap-slides-vertical-padding"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The slides container.",
-              "name": "slides"
-            },
-            {
-              "description": "The pagination element.",
-              "name": "pagination"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Place your slides here.",
-              "name": "slides"
-            },
-            {
-              "description": "Place the paginator component here if you want one.",
-              "name": "pagination"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "axis",
-              "type": {
-                "text": "string"
-              },
-              "default": "'horizontal'",
-              "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
-              "attribute": "axis",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pagination",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bottom'",
-              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
-              "attribute": "pagination",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "isTouchDevice",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "slides",
-              "type": {
-                "text": "any[]"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setFocusedSlides"
-            },
-            {
-              "kind": "method",
-              "name": "makeSlides"
-            },
-            {
-              "kind": "method",
-              "name": "focusSlide",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setVerticalAttribute"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when slide data has been created.",
-              "name": "kemet-scroll-snap-make-slides"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "axis",
-              "type": {
-                "text": "string"
-              },
-              "default": "'horizontal'",
-              "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
-              "fieldName": "axis"
-            },
-            {
-              "name": "pagination",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bottom'",
-              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
-              "fieldName": "pagination"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-scroll-snap",
-          "summary": "A scroll-snap implementation for responsive sliders.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetScrollSnap",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-scroll-snap",
-          "declaration": {
-            "name": "KemetScrollSnap",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-select/kemet-option.ts",
       "declarations": [
         {
@@ -7851,6 +7353,504 @@
           "declaration": {
             "name": "KemetSelect",
             "module": "src/components/kemet-select/kemet-select.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollSnapPaginator",
+          "cssProperties": [
+            {
+              "description": "The padding on the container. Default: 1rem 0.",
+              "name": "--kemet-scroll-snap-paginator-padding"
+            },
+            {
+              "description": "The space between pagination items. Default: 0.5rem.",
+              "name": "--kemet-scroll-snap-paginator-gap"
+            },
+            {
+              "description": "The color of a linkable pagination item. Default: var(--kemet-color-primary).",
+              "name": "--kemet-scroll-snap-paginator-link-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "description": "Information about each slide.",
+              "attribute": "slides"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'circle-fill'",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The size in pixels of the icons.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether to center the pagination items.",
+              "attribute": "center",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideFocusedLinks",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Will hide inactive pagination items if set to true.",
+              "attribute": "hide-focused-links"
+            },
+            {
+              "kind": "field",
+              "name": "useNumberPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
+              "attribute": "use-number-pages",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "useLabelPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
+              "attribute": "use-label-pages",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makePagination"
+            },
+            {
+              "kind": "method",
+              "name": "pageDisplay",
+              "parameters": [
+                {
+                  "name": "slide"
+                },
+                {
+                  "name": "visibleIndex"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "slideLink",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyboardInput",
+              "parameters": [
+                {
+                  "name": "event"
+                },
+                {
+                  "name": "id"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when a set of slides are focused on.",
+              "name": "kemet-scroll-snap-focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "description": "Information about each slide.",
+              "fieldName": "slides"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'circle-fill'",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
+              "fieldName": "icon"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The size in pixels of the icons.",
+              "fieldName": "size"
+            },
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether to center the pagination items.",
+              "fieldName": "center"
+            },
+            {
+              "name": "hide-focused-links",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Will hide inactive pagination items if set to true.",
+              "fieldName": "hideFocusedLinks"
+            },
+            {
+              "name": "use-number-pages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
+              "fieldName": "useNumberPages"
+            },
+            {
+              "name": "use-label-pages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
+              "fieldName": "useLabelPages"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-snap-paginator",
+          "summary": "The scroll snap's pagination.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetScrollSnapPaginator",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-snap-paginator",
+          "declaration": {
+            "name": "KemetScrollSnapPaginator",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollSnapSlide",
+          "cssProperties": [
+            {
+              "description": "The width of the slide. Default: 100%.",
+              "name": "--kemet-scroll-snap-slide-width"
+            },
+            {
+              "description": "The slide alignment. Default: center.",
+              "name": "--kemet-scroll-snap-slide-align"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the slide is fully visible in it's container.",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "description": "Identifies the slide.",
+              "attribute": "index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the slide.",
+              "attribute": "label",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "addTabIndex"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the slide is fully visible in it's container.",
+              "fieldName": "focused"
+            },
+            {
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "description": "Identifies the slide.",
+              "fieldName": "index"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the slide.",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-snap-slide",
+          "summary": "A slide in a scroll snap component.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetScrollSnapSlide",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-snap-slide",
+          "declaration": {
+            "name": "KemetScrollSnapSlide",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollSnap",
+          "cssProperties": [
+            {
+              "description": "Space between the slides. Default: 1.5rem.",
+              "name": "--kemet-scroll-snap-gap"
+            },
+            {
+              "description": "The horizontal max width of the container. Default: 1024px.",
+              "name": "--kemet-scroll-snap-horizontal-max-width"
+            },
+            {
+              "description": "The vertical height of the container. Default: 100vh.",
+              "name": "--kemet-scroll-snap-vertical-height"
+            },
+            {
+              "description": "Padding on the vertical axis. Default: 0 2rem.",
+              "name": "--kemet-scroll-snap-slides-vertical-padding"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The slides container.",
+              "name": "slides"
+            },
+            {
+              "description": "The pagination element.",
+              "name": "pagination"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Place your slides here.",
+              "name": "slides"
+            },
+            {
+              "description": "Place the paginator component here if you want one.",
+              "name": "pagination"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
+              "attribute": "axis",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pagination",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bottom'",
+              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
+              "attribute": "pagination",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isTouchDevice",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "any[]"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFocusedSlides"
+            },
+            {
+              "kind": "method",
+              "name": "makeSlides"
+            },
+            {
+              "kind": "method",
+              "name": "focusSlide",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setVerticalAttribute"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when slide data has been created.",
+              "name": "kemet-scroll-snap-make-slides"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "axis",
+              "type": {
+                "text": "string"
+              },
+              "default": "'horizontal'",
+              "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
+              "fieldName": "axis"
+            },
+            {
+              "name": "pagination",
+              "type": {
+                "text": "string"
+              },
+              "default": "'bottom'",
+              "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
+              "fieldName": "pagination"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-snap",
+          "summary": "A scroll-snap implementation for responsive sliders.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetScrollSnap",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-snap",
+          "declaration": {
+            "name": "KemetScrollSnap",
+            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
           }
         }
       ]
@@ -10042,369 +10042,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tracker/kemet-tracker-step.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetTrackerStep",
-          "cssProperties": [
-            {
-              "description": "The font size. Default: 90%",
-              "name": "--kemet-tracker-step-dot-font-size"
-            },
-            {
-              "description": "The text color. Default: var(--kemet-color-primary)",
-              "name": "--kemet-tracker-step-dot-color"
-            },
-            {
-              "description": "Border around a dot. Default: 1px solid var(--kemet-color-primary)",
-              "name": "--kemet-tracker-step-dot-border"
-            },
-            {
-              "description": "Width and height of a dot. Default: 50px",
-              "name": "--kemet-tracker-step-dot-size"
-            },
-            {
-              "description": "Mobile width and height of a dot. Default: 25px",
-              "name": "--kemet-tracker-step-dot-size-mobile"
-            },
-            {
-              "description": "Space between a dot and connector line. Default: 4px",
-              "name": "--kemet-tracker-step-dot-gap"
-            },
-            {
-              "description": "Transition of a dot. Default: all 300ms ease-in-out",
-              "name": "--kemet-tracker-step-dot-transition"
-            },
-            {
-              "description": "Fill color of a dot. Default: transparent",
-              "name": "--kemet-tracker-step-dot-fill-color"
-            },
-            {
-              "description": "Color of the background a dot is on. Default: var(--kemet-color-white)",
-              "name": "--kemet-tracker-step-dot-background-color"
-            },
-            {
-              "description": "Current dot text color. Default: var(--kemet-color-white)",
-              "name": "--kemet-tracker-step-current-color"
-            },
-            {
-              "description": "Current dot fill color. Default: var(--kemet-color-primary)",
-              "name": "--kemet-tracker-step-current-fill-color"
-            },
-            {
-              "description": "Text color of a completed dot. Default: var(--kemet-color-white)",
-              "name": "--kemet-tracker-step-completed-color"
-            },
-            {
-              "description": "Background color of a completed dot. Default: var(--kemet-color-success)",
-              "name": "--kemet-tracker-step-completed-fill-color"
-            },
-            {
-              "description": "Completed connector line color. Default: var(--kemet-color-primary)",
-              "name": "--kemet-tracker-step-completed-line-color"
-            },
-            {
-              "description": "Completed line weight. Default: 3px",
-              "name": "--kemet-tracker-step-completed-line-weight"
-            },
-            {
-              "description": "Standard line weight. Default: 1px",
-              "name": "--kemet-tracker-step-standard-line-weight"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The container for the dot.",
-              "name": "dot"
-            },
-            {
-              "description": "A connector line from dot to dot.",
-              "name": "line"
-            },
-            {
-              "description": "A completed connector line.",
-              "name": "completed-line"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "step",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current step number",
-              "attribute": "step"
-            },
-            {
-              "kind": "field",
-              "name": "completed",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not a step renders as complete",
-              "attribute": "completed",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "current",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not a step renders as the current step",
-              "attribute": "current",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "last",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is automatically added to the last step",
-              "attribute": "last",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "mobile",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if a step should render as mobile",
-              "attribute": "mobile",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hideDotContent",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the label inside of a dot",
-              "attribute": "hide-dot-content",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "completedSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The icon size for the completed check mark",
-              "attribute": "completedSize"
-            },
-            {
-              "kind": "field",
-              "name": "tracker",
-              "type": {
-                "text": "KemetTrackerInterface"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "makeLine"
-            },
-            {
-              "kind": "method",
-              "name": "makeCompletedLine"
-            },
-            {
-              "kind": "method",
-              "name": "makeDotContent"
-            },
-            {
-              "kind": "method",
-              "name": "makeSlotContent"
-            },
-            {
-              "kind": "method",
-              "name": "handleCompletedLineEnd"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "step",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current step number",
-              "fieldName": "step"
-            },
-            {
-              "name": "completed",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not a step renders as complete",
-              "fieldName": "completed"
-            },
-            {
-              "name": "current",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not a step renders as the current step",
-              "fieldName": "current"
-            },
-            {
-              "name": "last",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is automatically added to the last step",
-              "fieldName": "last"
-            },
-            {
-              "name": "mobile",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if a step should render as mobile",
-              "fieldName": "mobile"
-            },
-            {
-              "name": "hide-dot-content",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the label inside of a dot",
-              "fieldName": "hideDotContent"
-            },
-            {
-              "name": "completedSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The icon size for the completed check mark",
-              "fieldName": "completedSize"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-tracker-step",
-          "summary": "A step in the Tracker",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetTrackerStep",
-            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-tracker-step",
-          "declaration": {
-            "name": "KemetTrackerStep",
-            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-tracker/kemet-tracker.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetTracker",
-          "members": [
-            {
-              "kind": "field",
-              "name": "total",
-              "type": {
-                "text": "number"
-              },
-              "description": "The total number of steps",
-              "attribute": "total"
-            },
-            {
-              "kind": "field",
-              "name": "breakpoint",
-              "type": {
-                "text": "string"
-              },
-              "default": "'767px'",
-              "description": "The point at which the tracker goes from mobile to standard",
-              "attribute": "breakpoint"
-            },
-            {
-              "kind": "field",
-              "name": "steps",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "isMobile"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "total",
-              "type": {
-                "text": "number"
-              },
-              "description": "The total number of steps",
-              "fieldName": "total"
-            },
-            {
-              "name": "breakpoint",
-              "type": {
-                "text": "string"
-              },
-              "default": "'767px'",
-              "description": "The point at which the tracker goes from mobile to standard",
-              "fieldName": "breakpoint"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-tracker",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetTracker",
-            "module": "src/components/kemet-tracker/kemet-tracker.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-tracker",
-          "declaration": {
-            "name": "KemetTracker",
-            "module": "src/components/kemet-tracker/kemet-tracker.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-upload/kemet-upload-file.ts",
       "declarations": [
         {
@@ -10913,6 +10550,369 @@
           "declaration": {
             "name": "KemetUpload",
             "module": "src/components/kemet-upload/kemet-upload.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-tracker/kemet-tracker-step.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTrackerStep",
+          "cssProperties": [
+            {
+              "description": "The font size. Default: 90%",
+              "name": "--kemet-tracker-step-dot-font-size"
+            },
+            {
+              "description": "The text color. Default: var(--kemet-color-primary)",
+              "name": "--kemet-tracker-step-dot-color"
+            },
+            {
+              "description": "Border around a dot. Default: 1px solid var(--kemet-color-primary)",
+              "name": "--kemet-tracker-step-dot-border"
+            },
+            {
+              "description": "Width and height of a dot. Default: 50px",
+              "name": "--kemet-tracker-step-dot-size"
+            },
+            {
+              "description": "Mobile width and height of a dot. Default: 25px",
+              "name": "--kemet-tracker-step-dot-size-mobile"
+            },
+            {
+              "description": "Space between a dot and connector line. Default: 4px",
+              "name": "--kemet-tracker-step-dot-gap"
+            },
+            {
+              "description": "Transition of a dot. Default: all 300ms ease-in-out",
+              "name": "--kemet-tracker-step-dot-transition"
+            },
+            {
+              "description": "Fill color of a dot. Default: transparent",
+              "name": "--kemet-tracker-step-dot-fill-color"
+            },
+            {
+              "description": "Color of the background a dot is on. Default: var(--kemet-color-white)",
+              "name": "--kemet-tracker-step-dot-background-color"
+            },
+            {
+              "description": "Current dot text color. Default: var(--kemet-color-white)",
+              "name": "--kemet-tracker-step-current-color"
+            },
+            {
+              "description": "Current dot fill color. Default: var(--kemet-color-primary)",
+              "name": "--kemet-tracker-step-current-fill-color"
+            },
+            {
+              "description": "Text color of a completed dot. Default: var(--kemet-color-white)",
+              "name": "--kemet-tracker-step-completed-color"
+            },
+            {
+              "description": "Background color of a completed dot. Default: var(--kemet-color-success)",
+              "name": "--kemet-tracker-step-completed-fill-color"
+            },
+            {
+              "description": "Completed connector line color. Default: var(--kemet-color-primary)",
+              "name": "--kemet-tracker-step-completed-line-color"
+            },
+            {
+              "description": "Completed line weight. Default: 3px",
+              "name": "--kemet-tracker-step-completed-line-weight"
+            },
+            {
+              "description": "Standard line weight. Default: 1px",
+              "name": "--kemet-tracker-step-standard-line-weight"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The container for the dot.",
+              "name": "dot"
+            },
+            {
+              "description": "A connector line from dot to dot.",
+              "name": "line"
+            },
+            {
+              "description": "A completed connector line.",
+              "name": "completed-line"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current step number",
+              "attribute": "step"
+            },
+            {
+              "kind": "field",
+              "name": "completed",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not a step renders as complete",
+              "attribute": "completed",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "current",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not a step renders as the current step",
+              "attribute": "current",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "last",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is automatically added to the last step",
+              "attribute": "last",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if a step should render as mobile",
+              "attribute": "mobile",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideDotContent",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the label inside of a dot",
+              "attribute": "hide-dot-content",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "completedSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The icon size for the completed check mark",
+              "attribute": "completedSize"
+            },
+            {
+              "kind": "field",
+              "name": "tracker",
+              "type": {
+                "text": "KemetTrackerInterface"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "makeLine"
+            },
+            {
+              "kind": "method",
+              "name": "makeCompletedLine"
+            },
+            {
+              "kind": "method",
+              "name": "makeDotContent"
+            },
+            {
+              "kind": "method",
+              "name": "makeSlotContent"
+            },
+            {
+              "kind": "method",
+              "name": "handleCompletedLineEnd"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current step number",
+              "fieldName": "step"
+            },
+            {
+              "name": "completed",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not a step renders as complete",
+              "fieldName": "completed"
+            },
+            {
+              "name": "current",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not a step renders as the current step",
+              "fieldName": "current"
+            },
+            {
+              "name": "last",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is automatically added to the last step",
+              "fieldName": "last"
+            },
+            {
+              "name": "mobile",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if a step should render as mobile",
+              "fieldName": "mobile"
+            },
+            {
+              "name": "hide-dot-content",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the label inside of a dot",
+              "fieldName": "hideDotContent"
+            },
+            {
+              "name": "completedSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The icon size for the completed check mark",
+              "fieldName": "completedSize"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-tracker-step",
+          "summary": "A step in the Tracker",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTrackerStep",
+            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-tracker-step",
+          "declaration": {
+            "name": "KemetTrackerStep",
+            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-tracker/kemet-tracker.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTracker",
+          "members": [
+            {
+              "kind": "field",
+              "name": "total",
+              "type": {
+                "text": "number"
+              },
+              "description": "The total number of steps",
+              "attribute": "total"
+            },
+            {
+              "kind": "field",
+              "name": "breakpoint",
+              "type": {
+                "text": "string"
+              },
+              "default": "'767px'",
+              "description": "The point at which the tracker goes from mobile to standard",
+              "attribute": "breakpoint"
+            },
+            {
+              "kind": "field",
+              "name": "steps",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "isMobile"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "total",
+              "type": {
+                "text": "number"
+              },
+              "description": "The total number of steps",
+              "fieldName": "total"
+            },
+            {
+              "name": "breakpoint",
+              "type": {
+                "text": "string"
+              },
+              "default": "'767px'",
+              "description": "The point at which the tracker goes from mobile to standard",
+              "fieldName": "breakpoint"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-tracker",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTracker",
+            "module": "src/components/kemet-tracker/kemet-tracker.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-tracker",
+          "declaration": {
+            "name": "KemetTracker",
+            "module": "src/components/kemet-tracker/kemet-tracker.ts"
           }
         }
       ]

@@ -4,10 +4,10 @@ import { setCustomElements, Preview } from '@storybook/web-components';
 import { handleThemeSwitching, globalFormatting } from './decorators';
 import customElements from '../custom-elements.json';
 
-import '!style-loader!css-loader!sass-loader!../src/styles/kemet.base.scss';
-import '!style-loader!css-loader!sass-loader!../src/styles/kemet.core.scss';
-import '!style-loader!css-loader!sass-loader!../src/styles/kemet.components.scss';
-import '!style-loader!css-loader!sass-loader!./styles/storybook.scss';
+import '../src/styles/kemet.base.scss';
+import '../src/styles/kemet.core.scss';
+import '../src/styles/kemet.components.scss';
+import './storybook.scss';
 
 setCustomElements(customElements);
 
