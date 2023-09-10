@@ -18,8 +18,6 @@ import { stylesPanel } from './styles';
  * @slot body - The body content of the panel.
  * @slot icon - The icon for the panel.
  *
- * @cssproperty --kemet-accordion-panel-transition-speed - The speed of the opening and closing effect. Default: 0.3s.
- *
  * @csspart trigger - Contains the trigger for the panel.
  * @csspart body - Contains the body for the panel.
  *

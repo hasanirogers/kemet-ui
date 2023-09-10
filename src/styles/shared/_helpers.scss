@@ -1,6 +1,8 @@
 @use 'sass:math';
+@use 'sass:string';
 @use 'config' as *;
 @use '../components/config' as *;
+
 
 @function getListFirst($list) {
   @return nth($list, 1);
@@ -355,12 +357,20 @@
     $name: '' + $color;
 
     [kemet-border*="#{$name}"] {
-      border-color: $value;
+      border-color: RGB(string.unquote($value));
     }
   }
 
+  // @each $color, $value in $themecolors {
+  //   $name: '' + $color;
+
+  //   [kemet-border*="#{$name}"] {
+  //     border-color: rgb(#{$value});
+  //   }
+  // }
+
   [kemet-border*='auto'] {
-    border-color: var(--kemet-color-background);
+    border-color: rgb(var(--kemet-color-foreground));
   }
 
   @each $width, $value in $borderwidths {
@@ -433,7 +443,7 @@
     }
 
     @each $color, $value in $themecolors {
-      --kemet-color-#{"" + $color}: rgb(#{$value});
+      --kemet-color-#{"" + $color}: #{$value};
     }
 
     --kemet-color-white-to-black: var(--kemet-color-white);

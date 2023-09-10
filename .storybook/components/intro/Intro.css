@@ -14,5 +14,5 @@
   height: 96px;
   grid-row: span 2;
   display: block;
-  fill: var(--kemet-color-primary);
+  fill: rgb(var(--kemet-color-primary));
 }

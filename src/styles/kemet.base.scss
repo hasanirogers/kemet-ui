@@ -9,7 +9,7 @@
 @include makeRoot;
 
 html {
-  color: var(--kemet-color-text);
+  color: rgb(var(--kemet-color-text));
 }
 
 [theme='dark'] {

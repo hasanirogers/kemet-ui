@@ -21,7 +21,7 @@ export default class KemetAccordion extends LitElement {
   @property({ type: Number })
   currentPanel: number;
 
-  @property({ type: Boolean, attribute: 'toggle-panels '})
+  @property({ type: Boolean, attribute: 'toggle-panels' })
   togglePanels: boolean = false;
 
   /** @internal */
