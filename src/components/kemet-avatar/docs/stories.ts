@@ -43,7 +43,7 @@ const TemplateMultiple = ({
   const avatars = [];
 
   for (let i = 0; i < numOfAvatars; i += 1) {
-    avatars.push(html`<kemet-avatar circle image="https://via.placeholder.com/64x64" kemet-border="all-4 solid gray1"></kemet-avatar>\n`);
+    avatars.push(html`<kemet-avatar circle image="https://via.placeholder.com/64x64" kemet-border="all-4 solid gray-50"></kemet-avatar>\n`);
   }
 
   return html`
