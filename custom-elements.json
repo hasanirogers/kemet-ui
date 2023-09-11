@@ -4,222 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAlert",
-          "cssProperties": [
-            {
-              "description": "The padding on the alert.",
-              "name": "--kemet-alert-padding"
-            },
-            {
-              "description": "The thickness of the border.",
-              "name": "--kemet-alert-border-thickness"
-            },
-            {
-              "description": "The status color. Default: inherit.",
-              "name": "--kemet-alert-status-color"
-            },
-            {
-              "description": "The alert's alignment.",
-              "name": "--kemet-alert-align-items"
-            },
-            {
-              "description": "The border around the alert.",
-              "name": "--kemet-alert-border"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Container for the close button.",
-              "name": "close"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "attribute": "reveal",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "attribute": "closable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "borderStatus",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "attribute": "border-status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "attribute": "hidden",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "attribute": "overlay",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeCloseBtn"
-            },
-            {
-              "kind": "method",
-              "name": "handleMotion"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
-            },
-            {
-              "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "fieldName": "opened"
-            },
-            {
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "fieldName": "reveal"
-            },
-            {
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "fieldName": "closable"
-            },
-            {
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "fieldName": "status"
-            },
-            {
-              "name": "border-status",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "fieldName": "borderStatus"
-            },
-            {
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "fieldName": "hidden"
-            },
-            {
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "fieldName": "overlay"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-alert",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-badge/kemet-badge.ts",
       "declarations": [
         {
@@ -628,75 +412,75 @@
           "name": "KemetButton",
           "cssProperties": [
             {
-              "description": "The font size. Default: inherit.",
+              "description": "The font size.",
               "name": "--kemet-button-font-size"
             },
             {
-              "description": "The text color. Default: --kemet-color-foreground.",
+              "description": "The text color.",
               "name": "--kemet-button-color"
             },
             {
-              "description": "The width. Default: auto.",
+              "description": "The width.",
               "name": "--kemet-button-width"
             },
             {
-              "description": "The height. Default:  auto.",
+              "description": "The height.",
               "name": "--kemet-button-height"
             },
             {
-              "description": "The border. Default: 0.",
+              "description": "The border.",
               "name": "--kemet-button-border"
             },
             {
-              "description": "The border radius. Default: 0.",
+              "description": "The border radius.",
               "name": "--kemet-button-border-radius"
             },
             {
-              "description": "The transition speed of the hover effect. Default: 300ms.",
+              "description": "The transition speed of the hover effect.",
               "name": "--kemet-button-transition-speed"
             },
             {
-              "description": "The background color. Default: --kemet-color-background.",
+              "description": "The background color.",
               "name": "--kemet-button-background-color"
             },
             {
-              "description": "The brightness of the hover effect. Default: 1.25.",
+              "description": "The brightness of the hover effect.",
               "name": "--kemet-button-hover-brightness"
             },
             {
-              "description": "The gap between the button and icons. Default: 0.5rem.",
+              "description": "The gap between the button and icons.",
               "name": "--kemet-button-gap"
             },
             {
-              "description": "The button padding. Default: 1rem 1.25rem.",
+              "description": "The button padding.",
               "name": "--kemet-button-padding"
             },
             {
-              "description": "The decoration for a text button's hover. Default: underline.",
+              "description": "The decoration for a text button's hover.",
               "name": "--kemet-button-hover-decoration"
             },
             {
-              "description": "The diameter of a circle button. Default: 50px.",
+              "description": "The diameter of a circle button.",
               "name": "--kemet-button-circle-size"
             },
             {
-              "description": "The border radius of the rounded button. Default: 6px.",
+              "description": "The border radius of the rounded button.",
               "name": "--kemet-button-rounded-amount"
             },
             {
-              "description": "The width of the outline border. Default: 1px.",
+              "description": "The width of the outline border.",
               "name": "--kemet-button-border-width"
             },
             {
-              "description": "The style of the outline border. Default: solid.",
+              "description": "The style of the outline border.",
               "name": "--kemet-button-border-style"
             },
             {
-              "description": "The color of the outline border. Default: --kemet-color-primary.",
+              "description": "The color of the outline border.",
               "name": "--kemet-button-border-color"
             },
             {
-              "description": "The opacity of the disabled state. Default: 0.5.",
+              "description": "The opacity of the disabled state.",
               "name": "--kemet-button-disabled-opacity"
             }
           ],
@@ -914,6 +698,374 @@
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAlert",
+          "cssProperties": [
+            {
+              "description": "The padding on the alert.",
+              "name": "--kemet-alert-padding"
+            },
+            {
+              "description": "The thickness of the border.",
+              "name": "--kemet-alert-border-thickness"
+            },
+            {
+              "description": "The status color. Default: inherit.",
+              "name": "--kemet-alert-status-color"
+            },
+            {
+              "description": "The alert's alignment.",
+              "name": "--kemet-alert-align-items"
+            },
+            {
+              "description": "The border around the alert.",
+              "name": "--kemet-alert-border"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Container for the close button.",
+              "name": "close"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "attribute": "reveal",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "attribute": "closable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "borderStatus",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "attribute": "border-status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "attribute": "overlay",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeCloseBtn"
+            },
+            {
+              "kind": "method",
+              "name": "handleMotion"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when alert is opened.",
+              "name": "kemet-alert-opened"
+            },
+            {
+              "description": "Fires when alert is closed.",
+              "name": "kemet-alert-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "fieldName": "opened"
+            },
+            {
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "fieldName": "reveal"
+            },
+            {
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "fieldName": "closable"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "fieldName": "status"
+            },
+            {
+              "name": "border-status",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "fieldName": "borderStatus"
+            },
+            {
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "fieldName": "overlay"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-alert",
+          "summary": "Calls out important messages and notifications.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-alert",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-card/kemet-card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCard",
+          "cssProperties": [
+            {
+              "description": "The space around elements. Default: 1rem.",
+              "name": "--kemet-card-padding"
+            },
+            {
+              "description": "The color of the borders. Default: var(--kemet-color-gray4).",
+              "name": "--kemet-card-border-color"
+            },
+            {
+              "description": "The color of the text. Default: var(--kemet-color-black).",
+              "name": "--kemet-card-color"
+            },
+            {
+              "description": "The max width of the card. Default: 360px.",
+              "name": "--kemet-card-max-width"
+            },
+            {
+              "description": "The border around the card. Default: 1px solid var(--kemet-card-border-color).",
+              "name": "--kemet-card-border"
+            },
+            {
+              "description": "The border radius of the card. Default: 0.",
+              "name": "--kemet-card-border-radius"
+            },
+            {
+              "description": "The background color. Default: var(--kemet-color-white).",
+              "name": "--kemet-card-background-color"
+            },
+            {
+              "description": "The body spacing. Default: var(--kemet-card-padding).",
+              "name": "--kemet-card-body-padding"
+            },
+            {
+              "description": "The header spacing. Default: var(--kemet-card-padding).",
+              "name": "--kemet-card-header-padding"
+            },
+            {
+              "description": "The header border. Default: 1px solid var(--kemet-card-border-color).",
+              "name": "--kemet-card-header-border-bottom"
+            },
+            {
+              "description": "The caption text color. Default: var(--kemet-color-white).",
+              "name": "--kemet-card-caption-color"
+            },
+            {
+              "description": "The caption spacing. Default: calc(var(--kemet-card-padding) / 2) var(--kemet-card-padding).",
+              "name": "--kemet-card-caption-padding"
+            },
+            {
+              "description": "The caption background color. Default: rgba(0,0,0,0.5).",
+              "name": "--kemet-card-caption-background-color"
+            },
+            {
+              "description": "The footer spacing. Default: var(--kemet-card-padding).",
+              "name": "--kemet-card-footer-padding"
+            },
+            {
+              "description": "The footer border. Default: 1px solid var(--kemet-card-border-color).",
+              "name": "--kemet-card-footer-border-top"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The media area of the card.",
+              "name": "media"
+            },
+            {
+              "description": "The main contents of the card.",
+              "name": "body"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            },
+            {
+              "description": "The cards's header.",
+              "name": "header"
+            },
+            {
+              "description": "A slot for images, videos, or embeds.",
+              "name": "media"
+            },
+            {
+              "description": "Text for the media slot.",
+              "name": "caption"
+            },
+            {
+              "description": "The card's footer.",
+              "name": "footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "attribute": "center",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "fieldName": "center"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-card",
+          "summary": "A highly configurable panel design to display media and information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-card",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
           }
         }
       ]
@@ -1139,158 +1291,6 @@
           "declaration": {
             "name": "KemetAvatars",
             "module": "src/components/kemet-avatar/kemet-avatars.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-card/kemet-card.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCard",
-          "cssProperties": [
-            {
-              "description": "The space around elements. Default: 1rem.",
-              "name": "--kemet-card-padding"
-            },
-            {
-              "description": "The color of the borders. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-card-border-color"
-            },
-            {
-              "description": "The color of the text. Default: var(--kemet-color-black).",
-              "name": "--kemet-card-color"
-            },
-            {
-              "description": "The max width of the card. Default: 360px.",
-              "name": "--kemet-card-max-width"
-            },
-            {
-              "description": "The border around the card. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-border"
-            },
-            {
-              "description": "The border radius of the card. Default: 0.",
-              "name": "--kemet-card-border-radius"
-            },
-            {
-              "description": "The background color. Default: var(--kemet-color-white).",
-              "name": "--kemet-card-background-color"
-            },
-            {
-              "description": "The body spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-body-padding"
-            },
-            {
-              "description": "The header spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-header-padding"
-            },
-            {
-              "description": "The header border. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-header-border-bottom"
-            },
-            {
-              "description": "The caption text color. Default: var(--kemet-color-white).",
-              "name": "--kemet-card-caption-color"
-            },
-            {
-              "description": "The caption spacing. Default: calc(var(--kemet-card-padding) / 2) var(--kemet-card-padding).",
-              "name": "--kemet-card-caption-padding"
-            },
-            {
-              "description": "The caption background color. Default: rgba(0,0,0,0.5).",
-              "name": "--kemet-card-caption-background-color"
-            },
-            {
-              "description": "The footer spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-footer-padding"
-            },
-            {
-              "description": "The footer border. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-footer-border-top"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The media area of the card.",
-              "name": "media"
-            },
-            {
-              "description": "The main contents of the card.",
-              "name": "body"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            },
-            {
-              "description": "The cards's header.",
-              "name": "header"
-            },
-            {
-              "description": "A slot for images, videos, or embeds.",
-              "name": "media"
-            },
-            {
-              "description": "Text for the media slot.",
-              "name": "caption"
-            },
-            {
-              "description": "The card's footer.",
-              "name": "footer"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Centers the elements in the card.",
-              "attribute": "center",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Centers the elements in the card.",
-              "fieldName": "center"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-card",
-          "summary": "A highly configurable panel design to display media and information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-card",
-          "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
           }
         }
       ]
