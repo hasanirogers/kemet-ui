@@ -133,138 +133,164 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
+      "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAccordionPanel",
-          "cssParts": [
+          "name": "KemetAvatar",
+          "cssProperties": [
             {
-              "description": "Contains the trigger for the panel.",
-              "name": "trigger"
+              "description": "The color of the text. Default: var(--kemet-color-white).",
+              "name": "--kemet-avatar-color"
             },
             {
-              "description": "Contains the body for the panel.",
-              "name": "body"
+              "description": "The color of the background. Default: var(--kemet-color-gray4).",
+              "name": "--kemet-avatar-background-color"
+            },
+            {
+              "description": "The border radius of the rounded type. Default: 1rem.",
+              "name": "--kemet-avatar-rounded-radius"
+            },
+            {
+              "description": "The space around the initials. Default: 1rem.",
+              "name": "--kemet-avatar-initials-margin"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Contains the initials for the avatar.",
+              "name": "initials"
             }
           ],
           "slots": [
             {
-              "description": "The trigger button that opens and closes the panel.",
-              "name": "trigger"
-            },
-            {
-              "description": "The body content of the panel.",
-              "name": "body"
-            },
-            {
-              "description": "The icon for the panel.",
-              "name": "icon"
+              "description": "A slot for an icon or element that indicates the status of the avatar.",
+              "name": "status"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "opened",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "attribute": "initials"
+            },
+            {
+              "kind": "field",
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "description": "Determines the opened state of the panel",
-              "attribute": "opened",
+              "description": "Displays in a circle.",
+              "attribute": "circle",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "maxHeight",
+              "name": "rounded",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "attribute": "max-height"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "type": {
-                "text": "string"
-              },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "attribute": "slug"
+              "description": "Displays with rounded corners",
+              "attribute": "rounded",
+              "reflects": true
             },
             {
               "kind": "method",
-              "name": "toggle"
+              "name": "makeSize"
             },
             {
               "kind": "method",
-              "name": "focusableBodyElements"
-            },
-            {
-              "kind": "method",
-              "name": "a11y"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when a panel is opened",
-              "name": "kemet-accordion-panel-opened"
-            },
-            {
-              "description": "Fires when a panel is closed",
-              "name": "kemet-accordion-panel-closed"
+              "name": "makeContent"
             }
           ],
           "attributes": [
             {
-              "name": "opened",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "fieldName": "image"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "fieldName": "label"
+            },
+            {
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "fieldName": "initials"
+            },
+            {
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-              },
-              "description": "Determines the opened state of the panel",
-              "fieldName": "opened"
+              "description": "Displays in a circle.",
+              "fieldName": "circle"
             },
             {
-              "name": "max-height",
+              "name": "rounded",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "fieldName": "maxHeight"
-            },
-            {
-              "name": "slug",
-              "type": {
-                "text": "string"
-              },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "fieldName": "slug"
+              "description": "Displays with rounded corners",
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-accordion-panel",
-          "summary": "A blade for an accordion.",
+          "tagName": "kemet-avatar",
+          "summary": "A representation of a person or thing.",
           "customElement": true
         }
       ],
@@ -273,113 +299,41 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-accordion-panel",
+          "name": "kemet-avatar",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion.ts",
+      "path": "src/components/kemet-avatar/kemet-avatars.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAccordion",
-          "members": [
+          "name": "KemetAvatars",
+          "cssProperties": [
             {
-              "kind": "field",
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "description": "The index value for the most recently opened panel",
-              "attribute": "currentPanel"
-            },
-            {
-              "kind": "field",
-              "name": "togglePanels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "attribute": "toggle-panels"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "handlePanelOpened",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "navigatePanels",
-              "parameters": [
-                {
-                  "name": "direction"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "expandAll"
-            },
-            {
-              "kind": "method",
-              "name": "collapseAll"
+              "description": "The space between avatars. Default: -1.5rem.",
+              "name": "--kemet-avatars-squeeze"
             }
           ],
-          "attributes": [
-            {
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "description": "The index value for the most recently opened panel",
-              "fieldName": "currentPanel"
-            },
-            {
-              "name": "toggle-panels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "fieldName": "togglePanels"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-accordion",
-          "summary": "A component that acts like a standard accordion.",
+          "tagName": "kemet-avatars",
+          "summary": "Groups multiple avatars.",
           "customElement": true
         }
       ],
@@ -388,16 +342,384 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-accordion",
+          "name": "kemet-avatars",
           "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAlert",
+          "cssProperties": [
+            {
+              "description": "The padding on the alert.",
+              "name": "--kemet-alert-padding"
+            },
+            {
+              "description": "The thickness of the border.",
+              "name": "--kemet-alert-border-thickness"
+            },
+            {
+              "description": "The status color. Default: inherit.",
+              "name": "--kemet-alert-status-color"
+            },
+            {
+              "description": "The alert's alignment.",
+              "name": "--kemet-alert-align-items"
+            },
+            {
+              "description": "The border around the alert.",
+              "name": "--kemet-alert-border"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Container for the close button.",
+              "name": "close"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "attribute": "reveal",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "attribute": "closable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "borderStatus",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "attribute": "border-status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "attribute": "overlay",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeCloseBtn"
+            },
+            {
+              "kind": "method",
+              "name": "handleMotion"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when alert is opened.",
+              "name": "kemet-alert-opened"
+            },
+            {
+              "description": "Fires when alert is closed.",
+              "name": "kemet-alert-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "fieldName": "opened"
+            },
+            {
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "fieldName": "reveal"
+            },
+            {
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "fieldName": "closable"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "fieldName": "status"
+            },
+            {
+              "name": "border-status",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "fieldName": "borderStatus"
+            },
+            {
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "fieldName": "overlay"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-alert",
+          "summary": "Calls out important messages and notifications.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-alert",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-card/kemet-card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCard",
+          "cssProperties": [
+            {
+              "description": "The space around elements.",
+              "name": "--kemet-card-padding"
+            },
+            {
+              "description": "The color of the borders.",
+              "name": "--kemet-card-border-color"
+            },
+            {
+              "description": "The color of the text. Default:",
+              "name": "--kemet-card-color"
+            },
+            {
+              "description": "The max width of the card.",
+              "name": "--kemet-card-max-width"
+            },
+            {
+              "description": "The border around the card.",
+              "name": "--kemet-card-border"
+            },
+            {
+              "description": "The border radius of the card.",
+              "name": "--kemet-card-border-radius"
+            },
+            {
+              "description": "The background color.",
+              "name": "--kemet-card-background-color"
+            },
+            {
+              "description": "The body spacing.",
+              "name": "--kemet-card-body-padding"
+            },
+            {
+              "description": "The header spacing.",
+              "name": "--kemet-card-header-padding"
+            },
+            {
+              "description": "The header border.",
+              "name": "--kemet-card-header-border-bottom"
+            },
+            {
+              "description": "The caption text color.",
+              "name": "--kemet-card-caption-color"
+            },
+            {
+              "description": "The caption spacing.",
+              "name": "--kemet-card-caption-padding"
+            },
+            {
+              "description": "The caption background color.",
+              "name": "--kemet-card-caption-background-color"
+            },
+            {
+              "description": "The footer spacing.",
+              "name": "--kemet-card-footer-padding"
+            },
+            {
+              "description": "The footer border.",
+              "name": "--kemet-card-footer-border-top"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The media area of the card.",
+              "name": "media"
+            },
+            {
+              "description": "The main contents of the card.",
+              "name": "body"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            },
+            {
+              "description": "The cards's header.",
+              "name": "header"
+            },
+            {
+              "description": "A slot for images, videos, or embeds.",
+              "name": "media"
+            },
+            {
+              "description": "Text for the media slot.",
+              "name": "caption"
+            },
+            {
+              "description": "The card's footer.",
+              "name": "footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "attribute": "center",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "fieldName": "center"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-card",
+          "summary": "A highly configurable panel design to display media and information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-card",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
           }
         }
       ]
@@ -704,350 +1026,138 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAlert",
-          "cssProperties": [
-            {
-              "description": "The padding on the alert.",
-              "name": "--kemet-alert-padding"
-            },
-            {
-              "description": "The thickness of the border.",
-              "name": "--kemet-alert-border-thickness"
-            },
-            {
-              "description": "The status color. Default: inherit.",
-              "name": "--kemet-alert-status-color"
-            },
-            {
-              "description": "The alert's alignment.",
-              "name": "--kemet-alert-align-items"
-            },
-            {
-              "description": "The border around the alert.",
-              "name": "--kemet-alert-border"
-            }
-          ],
+          "name": "KemetAccordionPanel",
           "cssParts": [
             {
-              "description": "Container for the close button.",
-              "name": "close"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "attribute": "opened",
-              "reflects": true
+              "description": "Contains the trigger for the panel.",
+              "name": "trigger"
             },
             {
-              "kind": "field",
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "attribute": "reveal",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "attribute": "closable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "borderStatus",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "attribute": "border-status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "attribute": "hidden",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "attribute": "overlay",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeCloseBtn"
-            },
-            {
-              "kind": "method",
-              "name": "handleMotion"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
-            },
-            {
-              "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "fieldName": "opened"
-            },
-            {
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "fieldName": "reveal"
-            },
-            {
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "fieldName": "closable"
-            },
-            {
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "fieldName": "status"
-            },
-            {
-              "name": "border-status",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "fieldName": "borderStatus"
-            },
-            {
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "fieldName": "hidden"
-            },
-            {
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "fieldName": "overlay"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-alert",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-card/kemet-card.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCard",
-          "cssProperties": [
-            {
-              "description": "The space around elements. Default: 1rem.",
-              "name": "--kemet-card-padding"
-            },
-            {
-              "description": "The color of the borders. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-card-border-color"
-            },
-            {
-              "description": "The color of the text. Default: var(--kemet-color-black).",
-              "name": "--kemet-card-color"
-            },
-            {
-              "description": "The max width of the card. Default: 360px.",
-              "name": "--kemet-card-max-width"
-            },
-            {
-              "description": "The border around the card. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-border"
-            },
-            {
-              "description": "The border radius of the card. Default: 0.",
-              "name": "--kemet-card-border-radius"
-            },
-            {
-              "description": "The background color. Default: var(--kemet-color-white).",
-              "name": "--kemet-card-background-color"
-            },
-            {
-              "description": "The body spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-body-padding"
-            },
-            {
-              "description": "The header spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-header-padding"
-            },
-            {
-              "description": "The header border. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-header-border-bottom"
-            },
-            {
-              "description": "The caption text color. Default: var(--kemet-color-white).",
-              "name": "--kemet-card-caption-color"
-            },
-            {
-              "description": "The caption spacing. Default: calc(var(--kemet-card-padding) / 2) var(--kemet-card-padding).",
-              "name": "--kemet-card-caption-padding"
-            },
-            {
-              "description": "The caption background color. Default: rgba(0,0,0,0.5).",
-              "name": "--kemet-card-caption-background-color"
-            },
-            {
-              "description": "The footer spacing. Default: var(--kemet-card-padding).",
-              "name": "--kemet-card-footer-padding"
-            },
-            {
-              "description": "The footer border. Default: 1px solid var(--kemet-card-border-color).",
-              "name": "--kemet-card-footer-border-top"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The media area of the card.",
-              "name": "media"
-            },
-            {
-              "description": "The main contents of the card.",
+              "description": "Contains the body for the panel.",
               "name": "body"
             }
           ],
           "slots": [
             {
-              "description": "The contents of the alert.",
-              "name": "default"
+              "description": "The trigger button that opens and closes the panel.",
+              "name": "trigger"
             },
             {
-              "description": "The cards's header.",
-              "name": "header"
+              "description": "The body content of the panel.",
+              "name": "body"
             },
             {
-              "description": "A slot for images, videos, or embeds.",
-              "name": "media"
-            },
-            {
-              "description": "Text for the media slot.",
-              "name": "caption"
-            },
-            {
-              "description": "The card's footer.",
-              "name": "footer"
+              "description": "The icon for the panel.",
+              "name": "icon"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "center",
+              "name": "opened",
               "type": {
                 "text": "boolean"
               },
-              "description": "Centers the elements in the card.",
-              "attribute": "center",
+              "default": "undefined",
+              "description": "Determines the opened state of the panel",
+              "attribute": "opened",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "maxHeight",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "attribute": "max-height"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "attribute": "slug"
+            },
+            {
+              "kind": "method",
+              "name": "toggle"
+            },
+            {
+              "kind": "method",
+              "name": "focusableBodyElements"
+            },
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when a panel is opened",
+              "name": "kemet-accordion-panel-opened"
+            },
+            {
+              "description": "Fires when a panel is closed",
+              "name": "kemet-accordion-panel-closed"
             }
           ],
           "attributes": [
             {
-              "name": "center",
+              "name": "opened",
               "type": {
                 "text": "boolean"
               },
-              "description": "Centers the elements in the card.",
-              "fieldName": "center"
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+              },
+              "description": "Determines the opened state of the panel",
+              "fieldName": "opened"
+            },
+            {
+              "name": "max-height",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "fieldName": "maxHeight"
+            },
+            {
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "fieldName": "slug"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-card",
-          "summary": "A highly configurable panel design to display media and information.",
+          "tagName": "kemet-accordion-panel",
+          "summary": "A blade for an accordion.",
           "customElement": true
         }
       ],
@@ -1056,180 +1166,113 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-card",
+          "name": "kemet-accordion-panel",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.ts",
+      "path": "src/components/kemet-accordion/kemet-accordion.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAvatar",
-          "cssProperties": [
-            {
-              "description": "The color of the text. Default: var(--kemet-color-white).",
-              "name": "--kemet-avatar-color"
-            },
-            {
-              "description": "The color of the background. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-avatar-background-color"
-            },
-            {
-              "description": "The border radius of the rounded type. Default: 1rem.",
-              "name": "--kemet-avatar-rounded-radius"
-            },
-            {
-              "description": "The space around the initials. Default: 1rem.",
-              "name": "--kemet-avatar-initials-margin"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the initials for the avatar.",
-              "name": "initials"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon or element that indicates the status of the avatar.",
-              "name": "status"
-            }
-          ],
+          "name": "KemetAccordion",
           "members": [
             {
               "kind": "field",
-              "name": "size",
+              "name": "currentPanel",
               "type": {
-                "text": "string"
+                "text": "number"
               },
-              "description": "The size in pixels.",
-              "attribute": "size"
+              "description": "The index value for the most recently opened panel",
+              "attribute": "currentPanel"
             },
             {
               "kind": "field",
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "attribute": "image"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "attribute": "initials"
-            },
-            {
-              "kind": "field",
-              "name": "circle",
+              "name": "togglePanels",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "attribute": "rounded",
-              "reflects": true
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "attribute": "toggle-panels"
             },
             {
               "kind": "method",
-              "name": "makeSize"
+              "name": "handleSlotChange"
             },
             {
               "kind": "method",
-              "name": "makeContent"
+              "name": "handlePanelOpened",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "navigatePanels",
+              "parameters": [
+                {
+                  "name": "direction"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "expandAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseAll"
             }
           ],
           "attributes": [
             {
-              "name": "size",
+              "name": "currentPanel",
               "type": {
-                "text": "string"
+                "text": "number"
               },
-              "description": "The size in pixels.",
-              "fieldName": "size"
+              "description": "The index value for the most recently opened panel",
+              "fieldName": "currentPanel"
             },
             {
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "fieldName": "image"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "fieldName": "label"
-            },
-            {
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "fieldName": "initials"
-            },
-            {
-              "name": "circle",
+              "name": "toggle-panels",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
-              "fieldName": "circle"
-            },
-            {
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "fieldName": "rounded"
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "fieldName": "togglePanels"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-avatar",
-          "summary": "A representation of a person or thing.",
+          "tagName": "kemet-accordion",
+          "summary": "A component that acts like a standard accordion.",
           "customElement": true
         }
       ],
@@ -1238,59 +1281,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-avatar",
+          "name": "kemet-accordion",
           "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatars",
-          "cssProperties": [
-            {
-              "description": "The space between avatars. Default: -1.5rem.",
-              "name": "--kemet-avatars-squeeze"
-            }
-          ],
-          "members": [],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatars",
-          "summary": "Groups multiple avatars.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatars",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         }
       ]
