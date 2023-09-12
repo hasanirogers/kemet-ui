@@ -19,12 +19,12 @@ import { stylesBase } from './styles';
  * @slot Icon - A slot for an icon to display.
  * @slot default - The text for the FAB.
  *
- * @cssproperty --kemet-fab-size - The width and height of the fab. Default: 50px.
- * @cssproperty --kemet-fab-color - The text color of the fab. Default: var(--kemet-color-white).
- * @cssproperty --kemet-fab-background-color - The bg color of the tab. Default: var(--kemet-color-primary).
- * @cssproperty --kemet-fab-outlined-color - The text color of an outlined fab. Default: var(--kemet-color-primary).
- * @cssproperty --kemet-fab-outlined-border - The border of an outlined fab. Default: 1px solid var(--kemet-color-primary).
- * @cssproperty --kemet-fab-pill-radius - The border radius of a pill fab. Default: 10rem.
+ * @cssproperty --kemet-fab-size - The width and height of the fab.
+ * @cssproperty --kemet-fab-color - The text color of the fab.
+ * @cssproperty --kemet-fab-background-color - The bg color of the tab.
+ * @cssproperty --kemet-fab-outlined-color - The text color of an outlined fab.
+ * @cssproperty --kemet-fab-outlined-border - The border of an outlined fab.
+ * @cssproperty --kemet-fab-pill-radius - The border radius of a pill fab.
  *
  * @csspart button - The button's container.
  * @csspart icon -  The FAB's icon.
