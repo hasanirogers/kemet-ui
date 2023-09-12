@@ -18,15 +18,15 @@ import { stylesBase } from './styles';
  * @csspart combobox - The combo's container element.
  * @csspart listbox - The list element in the combo.
  *
- * @cssproperty --kemet-combo-width - The width of the combo box. Default: calc(100% - 2px).
- * @cssproperty --kemet-combo-margin - The margins on the combo box. Default: 1rem auto.
- * @cssproperty --kemet-combo-max-height - The max height of the combo box. Default: calc(5 * 3rem).
- * @cssproperty --kemet-combo-border - The border of the combo box. Default: 1px solid var(--kemet-color-primary).
- * @cssproperty --kemet-combo-border-radius - The border radius of the combo box. Default: var(--kemet-border-radius).
- * @cssproperty --kemet-combo-background-color - The background color of the combo box. Default: var(--kemet-color-white-to-black).
- * @cssproperty --kemet-combo-shadow - The shadow of the combo box. Default: var(--kemet-elevation-layer5).
- * @cssproperty --kemet-combo-hover-color - The hover item's text color. Default:  var(--kemet-color-white).
- * @cssproperty --kemet-combo-hover-background-color - The hover item's background color. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-combo-width - The width of the combo box.
+ * @cssproperty --kemet-combo-margin - The margins on the combo box.
+ * @cssproperty --kemet-combo-max-height - The max height of the combo box.
+ * @cssproperty --kemet-combo-border - The border of the combo box.
+ * @cssproperty --kemet-combo-border-radius - The border radius of the combo box.
+ * @cssproperty --kemet-combo-background-color - The background color of the combo box.
+ * @cssproperty --kemet-combo-shadow - The shadow of the combo box.
+ * @cssproperty --kemet-combo-hover-color - The hover item's text color.
+ * @cssproperty --kemet-combo-hover-background-color - The hover item's background color.
  *
  * @event kemet-combo-selection - Fires when a selection has been made
  *
