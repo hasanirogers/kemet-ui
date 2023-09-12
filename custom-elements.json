@@ -4,293 +4,138 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
+      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetBadge",
-          "cssProperties": [
-            {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatar",
-          "cssProperties": [
-            {
-              "description": "The color of the text. Default: var(--kemet-color-white).",
-              "name": "--kemet-avatar-color"
-            },
-            {
-              "description": "The color of the background. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-avatar-background-color"
-            },
-            {
-              "description": "The border radius of the rounded type. Default: 1rem.",
-              "name": "--kemet-avatar-rounded-radius"
-            },
-            {
-              "description": "The space around the initials. Default: 1rem.",
-              "name": "--kemet-avatar-initials-margin"
-            }
-          ],
+          "name": "KemetAccordionPanel",
           "cssParts": [
             {
-              "description": "Contains the initials for the avatar.",
-              "name": "initials"
+              "description": "Contains the trigger for the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "Contains the body for the panel.",
+              "name": "body"
             }
           ],
           "slots": [
             {
-              "description": "A slot for an icon or element that indicates the status of the avatar.",
-              "name": "status"
+              "description": "The trigger button that opens and closes the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "The body content of the panel.",
+              "name": "body"
+            },
+            {
+              "description": "The icon for the panel.",
+              "name": "icon"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "attribute": "image"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "attribute": "initials"
-            },
-            {
-              "kind": "field",
-              "name": "circle",
+              "name": "opened",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
-              "attribute": "circle",
+              "default": "undefined",
+              "description": "Determines the opened state of the panel",
+              "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "rounded",
+              "name": "maxHeight",
               "type": {
-                "text": "boolean"
+                "text": "string"
               },
-              "description": "Displays with rounded corners",
-              "attribute": "rounded",
-              "reflects": true
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "attribute": "max-height"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "attribute": "slug"
             },
             {
               "kind": "method",
-              "name": "makeSize"
+              "name": "toggle"
             },
             {
               "kind": "method",
-              "name": "makeContent"
+              "name": "focusableBodyElements"
+            },
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when a panel is opened",
+              "name": "kemet-accordion-panel-opened"
+            },
+            {
+              "description": "Fires when a panel is closed",
+              "name": "kemet-accordion-panel-closed"
             }
           ],
           "attributes": [
             {
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "fieldName": "size"
-            },
-            {
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "fieldName": "image"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "fieldName": "label"
-            },
-            {
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "fieldName": "initials"
-            },
-            {
-              "name": "circle",
+              "name": "opened",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
-              "fieldName": "circle"
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+              },
+              "description": "Determines the opened state of the panel",
+              "fieldName": "opened"
             },
             {
-              "name": "rounded",
+              "name": "max-height",
               "type": {
-                "text": "boolean"
+                "text": "string"
               },
-              "description": "Displays with rounded corners",
-              "fieldName": "rounded"
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "fieldName": "maxHeight"
+            },
+            {
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "fieldName": "slug"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-avatar",
-          "summary": "A representation of a person or thing.",
+          "tagName": "kemet-accordion-panel",
+          "summary": "A blade for an accordion.",
           "customElement": true
         }
       ],
@@ -299,41 +144,113 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-avatar",
+          "name": "kemet-accordion-panel",
           "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.ts",
+      "path": "src/components/kemet-accordion/kemet-accordion.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAvatars",
-          "cssProperties": [
+          "name": "KemetAccordion",
+          "members": [
             {
-              "description": "The space between avatars. Default: -1.5rem.",
-              "name": "--kemet-avatars-squeeze"
+              "kind": "field",
+              "name": "currentPanel",
+              "type": {
+                "text": "number"
+              },
+              "description": "The index value for the most recently opened panel",
+              "attribute": "currentPanel"
+            },
+            {
+              "kind": "field",
+              "name": "togglePanels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "attribute": "toggle-panels"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handlePanelOpened",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "navigatePanels",
+              "parameters": [
+                {
+                  "name": "direction"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "expandAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseAll"
             }
           ],
-          "members": [],
+          "attributes": [
+            {
+              "name": "currentPanel",
+              "type": {
+                "text": "number"
+              },
+              "description": "The index value for the most recently opened panel",
+              "fieldName": "currentPanel"
+            },
+            {
+              "name": "toggle-panels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "fieldName": "togglePanels"
+            }
+          ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-avatars",
-          "summary": "Groups multiple avatars.",
+          "tagName": "kemet-accordion",
+          "summary": "A component that acts like a standard accordion.",
           "customElement": true
         }
       ],
@@ -342,16 +259,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-avatars",
+          "name": "kemet-accordion",
           "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         }
       ]
@@ -574,134 +491,111 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-card/kemet-card.ts",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetCard",
+          "name": "KemetBadge",
           "cssProperties": [
             {
-              "description": "The space around elements.",
-              "name": "--kemet-card-padding"
-            },
-            {
-              "description": "The color of the borders.",
-              "name": "--kemet-card-border-color"
-            },
-            {
-              "description": "The color of the text. Default:",
-              "name": "--kemet-card-color"
-            },
-            {
-              "description": "The max width of the card.",
-              "name": "--kemet-card-max-width"
-            },
-            {
-              "description": "The border around the card.",
-              "name": "--kemet-card-border"
-            },
-            {
-              "description": "The border radius of the card.",
-              "name": "--kemet-card-border-radius"
-            },
-            {
-              "description": "The background color.",
-              "name": "--kemet-card-background-color"
-            },
-            {
-              "description": "The body spacing.",
-              "name": "--kemet-card-body-padding"
-            },
-            {
-              "description": "The header spacing.",
-              "name": "--kemet-card-header-padding"
-            },
-            {
-              "description": "The header border.",
-              "name": "--kemet-card-header-border-bottom"
-            },
-            {
-              "description": "The caption text color.",
-              "name": "--kemet-card-caption-color"
-            },
-            {
-              "description": "The caption spacing.",
-              "name": "--kemet-card-caption-padding"
-            },
-            {
-              "description": "The caption background color.",
-              "name": "--kemet-card-caption-background-color"
-            },
-            {
-              "description": "The footer spacing.",
-              "name": "--kemet-card-footer-padding"
-            },
-            {
-              "description": "The footer border.",
-              "name": "--kemet-card-footer-border-top"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The media area of the card.",
-              "name": "media"
-            },
-            {
-              "description": "The main contents of the card.",
-              "name": "body"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            },
-            {
-              "description": "The cards's header.",
-              "name": "header"
-            },
-            {
-              "description": "A slot for images, videos, or embeds.",
-              "name": "media"
-            },
-            {
-              "description": "Text for the media slot.",
-              "name": "caption"
-            },
-            {
-              "description": "The card's footer.",
-              "name": "footer"
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "center",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "description": "Centers the elements in the card.",
-              "attribute": "center",
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
             }
           ],
           "attributes": [
             {
-              "name": "center",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
+            },
+            {
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "description": "Centers the elements in the card.",
-              "fieldName": "center"
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-card",
-          "summary": "A highly configurable panel design to display media and information.",
+          "tagName": "kemet-badge",
+          "summary": "Badges display the status of information.",
           "customElement": true
         }
       ],
@@ -710,16 +604,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-card",
+          "name": "kemet-badge",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         }
       ]
@@ -1026,138 +920,164 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
+      "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAccordionPanel",
-          "cssParts": [
+          "name": "KemetAvatar",
+          "cssProperties": [
             {
-              "description": "Contains the trigger for the panel.",
-              "name": "trigger"
+              "description": "The color of the text. Default: var(--kemet-color-white).",
+              "name": "--kemet-avatar-color"
             },
             {
-              "description": "Contains the body for the panel.",
-              "name": "body"
+              "description": "The color of the background. Default: var(--kemet-color-gray4).",
+              "name": "--kemet-avatar-background-color"
+            },
+            {
+              "description": "The border radius of the rounded type. Default: 1rem.",
+              "name": "--kemet-avatar-rounded-radius"
+            },
+            {
+              "description": "The space around the initials. Default: 1rem.",
+              "name": "--kemet-avatar-initials-margin"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Contains the initials for the avatar.",
+              "name": "initials"
             }
           ],
           "slots": [
             {
-              "description": "The trigger button that opens and closes the panel.",
-              "name": "trigger"
-            },
-            {
-              "description": "The body content of the panel.",
-              "name": "body"
-            },
-            {
-              "description": "The icon for the panel.",
-              "name": "icon"
+              "description": "A slot for an icon or element that indicates the status of the avatar.",
+              "name": "status"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "opened",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "attribute": "initials"
+            },
+            {
+              "kind": "field",
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "description": "Determines the opened state of the panel",
-              "attribute": "opened",
+              "description": "Displays in a circle.",
+              "attribute": "circle",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "maxHeight",
+              "name": "rounded",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "attribute": "max-height"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "type": {
-                "text": "string"
-              },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "attribute": "slug"
+              "description": "Displays with rounded corners",
+              "attribute": "rounded",
+              "reflects": true
             },
             {
               "kind": "method",
-              "name": "toggle"
+              "name": "makeSize"
             },
             {
               "kind": "method",
-              "name": "focusableBodyElements"
-            },
-            {
-              "kind": "method",
-              "name": "a11y"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when a panel is opened",
-              "name": "kemet-accordion-panel-opened"
-            },
-            {
-              "description": "Fires when a panel is closed",
-              "name": "kemet-accordion-panel-closed"
+              "name": "makeContent"
             }
           ],
           "attributes": [
             {
-              "name": "opened",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "fieldName": "image"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "fieldName": "label"
+            },
+            {
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "fieldName": "initials"
+            },
+            {
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-              },
-              "description": "Determines the opened state of the panel",
-              "fieldName": "opened"
+              "description": "Displays in a circle.",
+              "fieldName": "circle"
             },
             {
-              "name": "max-height",
+              "name": "rounded",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "fieldName": "maxHeight"
-            },
-            {
-              "name": "slug",
-              "type": {
-                "text": "string"
-              },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "fieldName": "slug"
+              "description": "Displays with rounded corners",
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-accordion-panel",
-          "summary": "A blade for an accordion.",
+          "tagName": "kemet-avatar",
+          "summary": "A representation of a person or thing.",
           "customElement": true
         }
       ],
@@ -1166,113 +1086,41 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-accordion-panel",
+          "name": "kemet-avatar",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion.ts",
+      "path": "src/components/kemet-avatar/kemet-avatars.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAccordion",
-          "members": [
+          "name": "KemetAvatars",
+          "cssProperties": [
             {
-              "kind": "field",
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "description": "The index value for the most recently opened panel",
-              "attribute": "currentPanel"
-            },
-            {
-              "kind": "field",
-              "name": "togglePanels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "attribute": "toggle-panels"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "handlePanelOpened",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "navigatePanels",
-              "parameters": [
-                {
-                  "name": "direction"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "expandAll"
-            },
-            {
-              "kind": "method",
-              "name": "collapseAll"
+              "description": "The space between avatars. Default: -1.5rem.",
+              "name": "--kemet-avatars-squeeze"
             }
           ],
-          "attributes": [
-            {
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "description": "The index value for the most recently opened panel",
-              "fieldName": "currentPanel"
-            },
-            {
-              "name": "toggle-panels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "fieldName": "togglePanels"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-accordion",
-          "summary": "A component that acts like a standard accordion.",
+          "tagName": "kemet-avatars",
+          "summary": "Groups multiple avatars.",
           "customElement": true
         }
       ],
@@ -1281,16 +1129,168 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-accordion",
+          "name": "kemet-avatars",
           "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-card/kemet-card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCard",
+          "cssProperties": [
+            {
+              "description": "The space around elements.",
+              "name": "--kemet-card-padding"
+            },
+            {
+              "description": "The color of the borders.",
+              "name": "--kemet-card-border-color"
+            },
+            {
+              "description": "The color of the text. Default:",
+              "name": "--kemet-card-color"
+            },
+            {
+              "description": "The max width of the card.",
+              "name": "--kemet-card-max-width"
+            },
+            {
+              "description": "The border around the card.",
+              "name": "--kemet-card-border"
+            },
+            {
+              "description": "The border radius of the card.",
+              "name": "--kemet-card-border-radius"
+            },
+            {
+              "description": "The background color.",
+              "name": "--kemet-card-background-color"
+            },
+            {
+              "description": "The body spacing.",
+              "name": "--kemet-card-body-padding"
+            },
+            {
+              "description": "The header spacing.",
+              "name": "--kemet-card-header-padding"
+            },
+            {
+              "description": "The header border.",
+              "name": "--kemet-card-header-border-bottom"
+            },
+            {
+              "description": "The caption text color.",
+              "name": "--kemet-card-caption-color"
+            },
+            {
+              "description": "The caption spacing.",
+              "name": "--kemet-card-caption-padding"
+            },
+            {
+              "description": "The caption background color.",
+              "name": "--kemet-card-caption-background-color"
+            },
+            {
+              "description": "The footer spacing.",
+              "name": "--kemet-card-footer-padding"
+            },
+            {
+              "description": "The footer border.",
+              "name": "--kemet-card-footer-border-top"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The media area of the card.",
+              "name": "media"
+            },
+            {
+              "description": "The main contents of the card.",
+              "name": "body"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            },
+            {
+              "description": "The cards's header.",
+              "name": "header"
+            },
+            {
+              "description": "A slot for images, videos, or embeds.",
+              "name": "media"
+            },
+            {
+              "description": "Text for the media slot.",
+              "name": "caption"
+            },
+            {
+              "description": "The card's footer.",
+              "name": "footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "attribute": "center",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "fieldName": "center"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-card",
+          "summary": "A highly configurable panel design to display media and information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-card",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
           }
         }
       ]
@@ -1892,63 +1892,63 @@
           "name": "KemetCarousel",
           "cssProperties": [
             {
-              "description": "The width of the carousel. Default: 100%.",
+              "description": "The width of the carousel.",
               "name": "--kemet-carousel-width"
             },
             {
-              "description": "The height of the carousel. Default: auto.",
+              "description": "The height of the carousel.",
               "name": "--kemet-carousel-height"
             },
             {
-              "description": "The space between items in the toolbar. Default: 1rem.",
+              "description": "The space between items in the toolbar.",
               "name": "--kemet-carousel-toolbar-gap"
             },
             {
-              "description": "The cross axis alignment of the toolbar. Default: center.",
+              "description": "The cross axis alignment of the toolbar.",
               "name": "--kemet-carousel-toolbar-justify-content"
             },
             {
-              "description": "The padding of the toolbar. Default: 1rem.",
+              "description": "The padding of the toolbar.",
               "name": "--kemet-carousel-toolbar-padding"
             },
             {
-              "description": "The inner toolbar width. Default: 100%.",
+              "description": "The inner toolbar width.",
               "name": "--kemet-carousel-toolbar-inner-width"
             },
             {
-              "description": "The bottom position of the inner toolbar. Default: 0.",
+              "description": "The bottom position of the inner toolbar.",
               "name": "--kemet-carousel-toolbar-inner-bottom"
             },
             {
-              "description": "The top position of the inner toolbar. Default: auto.",
+              "description": "The top position of the inner toolbar.",
               "name": "--kemet-carousel-toolbar-inner-top"
             },
             {
-              "description": "The inner toolbar text color. Default: var(--kemet-color-white).",
+              "description": "The inner toolbar text color.",
               "name": "--kemet-carousel-toolbar-inner-color"
             },
             {
-              "description": "The inner toolbar background color. Default: rgba(0, 0, 0, 0.4).",
+              "description": "The inner toolbar background color.",
               "name": "--kemet-carousel-toolbar-inner-background-color"
             },
             {
-              "description": "The border around the slides. Default: 1px solid var(--kemet-color-gray1).",
+              "description": "The border around the slides.",
               "name": "--kemet-carousel-slides-border"
             },
             {
-              "description": "The transition speed of the slides. Default: 300ms.",
+              "description": "The transition speed of the slides.",
               "name": "--kemet-carousel-transition-speed"
             },
             {
-              "description": "The arrows start opacity. Default: 0.25.",
+              "description": "The arrows start opacity.",
               "name": "--kemet-carousel-arrows-opacity"
             },
             {
-              "description": "The arrows however opacity. Default: 1.",
+              "description": "The arrows however opacity.",
               "name": "--kemet-carousel-arrows-opacity-hover"
             },
             {
-              "description": "The arrows transition speed. Default: 300ms.",
+              "description": "The arrows transition speed.",
               "name": "--kemet-carousel-arrows-transition-speed"
             }
           ],
