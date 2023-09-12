@@ -620,231 +620,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatar",
-          "cssProperties": [
-            {
-              "description": "The color of the text. Default: var(--kemet-color-white).",
-              "name": "--kemet-avatar-color"
-            },
-            {
-              "description": "The color of the background. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-avatar-background-color"
-            },
-            {
-              "description": "The border radius of the rounded type. Default: 1rem.",
-              "name": "--kemet-avatar-rounded-radius"
-            },
-            {
-              "description": "The space around the initials. Default: 1rem.",
-              "name": "--kemet-avatar-initials-margin"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the initials for the avatar.",
-              "name": "initials"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon or element that indicates the status of the avatar.",
-              "name": "status"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "attribute": "image"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "attribute": "initials"
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeSize"
-            },
-            {
-              "kind": "method",
-              "name": "makeContent"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "fieldName": "size"
-            },
-            {
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "fieldName": "image"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "fieldName": "label"
-            },
-            {
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "fieldName": "initials"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "fieldName": "circle"
-            },
-            {
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "fieldName": "rounded"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatar",
-          "summary": "A representation of a person or thing.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatar",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatars",
-          "cssProperties": [
-            {
-              "description": "The space between avatars. Default: -1.5rem.",
-              "name": "--kemet-avatars-squeeze"
-            }
-          ],
-          "members": [],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatars",
-          "summary": "Groups multiple avatars.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatars",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-button/kemet-button.ts",
       "declarations": [
         {
@@ -1139,6 +914,231 @@
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-avatar/kemet-avatar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAvatar",
+          "cssProperties": [
+            {
+              "description": "The color of the text. Default: var(--kemet-color-white).",
+              "name": "--kemet-avatar-color"
+            },
+            {
+              "description": "The color of the background. Default: var(--kemet-color-gray4).",
+              "name": "--kemet-avatar-background-color"
+            },
+            {
+              "description": "The border radius of the rounded type. Default: 1rem.",
+              "name": "--kemet-avatar-rounded-radius"
+            },
+            {
+              "description": "The space around the initials. Default: 1rem.",
+              "name": "--kemet-avatar-initials-margin"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Contains the initials for the avatar.",
+              "name": "initials"
+            }
+          ],
+          "slots": [
+            {
+              "description": "A slot for an icon or element that indicates the status of the avatar.",
+              "name": "status"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "attribute": "initials"
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays in a circle.",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeSize"
+            },
+            {
+              "kind": "method",
+              "name": "makeContent"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "fieldName": "image"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "fieldName": "label"
+            },
+            {
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "fieldName": "initials"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays in a circle.",
+              "fieldName": "circle"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "fieldName": "rounded"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-avatar",
+          "summary": "A representation of a person or thing.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-avatar",
+          "declaration": {
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-avatar/kemet-avatars.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAvatars",
+          "cssProperties": [
+            {
+              "description": "The space between avatars. Default: -1.5rem.",
+              "name": "--kemet-avatars-squeeze"
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-avatars",
+          "summary": "Groups multiple avatars.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-avatars",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         }
       ]
@@ -5131,23 +5131,23 @@
           "name": "KemetModal",
           "cssProperties": [
             {
-              "description": "The minimum width of the content. Default: 0.",
+              "description": "The minimum width of the content.",
               "name": "--kemet-modal-content-min-width"
             },
             {
-              "description": "The maximum width of the content. Default: none.",
+              "description": "The maximum width of the content.",
               "name": "--kemet-modal-content-max-width"
             },
             {
-              "description": "The background color of the content. Default: --kemet-color-white.",
+              "description": "The background color of the content.",
               "name": "--kemet-modal-content-background-color"
             },
             {
-              "description": "The min with of the mobile content. Default: 100%.",
+              "description": "The min with of the mobile content.",
               "name": "--kemet-modal-content-mobile-min-width"
             },
             {
-              "description": "The min height of the mobile content. Default: 80vh.",
+              "description": "The min height of the mobile content.",
               "name": "--kemet-modal-content-mobile-min-height"
             }
           ],

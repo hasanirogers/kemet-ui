@@ -20,11 +20,11 @@ import { TypeEffect } from './types';
  * @csspart content - The main contents of the modal.
  * @csspart overlay - The surrounding scrim of the modal.
  *
- * @cssproperty --kemet-modal-content-min-width - The minimum width of the content. Default: 0.
- * @cssproperty --kemet-modal-content-max-width - The maximum width of the content. Default: none.
- * @cssproperty --kemet-modal-content-background-color - The background color of the content. Default: --kemet-color-white.
- * @cssproperty --kemet-modal-content-mobile-min-width - The min with of the mobile content. Default: 100%.
- * @cssproperty --kemet-modal-content-mobile-min-height - The min height of the mobile content. Default: 80vh.
+ * @cssproperty --kemet-modal-content-min-width - The minimum width of the content.
+ * @cssproperty --kemet-modal-content-max-width - The maximum width of the content.
+ * @cssproperty --kemet-modal-content-background-color - The background color of the content.
+ * @cssproperty --kemet-modal-content-mobile-min-width - The min with of the mobile content.
+ * @cssproperty --kemet-modal-content-mobile-min-height - The min height of the mobile content.
  *
  * @event kemet-modal-opened - Fires when the modal opens
  * @event kemet-modal-closed - Fires when the modal closes

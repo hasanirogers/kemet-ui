@@ -1,5 +1,6 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { TypeEffect } from '../types';
 
 import '../kemet-modal';
 import '../kemet-modal-close';
@@ -7,6 +8,7 @@ import '../kemet-modal-close';
 import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
+import '../../kemet-button/kemet-button';
 
 const meta: Meta = {
   title: 'Components / Modal',
@@ -16,16 +18,9 @@ export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  displayCloseBtn = true,
-  minWidth = '0',
-  maxWidth = 'none',
-  overlayColor = 'rgba(0,0,0,0.2)',
-  transitionSpeed = '0.3s',
-  opened = false,
-  effect = 'fall',
-  closeOnClick = false,
-}) => {
+const Template = (args) => {
+  const effect: TypeEffect = args.effect;
+
   const openModal = () => {
     const modal = document.querySelector('kemet-modal');
     modal.opened = true;
@@ -46,18 +41,18 @@ const Template = ({
   const temp = html`
     <style>
       kemet-modal {
-        --kemet-modal-min-width: ${minWidth};
-        --kemet-modal-max-width: ${maxWidth};
-        --kemet-modal-overlay-background-color: ${overlayColor};
-        --kemet-modal-transition-speed: ${transitionSpeed};
+        --kemet-modal-min-width: ${args.minWidth};
+        --kemet-modal-max-width: ${args.maxWidth};
+        --kemet-modal-overlay-background-color: ${args.overlayColor};
+        --kemet-modal-transition-speed: ${args.transitionSpeed};
       }
     </style>
     <kemet-button @click="${() => openModal()}">Open Modal</kemet-button>
-    <kemet-modal ?opened=${opened} effect="${effect}" ?close-on-click="${closeOnClick}">
+    <kemet-modal ?opened=${args.opened} effect="${effect}" ?close-on-click="${args.closeOnClick}">
       <div kemet-elevation="layer5" kemet-padding="tiny:normal">
-        ${makeCloseBtn(displayCloseBtn)}
+        ${makeCloseBtn(args.displayCloseBtn)}
         <h2 kemet-margin="tiny:none">Modal Title</h2>
-        <p>Your modal contents <a href="http://google.com">here</a>.</p>
+        <p>Your modal contents <a href="http://google.com" kemet-color="auto"><strong>here</strong></a>.</p>
       </div>
     </kemet-modal>
   `;

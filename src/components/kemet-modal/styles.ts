@@ -8,6 +8,15 @@ export const stylesBase = css`
   }
 
   :host {
+    --kemet-modal-content-min-width: 0;
+    --kemet-modal-content-max-width: none;
+    --kemet-modal-content-background-color: rgb(var(--kemet-color-white-to-primary));
+    --kemet-modal-content-mobile-min-width: 100%;
+    --kemet-modal-content-mobile-min-height: 80vh;
+    --kemet-modal-content-mobile-padding: 1rem;
+    --kemet-modal-overlay-background-color: rgb(var(--kemet-color-black) / 20%);
+    --kemet-modal-transition-speed: 0.3s;
+
     position: fixed;
     display: flex;
     top: 0;
@@ -27,15 +36,15 @@ export const stylesBase = css`
     position: relative;
     z-index: 3;
     margin: auto;
-    min-width: var(--kemet-modal-content-min-width, 0);
-    max-width: var(--kemet-modal-content-max-width, none);
-    background-color: var(--kemet-modal-content-background-color, var(--kemet-color-white-to-primary));
+    min-width: var(--kemet-modal-content-min-width);
+    max-width: var(--kemet-modal-content-max-width);
+    background-color: var(--kemet-modal-content-background-color);
   }
 
   :host([mobile]) .content {
-    min-width: var(--kemet-modal-content-mobile-min-width, 100%);
-    min-height: var(--kemet-modal-content-mobile-min-height, 80vh);
-    padding: var(--kemet-modal-content-mobile-padding, 1rem);
+    min-width: var(--kemet-modal-content-mobile-min-width);
+    min-height: var(--kemet-modal-content-mobile-min-height);
+    padding: var(--kemet-modal-content-mobile-padding);
   }
 
   .overlay {
@@ -47,8 +56,8 @@ export const stylesBase = css`
     left: 0;
     z-index: 1;
     opacity: 0;
-    background: var(--kemet-modal-overlay-background-color, rgba(0,0,0,0.2));
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    background: var(--kemet-modal-overlay-background-color);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([opened]) .overlay {
@@ -62,7 +71,7 @@ export const stylesEffects = css`
   :host([effect="fadein-scaleup"]) .content {
     transform: scale(0.7);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([effect="fadein-scaleup"][opened]) .content {
@@ -74,7 +83,7 @@ export const stylesEffects = css`
   :host([effect="slide-right"]) .content {
     transform: translateX(20%);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s) cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all var(--kemet-modal-transition-speed) cubic-bezier(0.25, 0.5, 0.5, 0.9);
   }
 
   :host([effect="slide-right"][opened]) .content {
@@ -86,7 +95,7 @@ export const stylesEffects = css`
   :host([effect="slide-bottom"]) .content {
     transform: translateY(20%);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([effect="slide-bottom"][opened]) .content {
@@ -98,7 +107,7 @@ export const stylesEffects = css`
   :host([effect="newspaper"]) .content {
     transform: scale(0) rotate(720deg);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([effect="newspaper"][opened]) .content {
@@ -118,7 +127,7 @@ export const stylesEffects = css`
   }
 
   :host([effect="fall"][opened]) .content {
-    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;
+    transition: all var(--kemet-modal-transition-speed) ease-in;
     transform: translateZ(0px) rotateX(0deg);
     opacity: 1;
   }
@@ -135,7 +144,7 @@ export const stylesEffects = css`
   }
 
   :host([effect="side-fall"][opened]) .content {
-    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;
+    transition: all var(--kemet-modal-transition-speed) ease-in;
     transform: translate(0%) translateZ(0) rotate(0deg);
     opacity: 1;
   }
@@ -148,7 +157,7 @@ export const stylesEffects = css`
   :host([effect="flip-horizontal"]) .content {
     transform-style: preserve-3d;
     transform: rotateY(-70deg);
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
     opacity: 0;
   }
 
@@ -165,7 +174,7 @@ export const stylesEffects = css`
   :host([effect="flip-vertical"]) .content {
     transform-style: preserve-3d;
     transform: rotateX(-70deg);
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
     opacity: 0;
   }
 
@@ -184,7 +193,7 @@ export const stylesEffects = css`
     transform: rotateX(-60deg);
     transform-origin: 50% 0;
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([effect="sign-3d"][opened]) .content {
@@ -196,7 +205,7 @@ export const stylesEffects = css`
   :host([effect="super-scaled"]) .content {
     transform: scale(2);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([effect="super-scaled"][opened]) .content {
@@ -240,7 +249,7 @@ export const stylesEffects = css`
     transform: translateY(100%) rotateX(90deg);
     transform-origin: 0 100%;
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-out;
+    transition: all var(--kemet-modal-transition-speed) ease-out;
   }
 
   :host([effect="rotate-bottom"][opened]) .content {
@@ -258,7 +267,7 @@ export const stylesEffects = css`
     transform: translateZ(100px) translateX(-30%) rotateY(90deg);
     transform-origin: 0 100%;
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([effect="rotate-left"][opened]) .content {
