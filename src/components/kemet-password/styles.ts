@@ -28,11 +28,11 @@ export const stylesBase = css`
 
   .status--weak,
   .status--better {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 
   .status--strong {
-    color: var(--kemet-color-success);
+    color: rgb(var(--kemet-color-success));
   }
 
   .indicator {
@@ -48,20 +48,20 @@ export const stylesBase = css`
   }
 
   .status--weak .indicator li:nth-child(1) {
-    background-color: var(--kemet-color-error);
+    background-color: rgb(var(--kemet-color-error));
   }
 
   .status--better .indicator li:nth-child(1),
   .status--better .indicator li:nth-child(2) {
-    background-color: var(--kemet-color-error);
+    background-color: rgb(var(--kemet-color-error));
   }
 
   .status--strong .indicator li {
-    background-color: var(--kemet-color-success);
+    background-color: rgb(var(--kemet-color-success));
   }
 
   .rules {
-    color: var(--kemet-color-background);
+    color: rgb(var(--kemet-color-foreground));
     line-height: 1.5;
     list-style: none;
     font-size: 90%;
@@ -73,7 +73,7 @@ export const stylesBase = css`
   }
 
   .rules kemet-icon {
-    color: var(--kemet-color-success);
+    color: rgb(var(--kemet-color-success));
     position: absolute;
     left: -2rem;
   }
