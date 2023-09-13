@@ -6,6 +6,8 @@ import '../kemet-tabs';
 import '../kemet-tab';
 import '../kemet-tab-panel';
 
+import '../../kemet-icon/kemet-icon';
+
 const meta: Meta = {
   title: 'Components / Tabs',
   component: 'kemet-tabs',

@@ -12,7 +12,7 @@ import { stylesKemetTabPanel } from './styles';
  * @prop {boolean} selected - Is true when a panel is selected
  * @prop {string} panel - Identifies the panel to be linked by a tab
  *
- * @cssproperty --kemet-tab-panel-fade-speed - The fade speed. Default: 0.5s.
+ * @cssproperty --kemet-tab-panel-fade-speed - The fade speed.
  *
  */
 

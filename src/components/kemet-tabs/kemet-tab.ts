@@ -15,8 +15,8 @@ import { stylesKemetTab } from './styles';
  * @prop {string} link - Links to a panel name
  * @prop {boolean} closable - Determines if the tab can be closed
  *
- * @cssproperty --kemet-tab-padding - The padding of the tab. Default: 1rem.
- * @cssproperty --kemet-tab-color - The color of the selected tab. Default: var(--kemet-color-background).
+ * @cssproperty --kemet-tab-padding - The padding of the tab.
+ * @cssproperty --kemet-tab-color - The color of the selected tab.
  *
  * @event kemet-tab-selected - Fires when a tab is selected
  * @event kemet-tab-close - Fires when the tab should close
