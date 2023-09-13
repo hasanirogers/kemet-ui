@@ -18,9 +18,9 @@ import { stylesScrollSnapPaginator } from './styles';
  * @prop {boolean} useNumberPages - If set to true, the pages in the pagination iterator will appear as a set of numbers.
  * @prop {boolean} useLabelPages - If set to true, the pages in the pagination iterator will appear as the label set on the slide.
  *
- * @cssproperty --kemet-scroll-snap-paginator-padding - The padding on the container. Default: 1rem 0.
- * @cssproperty --kemet-scroll-snap-paginator-gap - The space between pagination items. Default: 0.5rem.
- * @cssproperty --kemet-scroll-snap-paginator-link-color - The color of a linkable pagination item. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-scroll-snap-paginator-padding - The padding on the container.
+ * @cssproperty --kemet-scroll-snap-paginator-gap - The space between pagination items.
+ * @cssproperty --kemet-scroll-snap-paginator-link-color - The color of a linkable pagination item.
  *
  * @event kemet-scroll-snap-focus - Fires when a set of slides are focused on.
  *

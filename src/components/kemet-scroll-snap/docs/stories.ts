@@ -8,6 +8,7 @@ import '../kemet-scroll-snap-paginator';
 import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
+import '../../kemet-icon/kemet-icon';
 
 const meta: Meta = {
   title: 'Components / Scroll Snap',
