@@ -18,7 +18,7 @@ import { TypeEffect } from './types';
  * @prop {string} effect - The transition effect type.
  * @prop {number} rotationSpeed - How fast, in seconds, each slide lasts. Stop the rotator with 0.
  *
- * @cssproperty --kemet-rotator-transition-speed - How long, in css time units, the transition effect lasts. Default: 500ms.
+ * @cssproperty --kemet-rotator-transition-speed - How long, in css time units, the transition effect lasts.
  *
  */
 

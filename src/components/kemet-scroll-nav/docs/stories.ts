@@ -21,7 +21,7 @@ const TemplateResize = () => html`
       color: #fafafa;
       padding: 2rem;
       line-height: 1.5;
-      background-color: var(--kemet-color-primary);
+      background-color: rgb(var(--kemet-color-primary));
       padding-top: 400px; /* should be the height of kemet-scroll-nav */
     }
 
@@ -34,7 +34,7 @@ const TemplateResize = () => html`
 
     kemet-scroll-nav a {
       text-decoration: none;
-      color: var(--kemet-color-primary);
+      color: rgb(var(--kemet-color-primary));
     }
 
     kemet-scroll-nav .links {
@@ -92,7 +92,7 @@ const TemplateSticky = () => html`
       color: #fafafa;
       padding: 2rem;
       line-height: 1.5;
-      background-color: var(--kemet-color-primary);
+      background-color: rgb(var(--kemet-color-primary));
     }
 
     kemet-scroll-nav {
@@ -104,7 +104,7 @@ const TemplateSticky = () => html`
 
     kemet-scroll-nav a {
       text-decoration: none;
-      color: var(--kemet-color-primary);
+      color: rgb(var(--kemet-color-primary));
     }
 
     kemet-scroll-nav .links {

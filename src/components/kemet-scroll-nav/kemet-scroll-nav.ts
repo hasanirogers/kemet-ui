@@ -14,11 +14,11 @@ import { TypeEffect } from './types';
  * @prop {boolean} transform - Whether or not the nav has shifted into a new state.
  * @prop {number} offset - Allows for an arbitrary adjustment of the transform point in pixels. Works with negative values.
  *
- * @cssproperty --kemet-scroll-nav-padding - The padding of the nav. Default: 1rem 2rem.
- * @cssproperty --kemet-scroll-nav-background - The background color of the nav. Default: #fafafa.
- * @cssproperty --kemet-scroll-nav-transition - The transition speed of the transformation. Default: 300ms.
- * @cssproperty --kemet-scroll-nav-resize-height - The height of the pre-transformed nav. Default: 400px.
- * @cssproperty --kemet-scroll-nav-resize-height-transformed - The height of the transformed nav. Default: 100px.
+ * @cssproperty --kemet-scroll-nav-padding - The padding of the nav.
+ * @cssproperty --kemet-scroll-nav-background - The background color of the nav.
+ * @cssproperty --kemet-scroll-nav-transition - The transition speed of the transformation.
+ * @cssproperty --kemet-scroll-nav-resize-height - The height of the pre-transformed nav.
+ * @cssproperty --kemet-scroll-nav-resize-height-transformed - The height of the transformed nav.
  *
  */
 
