@@ -13,7 +13,7 @@ export const stylesSortableItem = css`
     cursor: grab;
     display: block;
     padding: 1rem;
-    border: 1px solid var(--kemet-color-background);
+    border: 1px solid rgb(var(--kemet-color-foreground));
   }
 
   :host([ghost]) {
