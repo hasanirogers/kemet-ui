@@ -26,12 +26,13 @@ import { KemetRadioInterface } from './types';
  * @csspart text - The text next to the radio button.
  * @csspart dot - The circle that fills the radio button.
  *
- * @cssproperty --kemet-radio-size - The size of the radio button. Default: 18px.
- * @cssproperty --kemet-radio-border - The outer border of the radio button. Default: 1px solid var(--kemet-color-primary).
- * @cssproperty --kemet-radio-dot-color - The color of the radio button's dot. Default: var(--kemet-color-primary).
- * @cssproperty --kemet-radio-dot-border-width - The border width of the radio button's dot. Default: 3px.
- * @cssproperty --kemet-radio-dot-border-color - The border color of the radio button's dot. Default: var(--kemet-color-white).
- * @cssproperty --kemet-radio-dot-color-filled - The filled color of the radio button. Default: var(--kemet-color-white).
+ * @cssproperty --kemet-radio-size - The size of the radio button.
+ * @cssproperty --kemet-radio-border - The outer border of the radio button.
+ * @cssproperty --kemet-radio-dot-color - The color of the radio button's dot.
+ * @cssproperty --kemet-radio-dot-border-width - The border width of the radio button's dot.
+ * @cssproperty --kemet-radio-dot-border-color - The border color of the radio button's dot.
+ * @cssproperty --kemet-radio-dot-color-filled - The filled color of the radio button.
+ * @cssproperty --kemet-radio-dot-ring-color - The ring color of the radio button's dot.
  *
  * @event kemet-radio-focused -  Fires when the checkbox loses or receives focus
  * @event kemet-radio-focused - Fires when the checkbox loses or receives focus
