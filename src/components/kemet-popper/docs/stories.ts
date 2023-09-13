@@ -8,6 +8,7 @@ import '../kemet-popper-close';
 import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
+import '../../kemet-button/kemet-button';
 
 const meta: Meta = {
   title: 'Components / Popper',
@@ -27,7 +28,7 @@ const Template = ({
     <div class="storybook__canvas--${canvasPosition}">
       <kemet-popper ?opened=${opened} placement=${placement} effect=${effect} fire-on=${fireOn} strategy=${strategy} skidding=${skidding} distance=${distance}>
         <kemet-button type="text" slot="trigger">${triggerText}</kemet-button>
-        <div slot="content">${unsafeHTML(content)}</div>
+        <div slot="content" kemet-color="gray-950">${unsafeHTML(content)}</div>
       </kemet-popper>
     </div>
   `;

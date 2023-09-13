@@ -318,20 +318,20 @@
     $name: '' + $color;
 
     [kemet-color="#{$name}"] {
-      color: var(--kemet-color-#{'' + $color});
+      color: rgb(var(--kemet-color-#{'' + $color}));
     }
 
     [kemet-background-color="#{$name}"] {
-      background-color: var(--kemet-color-#{'' + $color});
+      background-color: rgb(var(--kemet-color-#{'' + $color}));
     }
   }
 
   [kemet-color='auto'] {
-    color: var(--kemet-color-foreground);
+    color: rgb(var(--kemet-color-foreground));
   }
 
   [kemet-background-color='auto'] {
-    background-color: var(--kemet-color-background);
+    background-color: rgb(var(--kemet-color-background));
   }
 }
 
