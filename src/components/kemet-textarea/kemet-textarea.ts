@@ -35,18 +35,18 @@ import { TypeStatus } from './types';
  *
  * @csspart textarea
  *
- * @cssproperty --kemet-textarea-padding - The padding on the textarea. Default: 1rem.
- * @cssproperty --kemet-textarea-border - The border of the textarea. Default: 1px solid var(--kemet-color-primary).
- * @cssproperty --kemet-textarea-border-color-error - The border of the error state. Default: 1px solid var(--kemet-color-error).
- * @cssproperty --kemet-textarea-border-color-success - The border of the success state. Default: 1px solid var(--kemet-color-success).
- * @cssproperty --kemet-textarea-border-color-warning - The border of the warning state. Default: 1px solid var(--kemet-color-warning).
- * @cssproperty --kemet-textarea-border-radius-rounded - The border radius on rounded. Default: var(--kemet-border-radius).
- * @cssproperty --kemet-textarea-border-filled - The border on filled. Default:  none.
- * @cssproperty --kemet-textarea-color-filled - The color on filled. Default: var(--kemet-color-white).
- * @cssproperty --kemet-textarea-background-color-filled - The background-color on filled. Default: var(--kemet-color-primary).
- * @cssproperty --kemet-textarea-background-color-error - The error state background color. Default: var(--kemet-color-error).
- * @cssproperty --kemet-textarea-background-color-success - The success state background color. Default: var(--kemet-color-success).
- * @cssproperty --kemet-textarea-background-color-warning - The warning state background color. Default: var(--kemet-color-warning).
+ * @cssproperty --kemet-textarea-padding - The padding on the textarea.
+ * @cssproperty --kemet-textarea-border - The border of the textarea.
+ * @cssproperty --kemet-textarea-border-color-error - The border of the error state.
+ * @cssproperty --kemet-textarea-border-color-success - The border of the success state.
+ * @cssproperty --kemet-textarea-border-color-warning - The border of the warning state.
+ * @cssproperty --kemet-textarea-border-radius-rounded - The border radius on rounded.
+ * @cssproperty --kemet-textarea-border-filled - The border on filled.
+ * @cssproperty --kemet-textarea-color-filled - The color on filled.
+ * @cssproperty --kemet-textarea-background-color-filled - The background-color on filled.
+ * @cssproperty --kemet-textarea-background-color-error - The error state background color.
+ * @cssproperty --kemet-textarea-background-color-success - The success state background color.
+ * @cssproperty --kemet-textarea-background-color-warning - The warning state background color.
  *
  */
 
