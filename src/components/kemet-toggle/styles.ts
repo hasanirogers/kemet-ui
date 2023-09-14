@@ -6,6 +6,12 @@ export const stylesToggle = css`
     --kemet-toggle-height: 2rem;
     --kemet-toggle-handle-diameter: 1.6rem;
     --kemet-toggle-handle-margin: calc((var(--kemet-toggle-height) - var(--kemet-toggle-handle-diameter)) / 2);
+    --kemet-toggle-track-border: none;
+    --kemet-toggle-track-color: rgb(var(--kemet-color-white));
+    --kemet-toggle-track-shadow: inset 0 0.4rem 0.7rem 0 rgb(var(--kemet-color-gray-800) / 35%), inset 0 -0.2rem 0.4rem 0 rgb(var(--kemet-color-gray-50));
+    --kemet-toggle-handle-border: none;
+    --kemet-toggle-handle-color: rgb(var(--kemet-color-primary));
+    --kemet-toggle-handle-shadow: 0 0.5rem 0.5rem 0 rgb(var(--kemet-color-black) / 10%), 0 0.5rem 0.5rem 0 rgb(var(--kemet-color-black) / 20%);
 
     display: flex;
     align-items: center;
@@ -47,10 +53,10 @@ export const stylesToggle = css`
   [part='track'] {
     width: var(--kemet-toggle-width);
     height: var(--kemet-toggle-height);
-    border: var(--kemet-toggle-track-border, none);
+    border: var(--kemet-toggle-track-border);
     border-radius: var(--kemet-toggle-height);
-    background-color: var(--kemet-toggle-track-color, var(--kemet-color-white));
-    box-shadow: var(--kemet-toggle-track-shadow, inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1));
+    background-color: var(--kemet-toggle-track-color);
+    box-shadow: var(--kemet-toggle-track-shadow);
   }
 
   :host([squared]) [part='track'] {
@@ -64,10 +70,10 @@ export const stylesToggle = css`
     width: var(--kemet-toggle-handle-diameter);
     height: var(--kemet-toggle-handle-diameter);
     transform: translateX(0);
-    border: var(--kemet-toggle-handle-border, none);
+    border: var(--kemet-toggle-handle-border);
     border-radius: var(--kemet-toggle-handle-diameter);
-    background-color: var(--kemet-toggle-handle-color, var(--kemet-color-primary));
-    box-shadow: var(--kemet-toggle-handle-shadow, 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2));
+    background-color: var(--kemet-toggle-handle-color);
+    box-shadow: var(--kemet-toggle-handle-shadow);
   }
 
   :host([squared]) [part='handle'] {

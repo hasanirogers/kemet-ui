@@ -4,222 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAlert",
-          "cssProperties": [
-            {
-              "description": "The padding on the alert.",
-              "name": "--kemet-alert-padding"
-            },
-            {
-              "description": "The thickness of the border.",
-              "name": "--kemet-alert-border-thickness"
-            },
-            {
-              "description": "The status color. Default: inherit.",
-              "name": "--kemet-alert-status-color"
-            },
-            {
-              "description": "The alert's alignment.",
-              "name": "--kemet-alert-align-items"
-            },
-            {
-              "description": "The border around the alert.",
-              "name": "--kemet-alert-border"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Container for the close button.",
-              "name": "close"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "attribute": "reveal",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "attribute": "closable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "borderStatus",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "attribute": "border-status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "attribute": "hidden",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "attribute": "overlay",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeCloseBtn"
-            },
-            {
-              "kind": "method",
-              "name": "handleMotion"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
-            },
-            {
-              "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "fieldName": "opened"
-            },
-            {
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "fieldName": "reveal"
-            },
-            {
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "fieldName": "closable"
-            },
-            {
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "fieldName": "status"
-            },
-            {
-              "name": "border-status",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "fieldName": "borderStatus"
-            },
-            {
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "fieldName": "hidden"
-            },
-            {
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "fieldName": "overlay"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-alert",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
       "declarations": [
         {
@@ -491,6 +275,231 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-avatar/kemet-avatar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAvatar",
+          "cssProperties": [
+            {
+              "description": "The color of the text. Default: var(--kemet-color-white).",
+              "name": "--kemet-avatar-color"
+            },
+            {
+              "description": "The color of the background. Default: var(--kemet-color-gray4).",
+              "name": "--kemet-avatar-background-color"
+            },
+            {
+              "description": "The border radius of the rounded type. Default: 1rem.",
+              "name": "--kemet-avatar-rounded-radius"
+            },
+            {
+              "description": "The space around the initials. Default: 1rem.",
+              "name": "--kemet-avatar-initials-margin"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Contains the initials for the avatar.",
+              "name": "initials"
+            }
+          ],
+          "slots": [
+            {
+              "description": "A slot for an icon or element that indicates the status of the avatar.",
+              "name": "status"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "attribute": "initials"
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays in a circle.",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeSize"
+            },
+            {
+              "kind": "method",
+              "name": "makeContent"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "fieldName": "image"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "fieldName": "label"
+            },
+            {
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "fieldName": "initials"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays in a circle.",
+              "fieldName": "circle"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "fieldName": "rounded"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-avatar",
+          "summary": "A representation of a person or thing.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-avatar",
+          "declaration": {
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-avatar/kemet-avatars.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAvatars",
+          "cssProperties": [
+            {
+              "description": "The space between avatars. Default: -1.5rem.",
+              "name": "--kemet-avatars-squeeze"
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-avatars",
+          "summary": "Groups multiple avatars.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-avatars",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-badge/kemet-badge.ts",
       "declarations": [
         {
@@ -614,6 +623,222 @@
           "declaration": {
             "name": "KemetBadge",
             "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAlert",
+          "cssProperties": [
+            {
+              "description": "The padding on the alert.",
+              "name": "--kemet-alert-padding"
+            },
+            {
+              "description": "The thickness of the border.",
+              "name": "--kemet-alert-border-thickness"
+            },
+            {
+              "description": "The status color. Default: inherit.",
+              "name": "--kemet-alert-status-color"
+            },
+            {
+              "description": "The alert's alignment.",
+              "name": "--kemet-alert-align-items"
+            },
+            {
+              "description": "The border around the alert.",
+              "name": "--kemet-alert-border"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Container for the close button.",
+              "name": "close"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "attribute": "reveal",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "attribute": "closable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "borderStatus",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "attribute": "border-status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "attribute": "overlay",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeCloseBtn"
+            },
+            {
+              "kind": "method",
+              "name": "handleMotion"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when alert is opened.",
+              "name": "kemet-alert-opened"
+            },
+            {
+              "description": "Fires when alert is closed.",
+              "name": "kemet-alert-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "fieldName": "opened"
+            },
+            {
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "fieldName": "reveal"
+            },
+            {
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "fieldName": "closable"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "fieldName": "status"
+            },
+            {
+              "name": "border-status",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "fieldName": "borderStatus"
+            },
+            {
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "fieldName": "overlay"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-alert",
+          "summary": "Calls out important messages and notifications.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-alert",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         }
       ]
@@ -914,231 +1139,6 @@
           "declaration": {
             "name": "KemetButton",
             "module": "src/components/kemet-button/kemet-button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatar",
-          "cssProperties": [
-            {
-              "description": "The color of the text. Default: var(--kemet-color-white).",
-              "name": "--kemet-avatar-color"
-            },
-            {
-              "description": "The color of the background. Default: var(--kemet-color-gray4).",
-              "name": "--kemet-avatar-background-color"
-            },
-            {
-              "description": "The border radius of the rounded type. Default: 1rem.",
-              "name": "--kemet-avatar-rounded-radius"
-            },
-            {
-              "description": "The space around the initials. Default: 1rem.",
-              "name": "--kemet-avatar-initials-margin"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the initials for the avatar.",
-              "name": "initials"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon or element that indicates the status of the avatar.",
-              "name": "status"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "attribute": "image"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "attribute": "initials"
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeSize"
-            },
-            {
-              "kind": "method",
-              "name": "makeContent"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "fieldName": "size"
-            },
-            {
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "fieldName": "image"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "fieldName": "label"
-            },
-            {
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "fieldName": "initials"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "fieldName": "circle"
-            },
-            {
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "fieldName": "rounded"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatar",
-          "summary": "A representation of a person or thing.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatar",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatars",
-          "cssProperties": [
-            {
-              "description": "The space between avatars. Default: -1.5rem.",
-              "name": "--kemet-avatars-squeeze"
-            }
-          ],
-          "members": [],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatars",
-          "summary": "Groups multiple avatars.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatars",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         }
       ]
@@ -9409,39 +9409,39 @@
           "name": "KemetToggle",
           "cssProperties": [
             {
-              "description": "The width of the entire toggle. Default: 3.5rem.",
+              "description": "The width of the entire toggle.",
               "name": "--kemet-toggle-width"
             },
             {
-              "description": "The height of the entire toggle. Default:2rem.",
+              "description": "The height of the entire toggle.",
               "name": "--kemet-toggle-height"
             },
             {
-              "description": "The diameter of the handle. Default: 1.6rem.",
+              "description": "The diameter of the handle.",
               "name": "--kemet-toggle-handle-diameter"
             },
             {
-              "description": "The border of the track. Default: none.",
+              "description": "The border of the track.",
               "name": "--kemet-toggle-track-border"
             },
             {
-              "description": "The color of the track. Default: var(--kemet-color-white).",
+              "description": "The color of the track.",
               "name": "--kemet-toggle-track-color"
             },
             {
-              "description": "The shadow on the track. Default: inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1).",
+              "description": "The shadow on the track.",
               "name": "--kemet-toggle-track-shadow"
             },
             {
-              "description": "The border on the handle. Default: none.",
+              "description": "The border on the handle.",
               "name": "--kemet-toggle-handle-border"
             },
             {
-              "description": "The color of the handle. Default: var(--kemet-color-primary).",
+              "description": "The color of the handle.",
               "name": "--kemet-toggle-handle-color"
             },
             {
-              "description": "The shadow on the handle. Default: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2).",
+              "description": "The shadow on the handle.",
               "name": "--kemet-toggle-handle-shadow"
             }
           ],
