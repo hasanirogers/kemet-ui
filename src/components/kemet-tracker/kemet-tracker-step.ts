@@ -19,22 +19,22 @@ import { KemetTrackerInterface } from './types';
  * @prop {boolean} hideDotContent - Hides the label inside of a dot
  * @prop {number} completedSize - The icon size for the completed check mark
  *
- * @cssproperty --kemet-tracker-step-dot-font-size - The font size. Default: 90%
- * @cssproperty --kemet-tracker-step-dot-color - The text color. Default: var(--kemet-color-primary)
- * @cssproperty --kemet-tracker-step-dot-border - Border around a dot. Default: 1px solid var(--kemet-color-primary)
- * @cssproperty --kemet-tracker-step-dot-size - Width and height of a dot. Default: 50px
- * @cssproperty --kemet-tracker-step-dot-size-mobile - Mobile width and height of a dot. Default: 25px
- * @cssproperty --kemet-tracker-step-dot-gap - Space between a dot and connector line. Default: 4px
- * @cssproperty --kemet-tracker-step-dot-transition - Transition of a dot. Default: all 300ms ease-in-out
- * @cssproperty --kemet-tracker-step-dot-fill-color - Fill color of a dot. Default: transparent
- * @cssproperty --kemet-tracker-step-dot-background-color - Color of the background a dot is on. Default: var(--kemet-color-white)
- * @cssproperty --kemet-tracker-step-current-color - Current dot text color. Default: var(--kemet-color-white)
- * @cssproperty --kemet-tracker-step-current-fill-color - Current dot fill color. Default: var(--kemet-color-primary)
- * @cssproperty --kemet-tracker-step-completed-color - Text color of a completed dot. Default: var(--kemet-color-white)
- * @cssproperty --kemet-tracker-step-completed-fill-color - Background color of a completed dot. Default: var(--kemet-color-success)
- * @cssproperty --kemet-tracker-step-completed-line-color - Completed connector line color. Default: var(--kemet-color-primary)
- * @cssproperty --kemet-tracker-step-completed-line-weight - Completed line weight. Default: 3px
- * @cssproperty --kemet-tracker-step-standard-line-weight - Standard line weight. Default: 1px
+ * @cssproperty --kemet-tracker-step-dot-font-size - The font size.
+ * @cssproperty --kemet-tracker-step-dot-color - The text color.
+ * @cssproperty --kemet-tracker-step-dot-border - Border around a dot.
+ * @cssproperty --kemet-tracker-step-dot-size - Width and height of a dot.
+ * @cssproperty --kemet-tracker-step-dot-size-mobile - Mobile width and height of a dot.
+ * @cssproperty --kemet-tracker-step-dot-gap - Space between a dot and connector line.
+ * @cssproperty --kemet-tracker-step-dot-transition - Transition of a dot.
+ * @cssproperty --kemet-tracker-step-dot-fill-color - Fill color of a dot.
+ * @cssproperty --kemet-tracker-step-dot-background-color - Color of the background a dot is on.
+ * @cssproperty --kemet-tracker-step-current-color - Current dot text color.
+ * @cssproperty --kemet-tracker-step-current-fill-color - Current dot fill color.
+ * @cssproperty --kemet-tracker-step-completed-color - Text color of a completed dot.
+ * @cssproperty --kemet-tracker-step-completed-fill-color - Background color of a completed dot.
+ * @cssproperty --kemet-tracker-step-completed-line-color - Completed connector line color.
+ * @cssproperty --kemet-tracker-step-completed-line-weight - Completed line weight.
+ * @cssproperty --kemet-tracker-step-standard-line-weight - Standard line weight.
  *
  * @csspart dot - The container for the dot.
  * @csspart line - A connector line from dot to dot.

@@ -6,8 +6,8 @@ export const stylesTooltip = css`
     --kemet-tooltip-size: 22px;
     --kemet-tooltip-border-size: 1px;
     --kemet-tooltip-rounded-tip: 4px;
-    --kemet-tooltip-background-color: var(--kemet-color-foreground);
-    --kemet-tooltip-border-color: var(--kemet-color-background);
+    --kemet-tooltip-background-color: rgb(var(--kemet-color-background));
+    --kemet-tooltip-border-color: rgb(var(--kemet-color-foreground));
     --kemet-tooltip-placement-offset: calc(calc(var(--kemet-tooltip-size) / 2) * -1);
   }
 
