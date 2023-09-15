@@ -31,9 +31,9 @@ const formatBytes = (bytes, decimals = 2) => {
  * @prop {number} percent - Percentage of file completion that's calculated by the loaded property.
  * @prop {string} message - An error message to give to users
  *
- * @cssproperty --kemet-upload-file-color - The default text color. Default: var(--kemet-color-text).
- * @cssproperty --kemet-upload-file-padding - The padding around the file. Default: 0.5rem 1rem.
- * @cssproperty --kemet-upload-file-border - The border around the file. Default: 1px solid var(--kemet-color-primary).
+ * @cssproperty --kemet-upload-file-color - The default text color.
+ * @cssproperty --kemet-upload-file-padding - The padding around the file.
+ * @cssproperty --kemet-upload-file-border - The border around the file.
  *
  * @csspart percentage - Area that displays the percentage.
  * @csspart filename - Area that displays file name.
