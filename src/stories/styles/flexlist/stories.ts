@@ -24,8 +24,8 @@ const TemplateExample2 = () => html`
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">One</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Two</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Three</div></div>
-    <div kemet-order="medium:minus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Four</div></div>
-    <div kemet-order="medium:minus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Five</div></div>
+    <div kemet-order="medium:minus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="tiny:smallest">Four</div></div>
+    <div kemet-order="medium:minus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="tiny:smallest">Five</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
   </div>
 `;
@@ -35,8 +35,8 @@ const TemplateExample3 = () => html`
   <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">One</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Two</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Three</div></div>
-    <div kemet-order="medium:plus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Four</div></div>
-    <div kemet-order="medium:plus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Five</div></div>
+    <div kemet-order="medium:plus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="tiny:smallest">Four</div></div>
+    <div kemet-order="medium:plus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="tiny:smallest">Five</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
   </div>
 `;

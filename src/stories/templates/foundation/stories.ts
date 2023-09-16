@@ -9,7 +9,7 @@ export default meta;
 type Story = StoryObj;
 
 const AgencyTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2" kemet-padding-bottom="tiny:small medium:none">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray-100" kemet-padding-bottom="tiny:small medium:none">
     <div kemet-margin-left="medium:normal">
       <ul kemet-layout="flexlist" kemet-align="middle" kemet-gutters>
         <li><h2>Agency Name</h2></li>
@@ -110,7 +110,7 @@ const AgencyTemplate = () => html`
 `;
 
 const eCommerceTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray2" kemet-padding-bottom="tiny:small medium:none">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-autostack kemet-background-color="gray-100" kemet-padding-bottom="tiny:small medium:none">
     <div kemet-margin-left="medium:normal">
       <ul kemet-layout="flexlist" kemet-align="middle" kemet-gutters>
         <li><h2>Site Name</h2></li>
@@ -136,7 +136,7 @@ const eCommerceTemplate = () => html`
     <hr /><br />
     <div kemet-layout="flexrow" kemet-gutters="tiny:plus-3" kemet-autostack>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -147,7 +147,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -158,7 +158,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -169,7 +169,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -196,7 +196,7 @@ const eCommerceTemplate = () => html`
     <hr /><br />
     <div kemet-layout="flexgrid" kemet-gutters="tiny:plus-3" kemet-basis="tiny:2-columns medium:3-columns large:6-columns">
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -207,7 +207,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -218,7 +218,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -229,7 +229,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -240,7 +240,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -251,7 +251,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray1">
+        <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -397,7 +397,7 @@ const eCommerceTemplate = () => html`
 `;
 
 const NewsTemplate = () => html`
-  <header kemet-padding="tiny:smallest" kemet-background-color="gray2">
+  <header kemet-padding="tiny:smallest" kemet-background-color="gray-100">
     <section kemet-layout="flexrow" kemet-align="middle" kemet-autostack>
       <div>
         <ul kemet-layout="flexlist" kemet-gutters>
@@ -726,7 +726,7 @@ const NewsTemplate = () => html`
 `;
 
 const TravelTemplate = () => html`
-  <header kemet-layout="flexrow" kemet-align="middle" kemet-background-color="gray2" kemet-autostack kemet-padding="tiny:smallest">
+  <header kemet-layout="flexrow" kemet-align="middle" kemet-background-color="gray-100" kemet-autostack kemet-padding="tiny:smallest">
     <div>
       <ul kemet-layout="flexlist" kemet-gutters kemet-align="middle">
         <li>
@@ -863,7 +863,7 @@ const TravelTemplate = () => html`
 
   <br />
 
-  <section kemet-background-color="gray1" kemet-padding="tiny:small">
+  <section kemet-background-color="gray-50" kemet-padding="tiny:small">
     <div kemet-layout="flexrow" kemet-gutters kemet-autostack>
       <div>
         <h3>Flickr Images</h3>

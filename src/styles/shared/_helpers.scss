@@ -326,6 +326,18 @@
     }
   }
 
+  @each $color, $value in $themecolors {
+    $name: '' + $color;
+
+    [kemet-color="#{$name}"] {
+      color: rgb(var(--kemet-color-#{'' + $color}));
+    }
+
+    [kemet-background-color="#{$name}"] {
+      background-color: rgb(var(--kemet-color-#{'' + $color}));
+    }
+  }
+
   [kemet-color='auto'] {
     color: rgb(var(--kemet-color-foreground));
   }
@@ -361,13 +373,13 @@
     }
   }
 
-  // @each $color, $value in $themecolors {
-  //   $name: '' + $color;
+  @each $color, $value in $themecolors {
+    $name: '' + $color;
 
-  //   [kemet-border*="#{$name}"] {
-  //     border-color: rgb(#{$value});
-  //   }
-  // }
+    [kemet-border*="#{$name}"] {
+      border-color: RGB(string.unquote($value));
+    }
+  }
 
   [kemet-border*='auto'] {
     border-color: rgb(var(--kemet-color-foreground));

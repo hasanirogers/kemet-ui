@@ -620,306 +620,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetButton",
-          "cssProperties": [
-            {
-              "description": "The font size.",
-              "name": "--kemet-button-font-size"
-            },
-            {
-              "description": "The text color.",
-              "name": "--kemet-button-color"
-            },
-            {
-              "description": "The width.",
-              "name": "--kemet-button-width"
-            },
-            {
-              "description": "The height.",
-              "name": "--kemet-button-height"
-            },
-            {
-              "description": "The border.",
-              "name": "--kemet-button-border"
-            },
-            {
-              "description": "The border radius.",
-              "name": "--kemet-button-border-radius"
-            },
-            {
-              "description": "The transition speed of the hover effect.",
-              "name": "--kemet-button-transition-speed"
-            },
-            {
-              "description": "The background color.",
-              "name": "--kemet-button-background-color"
-            },
-            {
-              "description": "The brightness of the hover effect.",
-              "name": "--kemet-button-hover-brightness"
-            },
-            {
-              "description": "The gap between the button and icons.",
-              "name": "--kemet-button-gap"
-            },
-            {
-              "description": "The button padding.",
-              "name": "--kemet-button-padding"
-            },
-            {
-              "description": "The decoration for a text button's hover.",
-              "name": "--kemet-button-hover-decoration"
-            },
-            {
-              "description": "The diameter of a circle button.",
-              "name": "--kemet-button-circle-size"
-            },
-            {
-              "description": "The border radius of the rounded button.",
-              "name": "--kemet-button-rounded-amount"
-            },
-            {
-              "description": "The width of the outline border.",
-              "name": "--kemet-button-border-width"
-            },
-            {
-              "description": "The style of the outline border.",
-              "name": "--kemet-button-border-style"
-            },
-            {
-              "description": "The color of the outline border.",
-              "name": "--kemet-button-border-color"
-            },
-            {
-              "description": "The opacity of the disabled state.",
-              "name": "--kemet-button-disabled-opacity"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The button or anchor element.",
-              "name": "button"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Allows you to place an icon to the left of the button text.",
-              "name": "left"
-            },
-            {
-              "description": "Allows you to place an icon to the right of the button text.",
-              "name": "right"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "type": {
-                "text": "string"
-              },
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOver",
-              "description": "Sets hover to true onMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut",
-              "description": "Sets hover to false onMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "description": "Handles click behavior",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles blur",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "description": "event object",
-                  "type": {
-                    "text": "object"
-                  }
-                }
-              ],
-              "description": "Handles keyup",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether or not the button is active",
-              "fieldName": "active"
-            },
-            {
-              "name": "hover",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is hovered",
-              "fieldName": "hover"
-            },
-            {
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "link",
-              "type": {
-                "text": "string"
-              },
-              "description": "The url a button should link too",
-              "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "fieldName": "type"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-button",
-          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-button",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
@@ -928,19 +628,19 @@
           "name": "KemetAvatar",
           "cssProperties": [
             {
-              "description": "The color of the text. Default: var(--kemet-color-white).",
+              "description": "The color of the text.",
               "name": "--kemet-avatar-color"
             },
             {
-              "description": "The color of the background. Default: var(--kemet-color-gray4).",
+              "description": "The color of the background.",
               "name": "--kemet-avatar-background-color"
             },
             {
-              "description": "The border radius of the rounded type. Default: 1rem.",
+              "description": "The border radius of the rounded type.",
               "name": "--kemet-avatar-rounded-radius"
             },
             {
-              "description": "The space around the initials. Default: 1rem.",
+              "description": "The space around the initials.",
               "name": "--kemet-avatar-initials-margin"
             }
           ],
@@ -1291,6 +991,306 @@
           "declaration": {
             "name": "KemetCard",
             "module": "src/components/kemet-card/kemet-card.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-button/kemet-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetButton",
+          "cssProperties": [
+            {
+              "description": "The font size.",
+              "name": "--kemet-button-font-size"
+            },
+            {
+              "description": "The text color.",
+              "name": "--kemet-button-color"
+            },
+            {
+              "description": "The width.",
+              "name": "--kemet-button-width"
+            },
+            {
+              "description": "The height.",
+              "name": "--kemet-button-height"
+            },
+            {
+              "description": "The border.",
+              "name": "--kemet-button-border"
+            },
+            {
+              "description": "The border radius.",
+              "name": "--kemet-button-border-radius"
+            },
+            {
+              "description": "The transition speed of the hover effect.",
+              "name": "--kemet-button-transition-speed"
+            },
+            {
+              "description": "The background color.",
+              "name": "--kemet-button-background-color"
+            },
+            {
+              "description": "The brightness of the hover effect.",
+              "name": "--kemet-button-hover-brightness"
+            },
+            {
+              "description": "The gap between the button and icons.",
+              "name": "--kemet-button-gap"
+            },
+            {
+              "description": "The button padding.",
+              "name": "--kemet-button-padding"
+            },
+            {
+              "description": "The decoration for a text button's hover.",
+              "name": "--kemet-button-hover-decoration"
+            },
+            {
+              "description": "The diameter of a circle button.",
+              "name": "--kemet-button-circle-size"
+            },
+            {
+              "description": "The border radius of the rounded button.",
+              "name": "--kemet-button-rounded-amount"
+            },
+            {
+              "description": "The width of the outline border.",
+              "name": "--kemet-button-border-width"
+            },
+            {
+              "description": "The style of the outline border.",
+              "name": "--kemet-button-border-style"
+            },
+            {
+              "description": "The color of the outline border.",
+              "name": "--kemet-button-border-color"
+            },
+            {
+              "description": "The opacity of the disabled state.",
+              "name": "--kemet-button-disabled-opacity"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button or anchor element.",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Allows you to place an icon to the left of the button text.",
+              "name": "left"
+            },
+            {
+              "description": "Allows you to place an icon to the right of the button text.",
+              "name": "right"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "Controls the type of button. standard | text | circle | rounded | pill",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOver",
+              "description": "Sets hover to true onMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut",
+              "description": "Sets hover to false onMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "description": "Handles click behavior",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles blur",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "description": "event object",
+                  "type": {
+                    "text": "object"
+                  }
+                }
+              ],
+              "description": "Handles keyup",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether or not the button is active",
+              "fieldName": "active"
+            },
+            {
+              "name": "hover",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is hovered",
+              "fieldName": "hover"
+            },
+            {
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "description": "The url a button should link too",
+              "fieldName": "link"
+            },
+            {
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "Controls the type of button. standard | text | circle | rounded | pill",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-button",
+          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-button",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.ts"
           }
         }
       ]
@@ -3344,220 +3344,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-fab/kemet-fab.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetFAB",
-          "cssProperties": [
-            {
-              "description": "The width and height of the fab.",
-              "name": "--kemet-fab-size"
-            },
-            {
-              "description": "The text color of the fab.",
-              "name": "--kemet-fab-color"
-            },
-            {
-              "description": "The bg color of the tab.",
-              "name": "--kemet-fab-background-color"
-            },
-            {
-              "description": "The text color of an outlined fab.",
-              "name": "--kemet-fab-outlined-color"
-            },
-            {
-              "description": "The border of an outlined fab.",
-              "name": "--kemet-fab-outlined-border"
-            },
-            {
-              "description": "The border radius of a pill fab.",
-              "name": "--kemet-fab-pill-radius"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The button's container.",
-              "name": "button"
-            },
-            {
-              "description": " The FAB's icon.",
-              "name": "icon"
-            },
-            {
-              "description": "The text in the FAB.",
-              "name": "text"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon to display.",
-              "name": "Icon"
-            },
-            {
-              "description": "The text for the FAB.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "expanded",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "The expanded state of the button.",
-              "attribute": "expanded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button.",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled.",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays the fab with rounded corners.",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "expandPoint",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically expand.",
-              "attribute": "expand-point"
-            },
-            {
-              "kind": "field",
-              "name": "collapsePoint",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically collapse.",
-              "attribute": "collapse-point"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOver"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut"
-            },
-            {
-              "kind": "method",
-              "name": "handleScroll"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "expanded",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "The expanded state of the button.",
-              "fieldName": "expanded"
-            },
-            {
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button.",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled.",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays the fab with rounded corners.",
-              "fieldName": "pill"
-            },
-            {
-              "name": "expand-point",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically expand.",
-              "fieldName": "expandPoint"
-            },
-            {
-              "name": "collapse-point",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically collapse.",
-              "fieldName": "collapsePoint"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-fab",
-          "summary": "The FAB, or Floating Action Button, performs a primary action on a page.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-fab",
-          "declaration": {
-            "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-field/kemet-field.ts",
       "declarations": [
         {
@@ -3856,6 +3642,220 @@
           "declaration": {
             "name": "KemetField",
             "module": "src/components/kemet-field/kemet-field.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-fab/kemet-fab.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetFAB",
+          "cssProperties": [
+            {
+              "description": "The width and height of the fab.",
+              "name": "--kemet-fab-size"
+            },
+            {
+              "description": "The text color of the fab.",
+              "name": "--kemet-fab-color"
+            },
+            {
+              "description": "The bg color of the tab.",
+              "name": "--kemet-fab-background-color"
+            },
+            {
+              "description": "The text color of an outlined fab.",
+              "name": "--kemet-fab-outlined-color"
+            },
+            {
+              "description": "The border of an outlined fab.",
+              "name": "--kemet-fab-outlined-border"
+            },
+            {
+              "description": "The border radius of a pill fab.",
+              "name": "--kemet-fab-pill-radius"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button's container.",
+              "name": "button"
+            },
+            {
+              "description": " The FAB's icon.",
+              "name": "icon"
+            },
+            {
+              "description": "The text in the FAB.",
+              "name": "text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "A slot for an icon to display.",
+              "name": "Icon"
+            },
+            {
+              "description": "The text for the FAB.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "The expanded state of the button.",
+              "attribute": "expanded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button.",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays the fab with rounded corners.",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "expandPoint",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically expand.",
+              "attribute": "expand-point"
+            },
+            {
+              "kind": "field",
+              "name": "collapsePoint",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically collapse.",
+              "attribute": "collapse-point"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOver"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut"
+            },
+            {
+              "kind": "method",
+              "name": "handleScroll"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "The expanded state of the button.",
+              "fieldName": "expanded"
+            },
+            {
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button.",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays the fab with rounded corners.",
+              "fieldName": "pill"
+            },
+            {
+              "name": "expand-point",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically expand.",
+              "fieldName": "expandPoint"
+            },
+            {
+              "name": "collapse-point",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically collapse.",
+              "fieldName": "collapsePoint"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-fab",
+          "summary": "The FAB, or Floating Action Button, performs a primary action on a page.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetFAB",
+            "module": "src/components/kemet-fab/kemet-fab.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-fab",
+          "declaration": {
+            "name": "KemetFAB",
+            "module": "src/components/kemet-fab/kemet-fab.ts"
           }
         }
       ]

@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { makeColors } from '../../../../.storybook/utilities';
 
 const meta: Meta = {
   title: 'Styles / Border',
@@ -49,7 +50,7 @@ export const Standard: Story = {
     },
     color: {
       control: { type: 'select' },
-      options: ['auto', 'primary', 'black', 'white', 'gray1', 'gray2', 'gray3', 'gray4', 'gray5', 'gray6', 'gray7', 'gray8', 'gray9', 'gray10'],
+      options: makeColors(),
     },
     radius: {
       control: { type: 'select' },

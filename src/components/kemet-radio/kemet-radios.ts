@@ -51,8 +51,8 @@ export default class KemetRadios extends LitElement {
   @property({ type: String })
   message: string;
 
-  @property({ type: String })
-  required: string;
+  @property({ type: Boolean })
+  required: boolean;
 
   @state()
   radios: any;

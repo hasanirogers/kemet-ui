@@ -2,6 +2,13 @@ import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import '../../../components/kemet-button/kemet-button';
+import '../../../components/kemet-field/kemet-field';
+import '../../../components/kemet-input/kemet-input';
+import '../../../components/kemet-toggle/kemet-toggle';
+import '../../../components/kemet-select/kemet-select';
+import '../../../components/kemet-select/kemet-option';
+import '../../../components/kemet-radio/kemet-radio';
+import '../../../components/kemet-radio/kemet-radios';
 
 const meta: Meta = {
   title: 'Templates / Bootstrap',
@@ -100,41 +107,41 @@ const CheckoutTemplate = () => html`
       </form>
       <aside kemet-breakpoint="tiny:100 medium:33" kemet-margin-top="tiny:normal medium:none" kemet-order="tiny:minus-1 medium:none">
         <div kemet-layout="flexrow" kemet-align="middle" kemet-margin-bottom="tiny:normal">
-          <h2 kemet-margin="tiny:none" kemet-color="gray4">Your cart</h2>
+          <h2 kemet-margin="tiny:none" kemet-color="gray-300">Your cart</h2>
           <div kemet-breakpoint="tiny:content">
             <kemet-badge status="standard" circle>3</kemet-badge>
           </div>
         </div>
-        <ul kemet-layout="flexcolumn" kemet-border-radius="medium" kemet-margin="tiny:none" kemet-padding="tiny:none" kemet-border="all-1 solid gray2">
+        <ul kemet-layout="flexcolumn" kemet-border-radius="medium" kemet-margin="tiny:none" kemet-padding="tiny:none" kemet-border="all-1 solid gray-100">
           <li>
-            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray2">
+            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray-100">
               <div>
                 <h3 kemet-margin="tiny:none">Product Name</h3>
-                <span kemet-color="gray4">Brief description</span>
+                <span kemet-color="gray-300">Brief description</span>
               </div>
-              <span kemet-breakpoint="tiny:content" kemet-type-size="plus-1" kemet-color="gray4">$12</span>
+              <span kemet-breakpoint="tiny:content" kemet-type-size="plus-1" kemet-color="gray-300">$12</span>
             </div>
           </li>
           <li>
-            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray2">
+            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray-100">
               <div>
                 <h3 kemet-margin="tiny:none">Second product</h3>
-                <span kemet-color="gray4">Brief description</span>
+                <span kemet-color="gray-300">Brief description</span>
               </div>
-              <span kemet-breakpoint="tiny:content" kemet-type-size="plus-1" kemet-color="gray4">$8</span>
+              <span kemet-breakpoint="tiny:content" kemet-type-size="plus-1" kemet-color="gray-300">$8</span>
             </div>
           </li>
           <li>
-            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray2">
+            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray-100">
               <div>
                 <h3 kemet-margin="tiny:none">Third item</h3>
-                <span kemet-color="gray4">Brief description</span>
+                <span kemet-color="gray-300">Brief description</span>
               </div>
-              <span kemet-breakpoint="tiny:content" kemet-type-size="plus-1" kemet-color="gray4">$8</span>
+              <span kemet-breakpoint="tiny:content" kemet-type-size="plus-1" kemet-color="gray-300">$8</span>
             </div>
           </li>
           <li>
-            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray2" kemet-color="success">
+            <div kemet-layout="flexrow" kemet-padding="tiny:small" kemet-border="bottom-1 solid gray-100" kemet-color="success">
               <div>
                 <h3 kemet-margin="tiny:none">Promo code</h3>
                 <span>EXAMPLE CODE</span>
