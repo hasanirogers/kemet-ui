@@ -12,11 +12,11 @@ html {
   color: rgb(var(--kemet-color-text));
 }
 
-[theme='dark'] {
+[polarity='dark'] {
   // colors
   --kemet-color-text: var(--kemet-color-white);
-  --kemet-color-foreground: var(--kemet-color-primary);
-  --kemet-color-background: var(--kemet-color-white);
+  --kemet-color-foreground: var(--kemet-color-white);
+  --kemet-color-background: var(--kemet-color-primary);
   --kemet-color-white-to-black: var(--kemet-color-black);
   --kemet-color-white-to-primary: var(--kemet-color-primary);
   --kemet-color-gray-50-to-transparent: transparent;
