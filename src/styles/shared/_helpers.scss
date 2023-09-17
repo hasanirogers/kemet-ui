@@ -458,11 +458,6 @@
       --kemet-color-#{"" + $color}: #{$value};
     }
 
-    --kemet-color-white-to-black: var(--kemet-color-white);
-    --kemet-color-white-to-primary: var(--kemet-color-white);
-    --kemet-color-gray-50-to-transparent: var(--kemet-color-gray-50);
-    --kemet-color-primary-to-transparent: var(--kemet-color-primary);
-
     // handle border radiuses
     @each $size, $value in $borderradiuses {
       --kemet-border-radius-#{"" + $size}: #{$value};

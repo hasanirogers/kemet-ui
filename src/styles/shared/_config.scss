@@ -154,14 +154,13 @@ $spacers: (
 
 
 
-/// A map that defines the colors
+/// A map that defines the color primitives as constants.
 /// @type Map
 /// @access public
 /// @group config-variables
 
 $colors: (
   white: '255 255 255',
-  white-rich: '242 242 242',
   black: '0 0 0',
 
   slate-50: '248 250 252',
@@ -368,7 +367,6 @@ $colors: (
   fuchsia-900: '112 26 117',
   fuchsia-950: '74 4 78',
 
-  //
   pink-50: '253 242 248',
   pink-100: '252 231 243',
   pink-200: '251 207 232',
@@ -392,7 +390,7 @@ $colors: (
   rose-800: '159 18 57',
   rose-900: '136 19 55',
   rose-950: '76 5 25',
-) !default;
+);
 
 
 
@@ -403,16 +401,25 @@ $colors: (
 /// @group config-variables
 
 $themecolors: (
-  text: var(--kemet-color-gray-800),
   foreground: var(--kemet-color-primary),
   background: var(--kemet-color-white),
 
+  // brand
+  text: var(--kemet-color-gray-800),
   primary: var(--kemet-color-sky-800),
+
+  // polarity
+  white-to-black: var(--kemet-color-white),
+  white-to-primary: var(--kemet-color-white),
+  gray-50-to-transparent: var(--kemet-color-gray-50),
+  primary-to-transparent: var(--kemet-color-primary),
+
+  // information
   error: var(--kemet-color-red-500),
   success: var(--kemet-color-green-500),
   neutral: var(--kemet-color-gray-500),
   warning: var(--kemet-color-orange-500),
-);
+) !default;
 
 
 
