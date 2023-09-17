@@ -54,7 +54,7 @@ export const Standard: Story = {
     },
     radius: {
       control: { type: 'select' },
-      options: ['none', 'small', 'medium', 'large'],
+      options: ['none', 'sm', 'md', 'lg', 'xl', 'circle', 'pill'],
     },
   }
 }

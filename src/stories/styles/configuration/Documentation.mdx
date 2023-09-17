@@ -207,10 +207,13 @@ A map that controls the radius on borders.
 
 ```scss
 $borderradiuses: (
-  small: 3px,
-  medium: 6px,
-  large: 12px,
-);
+  sm: 0.1875rem, // 3px
+  md: 0.25rem, // 4px
+  lg: 0.5rem, // 8px
+  xl: 1rem, // 16px
+  circle: 50%,
+  pill: 9999px,
+) !default;
 ```
 
 <br />
@@ -266,14 +269,17 @@ Controls the amount of spacing used for margin helper classes.
 $spacers: (
   auto: auto,
   none: 0,
-  smallest: 0.5rem,
-  smaller: 1rem,
-  small: 1.5rem,
-  normal: 2rem,
-  large: 2.5rem,
-  larger: 3rem,
-  largest: 3.5rem
-);
+  3xs: 0.125rem,
+  2xs: 0.25rem,
+  xs: 0.5rem,
+  sm: 0.75rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.75rem,
+  2xl: 2.25rem,
+  3xl: 3rem,
+  4xl: 4.5rem,
+) !default;
 ```
 
 ## Make Order

@@ -47,7 +47,7 @@ export const stylesBase = css`
 
   :host([rounded]) .front,
   :host([rounded]) .back {
-    border-radius: var(--kemet-border-radius);
+    border-radius: var(--kemet-border-radius-xl);
   }
 
   .front {

@@ -7,7 +7,7 @@ export const stylesSelect = css`
     --kemet-select-border-color-error: 1px solid rgb(var(--kemet-color-error));
     --kemet-select-border-color-success: 1px solid rgb(var(--kemet-color-success));
     --kemet-select-border-color-warning: 1px solid rgb(var(--kemet-color-warning));
-    --kemet-select-border-radius-rounded: var(--kemet-border-radius);
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-md);
     --kemet-select-border-filled: none;
     --kemet-select-color-filled: rgb(var(--kemet-color-white));
     --kemet-select-background-color-filled: rgb(var(--kemet-color-primary));

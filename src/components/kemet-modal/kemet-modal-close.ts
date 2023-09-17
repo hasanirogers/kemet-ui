@@ -21,7 +21,7 @@ export default class KemetModalClose extends LitElement {
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
-        border-radius: 50%;
+        border-radius: var(--kemet-border-radius-circle);
         cursor: pointer;
       }
     `,

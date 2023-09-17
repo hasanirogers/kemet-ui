@@ -33,10 +33,10 @@ export const stylesBase = css`
   }
 
   :host([circle]) {
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
   }
 
   :host([pill]) {
-    border-radius: 99rem;
+    border-radius: var(--kemet-border-radius-pill);
   }
 `;

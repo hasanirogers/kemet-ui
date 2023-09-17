@@ -10,7 +10,7 @@ export const stylesBase = css`
     --kemet-input-border-color-warning: 1px solid rgb(var(--kemet-color-warning));
     --kemet-input-icon-left-padding: 3rem;
     --kemet-input-icon-right-padding: 3rem;
-    --kemet-input-border-radius-rounded: var(--kemet-border-radius);
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-md);
     --kemet-input-border-filled: none;
     --kemet-input-color-filled: rgb(var(--kemet-color-white));
     --kemet-input-background-color-filled: rgb(var(--kemet-color-primary));

@@ -9,7 +9,7 @@ export const stylesTextarea = css`
     --kemet-textarea-border-color-warning: 1px solid rgb(var(--kemet-color-warning));
     --kemet-textarea-icon-left-padding: 3rem;
     --kemet-textarea-icon-right-padding: 3rem;
-    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius);
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-md);
     --kemet-textarea-border-filled: none;
     --kemet-textarea-color-filled: rgb(var(--kemet-color-white));
     --kemet-textarea-background-color-filled: rgb(var(--kemet-color-primary));

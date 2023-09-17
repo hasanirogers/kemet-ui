@@ -6,7 +6,7 @@ export const stylesBase = css`
     --kemet-combo-margin: 1rem auto;
     --kemet-combo-max-height: calc(5 * 3rem);
     --kemet-combo-border: 1px solid rgb(var(--kemet-color-foreground));
-    --kemet-combo-border-radius: var(--kemet-border-radius);
+    --kemet-combo-border-radius: var(--kemet-border-radius-md);
     --kemet-combo-background-color: rgb(var(--kemet-color-white-to-black));
     --kemet-combo-shadow: var(--kemet-elevation-layer-5);
     --kemet-combo-hover-color: rgb(var(--kemet-color-white));

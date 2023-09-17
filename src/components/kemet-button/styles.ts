@@ -72,7 +72,7 @@ export const stylesBase = css`
   }
 
   :host([type='circle']) {
-    --kemet-button-border-radius: 50%;
+    --kemet-button-border-radius: var(--kemet-border-radius-circle);
     --kemet-button-width: var(--kemet-button-circle-size);
     --kemet-button-height: var(--kemet-button-circle-size);
   }
@@ -82,7 +82,7 @@ export const stylesBase = css`
   }
 
   :host([type='pill']) {
-    --kemet-button-border-radius: 10rem;
+    --kemet-button-border-radius: var(--kemet-border-radius-pill);
   }
 
   :host([outlined]) {

@@ -20,11 +20,11 @@ export const stylesBase = css`
   }
 
   :host([circle]) {
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
   }
 
   :host([circle]) > * {
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
   }
 
   :host([rounded]) {
@@ -43,7 +43,7 @@ export const stylesBase = css`
     position: absolute;
     bottom: 0;
     right: 0;
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
   }
 `;
 

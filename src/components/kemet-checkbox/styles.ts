@@ -11,7 +11,7 @@ export const stylesBase = css`
     --kemet-checkbox-size: 18px;
     --kemet-checkbox-color: rgb(var(--kemet-color-foreground));
     --kemet-checkbox-border: 1px solid rgb(var(--kemet-color-foreground));
-    --kemet-checkbox-border-radius: 4px;
+    --kemet-checkbox-border-radius: var(--kemet-border-radius-md);
     --kemet-checkbox-filled-background-color: rgb(var(--kemet-color-primary));
     --kemet-checkbox-filled-color: rgb(var(--kemet-color-white));
 

@@ -473,9 +473,12 @@ $borderwidths: (
 /// @group config-variables
 
 $borderradiuses: (
-  small: 3px,
-  medium: 6px,
-  large: 12px,
+  sm: 0.1875rem, // 3px
+  md: 0.25rem, // 4px
+  lg: 0.5rem, // 8px
+  xl: 1rem, // 16px
+  circle: 50%,
+  pill: 9999px,
 ) !default;
 
 

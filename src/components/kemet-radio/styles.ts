@@ -50,14 +50,14 @@ export const stylesRadio = css`
     width: var(--kemet-radio-size);
     height: var(--kemet-radio-size);
     padding: 0;
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
     background: none;
     border: var(--kemet-radio-border);
   }
 
   [part='dot'] {
     display: inline-flex;
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
     width: var(--kemet-radio-size);
     height: var(--kemet-radio-size);
     background: var(--kemet-radio-dot-color);
