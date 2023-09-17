@@ -68,11 +68,11 @@ const AgencyTemplate = () => html`
   <hr /><br />
 
   <section kemet-layout="flexrow" kemet-type-align="tiny:center">
-    <a href="#"><div kemet-type-size="plus-6">28</div>Websites</a>
-    <a href="#"><div kemet-type-size="plus-6">43</div>Apps</a>
-    <a href="#"><div kemet-type-size="plus-6">95</div>Ads</a>
-    <a href="#"><div kemet-type-size="plus-6">59</div>Cakes</a>
-    <a href="#"><div kemet-type-size="plus-6">18</div>Logos</a>
+    <a href="#"><div kemet-type-size="3xl">28</div>Websites</a>
+    <a href="#"><div kemet-type-size="3xl">43</div>Apps</a>
+    <a href="#"><div kemet-type-size="3xl">95</div>Ads</a>
+    <a href="#"><div kemet-type-size="3xl">59</div>Cakes</a>
+    <a href="#"><div kemet-type-size="3xl">18</div>Logos</a>
   </section>
 
   <br /><hr />
@@ -467,7 +467,7 @@ const NewsTemplate = () => html`
 
     <section>
       <hr />
-      <h2 kemet-type-align="center" kemet-type-size="tiny:plus-4">Breaking News</h2>
+      <h2 kemet-type-align="center" kemet-type-size="tiny:2xl">Breaking News</h2>
       <hr />
       <br />
       <div kemet-layout="flexgrid" kemet-basis="tiny:2-columns medium:5-columns" kemet-gutters>
@@ -508,7 +508,7 @@ const NewsTemplate = () => html`
 
     <section>
       <hr />
-      <h2 kemet-type-align="center" kemet-type-size="tiny:plus-4">Latest Stories</h2>
+      <h2 kemet-type-align="center" kemet-type-size="tiny:2xl">Latest Stories</h2>
       <hr />
       <br />
       <div kemet-layout="flexgrid" kemet-gutters="2xl">

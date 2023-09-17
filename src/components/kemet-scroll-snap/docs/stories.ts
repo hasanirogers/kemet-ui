@@ -40,7 +40,7 @@ const Template = ({
     for (let i = 0; i < numberOfSlides; i++) {
       slides.push(html`
         <kemet-scroll-snap-slide label="Heading ${i + 1}" kemet-margin-top="tiny:normal">
-          <h3 kemet-type-size="plus-6">Heading ${i + 1}</h3>
+          <h3 kemet-type-size="3xl">Heading ${i + 1}</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <img src="https://via.placeholder.com/1920x1080" alt="A placeholder" />
         </kemet-scroll-snap-slide>

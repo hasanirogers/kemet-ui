@@ -120,7 +120,7 @@ const TemplateSticky = () => html`
   </style>
   <section class="kemet-scroll-nav-demo sticky">
     <header>
-      <h1 kemet-type-size="plus-6">Kemet Scroll Nav</h1>
+      <h1 kemet-type-size="3xl">Kemet Scroll Nav</h1>
       <aside>
         <p>Scroll down to see this nav stick to the top! This is the default behavior.</p>
       </aside>
