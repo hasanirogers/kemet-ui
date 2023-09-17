@@ -46,7 +46,7 @@ const TemplateMultiple = () => html`
       align-items: flex-end;
     }
   </style>
-  <ul class="fabs" kemet-layout="flexcolumn" kemet-gutters kemet-margin="tiny:none" kemet-padding="tiny:none">
+  <ul class="fabs" kemet-layout="flexcolumn" kemet-gutters kemet-margin="none" kemet-padding="none">
     <li>
       <kemet-fab pill>
         <kemet-icon slot="icon" icon="envelope" size="24"></kemet-icon> Email

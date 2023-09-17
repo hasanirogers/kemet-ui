@@ -41,7 +41,7 @@ const Template = ({
       ?opened=${opened}
       border-status=${border}
       overlay=${ifDefined(overlay !== 'none' ? overlay : null)}
-      kemet-margin=${ifDefined(overlay.indexOf('full') < 0 ? 'tiny:normal' : nothing)}>
+      kemet-margin=${ifDefined(overlay.indexOf('full') < 0 ? '2xl' : nothing)}>
       ${makeIcon()}
       <strong>${heading}</strong>
       <br />

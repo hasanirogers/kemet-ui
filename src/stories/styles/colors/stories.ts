@@ -11,7 +11,7 @@ type Story = StoryObj;
 
 const Template = (args) => {
   return html`
-    <div kemet-color=${args.textColor} kemet-background-color=${args.backgroundColor} kemet-padding="tiny:normal">The quick brown fox jumps over the lazy dog.</div>
+    <div kemet-color=${args.textColor} kemet-background-color=${args.backgroundColor} kemet-padding="2xl">The quick brown fox jumps over the lazy dog.</div>
   `;
 }
 

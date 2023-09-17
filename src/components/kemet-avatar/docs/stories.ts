@@ -31,7 +31,7 @@ const Template = ({
     image="${ifDefined(image !== '' ? image : null)}"
     initials="${ifDefined(initials !== '' ? initials : null)}"
   >
-    ${icon !== '' ? html`<kemet-icon icon=${icon} size="48" kemet-margin="tiny:smallest"></kemet-icon>` : null}
+    ${icon !== '' ? html`<kemet-icon icon=${icon} size="48" kemet-margin="xs"></kemet-icon>` : null}
     ${status ? html`<kemet-badge slot="status" status="success" kemet-border="all-2 solid white"></kemet-badge>` : null}
   </kemet-avatar>
 `;

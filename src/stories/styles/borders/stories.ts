@@ -20,7 +20,7 @@ const Template = ({
   const borderRadius = radius !== 'none' ? `kemet-border-radius="${radius}"` : null;
 
   const template = `
-    <div kemet-border="${side}-${width} ${style} ${color}" ${borderRadius} kemet-margin="tiny:normal" kemet-padding="tiny:normal">The quick brown fox jumps over the lazy dog.</div>
+    <div kemet-border="${side}-${width} ${style} ${color}" ${borderRadius} kemet-margin="2xl" kemet-padding="2xl">The quick brown fox jumps over the lazy dog.</div>
   `;
 
   return html`${unsafeHTML(template)}`;

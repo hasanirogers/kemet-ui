@@ -39,7 +39,7 @@ const Template = ({
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < numberOfSlides; i++) {
       slides.push(html`
-        <kemet-scroll-snap-slide label="Heading ${i + 1}" kemet-margin-top="tiny:normal">
+        <kemet-scroll-snap-slide label="Heading ${i + 1}" kemet-margin-top="2xl">
           <h3 kemet-type-size="3xl">Heading ${i + 1}</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <img src="https://via.placeholder.com/1920x1080" alt="A placeholder" />

@@ -9,7 +9,7 @@ export default meta;
 type Story = StoryObj;
 
 const Template = ({ layer = 'layer3' }) => html`
-  <div kemet-elevation=${layer} kemet-padding="tiny:normal" kemet-margin="tiny:normal">The quick brown fox jumps over the lazy dog.</div>
+  <div kemet-elevation=${layer} kemet-padding="2xl" kemet-margin="2xl">The quick brown fox jumps over the lazy dog.</div>
 `;
 
 export const Standard: Story = {

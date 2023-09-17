@@ -38,7 +38,7 @@ export const Standard: Story = {
   render: (args: any) => Template(args),
   args: {
     triggerText: 'Click Me',
-    content: '<kemet-popper-close style="position:absolute; right:1rem;"><kemet-icon icon="x-lg"></kemet-icon></kemet-popper-close><h2 kemet-margin-top="tiny:none">Heading</h2><img width="240" src="https://via.placeholder.com/1920x1080" alt="A placeholder" /><p><a href="https://google.com">This</a> is some <a href="https://google.com">content</a>.</p>',
+    content: '<kemet-popper-close style="position:absolute; right:1rem;"><kemet-icon icon="x-lg"></kemet-icon></kemet-popper-close><h2 kemet-margin-top="none">Heading</h2><img width="240" src="https://via.placeholder.com/1920x1080" alt="A placeholder" /><p><a href="https://google.com">This</a> is some <a href="https://google.com">content</a>.</p>',
     canvasPosition: 'middle',
     placement: 'top',
     opened: false,

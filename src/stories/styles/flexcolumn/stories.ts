@@ -10,17 +10,17 @@ type Story = StoryObj;
 
 const TemplateExample1 = () => html`
   <section kemet-layout="flexcolumn" kemet-gutters style="height:300px;">
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">1</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">2</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">3</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">1</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">2</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">3</div></div>
   </section>
 `;
 
 const TemplateExample2 = () => html`
   <section kemet-layout="flexcolumn" kemet-gutters style="height:300px;">
-    <div kemet-fit-content><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">1</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">2</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">3</div></div>
+    <div kemet-fit-content><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">1</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">2</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">3</div></div>
   </section>
 `;
 

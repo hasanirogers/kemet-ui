@@ -27,7 +27,7 @@ const faqs = [
 ];
 
 const Template = () => html`
-  <kemet-field slug="unique-identifier" label="Frequently asked questions." kemet-margin="tiny:smallest">
+  <kemet-field slug="unique-identifier" label="Frequently asked questions." kemet-margin="xs">
     <kemet-input slot="input" name="input" placeholder="Start typing to see the FAQs"></kemet-input>
     <kemet-combo slot="component" .options=${faqs}></kemet-combo>
   </kemet-field>

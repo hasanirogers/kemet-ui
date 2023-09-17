@@ -43,12 +43,12 @@ const Template = ({
       }
     </style>
     <kemet-drawer ?opened=${opened} effect="${effect}" side="${side}" ?overlay=${overlay}>
-      <nav slot="navigation" kemet-padding="tiny:large">
+      <nav slot="navigation" kemet-padding="2xl">
         <p>Your navigation goes here.</p>
         <kemet-button @click=${(event) => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
       </nav>
       <section slot="content">
-        <div kemet-padding="tiny:large">
+        <div kemet-padding="2xl">
           <p>Your content goes here.</p>
           <kemet-button @click=${(event) => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
         </div>

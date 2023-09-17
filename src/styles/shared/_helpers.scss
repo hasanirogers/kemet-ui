@@ -258,6 +258,26 @@
 @mixin makeSpacers() {
   $sides: 'top', 'right', 'bottom', 'left';
 
+  @each $spacer, $value in $spacers {
+    [kemet-margin*="#{$spacer}"] {
+      margin: $value;
+    }
+
+    [kemet-padding*="#{$spacer}"] {
+      padding: $value;
+    }
+
+    @each $side in $sides {
+      [kemet-margin-#{$side}*="#{$spacer}"] {
+        margin-#{$side}: $value;
+      }
+
+      [kemet-padding-#{$side}*="#{$spacer}"] {
+        padding-#{$side}: $value;
+      }
+    }
+  }
+
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @each $spacer, $value in $spacers {
