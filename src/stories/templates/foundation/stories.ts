@@ -136,7 +136,7 @@ const eCommerceTemplate = () => html`
     <hr /><br />
     <div kemet-layout="flexrow" kemet-gutters="2xl" kemet-autostack>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -147,7 +147,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -158,7 +158,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -169,7 +169,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -196,7 +196,7 @@ const eCommerceTemplate = () => html`
     <hr /><br />
     <div kemet-layout="flexgrid" kemet-gutters="2xl" kemet-basis="tiny:2-columns medium:3-columns large:6-columns">
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -207,7 +207,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -218,7 +218,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -229,7 +229,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -240,7 +240,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -251,7 +251,7 @@ const eCommerceTemplate = () => html`
         </figure>
       </div>
       <div>
-        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
+        <figure kemet-padding="xs" kemet-margin="none" kemet-elevation="layer-3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1rem">Look at me!</text>
@@ -779,7 +779,7 @@ const TravelTemplate = () => html`
         </svg>
       </div>
       <form>
-        <div kemet-elevation="layer4" kemet-padding="2xl" kemet-border="all-1 solid primary" style="height:100%">
+        <div kemet-elevation="layer-4" kemet-padding="2xl" kemet-border="all-1 solid primary" style="height:100%">
           <kemet-input type="text" placeholder="Find your dream planet" kemet-margin-bottom="xs"></kemet-input>
           <kemet-input type="text" placeholder="Number of moons" kemet-margin-bottom="xs"></kemet-input>
           <kemet-button kemet-margin-top="xs">Search Now</kemet-button>
@@ -795,7 +795,7 @@ const TravelTemplate = () => html`
       <h2>Trending Planetary Destinations</h2>
       <div kemet-layout="flexgrid" kemet-basis="tiny:1-columns medium:3-columns" kemet-gutters="2xl" kemet-autostack>
         <div>
-          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer3">
+          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer-3">
             <svg width="100%" height="370">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1.5rem">Look at me!</text>
@@ -805,7 +805,7 @@ const TravelTemplate = () => html`
           </figure>
         </div>
         <div>
-          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer3">
+          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer-3">
             <svg width="100%" height="370">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1.5rem">Look at me!</text>
@@ -815,7 +815,7 @@ const TravelTemplate = () => html`
           </figure>
         </div>
         <div>
-          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer3">
+          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer-3">
             <svg width="100%" height="370">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1.5rem">Look at me!</text>
@@ -825,7 +825,7 @@ const TravelTemplate = () => html`
           </figure>
         </div>
         <div>
-          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer3">
+          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer-3">
             <svg width="100%" height="370">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1.5rem">Look at me!</text>
@@ -835,7 +835,7 @@ const TravelTemplate = () => html`
           </figure>
         </div>
         <div>
-          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer3">
+          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer-3">
             <svg width="100%" height="370">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1.5rem">Look at me!</text>
@@ -845,7 +845,7 @@ const TravelTemplate = () => html`
           </figure>
         </div>
         <div>
-          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer3">
+          <figure kemet-padding="2xl" kemet-margin="none" kemet-elevation="layer-3">
             <svg width="100%" height="370">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="1.5rem">Look at me!</text>

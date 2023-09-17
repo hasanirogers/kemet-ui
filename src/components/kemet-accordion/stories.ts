@@ -19,7 +19,7 @@ type Story = StoryObj;
 const Template = ({
   togglePanels = false,
 }) => html`
-  <kemet-accordion ?toggle-panels=${togglePanels} kemet-elevation="layer4">
+  <kemet-accordion ?toggle-panels=${togglePanels} kemet-elevation="layer-4">
     <kemet-accordion-panel>
       <h3 slot="trigger">Trigger 1</h3>
       <kemet-icon slot="icon" icon="chevron-down" size="18"></kemet-icon>

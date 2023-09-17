@@ -19,7 +19,7 @@
 /// @group config-variables
 
 $gutters: (
-  0: 0,
+  none: 0,
   px: 1px,
   2xs: 0.5rem,
   xs: 0.75rem,
@@ -434,12 +434,12 @@ $themecolors: (
 
 $elevation: (
   none: 0 0 #0000,
-  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
-  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
-  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
-  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
-  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
-  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  layer-1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer-2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer-3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer-4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer-5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer-6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
   inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
 ) !default;
 

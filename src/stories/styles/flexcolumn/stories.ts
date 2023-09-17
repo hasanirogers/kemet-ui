@@ -27,12 +27,12 @@ const TemplateExample2 = () => html`
 export const Example1: Story = {
   render: TemplateExample1,
   args: {
-    layer: 'layer3',
+    layer: 'layer-3',
   },
   argTypes: {
     layer: {
       control: { type: 'select' },
-      options: ['none', 'layer1', 'layer2', 'layer3', 'layer4', 'layer5', 'layer6', 'inner'],
+      options: ['none', 'layer-1', 'layer-2', 'layer-3', 'layer-4', 'layer-5', 'layer-6', 'inner'],
     },
   }
 }
@@ -40,12 +40,12 @@ export const Example1: Story = {
 export const Example2: Story = {
   render: TemplateExample2,
   args: {
-    layer: 'layer3',
+    layer: 'layer-3',
   },
   argTypes: {
     layer: {
       control: { type: 'select' },
-      options: ['none', 'layer1', 'layer2', 'layer3', 'layer4', 'layer5', 'layer6', 'inner'],
+      options: ['none', 'layer-1', 'layer-2', 'layer-3', 'layer-4', 'layer-5', 'layer-6', 'inner'],
     },
   }
 }

@@ -53,13 +53,13 @@ const Template = ({
     ?flip-on-hover="${flipOnHover}"
     ?rounded=${rounded}
   >
-    <div slot="front" kemet-elevation="layer5" kemet-padding="2xl">
+    <div slot="front" kemet-elevation="layer-5" kemet-padding="2xl">
       <p>This is the front of the card.</p>
       <kemet-flipcard-trigger>
         <kemet-button>Flip Me</kemet-button>
       </kemet-flipcard-trigger>
     </div>
-    <div slot="back" kemet-elevation="layer5" kemet-padding="2xl">
+    <div slot="back" kemet-elevation="layer-5" kemet-padding="2xl">
       <p>This is the back of the card.</p>
       <kemet-flipcard-trigger>
         <kemet-button>Flip Me</kemet-button>

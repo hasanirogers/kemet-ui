@@ -27,7 +27,7 @@ const TemplateExample2 = () => html`
 `;
 
 const TemplateExample3 = () => html`
-  <section kemet-layout="flexrow" kemet-gutters="tiny:0 medium:md large:8xl">
+  <section kemet-layout="flexrow" kemet-gutters="tiny:none medium:md large:8xl">
     <div kemet-breakpoint="medium:33"><div kemet-color="background" kemet-background-color="foreground" kemet-padding="xs">1</div></div>
     <div><div kemet-color="background" kemet-background-color="foreground" kemet-padding="xs">2</div></div>
     <div><div kemet-color="background" kemet-background-color="foreground" kemet-padding="xs">3</div></div>

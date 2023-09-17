@@ -41,7 +41,7 @@ const Template = ({
 
       slides.push(html`
         <kemet-carousel-slide slot="slides">
-          <figure kemet-border="all-1 solid gray-50" kemet-margin="none" kemet-padding="2xl" kemet-elevation="layer4">
+          <figure kemet-border="all-1 solid gray-50" kemet-margin="none" kemet-padding="2xl" kemet-elevation="layer-4">
             <h3 kemet-margin="none">Slide ${slideNumber}</h3>
             <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" style="max-width:100%" />
             <figcaption>An image in a carousel.</figcaption>
