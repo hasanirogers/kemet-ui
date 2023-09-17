@@ -34,7 +34,7 @@ const CheckoutTemplate = () => html`
       <h1 kemet-margin="2xl">Checkout Form</h1>
       <p kemet-type-size="lg" kemet-padding-left="3xl" kemet-padding-right="3xl">This form is a recreation of Bootstrap's Checkout example. It's been recreated using Kemet UI Core API styles and components. It serves as an example of doing validation with web components using Kemet UI.</p>
     </header>
-    <section kemet-layout="flexrow" kemet-autostack kemet-gutters="tiny:xl" kemet-margin-top="2xl">
+    <section kemet-layout="flexrow" kemet-autostack kemet-gutters="4xl" kemet-margin-top="2xl">
       <form kemet-margin-top="tiny:2xl medium:none" @submit=${event => handleFormSubmit(event)}>
         <h2 kemet-margin="none">Billing address</h2>
         <div kemet-layout="flexrow" kemet-gutters kemet-margin-top="2xl">

@@ -111,6 +111,37 @@
     }
   }
 
+  @each $attsvalue, $value in $gutters {
+    $gutterselector: '[kemet-gutters*="#{$attsvalue}"]';
+    // @debug $gutterselector;
+
+    #{$gutterselector} {
+      margin-right: -($value);
+    }
+
+    [kemet-layout="flexlist"]#{$gutterselector} {
+      gap: $value;
+    }
+
+    #{$gutterselector} > * {
+      padding-right: $value;
+    }
+
+    [kemet-layout="flexgrid"]#{$gutterselector} > * {
+      margin-bottom: $value;
+    }
+
+    [kemet-layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
+      margin-top: $value;
+    }
+
+    @media only screen and (max-width: $stackpoint) {
+      [kemet-layout="flexrow"]#{$gutterselector}[autostack] > * {
+        margin-bottom: $value;
+      }
+    }
+  }
+
   @if $makeresponsivegutters {
     @each $breakpoint, $pixel in $breakpoints {
       @media screen and (min-width: #{$pixel}) {
