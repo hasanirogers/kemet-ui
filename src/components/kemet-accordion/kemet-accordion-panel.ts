@@ -39,6 +39,9 @@ export default class KemetAccordionPanel extends LitElement {
   @property({ type: String })
   slug: string = 'panel';
 
+  @property({ type: Number })
+  index: number;
+
   /** @internal */
   @state()
   focusableSelector: string;

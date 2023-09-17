@@ -160,7 +160,7 @@ const CheckoutTemplate = () => html`
       </aside>
     </section>
     <footer kemet-type-align="center">
-      <p>&copy; 2022 Company Name</p>
+      <p>&copy; 2023 Company Name</p>
       <ul kemet-layout="flexlist" kemet-gutters>
         <li><a href="#">Privacy</a></li>
         <li><a href="#">Terms</a></li>
