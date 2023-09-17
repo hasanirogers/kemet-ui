@@ -86,28 +86,28 @@
 
 @mixin makeGutters() {
   [kemet-gutters] {
-    margin-right: -(map-get($gutters, default));
+    margin-right: -(map-get($gutters, md));
   }
 
   [kemet-layout='flexlist'][kemet-gutters] {
-    gap: map-get($gutters, default);
+    gap: map-get($gutters, md);
   }
 
   [kemet-gutters] > * {
-    padding-right: map-get($gutters, default);
+    padding-right: map-get($gutters, md);
   }
 
   [kemet-layout='flexgrid'][kemet-gutters] > * {
-    margin-bottom: map-get($gutters, default);
+    margin-bottom: map-get($gutters, md);
   }
 
   [kemet-layout='flexcolumn'][kemet-gutters] > :not(:first-child) {
-    margin-top: map-get($gutters, default);
+    margin-top: map-get($gutters, md);
   }
 
   @media only screen and (max-width: $stackpoint) {
     [kemet-layout='flexrow'][kemet-gutters][autostack] > * {
-      margin-bottom: map-get($gutters, default);
+      margin-bottom: map-get($gutters, md);
     }
   }
 

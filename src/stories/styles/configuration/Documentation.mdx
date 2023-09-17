@@ -10,7 +10,7 @@ Kemet UI comes with several variables that allow you to customize the behavior o
 
 ## Gutters
 
-You can control how gutters behave with the `$gutters` variables. `$gutters` is a sass map. You can change the values for the map. For example you might want to use px instead of rem for the units on the gutters. You can also change how gutters are referenced by changing the map's key. So instead of minus-1 you might want to change it to simply small. Kemet is smart enough to loop through the map so you can also add or remove any key value you pairs as you wish. Here's an example of a custom `$gutters` config.
+You can control how gutters behave with the `$gutters` variables. `$gutters` is a sass map. You can change the values for the map. For example you might want to use px instead of rem for the units on the gutters. You can also change how gutters are referenced by changing the map's key. So instead of `sm` you might want to change it to simply `small`. Kemet is smart enough to loop through the map so you can also add or remove any key value you pairs as you wish. Here's an example of a custom `$gutters` config.
 
 ```scss
 $gutters: (
@@ -18,33 +18,38 @@ $gutters: (
   smallest: 4px,
   smaller: 8px,
   small: 12px,
-  default: 16px, // do not remove this
+  md: 16px, // md is required. do not remove
+  medium: 16px,
   large: 20px,
   larger: 24px,
   largest: 28px,
 );
 ```
 
-In the example above we changed the keys, values, and number of entries in the map to our custom needs. The only rule is do not remove default.
+In the example above we changed the keys, values, and number of entries in the map to our custom needs. The only rule is do not remove md.
 
 <br />
 
-**Default**
+**Default Values**
 
 ```scss
 $gutters: (
-  none: 0,
-  minus-3: 0.5rem,
-  minus-2: 0.75rem,
-  minus-1: 0.85rem,
-  default: 1rem,
-  plus-1: 1.125rem,
-  plus-2: 1.25rem,
-  plus-3: 1.5rem,
-  plus-4: 2rem,
-  plus-5: 2.25rem,
-  plus-6: 3rem
-);
+  0: 0,
+  px: 1px,
+  2xs: 0.5rem,
+  xs: 0.75rem,
+  sm: 0.85rem,
+  md: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.75rem,
+  4xl: 2rem,
+  5xl: 2.25rem,
+  6xl: 2.5rem,
+  7xl: 2.75rem,
+  8xl: 3rem,
+) !default;
 ```
 
 ## Flexiplier

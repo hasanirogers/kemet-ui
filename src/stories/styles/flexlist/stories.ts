@@ -31,7 +31,7 @@ const TemplateExample2 = () => html`
 `;
 
 const TemplateExample3 = () => html`
-  <div kemet-layout="flexlist" kemet-gutters="">
+  <div kemet-layout="flexlist" kemet-gutters>
   <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">One</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Two</div></div>
     <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Three</div></div>

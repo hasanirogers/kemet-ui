@@ -19,17 +19,21 @@
 /// @group config-variables
 
 $gutters: (
-  none: 0,
-  minus-3: 0.5rem,
-  minus-2: 0.75rem,
-  minus-1: 0.85rem,
-  default: 1rem,
-  plus-1: 1.125rem,
-  plus-2: 1.25rem,
-  plus-3: 1.5rem,
-  plus-4: 2rem,
-  plus-5: 2.25rem,
-  plus-6: 3rem
+  0: 0,
+  px: 1px,
+  2xs: 0.5rem,
+  xs: 0.75rem,
+  sm: 0.85rem,
+  md: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.75rem,
+  4xl: 2rem,
+  5xl: 2.25rem,
+  6xl: 2.5rem,
+  7xl: 2.75rem,
+  8xl: 3rem,
 ) !default;
 
 

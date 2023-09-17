@@ -9,7 +9,7 @@ export default meta;
 type Story = StoryObj;
 
 const TemplateExample1 = () => html`
-  <section kemet-layout="flexgrid" kemet-gutters="plus-1">
+  <section kemet-layout="flexgrid" kemet-gutters="lg">
     <div kemet-breakpoint="tiny:100 medium:33 large:25">
       <div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">1</div>
     </div>

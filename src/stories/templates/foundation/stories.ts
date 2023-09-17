@@ -80,7 +80,7 @@ const AgencyTemplate = () => html`
   <section>
     <div kemet-margin="tiny:normal">
       <h2>Our Recent Work</h2>
-      <div kemet-layout="flexgrid" kemet-basis="tiny:1-columns medium:4-columns" kemet-gutters="tiny:plus-3">
+      <div kemet-layout="flexgrid" kemet-basis="tiny:1-columns medium:4-columns" kemet-gutters="2xl">
         <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
         <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
         <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
@@ -134,7 +134,7 @@ const eCommerceTemplate = () => html`
   <section kemet-margin="tiny:normal">
     <h2 class="text-center">Our Newest Product</h2>
     <hr /><br />
-    <div kemet-layout="flexrow" kemet-gutters="tiny:plus-3" kemet-autostack>
+    <div kemet-layout="flexrow" kemet-gutters="2xl" kemet-autostack>
       <div>
         <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
@@ -194,7 +194,7 @@ const eCommerceTemplate = () => html`
   <section kemet-margin="tiny:normal">
     <h2 class="text-center">Some Other Near Products</h2>
     <hr /><br />
-    <div kemet-layout="flexgrid" kemet-gutters="tiny:plus-3" kemet-basis="tiny:2-columns medium:3-columns large:6-columns">
+    <div kemet-layout="flexgrid" kemet-gutters="2xl" kemet-basis="tiny:2-columns medium:3-columns large:6-columns">
       <div>
         <figure kemet-padding="tiny:smallest" kemet-margin="tiny:none" kemet-elevation="layer3" kemet-border="all-1 solid gray-50">
           <svg width="100%" height="370">
@@ -415,7 +415,7 @@ const NewsTemplate = () => html`
 
   <main kemet-padding="tiny:small">
     <section>
-      <div kemet-layout="flexrow" kemet-gutters="tiny:plus-3" kemet-flex-items>
+      <div kemet-layout="flexrow" kemet-gutters="2xl" kemet-flex-items>
         <div kemet-breakpoint="tiny:33">
           <svg width="100%" height="150">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
@@ -440,14 +440,14 @@ const NewsTemplate = () => html`
 
     <br />
 
-    <section kemet-layout="flexrow" kemet-autostack kemet-gutters="tiny:plus-3">
+    <section kemet-layout="flexrow" kemet-autostack kemet-gutters="2xl">
       <div kemet-breakpoint="medium:66">
         <svg width="100%" height="100%">
           <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="2rem">[Promoted Article]</text>
         </svg>
       </div>
-      <div kemet-layout="flexcolumn" kemet-gutters="tiny:plus-3" style="min-height:200px;">
+      <div kemet-layout="flexcolumn" kemet-gutters="2xl" style="min-height:200px;">
         <div>
           <svg width="100%" height="100%">
             <rect x="0" y="0" width="100%" height="100%" fill="#0c4a6e"/>
@@ -511,7 +511,7 @@ const NewsTemplate = () => html`
       <h2 kemet-type-align="center" kemet-type-size="tiny:plus-4">Latest Stories</h2>
       <hr />
       <br />
-      <div kemet-layout="flexgrid" kemet-gutters="tiny:plus-3">
+      <div kemet-layout="flexgrid" kemet-gutters="2xl">
         <article kemet-breakpoint="tiny:100 medium:66">
           <div kemet-layout="flexrow" kemet-gutters kemet-autostack>
             <div kemet-breakpoint="tiny:100 small:40">
@@ -692,7 +692,7 @@ const NewsTemplate = () => html`
       <div kemet-layout="flexgrid" kemet-gutters>
         <div kemet-breakpoint="tiny:100 large:33">
           <h3>Flickr Images</h3>
-          <ul kemet-layout="flexlist" kemet-gutters="tiny:minus-3">
+          <ul kemet-layout="flexlist" kemet-gutters="2xs">
             <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
             <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
             <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
@@ -763,7 +763,7 @@ const TravelTemplate = () => html`
   <br />
 
   <section kemet-padding="tiny:small">
-    <div kemet-layout="flexrow" kemet-autostack kemet-gutters="tiny:plus-2">
+    <div kemet-layout="flexrow" kemet-autostack kemet-gutters="xl">
       <div kemet-breakpoint="medium:40">
         <h1>Close Your Eyes and Open Your Mind</h1>
         <p>There is beauty in space, and it is orderly. There is no weather, and there is regularity. It is predictable. Everything in space obeys the laws of physics. If you know these laws, and obey them, space will treat you kindly. It is predictable. Everything in space obeys the laws of physics. If you know these laws, and obey them, space will treat you kindly.</p>
@@ -793,7 +793,7 @@ const TravelTemplate = () => html`
   <section>
     <div kemet-padding="tiny:small">
       <h2>Trending Planetary Destinations</h2>
-      <div kemet-layout="flexgrid" kemet-basis="tiny:1-columns medium:3-columns" kemet-gutters="tiny:plus-3" kemet-autostack>
+      <div kemet-layout="flexgrid" kemet-basis="tiny:1-columns medium:3-columns" kemet-gutters="2xl" kemet-autostack>
         <div>
           <figure kemet-padding="tiny:normal" kemet-margin="tiny:none" kemet-elevation="layer3">
             <svg width="100%" height="370">
@@ -867,7 +867,7 @@ const TravelTemplate = () => html`
     <div kemet-layout="flexrow" kemet-gutters kemet-autostack>
       <div>
         <h3>Flickr Images</h3>
-        <ul kemet-layout="flexcolumn" kemet-gutters="tiny:minus-3" kemet-padding="tiny:none">
+        <ul kemet-layout="flexcolumn" kemet-gutters="2xl" kemet-padding="tiny:none">
           <li><a href="#">One</a></li>
           <li><a href="#">Two</a></li>
           <li><a href="#">Three</a></li>
@@ -876,7 +876,7 @@ const TravelTemplate = () => html`
       </div>
       <div>
         <h3>Solar Systems</h3>
-        <ul kemet-layout="flexcolumn" kemet-gutters="tiny:minus-3" kemet-padding="tiny:none">
+        <ul kemet-layout="flexcolumn" kemet-gutters="2xs" kemet-padding="tiny:none">
           <li><a href="#">One</a></li>
           <li><a href="#">Two</a></li>
           <li><a href="#">Three</a></li>
@@ -885,7 +885,7 @@ const TravelTemplate = () => html`
       </div>
       <div>
         <h3>Contact</h3>
-        <ul kemet-layout="flexcolumn" kemet-gutters="tiny:minus-3" kemet-padding="tiny:none">
+        <ul kemet-layout="flexcolumn" kemet-gutters="2xs" kemet-padding="tiny:none">
           <li><a href="#">Twitter</a></li>
           <li><a href="#">YouTube</a></li>
           <li><a href="#">LinkedIn</a></li>
@@ -894,7 +894,7 @@ const TravelTemplate = () => html`
       </div>
       <div>
         <h3>Offices</h3>
-        <ul kemet-layout="flexcolumn" kemet-gutters="tiny:minus-3" kemet-padding="tiny:none">
+        <ul kemet-layout="flexcolumn" kemet-gutters="2xs" kemet-padding="tiny:none">
           <li><a href="#">One</a></li>
           <li><a href="#">Two</a></li>
           <li><a href="#">Three</a></li>
