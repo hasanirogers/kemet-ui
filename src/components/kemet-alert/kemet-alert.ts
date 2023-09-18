@@ -47,7 +47,7 @@ export default class KemetAlert extends LitElement {
   closable: boolean;
 
   @property({ type: String, reflect: true })
-  status: TypeStatus;
+  status: TypeStatus = 'standard';
 
   @property({ type: String, reflect: true, attribute: 'border-status' })
   borderStatus: string;
