@@ -1,6 +1,1 @@
-export interface KemetBadge {
-  status: string,
-  circle: boolean,
-  pill: boolean,
-  circlePadding: number,
-}
+export type TypeStatus = 'standard' | 'primary' | 'success' | 'warning' | 'error';

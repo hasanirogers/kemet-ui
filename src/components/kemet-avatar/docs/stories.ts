@@ -68,18 +68,6 @@ const TemplateMultiple = (args) => {
   `;
 };
 
-// export const Standard: Story = {
-//   render: (args: any) => Template(args),
-//   args: {
-//     circle: true,
-//     rounded: false,
-//     image: 'https://via.placeholder.com/64x64',
-//     initials: 'KU',
-//     icon: 'person',
-//     status: false,
-//   },
-// };
-
 export const Standard: Story = {
   render: (args: any) => Template(args),
   args: {

@@ -1,6 +1,7 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesBase } from './styles';
+import { TypeStatus } from './types';
 
 /**
  * @since 1.0.0
@@ -22,8 +23,8 @@ import { stylesBase } from './styles';
 export default class KemetBadge extends LitElement {
   static styles = [stylesBase];
 
-  @property({ type: String, reflect: true})
-  status: string = 'primary';
+  @property({ reflect: true})
+  status: TypeStatus = 'primary';
 
   @property({ type: Boolean, reflect: true })
   circle: boolean = false;
