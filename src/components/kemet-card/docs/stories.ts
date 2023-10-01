@@ -8,43 +8,39 @@ import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
 
+import '../../kemet-avatar/kemet-avatar';
+import '../../kemet-icon/kemet-icon';
+
 const meta: Meta = {
   title: 'Components / Card',
   component: 'kemet-card',
+  args: {
+    bodyText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    captionText: '',
+    isCentered: false,
+  },
+  argTypes: {
+    mediaType: {
+      control: { type: 'radio' },
+      options: ['none', 'image', 'avatar', 'video', 'embed'],
+    },
+    elevation: {
+      control: { type: 'select' },
+      options: ['none', 'layer-1', 'layer-2', 'layer-3', 'layer-4', 'layer-5', 'layer-6', 'inner'],
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  bodyText,
-  showHeader,
-  showFooter,
-  captionText,
-  mediaType,
-  textColor,
-  backgroundColor,
-  borderColor,
-  cardPadding,
-  borderRadius,
-  isCentered,
-  elevation,
-}) => html`
-  <style>
-    kemet-card {
-      --kemet-card-color: ${textColor};
-      --kemet-card-padding: ${cardPadding};
-      --kemet-card-border-color: ${borderColor};
-      --kemet-card-border-radius: ${borderRadius};
-      --kemet-card-background-color: ${backgroundColor};
-    }
-  </style>
-  <kemet-card ?center=${isCentered} kemet-elevation="${ifDefined(elevation !== 'none' ? elevation : null)}">
-    ${showHeader ? html`<div slot="header">This is the header.</div>` : null}
-    ${showMedia(mediaType)}
-    ${captionText !== '' ? html`<div slot="caption">${captionText}</div>` : null}
-    ${bodyText}
-    ${showFooter ? html`<div slot="footer">This is the footer.</div>` : null}
+const Template = (args) => html`
+  <kemet-card ?center=${args.isCentered} kemet-elevation="${ifDefined(args.elevation !== 'none' ? args.elevation : null)}">
+    ${args.showHeader ? html`<div slot="header">This is the header.</div>` : null}
+    ${showMedia(args.mediaType)}
+    ${args.captionText && args.captionText !== '' ? html`<div slot="caption">${args.captionText}</div>` : null}
+    ${args.bodyText}
+    ${args.showFooter ? html`<div slot="footer">This is the footer.</div>` : null}
   </kemet-card>
 `;
 
@@ -55,7 +51,9 @@ const showMedia = (type) => {
 
   if (type === 'avatar') {
     return html`
-      <kemet-avatar slot="media" rounded image="https://via.placeholder.com/200x200" label="a placeholder"></kemet-avatar>
+      <kemet-avatar circle slot="media">
+        <kemet-icon size="196" kemet-margin="xs" icon="person"></kemet-icon>
+      </kemet-avatar>
     `;
   }
 
@@ -70,7 +68,7 @@ const showMedia = (type) => {
 
   if (type === 'embed') {
     return html`
-      <iframe slot="media" width="560" height="315" src="https://www.youtube.com/embed/5gBqTXctxO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe slot="media" width="100%" style="aspect-ratio:16/9;" src="https://www.youtube.com/embed/5gBqTXctxO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     `;
   }
 
@@ -79,55 +77,65 @@ const showMedia = (type) => {
 
 export const Standard: Story = {
   render: (args: any) => Template(args),
+};
+
+export const Header: Story = {
+  render: (args: any) => Template(args),
   args: {
-    bodyText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    captionText: 'Caption',
-    showHeader: false,
-    showFooter: true,
-    isCentered: false,
-    mediaType: 'image',
-    textColor: '#000000',
-    borderColor: '#a4a4a4',
-    backgroundColor: '#ffffff',
-    cardPadding: '1rem',
-    borderRadius: '0',
-    elevation: 'none',
-  },
-  argTypes: {
-    bodyText: {
-      control: { type: 'text' },
-    },
-    showHeader: {
-      control: { type: 'boolean' },
-    },
-    showFooter: {
-      control: { type: 'boolean' },
-    },
-    isCentered: {
-      control: { type: 'boolean' },
-    },
-    mediaType: {
-      control: { type: 'radio' },
-      options: ['none', 'image', 'avatar', 'video', 'embed'],
-    },
-    textColor: {
-      control: { type: 'color' },
-    },
-    borderColor: {
-      control: { type: 'color' },
-    },
-    backgroundColor: {
-      control: { type: 'color' },
-    },
-    cardPadding: {
-      control: { type: 'text' },
-    },
-    borderRadius: {
-      control: { type: 'text' },
-    },
-    elevation: {
-      control: { type: 'select' },
-      options: ['none', 'layer-1', 'layer-2', 'layer-3', 'layer-4', 'layer-5', 'layer-6', 'inner'],
-    },
+    showHeader: true
   }
 };
+
+export const Footer: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    showFooter: true
+  }
+};
+
+export const HeaderAndFooter: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    showHeader: true,
+    showFooter: true
+  }
+};
+
+export const Image: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    mediaType: 'image'
+  }
+};
+
+export const Video: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    mediaType: 'video'
+  }
+};
+
+export const Embed: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    mediaType: 'embed'
+  }
+};
+
+export const Avatar: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    mediaType: 'avatar',
+    isCentered: true
+  }
+};
+
+export const Full: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    mediaType: 'embed',
+    showHeader: true,
+    showFooter: true,
+    elevation: 'layer-4',
+  }
+}

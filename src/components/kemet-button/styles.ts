@@ -62,26 +62,26 @@ export const stylesBase = css`
     cursor: not-allowed;
   }
 
-  :host([type='text']) {
+  :host([variant='text']) {
     --kemet-button-color: rgb(var(--kemet-color-text));
     --kemet-button-background-color: none;
   }
 
-  :host([type='text']:hover) {
+  :host([variant='text']:hover) {
     text-decoration: var(--kemet-button-hover-decoration);
   }
 
-  :host([type='circle']) {
+  :host([variant='circle']) {
     --kemet-button-border-radius: var(--kemet-border-radius-circle);
     --kemet-button-width: var(--kemet-button-circle-size);
     --kemet-button-height: var(--kemet-button-circle-size);
   }
 
-  :host([type='rounded']) {
+  :host([variant='rounded']) {
     --kemet-button-border-radius: var(--kemet-button-rounded-amount);
   }
 
-  :host([type='pill']) {
+  :host([variant='pill']) {
     --kemet-button-border-radius: var(--kemet-border-radius-pill);
   }
 

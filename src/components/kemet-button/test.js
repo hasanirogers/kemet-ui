@@ -15,7 +15,7 @@ describe('KemetButton', async () => {
   });
 
   it('has the correct default props', async () => {
-    expect(button.type).to.equal('standard');
+    expect(button.variant).to.equal('standard');
   });
 
   it('renders as an anchor with a link', async () => {

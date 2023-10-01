@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { TypeType } from './types';
+import { TypeVariant } from './types';
 import { stylesBase } from './styles';
 import { FormSubmitController } from '../../utilities/controllers/forms';
 import '../kemet-icon/kemet-icon';
@@ -18,7 +18,7 @@ import '../kemet-icon/kemet-icon';
  * @prop {string} link - The url a button should link too
  * @prop {boolean} outlined - Outline style for a button
  * @prop {boolean} disabled - Determines whether not a button is disabled
- * @prop {string} type - Controls the type of button. standard | text | circle | rounded | pill
+ * @prop {string} variant - Controls the type of button. standard | text | circle | rounded | pill
  *
  * @slot left - Allows you to place an icon to the left of the button text.
  * @slot right - Allows you to place an icon to the right of the button text.
@@ -71,8 +71,8 @@ export default class KemetButton extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled: boolean = false;
 
-  @property({ type: String, reflect: true })
-  type: TypeType = 'standard';
+  @property({ reflect: true })
+  variant: TypeVariant = 'standard';
 
   constructor() {
     super();

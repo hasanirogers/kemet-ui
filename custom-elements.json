@@ -4,6 +4,512 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAccordionPanel",
+          "cssParts": [
+            {
+              "description": "Contains the trigger for the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "Contains the body for the panel.",
+              "name": "body"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The trigger button that opens and closes the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "The body content of the panel.",
+              "name": "body"
+            },
+            {
+              "description": "The icon for the panel.",
+              "name": "icon"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "undefined",
+              "description": "Determines the opened state of the panel",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "maxHeight",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "attribute": "max-height"
+            },
+            {
+              "kind": "field",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "index"
+            },
+            {
+              "kind": "method",
+              "name": "toggle"
+            },
+            {
+              "kind": "method",
+              "name": "focusableBodyElements"
+            },
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when a panel is opened",
+              "name": "kemet-accordion-panel-opened"
+            },
+            {
+              "description": "Fires when a panel is closed",
+              "name": "kemet-accordion-panel-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+              },
+              "description": "Determines the opened state of the panel",
+              "fieldName": "opened"
+            },
+            {
+              "name": "max-height",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "fieldName": "maxHeight"
+            },
+            {
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "fieldName": "slug"
+            },
+            {
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "index"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-accordion-panel",
+          "summary": "A blade for an accordion.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-accordion-panel",
+          "declaration": {
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-accordion/kemet-accordion.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAccordion",
+          "members": [
+            {
+              "kind": "field",
+              "name": "currentPanel",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The index value for the most recently opened panel",
+              "attribute": "current-panel"
+            },
+            {
+              "kind": "field",
+              "name": "togglePanels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "attribute": "toggle-panels"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handlePanelOpened",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "navigatePanels",
+              "parameters": [
+                {
+                  "name": "direction"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "expandAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseAll"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "current-panel",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The index value for the most recently opened panel",
+              "fieldName": "currentPanel"
+            },
+            {
+              "name": "toggle-panels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "fieldName": "togglePanels"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-accordion",
+          "summary": "A component that acts like a standard accordion.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-accordion",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAlert",
+          "cssProperties": [
+            {
+              "description": "The padding on the alert.",
+              "name": "--kemet-alert-padding"
+            },
+            {
+              "description": "The thickness of the border.",
+              "name": "--kemet-alert-border-thickness"
+            },
+            {
+              "description": "The status color. Default: inherit.",
+              "name": "--kemet-alert-status-color"
+            },
+            {
+              "description": "The alert's alignment.",
+              "name": "--kemet-alert-align-items"
+            },
+            {
+              "description": "The border around the alert.",
+              "name": "--kemet-alert-border"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Container for the close button.",
+              "name": "close"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "attribute": "reveal",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "attribute": "closable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "default": "'standard'",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "borderStatus",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "attribute": "border-status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "attribute": "overlay",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeCloseBtn"
+            },
+            {
+              "kind": "method",
+              "name": "handleMotion"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when alert is opened.",
+              "name": "kemet-alert-opened"
+            },
+            {
+              "description": "Fires when alert is closed.",
+              "name": "kemet-alert-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert is opened or not.",
+              "fieldName": "opened"
+            },
+            {
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "fieldName": "reveal"
+            },
+            {
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "fieldName": "closable"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "default": "'standard'",
+              "fieldName": "status"
+            },
+            {
+              "name": "border-status",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "fieldName": "borderStatus"
+            },
+            {
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "fieldName": "overlay"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-alert",
+          "summary": "Calls out important messages and notifications.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-alert",
+          "declaration": {
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-badge/kemet-badge.ts",
       "declarations": [
         {
@@ -293,13 +799,13 @@
             },
             {
               "kind": "field",
-              "name": "type",
+              "name": "variant",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
               "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "attribute": "type",
+              "attribute": "variant",
               "reflects": true
             },
             {
@@ -394,13 +900,13 @@
               "fieldName": "disabled"
             },
             {
-              "name": "type",
+              "name": "variant",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
               "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "fieldName": "type"
+              "fieldName": "variant"
             }
           ],
           "superclass": {
@@ -1809,512 +2315,6 @@
           "declaration": {
             "name": "KemetCarousel",
             "module": "src/components/kemet-carousel/kemet-carousel.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAlert",
-          "cssProperties": [
-            {
-              "description": "The padding on the alert.",
-              "name": "--kemet-alert-padding"
-            },
-            {
-              "description": "The thickness of the border.",
-              "name": "--kemet-alert-border-thickness"
-            },
-            {
-              "description": "The status color. Default: inherit.",
-              "name": "--kemet-alert-status-color"
-            },
-            {
-              "description": "The alert's alignment.",
-              "name": "--kemet-alert-align-items"
-            },
-            {
-              "description": "The border around the alert.",
-              "name": "--kemet-alert-border"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Container for the close button.",
-              "name": "close"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "attribute": "reveal",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "attribute": "closable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "default": "'standard'",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "borderStatus",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "attribute": "border-status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "attribute": "hidden",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "attribute": "overlay",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeCloseBtn"
-            },
-            {
-              "kind": "method",
-              "name": "handleMotion"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
-            },
-            {
-              "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the alert is opened or not.",
-              "fieldName": "opened"
-            },
-            {
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "fieldName": "reveal"
-            },
-            {
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "fieldName": "closable"
-            },
-            {
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "default": "'standard'",
-              "fieldName": "status"
-            },
-            {
-              "name": "border-status",
-              "type": {
-                "text": "string"
-              },
-              "description": "Adds a border that indicates the status.",
-              "fieldName": "borderStatus"
-            },
-            {
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "fieldName": "hidden"
-            },
-            {
-              "name": "overlay",
-              "type": {
-                "text": "string"
-              },
-              "description": "Fixes the alert over content in specified position.",
-              "fieldName": "overlay"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-alert",
-          "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAccordionPanel",
-          "cssParts": [
-            {
-              "description": "Contains the trigger for the panel.",
-              "name": "trigger"
-            },
-            {
-              "description": "Contains the body for the panel.",
-              "name": "body"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The trigger button that opens and closes the panel.",
-              "name": "trigger"
-            },
-            {
-              "description": "The body content of the panel.",
-              "name": "body"
-            },
-            {
-              "description": "The icon for the panel.",
-              "name": "icon"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "undefined",
-              "description": "Determines the opened state of the panel",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "maxHeight",
-              "type": {
-                "text": "string"
-              },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "attribute": "max-height"
-            },
-            {
-              "kind": "field",
-              "name": "slug",
-              "type": {
-                "text": "string"
-              },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "attribute": "slug"
-            },
-            {
-              "kind": "field",
-              "name": "index",
-              "type": {
-                "text": "number"
-              },
-              "attribute": "index"
-            },
-            {
-              "kind": "method",
-              "name": "toggle"
-            },
-            {
-              "kind": "method",
-              "name": "focusableBodyElements"
-            },
-            {
-              "kind": "method",
-              "name": "a11y"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when a panel is opened",
-              "name": "kemet-accordion-panel-opened"
-            },
-            {
-              "description": "Fires when a panel is closed",
-              "name": "kemet-accordion-panel-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-              },
-              "description": "Determines the opened state of the panel",
-              "fieldName": "opened"
-            },
-            {
-              "name": "max-height",
-              "type": {
-                "text": "string"
-              },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "fieldName": "maxHeight"
-            },
-            {
-              "name": "slug",
-              "type": {
-                "text": "string"
-              },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "fieldName": "slug"
-            },
-            {
-              "name": "index",
-              "type": {
-                "text": "number"
-              },
-              "fieldName": "index"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-accordion-panel",
-          "summary": "A blade for an accordion.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-accordion-panel",
-          "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAccordion",
-          "members": [
-            {
-              "kind": "field",
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The index value for the most recently opened panel",
-              "attribute": "current-panel"
-            },
-            {
-              "kind": "field",
-              "name": "togglePanels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "attribute": "toggle-panels"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "handlePanelOpened",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "navigatePanels",
-              "parameters": [
-                {
-                  "name": "direction"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "expandAll"
-            },
-            {
-              "kind": "method",
-              "name": "collapseAll"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "current-panel",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The index value for the most recently opened panel",
-              "fieldName": "currentPanel"
-            },
-            {
-              "name": "toggle-panels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "fieldName": "togglePanels"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-accordion",
-          "summary": "A component that acts like a standard accordion.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-accordion",
-          "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         }
       ]

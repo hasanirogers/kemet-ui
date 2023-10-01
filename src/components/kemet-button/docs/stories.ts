@@ -8,41 +8,13 @@ import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
 
+import '../../kemet-icon/kemet-icon';
+
 const meta: Meta = {
   title: 'Components / Button',
   component: 'kemet-button',
-};
-export default meta;
-
-type Story = StoryObj;
-
-const Template = ({
-  type = 'standard',
-  outlined = false,
-  iconLeft = '',
-  iconRight = 'gear',
-  link = '',
-  disabled = false,
-}) => html`
-  <kemet-button type="${type}" ?outlined=${outlined} ?disabled=${disabled} link=${ifDefined(link !== '' ? link : undefined)}>
-    ${ifDefined(iconLeft !== '' && type !== 'circle' ? html`<kemet-icon slot="left" icon="${iconLeft}"></kemet-icon>` : undefined)}
-    ${type === 'circle' ? html`<kemet-icon icon="gear" size="24"></kemet-icon>` : 'Button'}
-    ${ifDefined(iconRight !== '' && type !== 'circle' ? html`<kemet-icon slot="right" icon="${iconRight}"></kemet-icon>` : undefined)}
-  </kemet-button>
-`;
-
-export const Standard: Story = {
-  render: args => Template(args),
-  args: {
-    type: 'standard',
-    outlined: false,
-    iconLeft: '',
-    iconRight: 'gear',
-    link: '',
-    disabled: false,
-  },
   argTypes: {
-    type: {
+    variant: {
       control: { type: 'select' },
       options: ['standard', 'text', 'circle', 'rounded', 'pill'],
     },
@@ -62,4 +34,99 @@ export const Standard: Story = {
       control: { type: 'boolean' },
     },
   }
+};
+export default meta;
+
+type Story = StoryObj;
+
+const Template = (args) => html`
+  <kemet-button variant="${ifDefined(args.variant)}" ?outlined=${args.outlined} ?disabled=${args.disabled} link=${ifDefined(args.link !== '' ? args.link : undefined)}>
+    ${ifDefined(args.iconLeft !== '' && args.type !== 'circle' && args.iconLeft ? html`<kemet-icon slot="left" icon="${args.iconLeft}"></kemet-icon>` : undefined)}
+    ${args.variant === 'circle' ? html`<kemet-icon icon="gear" size="24"></kemet-icon>` : 'Button'}
+    ${ifDefined(args.iconRight !== '' && args.variant !== 'circle' && args.iconRight ? html`<kemet-icon slot="right" icon="${args.iconRight}"></kemet-icon>` : undefined)}
+  </kemet-button>
+`;
+
+
+export const Standard: Story = {
+  render: args => Template(args),
+};
+
+export const Text: Story = {
+  render: args => Template(args),
+  args: {
+    variant: 'text',
+  },
+};
+
+export const Circle: Story = {
+  render: args => Template(args),
+  args: {
+    variant: 'circle',
+  },
+};
+
+export const Rounded: Story = {
+  render: args => Template(args),
+  args: {
+    variant: 'rounded',
+  },
+};
+
+export const Pill: Story = {
+  render: args => Template(args),
+  args: {
+    variant: 'pill',
+  },
+};
+
+export const Outlined: Story = {
+  render: args => Template(args),
+  args: {
+    outlined: true,
+  },
+};
+
+export const OutlinedRounded: Story = {
+  render: args => Template(args),
+  args: {
+    outlined: true,
+    variant: 'rounded',
+  },
+};
+
+export const OutlinedPill: Story = {
+  render: args => Template(args),
+  args: {
+    outlined: true,
+    variant: 'pill',
+  },
+};
+
+export const IconLeft: Story = {
+  render: args => Template(args),
+  args: {
+    iconLeft: 'chevron-left',
+  },
+};
+
+export const IconRight: Story = {
+  render: args => Template(args),
+  args: {
+    iconRight: 'chevron-right',
+  },
+};
+
+export const Link: Story = {
+  render: args => Template(args),
+  args: {
+    link: 'https://google.com',
+  },
+};
+
+export const Disabled: Story = {
+  render: args => Template(args),
+  args: {
+    disabled: true,
+  },
 };
