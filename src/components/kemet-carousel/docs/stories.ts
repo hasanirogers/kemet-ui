@@ -16,27 +16,57 @@ import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
 
+import '../../kemet-badge/kemet-badge';
+import '../../kemet-icon/kemet-icon';
+
 const meta: Meta = {
   title: 'Components / Carousel',
   component: 'kemet-carousel',
+  args: {
+    numOfSlides: 5,
+    toolbarType: 'none',
+    options: {
+      perView: 1,
+      perMove: 1,
+      gap: 12,
+      slideshow: 0,
+      rewind: true,
+      center: false,
+    },
+    breakpoints: {
+      768: {
+        perView: 2,
+        gap: 24,
+        rewind: false,
+      },
+      1280: {
+        perView: 2.5,
+        center: true,
+      },
+    },
+  },
+  argTypes: {
+    toolbarType: {
+      control: { type: 'radio' },
+      options: ['none', 'pagination', 'description'],
+    },
+    options: {
+      control: { type: 'object' },
+    },
+    breakpoints: {
+      control: { type: 'object' },
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  numOfSlides = 5,
-  toolbar = 'description',
-  index = 0,
-  inner = false,
-  arrows = false,
-  options,
-  breakpoints,
-}) => {
+const Template = (args) => {
   const makeSlides = () => {
     const slides = [];
 
-    for (let i = 0; i < numOfSlides; i += 1) {
+    for (let i = 0; i < args.numOfSlides; i += 1) {
       const slideNumber = i + 1;
 
       slides.push(html`
@@ -55,7 +85,7 @@ const Template = ({
   };
 
   const makePrevArrow = () => {
-    if (arrows) {
+    if (args.arrows) {
       return html`
         <kemet-carousel-prev slot="prev">
           <kemet-icon icon="chevron-left" size="72"></kemet-icon>
@@ -67,7 +97,7 @@ const Template = ({
   };
 
   const makeNextArrow = () => {
-    if (arrows) {
+    if (args.arrows) {
       return html`
         <kemet-carousel-next slot="next">
           <kemet-icon icon="chevron-right" size="72"></kemet-icon>
@@ -79,10 +109,10 @@ const Template = ({
   };
 
   const makePagination = () => {
-    if (toolbar === 'pagination') {
+    if (args.toolbarType === 'pagination') {
       const pages = [];
 
-      for (let i = 0; i < numOfSlides; i += 1) {
+      for (let i = 0; i < args.numOfSlides; i += 1) {
         pages.push(html`
           <kemet-carousel-link slide="${i}" slot="toolbar">${i + 1}</kemet-carousel-link>
         `);
@@ -109,7 +139,7 @@ const Template = ({
   };
 
   const makeDescription = () => {
-    if (toolbar === 'description') {
+    if (args.toolbarType === 'description') {
       return html`
         <div slot="toolbar" kemet-layout="flexrow" kemet-align="middle" kemet-gutters>
           <div>
@@ -120,10 +150,10 @@ const Template = ({
             <kemet-carousel-information></kemet-carousel-information>
           </div>
           <kemet-carousel-prev kemet-breakpoint="tiny:content">
-            <kemet-badge circle><kemet-icon icon="chevron-left"></kemet-icon></kemet-badge>
+            <kemet-badge circle kemet-padding="sm"><kemet-icon icon="chevron-left"></kemet-icon></kemet-badge>
           </kemet-carousel-prev>
           <kemet-carousel-next kemet-breakpoint="tiny:content">
-            <kemet-badge circle><kemet-icon icon="chevron-right"></kemet-icon></kemet-badge>
+            <kemet-badge circle kemet-padding="sm"><kemet-icon icon="chevron-right"></kemet-icon></kemet-badge>
           </kemet-carousel-next>
         </div>
       `;
@@ -133,7 +163,7 @@ const Template = ({
   };
 
   return html`
-    <kemet-carousel index="${index}" ?inner=${inner} .options=${options} .breakpoints=${breakpoints}>
+    <kemet-carousel index="${args.index}" ?inner=${args.inner} .options=${args.options} .breakpoints=${args.breakpoints}>
       ${makePrevArrow()}
       ${makeSlides()}
       ${makeNextArrow()}
@@ -145,54 +175,33 @@ const Template = ({
 
 export const Standard: Story = {
   render: (args: any) => Template(args),
+};
+
+export const DescriptionToolbar: Story = {
+  render: (args: any) => Template(args),
   args: {
-    numOfSlides: 5,
-    toolbar: 'pagination',
-    index: 0,
-    inner: false,
-    arrows: false,
-    options: {
-      perView: 1,
-      perMove: 1,
-      gap: 12,
-      slideshow: 0,
-      rewind: true,
-      center: false,
-    },
-    breakpoints: {
-      768: {
-        perView: 2,
-        gap: 24,
-        rewind: false,
-      },
-      1280: {
-        perView: 2.5,
-        center: true,
-      },
-    },
-  },
-  argTypes: {
-    numOfSlides: {
-      control: { type: 'number' },
-    },
-    toolbar: {
-      control: { type: 'radio' },
-      options: ['none', 'pagination', 'description'],
-    },
-    index: {
-      control: { type: 'number' },
-    },
-    inner: {
-      control: { type: 'boolean' },
-    },
-    arrows: {
-      control: { type: 'boolean' },
-    },
-    options: {
-      control: { type: 'object' },
-    },
-    breakpoints: {
-      control: { type: 'object' },
-    },
+    toolbarType: 'description',
+  }
+};
+
+export const PaginationToolbar: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    toolbarType: 'pagination',
+  }
+};
+
+export const InnerToolbar: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    inner: true,
+    toolbarType: 'pagination',
+  }
+};
+
+export const Arrows: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    arrows: true,
   }
 };

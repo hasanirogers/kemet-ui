@@ -2,7 +2,10 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state, query } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesCarousel } from './styles';
-import { KemetCarouselCurrentInterface, KemetCarouselLinkInterface, KemetCarouselSlideInterface } from './types';
+
+import KemetCarouselCurrent from './kemet-carousel-current';
+import KemetCarouselLink from './kemet-carousel-link';
+import KemetCarouselSlide from './kemet-carousel-slide';
 
 /**
  *
@@ -303,8 +306,8 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleSlotChange() {
-    const slides = this.querySelectorAll('kemet-carousel-slide') as NodeListOf<KemetCarouselSlideInterface>;
-    const links = this.querySelectorAll('kemet-carousel-link') as NodeListOf<KemetCarouselLinkInterface>;
+    const slides = this.querySelectorAll('kemet-carousel-slide') as NodeListOf<KemetCarouselSlide>;
+    const links = this.querySelectorAll('kemet-carousel-link') as NodeListOf<KemetCarouselLink>;
 
     // handle slides
     slides.forEach((slide) => {
@@ -437,7 +440,7 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleTransitionEnd() {
-    const currentElement = this.querySelector('kemet-carousel-current') as KemetCarouselCurrentInterface;
+    const currentElement = this.querySelector('kemet-carousel-current') as KemetCarouselCurrent;
 
     if (currentElement) {
       currentElement.current = this.index + 1;
