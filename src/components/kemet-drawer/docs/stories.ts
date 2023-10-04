@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import '../kemet-drawer';
@@ -11,45 +12,34 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Drawer',
   component: 'kemet-drawer',
+  argTypes: {
+    effect: {
+      control: { type: 'select' },
+      options: ['slide', 'reveal', 'push', 'scale'],
+    },
+    side: {
+      control: { type: 'select' },
+      options: ['top', 'right', 'bottom', 'left'],
+    },
+  },
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  width = '300px',
-  height = '100%',
-  color = '#fafafa',
-  backgroundColor = '#202020',
-  opened = false,
-  effect = 'slide',
-  side = 'left',
-  overlay = false,
-  overlayColor = 'rgba(0,0,0,0.2)',
-}) => {
-  setTimeout(() => {
-    const docsStoryWrapper = document.querySelector('.docs-story > div') as HTMLElement;
-    if (docsStoryWrapper) docsStoryWrapper.style.padding = '0';
-  }, 100);
-
+const Template = (args) => {
   return html`
-    <style>
-      kemet-drawer {
-        --kemet-drawer-width: ${width};
-        --kemet-drawer-height: ${height};
-        --kemet-drawer-color: ${color};
-        --kemet-drawer-background-color: ${backgroundColor};
-        --kemet-drawer-overlay-color: ${overlayColor};
-      }
-    </style>
-    <kemet-drawer ?opened=${opened} effect="${effect}" side="${side}" ?overlay=${overlay}>
+    <kemet-drawer ?opened=${args.opened} effect="${ifDefined(args.effect)}" side="${ifDefined(args.side)}" ?overlay=${args.overlay}>
       <nav slot="navigation" kemet-padding="2xl">
         <p>Your navigation goes here.</p>
         <kemet-button @click=${(event) => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
       </nav>
       <section slot="content">
         <div kemet-padding="2xl">
-          <p>Your content goes here.</p>
+          <h2>Your content goes here.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Pharetra magna ac placerat vestibulum lectus. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Turpis egestas maecenas pharetra convallis posuere. Gravida in fermentum et sollicitudin ac orci phasellus egestas. Faucibus a pellentesque sit amet porttitor eget. Vitae aliquet nec ullamcorper sit. Nisi lacus sed viverra tellus in hac habitasse platea. Aenean sed adipiscing diam donec adipiscing. Nunc eget lorem dolor sed. Fermentum dui faucibus in ornare quam viverra. Eget arcu dictum varius duis at consectetur lorem donec.</p>
+          <br />
           <kemet-button @click=${(event) => toggleDrawer(event)}>Toggle the Drawer</kemet-button>
         </div>
       </section>
@@ -64,46 +54,51 @@ const toggleDrawer = (event) => {
 
 export const Standard: Story = {
   render: args => Template(args),
-  argTypes: {
-    width: {
-      control: { type: 'text' },
-    },
-    height: {
-      control: { type: 'text' },
-    },
-    color: {
-      control: { type: 'color' },
-    },
-    backgroundColor: {
-      control: { type: 'color' },
-    },
-    opened: {
-      control: { type: 'boolean' },
-    },
-    effect: {
-      control: { type: 'select' },
-      options: ['slide', 'reveal', 'push', 'scale'],
-    },
-    side: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
-    },
-    overlay: {
-      control: { type: 'boolean' },
-    },
-    overlayColor: {
-      control: { type: 'color' },
-    },
-  },
+};
+
+export const Overlay: Story = {
+  render: args => Template(args),
   args: {
-    width: '300px',
-    height: '100%',
-    color: '#fafafa',
-    backgroundColor: '#202020',
-    opened: false,
-    effect: 'slide',
-    side: 'left',
-    overlay: false,
-    overlayColor: 'rgba(0,0,0,0.2)',
-  },
+    overlay: true,
+  }
+};
+
+export const Top: Story = {
+  render: args => Template(args),
+  args: {
+    overlay: true,
+    side: 'top'
+  }
+};
+
+export const Right: Story = {
+  render: args => Template(args),
+  args: {
+    overlay: true,
+    side: 'right'
+  }
+};
+
+export const Bottom: Story = {
+  render: args => Template(args),
+  args: {
+    overlay: true,
+    side: 'bottom'
+  }
+};
+
+export const Push: Story = {
+  render: args => Template(args),
+  args: {
+    overlay: true,
+    effect: 'push'
+  }
+};
+
+export const Scale: Story = {
+  render: args => Template(args),
+  args: {
+    overlay: true,
+    effect: 'scale'
+  }
 };
