@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import '../kemet-flipcard';
@@ -12,47 +13,22 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Flipcard',
   component: 'kemet-flipcard',
+  argTypes: {
+    axis: {
+      control: { type: 'select' },
+      options: ['horizontal', 'vertical'],
+    },
+  },
+  args: {
+    flipped: false
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  width = '50%',
-  height = 'auto',
-  frontColor = 'var(--kemet-color-text)',
-  frontBackgroundColor = 'transparent',
-  backColor = 'var(--kemet-color-text)',
-  backBackgroundColor = 'transparent',
-  border = '2px solid var(--kemet-color-background)',
-  borderRadius = '0',
-  ratio = '16/9',
-  flipped = false,
-  measure = false,
-  axis = 'horizontal',
-  flipOnHover = false,
-  rounded = false,
-}) => html`
-  <style>
-    kemet-flipcard {
-      --kemet-flipcard-width: ${width};
-      --kemet-flipcard-height: ${height};
-      --kemet-flipcard-front-color: ${frontColor};
-      --kemet-flipcard-front-background-color: ${frontBackgroundColor};
-      --kemet-flipcard-back-color: ${backColor};
-      --kemet-flipcard-back-background-color: ${backBackgroundColor};
-      --kemet-flipcard-border: ${border};
-      --kemet-flipcard-border-radius: ${borderRadius};
-      --kemet-flipcard-ratio: ${ratio};
-    }
-  </style>
-  <kemet-flipcard
-    ?flipped="${flipped}"
-    ?measure="${measure}"
-    axis="${axis}"
-    ?flip-on-hover="${flipOnHover}"
-    ?rounded=${rounded}
-  >
+const Template = (args) => html`
+  <kemet-flipcard ?flipped="${args.flipped}" ?measure="${args.measure}" axis="${ifDefined(args.axis)}" ?flip-on-hover="${args.flipOnHover}" ?rounded=${args.rounded}>
     <div slot="front" kemet-elevation="layer-5" kemet-padding="2xl">
       <p>This is the front of the card.</p>
       <kemet-flipcard-trigger>
@@ -70,62 +46,25 @@ const Template = ({
 
 export const Standard: Story = {
   render: (args) => Template(args),
-  argTypes: {
-    width: {
-      control: { type: 'text' },
-    },
-    height: {
-      control: { type: 'text' },
-    },
-    frontColor: {
-      control: { type: 'color' },
-    },
-    frontBackgroundColor: {
-      control: { type: 'color' },
-    },
-    backColor: {
-      control: { type: 'color' },
-    },
-    backBackgroundColor: {
-      control: { type: 'color' },
-    },
-    border: {
-      control: { type: 'text' },
-    },
-    borderRadius: {
-      control: { type: 'text' },
-    },
-    flipped: {
-      control: { type: 'boolean' },
-    },
-    measure: {
-      control: { type: 'boolean' },
-    },
-    axis: {
-      control: { type: 'select' },
-      options: ['horizontal', 'vertical'],
-    },
-    flipOnHover: {
-      control: { type: 'boolean' },
-    },
-    rounded: {
-      control: { type: 'boolean' },
-    },
-  },
+};
+
+export const Vertical: Story = {
+  render: (args) => Template(args),
   args: {
-    width: '50%',
-    height: 'auto',
-    frontColor: 'rgb(var(--kemet-color-text))',
-    frontBackgroundColor: 'transparent',
-    backColor: 'rgb(var(--kemet-color-text))',
-    backBackgroundColor: 'transparent',
-    border: '2px solid rgb(var(--kemet-color-foreground))',
-    borderRadius: '0',
-    ratio: '16/9',
-    flipped: false,
-    measure: false,
-    axis: 'horizontal',
-    flipOnHover: false,
-    rounded: false,
+    axis: 'vertical',
+  },
+};
+
+export const Rounded: Story = {
+  render: (args) => Template(args),
+  args: {
+    rounded: true,
+  },
+};
+
+export const Hover: Story = {
+  render: (args) => Template(args),
+  args: {
+    flipOnHover: true,
   },
 };
