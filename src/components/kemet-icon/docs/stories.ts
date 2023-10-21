@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import '../kemet-icon';
@@ -10,20 +11,7 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Icon',
   component: 'kemet-icon',
-};
-export default meta;
-
-type Story = StoryObj;
-
-const Template = args => html`
-  <kemet-icon set="${args.set}" icon="${args.icon}" size="${args.size}"></kemet-icon>
-`;
-
-export const Standard: Story = {
-  render: args => Template(args),
   args: {
-    set: 'bootstrap',
-    icon: 'alarm',
     size: 128,
   },
   argTypes: {
@@ -31,11 +19,16 @@ export const Standard: Story = {
       control: { type: 'select' },
       options: ['bootstrap', 'font-awesome-brand', 'font-awesome-regular', 'font-awesome-solid'],
     },
-    icon: {
-      control: { type: 'text' },
-    },
-    size: {
-      control: { type: 'number' },
-    },
   }
+};
+export default meta;
+
+type Story = StoryObj;
+
+const Template = args => html`
+  <kemet-icon set="${args.set}" icon="${ifDefined(args.icon)}" size="${args.size}"></kemet-icon>
+`;
+
+export const Standard: Story = {
+  render: args => Template(args),
 };
