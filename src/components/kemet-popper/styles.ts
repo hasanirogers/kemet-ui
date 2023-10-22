@@ -18,11 +18,14 @@ export const stylesPopper = css`
     height: var(--kemet-popper-height);
     position: absolute;
     z-index: -1;
+    opacity: 0;
+    transition: all var(--kemet-popover-transition-speed, 0.3s);
   }
 
   :host([opened]) #content {
     visibility: visible;
     z-index: 9;
+    opacity: 1;
     pointer-events: auto;
   }
 
