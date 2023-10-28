@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import '../kemet-select';
@@ -11,22 +12,20 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Select',
   component: 'kemet-select',
+  argTypes: {
+    status: {
+      control: { type: 'radio' },
+      options: ['standard', 'error', 'success', 'warning'],
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
 
-const Template = ({
-  status = 'standard',
-  required = true,
-  disabled = false,
-  icon = 'chevron-down',
-  iconSize = 16,
-  filled = false,
-  rounded = false,
-}) => html`
-<kemet-select status="${status}" ?required=${required} ?disabled=${disabled} icon=${icon} icon-size=${iconSize} ?filled=${filled} ?rounded=${rounded}>
+const Template = (args) => html`
+<kemet-select status="${ifDefined(args.status)}" ?required=${args.required} ?disabled=${args.disabled} icon=${ifDefined(args.icon)} icon-size=${ifDefined(args.iconSize)} ?filled=${args.filled} ?rounded=${args.rounded}>
   <kemet-option label="Choose an Item" value=""></kemet-option>
   <kemet-option label="Item 1" value="1"></kemet-option>
   <kemet-option label="Item 2" value="2" selected></kemet-option>
@@ -37,37 +36,25 @@ const Template = ({
 
 export const Standard: Story = {
   render: args => Template(args),
+};
+
+export const Disabled: Story = {
+  render: args => Template(args),
   args: {
-    status: 'standard',
-    required: true,
-    disabled: false,
-    icon: 'chevron-down',
-    iconSize: 16,
-    filled: false,
-    rounded: false,
+    disabled: true,
   },
-  argTypes: {
-    status: {
-      control: { type: 'radio' },
-      options: ['standard', 'error', 'success', 'warning'],
-    },
-    required: {
-      control: { type: 'boolean' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    icon: {
-      control: { type: 'text' },
-    },
-    iconSize: {
-      control: { type: 'number' },
-    },
-    filled: {
-      control: { type: 'boolean' },
-    },
-    rounded: {
-      control: { type: 'boolean' },
-    },
-  }
+};
+
+export const Filled: Story = {
+  render: args => Template(args),
+  args: {
+    filled: true,
+  },
+};
+
+export const Rounded: Story = {
+  render: args => Template(args),
+  args: {
+    rounded: true,
+  },
 };
