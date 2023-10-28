@@ -11,41 +11,43 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Radio',
   component: 'kemet-radio',
+  args: {
+    legend: 'Legend',
+  },
+  argTypes: {
+    axis: {
+      control: { type: 'radio' },
+      options: ['horizontal', 'vertical'],
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  legend = 'Legend',
-  axis = 'horizontal',
-  filled = false,
-}) => html`
-  <kemet-radios legend=${legend} axis=${axis}>
-    <kemet-radio value="1" name="kemet-radio-button" label="Item 1" ?filled=${filled}></kemet-radio>
-    <kemet-radio value="2" name="kemet-radio-button" label="Item 2" ?filled=${filled}></kemet-radio>
-    <kemet-radio value="3" name="kemet-radio-button" label="Item 3"  ?filled=${filled}></kemet-radio>
-    <kemet-radio value="4" name="kemet-radio-button" label="Item 4" ?filled=${filled}></kemet-radio>
+const Template = (args) => html`
+  <kemet-radios legend=${args.legend} axis=${args.axis}>
+    <kemet-radio value="1" name="kemet-radio-button" label="Item 1" ?filled=${args.filled}></kemet-radio>
+    <kemet-radio value="2" name="kemet-radio-button" label="Item 2" ?filled=${args.filled}></kemet-radio>
+    <kemet-radio value="3" name="kemet-radio-button" label="Item 3"  ?filled=${args.filled}></kemet-radio>
+    <kemet-radio value="4" name="kemet-radio-button" label="Item 4" ?filled=${args.filled}></kemet-radio>
   </kemet-radios>
 `;
 
 export const Standard: Story = {
   render: args => Template(args),
+};
+
+export const Vertical: Story = {
+  render: args => Template(args),
   args: {
-    legend: 'Legend',
-    axis: 'horizontal',
-    filled: false,
+    axis: 'vertical',
   },
-  argTypes: {
-    legend: {
-      control: { type: 'text' },
-    },
-    axis: {
-      control: { type: 'radio' },
-      options: ['horizontal', 'vertical'],
-    },
-    filled: {
-      control: { type: 'boolean' },
-    },
-  }
+};
+
+export const Filled: Story = {
+  render: args => Template(args),
+  args: {
+    filled: true,
+  },
 };
