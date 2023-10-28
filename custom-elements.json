@@ -939,158 +939,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-card/kemet-card.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCard",
-          "cssProperties": [
-            {
-              "description": "The space around elements.",
-              "name": "--kemet-card-padding"
-            },
-            {
-              "description": "The color of the borders.",
-              "name": "--kemet-card-border-color"
-            },
-            {
-              "description": "The color of the text. Default:",
-              "name": "--kemet-card-color"
-            },
-            {
-              "description": "The max width of the card.",
-              "name": "--kemet-card-max-width"
-            },
-            {
-              "description": "The border around the card.",
-              "name": "--kemet-card-border"
-            },
-            {
-              "description": "The border radius of the card.",
-              "name": "--kemet-card-border-radius"
-            },
-            {
-              "description": "The background color.",
-              "name": "--kemet-card-background-color"
-            },
-            {
-              "description": "The body spacing.",
-              "name": "--kemet-card-body-padding"
-            },
-            {
-              "description": "The header spacing.",
-              "name": "--kemet-card-header-padding"
-            },
-            {
-              "description": "The header border.",
-              "name": "--kemet-card-header-border-bottom"
-            },
-            {
-              "description": "The caption text color.",
-              "name": "--kemet-card-caption-color"
-            },
-            {
-              "description": "The caption spacing.",
-              "name": "--kemet-card-caption-padding"
-            },
-            {
-              "description": "The caption background color.",
-              "name": "--kemet-card-caption-background-color"
-            },
-            {
-              "description": "The footer spacing.",
-              "name": "--kemet-card-footer-padding"
-            },
-            {
-              "description": "The footer border.",
-              "name": "--kemet-card-footer-border-top"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The media area of the card.",
-              "name": "media"
-            },
-            {
-              "description": "The main contents of the card.",
-              "name": "body"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The contents of the alert.",
-              "name": "default"
-            },
-            {
-              "description": "The cards's header.",
-              "name": "header"
-            },
-            {
-              "description": "A slot for images, videos, or embeds.",
-              "name": "media"
-            },
-            {
-              "description": "Text for the media slot.",
-              "name": "caption"
-            },
-            {
-              "description": "The card's footer.",
-              "name": "footer"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Centers the elements in the card.",
-              "attribute": "center",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Centers the elements in the card.",
-              "fieldName": "center"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-card",
-          "summary": "A highly configurable panel design to display media and information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-card",
-          "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
@@ -1310,6 +1158,158 @@
           "declaration": {
             "name": "KemetAvatars",
             "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-card/kemet-card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCard",
+          "cssProperties": [
+            {
+              "description": "The space around elements.",
+              "name": "--kemet-card-padding"
+            },
+            {
+              "description": "The color of the borders.",
+              "name": "--kemet-card-border-color"
+            },
+            {
+              "description": "The color of the text. Default:",
+              "name": "--kemet-card-color"
+            },
+            {
+              "description": "The max width of the card.",
+              "name": "--kemet-card-max-width"
+            },
+            {
+              "description": "The border around the card.",
+              "name": "--kemet-card-border"
+            },
+            {
+              "description": "The border radius of the card.",
+              "name": "--kemet-card-border-radius"
+            },
+            {
+              "description": "The background color.",
+              "name": "--kemet-card-background-color"
+            },
+            {
+              "description": "The body spacing.",
+              "name": "--kemet-card-body-padding"
+            },
+            {
+              "description": "The header spacing.",
+              "name": "--kemet-card-header-padding"
+            },
+            {
+              "description": "The header border.",
+              "name": "--kemet-card-header-border-bottom"
+            },
+            {
+              "description": "The caption text color.",
+              "name": "--kemet-card-caption-color"
+            },
+            {
+              "description": "The caption spacing.",
+              "name": "--kemet-card-caption-padding"
+            },
+            {
+              "description": "The caption background color.",
+              "name": "--kemet-card-caption-background-color"
+            },
+            {
+              "description": "The footer spacing.",
+              "name": "--kemet-card-footer-padding"
+            },
+            {
+              "description": "The footer border.",
+              "name": "--kemet-card-footer-border-top"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The media area of the card.",
+              "name": "media"
+            },
+            {
+              "description": "The main contents of the card.",
+              "name": "body"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            },
+            {
+              "description": "The cards's header.",
+              "name": "header"
+            },
+            {
+              "description": "A slot for images, videos, or embeds.",
+              "name": "media"
+            },
+            {
+              "description": "Text for the media slot.",
+              "name": "caption"
+            },
+            {
+              "description": "The card's footer.",
+              "name": "footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "attribute": "center",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "fieldName": "center"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-card",
+          "summary": "A highly configurable panel design to display media and information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-card",
+          "declaration": {
+            "name": "KemetCard",
+            "module": "src/components/kemet-card/kemet-card.ts"
           }
         }
       ]
@@ -5600,6 +5600,295 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-popper/kemet-popper-close.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetPopperClose",
+          "members": [
+            {
+              "kind": "method",
+              "name": "close"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyboard",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "kemet-popper-close-btn"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-popper-close",
+          "summary": "A close button for the popper",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetPopperClose",
+            "module": "src/components/kemet-popper/kemet-popper-close.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-popper-close",
+          "declaration": {
+            "name": "KemetPopperClose",
+            "module": "src/components/kemet-popper/kemet-popper-close.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-popper/kemet-popper.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetPopper",
+          "cssProperties": [
+            {
+              "description": "The padding in the content slot.",
+              "name": "--kemet-popper-padding"
+            },
+            {
+              "description": "The border color of the content.",
+              "name": "--kemet-popper-border-color"
+            },
+            {
+              "description": "The background color of the content.",
+              "name": "--kemet-popper-background-color"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Contains the trigger for the popover.",
+              "name": "trigger"
+            },
+            {
+              "description": "Contains the content for the popover.",
+              "name": "content"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Controls opening and closing the popover.",
+              "name": "trigger"
+            },
+            {
+              "description": "The contents of the popover.",
+              "name": "content"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "placement",
+              "type": {
+                "text": "TypePlacement"
+              },
+              "default": "'top'",
+              "description": "The position of the popper over the trigger.",
+              "attribute": "placement",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the the Popper is opened or closed",
+              "attribute": "opened",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "fireOn",
+              "type": {
+                "text": "TypeFireOn"
+              },
+              "default": "'hover'",
+              "description": "Activate the Popper on Click or Hover",
+              "attribute": "fire-on"
+            },
+            {
+              "kind": "field",
+              "name": "strategy",
+              "type": {
+                "text": "string"
+              },
+              "default": "'fixed'",
+              "description": "Sets the strategy option in Popper's api",
+              "attribute": "strategy"
+            },
+            {
+              "kind": "field",
+              "name": "skidding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Sets an offset to the Popper from the trigger",
+              "attribute": "skidding"
+            },
+            {
+              "kind": "field",
+              "name": "distance",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Sets spacing between the Popper and the trigger",
+              "attribute": "distance"
+            },
+            {
+              "kind": "method",
+              "name": "refresh"
+            },
+            {
+              "kind": "method",
+              "name": "makePopper"
+            },
+            {
+              "kind": "method",
+              "name": "toggle",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleFocusableDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when the popper opens",
+              "name": "kemet-popper-opened"
+            },
+            {
+              "description": "Fires when the popper closes",
+              "name": "kemet-popper-closed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "placement",
+              "type": {
+                "text": "TypePlacement"
+              },
+              "default": "'top'",
+              "description": "The position of the popper over the trigger.",
+              "fieldName": "placement"
+            },
+            {
+              "name": "opened",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the the Popper is opened or closed",
+              "fieldName": "opened"
+            },
+            {
+              "name": "fire-on",
+              "type": {
+                "text": "TypeFireOn"
+              },
+              "default": "'hover'",
+              "description": "Activate the Popper on Click or Hover",
+              "fieldName": "fireOn"
+            },
+            {
+              "name": "strategy",
+              "type": {
+                "text": "string"
+              },
+              "default": "'fixed'",
+              "description": "Sets the strategy option in Popper's api",
+              "fieldName": "strategy"
+            },
+            {
+              "name": "skidding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Sets an offset to the Popper from the trigger",
+              "fieldName": "skidding"
+            },
+            {
+              "name": "distance",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Sets spacing between the Popper and the trigger",
+              "fieldName": "distance"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-popper",
+          "summary": "A wrapper component for the popper.js lib.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetPopper",
+            "module": "src/components/kemet-popper/kemet-popper.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-popper",
+          "declaration": {
+            "name": "KemetPopper",
+            "module": "src/components/kemet-popper/kemet-popper.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-radio/kemet-radio.ts",
       "declarations": [
         {
@@ -6068,295 +6357,6 @@
           "declaration": {
             "name": "KemetRadios",
             "module": "src/components/kemet-radio/kemet-radios.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-popper/kemet-popper-close.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetPopperClose",
-          "members": [
-            {
-              "kind": "method",
-              "name": "close"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyboard",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "name": "kemet-popper-close-btn"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-popper-close",
-          "summary": "A close button for the popper",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetPopperClose",
-            "module": "src/components/kemet-popper/kemet-popper-close.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-popper-close",
-          "declaration": {
-            "name": "KemetPopperClose",
-            "module": "src/components/kemet-popper/kemet-popper-close.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-popper/kemet-popper.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetPopper",
-          "cssProperties": [
-            {
-              "description": "The padding in the content slot.",
-              "name": "--kemet-popper-padding"
-            },
-            {
-              "description": "The border color of the content.",
-              "name": "--kemet-popper-border-color"
-            },
-            {
-              "description": "The background color of the content.",
-              "name": "--kemet-popper-background-color"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the trigger for the popover.",
-              "name": "trigger"
-            },
-            {
-              "description": "Contains the content for the popover.",
-              "name": "content"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Controls opening and closing the popover.",
-              "name": "trigger"
-            },
-            {
-              "description": "The contents of the popover.",
-              "name": "content"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "placement",
-              "type": {
-                "text": "TypePlacement"
-              },
-              "default": "'top'",
-              "description": "The position of the popper over the trigger.",
-              "attribute": "placement",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the the Popper is opened or closed",
-              "attribute": "opened",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "fireOn",
-              "type": {
-                "text": "TypeFireOn"
-              },
-              "default": "'hover'",
-              "description": "Activate the Popper on Click or Hover",
-              "attribute": "fire-on"
-            },
-            {
-              "kind": "field",
-              "name": "strategy",
-              "type": {
-                "text": "string"
-              },
-              "default": "'fixed'",
-              "description": "Sets the strategy option in Popper's api",
-              "attribute": "strategy"
-            },
-            {
-              "kind": "field",
-              "name": "skidding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Sets an offset to the Popper from the trigger",
-              "attribute": "skidding"
-            },
-            {
-              "kind": "field",
-              "name": "distance",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Sets spacing between the Popper and the trigger",
-              "attribute": "distance"
-            },
-            {
-              "kind": "method",
-              "name": "refresh"
-            },
-            {
-              "kind": "method",
-              "name": "makePopper"
-            },
-            {
-              "kind": "method",
-              "name": "toggle",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleFocusableDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when the popper opens",
-              "name": "kemet-popper-opened"
-            },
-            {
-              "description": "Fires when the popper closes",
-              "name": "kemet-popper-closed"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "placement",
-              "type": {
-                "text": "TypePlacement"
-              },
-              "default": "'top'",
-              "description": "The position of the popper over the trigger.",
-              "fieldName": "placement"
-            },
-            {
-              "name": "opened",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the the Popper is opened or closed",
-              "fieldName": "opened"
-            },
-            {
-              "name": "fire-on",
-              "type": {
-                "text": "TypeFireOn"
-              },
-              "default": "'hover'",
-              "description": "Activate the Popper on Click or Hover",
-              "fieldName": "fireOn"
-            },
-            {
-              "name": "strategy",
-              "type": {
-                "text": "string"
-              },
-              "default": "'fixed'",
-              "description": "Sets the strategy option in Popper's api",
-              "fieldName": "strategy"
-            },
-            {
-              "name": "skidding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Sets an offset to the Popper from the trigger",
-              "fieldName": "skidding"
-            },
-            {
-              "name": "distance",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Sets spacing between the Popper and the trigger",
-              "fieldName": "distance"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-popper",
-          "summary": "A wrapper component for the popper.js lib.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetPopper",
-            "module": "src/components/kemet-popper/kemet-popper.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-popper",
-          "declaration": {
-            "name": "KemetPopper",
-            "module": "src/components/kemet-popper/kemet-popper.ts"
           }
         }
       ]

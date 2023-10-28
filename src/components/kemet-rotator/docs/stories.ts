@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 import '../kemet-rotator';
@@ -10,50 +11,32 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Rotator',
   component: 'kemet-rotator',
+  args: {
+    rotationSpeed: 3,
+    messages: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Praesent ornare porta nulla.', 'Nulla ipsum felis, aliquet nec nisl sit amet, suscipit facilisis massa.']
+  },
+  argTypes: {
+    effect: {
+      control: { type: 'radio' },
+      options: ['fade', 'flip'],
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  message1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  message2 = 'Praesent ornare porta nulla.',
-  message3 = 'Nulla ipsum felis, aliquet nec nisl sit amet, suscipit facilisis massa.',
-  effect = 'fade',
-  rotationSpeed = 3,
-}) => html`
-  <kemet-rotator
-    effect="${effect}"
-    .rotation-speed=${rotationSpeed}
-    .messages="${[message1, message2, message3]}">
-  </kemet-rotator>
+const Template = (args) => html`
+  <kemet-rotator effect="${ifDefined(args.effect)}" .rotation-speed=${args.rotationSpeed} .messages="${args.messages}"></kemet-rotator>
 `;
 
 export const Standard: Story = {
   render: args => Template(args),
+};
+
+export const Flip: Story = {
+  render: args => Template(args),
   args: {
-    message1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    message2: 'Praesent ornare porta nulla.',
-    message3: 'Nulla ipsum felis, aliquet nec nisl sit amet, suscipit facilisis massa.',
-    effect: 'fade',
-    rotationSpeed: 3,
+    effect: 'flip',
   },
-  argTypes: {
-    message1: {
-      control: { type: 'text' },
-    },
-    message2: {
-      control: { type: 'text' },
-    },
-    message3: {
-      control: { type: 'text' },
-    },
-    effect: {
-      control: { type: 'select' },
-      options: ['fade', 'flip'],
-    },
-    rotationSpeed: {
-      control: { type: 'number' },
-    },
-  }
 };

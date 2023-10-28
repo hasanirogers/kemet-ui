@@ -36,7 +36,7 @@ export default class KemetRotator extends LitElement {
   height: string = 'auto';
 
   @property({ type: Array })
-  messages: any[] = [];
+  messages: string[] = [];
 
   @property({ type: String, reflect: true })
   effect: TypeEffect = 'fade';
