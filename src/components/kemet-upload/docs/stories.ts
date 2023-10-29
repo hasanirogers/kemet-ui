@@ -12,29 +12,6 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Upload',
   component: 'kemet-upload',
-};
-export default meta;
-
-type Story = StoryObj;
-
-const Template = ({ files }) => {
-  const uploadFiles = [];
-
-  files.forEach((file) => {
-    uploadFiles.push(html`
-      <kemet-upload-file name=${file.name} size=${file.size} loaded=${file.loaded} status=${file.status} message=${ifDefined(files.message)}></kemet-upload-file>
-    `);
-  });
-
-  return html`
-    <kemet-upload>
-      ${uploadFiles}
-    </kemet-upload>
-  `;
-};
-
-export const Standard: Story = {
-  render: (args: any) => Template(args),
   args: {
     files: [
       {
@@ -58,9 +35,27 @@ export const Standard: Story = {
       },
     ],
   },
-  argTypes: {
-    files: {
-      control: { type: 'array' },
-    },
-  }
+};
+export default meta;
+
+type Story = StoryObj;
+
+const Template = (args) => {
+  const uploadFiles = [];
+
+  args.files.forEach((file) => {
+    uploadFiles.push(html`
+      <kemet-upload-file name=${file.name} size=${file.size} loaded=${file.loaded} status=${file.status} message=${ifDefined(file.message)}></kemet-upload-file>
+    `);
+  });
+
+  return html`
+    <kemet-upload>
+      ${uploadFiles}
+    </kemet-upload>
+  `;
+};
+
+export const Standard: Story = {
+  render: (args: any) => Template(args),
 };
