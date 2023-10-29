@@ -11,15 +11,18 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Sortable',
   component: 'kemet-sortable',
+  args: {
+    numItems: 3,
+  },
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({ numItems = 3 }) => {
+const Template = (args) => {
   const items = [];
 
-  for (let i = 0; i < numItems; i += 1) {
+  for (let i = 0; i < args.numItems; i += 1) {
     items.push(html`<kemet-sortable-item>Item ${i + 1}</kemet-sortable-item>`);
   }
 
@@ -32,12 +35,4 @@ const Template = ({ numItems = 3 }) => {
 
 export const Standard: Story = {
   render: args => Template(args),
-  args: {
-    numItems: 3,
-  },
-  argTypes: {
-    numItems: {
-      control: { type: 'number' },
-    },
-  }
 };
