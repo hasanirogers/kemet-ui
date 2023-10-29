@@ -11,22 +11,27 @@ import '../../kemet-icon/kemet-icon';
 const meta: Meta = {
   title: 'Components / Tabs',
   component: 'kemet-tabs',
+  argTypes: {
+    panelEffect: {
+      control: { type: 'select' },
+      options: ['none', 'slide', 'fade'],
+    },
+    tabsAlign: {
+      control: { type: 'select' },
+      options: ['center', 'between', 'around', 'evenly', 'start', 'end'],
+    },
+    placement: {
+      control: { type: 'select' },
+      options: ['top', 'right', 'bottom', 'left'],
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const NamedTemplate = ({
-  selected = 'settings',
-  panelEffect = 'slide',
-  swipe = true,
-  divider = true,
-  tabsAlign = 'center',
-  hideInk = false,
-  placement = 'top',
-  measureHeightOffset,
-}) => html`
-  <kemet-tabs selected="${selected}" panel-effect=${panelEffect} ?swipe=${swipe} ?divider=${divider} tabs-align=${tabsAlign} ?hide-ink=${hideInk} placement=${placement} measure-height-offset=${ifDefined(measureHeightOffset)}>
+const NamedTemplate = (args) => html`
+  <kemet-tabs selected="${ifDefined(args.selected)}" panel-effect=${ifDefined(args.panelEffect)} ?swipe=${args.swipe} ?divider=${args.divider} tabs-align=${ifDefined(args.tabsAlign)} ?hide-ink=${args.hideInk} placement=${ifDefined(args.placement)} measure-height-offset=${ifDefined(args.measureHeightOffset)}>
     <kemet-tab slot="tab" link="account">
       <kemet-icon icon="person-circle"></kemet-icon>&nbsp;Account
     </kemet-tab>
@@ -53,25 +58,15 @@ const NamedTemplate = ({
   <hr />
 `;
 
-const IndexTemplate = ({
-  panelEffect = 'slide',
-  swipe = true,
-  divider = true,
-  tabsAlign = 'center',
-  hideInk = false,
-  placement = 'top',
-  numOfTabs = 5,
-  closable = true,
-  measureHeightOffset,
-}) => {
+const IndexTemplate = (args) => {
   const tabs = [];
   const panels = [];
 
-  for (let i = 0; i < numOfTabs; i += 1) {
-    tabs.push(html`<kemet-tab slot="tab" ?closable=${closable}>This is tab ${i + 1}.</kemet-tab>`);
+  for (let i = 0; i < args.numOfTabs; i += 1) {
+    tabs.push(html`<kemet-tab slot="tab" ?closable=${args.closable}>This is tab ${i + 1}.</kemet-tab>`);
   }
 
-  for (let i = 0; i < numOfTabs; i += 1) {
+  for (let i = 0; i < args.numOfTabs; i += 1) {
     panels.push(html`
       <kemet-tab-panel slot="panel">
         <h3>Panel ${i + 1}</h3>
@@ -81,7 +76,7 @@ const IndexTemplate = ({
   }
 
   return html`
-    <kemet-tabs panel-effect=${panelEffect} ?swipe=${swipe} ?divider=${divider} tabs-align=${tabsAlign} ?hide-ink=${hideInk} placement=${placement} measure-height-offset=${ifDefined(measureHeightOffset)}>
+    <kemet-tabs panel-effect=${ifDefined(args.panelEffect)} ?swipe=${args.swipe} ?divider=${args.divider} tabs-align=${ifDefined(args.tabsAlign)} ?hide-ink=${args.hideInk} placement=${ifDefined(args.placement)} measure-height-offset=${ifDefined(args.measureHeightOffset)}>
       ${tabs}
       ${panels}
     </kemet-tabs>
@@ -92,83 +87,76 @@ export const SelectByName: Story = {
   render: (args: any) => NamedTemplate(args),
   args: {
     selected: 'settings',
-    panelEffect: 'slide',
-    swipe: true,
-    divider: true,
-    tabsAlign: 'center',
-    hideInk: false,
-    placement: 'top',
   },
-  argTypes: {
-    panelEffect: {
-      control: { type: 'select' },
-      options: ['none', 'slide', 'fade'],
-    },
-    swipe: {
-      control: { type: 'boolean' },
-    },
-    divider: {
-      control: { type: 'boolean' },
-    },
-    tabsAlign: {
-      control: { type: 'select' },
-      options: ['center', 'between', 'around', 'evenly', 'start', 'end'],
-    },
-    hideInk: {
-      control: { type: 'boolean' },
-    },
-    placement: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
-    },
-    measureHeightOffset: {
-      control: { type: 'number' },
-    },
-  }
 };
 
 export const SelectByIndex: Story = {
   render: (args: any) => IndexTemplate(args),
   args: {
     numOfTabs: 5,
-    closable: true,
-    panelEffect: 'slide',
-    swipe: true,
-    divider: true,
-    tabsAlign: 'center',
-    hideInk: false,
-    placement: 'top',
   },
-  argTypes: {
-    numOfTabs: {
-      control: { type: 'number' },
-    },
-    closable: {
-      control: { type: 'boolean' },
-    },
-    panelEffect: {
-      control: { type: 'select' },
-      options: ['none', 'slide', 'fade'],
-    },
-    swipe: {
-      control: { type: 'boolean' },
-    },
-    divider: {
-      control: { type: 'boolean' },
-    },
-    tabsAlign: {
-      control: { type: 'select' },
-      options: ['center', 'between', 'around', 'evenly', 'start', 'end'],
-    },
-    hideInk: {
-      control: { type: 'boolean' },
-    },
-    placement: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
-    },
-    measureHeightOffset: {
-      control: { type: 'number' },
-    },
-  }
+};
+
+export const Closable: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 5,
+    closable: true,
+  },
+};
+
+export const Fade: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 5,
+    panelEffect: 'fade',
+  },
+};
+
+export const Slide: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 5,
+    panelEffect: 'slide',
+  },
+};
+
+export const Divider: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 5,
+    divider: true,
+  },
+};
+
+export const NoInk: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 5,
+    hideInk: true,
+  },
+};
+
+export const Right: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 3,
+    placement: 'right',
+  },
+};
+
+export const Bottom: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 3,
+    placement: 'bottom',
+  },
+};
+
+export const Left: Story = {
+  render: (args: any) => IndexTemplate(args),
+  args: {
+    numOfTabs: 3,
+    placement: 'left',
+  },
 };
