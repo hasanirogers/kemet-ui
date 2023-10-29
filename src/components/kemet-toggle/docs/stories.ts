@@ -11,63 +11,42 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Toggle',
   component: 'kemet-toggle',
+  args: {
+    label: 'Label'
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  label = null,
-  disabled = false,
-  checked = false,
-  show = false,
-  squared = false,
-  optionUnchecked = null,
-  optionChecked = null,
-}) => html`
+const Template = (args) => html`
   <kemet-toggle
-    label=${ifDefined(label)}
-    ?disabled=${disabled}
-    ?checked=${checked}
-    ?show=${show}
-    ?squared=${squared}
-    option-unchecked=${ifDefined(optionUnchecked)}
-    option-checked=${ifDefined(optionChecked)}
+    label=${ifDefined(args.label)}
+    ?disabled=${args.disabled}
+    ?checked=${args.checked}
+    ?show=${args.show}
+    ?squared=${args.squared}
+    option-unchecked=${ifDefined(args.optionUnchecked)}
+    option-checked=${ifDefined(args.optionChecked)}
   ></kemet-toggle>
 `;
 
 export const Standard: Story = {
   render: args => Template(args),
+};
+
+export const Squared: Story = {
+  render: args => Template(args),
   args: {
-    checked: false,
-    label: 'Label',
-    squared: false,
-    show: false,
-    disabled: false,
+    squared: true,
+  },
+};
+
+export const ShowOptions: Story = {
+  render: args => Template(args),
+  args: {
+    show: true,
     optionUnchecked: 'No',
     optionChecked: 'Yes',
   },
-  argTypes: {
-    label: {
-      control: { type: 'text' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    checked: {
-      control: { type: 'boolean' },
-    },
-    show: {
-      control: { type: 'boolean' },
-    },
-    squared: {
-      control: { type: 'boolean' },
-    },
-    optionChecked: {
-      control: { type: 'text' },
-    },
-    optionUnchecked: {
-      control: { type: 'text' },
-    },
-  }
 };
