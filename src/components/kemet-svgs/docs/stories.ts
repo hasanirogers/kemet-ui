@@ -11,14 +11,21 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / SVGs',
   component: 'kemet-svgs',
+  args: {
+    svg: 'anubis',
+  },
+  argTypes: {
+    svg: {
+      control: { type: 'radio' },
+      options: ['anubis', 'eye', 'horus'],
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  svg = 'anubis',
-}) => {
+const Template = (args) => {
   const getViewBox = (svg) => {
     let viewBox;
 
@@ -58,19 +65,10 @@ const Template = ({
         </defs>
       </svg>
     </kemet-svgs>
-    <kemet-svg set="svgs" svg="${svg}" viewbox="${getViewBox(svg)}"></kemet-svg>
+    <kemet-svg set="svgs" svg="${args.svg}" viewbox="${getViewBox(args.svg)}"></kemet-svg>
   `;
 }
 
 export const Standard: Story = {
   render: args => Template(args),
-  args: {
-    svg: 'anubis',
-  },
-  argTypes: {
-    svg: {
-      control: { type: 'select' },
-      options: ['anubis', 'eye', 'horus'],
-    },
-  }
 };
