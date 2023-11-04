@@ -1,5 +1,5 @@
 import { html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { stylesBase, stylesEffects } from './styles';
 import { emitEvent } from '../../utilities/misc/events';
 import { TypeEffect } from './types';
@@ -17,14 +17,17 @@ import { TypeEffect } from './types';
  * @prop {string} breakpoint
  * @prop {boolean} mobile
  *
- * @csspart content - The main contents of the modal.
+ * @csspart dialog - The main contents of the modal.
  * @csspart overlay - The surrounding scrim of the modal.
  *
- * @cssproperty --kemet-modal-content-min-width - The minimum width of the content.
- * @cssproperty --kemet-modal-content-max-width - The maximum width of the content.
- * @cssproperty --kemet-modal-content-background-color - The background color of the content.
- * @cssproperty --kemet-modal-content-mobile-min-width - The min with of the mobile content.
- * @cssproperty --kemet-modal-content-mobile-min-height - The min height of the mobile content.
+ * @cssproperty --kemet-modal-radius - The mount of rounding for rounded corners
+ * @cssproperty --kemet-modal-dialog-min-width - The minimum width of the dialog.
+ * @cssproperty --kemet-modal-dialog-max-width - The maximum width of the dialog.
+ * @cssproperty --kemet-modal-dialog-background-color - The background color of the dialog.
+ * @cssproperty --kemet-modal-dialog-mobile-width - The width of the mobile dialog.
+ * @cssproperty --kemet-modal-dialog-mobile-margin - The margins of the mobile dialog.
+ * @cssproperty --kemet-modal-dialog-mobile-padding - The padding of the mobile dialog.
+ * @cssproperty --kemet-modal-overlay-background-color - The color of the backdrop overlay.
  *
  * @event kemet-modal-opened - Fires when the modal opens
  * @event kemet-modal-closed - Fires when the modal closes
@@ -50,9 +53,18 @@ export default class KemetModal extends LitElement {
   @property({ type: Boolean, reflect: true })
   mobile: boolean;
 
+  @property({ type: Boolean, reflect: true })
+  rounded: boolean;
+
+  /** @internal */
+  @query('dialog')
+  dialogElement: HTMLDialogElement;
+
+  /** @internal */
   @state()
   focusableSelector: string;
 
+  /** @internal */
   @state()
   focusableElements: any;
 
@@ -60,7 +72,7 @@ export default class KemetModal extends LitElement {
     super();
 
     // bindings
-    this.addEventListener('kemet-modal-close-pressed', () => { this.opened = false; });
+    this.addEventListener('kemet-modal-close-pressed', () => { this.handleClose() });
   }
 
   firstUpdated() {
@@ -72,14 +84,14 @@ export default class KemetModal extends LitElement {
     // events
     this.addEventListener('keyup', (event) => {
       if (event.key === 'Escape') {
-        this.opened = false;
+        this.handleClose();
       }
     });
 
     this.addEventListener('click', (event) => {
       const targetElement = event.target as HTMLElement;
       if (this.opened && this.closeOnClick && targetElement.tagName.toLowerCase() === 'kemet-modal') {
-        this.opened = false;
+        this.handleClose();
       }
     });
 
@@ -94,15 +106,11 @@ export default class KemetModal extends LitElement {
 
   updated(prevProps) {
     if (!prevProps.get('opened') && this.opened === true) {
-      setTimeout(() => {
-        this.focusableElements[0]?.focus();
-      }, 100);
-
-      emitEvent(this, 'kemet-modal-opened', this);
+      this.handleOpen();
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      emitEvent(this, 'kemet-modal-closed', this);
+      this.handleClose();
     }
 
     this.isMobile();
@@ -110,9 +118,9 @@ export default class KemetModal extends LitElement {
 
   render() {
     return html`
-      <div class="content" part="content">
+      <dialog part="dialog" @close=${() => this.handleClose()}>
         <slot></slot>
-      </div>
+      </dialog>
       <div class="overlay" part="overlay"></div>
     `;
   }
@@ -120,6 +128,18 @@ export default class KemetModal extends LitElement {
   isMobile() {
     const mediaQuery = window.matchMedia(`(max-width: ${this.breakpoint})`);
     this.mobile = mediaQuery.matches;
+  }
+
+  handleOpen() {
+    this.opened = true;
+    if (this.dialogElement?.showModal) this.dialogElement.showModal();
+    emitEvent(this, 'kemet-modal-opened', this);
+  }
+
+  handleClose() {
+    this.opened = false;
+    if (this.dialogElement?.close) this.dialogElement.close();
+    emitEvent(this, 'kemet-modal-closed', this);
   }
 
   handleFocusableDown(event) {
