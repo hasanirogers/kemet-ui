@@ -140,9 +140,19 @@ export default class KemetTabs extends LitElement {
     `;
   }
 
-  updated() {
+  updated(prevProps) {
     this.determineFade();
     this.determineStacked();
+
+    if (prevProps.get('selected') && prevProps.get('selected') !== this.selected) {
+      this.selectTab();
+      this.selectPanel();
+    }
+
+    if (typeof prevProps.get('selectedIndex') === 'number' && prevProps.get('selectedIndex') !== this.selected) {
+      this.selectTab();
+      this.selectPanel();
+    }
   }
 
   handleLinksSlotChange() {
