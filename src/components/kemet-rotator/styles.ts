@@ -2,6 +2,8 @@ import { css } from 'lit';
 
 export const stylesRotator = css`
   :host {
+    --kemet-rotator-transition-speed: 500ms;
+
     display: flex;
   }
 
@@ -25,7 +27,7 @@ export const stylesRotator = css`
     flex: none;
     opacity: 0;
     box-sizing: border-box;
-    transition: all var(--kemet-rotator-transition-speed, 500ms) ease;
+    transition: all var(--kemet-rotator-transition-speed) ease;
   }
 
   :host([effect="fade"]) .rotator__slide:not(:first-child) {
@@ -55,7 +57,7 @@ export const stylesRotator = css`
 
     transform: rotateX(90deg);
     transform-origin: 0% 0%;
-    transition: all var(--kemet-rotator-transition-speed, 500ms) ease;
+    transition: all var(--kemet-rotator-transition-speed) ease;
   }
 
   :host([effect="flip"]) .rotator__slide--active {

@@ -6,6 +6,9 @@ export const stylesKemetTabs = css`
     --kemet-tabs-ink-radius: 6px;
     --kemet-tabs-divider-size: 1px;
     --kemet-tabs-spacer: 1rem;
+    --kemet-tabs-transition-speed: 0.5s;
+    --kemet-tabs-divider-color: rgb(var(--kemet-color-gray-300));
+    --kemet-tabs-ink-color: rgb(var(--kemet-color-foreground));
 
     display: flex;
     flex-direction: column;
@@ -37,7 +40,7 @@ export const stylesKemetTabs = css`
   }
 
   :host([panel-effect='slide']) [part='panels'] {
-    transition: transform var(--kemet-tabs-transition-speed, 0.5s) linear;
+    transition: transform var(--kemet-tabs-transition-speed) linear;
   }
 
   :host([panel-effect='fade']) [part='panels'] {
@@ -116,7 +119,7 @@ export const stylesKemetTabs = css`
 
   [part='divider'] {
     height: var(--kemet-tabs-divider-size);
-    background-color: var(--kemet-tabs-divider-color, var(--kemet-color-gray4));
+    background-color: var(--kemet-tabs-divider-color);
   }
 
   :host([placement='left']) [part='divider'],
@@ -132,7 +135,7 @@ export const stylesKemetTabs = css`
     border-top-left-radius: var(--kemet-tabs-ink-radius);
     border-top-right-radius: var(--kemet-tabs-ink-radius);
     transition: all 300ms ease;
-    background-color: var(--kemet-tabs-ink-color, var(--kemet-color-background));
+    background-color: var(--kemet-tabs-ink-color);
   }
 
   :host([placement='right']) [part='ink'] {
@@ -201,6 +204,8 @@ export const stylesKemetTabs = css`
 
 export const stylesKemetTab = css`
   :host {
+    --kemet-tab-color: rgb(var(--kemet-color-foreground));
+
     cursor: pointer;
     display: inline-flex;
     flex: 0 0 auto;
@@ -212,7 +217,7 @@ export const stylesKemetTab = css`
 
   :host([selected]) {
     cursor: auto;
-    color: var(--kemet-tab-color, var(--kemet-color-background));
+    color: var(--kemet-tab-color);
   }
 
   kemet-icon {
@@ -223,6 +228,8 @@ export const stylesKemetTab = css`
 
 export const stylesKemetTabPanel = css`
   :host {
+    --kemet-tab-panel-fade-speed: 0.5s;
+
     width: 100%;
     flex: 0 0 auto;
   }
@@ -234,7 +241,7 @@ export const stylesKemetTabPanel = css`
   :host(.fade) {
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--kemet-tab-panel-fade-speed, 0.5s) ease;
+    transition: opacity var(--kemet-tab-panel-fade-speed) ease;
   }
 
   :host(.fade[selected]) {

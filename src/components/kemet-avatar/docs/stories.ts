@@ -12,62 +12,6 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Avatar',
   component: 'kemet-avatar',
-};
-export default meta;
-
-type Story = StoryObj;
-
-const Template = ({
-  icon,
-  image,
-  circle,
-  rounded,
-  initials,
-  status,
-}) => html`
-  <kemet-avatar
-    ?circle=${circle}
-    ?rounded=${rounded}
-    image="${ifDefined(image !== '' ? image : null)}"
-    initials="${ifDefined(initials !== '' ? initials : null)}"
-  >
-    ${icon !== '' ? html`<kemet-icon icon=${icon} size="48" kemet-margin="tiny:smallest"></kemet-icon>` : null}
-    ${status ? html`<kemet-badge slot="status" status="success" kemet-border="all-2 solid white"></kemet-badge>` : null}
-  </kemet-avatar>
-`;
-
-const TemplateMultiple = ({
-  squeeze,
-  numOfAvatars,
-}) => {
-  const avatars = [];
-
-  for (let i = 0; i < numOfAvatars; i += 1) {
-    avatars.push(html`<kemet-avatar circle image="https://via.placeholder.com/64x64" kemet-border="all-4 solid gray1"></kemet-avatar>\n`);
-  }
-
-  return html`
-    <style>
-      kemet-avatars {
-        --kemet-avatars-squeeze: ${squeeze};
-      }
-    </style>
-    <kemet-avatars>
-      ${avatars}
-    </kemet-avatars>
-  `;
-};
-
-export const Standard: Story = {
-  render: (args: any) => Template(args),
-  args: {
-    circle: true,
-    rounded: false,
-    image: 'https://via.placeholder.com/64x64',
-    initials: 'KU',
-    icon: 'person',
-    status: false,
-  },
   argTypes: {
     circle: {
       control: { type: 'boolean' },
@@ -87,6 +31,78 @@ export const Standard: Story = {
     status: {
       control: { type: 'boolean' },
     },
+  }
+};
+export default meta;
+
+type Story = StoryObj;
+
+const Template = (args) => html`
+  <kemet-avatar
+    ?circle=${args.circle}
+    ?rounded=${args.rounded}
+    image="${ifDefined(args.image !== '' ? args.image : null)}"
+    initials="${ifDefined(args.initials !== '' ? args.initials : null)}"
+  >
+    ${args.icon !== '' && args.icon ? html`<kemet-icon icon=${args.icon} size="48" kemet-margin="xs"></kemet-icon>` : null}
+    ${args.status ? html`<kemet-badge slot="status" status="success" kemet-border="all-2 solid white"></kemet-badge>` : null}
+  </kemet-avatar>
+`;
+
+const TemplateMultiple = (args) => {
+  const avatars = [];
+
+  for (let i = 0; i < args.numOfAvatars; i += 1) {
+    avatars.push(html`<kemet-avatar circle image="https://via.placeholder.com/64x64" kemet-border="all-4 solid gray-50"></kemet-avatar>\n`);
+  }
+
+  return html`
+    <style>
+      kemet-avatars {
+        --kemet-avatars-squeeze: ${args.squeeze};
+      }
+    </style>
+    <kemet-avatars>
+      ${avatars}
+    </kemet-avatars>
+  `;
+};
+
+export const Standard: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    icon: 'person',
+  }
+};
+
+export const Initials: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    initials: 'KU',
+  }
+};
+
+export const Image: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    image: 'https://via.placeholder.com/64x64',
+  }
+};
+
+export const Circle: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    circle: true,
+    image: 'https://via.placeholder.com/64x64',
+  }
+};
+
+export const Status: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    circle: true,
+    image: 'https://via.placeholder.com/64x64',
+    status: true,
   }
 };
 

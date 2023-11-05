@@ -1,6 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { stylesBase } from './styles';
+import KemetAccordionPanel from './kemet-accordion-panel';
 
 /**
  * @since 1.0.0
@@ -18,19 +19,19 @@ import { stylesBase } from './styles';
 export default class KemetAccordion extends LitElement {
   static styles = [stylesBase];
 
-  @property({ type: Number })
-  currentPanel: number;
+  @property({ type: Number, attribute: 'current-panel' })
+  currentPanel: number = 0;
 
-  @property({ type: Boolean, attribute: 'toggle-panels '})
+  @property({ type: Boolean, attribute: 'toggle-panels' })
   togglePanels: boolean = false;
 
   /** @internal */
   @state()
-  panels: any;
+  panels: NodeListOf<KemetAccordionPanel>;
 
   /** @internal */
   @state()
-  onKeyDown: (event: any) => any;
+  onKeyDown: (event: KeyboardEvent) => void;
 
   /** @internal */
   @state()
@@ -54,15 +55,22 @@ export default class KemetAccordion extends LitElement {
   handleSlotChange() {
     this.panels = this.querySelectorAll('kemet-accordion-panel');
 
-    this.panels.forEach((panel) => {
+    this.panels.forEach((panel: KemetAccordionPanel, index) => {
+      panel.index = index;
       panel.removeEventListener('keydown', this.onKeyDown);
       panel.addEventListener('keydown', this.onKeyDown);
     });
   }
 
   handlePanelOpened(event) {
+    this.panels?.forEach((panel: KemetAccordionPanel) => {
+      if (panel === event.detail) {
+        this.currentPanel = panel.index;
+      }
+    });
+
     if (this.togglePanels) {
-      this.panels.forEach((panel: any) => {
+      this.panels?.forEach((panel: KemetAccordionPanel) => {
         if (panel !== event.detail) {
           panel.opened = false;
         }

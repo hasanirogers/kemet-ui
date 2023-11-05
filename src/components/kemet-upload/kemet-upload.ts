@@ -34,10 +34,10 @@ const preventDefaults = (event) => {
  * @csspart button - The button in the upload area.
  * @csspart files - The area where uploaded files are listed.
  *
- * @cssproperty --kemet-upload-color - The default text color. Default: var(--kemet-color-white).
- * @cssproperty --kemet-upload-height - The height. Default: 364px.
- * @cssproperty --kemet-upload-border - The border. Default: 1rem solid var(--kemet-color-gray1-to-transparent).
- * @cssproperty --kemet-upload-background-color - The background color. Default: var(--kemet-color-primary-to-transparent).
+ * @cssproperty --kemet-upload-color - The default text color.
+ * @cssproperty --kemet-upload-height - The height.
+ * @cssproperty --kemet-upload-border - The border.
+ * @cssproperty --kemet-upload-background-color - The background color.
  *
  */
 

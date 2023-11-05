@@ -10,7 +10,7 @@ Kemet UI comes with several variables that allow you to customize the behavior o
 
 ## Gutters
 
-You can control how gutters behave with the `$gutters` variables. `$gutters` is a sass map. You can change the values for the map. For example you might want to use px instead of rem for the units on the gutters. You can also change how gutters are referenced by changing the map's key. So instead of minus-1 you might want to change it to simply small. Kemet is smart enough to loop through the map so you can also add or remove any key value you pairs as you wish. Here's an example of a custom `$gutters` config.
+You can control how gutters behave with the `$gutters` variables. `$gutters` is a sass map. You can change the values for the map. For example you might want to use px instead of rem for the units on the gutters. You can also change how gutters are referenced by changing the map's key. So instead of `sm` you might want to change it to simply `small`. Kemet is smart enough to loop through the map so you can also add or remove any key value you pairs as you wish. Here's an example of a custom `$gutters` config.
 
 ```scss
 $gutters: (
@@ -18,33 +18,38 @@ $gutters: (
   smallest: 4px,
   smaller: 8px,
   small: 12px,
-  default: 16px, // do not remove this
+  md: 16px, // md is required. do not remove
+  medium: 16px,
   large: 20px,
   larger: 24px,
   largest: 28px,
 );
 ```
 
-In the example above we changed the keys, values, and number of entries in the map to our custom needs. The only rule is do not remove default.
+In the example above we changed the keys, values, and number of entries in the map to our custom needs. The only rule is do not remove md.
 
 <br />
 
-**Default**
+**Default Values**
 
 ```scss
 $gutters: (
-  none: 0,
-  minus-3: 0.5rem,
-  minus-2: 0.75rem,
-  minus-1: 0.85rem,
-  default: 1rem,
-  plus-1: 1.125rem,
-  plus-2: 1.25rem,
-  plus-3: 1.5rem,
-  plus-4: 2rem,
-  plus-5: 2.25rem,
-  plus-6: 3rem
-);
+  0: 0,
+  px: 1px,
+  2xs: 0.5rem,
+  xs: 0.75rem,
+  sm: 0.85rem,
+  md: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.75rem,
+  4xl: 2rem,
+  5xl: 2.25rem,
+  6xl: 2.5rem,
+  7xl: 2.75rem,
+  8xl: 3rem,
+) !default;
 ```
 
 ## Flexiplier
@@ -119,66 +124,33 @@ $breakranges: (
 
 <br />
 
-## Colors
+## Theme Colors
 
-A map that controls the color pallet for the system.
+A map of theme-able colors used through out the system.
 
 **Default**
 
 ```scss
-$colors: (
-  white: rgba(255, 255, 255, 1),
-  white-10: rgba(255, 255, 255, 0.10),
-  white-20: rgba(255, 255, 255, 0.20),
-  white-30: rgba(255, 255, 255, 0.30),
-  white-40: rgba(255, 255, 255, 0.40),
-  white-50: rgba(255, 255, 255, 0.50),
-  white-60: rgba(255, 255, 255, 0.60),
-  white-70: rgba(255, 255, 255, 0.70),
-  white-80: rgba(255, 255, 255, 0.80),
-  white-90: rgba(255, 255, 255, 0.90),
-  white-rich: rgba(242, 242, 242, 1),
+$themecolors: (
+  foreground: var(--kemet-color-primary),
+  background: var(--kemet-color-white),
 
-  black: rgba(0, 0, 0, 1),
-  black-10: rgba(0, 0, 0, 0.1),
-  black-20: rgba(0, 0, 0, 0.20),
-  black-30: rgba(0, 0, 0, 0.30),
-  black-40: rgba(0, 0, 0, 0.40),
-  black-50: rgba(0, 0, 0, 0.50),
-  black-60: rgba(0, 0, 0, 0.60),
-  black-70: rgba(0, 0, 0, 0.70),
-  black-80: rgba(0, 0, 0, 0.80),
-  black-90: rgba(0, 0, 0, 0.90),
+  // brand
+  text: var(--kemet-color-gray-800),
+  primary: var(--kemet-color-sky-800),
 
-  gray1: #eff2f1,
-  gray2: #d7d7d7,
-  gray3: #bebebe,
-  gray4: #a4a4a4,
-  gray5: #8b8b8b,
-  gray6: #727270,
-  gray7: #585858,
-  gray8: #3f3f3f,
-  gray9: #262626,
-  gray10: #0c0c0c,
+  // polarity
+  white-to-black: var(--kemet-color-white),
+  white-to-primary: var(--kemet-color-white),
+  gray-50-to-transparent: var(--kemet-color-gray-50),
+  primary-to-transparent: var(--kemet-color-primary),
 
-  primary: rgba(12, 74, 110, 1),
-  primary-10: rgba(12, 74, 110, 0.10),
-  primary-20: rgba(12, 74, 110, 0.20),
-  primary-30: rgba(12, 74, 110, 0.30),
-  primary-40: rgba(12, 74, 110, 0.40),
-  primary-50: rgba(12, 74, 110, 0.50),
-  primary-60: rgba(12, 74, 110, 0.60),
-  primary-70: rgba(12, 74, 110, 0.70),
-  primary-80: rgba(12, 74, 110, 0.80),
-  primary-90: rgba(12, 74, 110, 0.90),
-
-  link: rgba(12, 74, 110, 1),
-
-  error: rgba(197, 48, 48, 1),
-  success: rgba(22, 163, 74, 1),
-  neutral: rgba(82, 82, 91, 1),
-  warning: rgba(217, 119, 6, 1),
-);
+  // information
+  error: var(--kemet-color-red-500),
+  success: var(--kemet-color-green-500),
+  neutral: var(--kemet-color-gray-500),
+  warning: var(--kemet-color-orange-500),
+) !default;
 ```
 
 <br />
@@ -192,14 +164,14 @@ A map that controls the box shadow layers.
 ```scss
 $elevation: (
   none: 0 0 #0000,
-  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
-  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
-  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
-  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
-  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
-  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  layer-1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer-2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer-3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer-4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer-5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer-6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
   inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
-);
+) !default;
 ```
 
 <br />
@@ -235,10 +207,13 @@ A map that controls the radius on borders.
 
 ```scss
 $borderradiuses: (
-  small: 3px,
-  medium: 6px,
-  large: 12px,
-);
+  sm: 0.1875rem, // 3px
+  md: 0.25rem, // 4px
+  lg: 0.5rem, // 8px
+  xl: 1rem, // 16px
+  circle: 50%,
+  pill: 9999px,
+) !default;
 ```
 
 <br />
@@ -272,17 +247,16 @@ Similar to `$gutters`, `$typesizers` allows you to control how sizing for the ty
 
 ```scss
 $typesizers: (
-  minus-3: 0.5rem,
-  minus-2: 0.75rem,
-  minus-1: 0.85rem,
-  base: 1rem,
-  plus-1: 1.125rem,
-  plus-2: 1.25rem,
-  plus-3: 1.5rem,
-  plus-4: 2rem,
-  plus-5: 2.25rem,
-  plus-6: 3rem
-);
+  2xs: 0.625rem,
+  xs: 0.75rem,
+  sm: 0.875rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.5rem,
+  2xl: 2.25rem,
+  3xl: 3rem,
+  4xl: 4.5rem,
+) !default;
 ```
 
 ## Spacers
@@ -295,14 +269,17 @@ Controls the amount of spacing used for margin helper classes.
 $spacers: (
   auto: auto,
   none: 0,
-  smallest: 0.5rem,
-  smaller: 1rem,
-  small: 1.5rem,
-  normal: 2rem,
-  large: 2.5rem,
-  larger: 3rem,
-  largest: 3.5rem
-);
+  3xs: 0.125rem,
+  2xs: 0.25rem,
+  xs: 0.5rem,
+  sm: 0.75rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.75rem,
+  2xl: 2.25rem,
+  3xl: 3rem,
+  4xl: 4.5rem,
+) !default;
 ```
 
 ## Make Order

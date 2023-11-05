@@ -11,7 +11,7 @@ type Story = StoryObj;
 const Template = ({
   label = 'The quick brown fox jumps over the lazy dog.',
   breakpoint = 'none',
-  size = 'plus-2',
+  size = 'lg',
 }) => {
   const kemetSize = breakpoint === 'none' ? size : `${breakpoint}:${size}`;
 
@@ -21,7 +21,7 @@ const Template = ({
 };
 
 const TemplateMultiple = () => html`
-  <p kemet-type-size="tiny:minus-2 medium:plus-2 large:plus-4">
+  <p kemet-type-size="tiny:xs medium:lg large:2xl">
     Watch me change size at breakpoints.
   </p>
 `;
@@ -43,7 +43,7 @@ export const Standard: Story = {
     },
     size: {
       control: { type: 'select' },
-      options: ['minus-3', 'minus-2', 'minus-1', 'base', 'plus-1', 'plus-2', 'plus-3', 'plus-4', 'plus-5', 'plus-6'],
+      options: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'],
     },
   }
 }

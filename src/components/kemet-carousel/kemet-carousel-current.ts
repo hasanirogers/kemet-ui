@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { KemetCarouselInterface } from './types';
+import KemetCarousel from './kemet-carousel';
 
 /**
  *
@@ -28,7 +28,7 @@ export default class KemetCarouselCurrent extends LitElement {
   current: number;
 
   @state()
-  carousel: KemetCarouselInterface | null;
+  carousel: KemetCarousel | null;
 
 
   firstUpdated() {

@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { TypeType } from './types';
+import { TypeVariant } from './types';
 import { stylesBase } from './styles';
 import { FormSubmitController } from '../../utilities/controllers/forms';
 import '../kemet-icon/kemet-icon';
@@ -18,31 +18,31 @@ import '../kemet-icon/kemet-icon';
  * @prop {string} link - The url a button should link too
  * @prop {boolean} outlined - Outline style for a button
  * @prop {boolean} disabled - Determines whether not a button is disabled
- * @prop {string} type - Controls the type of button. standard | text | circle | rounded | pill
+ * @prop {string} variant - Controls the type of button. standard | text | circle | rounded | pill
  *
  * @slot left - Allows you to place an icon to the left of the button text.
  * @slot right - Allows you to place an icon to the right of the button text.
  *
  * @csspart button - The button or anchor element.
  *
- * @cssproperty --kemet-button-font-size - The font size. Default: inherit.
- * @cssproperty --kemet-button-color - The text color. Default: --kemet-color-foreground.
- * @cssproperty --kemet-button-width - The width. Default: auto.
- * @cssproperty --kemet-button-height - The height. Default:  auto.
- * @cssproperty --kemet-button-border - The border. Default: 0.
- * @cssproperty --kemet-button-border-radius - The border radius. Default: 0.
- * @cssproperty --kemet-button-transition-speed - The transition speed of the hover effect. Default: 300ms.
- * @cssproperty --kemet-button-background-color - The background color. Default: --kemet-color-background.
- * @cssproperty --kemet-button-hover-brightness - The brightness of the hover effect. Default: 1.25.
- * @cssproperty --kemet-button-gap - The gap between the button and icons. Default: 0.5rem.
- * @cssproperty --kemet-button-padding - The button padding. Default: 1rem 1.25rem.
- * @cssproperty --kemet-button-hover-decoration - The decoration for a text button's hover. Default: underline.
- * @cssproperty --kemet-button-circle-size - The diameter of a circle button. Default: 50px.
- * @cssproperty --kemet-button-rounded-amount - The border radius of the rounded button. Default: 6px.
- * @cssproperty --kemet-button-border-width - The width of the outline border. Default: 1px.
- * @cssproperty --kemet-button-border-style - The style of the outline border. Default: solid.
- * @cssproperty --kemet-button-border-color - The color of the outline border. Default: --kemet-color-primary.
- * @cssproperty --kemet-button-disabled-opacity - The opacity of the disabled state. Default: 0.5.
+ * @cssproperty --kemet-button-font-size - The font size.
+ * @cssproperty --kemet-button-color - The text color.
+ * @cssproperty --kemet-button-width - The width.
+ * @cssproperty --kemet-button-height - The height.
+ * @cssproperty --kemet-button-border - The border.
+ * @cssproperty --kemet-button-border-radius - The border radius.
+ * @cssproperty --kemet-button-transition-speed - The transition speed of the hover effect.
+ * @cssproperty --kemet-button-background-color - The background color.
+ * @cssproperty --kemet-button-hover-brightness - The brightness of the hover effect.
+ * @cssproperty --kemet-button-gap - The gap between the button and icons.
+ * @cssproperty --kemet-button-padding - The button padding.
+ * @cssproperty --kemet-button-hover-decoration - The decoration for a text button's hover.
+ * @cssproperty --kemet-button-circle-size - The diameter of a circle button.
+ * @cssproperty --kemet-button-rounded-amount - The border radius of the rounded button.
+ * @cssproperty --kemet-button-border-width - The width of the outline border.
+ * @cssproperty --kemet-button-border-style - The style of the outline border.
+ * @cssproperty --kemet-button-border-color - The color of the outline border.
+ * @cssproperty --kemet-button-disabled-opacity - The opacity of the disabled state.
  *
  */
 
@@ -71,8 +71,8 @@ export default class KemetButton extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled: boolean = false;
 
-  @property({ type: String, reflect: true })
-  type: TypeType = 'standard';
+  @property({ reflect: true })
+  variant: TypeVariant = 'standard';
 
   constructor() {
     super();

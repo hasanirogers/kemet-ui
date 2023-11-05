@@ -20,16 +20,20 @@
 
 $gutters: (
   none: 0,
-  minus-3: 0.5rem,
-  minus-2: 0.75rem,
-  minus-1: 0.85rem,
-  default: 1rem,
-  plus-1: 1.125rem,
-  plus-2: 1.25rem,
-  plus-3: 1.5rem,
-  plus-4: 2rem,
-  plus-5: 2.25rem,
-  plus-6: 3rem
+  px: 1px,
+  2xs: 0.5rem,
+  xs: 0.75rem,
+  sm: 0.85rem,
+  md: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  2xl: 1.5rem,
+  3xl: 1.75rem,
+  4xl: 2rem,
+  5xl: 2.25rem,
+  6xl: 2.5rem,
+  7xl: 2.75rem,
+  8xl: 3rem,
 ) !default;
 
 
@@ -116,16 +120,15 @@ $flexgridcolumns: 12 !default;
 /// @group config-variables
 
 $typesizers: (
-  minus-3: 0.5rem,
-  minus-2: 0.75rem,
-  minus-1: 0.85rem,
-  base: 1rem,
-  plus-1: 1.125rem,
-  plus-2: 1.25rem,
-  plus-3: 1.5rem,
-  plus-4: 2rem,
-  plus-5: 2.25rem,
-  plus-6: 3rem
+  2xs: 0.625rem,
+  xs: 0.75rem,
+  sm: 0.875rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.5rem,
+  2xl: 2.25rem,
+  3xl: 3rem,
+  4xl: 4.5rem,
 ) !default;
 
 
@@ -137,81 +140,288 @@ $typesizers: (
 /// @group config-variables
 
 $spacers: (
-  none: 0,
   auto: auto,
-  small: 1.5rem,
-  smaller: 1rem,
-  smallest: 0.5rem,
-  normal: 2rem,
-  large: 2.5rem,
-  larger: 3rem,
-  largest: 3.5rem
+  none: 0,
+  3xs: 0.125rem,
+  2xs: 0.25rem,
+  xs: 0.5rem,
+  sm: 0.75rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.75rem,
+  2xl: 2.25rem,
+  3xl: 3rem,
+  4xl: 4.5rem,
 ) !default;
 
 
 
 
-/// A map that defines the colors
+/// A map that defines the color primitives as constants.
 /// @type Map
 /// @access public
 /// @group config-variables
 
 $colors: (
-  // base colors
-  white: rgba(255, 255, 255, 1),
-  white-10: rgba(255, 255, 255, 0.1),
-  white-20: rgba(255, 255, 255, 0.2),
-  white-30: rgba(255, 255, 255, 0.3),
-  white-40: rgba(255, 255, 255, 0.4),
-  white-50: rgba(255, 255, 255, 0.5),
-  white-60: rgba(255, 255, 255, 0.6),
-  white-70: rgba(255, 255, 255, 0.7),
-  white-80: rgba(255, 255, 255, 0.8),
-  white-90: rgba(255, 255, 255, 0.9),
-  white-rich: rgba(242, 242, 242, 1),
+  white: '255 255 255',
+  black: '0 0 0',
 
-  black: rgba(0, 0, 0, 1),
-  black-10: rgba(0, 0, 0, 0.1),
-  black-20: rgba(0, 0, 0, 0.2),
-  black-30: rgba(0, 0, 0, 0.3),
-  black-40: rgba(0, 0, 0, 0.4),
-  black-50: rgba(0, 0, 0, 0.5),
-  black-60: rgba(0, 0, 0, 0.6),
-  black-70: rgba(0, 0, 0, 0.7),
-  black-80: rgba(0, 0, 0, 0.8),
-  black-90: rgba(0, 0, 0, 0.9),
+  slate-50: '248 250 252',
+  slate-100: '241 245 249',
+  slate-200: '226 232 240',
+  slate-300: '203 213 225',
+  slate-400: '148 163 184',
+  slate-500: '100 116 139',
+  slate-600: '71 85 105',
+  slate-700: '51 65 85',
+  slate-800: '30 41 59',
+  slate-900: '15 23 42',
+  slate-950: '2 6 23',
 
-  gray1: #eff2f1,
-  gray2: #d7d7d7,
-  gray3: #bebebe,
-  gray4: #a4a4a4,
-  gray5: #8b8b8b,
-  gray6: #727270,
-  gray7: #585858,
-  gray8: #3f3f3f,
-  gray9: #262626,
-  gray10: #0c0c0c,
+  gray-50: '249 250 251',
+  gray-100: '243 244 246',
+  gray-200: '226 232 240',
+  gray-300: '209 213 219',
+  gray-400: '56, 163, 175',
+  gray-500: '107 114 128',
+  gray-600: '75 85 99',
+  gray-700: '55 65 81',
+  gray-800: '30 41 59',
+  gray-900: '17 24 39',
+  gray-950: '3 7 18',
 
-  primary: rgba(12, 74, 110, 1),
-  primary-10: rgba(12, 74, 110, 0.1),
-  primary-20: rgba(12, 74, 110, 0.2),
-  primary-30: rgba(12, 74, 110, 0.3),
-  primary-40: rgba(12, 74, 110, 0.4),
-  primary-50: rgba(12, 74, 110, 0.5),
-  primary-60: rgba(12, 74, 110, 0.6),
-  primary-70: rgba(12, 74, 110, 0.7),
-  primary-80: rgba(12, 74, 110, 0.8),
-  primary-90: rgba(12, 74, 110, 0.9),
+  red-50: '254 242 242',
+  red-100: '254 226 226',
+  red-200: '254 202 202',
+  red-300: '252 165 165',
+  red-400: '248 113 113',
+  red-500: '239 68 68',
+  red-600: '220 38 38',
+  red-700: '185 28 28',
+  red-800: '153 27 27',
+  red-900: '127 29 29',
+  red-950: '69 10 10',
 
-  error: rgba(197, 48, 48, 1),
-  success: rgba(22, 163, 74, 1),
-  neutral: rgba(82, 82, 91, 1),
-  warning: rgba(217, 119, 6, 1),
+  orange-50: '255 247 237',
+  orange-100: '255 237 213',
+  orange-200: '254 215 170',
+  orange-300: '253 186 116',
+  orange-400: '251 146 60',
+  orange-500: '249 115 22',
+  orange-600: '234 88 12',
+  orange-700: '194 65 12',
+  orange-800: '154 52 18',
+  orange-900: '124 45 18',
+  orange-950: '67 20 7',
 
-  // theme colors
-  text: var(--kemet-color-gray9),
-  foreground: var(--kemet-color-white),
-  background: var(--kemet-color-primary)
+  amber-50: '255 251 235',
+  amber-100: '254 243 199',
+  amber-200: '253 230 138',
+  amber-300: '252 211 77',
+  amber-400: '251 191 36',
+  amber-500: '245 158 11',
+  amber-600: '217 119 6',
+  amber-700: '180 83 9',
+  amber-800: '146 64 14',
+  amber-900: '120 53 15',
+  amber-950: '69 26 3',
+
+  yellow-50: '254 252 232',
+  yellow-100: '254 249 195',
+  yellow-200: '254 240 138',
+  yellow-300: '253 224 71',
+  yellow-400: '250 204 21',
+  yellow-500: '234 179 8',
+  yellow-600: '202 138 4',
+  yellow-700: '161 98 7',
+  yellow-800: '133 77 14',
+  yellow-900: '113 63 18',
+  yellow-950: '66 32 6',
+
+  lime-50: '247 254 231',
+  lime-100: '236 252 203',
+  lime-200: '217 249 157',
+  lime-300: '190 242 100',
+  lime-400: '163 230 53',
+  lime-500: '132 204 22',
+  lime-600: '101 163 13',
+  lime-700: '77 124 15',
+  lime-800: '63 98 18',
+  lime-900: '54 83 20',
+  lime-950: '26 46 5',
+
+  green-50: '240 253 244',
+  green-100: '220 252 231',
+  green-200: '187 247 208',
+  green-300: '134 239 172',
+  green-400: '74 222 128',
+  green-500: '34 197 94',
+  green-600: '22 163 74',
+  green-700: '21 128 61',
+  green-800: '22 101 52',
+  green-900: '20 83 45',
+  green-950: '5 46 22',
+
+  emerald-50: '236 253 245',
+  emerald-100: '209 250 229',
+  emerald-200: '167 243 208',
+  emerald-300: '110 231 183',
+  emerald-400: '52 211 153',
+  emerald-500: '16 185 129',
+  emerald-600: '5 150 105',
+  emerald-700: '4 120 87',
+  emerald-800: '6 95 70',
+  emerald-900: '6 78 59',
+  emerald-950: '2 44 34',
+
+  teal-50: '240 253 250',
+  teal-100: '204 251 241',
+  teal-200: '153 246 228',
+  teal-300: '94 234 212',
+  teal-400: '45 212 191',
+  teal-500: '20 184 166',
+  teal-600: '13 148 136',
+  teal-700: '15 118 110',
+  teal-800: '17 94 89',
+  teal-900: '19 78 74',
+  teal-950: '4 47 46',
+
+  cyan-50: '236 254 255',
+  cyan-100: '207 250 254',
+  cyan-200: '165 243 252',
+  cyan-300: '103 232 249',
+  cyan-400: '34 211 238',
+  cyan-500: '6 182 212',
+  cyan-600: '8 145 178',
+  cyan-700: '14 116 144',
+  cyan-800: '21 94 117',
+  cyan-900: '22 78 99',
+  cyan-950: '8 51 68',
+
+  sky-50: '240 249 255',
+  sky-100: '224 242 254',
+  sky-200: '186 230 253',
+  sky-300: '125 211 252',
+  sky-400: '56 189 248',
+  sky-500: '14 165 233',
+  sky-600: '2 132 199',
+  sky-700: '3 105 161',
+  sky-800: '7 89 133',
+  sky-900: '12 74 110',
+  sky-950: '8 47 73',
+
+  blue-50: '239 246 255',
+  blue-100: '219 234 254',
+  blue-200: '191 219 254',
+  blue-300: '147 197 253',
+  blue-400: '96 165 250',
+  blue-500: '59 130 246',
+  blue-600: '37 99 235',
+  blue-700: '29 78 216',
+  blue-800: '30 64 175',
+  blue-900: '30 58 138',
+  blue-950: '23 37 84',
+
+  indigo-50: '238 242 255',
+  indigo-100: '224 231 255',
+  indigo-200: '199 210 254',
+  indigo-300: '165 180 252',
+  indigo-400: '129 140 248',
+  indigo-500: '99 102 241',
+  indigo-600: '79 70 229',
+  indigo-700: '67 56 202',
+  indigo-800: '55 48 163',
+  indigo-900: '49 46 129',
+  indigo-950: '30 27 75',
+
+  violet-50: '245 243 255',
+  violet-100: '237 233 254',
+  violet-200: '221 214 254',
+  violet-300: '196 181 253',
+  violet-400: '167 139 250',
+  violet-500: '139 92 246',
+  violet-600: '124 58 237',
+  violet-700: '109 40 217',
+  violet-800: '91 33 182',
+  violet-900: '76 29 149',
+  violet-950: '46 16 101',
+
+  purple-50: '250 245 255',
+  purple-100: '243 232 255',
+  purple-200: '233 213 255',
+  purple-300: '216 180 254',
+  purple-400: '192 132 252',
+  purple-500: '168 85 247',
+  purple-600: '147 51 234',
+  purple-700: '126 34 206',
+  purple-800: '107 33 168',
+  purple-900: '88 28 135',
+  purple-950: '59 7 100',
+
+  fuchsia-50: '253 244 255',
+  fuchsia-100: '250 232 255',
+  fuchsia-200: '245 208 254',
+  fuchsia-300: '240 171 252',
+  fuchsia-400: '232 121 249',
+  fuchsia-500: '217 70 239',
+  fuchsia-600: '192 38 211',
+  fuchsia-700: '162 28 175',
+  fuchsia-800: '134 25 143',
+  fuchsia-900: '112 26 117',
+  fuchsia-950: '74 4 78',
+
+  pink-50: '253 242 248',
+  pink-100: '252 231 243',
+  pink-200: '251 207 232',
+  pink-300: '249 168 212',
+  pink-400: '244 114 182',
+  pink-500: '236 72 153',
+  pink-600: '219 39 119',
+  pink-700: '190 24 93',
+  pink-800: '157 23 77',
+  pink-900: '131 24 67',
+  pink-950: '80 7 36',
+
+  rose-50: '255 241 242',
+  rose-100: '255 228 230',
+  rose-200: '254 205 211',
+  rose-300: '253 164 175',
+  rose-400: '251 113 133',
+  rose-500: '244 63 94',
+  rose-600: '225 29 72',
+  rose-700: '190 18 60',
+  rose-800: '159 18 57',
+  rose-900: '136 19 55',
+  rose-950: '76 5 25',
+);
+
+
+
+
+/// A map that defines the theme-able colors
+/// @type Map
+/// @access public
+/// @group config-variables
+
+$themecolors: (
+  foreground: var(--kemet-color-primary),
+  background: var(--kemet-color-white),
+
+  // brand
+  text: var(--kemet-color-gray-800),
+  primary: var(--kemet-color-sky-800),
+
+  // polarity
+  white-to-black: var(--kemet-color-white),
+  white-to-primary: var(--kemet-color-white),
+  gray-50-to-transparent: var(--kemet-color-gray-50),
+  primary-to-transparent: var(--kemet-color-primary),
+
+  // information
+  error: var(--kemet-color-red-500),
+  success: var(--kemet-color-green-500),
+  neutral: var(--kemet-color-gray-500),
+  warning: var(--kemet-color-orange-500),
 ) !default;
 
 
@@ -224,12 +434,12 @@ $colors: (
 
 $elevation: (
   none: 0 0 #0000,
-  layer1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
-  layer2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
-  layer3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
-  layer4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
-  layer5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
-  layer6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
+  layer-1: 0 1px 2px 0 rgb(0 0 0 / 0.05),
+  layer-2: (0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)),
+  layer-3: (0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)),
+  layer-4: (0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)),
+  layer-5: (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)),
+  layer-6: 0 25px 50px -12px rgb(0 0 0 / 0.25),
   inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05),
 ) !default;
 
@@ -263,9 +473,12 @@ $borderwidths: (
 /// @group config-variables
 
 $borderradiuses: (
-  small: 3px,
-  medium: 6px,
-  large: 12px,
+  sm: 0.1875rem, // 3px
+  md: 0.25rem, // 4px
+  lg: 0.5rem, // 8px
+  xl: 1rem, // 16px
+  circle: 50%,
+  pill: 9999px,
 ) !default;
 
 

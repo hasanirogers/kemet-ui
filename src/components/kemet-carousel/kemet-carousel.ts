@@ -2,7 +2,10 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state, query } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesCarousel } from './styles';
-import { KemetCarouselCurrentInterface, KemetCarouselLinkInterface, KemetCarouselSlideInterface } from './types';
+
+import KemetCarouselCurrent from './kemet-carousel-current';
+import KemetCarouselLink from './kemet-carousel-link';
+import KemetCarouselSlide from './kemet-carousel-slide';
 
 /**
  *
@@ -30,21 +33,21 @@ import { KemetCarouselCurrentInterface, KemetCarouselLinkInterface, KemetCarouse
  * @slot next - A slot for the next arrow.
  * @slot information - Allows you to enter custom HTML such as a slide description to be used in the toolbar.
  *
- * @cssproperty --kemet-carousel-width - The width of the carousel. Default: 100%.
- * @cssproperty --kemet-carousel-height - The height of the carousel. Default: auto.
- * @cssproperty --kemet-carousel-toolbar-gap - The space between items in the toolbar. Default: 1rem.
- * @cssproperty --kemet-carousel-toolbar-justify-content - The cross axis alignment of the toolbar. Default: center.
- * @cssproperty --kemet-carousel-toolbar-padding - The padding of the toolbar. Default: 1rem.
- * @cssproperty --kemet-carousel-toolbar-inner-width - The inner toolbar width. Default: 100%.
- * @cssproperty --kemet-carousel-toolbar-inner-bottom - The bottom position of the inner toolbar. Default: 0.
- * @cssproperty --kemet-carousel-toolbar-inner-top - The top position of the inner toolbar. Default: auto.
- * @cssproperty --kemet-carousel-toolbar-inner-color - The inner toolbar text color. Default: var(--kemet-color-white).
- * @cssproperty --kemet-carousel-toolbar-inner-background-color - The inner toolbar background color. Default: rgba(0, 0, 0, 0.4).
- * @cssproperty --kemet-carousel-slides-border - The border around the slides. Default: 1px solid var(--kemet-color-gray1).
- * @cssproperty --kemet-carousel-transition-speed - The transition speed of the slides. Default: 300ms.
- * @cssproperty --kemet-carousel-arrows-opacity - The arrows start opacity. Default: 0.25.
- * @cssproperty --kemet-carousel-arrows-opacity-hover - The arrows however opacity. Default: 1.
- * @cssproperty --kemet-carousel-arrows-transition-speed - The arrows transition speed. Default: 300ms.
+ * @cssproperty --kemet-carousel-width - The width of the carousel.
+ * @cssproperty --kemet-carousel-height - The height of the carousel.
+ * @cssproperty --kemet-carousel-toolbar-gap - The space between items in the toolbar.
+ * @cssproperty --kemet-carousel-toolbar-justify-content - The cross axis alignment of the toolbar.
+ * @cssproperty --kemet-carousel-toolbar-padding - The padding of the toolbar.
+ * @cssproperty --kemet-carousel-toolbar-inner-width - The inner toolbar width.
+ * @cssproperty --kemet-carousel-toolbar-inner-bottom - The bottom position of the inner toolbar.
+ * @cssproperty --kemet-carousel-toolbar-inner-top - The top position of the inner toolbar.
+ * @cssproperty --kemet-carousel-toolbar-inner-color - The inner toolbar text color.
+ * @cssproperty --kemet-carousel-toolbar-inner-background-color - The inner toolbar background color.
+ * @cssproperty --kemet-carousel-slides-border - The border around the slides.
+ * @cssproperty --kemet-carousel-transition-speed - The transition speed of the slides.
+ * @cssproperty --kemet-carousel-arrows-opacity - The arrows start opacity.
+ * @cssproperty --kemet-carousel-arrows-opacity-hover - The arrows however opacity.
+ * @cssproperty --kemet-carousel-arrows-transition-speed - The arrows transition speed.
  *
  * @csspart container - Contains the slides and toolbar.
  * @csspart slides - Wrapper for the slider.
@@ -303,8 +306,8 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleSlotChange() {
-    const slides = this.querySelectorAll('kemet-carousel-slide') as NodeListOf<KemetCarouselSlideInterface>;
-    const links = this.querySelectorAll('kemet-carousel-link') as NodeListOf<KemetCarouselLinkInterface>;
+    const slides = this.querySelectorAll('kemet-carousel-slide') as NodeListOf<KemetCarouselSlide>;
+    const links = this.querySelectorAll('kemet-carousel-link') as NodeListOf<KemetCarouselLink>;
 
     // handle slides
     slides.forEach((slide) => {
@@ -437,7 +440,7 @@ export default class KemetCarousel extends LitElement {
   }
 
   handleTransitionEnd() {
-    const currentElement = this.querySelector('kemet-carousel-current') as KemetCarouselCurrentInterface;
+    const currentElement = this.querySelector('kemet-carousel-current') as KemetCarouselCurrent;
 
     if (currentElement) {
       currentElement.current = this.index + 1;

@@ -29,15 +29,15 @@ export const stylesBase = css`
   }
 
   :host([status='error']) kemet-icon {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 
   :host([status='success']) kemet-icon {
-    color: var(--kemet-color-success);
+    color: rgb(var(--kemet-color-success));
   }
 
   :host([status='warning']) kemet-icon {
-    color: var(--kemet-color-warning);
+    color: rgb(var(--kemet-color-warning));
   }
 
   .message {
@@ -48,14 +48,14 @@ export const stylesBase = css`
   }
 
   :host([status='error']) .message {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 
   :host([status='success']) .message {
-    color: var(--kemet-color-success);
+    color: rgb(var(--kemet-color-success));
   }
 
   :host([status='warning']) .message {
-    color: var(--kemet-color-warning);
+    color: rgb(var(--kemet-color-warning));
   }
 `;

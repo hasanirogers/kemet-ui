@@ -26,15 +26,15 @@ import { stylesToggle } from './styles';
  * @csspart checked - The checked text.
  * @csspart unchecked - The unchecked text.
  *
- * @cssproperty --kemet-toggle-width - The width of the entire toggle. Default: 3.5rem.
- * @cssproperty --kemet-toggle-height - The height of the entire toggle. Default:2rem.
- * @cssproperty --kemet-toggle-handle-diameter - The diameter of the handle. Default: 1.6rem.
- * @cssproperty --kemet-toggle-track-border - The border of the track. Default: none.
- * @cssproperty --kemet-toggle-track-color - The color of the track. Default: var(--kemet-color-white).
- * @cssproperty --kemet-toggle-track-shadow - The shadow on the track. Default: inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1).
- * @cssproperty --kemet-toggle-handle-border - The border on the handle. Default: none.
- * @cssproperty --kemet-toggle-handle-color - The color of the handle. Default: var(--kemet-color-primary).
- * @cssproperty --kemet-toggle-handle-shadow - The shadow on the handle. Default: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2).
+ * @cssproperty --kemet-toggle-width - The width of the entire toggle.
+ * @cssproperty --kemet-toggle-height - The height of the entire toggle.
+ * @cssproperty --kemet-toggle-handle-diameter - The diameter of the handle.
+ * @cssproperty --kemet-toggle-track-border - The border of the track.
+ * @cssproperty --kemet-toggle-track-color - The color of the track.
+ * @cssproperty --kemet-toggle-track-shadow - The shadow on the track.
+ * @cssproperty --kemet-toggle-handle-border - The border on the handle.
+ * @cssproperty --kemet-toggle-handle-color - The color of the handle.
+ * @cssproperty --kemet-toggle-handle-shadow - The shadow on the handle.
  *
  * @event kemet-toggle-change - Fires when the toggle changes state
  *

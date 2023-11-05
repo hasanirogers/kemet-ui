@@ -1,6 +1,8 @@
 @use 'sass:math';
+@use 'sass:string';
 @use 'config' as *;
 @use '../components/config' as *;
+
 
 @function getListFirst($list) {
   @return nth($list, 1);
@@ -84,28 +86,59 @@
 
 @mixin makeGutters() {
   [kemet-gutters] {
-    margin-right: -(map-get($gutters, default));
+    margin-right: -(map-get($gutters, md));
   }
 
   [kemet-layout='flexlist'][kemet-gutters] {
-    gap: map-get($gutters, default);
+    gap: map-get($gutters, md);
   }
 
   [kemet-gutters] > * {
-    padding-right: map-get($gutters, default);
+    padding-right: map-get($gutters, md);
   }
 
   [kemet-layout='flexgrid'][kemet-gutters] > * {
-    margin-bottom: map-get($gutters, default);
+    margin-bottom: map-get($gutters, md);
   }
 
   [kemet-layout='flexcolumn'][kemet-gutters] > :not(:first-child) {
-    margin-top: map-get($gutters, default);
+    margin-top: map-get($gutters, md);
   }
 
   @media only screen and (max-width: $stackpoint) {
     [kemet-layout='flexrow'][kemet-gutters][autostack] > * {
-      margin-bottom: map-get($gutters, default);
+      margin-bottom: map-get($gutters, md);
+    }
+  }
+
+  @each $attsvalue, $value in $gutters {
+    $gutterselector: '[kemet-gutters*="#{$attsvalue}"]';
+    // @debug $gutterselector;
+
+    #{$gutterselector} {
+      margin-right: -($value);
+    }
+
+    [kemet-layout="flexlist"]#{$gutterselector} {
+      gap: $value;
+    }
+
+    #{$gutterselector} > * {
+      padding-right: $value;
+    }
+
+    [kemet-layout="flexgrid"]#{$gutterselector} > * {
+      margin-bottom: $value;
+    }
+
+    [kemet-layout="flexcolumn"]#{$gutterselector} > :not(:first-child) {
+      margin-top: $value;
+    }
+
+    @media only screen and (max-width: $stackpoint) {
+      [kemet-layout="flexrow"]#{$gutterselector}[autostack] > * {
+        margin-bottom: $value;
+      }
     }
   }
 
@@ -256,6 +289,26 @@
 @mixin makeSpacers() {
   $sides: 'top', 'right', 'bottom', 'left';
 
+  @each $spacer, $value in $spacers {
+    [kemet-margin*="#{$spacer}"] {
+      margin: $value;
+    }
+
+    [kemet-padding*="#{$spacer}"] {
+      padding: $value;
+    }
+
+    @each $side in $sides {
+      [kemet-margin-#{$side}*="#{$spacer}"] {
+        margin-#{$side}: $value;
+      }
+
+      [kemet-padding-#{$side}*="#{$spacer}"] {
+        padding-#{$side}: $value;
+      }
+    }
+  }
+
   @each $breakpoint, $pixel in $breakpoints {
     @media screen and (min-width: #{$pixel}) {
       @each $spacer, $value in $spacers {
@@ -316,20 +369,32 @@
     $name: '' + $color;
 
     [kemet-color="#{$name}"] {
-      color: var(--kemet-color-#{'' + $color});
+      color: rgb(var(--kemet-color-#{'' + $color}));
     }
 
     [kemet-background-color="#{$name}"] {
-      background-color: var(--kemet-color-#{'' + $color});
+      background-color: rgb(var(--kemet-color-#{'' + $color}));
+    }
+  }
+
+  @each $color, $value in $themecolors {
+    $name: '' + $color;
+
+    [kemet-color="#{$name}"] {
+      color: rgb(var(--kemet-color-#{'' + $color}));
+    }
+
+    [kemet-background-color="#{$name}"] {
+      background-color: rgb(var(--kemet-color-#{'' + $color}));
     }
   }
 
   [kemet-color='auto'] {
-    color: var(--kemet-color-foreground);
+    color: rgb(var(--kemet-color-foreground));
   }
 
   [kemet-background-color='auto'] {
-    background-color: var(--kemet-color-background);
+    background-color: rgb(var(--kemet-color-background));
   }
 }
 
@@ -355,12 +420,20 @@
     $name: '' + $color;
 
     [kemet-border*="#{$name}"] {
-      border-color: $value;
+      border-color: RGB(string.unquote($value));
+    }
+  }
+
+  @each $color, $value in $themecolors {
+    $name: '' + $color;
+
+    [kemet-border*="#{$name}"] {
+      border-color: RGB(string.unquote($value));
     }
   }
 
   [kemet-border*='auto'] {
-    border-color: var(--kemet-color-background);
+    border-color: rgb(var(--kemet-color-foreground));
   }
 
   @each $width, $value in $borderwidths {
@@ -432,10 +505,9 @@
       --kemet-color-#{"" + $color}: #{$value};
     }
 
-    --kemet-color-white-to-black: var(--kemet-color-white);
-    --kemet-color-white-to-primary: var(--kemet-color-white);
-    --kemet-color-gray1-to-transparent: var(--kemet-color-gray1);
-    --kemet-color-primary-to-transparent: var(--kemet-color-primary);
+    @each $color, $value in $themecolors {
+      --kemet-color-#{"" + $color}: #{$value};
+    }
 
     // handle border radiuses
     @each $size, $value in $borderradiuses {

@@ -13,7 +13,7 @@ const Template = ({
   type = 'padding',
   side = 'all',
   breakpoint = 'tiny',
-  space = 'normal',
+  space = 'md',
 }) => {
   const sideAttr = side !== 'all' ? `-${side}` : '';
   const template = `
@@ -24,7 +24,7 @@ const Template = ({
 };
 
 const TemplateMultiple = () => html`
-  <div kemet-padding="small:normal medium:none large:largest">
+  <div kemet-padding="small:2xl medium:none large:3xl">
     This will have responsive margins of normal at small, none at medium, and large at largest.
   </div>
 `;
@@ -35,7 +35,7 @@ export const Standard: Story = {
     type: 'padding',
     side: 'all',
     breakpoint: 'tiny',
-    space: 'normal',
+    space: 'md',
   },
   argTypes: {
     type: {
@@ -52,7 +52,7 @@ export const Standard: Story = {
     },
     space: {
       control: { type: 'select' },
-      options: ['none', 'smallest', 'smaller', 'small', 'normal', 'large', 'larger', 'largest'],
+      options: ['auto', 'none', '3xs', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'],
     },
   },
 };

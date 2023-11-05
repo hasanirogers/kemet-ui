@@ -25,11 +25,11 @@ import { TypeEffect, TypeSide } from './types';
  * @csspart content
  * @csspart wrapper
  *
- * @cssproperty --kemet-drawer-width - The width of the drawer. Default: 300px.
- * @cssproperty --kemet-drawer-height - The height of the drawer. Default:  100%.
- * @cssproperty --kemet-drawer-color - The text color of the drawer. Default:  #fafafa.
- * @cssproperty --kemet-drawer-background-color - The background color of the drawer. Default: #202020.
- * @cssproperty --kemet-drawer-overlay-color - The color of the overlay. Default: rgba(0, 0, 0, 0.2).
+ * @cssproperty --kemet-drawer-width - The width of the drawer.
+ * @cssproperty --kemet-drawer-height - The height of the drawer.
+ * @cssproperty --kemet-drawer-color - The text color of the drawer.
+ * @cssproperty --kemet-drawer-background-color - The background color of the drawer.
+ * @cssproperty --kemet-drawer-overlay-color - The color of the overlay.
  *
  * @event kemet-drawer-opened - Fires when the drawer opens.
  * @event kemet-drawer-closed - Fires when the drawer closes.

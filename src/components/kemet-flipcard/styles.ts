@@ -8,10 +8,20 @@ export const stylesBase = css`
   }
 
   :host {
+    --kemet-flipcard-width: 100%;
+    --kemet-flipcard-height: auto;
+    --kemet-flipcard-ratio: 16/9;
+    --kemet-flipcard-border-radius: 0;
+    --kemet-flipcard-border: 2px solid rgb(var(--kemet-color-primary));
+    --kemet-flipcard-front-color: rgb(var(--kemet-color-gray-950));
+    --kemet-flipcard-front-background-color: rgb(var(--kemet-color-gray-50));
+    --kemet-flipcard-back-color: rgb(var(--kemet-color-gray-950));
+    --kemet-flipcard-back-background-color: rgb(var(--kemet-color-gray-50));
+
     display: inline-block;
-    width: var(--kemet-flipcard-width, 100%);
-    height: var(--kemet-flipcard-height, auto);
-    aspect-ratio: var(--kemet-flipcard-ratio, 16/9);
+    width: var(--kemet-flipcard-width);
+    height: var(--kemet-flipcard-height);
+    aspect-ratio: var(--kemet-flipcard-ratio);
     perspective: 1000px;
   }
 
@@ -31,18 +41,18 @@ export const stylesBase = css`
     height: 100%;
     backface-visibility: hidden;
     /* overflow: hidden; */
-    border-radius: var(--kemet-flipcard-border-radius, 0);
-    border: var(--kemet-flipcard-border, 2px solid var(--kemet-color-primary));
+    border-radius: var(--kemet-flipcard-border-radius);
+    border: var(--kemet-flipcard-border);
   }
 
   :host([rounded]) .front,
   :host([rounded]) .back {
-    border-radius: var(--kemet-border-radius);
+    border-radius: var(--kemet-border-radius-xl);
   }
 
   .front {
-    color: var(--kemet-flipcard-front-color, #202020);
-    background-color: var(--kemet-flipcard-front-background-color, #fafafa);
+    color: var(--kemet-flipcard-front-color);
+    background-color: var(--kemet-flipcard-front-background-color);
   }
 
   :host([flipped]) .front {
@@ -50,8 +60,8 @@ export const stylesBase = css`
   }
 
   .back {
-    color: var(--kemet-flipcard-back-color, #202020);
-    background-color: var(--kemet-flipcard-back-background-color, #fafafa)
+    color: var(--kemet-flipcard-back-color);
+    background-color: var(--kemet-flipcard-back-background-color)
   }
 
   :host([axis="horizontal"]) .back {

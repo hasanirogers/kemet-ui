@@ -8,6 +8,13 @@ export const stylesBase = css`
   }
 
   :host {
+    --kemet-checkbox-size: 18px;
+    --kemet-checkbox-color: rgb(var(--kemet-color-foreground));
+    --kemet-checkbox-border: 1px solid rgb(var(--kemet-color-foreground));
+    --kemet-checkbox-border-radius: var(--kemet-border-radius-md);
+    --kemet-checkbox-filled-background-color: rgb(var(--kemet-color-primary));
+    --kemet-checkbox-filled-color: rgb(var(--kemet-color-white));
+
     display: inline-block;
   }
 
@@ -25,8 +32,8 @@ export const stylesBase = css`
     cursor: pointer;
     margin: 0;
     padding: 0;
-    width: var(--kemet-checkbox-size, 18px);
-    height: var(--kemet-checkbox-size, 18px);
+    width: var(--kemet-checkbox-size);
+    height: var(--kemet-checkbox-size);
     position: absolute;
     opacity: 0;
   }
@@ -38,34 +45,34 @@ export const stylesBase = css`
   }
 
   [part='checkbox'] {
-    color: var(--kemet-checkbox-color, var(--kemet-color-background));
+    color: var(--kemet-checkbox-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--kemet-checkbox-size, 18px);
-    height: var(--kemet-checkbox-size, 18px);
-    border: var(--kemet-checkbox-border, 1px solid var(--kemet-color-background));
+    width: var(--kemet-checkbox-size);
+    height: var(--kemet-checkbox-size);
+    border: var(--kemet-checkbox-border);
   }
 
   :host([rounded]) [part='checkbox'] {
-    border-radius: var(--kemet-checkbox-border-radius, 4px);
+    border-radius: var(--kemet-checkbox-border-radius);
   }
 
   :host([filled][checked]) [part='checkbox'],
   :host([filled][indeterminate]) [part='checkbox'] {
     border: none;
-    background-color: var(--kemet-checkbox-filled-background-color, var(--kemet-color-primary));
+    background-color: var(--kemet-checkbox-filled-background-color);
   }
 
   [part='mark'] {
     display: flex;
-    width: calc(var(--kemet-checkbox-size, 18px) - 4px);
-    height: calc(var(--kemet-checkbox-size, 18px) - 4px);
+    width: calc(var(--kemet-checkbox-size) - 4px);
+    height: calc(var(--kemet-checkbox-size) - 4px);
   }
 
   :host([filled][checked]) [part='mark'],
   :host([filled][indeterminate]) [part='mark'] {
-    color: var(--kemet-checkbox-filled-color, var(--kemet-color-white));
+    color: var(--kemet-checkbox-filled-color);
   }
 
   [part='message'] {
@@ -74,10 +81,10 @@ export const stylesBase = css`
   }
 
   :host([status='error']) [part='message'] {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 
   :host([status='warning']) [part='message'] {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 `;

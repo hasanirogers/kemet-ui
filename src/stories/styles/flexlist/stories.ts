@@ -10,34 +10,34 @@ type Story = StoryObj;
 
 const TemplateExample1 = () => html`
   <div kemet-layout="flexlist" kemet-gutters>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">One</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Two</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Three</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Four</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Five</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">One</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Two</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Three</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Four</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Five</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Six</div></div>
   </div>
 `;
 
 const TemplateExample2 = () => html`
   <div kemet-layout="flexlist" kemet-gutters>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">One</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Two</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Three</div></div>
-    <div kemet-order="medium:minus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Four</div></div>
-    <div kemet-order="medium:minus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Five</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">One</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Two</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Three</div></div>
+    <div kemet-order="medium:minus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="xs">Four</div></div>
+    <div kemet-order="medium:minus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="xs">Five</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Six</div></div>
   </div>
 `;
 
 const TemplateExample3 = () => html`
-  <div kemet-layout="flexlist" kemet-gutters="">
-  <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">One</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Two</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Three</div></div>
-    <div kemet-order="medium:plus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Four</div></div>
-    <div kemet-order="medium:plus-1"><div kemet-background-color="gray5" kemet-color="white" kemet-padding="tiny:smallest">Five</div></div>
-    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="tiny:smallest">Six</div></div>
+  <div kemet-layout="flexlist" kemet-gutters>
+  <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">One</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Two</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Three</div></div>
+    <div kemet-order="medium:plus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="xs">Four</div></div>
+    <div kemet-order="medium:plus-1"><div kemet-background-color="gray-400" kemet-color="white" kemet-padding="xs">Five</div></div>
+    <div><div kemet-background-color="primary" kemet-color="white" kemet-padding="xs">Six</div></div>
   </div>
 `;
 

@@ -23,13 +23,13 @@ import { stylesBase } from './styles';
  * @csspart back - The back of the card.
  * @csspart wrapper - A container for both front and back of the card.
  *
- * @cssproperty --kemet-flipcard-front-color - The text color for the front of the card. Default: #202020.
- * @cssproperty --kemet-flipcard-back-color - The text color for the back of the card. Default: #202020.
- * @cssproperty --kemet-flipcard-front-background-color - The background color for the front of the card. Default: #fafafa.
- * @cssproperty --kemet-flipcard-back-background-color - The background color for the back of the card. Default: #fafafa.
- * @cssproperty --kemet-flipcard-border - The border on the front and back of the card. Default: 2px solid var(--kemet-color-primary).
- * @cssproperty --kemet-flipcard-border-radius - The border radius on the front and back of the card. Default: 0.
- * @cssproperty --kemet-flipcard-ratio - The aspect ratio of the card. Default: 16/9.
+ * @cssproperty --kemet-flipcard-front-color - The text color for the front of the card.
+ * @cssproperty --kemet-flipcard-back-color - The text color for the back of the card.
+ * @cssproperty --kemet-flipcard-front-background-color - The background color for the front of the card.
+ * @cssproperty --kemet-flipcard-back-background-color - The background color for the back of the card.
+ * @cssproperty --kemet-flipcard-border - The border on the front and back of the card.
+ * @cssproperty --kemet-flipcard-border-radius - The border radius on the front and back of the card.
+ * @cssproperty --kemet-flipcard-ratio - The aspect ratio of the card.
  *
  */
 

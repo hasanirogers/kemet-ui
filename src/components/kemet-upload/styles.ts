@@ -2,12 +2,18 @@ import { css } from 'lit';
 
 export const stylesUpload = css`
   :host {
-    color: var(--kemet-upload-color, var(--kemet-color-white));
+    --kemet-upload-color: rgb(var(--kemet-color-white));
+    --kemet-upload-height: 364px;
+    --kemet-upload-border: 1rem solid rgb(var(--kemet-color-gray-50-to-transparent));
+    --kemet-upload-background-color: rgb(var(--kemet-color-primary-to-transparent));
+
+
+    color: var(--kemet-upload-color);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: var(--kemet-upload-height, 364px);
-    border: var(--kemet-upload-border, 1rem solid var(--kemet-color-gray1-to-transparent));
-    background-color: var(--kemet-upload-background-color, var(--kemet-color-primary-to-transparent));
+    height: var(--kemet-upload-height);
+    border: var(--kemet-upload-border);
+    background-color: var(--kemet-upload-background-color);
   }
 
   :host([mobile]) {
@@ -23,9 +29,9 @@ export const stylesUpload = css`
     cursor: pointer;
     font-size: 1rem;
     display: block;
-    color: var(--kemet-color-white);
+    color: rgb(var(--kemet-color-white));
     padding: 0.5rem 1rem;
-    border: 1px solid var(--kemet-color-white);
+    border: 1px solid rgb(var(--kemet-color-white));
     background-color: transparent;
   }
 
@@ -35,11 +41,11 @@ export const stylesUpload = css`
     justify-content: center;
     margin: var(--kemet-upload-margin);
     flex-direction: column;
-    border: 2px dashed var(--kemet-color-white);
+    border: 2px dashed rgb(var(--kemet-color-white));
   }
 
   :host([over]) .upload {
-    background-color: green;
+    background-color: rgb(var(--kemet-color-green-600));
   }
 
   :host([mobile]) .upload {
@@ -52,7 +58,7 @@ export const stylesUpload = css`
     flex-direction: column;
     padding: 0 1rem;
     overflow: auto;
-    background-color: var(--kemet-color-gray1-to-transparent);
+    background-color: rgb(var(--kemet-color-gray-50-to-transparent));
   }
 
   :host([mobile]) .files {
@@ -72,25 +78,28 @@ export const stylesUpload = css`
 
 export const stylesUploadFile = css`
   :host {
-    --kemet-upload-file-ripple-color: var(--kemet-color-primary);
+    --kemet-upload-file-ripple-color: rgb(var(--kemet-color-primary));
+    --kemet-upload-file-color: rgb(var(--kemet-color-text));
+    --kemet-upload-file-padding: 0.5rem 1rem;
+    --kemet-upload-file-border: 1px solid rgb(var(--kemet-color-primary));
 
-    color: var(--kemet-upload-file-color, var(--kemet-color-text));
+    color: var(--kemet-upload-file-color);
     display: grid;
     gap: 1rem;
     grid-template-columns: auto 1fr auto;
     align-items: center;
     height: 100%;
     max-height: 50%;
-    padding: var(--kemet-upload-file-padding, 0.5rem 1rem);
-    border: var(--kemet-upload-file-border, 1px solid var(--kemet-color-primary));
+    padding: var(--kemet-upload-file-padding);
+    border: var(--kemet-upload-file-border);
   }
 
   :host([status='error']) {
-    border: 1px solid var(--kemet-color-error);
+    border: 1px solid rgb(var(--kemet-color-error));
   }
 
   :host([status='complete']) {
-    border: 1px solid var(--kemet-color-success);
+    border: 1px solid rgb(var(--kemet-color-success));
   }
 
   h3 {
@@ -109,12 +118,12 @@ export const stylesUploadFile = css`
 
   :host([status='complete']) .message,
   :host([status='complete']) .indicator {
-    color: var(--kemet-color-success);
+    color: rgb(var(--kemet-color-success));
   }
 
   :host([status='error']) .message,
   :host([status='error']) .indicator {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 `;
 
@@ -130,7 +139,7 @@ export const stylesLoaders = css`
     position: absolute;
     border: 4px solid var(--kemet-upload-file-ripple-color);
     opacity: 1;
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
     animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   }
 

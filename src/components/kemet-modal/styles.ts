@@ -8,6 +8,16 @@ export const stylesBase = css`
   }
 
   :host {
+    --kemet-modal-radius: var(--kemet-border-radius-xl);
+    --kemet-modal-transition-speed: 0.3s;
+    --kemet-modal-dialog-min-width: 0;
+    --kemet-modal-dialog-max-width: none;
+    --kemet-modal-dialog-mobile-width: calc(100% - 2rem);
+    --kemet-modal-dialog-mobile-margin: 0 auto;
+    --kemet-modal-dialog-mobile-padding: 1rem;
+    --kemet-modal-dialog-background-color: rgb(var(--kemet-color-white));
+    --kemet-modal-overlay-background-color: rgb(var(--kemet-color-black) / 20%);
+
     position: fixed;
     display: flex;
     top: 0;
@@ -23,20 +33,39 @@ export const stylesBase = css`
     visibility: visible;
   }
 
-  .content {
+  dialog {
+    display: block;
     position: relative;
     z-index: 3;
     margin: auto;
-    min-width: var(--kemet-modal-content-min-width, 0);
-    max-width: var(--kemet-modal-content-max-width, none);
-    background-color: var(--kemet-modal-content-background-color, var(--kemet-color-white-to-primary));
+    min-width: var(--kemet-modal-dialog-min-width);
+    max-width: var(--kemet-modal-dialog-max-width);
+    border: 0;
+    background: var(--kemet-modal-dialog-background-color);
   }
 
-  :host([mobile]) .content {
-    min-width: var(--kemet-modal-content-mobile-min-width, 100%);
-    min-height: var(--kemet-modal-content-mobile-min-height, 80vh);
-    padding: var(--kemet-modal-content-mobile-padding, 1rem);
+  dialog::backdrop {
+    background: none;
   }
+
+  :host([mobile]) dialog {
+    margin: var(--kemet-modal-dialog-mobile-margin);
+    width: var(--kemet-modal-dialog-mobile-width);
+    padding: var(--kemet-modal-dialog-mobile-padding);
+    inset-block-start: auto;
+  }
+
+  :host([rounded]) dialog {
+    border-radius: var(--kemet-modal-radius);
+  }
+
+  :host([rounded][mobile]) dialog {
+    border-top-left-radius: var(--kemet-modal-radius);
+    border-top-right-radius: var(--kemet-modal-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
 
   .overlay {
     position: fixed;
@@ -47,8 +76,8 @@ export const stylesBase = css`
     left: 0;
     z-index: 1;
     opacity: 0;
-    background: var(--kemet-modal-overlay-background-color, rgba(0,0,0,0.2));
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    background: var(--kemet-modal-overlay-background-color);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
   :host([opened]) .overlay {
@@ -59,49 +88,49 @@ export const stylesBase = css`
 
 export const stylesEffects = css`
   /* fadein-scaleup */
-  :host([effect="fadein-scaleup"]) .content {
+  :host([effect="fadein-scaleup"]) dialog {
     transform: scale(0.7);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
-  :host([effect="fadein-scaleup"][opened]) .content {
+  :host([effect="fadein-scaleup"][opened]) dialog {
     transform: scale(1);
     opacity: 1;
   }
 
   /* slide-right */
-  :host([effect="slide-right"]) .content {
+  :host([effect="slide-right"]) dialog {
     transform: translateX(20%);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s) cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all var(--kemet-modal-transition-speed) cubic-bezier(0.25, 0.5, 0.5, 0.9);
   }
 
-  :host([effect="slide-right"][opened]) .content {
+  :host([effect="slide-right"][opened]) dialog {
     transform: translateX(0);
     opacity: 1;
   }
 
   /* slide-bottom */
-  :host([effect="slide-bottom"]) .content {
+  :host([effect="slide-bottom"]) dialog {
     transform: translateY(20%);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
-  :host([effect="slide-bottom"][opened]) .content {
+  :host([effect="slide-bottom"][opened]) dialog {
     transform: translateY(0);
     opacity: 1;
   }
 
   /* newspaper */
-  :host([effect="newspaper"]) .content {
+  :host([effect="newspaper"]) dialog {
     transform: scale(0) rotate(720deg);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
-  :host([effect="newspaper"][opened]) .content {
+  :host([effect="newspaper"][opened]) dialog {
     transform: scale(1) rotate(0deg);
     opacity: 1;
   }
@@ -111,14 +140,14 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="fall"]) .content {
+  :host([effect="fall"]) dialog {
     transform-style: preserve-3d;
     transform: translateZ(600px) rotateX(20deg);
     opacity: 0;
   }
 
-  :host([effect="fall"][opened]) .content {
-    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;
+  :host([effect="fall"][opened]) dialog {
+    transition: all var(--kemet-modal-transition-speed) ease-in;
     transform: translateZ(0px) rotateX(0deg);
     opacity: 1;
   }
@@ -128,14 +157,14 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="side-fall"]) .content {
+  :host([effect="side-fall"]) dialog {
     transform-style: preserve-3d;
     transform: translate(30%) translateZ(600px) rotate(10deg);
     opacity: 0;
   }
 
-  :host([effect="side-fall"][opened]) .content {
-    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-in;
+  :host([effect="side-fall"][opened]) dialog {
+    transition: all var(--kemet-modal-transition-speed) ease-in;
     transform: translate(0%) translateZ(0) rotate(0deg);
     opacity: 1;
   }
@@ -145,14 +174,14 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="flip-horizontal"]) .content {
+  :host([effect="flip-horizontal"]) dialog {
     transform-style: preserve-3d;
     transform: rotateY(-70deg);
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
     opacity: 0;
   }
 
-  :host([effect="flip-horizontal"][opened]) .content {
+  :host([effect="flip-horizontal"][opened]) dialog {
     transform: rotateY(0deg);
     opacity: 1;
   }
@@ -162,14 +191,14 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="flip-vertical"]) .content {
+  :host([effect="flip-vertical"]) dialog {
     transform-style: preserve-3d;
     transform: rotateX(-70deg);
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
     opacity: 0;
   }
 
-  :host([effect="flip-vertical"][opened]) .content {
+  :host([effect="flip-vertical"][opened]) dialog {
     transform: rotateX(0deg);
     opacity: 1;
   }
@@ -179,27 +208,27 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="sign-3d"]) .content {
+  :host([effect="sign-3d"]) dialog {
     transform-style: preserve-3d;
     transform: rotateX(-60deg);
     transform-origin: 50% 0;
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
-  :host([effect="sign-3d"][opened]) .content {
+  :host([effect="sign-3d"][opened]) dialog {
     transform: rotateX(0deg);
     opacity: 1;
   }
 
   /* super-scaled */
-  :host([effect="super-scaled"]) .content {
+  :host([effect="super-scaled"]) dialog {
     transform: scale(2);
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
-  :host([effect="super-scaled"][opened]) .content {
+  :host([effect="super-scaled"][opened]) dialog {
     transform: scale(1);
     opacity: 1;
   }
@@ -209,13 +238,13 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="slit"]) .content {
+  :host([effect="slit"]) dialog {
     transform-style: preserve-3d;
     transform: translateZ(-3000px) rotateY(90deg);
     opacity: 0;
   }
 
-  :host([effect="slit"][opened]) .content {
+  :host([effect="slit"][opened]) dialog {
     animation: slit .7s forwards ease-out;
   }
 
@@ -235,15 +264,15 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="rotate-bottom"]) .content {
+  :host([effect="rotate-bottom"]) dialog {
     transform-style: preserve-3d;
     transform: translateY(100%) rotateX(90deg);
     transform-origin: 0 100%;
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s) ease-out;
+    transition: all var(--kemet-modal-transition-speed) ease-out;
   }
 
-  :host([effect="rotate-bottom"][opened]) .content {
+  :host([effect="rotate-bottom"][opened]) dialog {
     transform: translateY(0%) rotateX(0deg);
     opacity: 1;
   }
@@ -253,15 +282,15 @@ export const stylesEffects = css`
     perspective: 1300px;
   }
 
-  :host([effect="rotate-left"]) .content {
+  :host([effect="rotate-left"]) dialog {
     transform-style: preserve-3d;
     transform: translateZ(100px) translateX(-30%) rotateY(90deg);
     transform-origin: 0 100%;
     opacity: 0;
-    transition: all var(--kemet-modal-transition-speed, 0.3s);
+    transition: all var(--kemet-modal-transition-speed);
   }
 
-  :host([effect="rotate-left"][opened]) .content {
+  :host([effect="rotate-left"][opened]) dialog {
     transform: translateZ(0px) translateX(0%) rotateY(0deg);
     opacity: 1;
   }

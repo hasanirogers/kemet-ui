@@ -10,33 +10,31 @@ Kemet's config includes a number of generic colors to use out of the box for you
 <Canvas name="Standard" of={stories.Standard} />
 <ArgsTable story="Standard" />
 
-## Theme-ing
+## Polarity
 
-Here you'll notice that if you set color to either `foreground` or `background` they colors will change between light and dark themes. These values are special theme values and you can configure Kemet to generate as many theme values as you wish.
+Kemet has a concept called polarity. Polarity refers to a component siting either on a light or dark background. This is how you control "light" and "dark" modes in Kemet. By default, Kemet assumes a light background, or `[polarity="light"]`. You can switch this to dark however with `[polarity="dark"]`. Use the `html` tag of the document to change the entire page into a dark polarity.
 
-Here are the values for these colors:
+With polarity comes the concept of a foreground and background colors. By default, the background is white and the forground is the primary color. It looks like this:
 
 ### light
-- foreground = white
-- background = primary
-
-### dark
 - foreground = primary
 - background = white
 
-### Special Custom Properties
+### dark
+- foreground = white
+- bacground = primary
 
-Kemet ships with a number of css custom properties that are specifically for theme-ing. They are as the following:
+So, in this respect, dark mode is the reverse of light mode.
+
+### Special Colors
+
+Kemet has special colors that are used when handling polarity. They are in the `$themeable` sass map.
 
 | Property                             | Light Value                | Dark Value                 |
 | ------------------------------------ | -------------------------- | -------------------------- |
-| --kemet-color-text                   | var(--kemet-color-gray9)   | var(--kemet-color-white)   |
-| --kemet-color-foreground             | var(--kemet-color-white)   | var(--kemet-color-primary) |
-| --kemet-color-background             | var(--kemet-color-primary) | var(--kemet-color-white)   |
 | --kemet-color-white-to-black         | var(--kemet-color-white)   | var(--kemet-color-black)   |
 | --kemet-color-white-to-primary       | var(--kemet-color-white)   | var(--kemet-color-primary) |
-| --kemet-color-gray1-to-transparent   | var(--kemet-color-gray1)   | transparent                |
+| --kemet-color-gray-50-to-transparent | var(--kemet-color-gray-50) | transparent                |
 | --kemet-color-primary-to-transparent | var(--kemet-color-primary) | transparent                |
-| --kemet-upload-margin                | 1rem                       | 0                          |
 
-Notice that there's more than colors here. `--kemet-upload-margin` is a component specific property that changes between themes. You can create as many properties as you need to style your own themes.
+You can extend these colors for more complex color swapping between light and dark polarity.

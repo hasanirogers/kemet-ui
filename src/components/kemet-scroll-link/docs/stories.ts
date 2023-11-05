@@ -44,7 +44,7 @@ const Template = () => {
         width: 100%;
         height: var(--nav-height);
         border-bottom: 1px solid gray;
-        background-color: var(--kemet-color-white-to-black);
+        background-color: rgb(var(--kemet-color-white-to-black));
       }
 
       article {
@@ -52,7 +52,7 @@ const Template = () => {
       }
 
       kemet-scroll-link {
-        color: var(--kemet-color-background);
+        color: rgb(var(--kemet-color-foreground));
       }
 
       .docs-story nav {

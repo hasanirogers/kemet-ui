@@ -8,6 +8,16 @@ export const stylesRadio = css`
   }
 
   :host {
+    --kemet-radio-size: 18px;
+    --kemet-radio-border: 1px solid rgb(var(--kemet-color-foreground));
+    --kemet-radio-dot-color: rgb(var(--kemet-color-primary));
+    --kemet-radio-dot-border: 1px solid rgb(var(--kemet-color-primary));
+    --kemet-radio-dot-border-width: 3px;
+    --kemet-radio-dot-ring-color: rgb(var(--kemet-color-white));
+    --kemet-radio-dot-color-filled: rgb(var(--kemet-color-white));
+    --kemet-radio-dot-border-width: 4px;
+    --kemet-radio-dot-border-color: rgb(var(--kemet-color-primary));
+
     display: inline-block;
   }
 
@@ -27,8 +37,8 @@ export const stylesRadio = css`
     cursor: pointer;
     margin: 0;
     padding: 0;
-    width: var(--kemet-radio-size, 18px);
-    height: var(--kemet-radio-size, 18px);
+    width: var(--kemet-radio-size);
+    height: var(--kemet-radio-size);
     position: absolute;
     opacity: 0;
   }
@@ -37,27 +47,27 @@ export const stylesRadio = css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--kemet-radio-size, 18px);
-    height: var(--kemet-radio-size, 18px);
+    width: var(--kemet-radio-size);
+    height: var(--kemet-radio-size);
     padding: 0;
-    border-radius: 50%;
+    border-radius: var(--kemet-border-radius-circle);
     background: none;
-    border: var(--kemet-radio-border, 1px solid var(--kemet-color-background));
+    border: var(--kemet-radio-border);
   }
 
   [part='dot'] {
     display: inline-flex;
-    border-radius: 50%;
-    width: var(--kemet-radio-size, 18px);
-    height: var(--kemet-radio-size, 18px);
-    background: var(--kemet-radio-dot-color, var(--kemet-color-primary));
-    border: var(--kemet-radio-border, 1px solid var(--kemet-color-primary));
-    box-shadow: inset 0px 0px 0px var(--kemet-radio-dot-border-width, 3px) var(--kemet-radio-dot-border-color, var(--kemet-color-white));
+    border-radius: var(--kemet-border-radius-circle);
+    width: var(--kemet-radio-size);
+    height: var(--kemet-radio-size);
+    background: var(--kemet-radio-dot-color);
+    border: var(--kemet-radio-dot-border);
+    box-shadow: inset 0px 0px 0px var(--kemet-radio-dot-border-width) var(--kemet-radio-dot-ring-color);
   }
 
   :host([filled]) [part='dot'] {
-    background: var(--kemet-radio-dot-color-filled, var(--kemet-color-white));
-    box-shadow: inset 0px 0px 0px var(--kemet-radio-dot-border-width, 4px) var(--kemet-radio-dot-border-color, var(--kemet-color-primary));
+    background: var(--kemet-radio-dot-color-filled);
+    box-shadow: inset 0px 0px 0px var(--kemet-radio-dot-border-width) var(--kemet-radio-dot-border-color);
   }
 `;
 
@@ -94,10 +104,10 @@ export const stylesRadios = css`
   }
 
   :host([status='error']) [part='message'] {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 
   :host([status='warning']) [part='message'] {
-    color: var(--kemet-color-error);
+    color: rgb(var(--kemet-color-error));
   }
 `;

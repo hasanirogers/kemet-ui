@@ -20,10 +20,10 @@ import { stylesBase } from './styles';
  *
  * @csspart initials - Contains the initials for the avatar.
  *
- * @cssproperty --kemet-avatar-color - The color of the text. Default: var(--kemet-color-white).
- * @cssproperty --kemet-avatar-background-color - The color of the background. Default: var(--kemet-color-gray4).
- * @cssproperty --kemet-avatar-rounded-radius - The border radius of the rounded type. Default: 1rem.
- * @cssproperty --kemet-avatar-initials-margin - The space around the initials. Default: 1rem.
+ * @cssproperty --kemet-avatar-color - The color of the text.
+ * @cssproperty --kemet-avatar-background-color - The color of the background.
+ * @cssproperty --kemet-avatar-rounded-radius - The border radius of the rounded type.
+ * @cssproperty --kemet-avatar-initials-margin - The space around the initials.
  *
  */
 

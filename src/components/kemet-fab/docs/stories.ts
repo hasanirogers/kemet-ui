@@ -12,23 +12,18 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / FAB',
   component: 'kemet-fab',
+  args: {
+    label: 'Action',
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = ({
-  label = 'Action',
-  outlined = false,
-  disabled = false,
-  pill = false,
-  expandPoint,
-  collapsePoint,
-  expanded = false,
-}) => html`
-  <kemet-fab ?expanded=${expanded} ?outlined=${outlined} ?disabled=${disabled} ?pill=${pill} expand-point=${ifDefined(expandPoint || null)} collapse-point=${ifDefined(collapsePoint || null)}>
+const Template = (args) => html`
+  <kemet-fab ?expanded=${args.expanded} ?outlined=${args.outlined} ?disabled=${args.disabled} ?pill=${args.pill} expand-point=${ifDefined(args.expandPoint || null)} collapse-point=${ifDefined(args.collapsePoint || null)}>
     <kemet-icon slot="icon" icon="pencil-square" size="24"></kemet-icon>
-    ${label}
+    ${args.label}
   </kemet-fab>
 `;
 
@@ -46,7 +41,7 @@ const TemplateMultiple = () => html`
       align-items: flex-end;
     }
   </style>
-  <ul class="fabs" kemet-layout="flexcolumn" kemet-gutters kemet-margin="tiny:none" kemet-padding="tiny:none">
+  <ul class="fabs" kemet-layout="flexcolumn" kemet-gutters kemet-margin="none" kemet-padding="none">
     <li>
       <kemet-fab pill>
         <kemet-icon slot="icon" icon="envelope" size="24"></kemet-icon> Email
@@ -67,36 +62,27 @@ const TemplateMultiple = () => html`
 
 export const Standard: Story = {
   render: (args: any) => Template(args),
+};
+
+export const Outlined: Story = {
+  render: (args: any) => Template(args),
   args: {
-    label: 'Action',
-    outlined: false,
-    disabled: false,
-    pill: false,
-    expanded: false,
+    outlined: true,
   },
-  argTypes: {
-    label: {
-      control: { type: 'text' },
-    },
-    outlined: {
-      control: { type: 'boolean' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    pill: {
-      control: { type: 'boolean' },
-    },
-    expandPoint: {
-      control: { type: 'number' },
-    },
-    collapsePoint: {
-      control: { type: 'number' },
-    },
-    expanded: {
-      control: { type: 'boolean' },
-    },
-  }
+};
+
+export const Disabled: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    disabled: true,
+  },
+};
+
+export const Pill: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    pill: true,
+  },
 };
 
 export const Multiple: Story = {

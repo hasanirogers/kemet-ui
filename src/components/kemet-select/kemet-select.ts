@@ -28,19 +28,19 @@ import { KemetOptionInterface } from './types';
  *
  * @csspart select
  *
- * @cssproperty --kemet-select-padding - The padding on the textarea. Default: 1rem.
- * @cssproperty --kemet-select-border - The border of the textarea. Default: 1px solid var(--kemet-color-background).
- * @cssproperty --kemet-select-border-color-error - The border of the error state. Default: 1px solid var(--kemet-color-error).
- * @cssproperty --kemet-select-border-color-success - The border of the success state. Default: 1px solid var(--kemet-color-success).
- * @cssproperty --kemet-select-border-color-warning - The border of the warning state. Default: 1px solid var(--kemet-color-warning).
- * @cssproperty --kemet-select-border-radius-rounded - The border radius on rounded. Default: var(--kemet-border-radius).
- * @cssproperty --kemet-select-border-filled - The border on filled. Default: none.
- * @cssproperty --kemet-select-color-filled - The color on filled. Default: var(--kemet-color-white).
- * @cssproperty --kemet-select-background-color-filled - The background-color on filled. Default: var(--kemet-color-primary).
- * @cssproperty --kemet-select-background-color-error - The error state background color. Default: var(--kemet-color-error).
- * @cssproperty --kemet-select-background-color-success - The success state background color. Default: var(--kemet-color-success).
- * @cssproperty --kemet-select-background-color-warning - The warning state background color. Default: var(--kemet-color-warning).
- * @cssproperty --kemet-select-icon-right - The space on the right of the icon. Default: 1rem.
+ * @cssproperty --kemet-select-padding - The padding on the textarea.
+ * @cssproperty --kemet-select-border - The border of the textarea.
+ * @cssproperty --kemet-select-border-color-error - The border of the error state.
+ * @cssproperty --kemet-select-border-color-success - The border of the success state.
+ * @cssproperty --kemet-select-border-color-warning - The border of the warning state.
+ * @cssproperty --kemet-select-border-radius-rounded - The border radius on rounded.
+ * @cssproperty --kemet-select-border-filled - The border on filled.
+ * @cssproperty --kemet-select-color-filled - The color on filled.
+ * @cssproperty --kemet-select-background-color-filled - The background-color on filled.
+ * @cssproperty --kemet-select-background-color-error - The error state background color.
+ * @cssproperty --kemet-select-background-color-success - The success state background color.
+ * @cssproperty --kemet-select-background-color-warning - The warning state background color.
+ * @cssproperty --kemet-select-icon-right - The space on the right of the icon.
  *
  * @event kemet-input-focused - Fires when the input receives and loses focus
  * @event kemet-input-status - Fires when there's a change in status

@@ -50,21 +50,21 @@ import { TypeAriaAutoComplete, TypeAutoComplete, TypeStatus } from './types';
  *
  * @csspart input
  *
- * @cssproperty --kemet-input-height - The height of the input. Default: 50px.
- * @cssproperty -kemet-input-padding - The padding on the input. Default: 0.5rem 1rem.
- * @cssproperty -kemet-input-border - The border of the input. Default: 1px solid var(--kemet-color-primary).
- * @cssproperty -kemet-input-border-color-error -  The border of the error state. Default: 1px solid var(--kemet-color-error).
- * @cssproperty -kemet-input-border-color-success - The border of the success state. Default: 1px solid var(--kemet-color-success).
- * @cssproperty -kemet-input-border-color-warning - The border of the warning state. Default: 1px solid var(--kemet-color-warning) |
- * @cssproperty -kemet-input-icon-left-padding - The icon-left padding. Default: 3rem.
- * @cssproperty -kemet-input-icon-right-padding - The icon-right padding. Default: 3rem.
- * @cssproperty -kemet-input-border-radius-rounded - The border radius on rounded. Default: var(--kemet-border-radius).
- * @cssproperty -kemet-input-border-filled - The border on filled. Default: none.
- * @cssproperty -kemet-input-color-filled - The color on filled. Default: var(--kemet-color-white).
- * @cssproperty -kemet-input-background-color-filled - The background-color on filled. Default: var(--kemet-color-primary).
- * @cssproperty -kemet-input-background-color-error - The error state background color. Default: var(--kemet-color-error).
- * @cssproperty -kemet-input-background-color-success - The success state background color. Default: var(--kemet-color-success).
- * @cssproperty -kemet-input-background-color-warning - The warning state background color. Default: var(--kemet-color-warning).
+ * @cssproperty --kemet-input-height - The height of the input.
+ * @cssproperty --kemet-input-padding - The padding on the input.
+ * @cssproperty --kemet-input-border - The border of the input.
+ * @cssproperty --kemet-input-border-color-error -  The border of the error state.
+ * @cssproperty --kemet-input-border-color-success - The border of the success state.
+ * @cssproperty --kemet-input-border-color-warning - The border of the warning state.
+ * @cssproperty --kemet-input-icon-left-padding - The icon-left padding.
+ * @cssproperty --kemet-input-icon-right-padding - The icon-right padding.
+ * @cssproperty --kemet-input-border-radius-rounded - The border radius on rounded.
+ * @cssproperty --kemet-input-border-filled - The border on filled.
+ * @cssproperty --kemet-input-color-filled - The color on filled.
+ * @cssproperty --kemet-input-background-color-filled - The background-color on filled.
+ * @cssproperty --kemet-input-background-color-error - The error state background color.
+ * @cssproperty --kemet-input-background-color-success - The success state background color.
+ * @cssproperty --kemet-input-background-color-warning - The warning state background color.
  *
  * @event kemet-input-focused - Fires when the input receives and loses focus
  * @event kemet-input-status Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element.

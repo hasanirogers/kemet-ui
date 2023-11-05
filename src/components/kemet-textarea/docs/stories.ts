@@ -11,99 +11,58 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Textarea',
   component: 'kemet-textarea',
-};
-export default meta;
-
-type Story = StoryObj;
-
-const Template = ({
-  status = 'standard',
-  validateOnBlur = true,
-  required = true,
-  placeholder = 'Placeholder',
-  minlength = null,
-  maxlength = null,
-  inputmode = 'none',
-  autofocus = false,
-  disabled = false,
-  readonly = false,
-  rows = '4',
-  filled = false,
-  rounded = false,
-}) => html`<kemet-textarea
-  status=${status}
-  ?required=${required}
-  ?validate-on-blur=${validateOnBlur}
-  placeholder=${ifDefined(placeholder || null)}
-  minlength=${ifDefined(minlength || null)}
-  maxlength=${ifDefined(maxlength || null)}
-  inputmode=${inputmode}
-  ?autofocus=${autofocus}
-  ?disabled=${disabled}
-  ?readonly=${readonly}
-  rows=${rows}
-  ?filled=${filled}
-  ?rounded=${rounded}
-></kemet-textarea>`;
-
-export const Standard: Story = {
-  render: args => Template(args),
-  args: {
-    status: 'standard',
-    validateOnBlur: true,
-    required: true,
-    placeholder: 'Placeholder',
-    minlength: null,
-    maxlength: null,
-    inputmode: 'none',
-    autofocus: false,
-    disabled: false,
-    readonly: false,
-    rows: 4,
-    filled: false,
-    rounded: false,
-  },
   argTypes: {
     status: {
       control: { type: 'radio' },
       options: ['standard', 'error', 'success', 'warning'],
     },
-    validateOnBlur: {
-      control: { type: 'boolean' },
-    },
-    required: {
-      control: { type: 'boolean' },
-    },
-    placeholder: {
-      control: { type: 'text' },
-    },
-    minlength: {
-      control: { type: 'number' },
-    },
-    maxlength: {
-      control: { type: 'number' },
-    },
     inputmode: {
       control: { type: 'select' },
       options: ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'],
     },
-    autofocus: {
-      control: { type: 'boolean' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    readonly: {
-      control: { type: 'boolean' },
-    },
-    rows: {
-      control: { type: 'number' },
-    },
-    filled: {
-      control: { type: 'boolean' },
-    },
-    rounded: {
-      control: { type: 'boolean' },
-    },
+  }
+};
+export default meta;
+
+type Story = StoryObj;
+
+const Template = (args) => html`<kemet-textarea
+  status=${ifDefined(args.status)}
+  ?required=${args.required}
+  ?validate-on-blur=${args.validateOnBlur}
+  placeholder=${ifDefined(args.placeholder || null)}
+  minlength=${ifDefined(args.minlength || null)}
+  maxlength=${ifDefined(args.maxlength || null)}
+  inputmode=${args.inputmode}
+  ?autofocus=${args.autofocus}
+  ?disabled=${args.disabled}
+  ?readonly=${args.readonly}
+  rows=${ifDefined(args.rows)}
+  ?filled=${args.filled}
+  ?rounded=${args.rounded}
+></kemet-textarea>`;
+
+export const Standard: Story = {
+  render: args => Template(args),
+};
+
+export const Disabled: Story = {
+  render: args => Template(args),
+  args: {
+    disabled: true
+  }
+};
+
+export const Filled: Story = {
+  render: args => Template(args),
+  args: {
+    filled: true
+  }
+};
+
+export const Rounded: Story = {
+  render: args => Template(args),
+  args: {
+    rounded: true
   }
 };

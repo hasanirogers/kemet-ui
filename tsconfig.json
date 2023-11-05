@@ -16,7 +16,8 @@
     "inlineSources": true,
     "declaration": true,
     "incremental": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "exclude": ["node_modules", "sandboxes", "./src/stories/**/*"]

@@ -34,13 +34,13 @@ import { KemetTabInterface, KemetTabPanelInterface, TypePanelEffect, TypePlaceme
  * @csspart ink - The ink element.
  * @csspart divider - The divider element.
  *
- * @cssproperty --kemet-tabs-ink-size - The thickness of the ink. Default: 6px.
- * @cssproperty --kemet-tabs-ink-radius - The radius on the ink. Default:  6px.
- * @cssproperty --kemet-tabs-ink-color - The color of the ink. Default:  var(--kemet-color-background).
- * @cssproperty --kemet-tabs-divider-size - The thickness of the divider. Default: 1px.
- * @cssproperty --kemet-tabs-divider-color - The color of the divider. Default:  var(--kemet-color-gray4).
- * @cssproperty --kemet-tabs-transition-speed - The transition speed of the panels. Default:  0.5s.
- * @cssproperty --kemet-tabs-spacer - The space between tabs and panels. Default:  1rem.
+ * @cssproperty --kemet-tabs-ink-size - The thickness of the ink.
+ * @cssproperty --kemet-tabs-ink-radius - The radius on the ink.
+ * @cssproperty --kemet-tabs-ink-color - The color of the ink.
+ * @cssproperty --kemet-tabs-divider-size - The thickness of the divider.
+ * @cssproperty --kemet-tabs-divider-color - The color of the divider.
+ * @cssproperty --kemet-tabs-transition-speed - The transition speed of the panels.
+ * @cssproperty --kemet-tabs-spacer - The space between tabs and panels.
  *
  * @event kemet-tab-changed - Fires when a tab is changed
  *
@@ -140,9 +140,19 @@ export default class KemetTabs extends LitElement {
     `;
   }
 
-  updated() {
+  updated(prevProps) {
     this.determineFade();
     this.determineStacked();
+
+    if (prevProps.get('selected') && prevProps.get('selected') !== this.selected) {
+      this.selectTab();
+      this.selectPanel();
+    }
+
+    if (typeof prevProps.get('selectedIndex') === 'number' && prevProps.get('selectedIndex') !== this.selected) {
+      this.selectTab();
+      this.selectPanel();
+    }
   }
 
   handleLinksSlotChange() {

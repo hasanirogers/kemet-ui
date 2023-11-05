@@ -10,6 +10,12 @@ export const stylesBase = css`
   }
 
   :host {
+    --kemet-drawer-overlay-color: rgb(var(--kemet-color-black) / 20%);
+    --kemet-drawer-width: 300px;
+    --kemet-drawer-height: 100%;
+    --kemet-drawer-color: rgb(var(--kemet-color-gray-50));
+    --kemet-drawer-background-color: rgb(var(--kemet-color-gray-950));
+
     width: 100%;
   }
 
@@ -61,7 +67,7 @@ export const stylesBase = css`
     right: 0;
     width: 0;
     height: 0;
-    background: var(--kemet-drawer-overlay-color, rgba(0, 0, 0, 0.2));
+    background: var(--kemet-drawer-overlay-color);
     content: '';
     opacity: 0;
     transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
@@ -94,10 +100,10 @@ export const stylesBase = css`
   /* -------------------------------------- */
 
   .off-canvas__nav {
-    width: var(--kemet-drawer-width, 300px);
-    height: var(--kemet-drawer-height, 100%);
-    color: var(--kemet-drawer-color, #fafafa);
-    background: var(--kemet-drawer-background-color, #202020);
+    width: var(--kemet-drawer-width);
+    height: var(--kemet-drawer-height);
+    color: var(--kemet-drawer-color);
+    background: var(--kemet-drawer-background-color);
   }
 `;
 
@@ -122,13 +128,13 @@ export const stylesEffects = css`
   }
 
   :host([effect='slide'][side='right'][opened]) .off-canvas__nav {
-    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);
+    transform: translate3d(calc(100vw - var(--kemet-drawer-width)), 0, 0);
   }
 
   :host([effect='slide'][side='top']) .off-canvas__nav {
     width: 100vw;
     height: var(--kemet-drawer-height, 100vh);
-    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);
+    transform: translate3d(0, calc(var(--kemet-drawer-height) * -1), 0);
   }
 
   :host([effect='slide'][side='top'][opened]) .off-canvas__nav {
@@ -142,12 +148,12 @@ export const stylesEffects = css`
   }
 
   :host([effect='slide'][side='bottom'][opened]) .off-canvas__nav {
-    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);
+    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height)), 0);
   }
 
   /* reveal */
   :host([effect='reveal'][opened]) .off-canvas__pusher {
-    transform: translate3d(var(--kemet-drawer-width, 300px), 0, 0);
+    transform: translate3d(var(--kemet-drawer-width), 0, 0);
   }
 
   :host([effect='reveal']) .off-canvas__nav {
@@ -172,13 +178,13 @@ export const stylesEffects = css`
   }
 
   :host([effect='reveal'][side='right'][opened]) .off-canvas__nav {
-    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);
+    transform: translate3d(calc(100vw - var(--kemet-drawer-width)), 0, 0);
   }
 
   :host([effect='reveal'][side='top']) .off-canvas__nav {
     width: 100vw;
     height: var(--kemet-drawer-height, 100vh);
-    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);
+    transform: translate3d(0, calc(var(--kemet-drawer-height) * -1), 0);
   }
 
   :host([effect='reveal'][side='top'][opened]) .off-canvas__nav {
@@ -186,7 +192,7 @@ export const stylesEffects = css`
   }
 
   :host([effect='reveal'][side='top'][opened]) .off-canvas__pusher {
-    transform: translate3d(0, var(--kemet-drawer-height, 100vh), 0);
+    transform: translate3d(0, var(--kemet-drawer-height), 0);
   }
 
   :host([effect='reveal'][side='bottom']) .off-canvas__nav {
@@ -196,16 +202,16 @@ export const stylesEffects = css`
   }
 
   :host([effect='reveal'][side='bottom'][opened]) .off-canvas__nav {
-    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);
+    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height)), 0);
   }
 
   :host([effect='reveal'][side='bottom'][opened]) .off-canvas__pusher {
-    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);
+    transform: translate3d(0, calc(var(--kemet-drawer-height) * -1), 0);
   }
 
   /* push */
   :host([effect='push'][opened]) .off-canvas__pusher {
-    transform: translate3d(var(--kemet-drawer-width, 300px), 0, 0);
+    transform: translate3d(var(--kemet-drawer-width), 0, 0);
   }
 
   :host([effect='push']) .off-canvas__nav {
@@ -223,7 +229,7 @@ export const stylesEffects = css`
   }
 
   :host([effect='push'][side='right'][opened]) .off-canvas__pusher {
-    transform: translate3d(calc(var(--kemet-drawer-width, 300px) * -1), 0, 0);
+    transform: translate3d(calc(var(--kemet-drawer-width) * -1), 0, 0);
   }
 
   :host([effect='push'][side='right']) .off-canvas__nav {
@@ -231,13 +237,13 @@ export const stylesEffects = css`
   }
 
   :host([effect='push'][side='right'][opened]) .off-canvas__nav {
-    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);
+    transform: translate3d(calc(100vw - var(--kemet-drawer-width)), 0, 0);
   }
 
   :host([effect='push'][side='top']) .off-canvas__nav {
     width: 100vw;
     height: var(--kemet-drawer-height, 100vh);
-    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);
+    transform: translate3d(0, calc(var(--kemet-drawer-height) * -1), 0);
   }
 
   :host([effect='push'][side='top'][opened]) .off-canvas__nav {
@@ -245,21 +251,21 @@ export const stylesEffects = css`
   }
 
   :host([effect='push'][side='top'][opened]) .off-canvas__pusher {
-    transform: translate3d(0, var(--kemet-drawer-height, 100vh), 0);
+    transform: translate3d(0, var(--kemet-drawer-height), 0);
   }
 
   :host([effect='push'][side='bottom']) .off-canvas__nav {
     width: 100vw;
-    height: var(--kemet-drawer-height, 100vh);
+    height: var(--kemet-drawer-height);
     transform: translate3d(0, ${unsafeCSS(documentHeight)}, 0);
   }
 
   :host([effect='push'][side='bottom'][opened]) .off-canvas__nav {
-    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);
+    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height)), 0);
   }
 
   :host([effect='push'][side='bottom'][opened]) .off-canvas__pusher {
-    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);
+    transform: translate3d(0, calc(var(--kemet-drawer-height) * -1), 0);
   }
 
   /* scale */
@@ -291,13 +297,13 @@ export const stylesEffects = css`
   }
 
   :host([effect='scale'][side='right'][opened]) .off-canvas__nav {
-    transform: translate3d(calc(100vw - var(--kemet-drawer-width, 300px)), 0, 0);
+    transform: translate3d(calc(100vw - var(--kemet-drawer-width)), 0, 0);
   }
 
   :host([effect='scale'][side='top']) .off-canvas__nav {
     width: 100vw;
     height: var(--kemet-drawer-height, 100vh);
-    transform: translate3d(0, calc(var(--kemet-drawer-height, 100vh) * -1), 0);
+    transform: translate3d(0, calc(var(--kemet-drawer-height) * -1), 0);
   }
 
   :host([effect='scale'][side='top'][opened]) .off-canvas__nav {
@@ -311,6 +317,6 @@ export const stylesEffects = css`
   }
 
   :host([effect='scale'][side='bottom'][opened]) .off-canvas__nav {
-    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height, 100vh)), 0);
+    transform: translate3d(0, calc(100vh - var(--kemet-drawer-height)), 0);
   }
 `;

@@ -14,23 +14,29 @@ import '../../kemet-tabs/kemet-tab-panel';
 const meta: Meta = {
   title: 'Components / Field',
   component: 'kemet-accordion',
+  args: {
+    label: 'Label',
+  },
+  argTypes: {
+    status: {
+      name: 'Status',
+      control: { type: 'radio' },
+      options: ['standard', 'error', 'success', 'warning'],
+    },
+  }
 };
 export default meta;
 
 type Story = StoryObj;
 
-const TemplateInput = ({
-  label = 'Label', message = '', status = 'standard',
-}) => html`
-  <kemet-field slug="unique-identifier" label="${label}" message="${message}" status="${status}">
-    <kemet-input required slot="input" name="input-field" status="${status}" validate-on-blur></kemet-input>
+const TemplateInput = (args) => html`
+  <kemet-field slug="unique-identifier" label="${args.label}" message="${args.message}" status="${args.status}">
+    <kemet-input required slot="input" name="input-field" status="${args.status}" validate-on-blur></kemet-input>
   </kemet-field>
 `;
 
-const TemplateSelect = ({
-  label = 'Label', message = '', status = 'standard',
-}) => html`
-  <kemet-field slug="unique-identifier" label="${label}" message="${message}" status="${status}">
+const TemplateSelect = (args) => html`
+  <kemet-field slug="unique-identifier" label="${args.label}" message="${args.message}" status="${args.status}">
     <kemet-select slot="input" name="select-field" status="${status}" required>
       <kemet-option label="Choose an Item" value=""></kemet-option>
       <kemet-option label="Item 1" value="1"></kemet-option>
@@ -41,82 +47,20 @@ const TemplateSelect = ({
   </kemet-field>
 `;
 
-const TemplateTextarea = ({
-  label = 'Label', message = '', status = 'standard',
-}) => html`
-  <kemet-field slug="unique-identifier" label="${label}" message="${message}" status="${status}">
-    <kemet-textarea required slot="input" name="textarea-field" status="${status}"></kemet-textarea>
+const TemplateTextarea = (args) => html`
+  <kemet-field slug="unique-identifier" label="${args.label}" message="${args.message}" status="${args.status}">
+    <kemet-textarea required slot="input" name="textarea-field" status="${args.status}"></kemet-textarea>
   </kemet-field>
 `;
 
-export const Standard: Story = {
+export const Input: Story = {
   render: args => TemplateInput(args),
-  args: {
-    label: 'Label',
-    message: '',
-    status: 'standard',
-  },
-  argTypes: {
-    label: {
-      name: 'Label',
-      control: { type: 'text' },
-    },
-    message: {
-      name: 'Validation Message',
-      control: { type: 'text' },
-    },
-    status: {
-      name: 'Status',
-      control: { type: 'radio' },
-      options: ['standard', 'error', 'success', 'warning'],
-    },
-  }
 };
 
 export const Select: Story = {
   render: args => TemplateSelect(args),
-  args: {
-    label: 'Label',
-    message: '',
-    status: 'standard',
-  },
-  argTypes: {
-    label: {
-      name: 'Label',
-      control: { type: 'text' },
-    },
-    message: {
-      name: 'Validation Message',
-      control: { type: 'text' },
-    },
-    status: {
-      name: 'Status',
-      control: { type: 'radio' },
-      options: ['standard', 'error', 'success', 'warning'],
-    },
-  }
 };
 
 export const Textarea: Story = {
   render: args => TemplateTextarea(args),
-  args: {
-    label: 'Label',
-    message: '',
-    status: 'standard',
-  },
-  argTypes: {
-    label: {
-      name: 'Label',
-      control: { type: 'text' },
-    },
-    message: {
-      name: 'Validation Message',
-      control: { type: 'text' },
-    },
-    status: {
-      name: 'Status',
-      control: { type: 'radio' },
-      options: ['standard', 'error', 'success', 'warning'],
-    },
-  }
 };

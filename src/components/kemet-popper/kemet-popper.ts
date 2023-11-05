@@ -5,7 +5,7 @@ import { emitEvent } from '../../utilities/misc/events';
 import { keyCodes } from '../../utilities/misc/constants';
 import { TypeEffect, TypeFireOn, TypePlacement } from './types';
 import { stylesPopper } from './styles';
-import { stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFall, stylesPopperFlipHorizontal, stylesPopperFlipVertical, stylesPopperSign, stylesPopperSuperScaled } from './styles.effects';
+// import { stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFall, stylesPopperFlipHorizontal, stylesPopperFlipVertical, stylesPopperSign, stylesPopperSuperScaled } from './styles.effects';
 
 /**
  * @since 2.0.0
@@ -29,7 +29,6 @@ import { stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFal
  *
  * @prop {TypePlacement} placement - The position of the popper over the trigger.
  * @prop {boolean} opened - Determines if the the Popper is opened or closed
- * @prop {TypeEffect} effect - The open/close animation effect for the Popper
  * @prop {TypeFireOn} fireOn - Activate the Popper on Click or Hover
  * @prop {string} strategy - Sets the strategy option in Popper's api
  * @prop {number} skidding - Sets an offset to the Popper from the trigger
@@ -39,16 +38,13 @@ import { stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFal
 
 @customElement('kemet-popper')
 export default class KemetPopper extends LitElement {
-  static styles = [stylesPopper, stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFall, stylesPopperFlipHorizontal, stylesPopperFlipVertical, stylesPopperSign, stylesPopperSuperScaled];
+  static styles = [stylesPopper];
 
   @property({ type: String, reflect: true })
   placement: TypePlacement = 'top';
 
   @property({ type: Boolean, reflect: true })
   opened: boolean;
-
-  @property({ type: String, reflect: true })
-  effect: TypeEffect = 'fade';
 
   @property({ type: String, attribute: 'fire-on' })
   fireOn: TypeFireOn = 'hover';

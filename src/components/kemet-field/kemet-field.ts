@@ -1,11 +1,12 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
-import { KemetComboInterface } from '../kemet-combo/types';
-import { KemetInputInterface } from '../kemet-input/types';
-import { KemetTextareaInterface } from '../kemet-textarea/types';
 import { stylesBase } from './styles';
 import { TypeStatus } from './types';
+
+import KemetCombo from '../kemet-combo/kemet-combo';
+import KemetInput from '../kemet-input/kemet-input';
+import KemetTextarea from '../kemet-textarea/kemet-textarea';
 
 /**
  * @since 1.0.0
@@ -70,10 +71,10 @@ export default class KemetField extends LitElement {
   successIcon: string = 'check-lg';
 
   @state()
-  slotInput: KemetInputInterface | KemetTextareaInterface;
+  slotInput: KemetInput | KemetTextarea;
 
   @state()
-  slotCombo: KemetComboInterface;
+  slotCombo: KemetCombo;
 
   constructor() {
     super();

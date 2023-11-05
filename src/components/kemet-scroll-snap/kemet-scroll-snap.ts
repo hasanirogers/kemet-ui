@@ -20,10 +20,10 @@ import { KemetScrollSnapSlideInterface, TypeAxis, TypePagination } from './types
  * @csspart slides - The slides container.
  * @csspart pagination - The pagination element.
  *
- * @cssproperty --kemet-scroll-snap-gap - Space between the slides. Default: 1.5rem.
- * @cssproperty --kemet-scroll-snap-horizontal-max-width - The horizontal max width of the container. Default: 1024px.
- * @cssproperty --kemet-scroll-snap-vertical-height - The vertical height of the container. Default: 100vh.
- * @cssproperty --kemet-scroll-snap-slides-vertical-padding - Padding on the vertical axis. Default: 0 2rem.
+ * @cssproperty --kemet-scroll-snap-gap - Space between the slides.
+ * @cssproperty --kemet-scroll-snap-horizontal-max-width - The horizontal max width of the container.
+ * @cssproperty --kemet-scroll-snap-vertical-height - The vertical height of the container.
+ * @cssproperty --kemet-scroll-snap-slides-vertical-padding - Padding on the vertical axis.
  *
  * @event kemet-scroll-snap-make-slides - Fires when slide data has been created.
  *

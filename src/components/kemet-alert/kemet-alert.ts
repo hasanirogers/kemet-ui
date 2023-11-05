@@ -25,12 +25,11 @@ import { TypeStatus } from './types';
  *
  * @csspart close - Container for the close button.
  *
- * @cssproperty --kemet-alert-padding - The padding on the alert. Default: 1rem.
- * @cssproperty --kemet-alert-border-thickness - The thickness of the border. Default: 4px.
+ * @cssproperty --kemet-alert-padding - The padding on the alert.
+ * @cssproperty --kemet-alert-border-thickness - The thickness of the border.
  * @cssproperty --kemet-alert-status-color - The status color. Default: inherit.
- * @cssproperty --kemet-alert-gap - The alert's gap. Default: var(--kemet-alert-padding).
- * @cssproperty --kemet-alert-align-items - The alert's alignment. Default: center.
- * @cssproperty --kemet-alert-border - The border around the alert. Default: 1px solid var(--kemet-color-gray2).
+ * @cssproperty --kemet-alert-align-items - The alert's alignment.
+ * @cssproperty --kemet-alert-border - The border around the alert.
  *
  */
 
@@ -48,7 +47,7 @@ export default class KemetAlert extends LitElement {
   closable: boolean;
 
   @property({ type: String, reflect: true })
-  status: TypeStatus;
+  status: TypeStatus = 'standard';
 
   @property({ type: String, reflect: true, attribute: 'border-status' })
   borderStatus: string;

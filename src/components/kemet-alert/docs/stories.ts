@@ -8,60 +8,11 @@ import '../../kemet-tabs/kemet-tabs';
 import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
 
+import '../../kemet-icon/kemet-icon';
+
 const meta: Meta = {
   title: 'Components / Alert',
   component: 'kemet-alert',
-};
-export default meta;
-
-type Story = StoryObj;
-
-const Template = ({
-  heading,
-  text,
-  icon,
-  status,
-  closable,
-  border,
-  opened,
-  overlay,
-}) => {
-  const makeIcon = () => {
-    if (icon !== 'none') {
-      return html`<kemet-icon slot="icon" icon=${icon} size="24" ></kemet-icon>`;
-    }
-
-    return null;
-  };
-
-  return html`
-    <kemet-alert
-      status=${status}
-      ?closable=${closable}
-      ?opened=${opened}
-      border-status=${border}
-      overlay=${ifDefined(overlay !== 'none' ? overlay : null)}
-      kemet-margin=${ifDefined(overlay.indexOf('full') < 0 ? 'tiny:normal' : nothing)}>
-      ${makeIcon()}
-      <strong>${heading}</strong>
-      <br />
-      ${text}
-    </kemet-alert>
-  `;
-};
-
-export const Standard: Story = {
-  render: (args: any) => Template(args),
-  args: {
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'gear',
-    status: 'standard',
-    closable: false,
-    border: 'left',
-    opened: true,
-    overlay: 'none',
-  },
   argTypes: {
     heading: {
       control: { type: 'text' },
@@ -93,3 +44,204 @@ export const Standard: Story = {
     },
   }
 };
+export default meta;
+
+type Story = StoryObj;
+
+const Template = (args) => {
+  const makeIcon = () => {
+    if (args.icon !== 'none' && args.icon) {
+      return html`<kemet-icon slot="icon" icon=${args.icon} size="24" ></kemet-icon>`;
+    }
+
+    return null;
+  };
+
+  const makeHeading = () => {
+    if (args.heading !== '' && args.heading) {
+      return html`<h3 kemet-margin-bottom="none" kemet-margin-top="none">${args.heading}</h3>`;
+    }
+
+    return null;
+  };
+
+  return html`
+    <kemet-alert
+      status=${ifDefined(args.status)}
+      ?closable=${args.closable}
+      ?opened=${args.opened}
+      border-status=${args.border}
+      overlay=${ifDefined(args.overlay !== 'none' ? args.overlay : null)}
+      kemet-margin=${ifDefined(args.overlay.indexOf('full') < 0 ? '2xl' : nothing)}>
+      ${makeIcon()}
+      ${makeHeading()}
+      ${args.text}
+    </kemet-alert>
+  `;
+};
+
+// export const Standard: Story = {
+//   render: (args: any) => Template(args),
+//   args: {
+//     heading: 'This is a heading.',
+//     text: 'The brown fox jumped over the lazy dog.',
+//     icon: 'gear',
+//     status: 'standard',
+//     closable: false,
+//     border: 'left',
+//     opened: true,
+//     overlay: 'none',
+//   },
+// };
+
+export const Standard: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    text: 'The brown fox jumped over the lazy dog.',
+    overlay: 'none',
+  }
+};
+
+export const Heading: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    overlay: 'none',
+  },
+};
+
+export const Icon: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'info-circle',
+    overlay: 'none',
+  },
+};
+
+export const Closable: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'info-circle',
+    closable: true,
+    overlay: 'none',
+  },
+};
+
+export const BorderTop: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'info-circle',
+    closable: true,
+    border: 'top',
+    overlay: 'none',
+  },
+};
+
+export const BorderRight: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'info-circle',
+    closable: true,
+    border: 'right',
+    overlay: 'none',
+  },
+};
+
+export const BorderBottom: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'info-circle',
+    closable: true,
+    border: 'bottom',
+    overlay: 'none',
+  },
+};
+
+export const BorderLeft: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'info-circle',
+    closable: true,
+    border: 'left',
+    overlay: 'none',
+  },
+};
+
+export const Primary: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'info-circle',
+    closable: true,
+    border: 'left',
+    overlay: 'none',
+    status: 'primary'
+  },
+};
+
+export const Success: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'check-circle',
+    closable: true,
+    border: 'left',
+    overlay: 'none',
+    status: 'success'
+  },
+};
+
+export const Warning: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'exclamation-triangle',
+    closable: true,
+    border: 'left',
+    overlay: 'none',
+    status: 'warning'
+  },
+};
+
+export const Error: Story = {
+  render: (args: any) => Template(args),
+  args: {
+    opened: true,
+    heading: 'This is a heading.',
+    text: 'The brown fox jumped over the lazy dog.',
+    icon: 'exclamation-octagon',
+    closable: true,
+    border: 'left',
+    overlay: 'none',
+    status: 'error'
+  },
+};
+
+

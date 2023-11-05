@@ -4,40 +4,44 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAccordionPanel",
+          "name": "KemetAlert",
           "cssProperties": [
             {
-              "description": "The speed of the opening and closing effect. Default: 0.3s.",
-              "name": "--kemet-accordion-panel-transition-speed"
+              "description": "The padding on the alert.",
+              "name": "--kemet-alert-padding"
+            },
+            {
+              "description": "The thickness of the border.",
+              "name": "--kemet-alert-border-thickness"
+            },
+            {
+              "description": "The status color. Default: inherit.",
+              "name": "--kemet-alert-status-color"
+            },
+            {
+              "description": "The alert's alignment.",
+              "name": "--kemet-alert-align-items"
+            },
+            {
+              "description": "The border around the alert.",
+              "name": "--kemet-alert-border"
             }
           ],
           "cssParts": [
             {
-              "description": "Contains the trigger for the panel.",
-              "name": "trigger"
-            },
-            {
-              "description": "Contains the body for the panel.",
-              "name": "body"
+              "description": "Container for the close button.",
+              "name": "close"
             }
           ],
           "slots": [
             {
-              "description": "The trigger button that opens and closes the panel.",
-              "name": "trigger"
-            },
-            {
-              "description": "The body content of the panel.",
-              "name": "body"
-            },
-            {
-              "description": "The icon for the panel.",
-              "name": "icon"
+              "description": "The contents of the alert.",
+              "name": "default"
             }
           ],
           "members": [
@@ -47,61 +51,87 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "description": "Determines the opened state of the panel",
+              "description": "Determines if the alert is opened or not.",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "maxHeight",
+              "name": "reveal",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "attribute": "max-height"
+              "description": "Fades in the alert when opened.",
+              "attribute": "reveal",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "slug",
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "attribute": "closable",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "default": "'standard'",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "borderStatus",
               "type": {
                 "text": "string"
               },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "attribute": "slug"
+              "description": "Adds a border that indicates the status.",
+              "attribute": "border-status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "attribute": "overlay",
+              "reflects": true
             },
             {
               "kind": "method",
-              "name": "toggle"
+              "name": "makeCloseBtn"
             },
             {
               "kind": "method",
-              "name": "focusableBodyElements"
-            },
-            {
-              "kind": "method",
-              "name": "a11y"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
+              "name": "handleMotion"
             }
           ],
           "events": [
             {
-              "description": "Fires when a panel is opened",
-              "name": "kemet-accordion-panel-opened"
+              "description": "Fires when alert is opened.",
+              "name": "kemet-alert-opened"
             },
             {
-              "description": "Fires when a panel is closed",
-              "name": "kemet-accordion-panel-closed"
+              "description": "Fires when alert is closed.",
+              "name": "kemet-alert-closed"
             }
           ],
           "attributes": [
@@ -110,38 +140,64 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-              },
-              "description": "Determines the opened state of the panel",
+              "description": "Determines if the alert is opened or not.",
               "fieldName": "opened"
             },
             {
-              "name": "max-height",
+              "name": "reveal",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "fieldName": "maxHeight"
+              "description": "Fades in the alert when opened.",
+              "fieldName": "reveal"
             },
             {
-              "name": "slug",
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "fieldName": "closable"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "default": "'standard'",
+              "fieldName": "status"
+            },
+            {
+              "name": "border-status",
               "type": {
                 "text": "string"
               },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "fieldName": "slug"
+              "description": "Adds a border that indicates the status.",
+              "fieldName": "borderStatus"
+            },
+            {
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "fieldName": "overlay"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-accordion-panel",
-          "summary": "A blade for an accordion.",
+          "tagName": "kemet-alert",
+          "summary": "Calls out important messages and notifications.",
           "customElement": true
         }
       ],
@@ -150,131 +206,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-accordion-panel",
+          "name": "kemet-alert",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAccordion",
-          "members": [
-            {
-              "kind": "field",
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "description": "The index value for the most recently opened panel",
-              "attribute": "currentPanel"
-            },
-            {
-              "kind": "field",
-              "name": "togglePanels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "attribute": "toggle-panels "
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "handlePanelOpened",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "navigatePanels",
-              "parameters": [
-                {
-                  "name": "direction"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "expandAll"
-            },
-            {
-              "kind": "method",
-              "name": "collapseAll"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "description": "The index value for the most recently opened panel",
-              "fieldName": "currentPanel"
-            },
-            {
-              "name": "toggle-panels ",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "fieldName": "togglePanels"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-accordion",
-          "summary": "A component that acts like a standard accordion.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-accordion",
-          "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         }
       ]
@@ -289,19 +230,19 @@
           "name": "KemetAvatar",
           "cssProperties": [
             {
-              "description": "The color of the text. Default: var(--kemet-color-white).",
+              "description": "The color of the text.",
               "name": "--kemet-avatar-color"
             },
             {
-              "description": "The color of the background. Default: var(--kemet-color-gray4).",
+              "description": "The color of the background.",
               "name": "--kemet-avatar-background-color"
             },
             {
-              "description": "The border radius of the rounded type. Default: 1rem.",
+              "description": "The border radius of the rounded type.",
               "name": "--kemet-avatar-rounded-radius"
             },
             {
-              "description": "The space around the initials. Default: 1rem.",
+              "description": "The space around the initials.",
               "name": "--kemet-avatar-initials-margin"
             }
           ],
@@ -506,48 +447,34 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAlert",
-          "cssProperties": [
-            {
-              "description": "The padding on the alert. Default: 1rem.",
-              "name": "--kemet-alert-padding"
-            },
-            {
-              "description": "The thickness of the border. Default: 4px.",
-              "name": "--kemet-alert-border-thickness"
-            },
-            {
-              "description": "The status color. Default: inherit.",
-              "name": "--kemet-alert-status-color"
-            },
-            {
-              "description": "The alert's gap. Default: var(--kemet-alert-padding).",
-              "name": "--kemet-alert-gap"
-            },
-            {
-              "description": "The alert's alignment. Default: center.",
-              "name": "--kemet-alert-align-items"
-            },
-            {
-              "description": "The border around the alert. Default: 1px solid var(--kemet-color-gray2).",
-              "name": "--kemet-alert-border"
-            }
-          ],
+          "name": "KemetAccordionPanel",
           "cssParts": [
             {
-              "description": "Container for the close button.",
-              "name": "close"
+              "description": "Contains the trigger for the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "Contains the body for the panel.",
+              "name": "body"
             }
           ],
           "slots": [
             {
-              "description": "The contents of the alert.",
-              "name": "default"
+              "description": "The trigger button that opens and closes the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "The body content of the panel.",
+              "name": "body"
+            },
+            {
+              "description": "The icon for the panel.",
+              "name": "icon"
             }
           ],
           "members": [
@@ -557,86 +484,69 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the alert is opened or not.",
+              "default": "undefined",
+              "description": "Determines the opened state of the panel",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "attribute": "reveal",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "attribute": "closable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "borderStatus",
+              "name": "maxHeight",
               "type": {
                 "text": "string"
               },
-              "description": "Adds a border that indicates the status.",
-              "attribute": "border-status",
-              "reflects": true
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "attribute": "max-height"
             },
             {
               "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "attribute": "hidden",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "overlay",
+              "name": "slug",
               "type": {
                 "text": "string"
               },
-              "description": "Fixes the alert over content in specified position.",
-              "attribute": "overlay",
-              "reflects": true
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "index"
             },
             {
               "kind": "method",
-              "name": "makeCloseBtn"
+              "name": "toggle"
             },
             {
               "kind": "method",
-              "name": "handleMotion"
+              "name": "focusableBodyElements"
+            },
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             }
           ],
           "events": [
             {
-              "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
+              "description": "Fires when a panel is opened",
+              "name": "kemet-accordion-panel-opened"
             },
             {
-              "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
+              "description": "Fires when a panel is closed",
+              "name": "kemet-accordion-panel-closed"
             }
           ],
           "attributes": [
@@ -645,63 +555,45 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the alert is opened or not.",
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+              },
+              "description": "Determines the opened state of the panel",
               "fieldName": "opened"
             },
             {
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "fieldName": "reveal"
-            },
-            {
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "fieldName": "closable"
-            },
-            {
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "fieldName": "status"
-            },
-            {
-              "name": "border-status",
+              "name": "max-height",
               "type": {
                 "text": "string"
               },
-              "description": "Adds a border that indicates the status.",
-              "fieldName": "borderStatus"
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "fieldName": "maxHeight"
             },
             {
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "fieldName": "hidden"
-            },
-            {
-              "name": "overlay",
+              "name": "slug",
               "type": {
                 "text": "string"
               },
-              "description": "Fixes the alert over content in specified position.",
-              "fieldName": "overlay"
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "fieldName": "slug"
+            },
+            {
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "index"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
+          "tagName": "kemet-accordion-panel",
+          "summary": "A blade for an accordion.",
           "customElement": true
         }
       ],
@@ -710,16 +602,133 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-alert",
+          "name": "kemet-accordion-panel",
           "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-accordion/kemet-accordion.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAccordion",
+          "members": [
+            {
+              "kind": "field",
+              "name": "currentPanel",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The index value for the most recently opened panel",
+              "attribute": "current-panel"
+            },
+            {
+              "kind": "field",
+              "name": "togglePanels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "attribute": "toggle-panels"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handlePanelOpened",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "navigatePanels",
+              "parameters": [
+                {
+                  "name": "direction"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "expandAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseAll"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "current-panel",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The index value for the most recently opened panel",
+              "fieldName": "currentPanel"
+            },
+            {
+              "name": "toggle-panels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "fieldName": "togglePanels"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-accordion",
+          "summary": "A component that acts like a standard accordion.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-accordion",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         }
       ]
@@ -863,63 +872,63 @@
           "name": "KemetCard",
           "cssProperties": [
             {
-              "description": "The space around elements. Default: 1rem.",
+              "description": "The space around elements.",
               "name": "--kemet-card-padding"
             },
             {
-              "description": "The color of the borders. Default: var(--kemet-color-gray4).",
+              "description": "The color of the borders.",
               "name": "--kemet-card-border-color"
             },
             {
-              "description": "The color of the text. Default: var(--kemet-color-black).",
+              "description": "The color of the text. Default:",
               "name": "--kemet-card-color"
             },
             {
-              "description": "The max width of the card. Default: 360px.",
+              "description": "The max width of the card.",
               "name": "--kemet-card-max-width"
             },
             {
-              "description": "The border around the card. Default: 1px solid var(--kemet-card-border-color).",
+              "description": "The border around the card.",
               "name": "--kemet-card-border"
             },
             {
-              "description": "The border radius of the card. Default: 0.",
+              "description": "The border radius of the card.",
               "name": "--kemet-card-border-radius"
             },
             {
-              "description": "The background color. Default: var(--kemet-color-white).",
+              "description": "The background color.",
               "name": "--kemet-card-background-color"
             },
             {
-              "description": "The body spacing. Default: var(--kemet-card-padding).",
+              "description": "The body spacing.",
               "name": "--kemet-card-body-padding"
             },
             {
-              "description": "The header spacing. Default: var(--kemet-card-padding).",
+              "description": "The header spacing.",
               "name": "--kemet-card-header-padding"
             },
             {
-              "description": "The header border. Default: 1px solid var(--kemet-card-border-color).",
+              "description": "The header border.",
               "name": "--kemet-card-header-border-bottom"
             },
             {
-              "description": "The caption text color. Default: var(--kemet-color-white).",
+              "description": "The caption text color.",
               "name": "--kemet-card-caption-color"
             },
             {
-              "description": "The caption spacing. Default: calc(var(--kemet-card-padding) / 2) var(--kemet-card-padding).",
+              "description": "The caption spacing.",
               "name": "--kemet-card-caption-padding"
             },
             {
-              "description": "The caption background color. Default: rgba(0,0,0,0.5).",
+              "description": "The caption background color.",
               "name": "--kemet-card-caption-background-color"
             },
             {
-              "description": "The footer spacing. Default: var(--kemet-card-padding).",
+              "description": "The footer spacing.",
               "name": "--kemet-card-footer-padding"
             },
             {
-              "description": "The footer border. Default: 1px solid var(--kemet-card-border-color).",
+              "description": "The footer border.",
               "name": "--kemet-card-footer-border-top"
             }
           ],
@@ -1015,75 +1024,75 @@
           "name": "KemetButton",
           "cssProperties": [
             {
-              "description": "The font size. Default: inherit.",
+              "description": "The font size.",
               "name": "--kemet-button-font-size"
             },
             {
-              "description": "The text color. Default: --kemet-color-foreground.",
+              "description": "The text color.",
               "name": "--kemet-button-color"
             },
             {
-              "description": "The width. Default: auto.",
+              "description": "The width.",
               "name": "--kemet-button-width"
             },
             {
-              "description": "The height. Default:  auto.",
+              "description": "The height.",
               "name": "--kemet-button-height"
             },
             {
-              "description": "The border. Default: 0.",
+              "description": "The border.",
               "name": "--kemet-button-border"
             },
             {
-              "description": "The border radius. Default: 0.",
+              "description": "The border radius.",
               "name": "--kemet-button-border-radius"
             },
             {
-              "description": "The transition speed of the hover effect. Default: 300ms.",
+              "description": "The transition speed of the hover effect.",
               "name": "--kemet-button-transition-speed"
             },
             {
-              "description": "The background color. Default: --kemet-color-background.",
+              "description": "The background color.",
               "name": "--kemet-button-background-color"
             },
             {
-              "description": "The brightness of the hover effect. Default: 1.25.",
+              "description": "The brightness of the hover effect.",
               "name": "--kemet-button-hover-brightness"
             },
             {
-              "description": "The gap between the button and icons. Default: 0.5rem.",
+              "description": "The gap between the button and icons.",
               "name": "--kemet-button-gap"
             },
             {
-              "description": "The button padding. Default: 1rem 1.25rem.",
+              "description": "The button padding.",
               "name": "--kemet-button-padding"
             },
             {
-              "description": "The decoration for a text button's hover. Default: underline.",
+              "description": "The decoration for a text button's hover.",
               "name": "--kemet-button-hover-decoration"
             },
             {
-              "description": "The diameter of a circle button. Default: 50px.",
+              "description": "The diameter of a circle button.",
               "name": "--kemet-button-circle-size"
             },
             {
-              "description": "The border radius of the rounded button. Default: 6px.",
+              "description": "The border radius of the rounded button.",
               "name": "--kemet-button-rounded-amount"
             },
             {
-              "description": "The width of the outline border. Default: 1px.",
+              "description": "The width of the outline border.",
               "name": "--kemet-button-border-width"
             },
             {
-              "description": "The style of the outline border. Default: solid.",
+              "description": "The style of the outline border.",
               "name": "--kemet-button-border-style"
             },
             {
-              "description": "The color of the outline border. Default: --kemet-color-primary.",
+              "description": "The color of the outline border.",
               "name": "--kemet-button-border-color"
             },
             {
-              "description": "The opacity of the disabled state. Default: 0.5.",
+              "description": "The opacity of the disabled state.",
               "name": "--kemet-button-disabled-opacity"
             }
           ],
@@ -1167,13 +1176,13 @@
             },
             {
               "kind": "field",
-              "name": "type",
+              "name": "variant",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
               "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "attribute": "type",
+              "attribute": "variant",
               "reflects": true
             },
             {
@@ -1268,13 +1277,13 @@
               "fieldName": "disabled"
             },
             {
-              "name": "type",
+              "name": "variant",
               "type": {
                 "text": "string"
               },
               "default": "'standard'",
               "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "fieldName": "type"
+              "fieldName": "variant"
             }
           ],
           "superclass": {
@@ -1327,7 +1336,7 @@
               "kind": "field",
               "name": "carousel",
               "type": {
-                "text": "KemetCarouselInterface | null"
+                "text": "KemetCarousel | null"
               }
             }
           ],
@@ -1850,7 +1859,7 @@
               "kind": "field",
               "name": "carousel",
               "type": {
-                "text": "KemetCarouselInterface | null"
+                "text": "KemetCarousel | null"
               }
             }
           ],
@@ -1902,63 +1911,63 @@
           "name": "KemetCarousel",
           "cssProperties": [
             {
-              "description": "The width of the carousel. Default: 100%.",
+              "description": "The width of the carousel.",
               "name": "--kemet-carousel-width"
             },
             {
-              "description": "The height of the carousel. Default: auto.",
+              "description": "The height of the carousel.",
               "name": "--kemet-carousel-height"
             },
             {
-              "description": "The space between items in the toolbar. Default: 1rem.",
+              "description": "The space between items in the toolbar.",
               "name": "--kemet-carousel-toolbar-gap"
             },
             {
-              "description": "The cross axis alignment of the toolbar. Default: center.",
+              "description": "The cross axis alignment of the toolbar.",
               "name": "--kemet-carousel-toolbar-justify-content"
             },
             {
-              "description": "The padding of the toolbar. Default: 1rem.",
+              "description": "The padding of the toolbar.",
               "name": "--kemet-carousel-toolbar-padding"
             },
             {
-              "description": "The inner toolbar width. Default: 100%.",
+              "description": "The inner toolbar width.",
               "name": "--kemet-carousel-toolbar-inner-width"
             },
             {
-              "description": "The bottom position of the inner toolbar. Default: 0.",
+              "description": "The bottom position of the inner toolbar.",
               "name": "--kemet-carousel-toolbar-inner-bottom"
             },
             {
-              "description": "The top position of the inner toolbar. Default: auto.",
+              "description": "The top position of the inner toolbar.",
               "name": "--kemet-carousel-toolbar-inner-top"
             },
             {
-              "description": "The inner toolbar text color. Default: var(--kemet-color-white).",
+              "description": "The inner toolbar text color.",
               "name": "--kemet-carousel-toolbar-inner-color"
             },
             {
-              "description": "The inner toolbar background color. Default: rgba(0, 0, 0, 0.4).",
+              "description": "The inner toolbar background color.",
               "name": "--kemet-carousel-toolbar-inner-background-color"
             },
             {
-              "description": "The border around the slides. Default: 1px solid var(--kemet-color-gray1).",
+              "description": "The border around the slides.",
               "name": "--kemet-carousel-slides-border"
             },
             {
-              "description": "The transition speed of the slides. Default: 300ms.",
+              "description": "The transition speed of the slides.",
               "name": "--kemet-carousel-transition-speed"
             },
             {
-              "description": "The arrows start opacity. Default: 0.25.",
+              "description": "The arrows start opacity.",
               "name": "--kemet-carousel-arrows-opacity"
             },
             {
-              "description": "The arrows however opacity. Default: 1.",
+              "description": "The arrows however opacity.",
               "name": "--kemet-carousel-arrows-opacity-hover"
             },
             {
-              "description": "The arrows transition speed. Default: 300ms.",
+              "description": "The arrows transition speed.",
               "name": "--kemet-carousel-arrows-transition-speed"
             }
           ],
@@ -2320,27 +2329,27 @@
           "name": "KemetCheckbox",
           "cssProperties": [
             {
-              "description": "The width and height of the checkbox. Default: 18px.",
+              "description": "The width and height of the checkbox.",
               "name": "--kemet-checkbox-size"
             },
             {
-              "description": "The color of the checkbox's mark. Default: var(--kemet-color-primary).",
+              "description": "The color of the checkbox's mark.",
               "name": "--kemet-checkbox-color"
             },
             {
-              "description": "The border of the checkbox. Default: 1px solid var(--kemet-color-primary).",
+              "description": "The border of the checkbox.",
               "name": "--kemet-checkbox-border"
             },
             {
-              "description": "The border radius of the checkbox. Default: 4px.",
+              "description": "The border radius of the checkbox.",
               "name": "--kemet-checkbox-border-radius"
             },
             {
-              "description": "The filled color of the checkbox's mark. Default: var(--kemet-color-white).",
+              "description": "The filled color of the checkbox's mark.",
               "name": "--kemet-checkbox-filled-color"
             },
             {
-              "description": "The filled background color. Default: var(--kemet-color-primary).",
+              "description": "The filled background color.",
               "name": "--kemet-checkbox-filled-background-color"
             }
           ],
@@ -2675,39 +2684,39 @@
           "name": "KemetCombo",
           "cssProperties": [
             {
-              "description": "The width of the combo box. Default: calc(100% - 2px).",
+              "description": "The width of the combo box.",
               "name": "--kemet-combo-width"
             },
             {
-              "description": "The margins on the combo box. Default: 1rem auto.",
+              "description": "The margins on the combo box.",
               "name": "--kemet-combo-margin"
             },
             {
-              "description": "The max height of the combo box. Default: calc(5 * 3rem).",
+              "description": "The max height of the combo box.",
               "name": "--kemet-combo-max-height"
             },
             {
-              "description": "The border of the combo box. Default: 1px solid var(--kemet-color-primary).",
+              "description": "The border of the combo box.",
               "name": "--kemet-combo-border"
             },
             {
-              "description": "The border radius of the combo box. Default: var(--kemet-border-radius).",
+              "description": "The border radius of the combo box.",
               "name": "--kemet-combo-border-radius"
             },
             {
-              "description": "The background color of the combo box. Default: var(--kemet-color-white-to-black).",
+              "description": "The background color of the combo box.",
               "name": "--kemet-combo-background-color"
             },
             {
-              "description": "The shadow of the combo box. Default: var(--kemet-elevation-layer5).",
+              "description": "The shadow of the combo box.",
               "name": "--kemet-combo-shadow"
             },
             {
-              "description": "The hover item's text color. Default:  var(--kemet-color-white).",
+              "description": "The hover item's text color.",
               "name": "--kemet-combo-hover-color"
             },
             {
-              "description": "The hover item's background color. Default: var(--kemet-color-primary).",
+              "description": "The hover item's background color.",
               "name": "--kemet-combo-hover-background-color"
             }
           ],
@@ -3180,23 +3189,23 @@
           "name": "KemetDrawer",
           "cssProperties": [
             {
-              "description": "The width of the drawer. Default: 300px.",
+              "description": "The width of the drawer.",
               "name": "--kemet-drawer-width"
             },
             {
-              "description": "The height of the drawer. Default:  100%.",
+              "description": "The height of the drawer.",
               "name": "--kemet-drawer-height"
             },
             {
-              "description": "The text color of the drawer. Default:  #fafafa.",
+              "description": "The text color of the drawer.",
               "name": "--kemet-drawer-color"
             },
             {
-              "description": "The background color of the drawer. Default: #202020.",
+              "description": "The background color of the drawer.",
               "name": "--kemet-drawer-background-color"
             },
             {
-              "description": "The color of the overlay. Default: rgba(0, 0, 0, 0.2).",
+              "description": "The color of the overlay.",
               "name": "--kemet-drawer-overlay-color"
             }
           ],
@@ -3362,27 +3371,27 @@
           "name": "KemetFAB",
           "cssProperties": [
             {
-              "description": "The width and height of the fab. Default: 50px.",
+              "description": "The width and height of the fab.",
               "name": "--kemet-fab-size"
             },
             {
-              "description": "The text color of the fab. Default: var(--kemet-color-white).",
+              "description": "The text color of the fab.",
               "name": "--kemet-fab-color"
             },
             {
-              "description": "The bg color of the tab. Default: var(--kemet-color-primary).",
+              "description": "The bg color of the tab.",
               "name": "--kemet-fab-background-color"
             },
             {
-              "description": "The text color of an outlined fab. Default: var(--kemet-color-primary).",
+              "description": "The text color of an outlined fab.",
               "name": "--kemet-fab-outlined-color"
             },
             {
-              "description": "The border of an outlined fab. Default: 1px solid var(--kemet-color-primary).",
+              "description": "The border of an outlined fab.",
               "name": "--kemet-fab-outlined-border"
             },
             {
-              "description": "The border radius of a pill fab. Default: 10rem.",
+              "description": "The border radius of a pill fab.",
               "name": "--kemet-fab-pill-radius"
             }
           ],
@@ -3696,14 +3705,14 @@
               "kind": "field",
               "name": "slotInput",
               "type": {
-                "text": "KemetInputInterface | KemetTextareaInterface"
+                "text": "KemetInput | KemetTextarea"
               }
             },
             {
               "kind": "field",
               "name": "slotCombo",
               "type": {
-                "text": "KemetComboInterface"
+                "text": "KemetCombo"
               }
             },
             {
@@ -3937,31 +3946,31 @@
           "name": "KemetFlipcard",
           "cssProperties": [
             {
-              "description": "The text color for the front of the card. Default: #202020.",
+              "description": "The text color for the front of the card.",
               "name": "--kemet-flipcard-front-color"
             },
             {
-              "description": "The text color for the back of the card. Default: #202020.",
+              "description": "The text color for the back of the card.",
               "name": "--kemet-flipcard-back-color"
             },
             {
-              "description": "The background color for the front of the card. Default: #fafafa.",
+              "description": "The background color for the front of the card.",
               "name": "--kemet-flipcard-front-background-color"
             },
             {
-              "description": "The background color for the back of the card. Default: #fafafa.",
+              "description": "The background color for the back of the card.",
               "name": "--kemet-flipcard-back-background-color"
             },
             {
-              "description": "The border on the front and back of the card. Default: 2px solid var(--kemet-color-primary).",
+              "description": "The border on the front and back of the card.",
               "name": "--kemet-flipcard-border"
             },
             {
-              "description": "The border radius on the front and back of the card. Default: 0.",
+              "description": "The border radius on the front and back of the card.",
               "name": "--kemet-flipcard-border-radius"
             },
             {
-              "description": "The aspect ratio of the card. Default: 16/9.",
+              "description": "The aspect ratio of the card.",
               "name": "--kemet-flipcard-ratio"
             }
           ],
@@ -4255,64 +4264,64 @@
           "name": "KemetInput",
           "cssProperties": [
             {
-              "description": "The height of the input. Default: 50px.",
+              "description": "The height of the input.",
               "name": "--kemet-input-height"
             },
             {
-              "description": "The padding on the input. Default: 0.5rem 1rem.",
-              "name": "-kemet-input-padding"
+              "description": "The padding on the input.",
+              "name": "--kemet-input-padding"
             },
             {
-              "description": "The border of the input. Default: 1px solid var(--kemet-color-primary).",
-              "name": "-kemet-input-border"
+              "description": "The border of the input.",
+              "name": "--kemet-input-border"
             },
             {
-              "description": " The border of the error state. Default: 1px solid var(--kemet-color-error).",
-              "name": "-kemet-input-border-color-error"
+              "description": " The border of the error state.",
+              "name": "--kemet-input-border-color-error"
             },
             {
-              "description": "The border of the success state. Default: 1px solid var(--kemet-color-success).",
-              "name": "-kemet-input-border-color-success"
+              "description": "The border of the success state.",
+              "name": "--kemet-input-border-color-success"
             },
             {
-              "description": "The border of the warning state. Default: 1px solid var(--kemet-color-warning) |",
-              "name": "-kemet-input-border-color-warning"
+              "description": "The border of the warning state.",
+              "name": "--kemet-input-border-color-warning"
             },
             {
-              "description": "The icon-left padding. Default: 3rem.",
-              "name": "-kemet-input-icon-left-padding"
+              "description": "The icon-left padding.",
+              "name": "--kemet-input-icon-left-padding"
             },
             {
-              "description": "The icon-right padding. Default: 3rem.",
-              "name": "-kemet-input-icon-right-padding"
+              "description": "The icon-right padding.",
+              "name": "--kemet-input-icon-right-padding"
             },
             {
-              "description": "The border radius on rounded. Default: var(--kemet-border-radius).",
-              "name": "-kemet-input-border-radius-rounded"
+              "description": "The border radius on rounded.",
+              "name": "--kemet-input-border-radius-rounded"
             },
             {
-              "description": "The border on filled. Default: none.",
-              "name": "-kemet-input-border-filled"
+              "description": "The border on filled.",
+              "name": "--kemet-input-border-filled"
             },
             {
-              "description": "The color on filled. Default: var(--kemet-color-white).",
-              "name": "-kemet-input-color-filled"
+              "description": "The color on filled.",
+              "name": "--kemet-input-color-filled"
             },
             {
-              "description": "The background-color on filled. Default: var(--kemet-color-primary).",
-              "name": "-kemet-input-background-color-filled"
+              "description": "The background-color on filled.",
+              "name": "--kemet-input-background-color-filled"
             },
             {
-              "description": "The error state background color. Default: var(--kemet-color-error).",
-              "name": "-kemet-input-background-color-error"
+              "description": "The error state background color.",
+              "name": "--kemet-input-background-color-error"
             },
             {
-              "description": "The success state background color. Default: var(--kemet-color-success).",
-              "name": "-kemet-input-background-color-success"
+              "description": "The success state background color.",
+              "name": "--kemet-input-background-color-success"
             },
             {
-              "description": "The warning state background color. Default: var(--kemet-color-warning).",
-              "name": "-kemet-input-background-color-warning"
+              "description": "The warning state background color.",
+              "name": "--kemet-input-background-color-warning"
             }
           ],
           "cssParts": [
@@ -5141,30 +5150,42 @@
           "name": "KemetModal",
           "cssProperties": [
             {
-              "description": "The minimum width of the content. Default: 0.",
-              "name": "--kemet-modal-content-min-width"
+              "description": "The mount of rounding for rounded corners",
+              "name": "--kemet-modal-radius"
             },
             {
-              "description": "The maximum width of the content. Default: none.",
-              "name": "--kemet-modal-content-max-width"
+              "description": "The minimum width of the dialog.",
+              "name": "--kemet-modal-dialog-min-width"
             },
             {
-              "description": "The background color of the content. Default: --kemet-color-white.",
-              "name": "--kemet-modal-content-background-color"
+              "description": "The maximum width of the dialog.",
+              "name": "--kemet-modal-dialog-max-width"
             },
             {
-              "description": "The min with of the mobile content. Default: 100%.",
-              "name": "--kemet-modal-content-mobile-min-width"
+              "description": "The background color of the dialog.",
+              "name": "--kemet-modal-dialog-background-color"
             },
             {
-              "description": "The min height of the mobile content. Default: 80vh.",
-              "name": "--kemet-modal-content-mobile-min-height"
+              "description": "The width of the mobile dialog.",
+              "name": "--kemet-modal-dialog-mobile-width"
+            },
+            {
+              "description": "The margins of the mobile dialog.",
+              "name": "--kemet-modal-dialog-mobile-margin"
+            },
+            {
+              "description": "The padding of the mobile dialog.",
+              "name": "--kemet-modal-dialog-mobile-padding"
+            },
+            {
+              "description": "The color of the backdrop overlay.",
+              "name": "--kemet-modal-overlay-background-color"
             }
           ],
           "cssParts": [
             {
               "description": "The main contents of the modal.",
-              "name": "content"
+              "name": "dialog"
             },
             {
               "description": "The surrounding scrim of the modal.",
@@ -5220,21 +5241,24 @@
             },
             {
               "kind": "field",
-              "name": "focusableSelector",
+              "name": "rounded",
               "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "focusableElements",
-              "type": {
-                "text": "any"
-              }
+                "text": "boolean"
+              },
+              "attribute": "rounded",
+              "reflects": true
             },
             {
               "kind": "method",
               "name": "isMobile"
+            },
+            {
+              "kind": "method",
+              "name": "handleOpen"
+            },
+            {
+              "kind": "method",
+              "name": "handleClose"
             },
             {
               "kind": "method",
@@ -5294,6 +5318,13 @@
                 "text": "boolean"
               },
               "fieldName": "mobile"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
@@ -5711,17 +5742,6 @@
             },
             {
               "kind": "field",
-              "name": "effect",
-              "type": {
-                "text": "TypeEffect"
-              },
-              "default": "'fade'",
-              "description": "The open/close animation effect for the Popper",
-              "attribute": "effect",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "fireOn",
               "type": {
                 "text": "TypeFireOn"
@@ -5825,15 +5845,6 @@
               "fieldName": "opened"
             },
             {
-              "name": "effect",
-              "type": {
-                "text": "TypeEffect"
-              },
-              "default": "'fade'",
-              "description": "The open/close animation effect for the Popper",
-              "fieldName": "effect"
-            },
-            {
               "name": "fire-on",
               "type": {
                 "text": "TypeFireOn"
@@ -5908,28 +5919,32 @@
           "name": "KemetRadio",
           "cssProperties": [
             {
-              "description": "The size of the radio button. Default: 18px.",
+              "description": "The size of the radio button.",
               "name": "--kemet-radio-size"
             },
             {
-              "description": "The outer border of the radio button. Default: 1px solid var(--kemet-color-primary).",
+              "description": "The outer border of the radio button.",
               "name": "--kemet-radio-border"
             },
             {
-              "description": "The color of the radio button's dot. Default: var(--kemet-color-primary).",
+              "description": "The color of the radio button's dot.",
               "name": "--kemet-radio-dot-color"
             },
             {
-              "description": "The border width of the radio button's dot. Default: 3px.",
+              "description": "The border width of the radio button's dot.",
               "name": "--kemet-radio-dot-border-width"
             },
             {
-              "description": "The border color of the radio button's dot. Default: var(--kemet-color-white).",
+              "description": "The border color of the radio button's dot.",
               "name": "--kemet-radio-dot-border-color"
             },
             {
-              "description": "The filled color of the radio button. Default: var(--kemet-color-white).",
+              "description": "The filled color of the radio button.",
               "name": "--kemet-radio-dot-color-filled"
+            },
+            {
+              "description": "The ring color of the radio button's dot.",
+              "name": "--kemet-radio-dot-ring-color"
             }
           ],
           "cssParts": [
@@ -6378,7 +6393,7 @@
           "name": "KemetRotator",
           "cssProperties": [
             {
-              "description": "How long, in css time units, the transition effect lasts. Default: 500ms.",
+              "description": "How long, in css time units, the transition effect lasts.",
               "name": "--kemet-rotator-transition-speed"
             }
           ],
@@ -6697,23 +6712,23 @@
           "name": "KemetScrollNav",
           "cssProperties": [
             {
-              "description": "The padding of the nav. Default: 1rem 2rem.",
+              "description": "The padding of the nav.",
               "name": "--kemet-scroll-nav-padding"
             },
             {
-              "description": "The background color of the nav. Default: #fafafa.",
+              "description": "The background color of the nav.",
               "name": "--kemet-scroll-nav-background"
             },
             {
-              "description": "The transition speed of the transformation. Default: 300ms.",
+              "description": "The transition speed of the transformation.",
               "name": "--kemet-scroll-nav-transition"
             },
             {
-              "description": "The height of the pre-transformed nav. Default: 400px.",
+              "description": "The height of the pre-transformed nav.",
               "name": "--kemet-scroll-nav-resize-height"
             },
             {
-              "description": "The height of the transformed nav. Default: 100px.",
+              "description": "The height of the transformed nav.",
               "name": "--kemet-scroll-nav-resize-height-transformed"
             }
           ],
@@ -6830,15 +6845,15 @@
           "name": "KemetScrollSnapPaginator",
           "cssProperties": [
             {
-              "description": "The padding on the container. Default: 1rem 0.",
+              "description": "The padding on the container.",
               "name": "--kemet-scroll-snap-paginator-padding"
             },
             {
-              "description": "The space between pagination items. Default: 0.5rem.",
+              "description": "The space between pagination items.",
               "name": "--kemet-scroll-snap-paginator-gap"
             },
             {
-              "description": "The color of a linkable pagination item. Default: var(--kemet-color-primary).",
+              "description": "The color of a linkable pagination item.",
               "name": "--kemet-scroll-snap-paginator-link-color"
             }
           ],
@@ -7169,19 +7184,19 @@
           "name": "KemetScrollSnap",
           "cssProperties": [
             {
-              "description": "Space between the slides. Default: 1.5rem.",
+              "description": "Space between the slides.",
               "name": "--kemet-scroll-snap-gap"
             },
             {
-              "description": "The horizontal max width of the container. Default: 1024px.",
+              "description": "The horizontal max width of the container.",
               "name": "--kemet-scroll-snap-horizontal-max-width"
             },
             {
-              "description": "The vertical height of the container. Default: 100vh.",
+              "description": "The vertical height of the container.",
               "name": "--kemet-scroll-snap-vertical-height"
             },
             {
-              "description": "Padding on the vertical axis. Default: 0 2rem.",
+              "description": "Padding on the vertical axis.",
               "name": "--kemet-scroll-snap-slides-vertical-padding"
             }
           ],
@@ -7454,55 +7469,55 @@
           "name": "KemetSelect",
           "cssProperties": [
             {
-              "description": "The padding on the textarea. Default: 1rem.",
+              "description": "The padding on the textarea.",
               "name": "--kemet-select-padding"
             },
             {
-              "description": "The border of the textarea. Default: 1px solid var(--kemet-color-background).",
+              "description": "The border of the textarea.",
               "name": "--kemet-select-border"
             },
             {
-              "description": "The border of the error state. Default: 1px solid var(--kemet-color-error).",
+              "description": "The border of the error state.",
               "name": "--kemet-select-border-color-error"
             },
             {
-              "description": "The border of the success state. Default: 1px solid var(--kemet-color-success).",
+              "description": "The border of the success state.",
               "name": "--kemet-select-border-color-success"
             },
             {
-              "description": "The border of the warning state. Default: 1px solid var(--kemet-color-warning).",
+              "description": "The border of the warning state.",
               "name": "--kemet-select-border-color-warning"
             },
             {
-              "description": "The border radius on rounded. Default: var(--kemet-border-radius).",
+              "description": "The border radius on rounded.",
               "name": "--kemet-select-border-radius-rounded"
             },
             {
-              "description": "The border on filled. Default: none.",
+              "description": "The border on filled.",
               "name": "--kemet-select-border-filled"
             },
             {
-              "description": "The color on filled. Default: var(--kemet-color-white).",
+              "description": "The color on filled.",
               "name": "--kemet-select-color-filled"
             },
             {
-              "description": "The background-color on filled. Default: var(--kemet-color-primary).",
+              "description": "The background-color on filled.",
               "name": "--kemet-select-background-color-filled"
             },
             {
-              "description": "The error state background color. Default: var(--kemet-color-error).",
+              "description": "The error state background color.",
               "name": "--kemet-select-background-color-error"
             },
             {
-              "description": "The success state background color. Default: var(--kemet-color-success).",
+              "description": "The success state background color.",
               "name": "--kemet-select-background-color-success"
             },
             {
-              "description": "The warning state background color. Default: var(--kemet-color-warning).",
+              "description": "The warning state background color.",
               "name": "--kemet-select-background-color-warning"
             },
             {
-              "description": "The space on the right of the icon. Default: 1rem.",
+              "description": "The space on the right of the icon.",
               "name": "--kemet-select-icon-right"
             }
           ],
@@ -8225,7 +8240,7 @@
           "name": "KemetTabPanel",
           "cssProperties": [
             {
-              "description": "The fade speed. Default: 0.5s.",
+              "description": "The fade speed.",
               "name": "--kemet-tab-panel-fade-speed"
             }
           ],
@@ -8312,11 +8327,11 @@
           "name": "KemetTab",
           "cssProperties": [
             {
-              "description": "The padding of the tab. Default: 1rem.",
+              "description": "The padding of the tab.",
               "name": "--kemet-tab-padding"
             },
             {
-              "description": "The color of the selected tab. Default: var(--kemet-color-background).",
+              "description": "The color of the selected tab.",
               "name": "--kemet-tab-color"
             }
           ],
@@ -8442,31 +8457,31 @@
           "name": "KemetTabs",
           "cssProperties": [
             {
-              "description": "The thickness of the ink. Default: 6px.",
+              "description": "The thickness of the ink.",
               "name": "--kemet-tabs-ink-size"
             },
             {
-              "description": "The radius on the ink. Default:  6px.",
+              "description": "The radius on the ink.",
               "name": "--kemet-tabs-ink-radius"
             },
             {
-              "description": "The color of the ink. Default:  var(--kemet-color-background).",
+              "description": "The color of the ink.",
               "name": "--kemet-tabs-ink-color"
             },
             {
-              "description": "The thickness of the divider. Default: 1px.",
+              "description": "The thickness of the divider.",
               "name": "--kemet-tabs-divider-size"
             },
             {
-              "description": "The color of the divider. Default:  var(--kemet-color-gray4).",
+              "description": "The color of the divider.",
               "name": "--kemet-tabs-divider-color"
             },
             {
-              "description": "The transition speed of the panels. Default:  0.5s.",
+              "description": "The transition speed of the panels.",
               "name": "--kemet-tabs-transition-speed"
             },
             {
-              "description": "The space between tabs and panels. Default:  1rem.",
+              "description": "The space between tabs and panels.",
               "name": "--kemet-tabs-spacer"
             }
           ],
@@ -8918,51 +8933,51 @@
           "name": "KemetTextarea",
           "cssProperties": [
             {
-              "description": "The padding on the textarea. Default: 1rem.",
+              "description": "The padding on the textarea.",
               "name": "--kemet-textarea-padding"
             },
             {
-              "description": "The border of the textarea. Default: 1px solid var(--kemet-color-primary).",
+              "description": "The border of the textarea.",
               "name": "--kemet-textarea-border"
             },
             {
-              "description": "The border of the error state. Default: 1px solid var(--kemet-color-error).",
+              "description": "The border of the error state.",
               "name": "--kemet-textarea-border-color-error"
             },
             {
-              "description": "The border of the success state. Default: 1px solid var(--kemet-color-success).",
+              "description": "The border of the success state.",
               "name": "--kemet-textarea-border-color-success"
             },
             {
-              "description": "The border of the warning state. Default: 1px solid var(--kemet-color-warning).",
+              "description": "The border of the warning state.",
               "name": "--kemet-textarea-border-color-warning"
             },
             {
-              "description": "The border radius on rounded. Default: var(--kemet-border-radius).",
+              "description": "The border radius on rounded.",
               "name": "--kemet-textarea-border-radius-rounded"
             },
             {
-              "description": "The border on filled. Default:  none.",
+              "description": "The border on filled.",
               "name": "--kemet-textarea-border-filled"
             },
             {
-              "description": "The color on filled. Default: var(--kemet-color-white).",
+              "description": "The color on filled.",
               "name": "--kemet-textarea-color-filled"
             },
             {
-              "description": "The background-color on filled. Default: var(--kemet-color-primary).",
+              "description": "The background-color on filled.",
               "name": "--kemet-textarea-background-color-filled"
             },
             {
-              "description": "The error state background color. Default: var(--kemet-color-error).",
+              "description": "The error state background color.",
               "name": "--kemet-textarea-background-color-error"
             },
             {
-              "description": "The success state background color. Default: var(--kemet-color-success).",
+              "description": "The success state background color.",
               "name": "--kemet-textarea-background-color-success"
             },
             {
-              "description": "The warning state background color. Default: var(--kemet-color-warning).",
+              "description": "The warning state background color.",
               "name": "--kemet-textarea-background-color-warning"
             }
           ],
@@ -9415,39 +9430,39 @@
           "name": "KemetToggle",
           "cssProperties": [
             {
-              "description": "The width of the entire toggle. Default: 3.5rem.",
+              "description": "The width of the entire toggle.",
               "name": "--kemet-toggle-width"
             },
             {
-              "description": "The height of the entire toggle. Default:2rem.",
+              "description": "The height of the entire toggle.",
               "name": "--kemet-toggle-height"
             },
             {
-              "description": "The diameter of the handle. Default: 1.6rem.",
+              "description": "The diameter of the handle.",
               "name": "--kemet-toggle-handle-diameter"
             },
             {
-              "description": "The border of the track. Default: none.",
+              "description": "The border of the track.",
               "name": "--kemet-toggle-track-border"
             },
             {
-              "description": "The color of the track. Default: var(--kemet-color-white).",
+              "description": "The color of the track.",
               "name": "--kemet-toggle-track-color"
             },
             {
-              "description": "The shadow on the track. Default: inset 0 0.4rem 0.7rem 0 rgba(47, 47, 47, 0.35), inset 0 -0.2rem 0.4rem 0 var(--kemet-color-gray1).",
+              "description": "The shadow on the track.",
               "name": "--kemet-toggle-track-shadow"
             },
             {
-              "description": "The border on the handle. Default: none.",
+              "description": "The border on the handle.",
               "name": "--kemet-toggle-handle-border"
             },
             {
-              "description": "The color of the handle. Default: var(--kemet-color-primary).",
+              "description": "The color of the handle.",
               "name": "--kemet-toggle-handle-color"
             },
             {
-              "description": "The shadow on the handle. Default: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2).",
+              "description": "The shadow on the handle.",
               "name": "--kemet-toggle-handle-shadow"
             }
           ],
@@ -9777,21 +9792,6 @@
             },
             {
               "kind": "field",
-              "name": "effect",
-              "type": {
-                "text": "TypeEffect"
-              },
-              "default": "'fade'",
-              "description": "The open/close animation effect for the Popper",
-              "attribute": "effect",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "fireOn",
               "type": {
                 "text": "TypeFireOn"
@@ -9936,19 +9936,6 @@
               }
             },
             {
-              "name": "effect",
-              "type": {
-                "text": "TypeEffect"
-              },
-              "default": "'fade'",
-              "description": "The open/close animation effect for the Popper",
-              "fieldName": "effect",
-              "inheritedFrom": {
-                "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
-              }
-            },
-            {
               "name": "fire-on",
               "type": {
                 "text": "TypeFireOn"
@@ -10050,67 +10037,67 @@
           "name": "KemetTrackerStep",
           "cssProperties": [
             {
-              "description": "The font size. Default: 90%",
+              "description": "The font size.",
               "name": "--kemet-tracker-step-dot-font-size"
             },
             {
-              "description": "The text color. Default: var(--kemet-color-primary)",
+              "description": "The text color.",
               "name": "--kemet-tracker-step-dot-color"
             },
             {
-              "description": "Border around a dot. Default: 1px solid var(--kemet-color-primary)",
+              "description": "Border around a dot.",
               "name": "--kemet-tracker-step-dot-border"
             },
             {
-              "description": "Width and height of a dot. Default: 50px",
+              "description": "Width and height of a dot.",
               "name": "--kemet-tracker-step-dot-size"
             },
             {
-              "description": "Mobile width and height of a dot. Default: 25px",
+              "description": "Mobile width and height of a dot.",
               "name": "--kemet-tracker-step-dot-size-mobile"
             },
             {
-              "description": "Space between a dot and connector line. Default: 4px",
+              "description": "Space between a dot and connector line.",
               "name": "--kemet-tracker-step-dot-gap"
             },
             {
-              "description": "Transition of a dot. Default: all 300ms ease-in-out",
+              "description": "Transition of a dot.",
               "name": "--kemet-tracker-step-dot-transition"
             },
             {
-              "description": "Fill color of a dot. Default: transparent",
+              "description": "Fill color of a dot.",
               "name": "--kemet-tracker-step-dot-fill-color"
             },
             {
-              "description": "Color of the background a dot is on. Default: var(--kemet-color-white)",
+              "description": "Color of the background a dot is on.",
               "name": "--kemet-tracker-step-dot-background-color"
             },
             {
-              "description": "Current dot text color. Default: var(--kemet-color-white)",
+              "description": "Current dot text color.",
               "name": "--kemet-tracker-step-current-color"
             },
             {
-              "description": "Current dot fill color. Default: var(--kemet-color-primary)",
+              "description": "Current dot fill color.",
               "name": "--kemet-tracker-step-current-fill-color"
             },
             {
-              "description": "Text color of a completed dot. Default: var(--kemet-color-white)",
+              "description": "Text color of a completed dot.",
               "name": "--kemet-tracker-step-completed-color"
             },
             {
-              "description": "Background color of a completed dot. Default: var(--kemet-color-success)",
+              "description": "Background color of a completed dot.",
               "name": "--kemet-tracker-step-completed-fill-color"
             },
             {
-              "description": "Completed connector line color. Default: var(--kemet-color-primary)",
+              "description": "Completed connector line color.",
               "name": "--kemet-tracker-step-completed-line-color"
             },
             {
-              "description": "Completed line weight. Default: 3px",
+              "description": "Completed line weight.",
               "name": "--kemet-tracker-step-completed-line-weight"
             },
             {
-              "description": "Standard line weight. Default: 1px",
+              "description": "Standard line weight.",
               "name": "--kemet-tracker-step-standard-line-weight"
             }
           ],
@@ -10413,15 +10400,15 @@
           "name": "KemetUploadFile",
           "cssProperties": [
             {
-              "description": "The default text color. Default: var(--kemet-color-text).",
+              "description": "The default text color.",
               "name": "--kemet-upload-file-color"
             },
             {
-              "description": "The padding around the file. Default: 0.5rem 1rem.",
+              "description": "The padding around the file.",
               "name": "--kemet-upload-file-padding"
             },
             {
-              "description": "The border around the file. Default: 1px solid var(--kemet-color-primary).",
+              "description": "The border around the file.",
               "name": "--kemet-upload-file-border"
             }
           ],
@@ -10623,19 +10610,19 @@
           "name": "KemetUpload",
           "cssProperties": [
             {
-              "description": "The default text color. Default: var(--kemet-color-white).",
+              "description": "The default text color.",
               "name": "--kemet-upload-color"
             },
             {
-              "description": "The height. Default: 364px.",
+              "description": "The height.",
               "name": "--kemet-upload-height"
             },
             {
-              "description": "The border. Default: 1rem solid var(--kemet-color-gray1-to-transparent).",
+              "description": "The border.",
               "name": "--kemet-upload-border"
             },
             {
-              "description": "The background color. Default: var(--kemet-color-primary-to-transparent).",
+              "description": "The background color.",
               "name": "--kemet-upload-background-color"
             }
           ],

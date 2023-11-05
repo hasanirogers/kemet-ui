@@ -1,5 +1,5 @@
 import { addons } from '@storybook/addons';
-import KemetTheme from './kemet-theme.js';
+import KemetTheme from './theme';
 
 addons.setConfig({
   theme: KemetTheme,

@@ -31,12 +31,12 @@ import { TypeStatus } from './types';
  * @csspart text - The the label's text.
  * @csspart mark - The icon of the check mark.
  *
- * @cssproperty --kemet-checkbox-size - The width and height of the checkbox. Default: 18px.
- * @cssproperty --kemet-checkbox-color - The color of the checkbox's mark. Default: var(--kemet-color-primary).
- * @cssproperty --kemet-checkbox-border - The border of the checkbox. Default: 1px solid var(--kemet-color-primary).
- * @cssproperty --kemet-checkbox-border-radius - The border radius of the checkbox. Default: 4px.
- * @cssproperty --kemet-checkbox-filled-color - The filled color of the checkbox's mark. Default: var(--kemet-color-white).
- * @cssproperty --kemet-checkbox-filled-background-color - The filled background color. Default: var(--kemet-color-primary).
+ * @cssproperty --kemet-checkbox-size - The width and height of the checkbox.
+ * @cssproperty --kemet-checkbox-color - The color of the checkbox's mark.
+ * @cssproperty --kemet-checkbox-border - The border of the checkbox.
+ * @cssproperty --kemet-checkbox-border-radius - The border radius of the checkbox.
+ * @cssproperty --kemet-checkbox-filled-color - The filled color of the checkbox's mark.
+ * @cssproperty --kemet-checkbox-filled-background-color - The filled background color.
  *
  * @event kemet-checkbox-change - Fires when the state of the checkbox changes
  * @event kemet-checkbox-focused - Fires when the checkbox loses or receives focus

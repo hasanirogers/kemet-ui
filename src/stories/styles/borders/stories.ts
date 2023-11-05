@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { makeColors } from '../../../../.storybook/utilities';
 
 const meta: Meta = {
   title: 'Styles / Border',
@@ -19,7 +20,7 @@ const Template = ({
   const borderRadius = radius !== 'none' ? `kemet-border-radius="${radius}"` : null;
 
   const template = `
-    <div kemet-border="${side}-${width} ${style} ${color}" ${borderRadius} kemet-margin="tiny:normal" kemet-padding="tiny:normal">The quick brown fox jumps over the lazy dog.</div>
+    <div kemet-border="${side}-${width} ${style} ${color}" ${borderRadius} kemet-margin="2xl" kemet-padding="2xl">The quick brown fox jumps over the lazy dog.</div>
   `;
 
   return html`${unsafeHTML(template)}`;
@@ -49,11 +50,11 @@ export const Standard: Story = {
     },
     color: {
       control: { type: 'select' },
-      options: ['auto', 'primary', 'black', 'white', 'gray1', 'gray2', 'gray3', 'gray4', 'gray5', 'gray6', 'gray7', 'gray8', 'gray9', 'gray10'],
+      options: makeColors(),
     },
     radius: {
       control: { type: 'select' },
-      options: ['none', 'small', 'medium', 'large'],
+      options: ['none', 'sm', 'md', 'lg', 'xl', 'circle', 'pill'],
     },
   }
 }
