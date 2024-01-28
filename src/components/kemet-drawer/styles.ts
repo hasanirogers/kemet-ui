@@ -31,6 +31,7 @@ export const stylesBase = css`
     z-index: 100;
     visibility: hidden;
     height: 100%;
+    overflow: auto;
     transition: all 0.5s;
   }
 
