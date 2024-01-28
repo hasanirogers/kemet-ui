@@ -44,6 +44,7 @@ import { KemetOptionInterface } from './types';
  *
  * @event kemet-input-focused - Fires when the input receives and loses focus
  * @event kemet-input-status - Fires when there's a change in status
+ * @event kemet-input-change - Fires when the select's input changes
  *
  */
 
@@ -221,6 +222,7 @@ export default class KemetSelect extends LitElement {
    */
   handleChange() {
     this.value = this.select.value;
+    emitEvent(this, 'kemet-input-change', this.value);
 
     if (this.select.checkValidity()) {
       this.invalid = false;
