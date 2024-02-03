@@ -124,7 +124,7 @@ export default class KemetCombo extends LitElement {
     this.input.value = event.target.innerText;
     this.show = false;
 
-    emitEvent(this, 'kemet-combo-section', {
+    emitEvent(this, 'kemet-combo-selection', {
       element: event.target,
       text: event.target.innerText,
       id: event.target.getAttribute('id'),

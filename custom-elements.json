@@ -510,135 +510,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetBadge",
-          "cssProperties": [
-            {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
@@ -858,6 +729,135 @@
           "declaration": {
             "name": "KemetAvatars",
             "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetBadge",
+          "cssProperties": [
+            {
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-badge",
+          "summary": "Badges display the status of information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-badge",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         }
       ]
@@ -3363,220 +3363,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-fab/kemet-fab.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetFAB",
-          "cssProperties": [
-            {
-              "description": "The width and height of the fab.",
-              "name": "--kemet-fab-size"
-            },
-            {
-              "description": "The text color of the fab.",
-              "name": "--kemet-fab-color"
-            },
-            {
-              "description": "The bg color of the tab.",
-              "name": "--kemet-fab-background-color"
-            },
-            {
-              "description": "The text color of an outlined fab.",
-              "name": "--kemet-fab-outlined-color"
-            },
-            {
-              "description": "The border of an outlined fab.",
-              "name": "--kemet-fab-outlined-border"
-            },
-            {
-              "description": "The border radius of a pill fab.",
-              "name": "--kemet-fab-pill-radius"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The button's container.",
-              "name": "button"
-            },
-            {
-              "description": " The FAB's icon.",
-              "name": "icon"
-            },
-            {
-              "description": "The text in the FAB.",
-              "name": "text"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon to display.",
-              "name": "Icon"
-            },
-            {
-              "description": "The text for the FAB.",
-              "name": "default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "expanded",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "The expanded state of the button.",
-              "attribute": "expanded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button.",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled.",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays the fab with rounded corners.",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "expandPoint",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically expand.",
-              "attribute": "expand-point"
-            },
-            {
-              "kind": "field",
-              "name": "collapsePoint",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically collapse.",
-              "attribute": "collapse-point"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOver"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut"
-            },
-            {
-              "kind": "method",
-              "name": "handleScroll"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "expanded",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "The expanded state of the button.",
-              "fieldName": "expanded"
-            },
-            {
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button.",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled.",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays the fab with rounded corners.",
-              "fieldName": "pill"
-            },
-            {
-              "name": "expand-point",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically expand.",
-              "fieldName": "expandPoint"
-            },
-            {
-              "name": "collapse-point",
-              "type": {
-                "text": "number"
-              },
-              "description": "The distance, in pixels, where the fab should automatically collapse.",
-              "fieldName": "collapsePoint"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-fab",
-          "summary": "The FAB, or Floating Action Button, performs a primary action on a page.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-fab",
-          "declaration": {
-            "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-field/kemet-field.ts",
       "declarations": [
         {
@@ -3875,6 +3661,220 @@
           "declaration": {
             "name": "KemetField",
             "module": "src/components/kemet-field/kemet-field.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-fab/kemet-fab.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetFAB",
+          "cssProperties": [
+            {
+              "description": "The width and height of the fab.",
+              "name": "--kemet-fab-size"
+            },
+            {
+              "description": "The text color of the fab.",
+              "name": "--kemet-fab-color"
+            },
+            {
+              "description": "The bg color of the tab.",
+              "name": "--kemet-fab-background-color"
+            },
+            {
+              "description": "The text color of an outlined fab.",
+              "name": "--kemet-fab-outlined-color"
+            },
+            {
+              "description": "The border of an outlined fab.",
+              "name": "--kemet-fab-outlined-border"
+            },
+            {
+              "description": "The border radius of a pill fab.",
+              "name": "--kemet-fab-pill-radius"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button's container.",
+              "name": "button"
+            },
+            {
+              "description": " The FAB's icon.",
+              "name": "icon"
+            },
+            {
+              "description": "The text in the FAB.",
+              "name": "text"
+            }
+          ],
+          "slots": [
+            {
+              "description": "A slot for an icon to display.",
+              "name": "Icon"
+            },
+            {
+              "description": "The text for the FAB.",
+              "name": "default"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "The expanded state of the button.",
+              "attribute": "expanded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button.",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays the fab with rounded corners.",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "expandPoint",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically expand.",
+              "attribute": "expand-point"
+            },
+            {
+              "kind": "field",
+              "name": "collapsePoint",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically collapse.",
+              "attribute": "collapse-point"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOver"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut"
+            },
+            {
+              "kind": "method",
+              "name": "handleScroll"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "The expanded state of the button.",
+              "fieldName": "expanded"
+            },
+            {
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button.",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays the fab with rounded corners.",
+              "fieldName": "pill"
+            },
+            {
+              "name": "expand-point",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically expand.",
+              "fieldName": "expandPoint"
+            },
+            {
+              "name": "collapse-point",
+              "type": {
+                "text": "number"
+              },
+              "description": "The distance, in pixels, where the fab should automatically collapse.",
+              "fieldName": "collapsePoint"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-fab",
+          "summary": "The FAB, or Floating Action Button, performs a primary action on a page.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetFAB",
+            "module": "src/components/kemet-fab/kemet-fab.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-fab",
+          "declaration": {
+            "name": "KemetFAB",
+            "module": "src/components/kemet-fab/kemet-fab.ts"
           }
         }
       ]
@@ -7335,6 +7335,142 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-sortable/kemet-sortable-item.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetSortableItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "ghost",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Automatically set to true when an item is dragged to a new spot.",
+              "attribute": "ghost",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "ghost",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Automatically set to true when an item is dragged to a new spot.",
+              "fieldName": "ghost"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-sortable-item",
+          "summary": "An item in a sortable list.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetSortableItem",
+            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-sortable-item",
+          "declaration": {
+            "name": "KemetSortableItem",
+            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-sortable/kemet-sortable.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetSortable",
+          "members": [
+            {
+              "kind": "field",
+              "name": "sortableItem",
+              "type": {
+                "text": "KemetSortableItemInterface"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleDragStart",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleDragOver",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleDragEnd",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when an item has been moved to a new spot.",
+              "name": "kemet-sortable-drag-end"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-sortable",
+          "summary": "A list that can be sorted by drag and drop.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetSortable",
+            "module": "src/components/kemet-sortable/kemet-sortable.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-sortable",
+          "declaration": {
+            "name": "KemetSortable",
+            "module": "src/components/kemet-sortable/kemet-sortable.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-select/kemet-option.ts",
       "declarations": [
         {
@@ -7870,142 +8006,6 @@
           "declaration": {
             "name": "KemetSelect",
             "module": "src/components/kemet-select/kemet-select.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-sortable/kemet-sortable-item.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetSortableItem",
-          "members": [
-            {
-              "kind": "field",
-              "name": "ghost",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Automatically set to true when an item is dragged to a new spot.",
-              "attribute": "ghost",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "ghost",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Automatically set to true when an item is dragged to a new spot.",
-              "fieldName": "ghost"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-sortable-item",
-          "summary": "An item in a sortable list.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetSortableItem",
-            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-sortable-item",
-          "declaration": {
-            "name": "KemetSortableItem",
-            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-sortable/kemet-sortable.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetSortable",
-          "members": [
-            {
-              "kind": "field",
-              "name": "sortableItem",
-              "type": {
-                "text": "KemetSortableItemInterface"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleDragStart",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleDragOver",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleDragEnd",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when an item has been moved to a new spot.",
-              "name": "kemet-sortable-drag-end"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-sortable",
-          "summary": "A list that can be sorted by drag and drop.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetSortable",
-            "module": "src/components/kemet-sortable/kemet-sortable.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-sortable",
-          "declaration": {
-            "name": "KemetSortable",
-            "module": "src/components/kemet-sortable/kemet-sortable.ts"
           }
         }
       ]
