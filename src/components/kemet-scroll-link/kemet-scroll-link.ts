@@ -1,13 +1,12 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { keyCodes } from '../../utilities/misc/constants';
 
 /**
  * @since 1.0.0
  * @status stable
  *
  * @tagname kemet-scroll-link
- * @summary A component that adds a smooth scrolling link to an target..
+ * @summary A component that adds a smooth scrolling link to a target.
  *
  * @prop {object} element - A DOM element that establishes the context of scrolling.
  * @prop {object} target - A DOM element that represents the destination of the scroll link. If no target is specified it will default to the top of the page.
@@ -18,12 +17,14 @@ import { keyCodes } from '../../utilities/misc/constants';
 
 @customElement('kemet-scroll-link')
 export default class KemetScrollLink extends LitElement {
-  static styles =  [css`
-    :host {
-      cursor: pointer;
-      display: inline-block;
-    }
-  `];
+  static styles = [
+    css`
+      :host {
+        cursor: pointer;
+        display: inline-block;
+      }
+    `,
+  ];
 
   @property({ type: Object })
   element: HTMLElement | Window = window;
@@ -47,14 +48,14 @@ export default class KemetScrollLink extends LitElement {
 
   render() {
     return html`
-      <div tabindex="0" @click=${() => this.handleScroll()} @keyup=${event => this.handleKeyup(event)}>
+      <div tabindex="0" @click=${() => this.handleScroll()} @keyup=${(event: KeyboardEvent) => this.handleKeyup(event)}>
         <slot></slot>
       </div>
     `;
   }
 
-  handleKeyup(event) {
-    if (event.keyCode === keyCodes.ENTER || event.keyCode === keyCodes.SPACE) {
+  handleKeyup(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.code === 'Space') {
       this.handleScroll();
     }
   }
@@ -80,4 +81,3 @@ declare global {
     'kemet-scroll-link': KemetScrollLink
   }
 }
-

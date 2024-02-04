@@ -1,7 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
-import { keyCodes } from '../../utilities/misc/constants';
 
 /**
  * @since 2.0.0
@@ -30,7 +29,7 @@ export default class KemetPopperClose extends LitElement {
 
   render() {
     return html`
-      <button @click=${() => this.close()} @keyup=${event => this.handleKeyboard(event)}>
+      <button @click=${() => this.close()} @keyup=${(event: KeyboardEvent) => this.handleKeyboard(event)}>
         <slot></slot>
       </button>
     `;
@@ -40,10 +39,10 @@ export default class KemetPopperClose extends LitElement {
     emitEvent(this, 'kemet-popper-close-btn', this);
   }
 
-  handleKeyboard(event) {
+  handleKeyboard(event: KeyboardEvent) {
     event.preventDefault();
 
-    if (event.keyCode === keyCodes.SPACE || event.keyCode === keyCodes.ENTER) {
+    if (event.code === 'Space' || event.key === 'Enter') {
       this.close();
     }
   }

@@ -1,5 +1,5 @@
 import { html, LitElement } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../../utilities/controllers/forms';
@@ -32,7 +32,7 @@ import { TypeAriaAutoComplete, TypeAutoComplete, TypeStatus } from './types';
  * @prop {boolean} required - The required attribute
  * @prop {string} type - The type of input
  * @prop {string} value - The input's value
- * @prop {boolean} invalid - States whether or not the input is invalid
+ * @prop {boolean} invalid - States whether the input is invalid
  * @prop {string} status - The status of the input
  * @prop {boolean} validateOnBlur - Activates validation on blur
  * @prop {string} ariaAutoComplete - Aria Autocomplete
@@ -168,7 +168,7 @@ export default class KemetInput extends LitElement {
   validity: object;
 
   @property({ type: Boolean })
-  isPasswordVisible: boolean = false;;
+  isPasswordVisible: boolean = false;
 
   @property({ type: String })
   inputType: string;
@@ -200,7 +200,7 @@ export default class KemetInput extends LitElement {
     this.slug = this.field ? this.field.slug : 'input';
 
     if (this.field) {
-      this.field.addEventListener('fmc-password-status', event => this.handleStatus(event));
+      this.field.addEventListener('fmc-password-status', (event: CustomEvent) => this.handleStatus(event));
     }
   }
 
@@ -242,11 +242,6 @@ export default class KemetInput extends LitElement {
     `;
   }
 
-  /**
-   * Makes the right icon
-   * @private
-   * @returns {templateResult} A right icon
-   */
   makeIconRight() {
     if (this.iconRight) {
       return html`
@@ -257,11 +252,6 @@ export default class KemetInput extends LitElement {
     return null;
   }
 
-  /**
-   * Makes the left icon
-   * @private
-   * @returns {templateResult} A left icon
-   */
   makeIconLeft() {
     if (this.iconLeft) {
       return html`
@@ -272,11 +262,6 @@ export default class KemetInput extends LitElement {
     return null;
   }
 
-  /**
-   * Makes a clear icon for search.
-   * @private
-   * @returns {templateResult} A search icon
-   */
   makeIconClear() {
     if (this.type === 'search' && this.value !== '') {
       return html`
@@ -287,10 +272,6 @@ export default class KemetInput extends LitElement {
     return null;
   }
 
-  /**
-   * Makes a password visibility toggle button
-   * @returns {templateResult} A mask or unmask icon
-   */
   makeVisibilityToggle() {
     if (this.type === 'password') {
       return html`<kemet-icon
@@ -382,7 +363,7 @@ export default class KemetInput extends LitElement {
     }
   }
 
-  handleStatus(event) {
+  handleStatus(event: CustomEvent) {
     this.status = event.detail.status;
   }
 
@@ -405,10 +386,10 @@ export default class KemetInput extends LitElement {
 
   /**
    * Checks the validity of the character limit for the count component
-   * @private
+   * @public
    * @returns {boolean}
    */
-  checkLimitValidity() {
+  checkLimitValidity(): boolean {
     if (this.field) {
       const count = this.field.querySelector('kemet-count');
       if (count) {
@@ -424,7 +405,7 @@ export default class KemetInput extends LitElement {
    * @public
    * @returns {boolean}
    */
-  checkValidity() {
+  checkValidity(): boolean {
     return this.input?.checkValidity();
   }
 

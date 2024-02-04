@@ -1,5 +1,7 @@
 import { html, LitElement } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
+import {
+  customElement, property, query, state,
+} from 'lit/decorators.js';
 import { stylesBase, stylesEffects } from './styles';
 import { emitEvent } from '../../utilities/misc/events';
 import { TypeEffect } from './types';
@@ -9,7 +11,7 @@ import { TypeEffect } from './types';
  * @status stable
  *
  * @tagname kemet-modal
- * @summary A dialog that has many built in effects and flexible styles.
+ * @summary A dialog that has many built-in effects and flexible styles.
  *
  * @prop {boolean} opened
  * @prop {string} effect
@@ -66,13 +68,13 @@ export default class KemetModal extends LitElement {
 
   /** @internal */
   @state()
-  focusableElements: any;
+  focusableElements: NodeListOf<Element>;
 
   constructor() {
     super();
 
     // bindings
-    this.addEventListener('kemet-modal-close-pressed', () => { this.handleClose() });
+    this.addEventListener('kemet-modal-close-pressed', () => { this.handleClose(); });
   }
 
   firstUpdated() {
@@ -100,11 +102,11 @@ export default class KemetModal extends LitElement {
     });
 
     this.focusableElements.forEach((element) => {
-      element.addEventListener('keydown', event => this.handleFocusableDown(event));
+      element.addEventListener('keydown', (event: KeyboardEvent) => this.handleFocusableDown(event));
     });
   }
 
-  updated(prevProps) {
+  updated(prevProps: Map<string, never>) {
     if (!prevProps.get('opened') && this.opened === true) {
       this.handleOpen();
     }
@@ -142,9 +144,9 @@ export default class KemetModal extends LitElement {
     emitEvent(this, 'kemet-modal-closed', this);
   }
 
-  handleFocusableDown(event) {
-    const firstFocusable = this.focusableElements[0];
-    const lastFocusable = this.focusableElements[this.focusableElements.length - 1];
+  handleFocusableDown(event: KeyboardEvent) {
+    const firstFocusable = this.focusableElements[0] as HTMLElement;
+    const lastFocusable = this.focusableElements[this.focusableElements.length - 1] as HTMLElement;
 
     if (event.key === 'Tab') {
       if (event.shiftKey && document.activeElement === firstFocusable) {

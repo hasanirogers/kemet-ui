@@ -8,7 +8,7 @@ import { emitEvent } from '../../utilities/misc/events';
  * @status stable
  *
  * @tagname kemet-carousel-last
- * @summary A link to the last slide in the carousel..
+ * @summary A link to the last slide in the carousel.
  *
  * @prop {boolean} disabled - Deactivates the button.
  *

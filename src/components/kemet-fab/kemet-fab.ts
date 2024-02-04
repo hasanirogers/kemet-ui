@@ -27,7 +27,7 @@ import { stylesBase } from './styles';
  * @cssproperty --kemet-fab-pill-radius - The border radius of a pill fab.
  *
  * @csspart button - The button's container.
- * @csspart icon -  The FAB's icon.
+ * @csspart icon -  The FAB icon.
  * @csspart text - The text in the FAB.
  *
  */

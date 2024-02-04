@@ -62,7 +62,7 @@ export default class KemetAccordion extends LitElement {
     });
   }
 
-  handlePanelOpened(event) {
+  handlePanelOpened(event: CustomEvent) {
     this.panels?.forEach((panel: KemetAccordionPanel) => {
       if (panel === event.detail) {
         this.currentPanel = panel.index;
@@ -78,7 +78,7 @@ export default class KemetAccordion extends LitElement {
     }
   }
 
-  navigatePanels(direction) {
+  navigatePanels(direction: string) {
     switch (direction) {
       case 'home':
         this.currentPanel = 0;
@@ -103,12 +103,13 @@ export default class KemetAccordion extends LitElement {
     this.panels[this.currentPanel].shadowRoot.querySelector('button').focus();
   }
 
-  handleKeyDown(event) {
+  handleKeyDown(event: KeyboardEvent) {
+    const target = event.target as HTMLElement;
     switch (event.key) {
       case 'Enter':
       case 'Space':
         event.preventDefault();
-        event.target.click();
+        target.click();
         break;
       case 'ArrowLeft':
       case 'ArrowUp':

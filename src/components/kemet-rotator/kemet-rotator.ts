@@ -47,7 +47,6 @@ export default class KemetRotator extends LitElement {
   @state()
   prevSlide: number | null;
 
-
   firstUpdated() {
     // standard properties
     this.prevSlide = null;
@@ -55,7 +54,7 @@ export default class KemetRotator extends LitElement {
     window.addEventListener('resize', this.setDimensions.bind(this));
   }
 
-  updated(changed) {
+  updated(changed: Map<string, never>) {
     const widthHasChanged = !!changed.get('width');
     const heightHasChanged = !!changed.get('height');
 
@@ -83,7 +82,7 @@ export default class KemetRotator extends LitElement {
   }
 
   makeMessages() {
-    const messages = this.messages.map((message, index) => {
+    return this.messages.map((message, index) => {
       const setActiveClass = this.activeSlide === index ? 'rotator__slide--active' : '';
       const setPrevClass = this.prevSlide === index ? 'rotator__slide--prev' : '';
 
@@ -93,8 +92,6 @@ export default class KemetRotator extends LitElement {
         </span>
       `;
     });
-
-    return messages;
   }
 
   setDimensions() {

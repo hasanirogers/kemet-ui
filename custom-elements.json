@@ -4,44 +4,34 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAlert",
-          "cssProperties": [
-            {
-              "description": "The padding on the alert.",
-              "name": "--kemet-alert-padding"
-            },
-            {
-              "description": "The thickness of the border.",
-              "name": "--kemet-alert-border-thickness"
-            },
-            {
-              "description": "The status color. Default: inherit.",
-              "name": "--kemet-alert-status-color"
-            },
-            {
-              "description": "The alert's alignment.",
-              "name": "--kemet-alert-align-items"
-            },
-            {
-              "description": "The border around the alert.",
-              "name": "--kemet-alert-border"
-            }
-          ],
+          "name": "KemetAccordionPanel",
           "cssParts": [
             {
-              "description": "Container for the close button.",
-              "name": "close"
+              "description": "Contains the trigger for the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "Contains the body for the panel.",
+              "name": "body"
             }
           ],
           "slots": [
             {
-              "description": "The contents of the alert.",
-              "name": "default"
+              "description": "The trigger button that opens and closes the panel.",
+              "name": "trigger"
+            },
+            {
+              "description": "The body content of the panel.",
+              "name": "body"
+            },
+            {
+              "description": "The icon for the panel.",
+              "name": "icon"
             }
           ],
           "members": [
@@ -51,87 +41,72 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the alert is opened or not.",
+              "default": "undefined",
+              "description": "Determines the opened state of the panel",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "attribute": "reveal",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "attribute": "closable",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "default": "'standard'",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "borderStatus",
+              "name": "maxHeight",
               "type": {
                 "text": "string"
               },
-              "description": "Adds a border that indicates the status.",
-              "attribute": "border-status",
-              "reflects": true
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "attribute": "max-height"
             },
             {
               "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "attribute": "hidden",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "overlay",
+              "name": "slug",
               "type": {
                 "text": "string"
               },
-              "description": "Fixes the alert over content in specified position.",
-              "attribute": "overlay",
-              "reflects": true
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "index"
             },
             {
               "kind": "method",
-              "name": "makeCloseBtn"
+              "name": "toggle"
             },
             {
               "kind": "method",
-              "name": "handleMotion"
+              "name": "focusableBodyElements"
+            },
+            {
+              "kind": "method",
+              "name": "a11y"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
             }
           ],
           "events": [
             {
-              "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
+              "description": "Fires when a panel is opened",
+              "name": "kemet-accordion-panel-opened"
             },
             {
-              "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
+              "description": "Fires when a panel is closed",
+              "name": "kemet-accordion-panel-closed"
             }
           ],
           "attributes": [
@@ -140,64 +115,45 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the alert is opened or not.",
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+              },
+              "description": "Determines the opened state of the panel",
               "fieldName": "opened"
             },
             {
-              "name": "reveal",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Fades in the alert when opened.",
-              "fieldName": "reveal"
-            },
-            {
-              "name": "closable",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Adds a close button to the alert.",
-              "fieldName": "closable"
-            },
-            {
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              },
-              "default": "'standard'",
-              "fieldName": "status"
-            },
-            {
-              "name": "border-status",
+              "name": "max-height",
               "type": {
                 "text": "string"
               },
-              "description": "Adds a border that indicates the status.",
-              "fieldName": "borderStatus"
+              "default": "'0px'",
+              "description": "Sets the max height of the panel's body",
+              "fieldName": "maxHeight"
             },
             {
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Hides the element from document flow.",
-              "fieldName": "hidden"
-            },
-            {
-              "name": "overlay",
+              "name": "slug",
               "type": {
                 "text": "string"
               },
-              "description": "Fixes the alert over content in specified position.",
-              "fieldName": "overlay"
+              "default": "'panel'",
+              "description": "Uniquely identifies a panel for accessibility purposes",
+              "fieldName": "slug"
+            },
+            {
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "index"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
+          "tagName": "kemet-accordion-panel",
+          "summary": "A blade for an accordion.",
           "customElement": true
         }
       ],
@@ -206,16 +162,142 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-alert",
+          "name": "kemet-accordion-panel",
           "declaration": {
-            "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
+            "name": "KemetAccordionPanel",
+            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-accordion/kemet-accordion.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAccordion",
+          "members": [
+            {
+              "kind": "field",
+              "name": "currentPanel",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The index value for the most recently opened panel",
+              "attribute": "current-panel"
+            },
+            {
+              "kind": "field",
+              "name": "togglePanels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "attribute": "toggle-panels"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handlePanelOpened",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "navigatePanels",
+              "parameters": [
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "expandAll"
+            },
+            {
+              "kind": "method",
+              "name": "collapseAll"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "current-panel",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The index value for the most recently opened panel",
+              "fieldName": "currentPanel"
+            },
+            {
+              "name": "toggle-panels",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Support for closing all inactive panels when one is opened",
+              "fieldName": "togglePanels"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-accordion",
+          "summary": "A component that acts like a standard accordion.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-accordion",
+          "declaration": {
+            "name": "KemetAccordion",
+            "module": "src/components/kemet-accordion/kemet-accordion.ts"
           }
         }
       ]
@@ -447,34 +529,44 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
+      "path": "src/components/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAccordionPanel",
-          "cssParts": [
+          "name": "KemetAlert",
+          "cssProperties": [
             {
-              "description": "Contains the trigger for the panel.",
-              "name": "trigger"
+              "description": "The padding on the alert.",
+              "name": "--kemet-alert-padding"
             },
             {
-              "description": "Contains the body for the panel.",
-              "name": "body"
+              "description": "The thickness of the border.",
+              "name": "--kemet-alert-border-thickness"
+            },
+            {
+              "description": "The status color. Default: inherit.",
+              "name": "--kemet-alert-status-color"
+            },
+            {
+              "description": "The alert's alignment.",
+              "name": "--kemet-alert-align-items"
+            },
+            {
+              "description": "The border around the alert.",
+              "name": "--kemet-alert-border"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Container for the close button.",
+              "name": "close"
             }
           ],
           "slots": [
             {
-              "description": "The trigger button that opens and closes the panel.",
-              "name": "trigger"
-            },
-            {
-              "description": "The body content of the panel.",
-              "name": "body"
-            },
-            {
-              "description": "The icon for the panel.",
-              "name": "icon"
+              "description": "The contents of the alert.",
+              "name": "default"
             }
           ],
           "members": [
@@ -484,69 +576,87 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "description": "Determines the opened state of the panel",
+              "description": "Determines if the alert is opened or not.",
               "attribute": "opened",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "maxHeight",
+              "name": "reveal",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "attribute": "max-height"
+              "description": "Fades in the alert when opened.",
+              "attribute": "reveal",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "slug",
+              "name": "closable",
               "type": {
-                "text": "string"
+                "text": "boolean"
               },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "attribute": "slug"
+              "description": "Adds a close button to the alert.",
+              "attribute": "closable",
+              "reflects": true
             },
             {
               "kind": "field",
-              "name": "index",
+              "name": "status",
               "type": {
-                "text": "number"
+                "text": "TypeStatus"
               },
-              "attribute": "index"
+              "default": "'standard'",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "borderStatus",
+              "type": {
+                "text": "string"
+              },
+              "description": "Adds a border that indicates the status.",
+              "attribute": "border-status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "attribute": "hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "overlay",
+              "type": {
+                "text": "string"
+              },
+              "description": "Fixes the alert over content in specified position.",
+              "attribute": "overlay",
+              "reflects": true
             },
             {
               "kind": "method",
-              "name": "toggle"
+              "name": "makeCloseBtn"
             },
             {
               "kind": "method",
-              "name": "focusableBodyElements"
-            },
-            {
-              "kind": "method",
-              "name": "a11y"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
+              "name": "handleMotion"
             }
           ],
           "events": [
             {
-              "description": "Fires when a panel is opened",
-              "name": "kemet-accordion-panel-opened"
+              "description": "Fires when alert is opened.",
+              "name": "kemet-alert-opened"
             },
             {
-              "description": "Fires when a panel is closed",
-              "name": "kemet-accordion-panel-closed"
+              "description": "Fires when alert is closed.",
+              "name": "kemet-alert-closed"
             }
           ],
           "attributes": [
@@ -555,45 +665,64 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-              },
-              "description": "Determines the opened state of the panel",
+              "description": "Determines if the alert is opened or not.",
               "fieldName": "opened"
             },
             {
-              "name": "max-height",
+              "name": "reveal",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Fades in the alert when opened.",
+              "fieldName": "reveal"
+            },
+            {
+              "name": "closable",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Adds a close button to the alert.",
+              "fieldName": "closable"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              },
+              "default": "'standard'",
+              "fieldName": "status"
+            },
+            {
+              "name": "border-status",
               "type": {
                 "text": "string"
               },
-              "default": "'0px'",
-              "description": "Sets the max height of the panel's body",
-              "fieldName": "maxHeight"
+              "description": "Adds a border that indicates the status.",
+              "fieldName": "borderStatus"
             },
             {
-              "name": "slug",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Hides the element from document flow.",
+              "fieldName": "hidden"
+            },
+            {
+              "name": "overlay",
               "type": {
                 "text": "string"
               },
-              "default": "'panel'",
-              "description": "Uniquely identifies a panel for accessibility purposes",
-              "fieldName": "slug"
-            },
-            {
-              "name": "index",
-              "type": {
-                "text": "number"
-              },
-              "fieldName": "index"
+              "description": "Fixes the alert over content in specified position.",
+              "fieldName": "overlay"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-accordion-panel",
-          "summary": "A blade for an accordion.",
+          "tagName": "kemet-alert",
+          "summary": "Calls out important messages and notifications.",
           "customElement": true
         }
       ],
@@ -602,133 +731,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-accordion-panel",
+          "name": "kemet-alert",
           "declaration": {
-            "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAccordion",
-          "members": [
-            {
-              "kind": "field",
-              "name": "currentPanel",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The index value for the most recently opened panel",
-              "attribute": "current-panel"
-            },
-            {
-              "kind": "field",
-              "name": "togglePanels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "attribute": "toggle-panels"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "handlePanelOpened",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "navigatePanels",
-              "parameters": [
-                {
-                  "name": "direction"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "event"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "expandAll"
-            },
-            {
-              "kind": "method",
-              "name": "collapseAll"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "current-panel",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The index value for the most recently opened panel",
-              "fieldName": "currentPanel"
-            },
-            {
-              "name": "toggle-panels",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Support for closing all inactive panels when one is opened",
-              "fieldName": "togglePanels"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-accordion",
-          "summary": "A component that acts like a standard accordion.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-accordion",
-          "declaration": {
-            "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "name": "KemetAlert",
+            "module": "src/components/kemet-alert/kemet-alert.ts"
           }
         }
       ]
@@ -948,7 +960,7 @@
               "name": "default"
             },
             {
-              "description": "The cards's header.",
+              "description": "The card's header.",
               "name": "header"
             },
             {
@@ -1119,7 +1131,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the button is active",
+              "description": "Determines if the button is active",
               "attribute": "active",
               "reflects": true
             },
@@ -1215,10 +1227,10 @@
               "parameters": [
                 {
                   "name": "event",
-                  "description": "event object",
                   "type": {
                     "text": "object"
-                  }
+                  },
+                  "description": "event object"
                 }
               ],
               "description": "Handles keyup",
@@ -1231,7 +1243,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the button is active",
+              "description": "Determines if the button is active",
               "fieldName": "active"
             },
             {
@@ -1489,7 +1501,7 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-last",
-          "summary": "A link to the last slide in the carousel..",
+          "summary": "A link to the last slide in the carousel.",
           "customElement": true
         }
       ],
@@ -2071,7 +2083,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not to display arrows.",
+              "description": "Determines whether to display arrows.",
               "attribute": "arrows",
               "reflects": true
             },
@@ -2100,7 +2112,10 @@
               "name": "swipeStart",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "TouchEvent | MouseEvent"
+                  }
                 }
               ]
             },
@@ -2109,7 +2124,10 @@
               "name": "swipeEnd",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "TouchEvent | MouseEvent"
+                  }
                 }
               ]
             },
@@ -2118,7 +2136,10 @@
               "name": "swipeUpdate",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "TouchEvent | MouseEvent"
+                  }
                 }
               ]
             },
@@ -2167,7 +2188,10 @@
               "name": "updateIndex",
               "parameters": [
                 {
-                  "name": "newIndex"
+                  "name": "newIndex",
+                  "type": {
+                    "text": "number"
+                  }
                 }
               ]
             },
@@ -2180,7 +2204,10 @@
               "name": "goToSlide",
               "parameters": [
                 {
-                  "name": "index"
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
                 }
               ]
             },
@@ -2193,7 +2220,10 @@
               "name": "handleLink",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -2202,14 +2232,17 @@
               "name": "getOption",
               "parameters": [
                 {
-                  "name": "option"
+                  "name": "option",
+                  "type": {
+                    "text": "string"
+                  }
                 }
               ]
             }
           ],
           "events": [
             {
-              "description": "Fires with the a slide has begun to change.",
+              "description": "Fires when the slide has begun to change.",
               "name": "kemet-carousel-change-start"
             },
             {
@@ -2269,7 +2302,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not to display arrows.",
+              "description": "Determines whether to display arrows.",
               "fieldName": "arrows"
             },
             {
@@ -2333,7 +2366,7 @@
               "name": "--kemet-checkbox-size"
             },
             {
-              "description": "The color of the checkbox's mark.",
+              "description": "The color of the checkbox mark.",
               "name": "--kemet-checkbox-color"
             },
             {
@@ -2345,7 +2378,7 @@
               "name": "--kemet-checkbox-border-radius"
             },
             {
-              "description": "The filled color of the checkbox's mark.",
+              "description": "The filled color of the checkbox mark.",
               "name": "--kemet-checkbox-filled-color"
             },
             {
@@ -2359,7 +2392,7 @@
               "name": "label"
             },
             {
-              "description": "The the label's text.",
+              "description": "The label's text.",
               "name": "text"
             },
             {
@@ -2764,14 +2797,14 @@
               "kind": "field",
               "name": "filteredOptions",
               "type": {
-                "text": "any[]"
+                "text": "string[]"
               }
             },
             {
               "kind": "field",
               "name": "field",
               "type": {
-                "text": "KemetFieldInterface"
+                "text": "KemetField"
               }
             },
             {
@@ -2790,7 +2823,10 @@
               "name": "handleInput",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -2799,7 +2835,10 @@
               "name": "handleSelection",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -2808,7 +2847,10 @@
               "name": "handleOptionKeyDown",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -2817,7 +2859,10 @@
               "name": "handleInputKeyDown",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             }
@@ -3008,7 +3053,7 @@
             "package": "lit"
           },
           "tagName": "kemet-count",
-          "summary": "Maintains a character count for a input field. Is to be used only in the component slot of a Field component.",
+          "summary": "Maintains a character count for an input field. Is to be used only in the component slot of a Field component.",
           "customElement": true
         }
       ],
@@ -3084,7 +3129,10 @@
               "name": "startDrag",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
                 }
               ]
             },
@@ -3093,7 +3141,10 @@
               "name": "drag",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
                 }
               ]
             },
@@ -3277,7 +3328,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Adds a overlay over the content section of the Drawer when opened",
+              "description": "Adds an overlay over the content section of the Drawer when opened",
               "attribute": "overlay",
               "reflects": true
             }
@@ -3329,7 +3380,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Adds a overlay over the content section of the Drawer when opened",
+              "description": "Adds an overlay over the content section of the Drawer when opened",
               "fieldName": "overlay"
             }
           ],
@@ -3401,7 +3452,7 @@
               "name": "button"
             },
             {
-              "description": " The FAB's icon.",
+              "description": " The FAB icon.",
               "name": "icon"
             },
             {
@@ -3599,7 +3650,7 @@
           ],
           "slots": [
             {
-              "description": "Allows sub components of the field to display.",
+              "description": "Allows subcomponents of the field to display.",
               "name": "component"
             }
           ],
@@ -3610,7 +3661,7 @@
               "type": {
                 "text": "string"
               },
-              "description": "Uniquely identifies the control. Use the same slug for slotted sub components.",
+              "description": "Uniquely identifies the control. Use the same slug for slotted subcomponents.",
               "attribute": "slug"
             },
             {
@@ -3698,7 +3749,7 @@
                 "text": "string"
               },
               "default": "'check-lg'",
-              "description": "The icon while in an success state",
+              "description": "The icon while in a success state",
               "attribute": "success-icon"
             },
             {
@@ -3728,7 +3779,10 @@
               "name": "handleFocused",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -3737,7 +3791,10 @@
               "name": "handleStatus",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -3746,7 +3803,10 @@
               "name": "handleInput",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -3755,7 +3815,10 @@
               "name": "handleSelection",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             }
@@ -3772,7 +3835,7 @@
               "type": {
                 "text": "string"
               },
-              "description": "Uniquely identifies the control. Use the same slug for slotted sub components.",
+              "description": "Uniquely identifies the control. Use the same slug for slotted subcomponents.",
               "fieldName": "slug"
             },
             {
@@ -3847,7 +3910,7 @@
                 "text": "string"
               },
               "default": "'check-lg'",
-              "description": "The icon while in an success state",
+              "description": "The icon while in a success state",
               "fieldName": "successIcon"
             }
           ],
@@ -3897,7 +3960,10 @@
               "name": "handleKeyup",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             }
@@ -4064,14 +4130,14 @@
               "kind": "field",
               "name": "frontElement",
               "type": {
-                "text": "any"
+                "text": "HTMLElement"
               }
             },
             {
               "kind": "field",
               "name": "backElement",
               "type": {
-                "text": "any"
+                "text": "HTMLElement"
               }
             },
             {
@@ -4495,7 +4561,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "States whether or not the input is invalid",
+              "description": "States whether the input is invalid",
               "attribute": "invalid",
               "reflects": true
             },
@@ -4659,46 +4725,19 @@
             },
             {
               "kind": "method",
-              "name": "makeIconRight",
-              "description": "Makes the right icon",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
+              "name": "makeIconRight"
             },
             {
               "kind": "method",
-              "name": "makeIconLeft",
-              "description": "Makes the left icon",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
+              "name": "makeIconLeft"
             },
             {
               "kind": "method",
-              "name": "makeIconClear",
-              "description": "Makes a clear icon for search.",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
+              "name": "makeIconClear"
             },
             {
               "kind": "method",
-              "name": "makeVisibilityToggle",
-              "description": "Makes a password visibility toggle button",
-              "return": {
-                "type": {
-                  "text": "templateResult"
-                }
-              }
+              "name": "makeVisibilityToggle"
             },
             {
               "kind": "method",
@@ -4739,7 +4778,10 @@
               "name": "handleStatus",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -4758,24 +4800,24 @@
             {
               "kind": "method",
               "name": "checkLimitValidity",
-              "description": "Checks the validity of the character limit for the count component",
-              "privacy": "private",
               "return": {
                 "type": {
                   "text": "boolean"
                 }
-              }
+              },
+              "description": "Checks the validity of the character limit for the count component",
+              "privacy": "public"
             },
             {
               "kind": "method",
               "name": "checkValidity",
-              "description": "Checks the validity of the standard input",
-              "privacy": "public",
               "return": {
                 "type": {
                   "text": "boolean"
                 }
-              }
+              },
+              "description": "Checks the validity of the standard input",
+              "privacy": "public"
             },
             {
               "kind": "method",
@@ -4943,7 +4985,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "States whether or not the input is invalid",
+              "description": "States whether the input is invalid",
               "fieldName": "invalid"
             },
             {
@@ -5265,7 +5307,10 @@
               "name": "handleFocusableDown",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             }
@@ -5332,7 +5377,7 @@
             "package": "lit"
           },
           "tagName": "kemet-modal",
-          "summary": "A dialog that has many built in effects and flexible styles.",
+          "summary": "A dialog that has many built-in effects and flexible styles.",
           "customElement": true
         }
       ],
@@ -5363,33 +5408,14 @@
           "kind": "class",
           "description": "",
           "name": "KemetPassword",
-          "cssParts": [
-            {
-              "description": "The status message.",
-              "name": "status"
-            },
-            {
-              "description": "The strength indicator bars.",
-              "name": "indicator"
-            },
-            {
-              "description": "A message to display to the user.",
-              "name": "message"
-            },
-            {
-              "description": "A description of rules to follow.",
-              "name": "rules"
-            }
-          ],
           "members": [
             {
               "kind": "field",
               "name": "rules",
               "type": {
-                "text": "array"
+                "text": "IOptions[]"
               },
               "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
-              "description": "An array of objects containing the rules the password must meet.",
               "attribute": "rules"
             },
             {
@@ -5398,7 +5424,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Controls the display of the component.",
               "attribute": "show",
               "reflects": true
             },
@@ -5408,7 +5433,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The value of the input component.",
               "attribute": "value"
             },
             {
@@ -5418,7 +5442,6 @@
                 "text": "string"
               },
               "default": "'Please make sure you meet all the requirements.'",
-              "description": "A message that is above the rules.",
               "attribute": "message"
             },
             {
@@ -5427,7 +5450,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The strength of the password. Weak | Better | Strong.",
               "attribute": "strength"
             },
             {
@@ -5472,17 +5494,22 @@
             {
               "kind": "method",
               "name": "makeRules",
-              "description": "Makes the list of rules",
-              "privacy": "private",
               "return": {
                 "type": {
-                  "text": "templateResults"
+                  "text": "TemplateResult<1>[]"
                 }
-              }
+              },
+              "description": "Makes the list of rules",
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "makeCheckIcon",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              },
               "parameters": [
                 {
                   "name": "meetsCriteria",
@@ -5492,12 +5519,7 @@
                 }
               ],
               "description": "Makes the check icon if the criteria has been met",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "templateResults"
-                }
-              }
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -5526,20 +5548,13 @@
               "privacy": "private"
             }
           ],
-          "events": [
-            {
-              "description": "Fires when there's a change in status.",
-              "name": "kemet-password-status"
-            }
-          ],
           "attributes": [
             {
               "name": "rules",
               "type": {
-                "text": "array"
+                "text": "IOptions[]"
               },
               "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
-              "description": "An array of objects containing the rules the password must meet.",
               "fieldName": "rules"
             },
             {
@@ -5547,7 +5562,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Controls the display of the component.",
               "fieldName": "show"
             },
             {
@@ -5555,7 +5569,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The value of the input component.",
               "fieldName": "value"
             },
             {
@@ -5564,7 +5577,6 @@
                 "text": "string"
               },
               "default": "'Please make sure you meet all the requirements.'",
-              "description": "A message that is above the rules.",
               "fieldName": "message"
             },
             {
@@ -5572,7 +5584,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The strength of the password. Weak | Better | Strong.",
               "fieldName": "strength"
             },
             {
@@ -5597,7 +5608,6 @@
             "package": "lit"
           },
           "tagName": "kemet-password",
-          "summary": "Gauges the strength of a password entered by the user.",
           "customElement": true
         }
       ],
@@ -5638,7 +5648,10 @@
               "name": "handleKeyboard",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             }
@@ -5736,7 +5749,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the the Popper is opened or closed",
+              "description": "Determines if the Popper is opened or closed",
               "attribute": "opened",
               "reflects": true
             },
@@ -5793,7 +5806,10 @@
               "name": "toggle",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent | KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -5802,7 +5818,10 @@
               "name": "handleKeyUp",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -5811,7 +5830,10 @@
               "name": "handleFocusableDown",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             }
@@ -5841,7 +5863,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the the Popper is opened or closed",
+              "description": "Determines if the Popper is opened or closed",
               "fieldName": "opened"
             },
             {
@@ -6246,14 +6268,14 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the radio button set is required",
+              "description": "Determines whether the radio button set is required",
               "attribute": "required"
             },
             {
               "kind": "field",
               "name": "radios",
               "type": {
-                "text": "any"
+                "text": "NodeListOf<KemetRadio>"
               }
             },
             {
@@ -6261,7 +6283,10 @@
               "name": "handleClick",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
                 }
               ]
             },
@@ -6270,7 +6295,10 @@
               "name": "handleKeyDown",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -6351,7 +6379,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the radio button set is required",
+              "description": "Determines whether the radio button set is required",
               "fieldName": "required"
             }
           ],
@@ -6625,7 +6653,10 @@
               "name": "handleKeyup",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -6679,7 +6710,7 @@
             "package": "lit"
           },
           "tagName": "kemet-scroll-link",
-          "summary": "A component that adds a smooth scrolling link to an target..",
+          "summary": "A component that adds a smooth scrolling link to a target.",
           "customElement": true
         }
       ],
@@ -6751,7 +6782,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Whether or not the nav has shifted into a new state.",
+              "description": "Whether the nav has shifted into a new state.",
               "attribute": "transform",
               "reflects": true
             },
@@ -6770,10 +6801,16 @@
               "name": "handleScroll",
               "parameters": [
                 {
-                  "name": "stickPoint"
+                  "name": "stickPoint",
+                  "type": {
+                    "text": "number"
+                  }
                 },
                 {
-                  "name": "elementHeight"
+                  "name": "elementHeight",
+                  "type": {
+                    "text": "number"
+                  }
                 }
               ]
             }
@@ -6794,7 +6831,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Whether or not the nav has shifted into a new state.",
+              "description": "Whether the nav has shifted into a new state.",
               "fieldName": "transform"
             },
             {
@@ -6939,10 +6976,16 @@
               "name": "pageDisplay",
               "parameters": [
                 {
-                  "name": "slide"
+                  "name": "slide",
+                  "type": {
+                    "text": "KemetScrollSnapSlide"
+                  }
                 },
                 {
-                  "name": "visibleIndex"
+                  "name": "visibleIndex",
+                  "type": {
+                    "text": "number"
+                  }
                 }
               ]
             },
@@ -6951,7 +6994,10 @@
               "name": "slideLink",
               "parameters": [
                 {
-                  "name": "index"
+                  "name": "index",
+                  "type": {
+                    "text": "string"
+                  }
                 }
               ]
             },
@@ -6960,10 +7006,16 @@
               "name": "handleKeyboardInput",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 },
                 {
-                  "name": "id"
+                  "name": "id",
+                  "type": {
+                    "text": "string"
+                  }
                 }
               ]
             }
@@ -7091,7 +7143,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Is true when the slide is fully visible in it's container.",
+              "description": "Is true when the slide is fully visible in its container.",
               "attribute": "focused",
               "reflects": true
             },
@@ -7126,7 +7178,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Is true when the slide is fully visible in it's container.",
+              "description": "Is true when the slide is fully visible in its container.",
               "fieldName": "focused"
             },
             {
@@ -7254,7 +7306,7 @@
               "kind": "field",
               "name": "slides",
               "type": {
-                "text": "any[]"
+                "text": "KemetScrollSnapSlide[]"
               }
             },
             {
@@ -7270,7 +7322,10 @@
               "name": "focusSlide",
               "parameters": [
                 {
-                  "name": "index"
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
                 }
               ]
             },
@@ -7363,11 +7418,12 @@
             },
             {
               "kind": "field",
-              "name": "disable",
+              "name": "disabled",
               "type": {
                 "text": "boolean"
               },
-              "attribute": "disable"
+              "description": "Determines whether to disable the option",
+              "attribute": "disabled"
             },
             {
               "kind": "field",
@@ -7377,14 +7433,6 @@
               },
               "description": "Selects the option if true",
               "attribute": "selected"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether to disable the option",
-              "name": "disabled",
-              "kind": "field"
             }
           ],
           "events": [
@@ -7416,11 +7464,12 @@
               "fieldName": "value"
             },
             {
-              "name": "disable",
+              "name": "disabled",
               "type": {
                 "text": "boolean"
               },
-              "fieldName": "disable"
+              "description": "Determines whether to disable the option",
+              "fieldName": "disabled"
             },
             {
               "name": "selected",
@@ -7467,65 +7516,6 @@
           "kind": "class",
           "description": "",
           "name": "KemetSelect",
-          "cssProperties": [
-            {
-              "description": "The padding on the textarea.",
-              "name": "--kemet-select-padding"
-            },
-            {
-              "description": "The border of the textarea.",
-              "name": "--kemet-select-border"
-            },
-            {
-              "description": "The border of the error state.",
-              "name": "--kemet-select-border-color-error"
-            },
-            {
-              "description": "The border of the success state.",
-              "name": "--kemet-select-border-color-success"
-            },
-            {
-              "description": "The border of the warning state.",
-              "name": "--kemet-select-border-color-warning"
-            },
-            {
-              "description": "The border radius on rounded.",
-              "name": "--kemet-select-border-radius-rounded"
-            },
-            {
-              "description": "The border on filled.",
-              "name": "--kemet-select-border-filled"
-            },
-            {
-              "description": "The color on filled.",
-              "name": "--kemet-select-color-filled"
-            },
-            {
-              "description": "The background-color on filled.",
-              "name": "--kemet-select-background-color-filled"
-            },
-            {
-              "description": "The error state background color.",
-              "name": "--kemet-select-background-color-error"
-            },
-            {
-              "description": "The success state background color.",
-              "name": "--kemet-select-background-color-success"
-            },
-            {
-              "description": "The warning state background color.",
-              "name": "--kemet-select-background-color-warning"
-            },
-            {
-              "description": "The space on the right of the icon.",
-              "name": "--kemet-select-icon-right"
-            }
-          ],
-          "cssParts": [
-            {
-              "name": "select"
-            }
-          ],
           "members": [
             {
               "kind": "field",
@@ -7533,7 +7523,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "A string the uniquely identifies the select",
               "attribute": "slug"
             },
             {
@@ -7543,7 +7532,6 @@
                 "text": "string"
               },
               "default": "'select'",
-              "description": "The name of the select",
               "attribute": "name"
             },
             {
@@ -7552,16 +7540,14 @@
               "type": {
                 "text": "string"
               },
-              "description": "The value of the select",
               "attribute": "value"
             },
             {
               "kind": "field",
               "name": "options",
               "type": {
-                "text": "array"
+                "text": "IOptions[]"
               },
-              "description": "The options the select contains",
               "attribute": "options"
             },
             {
@@ -7570,7 +7556,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The status of the select",
               "attribute": "status",
               "reflects": true
             },
@@ -7580,7 +7565,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the field is required",
               "attribute": "required",
               "reflects": true
             },
@@ -7590,7 +7574,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the field is disabled",
               "attribute": "disabled",
               "reflects": true
             },
@@ -7600,7 +7583,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Support of multiple choice selections",
               "attribute": "multiple"
             },
             {
@@ -7610,7 +7592,6 @@
                 "text": "string"
               },
               "default": "'chevron-down'",
-              "description": "The dropdown icon",
               "attribute": "icon"
             },
             {
@@ -7620,7 +7601,6 @@
                 "text": "number"
               },
               "default": "16",
-              "description": "The dropdown icon size",
               "attribute": "icon-size"
             },
             {
@@ -7629,7 +7609,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays a filled select",
               "attribute": "filled",
               "reflects": true
             },
@@ -7639,7 +7618,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays rounded corners",
               "attribute": "rounded",
               "reflects": true
             },
@@ -7668,7 +7646,7 @@
               "kind": "field",
               "name": "optionElements",
               "type": {
-                "text": "any"
+                "text": "NodeListOf<KemetOption>"
               }
             },
             {
@@ -7681,18 +7659,18 @@
             {
               "kind": "method",
               "name": "makeOptions",
-              "description": "Generates the option elements",
-              "privacy": "private",
               "return": {
                 "type": {
                   "text": "TemplateResult"
                 }
-              }
+              },
+              "description": "Generates the option elements",
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "makeIcon",
-              "description": "Generates an dropdown icon",
+              "description": "Generates a dropdown icon",
               "privacy": "private"
             },
             {
@@ -7722,23 +7700,13 @@
             {
               "kind": "method",
               "name": "checkValidity",
-              "description": "Checks the validity of the standard select",
-              "privacy": "public",
               "return": {
                 "type": {
                   "text": "boolean"
                 }
-              }
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when the input receives and loses focus",
-              "name": "kemet-input-focused"
-            },
-            {
-              "description": "Fires when there's a change in status",
-              "name": "kemet-input-status"
+              },
+              "description": "Checks the validity of the standard select",
+              "privacy": "public"
             }
           ],
           "attributes": [
@@ -7747,7 +7715,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "A string the uniquely identifies the select",
               "fieldName": "slug"
             },
             {
@@ -7756,7 +7723,6 @@
                 "text": "string"
               },
               "default": "'select'",
-              "description": "The name of the select",
               "fieldName": "name"
             },
             {
@@ -7764,15 +7730,13 @@
               "type": {
                 "text": "string"
               },
-              "description": "The value of the select",
               "fieldName": "value"
             },
             {
               "name": "options",
               "type": {
-                "text": "array"
+                "text": "IOptions[]"
               },
-              "description": "The options the select contains",
               "fieldName": "options"
             },
             {
@@ -7780,7 +7744,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The status of the select",
               "fieldName": "status"
             },
             {
@@ -7788,7 +7751,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the field is required",
               "fieldName": "required"
             },
             {
@@ -7796,7 +7758,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not the field is disabled",
               "fieldName": "disabled"
             },
             {
@@ -7804,7 +7765,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Support of multiple choice selections",
               "fieldName": "multiple"
             },
             {
@@ -7813,7 +7773,6 @@
                 "text": "string"
               },
               "default": "'chevron-down'",
-              "description": "The dropdown icon",
               "fieldName": "icon"
             },
             {
@@ -7822,7 +7781,6 @@
                 "text": "number"
               },
               "default": "16",
-              "description": "The dropdown icon size",
               "fieldName": "iconSize"
             },
             {
@@ -7830,7 +7788,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays a filled select",
               "fieldName": "filled"
             },
             {
@@ -7838,7 +7795,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays rounded corners",
               "fieldName": "rounded"
             }
           ],
@@ -7847,7 +7803,6 @@
             "package": "lit"
           },
           "tagName": "kemet-select",
-          "summary": "An enhanced select element.",
           "customElement": true
         }
       ],
@@ -7941,7 +7896,7 @@
               "kind": "field",
               "name": "sortableItem",
               "type": {
-                "text": "KemetSortableItemInterface"
+                "text": "KemetSortableItem"
               }
             },
             {
@@ -7949,7 +7904,10 @@
               "name": "handleDragStart",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "DragEvent"
+                  }
                 }
               ]
             },
@@ -7958,7 +7916,10 @@
               "name": "handleDragOver",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "DragEvent"
+                  }
                 }
               ]
             },
@@ -7967,7 +7928,10 @@
               "name": "handleDragEnd",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "DragEvent"
+                  }
                 }
               ]
             }
@@ -8207,7 +8171,7 @@
             "package": "lit"
           },
           "tagName": "kemet-svgs",
-          "summary": "A set of SVG graphics that can be referenced any where in a page or app.",
+          "summary": "A set of SVG graphics that can be referenced anywhere in a page or app.",
           "customElement": true
         }
       ],
@@ -8266,6 +8230,14 @@
               "attribute": "panel"
             },
             {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "index"
+            },
+            {
               "kind": "method",
               "name": "a11y"
             }
@@ -8287,6 +8259,13 @@
               },
               "description": "Identifies the panel to be linked by a tab",
               "fieldName": "panel"
+            },
+            {
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "index"
             }
           ],
           "superclass": {
@@ -8336,6 +8315,14 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "index"
+            },
             {
               "kind": "field",
               "name": "selected",
@@ -8393,6 +8380,13 @@
             }
           ],
           "attributes": [
+            {
+              "name": "index",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "index"
+            },
             {
               "name": "selected",
               "type": {
@@ -8455,68 +8449,6 @@
           "kind": "class",
           "description": "",
           "name": "KemetTabs",
-          "cssProperties": [
-            {
-              "description": "The thickness of the ink.",
-              "name": "--kemet-tabs-ink-size"
-            },
-            {
-              "description": "The radius on the ink.",
-              "name": "--kemet-tabs-ink-radius"
-            },
-            {
-              "description": "The color of the ink.",
-              "name": "--kemet-tabs-ink-color"
-            },
-            {
-              "description": "The thickness of the divider.",
-              "name": "--kemet-tabs-divider-size"
-            },
-            {
-              "description": "The color of the divider.",
-              "name": "--kemet-tabs-divider-color"
-            },
-            {
-              "description": "The transition speed of the panels.",
-              "name": "--kemet-tabs-transition-speed"
-            },
-            {
-              "description": "The space between tabs and panels.",
-              "name": "--kemet-tabs-spacer"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The container for the tablist.",
-              "name": "links"
-            },
-            {
-              "description": "Contains the tabs.",
-              "name": "tablist"
-            },
-            {
-              "description": "Contains the panels.",
-              "name": "panels"
-            },
-            {
-              "description": "The ink element.",
-              "name": "ink"
-            },
-            {
-              "description": "The divider element.",
-              "name": "divider"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Place the tabs here.",
-              "name": "tab"
-            },
-            {
-              "description": "Place the panels here.",
-              "name": "panel"
-            }
-          ],
           "members": [
             {
               "kind": "field",
@@ -8524,7 +8456,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The selected tab by name",
               "attribute": "selected",
               "reflects": true
             },
@@ -8535,7 +8466,6 @@
                 "text": "number"
               },
               "default": "0",
-              "description": "The selected tab by index",
               "attribute": "selectedIndex"
             },
             {
@@ -8545,17 +8475,15 @@
                 "text": "number"
               },
               "default": "0",
-              "description": "Positions the current panel",
               "attribute": "panelPosition"
             },
             {
               "kind": "field",
               "name": "panelEffect",
               "type": {
-                "text": "string"
+                "text": "TypePanelEffect"
               },
               "default": "'none'",
-              "description": "The transition effect for panels",
               "attribute": "panel-effect",
               "reflects": true
             },
@@ -8565,17 +8493,15 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not to enable swipe behavior",
               "attribute": "swipe"
             },
             {
               "kind": "field",
               "name": "placement",
               "type": {
-                "text": "string"
+                "text": "TypePlacement"
               },
               "default": "'top'",
-              "description": "Places the tabs to the top, right, bottom, or left",
               "attribute": "placement",
               "reflects": true
             },
@@ -8585,17 +8511,15 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not to show a divider line",
               "attribute": "divider"
             },
             {
               "kind": "field",
               "name": "tabsAlign",
               "type": {
-                "text": "string"
+                "text": "TypeTabsAlign"
               },
               "default": "'center'",
-              "description": "Spacing alignment of the tabs",
               "attribute": "tabs-align",
               "reflects": true
             },
@@ -8603,9 +8527,8 @@
               "kind": "field",
               "name": "ink",
               "type": {
-                "text": "object"
+                "text": "Iink"
               },
-              "description": "An object that contains information about the ink",
               "attribute": "ink"
             },
             {
@@ -8615,7 +8538,6 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not to hide the ink",
               "attribute": "hide-ink"
             },
             {
@@ -8624,7 +8546,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Is true when the space of the tabs is larger than it's container",
               "attribute": "overflow",
               "reflects": true
             },
@@ -8632,14 +8553,14 @@
               "kind": "field",
               "name": "tabs",
               "type": {
-                "text": "any[]"
+                "text": "KemetTab[]"
               }
             },
             {
               "kind": "field",
               "name": "panels",
               "type": {
-                "text": "any[]"
+                "text": "KemetTabPanel[]"
               }
             },
             {
@@ -8691,7 +8612,10 @@
               "name": "handleTabClose",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -8700,7 +8624,10 @@
               "name": "makeInk",
               "parameters": [
                 {
-                  "name": "location"
+                  "name": "location",
+                  "type": {
+                    "text": "string"
+                  }
                 }
               ]
             },
@@ -8733,7 +8660,10 @@
               "name": "tabSelectedChange",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
                 }
               ]
             },
@@ -8758,10 +8688,16 @@
               "name": "animatePanel",
               "parameters": [
                 {
-                  "name": "panelName"
+                  "name": "panelName",
+                  "type": {
+                    "text": "string"
+                  }
                 },
                 {
-                  "name": "panelIndex"
+                  "name": "panelIndex",
+                  "type": {
+                    "text": "number"
+                  }
                 }
               ]
             },
@@ -8770,7 +8706,10 @@
               "name": "handleTabKeydown",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -8779,7 +8718,10 @@
               "name": "handleTouchStart",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "TouchEvent"
+                  }
                 }
               ]
             },
@@ -8788,15 +8730,12 @@
               "name": "handleTouchMove",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "TouchEvent"
+                  }
                 }
               ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when a tab is changed",
-              "name": "kemet-tab-changed"
             }
           ],
           "attributes": [
@@ -8805,7 +8744,6 @@
               "type": {
                 "text": "string"
               },
-              "description": "The selected tab by name",
               "fieldName": "selected"
             },
             {
@@ -8814,7 +8752,6 @@
                 "text": "number"
               },
               "default": "0",
-              "description": "The selected tab by index",
               "fieldName": "selectedIndex"
             },
             {
@@ -8823,16 +8760,14 @@
                 "text": "number"
               },
               "default": "0",
-              "description": "Positions the current panel",
               "fieldName": "panelPosition"
             },
             {
               "name": "panel-effect",
               "type": {
-                "text": "string"
+                "text": "TypePanelEffect"
               },
               "default": "'none'",
-              "description": "The transition effect for panels",
               "fieldName": "panelEffect"
             },
             {
@@ -8840,16 +8775,14 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not to enable swipe behavior",
               "fieldName": "swipe"
             },
             {
               "name": "placement",
               "type": {
-                "text": "string"
+                "text": "TypePlacement"
               },
               "default": "'top'",
-              "description": "Places the tabs to the top, right, bottom, or left",
               "fieldName": "placement"
             },
             {
@@ -8857,24 +8790,21 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not to show a divider line",
               "fieldName": "divider"
             },
             {
               "name": "tabs-align",
               "type": {
-                "text": "string"
+                "text": "TypeTabsAlign"
               },
               "default": "'center'",
-              "description": "Spacing alignment of the tabs",
               "fieldName": "tabsAlign"
             },
             {
               "name": "ink",
               "type": {
-                "text": "object"
+                "text": "Iink"
               },
-              "description": "An object that contains information about the ink",
               "fieldName": "ink"
             },
             {
@@ -8883,7 +8813,6 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not to hide the ink",
               "fieldName": "hideInk"
             },
             {
@@ -8891,7 +8820,6 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Is true when the space of the tabs is larger than it's container",
               "fieldName": "overflow"
             }
           ],
@@ -8900,7 +8828,6 @@
             "package": "lit"
           },
           "tagName": "kemet-tabs",
-          "summary": "A group of tabs and panels.",
           "customElement": true
         }
       ],
@@ -9210,24 +9137,24 @@
             {
               "kind": "method",
               "name": "checkLimitValidity",
-              "description": "Checks the validity of the character limit for the count component",
-              "privacy": "private",
               "return": {
                 "type": {
                   "text": "boolean"
                 }
-              }
+              },
+              "description": "Checks the validity of the character limit for the count component",
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "checkValidity",
-              "description": "Checks the validity of the standard input",
-              "privacy": "public",
               "return": {
                 "type": {
                   "text": "boolean"
                 }
-              }
+              },
+              "description": "Checks the validity of the standard input",
+              "privacy": "public"
             },
             {
               "kind": "method",
@@ -9506,7 +9433,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not the toggle is checked",
+              "description": "Determines whether the toggle is checked",
               "attribute": "checked",
               "reflects": true
             },
@@ -9517,7 +9444,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not the toggle is disabled",
+              "description": "Determines whether the toggle is disabled",
               "attribute": "disabled"
             },
             {
@@ -9537,7 +9464,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not to show text options",
+              "description": "Determines whether to show text options",
               "attribute": "show"
             },
             {
@@ -9612,7 +9539,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not the toggle is checked",
+              "description": "Determines whether the toggle is checked",
               "fieldName": "checked"
             },
             {
@@ -9621,7 +9548,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not the toggle is disabled",
+              "description": "Determines whether the toggle is disabled",
               "fieldName": "disabled"
             },
             {
@@ -9639,7 +9566,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Determines whether or not to show text options",
+              "description": "Determines whether to show text options",
               "fieldName": "show"
             },
             {
@@ -9728,7 +9655,7 @@
               "name": "--kemet-tooltip-background-color"
             },
             {
-              "description": "The border color of the the arrow",
+              "description": "The border color of the arrow",
               "name": "--kemet-tooltip-border-color"
             },
             {
@@ -9782,7 +9709,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the the Popper is opened or closed",
+              "description": "Determines if the Popper is opened or closed",
               "attribute": "opened",
               "reflects": true,
               "inheritedFrom": {
@@ -9867,7 +9794,10 @@
               "name": "toggle",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent | KeyboardEvent"
+                  }
                 }
               ],
               "inheritedFrom": {
@@ -9880,7 +9810,10 @@
               "name": "handleKeyUp",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ],
               "inheritedFrom": {
@@ -9893,7 +9826,10 @@
               "name": "handleFocusableDown",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ],
               "inheritedFrom": {
@@ -9907,7 +9843,7 @@
             "module": "/src/components/kemet-popper/kemet-popper"
           },
           "tagName": "kemet-tooltip",
-          "summary": "A tooltip is a Popper component that displays an dynamic arrow pointing to the trigger.",
+          "summary": "A tooltip is a Popper component that displays a dynamic arrow pointing to the trigger.",
           "customElement": true,
           "attributes": [
             {
@@ -9928,7 +9864,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines if the the Popper is opened or closed",
+              "description": "Determines if the Popper is opened or closed",
               "fieldName": "opened",
               "inheritedFrom": {
                 "name": "KemetPopper",
@@ -10131,7 +10067,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not a step renders as complete",
+              "description": "Determines whether a step renders as complete",
               "attribute": "completed",
               "reflects": true
             },
@@ -10141,7 +10077,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not a step renders as the current step",
+              "description": "Determines whether a step renders as the current step",
               "attribute": "current",
               "reflects": true
             },
@@ -10227,7 +10163,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not a step renders as complete",
+              "description": "Determines whether a step renders as complete",
               "fieldName": "completed"
             },
             {
@@ -10235,7 +10171,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Determines whether or not a step renders as the current step",
+              "description": "Determines whether a step renders as the current step",
               "fieldName": "current"
             },
             {
@@ -10332,7 +10268,7 @@
               "kind": "field",
               "name": "steps",
               "type": {
-                "text": "any"
+                "text": "NodeListOf<KemetTrackerStep>"
               }
             },
             {
@@ -10720,7 +10656,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "If true if drag and drop support is not detected",
+              "description": "Is true if drag and drop support is not detected",
               "attribute": "no-drag-drop",
               "reflects": true
             },
@@ -10762,7 +10698,10 @@
               "name": "handleChange",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
                 }
               ]
             },
@@ -10771,7 +10710,10 @@
               "name": "handleDrop",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "DragEvent"
+                  }
                 }
               ]
             },
@@ -10855,7 +10797,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "If true if drag and drop support is not detected",
+              "description": "Is true if drag and drop support is not detected",
               "fieldName": "noDragDrop"
             },
             {

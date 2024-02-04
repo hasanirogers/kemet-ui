@@ -1,4 +1,4 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { FormSubmitController } from '../../utilities/controllers/forms';
 import { emitEvent } from '../../utilities/misc/events';
@@ -12,10 +12,10 @@ import { stylesToggle } from './styles';
  * @summary A toggle switch for forms.
  *
  * @prop {string} name - The name on the input field
- * @prop {boolean} checked - Determines whether or not the toggle is checked
- * @prop {boolean} disabled - Determines whether or not the toggle is disabled
+ * @prop {boolean} checked - Determines whether the toggle is checked
+ * @prop {boolean} disabled - Determines whether the toggle is disabled
  * @prop {string} label - A description of the toggle's purpose
- * @prop {boolean} show - Determines whether or not to show text options
+ * @prop {boolean} show - Determines whether to show text options
  * @prop {boolean} squared - Displays the toggle as squared instead of rounded
  * @prop {string} optionChecked - The checked option text
  * @prop {string} optionUnchecked - The unchecked option text

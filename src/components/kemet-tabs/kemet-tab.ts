@@ -1,8 +1,7 @@
 import { LitElement, html } from 'lit';
-import { emitEvent } from '../../utilities/misc/events';
 import { customElement, property } from 'lit/decorators.js';
+import { emitEvent } from '../../utilities/misc/events';
 import { stylesKemetTab } from './styles';
-
 
 /**
  * @since 1.0.0
@@ -27,6 +26,9 @@ import { stylesKemetTab } from './styles';
 export default class KemetTab extends LitElement {
   static styles = [stylesKemetTab];
 
+  @property({ type: Number })
+  index: number;
+
   @property({ type: Boolean, reflect: true })
   selected: boolean = false;
 
@@ -35,7 +37,6 @@ export default class KemetTab extends LitElement {
 
   @property({ type: Boolean })
   closable: boolean;
-
 
   firstUpdated() {
     this.addEventListener('click', this.select.bind(this));
@@ -86,4 +87,3 @@ declare global {
     'kemet-tab': KemetTab
   }
 }
-

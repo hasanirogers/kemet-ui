@@ -10,7 +10,7 @@ import { KemetTextareaInterface } from '../kemet-textarea/types';
  * @status stable
  *
  * @tagname kemet-count
- * @summary Maintains a character count for a input field. Is to be used only in the component slot of a Field component.
+ * @summary Maintains a character count for an input field. Is to be used only in the component slot of a Field component.
  *
  * @prop {string} message - The text label shown to users
  * @prop {number} remaining - The number of characters remaining
@@ -111,4 +111,3 @@ declare global {
     'kemet-count': KemetCount
   }
 }
-

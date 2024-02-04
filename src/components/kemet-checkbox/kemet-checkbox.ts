@@ -28,14 +28,14 @@ import { TypeStatus } from './types';
  * @prop {string} message - Message associated with checkbox status
  *
  * @csspart label - The label element.
- * @csspart text - The the label's text.
+ * @csspart text - The label's text.
  * @csspart mark - The icon of the check mark.
  *
  * @cssproperty --kemet-checkbox-size - The width and height of the checkbox.
- * @cssproperty --kemet-checkbox-color - The color of the checkbox's mark.
+ * @cssproperty --kemet-checkbox-color - The color of the checkbox mark.
  * @cssproperty --kemet-checkbox-border - The border of the checkbox.
  * @cssproperty --kemet-checkbox-border-radius - The border radius of the checkbox.
- * @cssproperty --kemet-checkbox-filled-color - The filled color of the checkbox's mark.
+ * @cssproperty --kemet-checkbox-filled-color - The filled color of the checkbox mark.
  * @cssproperty --kemet-checkbox-filled-background-color - The filled background color.
  *
  * @event kemet-checkbox-change - Fires when the state of the checkbox changes
@@ -59,11 +59,11 @@ export default class KemetCheckbox extends LitElement {
   @property({ type: Boolean, reflect: true })
   indeterminate: boolean;
 
-  @property( { type: String })
+  @property({ type: String })
   name: string = 'checkbox';
 
-  @property({ type: String })
-  value: any;
+  @property({ type: Boolean })
+  value: boolean;
 
   @property({ type: Boolean, reflect: true })
   disabled: boolean = false;
@@ -88,7 +88,6 @@ export default class KemetCheckbox extends LitElement {
 
   @query('input')
   input: HTMLInputElement;
-
 
   constructor() {
     super();

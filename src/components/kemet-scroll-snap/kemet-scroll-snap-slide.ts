@@ -8,7 +8,7 @@ import { customElement, property } from 'lit/decorators.js';
  * @tagname kemet-scroll-snap-slide
  * @summary A slide in a scroll snap component.
  *
- * @prop {boolean} focused - Is true when the slide is fully visible in it's container.
+ * @prop {boolean} focused - Is true when the slide is fully visible in its container.
  * @prop {number} index - Identifies the slide.
  * @prop {string} label - Labels the slide.
  *

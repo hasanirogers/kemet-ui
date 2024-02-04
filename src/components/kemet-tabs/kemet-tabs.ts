@@ -1,10 +1,17 @@
 /* eslint-disable no-lonely-if */
 /* eslint-disable no-case-declarations */
 import { LitElement, html } from 'lit';
-import { stylesKemetTabs } from './styles';
+import {
+ customElement, property, query, state,
+} from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
-import { customElement, property, query, state } from 'lit/decorators.js';
-import { KemetTabInterface, KemetTabPanelInterface, TypePanelEffect, TypePlacement, TypeTabsAlign } from './types';
+import {
+  KemetTabPanelInterface, TypePanelEffect, TypePlacement, TypeTabsAlign,
+} from './types';
+import { stylesKemetTabs } from './styles';
+
+import type KemetTab from './kemet-tab';
+import type KemetTabPanel from './kemet-tab-panel';
 
 /**
  * @since 1.0.0
@@ -17,12 +24,12 @@ import { KemetTabInterface, KemetTabPanelInterface, TypePanelEffect, TypePlaceme
  * @prop {number} selectedIndex - The selected tab by index
  * @prop {number} panelPosition - Positions the current panel
  * @prop {string} panelEffect - The transition effect for panels
- * @prop {boolean} swipe - Determines whether or not to enable swipe behavior
+ * @prop {boolean} swipe - Determines whether to enable swipe behavior
  * @prop {string} placement - Places the tabs to the top, right, bottom, or left
- * @prop {boolean} divider - Determines whether or not to show a divider line
+ * @prop {boolean} divider - Determines whether to show a divider line
  * @prop {string} tabsAlign - Spacing alignment of the tabs
  * @prop {object} ink - An object that contains information about the ink
- * @prop {boolean} hideInk - Determines whether or not to hide the ink
+ * @prop {boolean} hideInk - Determines whether to hide the ink
  * @prop {boolean} overflow - Is true when the space of the tabs is larger than it's container
  *
  * @slot tab - Place the tabs here.
@@ -45,6 +52,13 @@ import { KemetTabInterface, KemetTabPanelInterface, TypePanelEffect, TypePlaceme
  * @event kemet-tab-changed - Fires when a tab is changed
  *
  */
+
+interface Iink {
+  width: string;
+  height: string;
+  positionX: string;
+  positionY: string;
+}
 
 @customElement('kemet-tabs')
 export default class KemetTabs extends LitElement {
@@ -75,7 +89,7 @@ export default class KemetTabs extends LitElement {
   tabsAlign: TypeTabsAlign = 'center';
 
   @property({ type: Object })
-  ink: any;
+  ink: Iink;
 
   @property({ type: Boolean, attribute: 'hide-ink' })
   hideInk: boolean = false;
@@ -84,10 +98,10 @@ export default class KemetTabs extends LitElement {
   overflow: boolean;
 
   @state()
-  tabs: any[];
+  tabs: KemetTab[];
 
   @state()
-  panels: any[];
+  panels: KemetTabPanel[];
 
   @state()
   xDown: number | null;
@@ -100,7 +114,6 @@ export default class KemetTabs extends LitElement {
 
   @query('#panels')
   panelsElement: HTMLElement;
-
 
   constructor() {
     super();
@@ -140,7 +153,7 @@ export default class KemetTabs extends LitElement {
     `;
   }
 
-  updated(prevProps) {
+  updated(prevProps: Map<string, never>) {
     this.determineFade();
     this.determineStacked();
 
@@ -159,7 +172,7 @@ export default class KemetTabs extends LitElement {
     const tabs = this.querySelectorAll('kemet-tab');
     let index = 0;
 
-    tabs.forEach((tab: KemetTabInterface) => {
+    tabs.forEach((tab: KemetTab) => {
       // give each tab an index to select by if link/panel is not used
       tab.index = index;
       index += 1;
@@ -185,7 +198,7 @@ export default class KemetTabs extends LitElement {
     const panelElement = this.shadowRoot.getElementById('panels');
     let index = 0;
 
-    panels.forEach((panel: KemetTabPanelInterface) => {
+    panels.forEach((panel: KemetTabPanel) => {
       // give each panel an index to select by if link/panel is not used
       panel.index = index;
       index += 1;
@@ -208,7 +221,7 @@ export default class KemetTabs extends LitElement {
 
   handleLeftArrow() {
     const selectedElement = this.tabs.find(tab => tab.selected) || this.tabs[0];
-    const previousElement = selectedElement.previousElementSibling;
+    const previousElement = selectedElement.previousElementSibling as KemetTab;
     const selectedIndex = this.tabs.findIndex(tab => tab.selected);
 
     if (this.selected) {
@@ -227,7 +240,7 @@ export default class KemetTabs extends LitElement {
 
   handleRightArrow() {
     const selectedElement = this.tabs.find(tab => tab.selected) || this.tabs[this.tabs.length - 1];
-    const nextElement = selectedElement.nextElementSibling;
+    const nextElement = selectedElement.nextElementSibling as KemetTab;
     const selectedIndex = this.tabs.findIndex(tab => tab.selected);
 
     if (this.selected) {
@@ -246,7 +259,7 @@ export default class KemetTabs extends LitElement {
     this.selectPanel();
   }
 
-  handleTabClose(event) {
+  handleTabClose(event: CustomEvent) {
     const tab = event.detail;
     const panel = this.panels[tab.index];
 
@@ -257,7 +270,7 @@ export default class KemetTabs extends LitElement {
     tab.remove();
   }
 
-  makeInk(location) {
+  makeInk(location: string) {
     if (this.hideInk) {
       return null;
     }
@@ -396,7 +409,7 @@ export default class KemetTabs extends LitElement {
     emitEvent(this, 'kemet-tab-changed', details);
   }
 
-  tabSelectedChange(event) {
+  tabSelectedChange(event: CustomEvent) {
     if (this.selected) {
       // if selected has been set, use the string attribute
       this.selected = event.detail.getAttribute('link');
@@ -409,7 +422,6 @@ export default class KemetTabs extends LitElement {
     this.selectPanel();
     this.dispatchTabChange();
   }
-
 
   determineFade() {
     this.panels.forEach((panel) => {
@@ -435,11 +447,7 @@ export default class KemetTabs extends LitElement {
       totalTabsWidth += tab.offsetWidth;
     });
 
-    if (totalTabsWidth > tabsContainerWidth && (this.placement === 'top' || this.placement === 'bottom')) {
-      this.overflow = true;
-    } else {
-      this.overflow = false;
-    }
+    this.overflow = totalTabsWidth > tabsContainerWidth && (this.placement === 'top' || this.placement === 'bottom');
   }
 
   handleResize() {
@@ -467,7 +475,7 @@ export default class KemetTabs extends LitElement {
     }
   }
 
-  animatePanel(panelName, panelIndex) {
+  animatePanel(panelName: string, panelIndex: number) {
     if (panelName) {
       const selectedPanel = this.querySelector(`[panel="${panelName}"]`) as KemetTabPanelInterface;
       if (selectedPanel) this.panelPosition = selectedPanel.offsetLeft * -1;
@@ -476,7 +484,7 @@ export default class KemetTabs extends LitElement {
     }
   }
 
-  handleTabKeydown(event) {
+  handleTabKeydown(event: KeyboardEvent) {
     if (this.selected) {
       switch (event.key) {
         case 'Home':
@@ -534,12 +542,12 @@ export default class KemetTabs extends LitElement {
     }
   }
 
-  handleTouchStart(event) {
+  handleTouchStart(event: TouchEvent) {
     this.xDown = event.touches[0].clientX;
     this.yDown = event.touches[0].clientY;
   }
 
-  handleTouchMove(event) {
+  handleTouchMove(event: TouchEvent) {
     if (!this.xDown || !this.yDown) {
       return;
     }

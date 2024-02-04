@@ -11,7 +11,7 @@ import { TypeEffect } from './types';
  * @summary An element that transforms at a scroll point.
  *
  * @prop {string} effect - Determines where the transform point is activated. Values include: (sticky | resize)
- * @prop {boolean} transform - Whether or not the nav has shifted into a new state.
+ * @prop {boolean} transform - Whether the nav has shifted into a new state.
  * @prop {number} offset - Allows for an arbitrary adjustment of the transform point in pixels. Works with negative values.
  *
  * @cssproperty --kemet-scroll-nav-padding - The padding of the nav.
@@ -35,7 +35,6 @@ export default class KemetScrollNav extends LitElement {
   @property({ type: Number })
   offset: number = 0;
 
-
   render() {
     return html`
       <slot></slot>
@@ -53,16 +52,12 @@ export default class KemetScrollNav extends LitElement {
     });
   }
 
-  handleScroll(stickPoint, elementHeight) {
+  handleScroll(stickPoint: number, elementHeight: number) {
     const transformPoint = (this.effect === 'sticky')
       ? stickPoint + this.offset
       : elementHeight + this.offset;
 
-    if (window.pageYOffset >= transformPoint) {
-      this.transform = true;
-    } else {
-      this.transform = false;
-    }
+    this.transform = window.pageYOffset >= transformPoint;
   }
 }
 
@@ -71,4 +66,3 @@ declare global {
     'kemet-scroll-nav': KemetScrollNav
   }
 }
-

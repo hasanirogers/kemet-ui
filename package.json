@@ -58,7 +58,7 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@custom-elements-manifest/analyzer": "^0.8.0",
-    "@open-wc/eslint-config": "^9.2.2",
+    "@open-wc/eslint-config": "^12.0.3",
     "@open-wc/testing": "^3.1.7",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-multi-entry": "^6.0.0",
@@ -74,6 +74,8 @@
     "@storybook/theming": "^7.4.0",
     "@storybook/web-components": "^7.4.0",
     "@storybook/web-components-vite": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
     "@web/dev-server-esbuild": "^0.3.3",
     "@web/test-runner": "^0.15.1",
     "@whitespace/storybook-addon-html": "^5.1.4",
@@ -114,6 +116,6 @@
   "bugs": {
     "url": "https://github.com/hasanirogers/kemet-ui/issues"
   },
-  "homepage": "http://kemet.dev",
+  "homepage": "https://kemet.dev",
   "customElements": "custom-elements.json"
 }

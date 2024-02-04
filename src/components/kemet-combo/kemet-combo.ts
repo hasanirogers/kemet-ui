@@ -1,8 +1,8 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
-import { KemetFieldInterface } from '../kemet-field/types';
 import { stylesBase } from './styles';
+import type KemetField from '../kemet-field/kemet-field';
 
 /**
  * @since 1.0.0
@@ -40,16 +40,16 @@ export default class KemetCombo extends LitElement {
   slug: string;
 
   @property({ type: Array })
-  options: any[] = [];
+  options: string[] = [];
 
   @property({ type: Boolean, reflect: true })
   show: boolean;
 
   @state()
-  filteredOptions: any[];
+  filteredOptions: string[];
 
   @state()
-  field: KemetFieldInterface;
+  field: KemetField;
 
   @state()
   input: HTMLInputElement;
@@ -91,51 +91,46 @@ export default class KemetCombo extends LitElement {
         option => option.toLowerCase().indexOf(this.input.value?.toLowerCase()) !== -1,
       );
 
-      const options = this.filteredOptions.map(
+      return this.filteredOptions.map(
         (option, index) => html`<li
             id="${this.slug}-option-${index}"
             role="option"
             tabindex="0"
             aria-selected="false"
-            @click=${event => this.handleSelection(event)}
-            @keydown=${event => this.handleOptionKeyDown(event)}
+            @click=${(event: KeyboardEvent) => this.handleSelection(event)}
+            @keydown=${(event: KeyboardEvent) => this.handleOptionKeyDown(event)}
           >
             ${option}
           </li>`,
       );
-
-      return options;
     }
 
     return null;
   }
 
-  handleInput(event) {
+  handleInput(event: CustomEvent) {
     this.makeOptions();
-
-    if (event.detail.length > 0) {
-      this.show = true;
-    } else {
-      this.show = false;
-    }
+    this.show = event.detail.length > 0;
   }
 
-  handleSelection(event) {
-    this.input.value = event.target.innerText;
+  handleSelection(event: KeyboardEvent) {
+    const target = event.target as HTMLElement;
+    this.input.value = target.innerText;
     this.show = false;
 
-    emitEvent(this, 'kemet-combo-section', {
-      element: event.target,
-      text: event.target.innerText,
-      id: event.target.getAttribute('id'),
+    emitEvent(this, 'kemet-combo-selection', {
+      element: target,
+      text: target.innerText,
+      id: target.getAttribute('id'),
     });
   }
 
-  handleOptionKeyDown(event) {
+  handleOptionKeyDown(event: KeyboardEvent) {
     event.preventDefault();
+    const target = event.target as HTMLElement;
 
     if (event.code === 'ArrowDown') {
-      const next = event.target.nextElementSibling;
+      const next = target.nextElementSibling as HTMLElement;
 
       if (next) {
         next.focus();
@@ -145,7 +140,7 @@ export default class KemetCombo extends LitElement {
     }
 
     if (event.code === 'ArrowUp') {
-      const previous = event.target.previousElementSibling;
+      const previous = target.previousElementSibling as HTMLElement;
       const lastChild = this.shadowRoot.querySelector('li:last-child') as HTMLElement;
 
       if (previous) {
@@ -165,7 +160,7 @@ export default class KemetCombo extends LitElement {
     }
   }
 
-  handleInputKeyDown(event) {
+  handleInputKeyDown(event: KeyboardEvent) {
     if (event.code === 'ArrowDown') {
       this.shadowRoot.querySelector('li').focus();
     }

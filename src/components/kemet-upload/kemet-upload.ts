@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesUpload } from './styles';
 
-const preventDefaults = (event) => {
+const preventDefaults = (event: Event) => {
   event.preventDefault();
   event.stopPropagation();
 };
@@ -23,7 +23,7 @@ const preventDefaults = (event) => {
  * @prop {string} heading - Descriptive text for the upload area
  * @prop {boolean} mobile - Displays the component in a mobile context
  * @prop {string} breakpoint - Controls the point at which the component is considered mobile
- * @prop {boolean} noDragDrop - If true if drag and drop support is not detected
+ * @prop {boolean} noDragDrop - Is true if drag and drop support is not detected
  * @prop {number} maxSize - The maximum file size for uploads
  * @prop {string} buttonLabel - The browse files button text
  *
@@ -113,7 +113,7 @@ export default class KemetUpload extends LitElement {
           id=${this.slug}
           ?multiple=${this.multiple}
           accept=${ifDefined(this.accept) ? this.accept : null}
-          @change=${event => this.handleChange(event)}
+          @change=${(event: Event) => this.handleChange(event)}
         />
         <h3 class="heading" part="heading">${this.heading}</h3>
         <label class="button" part="button" for=${this.slug}>${this.buttonLabel}</label>
@@ -124,7 +124,7 @@ export default class KemetUpload extends LitElement {
     `;
   }
 
-  handleChange(event) {
+  handleChange(event: Event) {
     emitEvent(this, 'kemet-upload-change', {
       event,
       files: this.fileInputElement.files,
@@ -132,7 +132,7 @@ export default class KemetUpload extends LitElement {
     });
   }
 
-  handleDrop(event) {
+  handleDrop(event: DragEvent) {
     emitEvent(this, 'kemet-upload-change', {
       event,
       files: event?.dataTransfer.files || [],
@@ -146,11 +146,7 @@ export default class KemetUpload extends LitElement {
   }
 
   hasDragDrop() {
-    if ('draggable' in document.createElement('span')) {
-      this.noDragDrop = false;
-    } else {
-      this.noDragDrop = true;
-    }
+    this.noDragDrop = !('draggable' in document.createElement('span'));
   }
 }
 

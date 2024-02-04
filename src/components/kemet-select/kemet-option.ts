@@ -27,7 +27,7 @@ export default class KemetOption extends LitElement {
   value: string = '';
 
   @property({ type: Boolean })
-  disable: boolean;
+  disabled: boolean;
 
   @property({ type: Boolean })
   selected: boolean;

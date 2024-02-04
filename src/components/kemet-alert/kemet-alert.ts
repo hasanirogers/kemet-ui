@@ -58,7 +58,7 @@ export default class KemetAlert extends LitElement {
   @property({ type: String, reflect: true })
   overlay: string;
 
-  shouldUpdate(prevProps) {
+  shouldUpdate(prevProps: Map<string, never>) {
     if (prevProps.has('opened') && !prevProps.get('opened')) {
       this.hidden = false;
       this.reveal = true;
@@ -71,7 +71,7 @@ export default class KemetAlert extends LitElement {
     this.handleMotion();
   }
 
-  updated(prevProps) {
+  updated(prevProps: Map<string, never>) {
     if (!prevProps.get('opened') && this.opened === true) {
       emitEvent(this, 'kemet-alert-opened', this);
     } else {
