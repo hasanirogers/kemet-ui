@@ -1,7 +1,8 @@
 import { html, LitElement } from 'lit';
-import { customElement, property, state, query } from 'lit/decorators.js';
+import {
+  customElement, property, state, query,
+} from 'lit/decorators.js';
 import { stylesBase } from './styles';
-
 
 /**
  * @since 1.0.0
@@ -59,10 +60,10 @@ export default class KemetFlipcard extends LitElement {
   backChildren: HTMLSlotElement;
 
   @state()
-  frontElement: any;
+  frontElement: HTMLElement;
 
   @state()
-  backElement: any;
+  backElement: HTMLElement;
 
   constructor() {
     super();
@@ -73,9 +74,8 @@ export default class KemetFlipcard extends LitElement {
   }
 
   firstUpdated() {
-    if (this.frontChildren) [this.frontElement] = this.frontChildren.assignedNodes({ flatten: true });
-    if (this.backChildren) [this.backElement] = this.backChildren.assignedNodes({ flatten: true });
-
+    this.frontElement = this.querySelector('[slot=front]');
+    this.backElement = this.querySelector('[slot=back]');
     window.addEventListener('resize', this.determineHeight.bind(this));
   }
 

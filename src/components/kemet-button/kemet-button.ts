@@ -12,7 +12,7 @@ import '../kemet-icon/kemet-icon';
  * @tagname kemet-button
  * @summary A versatile button that can be used either to submit a form, trigger an action, or link to content.
  *
- * @prop {boolean} active - Determines whether or not the button is active
+ * @prop {boolean} active - Determines if the button is active
  * @prop {boolean} hover - Is true when the button is hovered
  * @prop {boolean} focused - Is true when the button is focused
  * @prop {string} link - The url a button should link too
@@ -155,7 +155,7 @@ export default class KemetButton extends LitElement {
    * @private
    * @param {object} event - event object
    */
-  handleKeyUp(event) {
+  handleKeyUp(event: KeyboardEvent) {
     if (event.key === 'Tab') {
       this.focused = true;
     }

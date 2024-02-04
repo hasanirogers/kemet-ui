@@ -1,4 +1,4 @@
-import { html, LitElement } from 'lit';
+import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { KemetFieldInterface } from '../kemet-field/types';
@@ -31,12 +31,18 @@ import { TypeStatus } from './types';
  *
  */
 
+interface IOptions {
+  pattern: string;
+  message: string;
+  meetsCriteria?: boolean;
+}
+
 @customElement('kemet-password')
 export default class KemetPassword extends LitElement {
   static styles = [stylesBase];
 
   @property({ type: Array })
-  rules: any[] = [
+  rules: IOptions[] = [
     { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },
     { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },
     { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },
@@ -100,18 +106,16 @@ export default class KemetPassword extends LitElement {
   /**
    * Makes the list of rules
    * @private
-   * @returns {templateResults} the criteria rules
+   * @returns {TemplateResult<1>[]} the criteria rules
    */
-  makeRules() {
+  makeRules(): TemplateResult<1>[] {
     if (this.input) {
-      const rules = this.rules.map((rule, index) => {
+      return this.rules.map((rule, index) => {
         const regExp = new RegExp(rule.pattern);
         const meetsCriteria = regExp.test(this.input.value);
         this.rules[index].meetsCriteria = meetsCriteria;
         return html`<li>${this.makeCheckIcon(meetsCriteria)} ${rule.message}</li>`;
       });
-
-      return rules;
     }
 
     return null;
@@ -121,9 +125,9 @@ export default class KemetPassword extends LitElement {
    * Makes the check icon if the criteria has been met
    * @param {boolean} meetsCriteria
    * @private
-   * @returns {templateResults} an icon component
+   * @returns {TemplateResult} an icon component
    */
-  makeCheckIcon(meetsCriteria) {
+  makeCheckIcon(meetsCriteria: boolean): TemplateResult {
     if (meetsCriteria) {
       return html`<kemet-icon icon=${this.icon} size=${this.iconSize}></kemet-icon>`;
     }
@@ -136,7 +140,7 @@ export default class KemetPassword extends LitElement {
    * @param {*} event
    * @private
    */
-  handleInput(event) {
+  handleInput(event: CustomEvent) {
     this.value = event.detail;
     this.setStrength();
     this.visibility();
@@ -183,11 +187,7 @@ export default class KemetPassword extends LitElement {
    * @private
    */
   visibility() {
-    if (this.value.length > 0) {
-      this.show = true;
-    } else {
-      this.show = false;
-    }
+    this.show = this.value.length > 0;
   }
 }
 

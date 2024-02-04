@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
-import { stylesBase, stylesEffects } from './styles';
 import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { TypeEffect, TypeSide } from './types';
+import { stylesBase, stylesEffects } from './styles';
 
 /**
  * @since 1.0.0
@@ -14,7 +14,7 @@ import { TypeEffect, TypeSide } from './types';
  * @prop {boolean} opened - Determines if the drawer is opened or not.
  * @prop {string} effect - The animation effect for opening and closing the drawer. Values include: (slide | reveal | push | scale)
  * @prop {string} side - Allows you to control which side the drawer opens from. Values include: (left | right | top | bottom)
- * @prop {boolean} overlay - Adds a overlay over the content section of the Drawer when opened
+ * @prop {boolean} overlay - Adds an overlay over the content section of the Drawer when opened
  *
  * @slot navigation - The off-screen nav area of your app or site
  * @slot content - The main content area of your app or site.
@@ -61,7 +61,7 @@ export default class KemetDrawer extends LitElement {
     });
   }
 
-  updated(prevProps) {
+  updated(prevProps: Map<string, never>) {
     if (!prevProps.get('opened') && this.opened === true) {
       emitEvent(this, 'kemet-drawer-opened', this);
     }

@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     '@open-wc/eslint-config',
+    'plugin:@typescript-eslint/recommended',
   ],
   settings: {
     'import/resolver': {
@@ -25,7 +26,6 @@ module.exports = {
     'dist/**/*.js',
     'src/utilities/controllers/**/*.js',
   ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     babelOptions: {
       presets: ['@babel/preset-react'],

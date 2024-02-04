@@ -1,9 +1,8 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { stylesUploadFile } from './styles';
-import { stylesLoaders } from './styles';
+import { stylesUploadFile, stylesLoaders } from './styles';
 
-const formatBytes = (bytes, decimals = 2) => {
+const formatBytes = (bytes: number, decimals = 2) => {
   if (bytes === 0) return '0 Bytes';
 
   const k = 1024;

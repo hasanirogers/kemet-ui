@@ -15,7 +15,7 @@ import KemetTextarea from '../kemet-textarea/kemet-textarea';
  * @tagname kemet-field
  * @summary Used in combination with Input, Select, and Textarea, to make a Field.
  *
- * @prop {string} slug - Uniquely identifies the control. Use the same slug for slotted sub components.
+ * @prop {string} slug - Uniquely identifies the control. Use the same slug for slotted subcomponents.
  * @prop {string} label - The label text
  * @prop {string} message - The validation message for error or success
  * @prop {boolean} focused - Determines if the containing input is focused
@@ -24,9 +24,9 @@ import KemetTextarea from '../kemet-textarea/kemet-textarea';
  * @prop {number} length - The length of the containing input
  * @prop {boolean} disabled - Determines the disabled state of the control
  * @prop {string} errorIcon - The icon while in an error or warning state
- * @prop {string} successIcon - The icon while in an success state
+ * @prop {string} successIcon - The icon while in a success state
  *
- * @slot component - Allows sub components of the field to display.
+ * @slot component - Allows subcomponents of the field to display.
  *
  * @csspart label - The label of the field.
  * @csspart message - The validation message of the field.
@@ -80,11 +80,11 @@ export default class KemetField extends LitElement {
     super();
 
     // listeners
-    this.addEventListener('kemet-input-focused', event => this.handleFocused(event));
-    this.addEventListener('kemet-input-status', event => this.handleStatus(event));
-    this.addEventListener('kemet-input-input', event => this.handleInput(event));
-    this.addEventListener('kemet-count-status', event => this.handleStatus(event));
-    this.addEventListener('kemet-combo-selection', event => this.handleSelection(event));
+    this.addEventListener('kemet-input-focused', (event: CustomEvent) => this.handleFocused(event));
+    this.addEventListener('kemet-input-status', (event: CustomEvent) => this.handleStatus(event));
+    this.addEventListener('kemet-input-input', (event: CustomEvent) => this.handleInput(event));
+    this.addEventListener('kemet-count-status', (event: CustomEvent) => this.handleStatus(event));
+    this.addEventListener('kemet-combo-selection', (event: CustomEvent) => this.handleSelection(event));
   }
 
   firstUpdated() {
@@ -129,7 +129,7 @@ export default class KemetField extends LitElement {
     return null;
   }
 
-  handleFocused(event) {
+  handleFocused(event: CustomEvent) {
     this.focused = event.detail;
 
     if (!this.focused && this.slotCombo && this.slotCombo.options.length < 1) {
@@ -137,21 +137,16 @@ export default class KemetField extends LitElement {
     }
   }
 
-  handleStatus(event) {
+  handleStatus(event: CustomEvent) {
     this.status = event.detail.status;
   }
 
-  handleInput(event) {
+  handleInput(event: CustomEvent) {
     emitEvent(this, 'kemet-field-input', event.detail.length);
-
-    if (event.detail === '') {
-      this.filled = false;
-    } else {
-      this.filled = true;
-    }
+    this.filled = event.detail !== '';
   }
 
-  handleSelection(event) {
+  handleSelection(event: CustomEvent) {
     this.slotInput.setAttribute('aria-activedescendant', event.detail);
   }
 }

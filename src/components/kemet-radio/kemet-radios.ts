@@ -3,7 +3,9 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { FormSubmitController } from '../../utilities/controllers/forms';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesRadios } from './styles';
-import { KemetRadioInterface, KemetRadiosInterface, TypeAxis, TypeStatus } from './types';
+import { TypeAxis, TypeStatus } from './types';
+
+import type KemetRadio from './kemet-radio';
 
 /**
  * @since 1.0.0
@@ -18,7 +20,7 @@ import { KemetRadioInterface, KemetRadiosInterface, TypeAxis, TypeStatus } from 
  * @prop {string} name - The name of the radio button set
  * @prop {string} status - The status of the radio button set
  * @prop {string} message - Validation message for the user
- * @prop {boolean} required - Determines whether or not the radio button set is required
+ * @prop {boolean} required - Determines whether the radio button set is required
  *
  * @csspart fieldset - The fieldset element.
  * @csspart legend - The legend element.
@@ -55,8 +57,7 @@ export default class KemetRadios extends LitElement {
   required: boolean;
 
   @state()
-  radios: any;
-
+  radios: NodeListOf<KemetRadio>;
 
   constructor() {
     super();
@@ -74,14 +75,14 @@ export default class KemetRadios extends LitElement {
     return html`
       <fieldset part="fieldset">
         ${this.legend !== '' ? html`<legend part="legend">${this.legend}</legend>` : null}
-        <slot @click=${event => this.handleClick(event)} @keydown=${event => this.handleKeyDown(event)} @slotchange=${() => this.handleSlotChange()}></slot>
+        <slot @click=${(event: MouseEvent) => this.handleClick(event)} @keydown=${(event: KeyboardEvent) => this.handleKeyDown(event)} @slotchange=${() => this.handleSlotChange()}></slot>
       </fieldset>
       ${this.makeMessage()}
     `;
   }
 
-  handleClick(event) {
-    const { target } = event;
+  handleClick(event: MouseEvent) {
+    const target = event.target as KemetRadio;
 
     this.radios.forEach((radio) => {
       radio.checked = false;
@@ -99,14 +100,20 @@ export default class KemetRadios extends LitElement {
     }
   }
 
-  handleKeyDown(event) {
+  handleKeyDown(event: KeyboardEvent) {
     const radios = Array.from(this.radios);
     const arrowKeys = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'];
     const forwardKeys = ['ArrowRight', 'ArrowDown'];
     const shift: number = forwardKeys.includes(event.key) ? 1 : -1;
-    const checkedIndex: any = radios.findIndex((radio: KemetRadioInterface) => radio.checked) ?? radios[0];
+    const checkedIndex: number | KemetRadio = radios.findIndex((radio: KemetRadio) => radio.checked) ?? radios[0];
 
-    let index: number = checkedIndex + shift;
+    let index: number;
+
+    if (typeof checkedIndex === 'number') {
+      index = checkedIndex + shift;
+    } else {
+      index = shift;
+    }
 
     if (arrowKeys.includes(event.key)) {
       if (index < 0) {
@@ -130,9 +137,9 @@ export default class KemetRadios extends LitElement {
 
   handleSlotChange() {
     const radios = Array.from(this.radios);
-    const checkedRadio = radios.find((radio: KemetRadioInterface) => radio.checked) as KemetRadioInterface;
+    const checkedRadio = radios.find((radio: KemetRadio) => radio.checked) as KemetRadio;
 
-    this.radios.forEach((radio) => {
+    this.radios.forEach((radio: KemetRadio) => {
       radio.tabIndex = -1;
       radio.input.tabIndex = -1;
     });
@@ -164,4 +171,3 @@ declare global {
     'kemet-radios': KemetRadios
   }
 }
-

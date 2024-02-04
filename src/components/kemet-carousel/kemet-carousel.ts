@@ -1,11 +1,16 @@
 import { html, LitElement } from 'lit';
-import { customElement, property, state, query } from 'lit/decorators.js';
+import {
+  customElement,
+  property,
+  state,
+  query,
+} from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesCarousel } from './styles';
 
-import KemetCarouselCurrent from './kemet-carousel-current';
-import KemetCarouselLink from './kemet-carousel-link';
-import KemetCarouselSlide from './kemet-carousel-slide';
+import type KemetCarouselCurrent from './kemet-carousel-current';
+import type KemetCarouselLink from './kemet-carousel-link';
+import type KemetCarouselSlide from './kemet-carousel-slide';
 
 /**
  *
@@ -20,11 +25,11 @@ import KemetCarouselSlide from './kemet-carousel-slide';
  * @prop {string} sliderWidth - The width of the slider.
  * @prop {string} sliderTranslateX - The X position of the slider.
  * @prop {boolean} inner - Displays the toolbar inside the carousel container.
- * @prop {boolean} arrows - Determines whether or not to display arrows.
+ * @prop {boolean} arrows - Determines whether to display arrows.
  * @prop {object} options - Default options for the carousel.
  * @prop {object} breakpoints - Options at different breakpoints for the carousel. Is mobile first.
  *
- * @event kemet-carousel-change-start - Fires with the a slide has begun to change.
+ * @event kemet-carousel-change-start - Fires when the slide has begun to change.
  * @event kemet-carousel-change-finished - Fires when a slide has changed and finished animating
  *
  * @slot slides - Place the slide elements here.
@@ -103,11 +108,11 @@ export default class KemetCarousel extends LitElement {
 
   /** @internal */
   @state()
-  slides: any[] = [];
+  slides: KemetCarouselSlide[] = [];
 
   /** @internal */
   @state()
-  links: any[] = [];
+  links: KemetCarouselLink[] = [];
 
   /** @internal */
   @state()
@@ -119,11 +124,15 @@ export default class KemetCarousel extends LitElement {
 
   /** @internal */
   @state()
-  swipeMove: (event) => void;
+  swipeMove: (event: TouchEvent | MouseEvent) => void;
 
   /** @internal */
   @state()
-  handleSlideShow: any;
+  handleSlideShow: () => void;
+
+  /** @internal */
+  @state()
+  slideShowID: number;
 
   /** @internal */
   @state()
@@ -153,7 +162,6 @@ export default class KemetCarousel extends LitElement {
   @query('#toolbar')
   toolbarElement: HTMLElement;
 
-
   constructor() {
     super();
 
@@ -182,18 +190,16 @@ export default class KemetCarousel extends LitElement {
     // methods
     this.swipeMove = (event) => {
       event.preventDefault();
+      let pageX: number;
 
-      const pageX = event.touches ? event.touches[0].pageX : event.pageX;
+      if ('touches' in event) {
+        pageX = event.touches[0].pageX;
+      } else {
+        pageX = event.pageX;
+      }
       const currentSlide = this.slides[this.index];
 
       this.sliderTranslateX = `${pageX - this.startX - currentSlide.offsetLeft}px`;
-    };
-
-    this.handleSlideShow = () => {
-      if (this.getOption('slideshow') > 0) {
-        this.updateIndex(this.index + 1);
-        clearTimeout(this.handleSlideShow);
-      }
     };
 
     // setup
@@ -201,13 +207,18 @@ export default class KemetCarousel extends LitElement {
     this.goToSlide(this.index);
   }
 
-  updated(prevProps) {
+  updated(prevProps: Map<string, never>) {
     this.setSlideSize();
     this.setToolbarSize();
 
     if (prevProps.has('index')) {
       this.updateIndex(this.index);
-      setTimeout(this.handleSlideShow, this.getOption('slideshow') * 1000);
+      this.slideShowID = window.setTimeout(() => {
+          if (this.getOption('slideshow') > 0) {
+            this.updateIndex(this.index + 1);
+            clearTimeout(this.slideShowID);
+          }
+      }, this.getOption('slideshow') * 1000);
     }
   }
 
@@ -235,21 +246,32 @@ export default class KemetCarousel extends LitElement {
     `;
   }
 
-  swipeStart(event) {
-    this.startX = event.touches ? event.touches[0].pageX : event.pageX;
+  swipeStart(event: TouchEvent | MouseEvent) {
+    if ('touches' in event) {
+      this.startX = event.touches[0].pageX;
+    } else {
+      this.startX = event.pageX;
+    }
 
     this.addEventListener('mousemove', this.swipeMove);
     this.addEventListener('touchmove', this.swipeMove);
   }
 
-  swipeEnd(event) {
+  swipeEnd(event: TouchEvent | MouseEvent) {
     this.updateIndex(this.swipeUpdate(event));
     this.removeEventListener('mousemove', this.swipeMove, false);
     this.removeEventListener('touchmove', this.swipeMove, false);
   }
 
-  swipeUpdate(event) {
-    const pageX = event.changedTouches ? event.changedTouches[0].pageX : event.pageX;
+  swipeUpdate(event: TouchEvent | MouseEvent) {
+    let pageX: number;
+
+    if ('changedTouches' in event) {
+      pageX = event.changedTouches[0].pageX;
+    } else {
+      pageX = event.pageX;
+    }
+
     const direction = this.startX > pageX ? 'right' : 'left';
     const threshold = this.slidesElement.offsetWidth / 3;
     const diff = this.startX - pageX;
@@ -365,7 +387,7 @@ export default class KemetCarousel extends LitElement {
     this.updateIndex(newIndex);
   }
 
-  updateIndex(newIndex) {
+  updateIndex(newIndex: number) {
     let currentSlide = this.slides[this.index];
     let currentLink = this.links[newIndex];
 
@@ -429,7 +451,7 @@ export default class KemetCarousel extends LitElement {
     }
   }
 
-  goToSlide(index) {
+  goToSlide(index: number) {
     if (this.getOption('center') === true) {
       const slidesCenter = this.slidesElement.offsetWidth / 2;
       const slideX = this.slideWidth * index;
@@ -449,11 +471,11 @@ export default class KemetCarousel extends LitElement {
     emitEvent(this, 'kemet-carousel-change-finished', this);
   }
 
-  handleLink(event) {
+  handleLink(event: CustomEvent) {
     this.updateIndex(event.detail.slide);
   }
 
-  getOption(option) {
+  getOption(option: string) {
     const breakpoints = Object.keys(this.breakpoints);
     let value = this.options[option];
 

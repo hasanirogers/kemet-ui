@@ -33,7 +33,7 @@ export default class KemetAccordionPanel extends LitElement {
   @property({ type: Boolean, reflect: true })
   opened: boolean | undefined = undefined;
 
-  @property({ type: String, attribute: 'max-height'})
+  @property({ type: String, attribute: 'max-height' })
   maxHeight: string = '0px';
 
   @property({ type: String })
@@ -68,7 +68,7 @@ export default class KemetAccordionPanel extends LitElement {
     if (this.bodyElementLast) this.bodyElementLast.style.marginBottom = '0';
   }
 
-  updated(prevProps) {
+  updated(prevProps: Map<string, never>) {
     if (!prevProps.get('opened') && this.opened === true) {
       this.maxHeight = `${this.bodyElement?.offsetHeight}px`;
       emitEvent(this, 'kemet-accordion-panel-opened', this);
@@ -89,7 +89,7 @@ export default class KemetAccordionPanel extends LitElement {
         class="trigger"
         part="trigger"
         @click=${() => this.toggle()}
-        @keydown=${event => this.handleKeyDown(event)}
+        @keydown=${(event: KeyboardEvent) => this.handleKeyDown(event)}
       >
         <slot name="trigger"></slot>
         <slot name="icon"></slot>
@@ -130,7 +130,7 @@ export default class KemetAccordionPanel extends LitElement {
     body?.setAttribute('aria-hidden', `${!this.opened}`);
   }
 
-  handleKeyDown(event) {
+  handleKeyDown(event: KeyboardEvent) {
     if (event.key === 'Space' || event.key === 'Enter') {
       this.toggle();
     }

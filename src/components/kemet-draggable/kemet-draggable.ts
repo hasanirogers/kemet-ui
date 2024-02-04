@@ -1,5 +1,7 @@
 import { html, css, LitElement } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
+import {
+ customElement, property, query, state,
+} from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 
 /**
@@ -61,7 +63,7 @@ export default class KemetDraggable extends LitElement {
 
   /** @internal */
   @state()
-  mouseMove: (event) => void;
+  mouseMove: (event: MouseEvent) => void;
 
   /** @internal */
   @state()
@@ -70,7 +72,6 @@ export default class KemetDraggable extends LitElement {
   /** @internal */
   @query('#draggable')
   draggableElement: HTMLElement;
-
 
   firstUpdated() {
     // standard properties
@@ -96,13 +97,13 @@ export default class KemetDraggable extends LitElement {
 
   render() {
     return html`
-      <div id="draggable" @mousedown=${event => this.startDrag(event)} style="top:${this.top}; left:${this.left}">
+      <div id="draggable" @mousedown=${(event: MouseEvent) => this.startDrag(event)} style="top:${this.top}; left:${this.left}">
         <slot></slot>
       </div>
     `;
   }
 
-  startDrag(event) {
+  startDrag(event: MouseEvent) {
     if (event) {
       event.preventDefault();
 
@@ -116,7 +117,7 @@ export default class KemetDraggable extends LitElement {
     emitEvent(this, 'kemet-draggable-start', this);
   }
 
-  drag(event) {
+  drag(event: MouseEvent) {
     event.preventDefault();
 
     this.position1 = this.position3 - event.clientX;
@@ -124,8 +125,10 @@ export default class KemetDraggable extends LitElement {
     this.position3 = event.clientX;
     this.position4 = event.clientY;
 
-    this.top = `${this.draggableElement?.offsetTop - this.position2}px`;
-    this.left = `${this.draggableElement?.offsetLeft - this.position1}px`;
+    if (this.draggableElement) {
+      this.top = `${this.draggableElement.offsetTop - this.position2}px`;
+      this.left = `${this.draggableElement.offsetLeft - this.position1}px`;
+    }
   }
 
   stopDrag() {

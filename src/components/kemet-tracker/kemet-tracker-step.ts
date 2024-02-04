@@ -12,8 +12,8 @@ import { KemetTrackerInterface } from './types';
  * @summary A step in the Tracker
  *
  * @prop {number} step - The current step number
- * @prop {boolean} completed - Determines whether or not a step renders as complete
- * @prop {boolean} current - Determines whether or not a step renders as the current step
+ * @prop {boolean} completed - Determines whether a step renders as complete
+ * @prop {boolean} current - Determines whether a step renders as the current step
  * @prop {boolean} last - Is automatically added to the last step
  * @prop {boolean} mobile - Determines if a step should render as mobile
  * @prop {boolean} hideDotContent - Hides the label inside of a dot
@@ -69,7 +69,6 @@ export default class KemetTrackerStep extends LitElement {
 
   @state()
   tracker: KemetTrackerInterface;
-
 
   firstUpdated() {
     this.tracker = this.closest('kemet-tracker');

@@ -1,5 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import type KemetTrackerStep from './kemet-tracker-step';
 
 /**
  *
@@ -31,7 +32,7 @@ export default class KemetTracker extends LitElement {
   breakpoint: string;
 
   @state()
-  steps: any;
+  steps: NodeListOf<KemetTrackerStep>;
 
   constructor() {
     super();

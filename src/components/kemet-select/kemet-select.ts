@@ -1,10 +1,11 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { FormSubmitController } from '../../utilities/controllers/forms';
 import { emitEvent } from '../../utilities/misc/events';
 import { KemetFieldInterface } from '../kemet-field/types';
 import { stylesSelect } from './styles';
-import { KemetOptionInterface } from './types';
+
+import type KemetOption from './kemet-option';
 
 /**
  * @since 1.0.0
@@ -18,8 +19,8 @@ import { KemetOptionInterface } from './types';
  * @prop {string} value - The value of the select
  * @prop {array} options - The options the select contains
  * @prop {string} status - The status of the select
- * @prop {boolean} required - Determines whether or not the field is required
- * @prop {boolean} disabled - Determines whether or not the field is disabled
+ * @prop {boolean} required - Determines whether the field is required
+ * @prop {boolean} disabled - Determines whether the field is disabled
  * @prop {boolean} multiple - Support of multiple choice selections
  * @prop {string} icon - The dropdown icon
  * @prop {number} iconSize - The dropdown icon size
@@ -44,9 +45,16 @@ import { KemetOptionInterface } from './types';
  *
  * @event kemet-input-focused - Fires when the input receives and loses focus
  * @event kemet-input-status - Fires when there's a change in status
- * @event kemet-input-change - Fires when the select's input changes
+ * @event kemet-input-change - Fires when the select input changes
  *
  */
+
+interface IOptions {
+  label: string;
+  value: string;
+  disabled: boolean;
+  selected: boolean;
+}
 
 @customElement('kemet-select')
 export default class KemetSelect extends LitElement {
@@ -64,7 +72,7 @@ export default class KemetSelect extends LitElement {
   value: string;
 
   @property({ type: Array })
-  options: any[];
+  options: IOptions[];
 
   @property({ type: String, reflect: true })
   status: string;
@@ -103,7 +111,7 @@ export default class KemetSelect extends LitElement {
   selectedOption: HTMLOptionElement;
 
   @state()
-  optionElements: any;
+  optionElements: NodeListOf<KemetOption>;
 
   @state()
   hasFocus: boolean;
@@ -150,13 +158,11 @@ export default class KemetSelect extends LitElement {
    * @private
    * @returns {TemplateResult} An option element
    */
-  makeOptions() {
+  makeOptions(): TemplateResult<1>[] {
     this.options = [];
     this.optionElements = this.querySelectorAll('kemet-option');
 
-    this.optionElements.forEach((option) => {
-      // if (index === 0) this.value = option.value;
-      // this.value = option.selected ? option.value : this.value;
+    this.optionElements.forEach((option: KemetOption) => {
       this.options = this.options.concat({
         label: option.label,
         value: option.value,
@@ -173,7 +179,7 @@ export default class KemetSelect extends LitElement {
   }
 
   /**
-   * Generates an dropdown icon
+   * Generates a dropdown icon
    * @private
    */
   makeIcon() {
@@ -256,8 +262,8 @@ export default class KemetSelect extends LitElement {
    * @public
    * @returns {boolean}
    */
-  checkValidity() {
-    this.select.checkValidity();
+  checkValidity(): boolean {
+    return this.select.checkValidity();
   }
 }
 

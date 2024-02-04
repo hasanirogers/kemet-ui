@@ -12,7 +12,7 @@ import { stylesBase } from './styles';
  * @prop {boolean} center - Centers the elements in the card.
  *
  * @slot default - The contents of the alert.
- * @slot header - The cards's header.
+ * @slot header - The card's header.
  * @slot media - A slot for images, videos, or embeds.
  * @slot caption - Text for the media slot.
  * @slot footer - The card's footer.

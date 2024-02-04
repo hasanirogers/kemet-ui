@@ -2,6 +2,7 @@ import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesScrollSnapPaginator } from './styles';
+import KemetScrollSnapSlide from './kemet-scroll-snap-slide';
 
 /**
  * @since 1.0.0
@@ -31,7 +32,7 @@ export default class KemetScrollSnapPaginator extends LitElement {
   static styles = [stylesScrollSnapPaginator];
 
   @property({ type: Array })
-  slides: any[] = [];
+  slides: KemetScrollSnapSlide[] = [];
 
   @property({ type: String })
   icon: string = 'circle-fill';
@@ -50,7 +51,6 @@ export default class KemetScrollSnapPaginator extends LitElement {
 
   @property({ type: Boolean, reflect: true, attribute: 'use-label-pages' })
   useLabelPages: boolean = false;
-
 
   updated() {
     const scrollSnapElement = this.closest('kemet-scroll-snap');
@@ -86,7 +86,7 @@ export default class KemetScrollSnapPaginator extends LitElement {
             class="link"
             tabindex="0"
             role="button"
-            @keyup="${event => this.handleKeyboardInput(event, slide.id)}"
+            @keyup="${(event: KeyboardEvent) => this.handleKeyboardInput(event, slide.id)}"
             @click=${() => this.slideLink(slide.id)}
             aria-label="${slide.label}">
             ${this.pageDisplay(slide, counter)}
@@ -98,7 +98,7 @@ export default class KemetScrollSnapPaginator extends LitElement {
     return null;
   }
 
-  pageDisplay(slide, visibleIndex) {
+  pageDisplay(slide: KemetScrollSnapSlide, visibleIndex: number) {
     if (this.useNumberPages) {
       return visibleIndex;
     }
@@ -110,11 +110,11 @@ export default class KemetScrollSnapPaginator extends LitElement {
     return html`<kemet-icon icon=${this.icon} size=${this.size}></kemet-icon>`;
   }
 
-  slideLink(index) {
+  slideLink(index: string) {
     emitEvent(this, 'kemet-scroll-snap-focus', index);
   }
 
-  handleKeyboardInput(event, id) {
+  handleKeyboardInput(event: KeyboardEvent, id: string) {
     if (event.code === 'Enter' || event.code === 'Space') {
       this.slideLink(id);
     }

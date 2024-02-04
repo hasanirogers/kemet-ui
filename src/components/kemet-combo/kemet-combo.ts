@@ -40,13 +40,13 @@ export default class KemetCombo extends LitElement {
   slug: string;
 
   @property({ type: Array })
-  options: any[] = [];
+  options: string[] = [];
 
   @property({ type: Boolean, reflect: true })
   show: boolean;
 
   @state()
-  filteredOptions: any[];
+  filteredOptions: string[];
 
   @state()
   field: KemetField;
@@ -172,7 +172,6 @@ export default class KemetCombo extends LitElement {
 }
 
 declare global {
-  // eslint-disable-next-line no-unused-vars
   interface HTMLElementTagNameMap {
     'kemet-combo': KemetCombo
   }

@@ -26,6 +26,9 @@ export default class KemetTabPanel extends LitElement {
   @property({ type: String })
   panel: string;
 
+  @property({ type: Number })
+  index: number;
+
   updated() {
     this.a11y();
   }
@@ -52,4 +55,3 @@ declare global {
     'kemet-tab-panel': KemetTabPanel
   }
 }
-

@@ -3,6 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesScrollSnap } from './styles';
 import { KemetScrollSnapSlideInterface, TypeAxis, TypePagination } from './types';
+import KemetScrollSnapSlide from './kemet-scroll-snap-slide';
 
 /**
  * @since 1.0.0
@@ -43,7 +44,7 @@ export default class KemetScrollSnap extends LitElement {
   isTouchDevice: boolean;
 
   @state()
-  slides: any[];
+  slides: KemetScrollSnapSlide[];
 
   constructor() {
     super();
@@ -84,15 +85,10 @@ export default class KemetScrollSnap extends LitElement {
       threshold: 0.5,
     };
 
-    const callback = (entries) => {
-      entries.forEach((entry) => {
-        const { target } = entry;
-
-        if (entry.intersectionRatio >= 0.5) {
-          target.focused = true;
-        } else {
-          target.focused = false;
-        }
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        const target = entry.target as KemetScrollSnapSlide;
+        target.focused = entry.intersectionRatio >= 0.5;
       });
 
       this.makeSlides();
@@ -123,7 +119,7 @@ export default class KemetScrollSnap extends LitElement {
     emitEvent(this, 'kemet-scroll-snap-make-slides', this.slides);
   }
 
-  focusSlide(index) {
+  focusSlide(index: number) {
     const activeSlide = this.querySelector(`kemet-scroll-snap-slide[index="${index}"]`);
     activeSlide.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }

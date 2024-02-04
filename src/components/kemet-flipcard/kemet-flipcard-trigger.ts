@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { emitEvent } from '../../utilities/misc/events';
-import { keyCodes } from '../../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -25,7 +24,7 @@ export default class KemetFlipcardTrigger extends LitElement {
 
   render() {
     return html`
-      <slot tabindex="0" @click=${() => this.trigger()} @keypress=${event => this.handleKeyup(event)}></slot>
+      <slot tabindex="0" @click=${() => this.trigger()} @keypress=${(event: KeyboardEvent) => this.handleKeyup(event)}></slot>
     `;
   }
 
@@ -33,10 +32,10 @@ export default class KemetFlipcardTrigger extends LitElement {
     emitEvent(this, 'kemet-flipcard-flipped', this);
   }
 
-  handleKeyup(event) {
+  handleKeyup(event: KeyboardEvent) {
     event.preventDefault();
 
-    if (event.keyCode === keyCodes.ENTER) {
+    if (event.key === 'Enter') {
       this.trigger();
     }
   }

@@ -6,7 +6,7 @@ import { customElement, property, state } from 'lit/decorators.js';
  * @status stable
  *
  * @tagname kemet-svgs
- * @summary A set of SVG graphics that can be referenced any where in a page or app.
+ * @summary A set of SVG graphics that can be referenced anywhere in a page or app.
  *
  * @prop {string} set - Defines the name for the set of svgs.
  *
@@ -25,7 +25,6 @@ export default class KemetSVGs extends LitElement {
 
   @state()
   slotElement: HTMLSlotElement;
-
 
   firstUpdated() {
     this.slotElement = this.shadowRoot.querySelector('slot');

@@ -107,7 +107,7 @@ export default class KemetTextarea extends LitElement {
   @property({ type: Boolean, reflect: true })
   rounded: boolean;
 
-  @property({ type: Boolean})
+  @property({ type: Boolean })
   autocorrect: boolean;
 
   @state()
@@ -290,7 +290,7 @@ export default class KemetTextarea extends LitElement {
    * @private
    * @returns {boolean}
    */
-  checkLimitValidity() {
+  checkLimitValidity(): boolean {
     if (this.control) {
       const count = this.control.querySelector('kemet-count');
       if (count) {
@@ -306,7 +306,7 @@ export default class KemetTextarea extends LitElement {
    * @public
    * @returns {boolean}
    */
-  checkValidity() {
+  checkValidity(): boolean {
     return this.textarea.checkValidity();
   }
 

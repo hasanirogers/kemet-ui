@@ -3,19 +3,18 @@ import { customElement, state } from 'lit/decorators.js';
 import { polyfill } from 'mobile-drag-drop';
 import { emitEvent } from '../../utilities/misc/events';
 import { stylesSortable } from './styles';
-import { KemetSortableItemInterface } from './types';
+import type KemetSortableItem from './kemet-sortable-item';
 
-const getMouseOffset = (event) => {
-  const targetRect = event.target.getBoundingClientRect();
-  const offset = {
+const getMouseOffset = (event: DragEvent) => {
+  const target = event.target as HTMLElement;
+  const targetRect = target.getBoundingClientRect();
+  return {
     x: event.pageX - targetRect.left,
     y: event.pageY - targetRect.top,
   };
-
-  return offset;
 };
 
-const getElementVerticalCenter = (element) => {
+const getElementVerticalCenter = (element: HTMLElement) => {
   const rect = element.getBoundingClientRect();
   return (rect.bottom - rect.top) / 2;
 };
@@ -35,7 +34,7 @@ export default class KemetSortable extends LitElement {
   static styles = [stylesSortable];
 
   @state()
-  sortableItem: KemetSortableItemInterface;
+  sortableItem: KemetSortableItem;
 
   firstUpdated() {
     polyfill();
@@ -48,8 +47,8 @@ export default class KemetSortable extends LitElement {
     return html`<slot></slot>`;
   }
 
-  handleDragStart(event) {
-    this.sortableItem = event.target;
+  handleDragStart(event: DragEvent) {
+    this.sortableItem = event.target as KemetSortableItem;
 
     this.addEventListener('dragover', dragOverEvent => this.handleDragOver(dragOverEvent), false);
     this.addEventListener('dragend', dragEndEvent => this.handleDragEnd(dragEndEvent), false);
@@ -59,14 +58,14 @@ export default class KemetSortable extends LitElement {
     }, 0);
   }
 
-  handleDragOver(event) {
+  handleDragOver(event: DragEvent) {
     event.preventDefault();
 
-    const { target } = event;
+    const target = event.target as KemetSortableItem;
 
     if (target && target.tagName === 'KEMET-SORTABLE-ITEM') {
       const offset = getMouseOffset(event);
-      const middleY = getElementVerticalCenter(event.target);
+      const middleY = getElementVerticalCenter(target);
 
       if (offset.y > middleY) {
         this.insertBefore(this.sortableItem, target.nextSibling);
@@ -76,7 +75,7 @@ export default class KemetSortable extends LitElement {
     }
   }
 
-  handleDragEnd(event) {
+  handleDragEnd(event: DragEvent) {
     event.preventDefault();
     this.sortableItem.ghost = false;
 
