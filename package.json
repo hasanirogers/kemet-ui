@@ -116,6 +116,6 @@
   "bugs": {
     "url": "https://github.com/hasanirogers/kemet-ui/issues"
   },
-  "homepage": "http://kemet.dev",
+  "homepage": "https://kemet.dev",
   "customElements": "custom-elements.json"
 }
