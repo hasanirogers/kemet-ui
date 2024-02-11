@@ -14,6 +14,7 @@ const config: StorybookConfig = {
         },
       },
     },
+    '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
