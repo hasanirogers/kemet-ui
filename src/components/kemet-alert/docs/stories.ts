@@ -127,13 +127,14 @@ export const Closable: Story = {
     const alert = canvas.getByText('This is a heading.').closest('kemet-alert');
     const closeButton = alert.shadowRoot.querySelector('.close kemet-icon');
 
-    await step('Close the modal', async () => {
+    await step('Close the Alert', async () => {
       await userEvent.click(closeButton);
       expect(alert.opened).toBeFalsy();
     });
 
-    await step('Reopen the Modal', async () => {
+    await step('Reopen the Alert', async () => {
       alert.opened = true;
+      expect(alert.opened).toBeTruthy();
     });
   },
 };

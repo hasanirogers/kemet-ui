@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
-import { userEvent, waitFor, within } from '@storybook/testing-library';
+import { userEvent, waitFor, within, fireEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 import '../kemet-accordion';
@@ -11,6 +11,7 @@ import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
 
 import '../../kemet-icon/kemet-icon';
+
 
 const meta: Meta = {
   title: 'Components / Accordion',
@@ -99,6 +100,19 @@ export const TogglePanels: Story = {
       await waitFor(() => expect(panel2.opened).toBeTruthy());
       await userEvent.click(trigger1);
       await waitFor(() => expect(panel2.opened).toBeFalsy());
+    });
+
+    await step('Keyboard', async () => {
+      // await userEvent.click(trigger1);
+      // await userEvent.tab();
+
+      trigger2.focus();
+      await userEvent.keyboard('{ArrowDown}{Enter}');
+
+      // console.log(document.activeElement);
+      // fireEvent.keyDown(trigger1, { key: 'ArrowDown' });
+      // fireEvent.keyDown(trigger2, { key: 'Enter'});
+      // console.log(panel2.opened);
     });
   },
 };

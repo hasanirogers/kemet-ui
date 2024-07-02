@@ -20,11 +20,13 @@ import { emitEvent } from '../../utilities/misc/events';
 export default class KemetCarouselLast extends LitElement {
   static styles = [
     css`
-      :host {
+      button {
         cursor: pointer;
+        border: 0;
+        background: transparent;
       }
 
-      :host([disabled]) {
+      :host([disabled]) button {
         cursor: not-allowed;
       }
     `,
@@ -35,15 +37,21 @@ export default class KemetCarouselLast extends LitElement {
 
   render() {
     return html`
-      <span tabindex="0" @keyup=${() => this.last()} @click=${() => this.last()}>
+      <button @keyup=${event => this.handleKeyUp(event)} @click=${() => this.last()}>
         <slot></slot>
-      </span>
+      </button>
     `;
   }
 
   last() {
     if (!this.disabled) {
       emitEvent(this, 'kemet-carousel-last', this);
+    }
+  }
+
+  handleKeyUp(event) {
+    if (event.code === 'Enter') {
+      this.last();
     }
   }
 }

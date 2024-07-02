@@ -128,15 +128,17 @@ export default class KemetButton extends LitElement {
    * @private
    */
   handleClick() {
-    this.hover = false;
-    this.active = true;
+    if (!this.disabled) {
+      this.hover = false;
+      this.active = true;
 
-    setTimeout(() => {
-      this.active = false;
-    }, 300);
+      setTimeout(() => {
+        this.active = false;
+      }, 300);
 
-    if (this.shadowRoot.querySelector('button')) {
-      this.formSubmitController.submit();
+      if (this.shadowRoot.querySelector('button')) {
+        this.formSubmitController.submit();
+      }
     }
   }
 

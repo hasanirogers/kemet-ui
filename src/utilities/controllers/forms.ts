@@ -1,16 +1,18 @@
 export class FormSubmitController {
   host;
+
   form;
+
   options;
 
   constructor(host, options = undefined) {
     (this.host = host).addController(this);
+
     this.options = {
-      form: (input) => input.closest('form'),
-      name: (input) => input.name,
-      value: (input) => input.value,
-      disabled: (input) => input.disabled,
-      checkValidity: (input) => (typeof input.checkValidity === 'function' ? input.checkValidity() : true),
+      form: input => input.closest('form'),
+      name: input => input.name,
+      value: input => input.value,
+      disabled: input => input.disabled,
       ...options,
     };
 
@@ -41,26 +43,26 @@ export class FormSubmitController {
     const value = this.options.value(this.host);
 
     if (!disabled && typeof name === 'string' && typeof value !== 'undefined') {
-      if (Array.isArray(value)) {
-        value.forEach((val) => {
-          event.formData?.append(name, val.toString());
-        });
-      } else {
-        event.formData?.append(name, value.toString());
-      }
+      // TODO recreate a scenario where value will be an array
+      // if (Array.isArray(value)) {
+      //   value.forEach((val) => {
+      //     event.formData?.append(name, val.toString());
+      //   });
+      // } else {
+      //   event.formData?.append(name, value.toString());
+      // }
+      event.formData?.append(name, value.toString());
     }
   }
 
   handleFormSubmit(event) {
-    const disabled = this.options.disabled(this.host);
-    const checkValidity = this.options.checkValidity;
+    event.preventDefault();
+    event.stopImmediatePropagation();
 
+    const disabled = this.options.disabled(this.host);
     this.form = this.options.form(this.host);
 
-    if (this.form && !this.form.noValidate && !disabled && !checkValidity(this.host)) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-
+    if (this.form && !this.form.noValidate && !disabled) {
       const components = this.form.querySelectorAll('kemet-input, kemet-textarea, kemet-select, kemet-checkbox, kemet-radios');
 
       components.forEach((component) => {
@@ -79,7 +81,7 @@ export class FormSubmitController {
                 validity: component.validity ? component.validity : {},
                 element: component,
               },
-            })
+            }),
           );
         }
 
@@ -96,7 +98,7 @@ export class FormSubmitController {
                 validity: { passedLimit: true },
                 element: component,
               },
-            })
+            }),
           );
         }
       });
