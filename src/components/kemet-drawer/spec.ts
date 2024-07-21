@@ -1,8 +1,8 @@
 import { html, render } from 'lit';
 import { expect } from '@wdio/globals';
+import userEvent from '@testing-library/user-event';
 
 import './kemet-drawer';
-import userEvent from '@testing-library/user-event';
 
 describe('Drawer', () => {
   const templates = {

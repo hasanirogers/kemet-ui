@@ -63,7 +63,7 @@ export default class KemetFAB extends LitElement {
 
   render() {
     return html`
-      <button class="button" part="button" ?disabled=${this.disabled} aria-disabled=${this.disabled ? 'true' : 'false'}>
+      <button class="button" part="button" ?disabled=${this.disabled}>
         <span class="icon" part="icon">
           <slot name="icon"></slot>
         </span>
@@ -87,20 +87,10 @@ export default class KemetFAB extends LitElement {
   }
 
   handleScroll() {
-    if (window.scrollY > this.expandPoint) {
+    if (window.scrollY > this.expandPoint && window.scrollY < this.collapsePoint) {
       this.expanded = true;
-    }
-
-    if (window.scrollY < this.expandPoint) {
+    } else {
       this.expanded = false;
-    }
-
-    if (window.scrollY > this.collapsePoint) {
-      this.expanded = false;
-    }
-
-    if (window.scrollY < this.collapsePoint) {
-      this.expanded = true;
     }
   }
 }
