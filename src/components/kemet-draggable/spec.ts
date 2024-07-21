@@ -14,8 +14,7 @@ describe('Draggable', () => {
     `,
   };
 
-  // TODO: create test where drag is simulated
-  it('should render draggable', async () => {
+  it('should drag the component', async () => {
     render(templates.default, document.body);
     const kemetDraggable = document.querySelector('kemet-draggable');
     const initialX = kemetDraggable.left;
