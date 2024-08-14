@@ -1,7 +1,7 @@
 import { html, render } from 'lit';
 import { expect } from '@wdio/globals';
-import userEvent from '@testing-library/user-event';
 import { Key } from 'webdriverio';
+import userEvent from '@testing-library/user-event';
 
 import './kemet-button';
 
