@@ -4,19 +4,13 @@ import { stylesDisplay } from './styles';
 import { TypeFormats } from './types';
 
 /**
- * @since 1.0.0
+ * @since 3.1.0
  * @status stable
  *
- * @tagname kemet-timer
- * @summary Badges display the status of information.
+ * @tagname kemet-timer-display
+ * @summary Displays remaining time
  *
- * @prop {string} status - The status of the badge
- * @prop {boolean} circle - Displays the badge in a circle
- * @prop {boolean} pill - Rounds the corners on the badge
- * @prop {number} circlePadding - Padding on the badge as a circle
- *
- * @cssproperty --kemet-timer-padding - The padding of the badge. Default: 10px.
- *
+ * @prop {TypeFormats} format - The format to display the remaining time in
  */
 
 @customElement('kemet-timer-display')

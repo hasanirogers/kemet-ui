@@ -5,18 +5,18 @@ import { TypeFormats } from './types';
 import { emitEvent } from '../../utilities/misc/events';
 
 /**
- * @since 1.0.0
+ * @since 3.1.0
  * @status stable
  *
  * @tagname kemet-timer
- * @summary Badges display the status of information.
+ * @summary Counts down from a specified amount of time or date.
  *
- * @prop {string} status - The status of the badge
- * @prop {boolean} circle - Displays the badge in a circle
- * @prop {boolean} pill - Rounds the corners on the badge
- * @prop {number} circlePadding - Padding on the badge as a circle
+ * @prop {string} format - The format of the amount property
+ * @prop {number} amount - The amount of time to set the timer
+ * @prop {string} expires - Begins a count down to a specified time, accepts a string that matches value given for a Date constructor
  *
- * @cssproperty --kemet-timer-padding - The padding of the badge. Default: 10px.
+ * @event kemet-timer-completed - Fires when the timer reaches 0
+ * @event kemet-timer-increment - Fires on tick of the timer
  *
  */
 
@@ -30,18 +30,32 @@ export default class KemetTimer extends LitElement {
   @property({ type: Number })
   amount: number = 10;
 
+  @property({ type: String })
+  expires: string;
+
   @state()
   interval;
 
   firstUpdated() {
-    this.initTimer();
+    if (this.expires) {
+      this.countDown();
+    } else {
+      this.initTimer();
+    }
   }
 
   updated(prevProps) {
     const hasFormatOrAmountChanged = prevProps.get('format') || prevProps.get('amount');
+    const hasExpiredChanged = prevProps.get('expires');
+
     if (hasFormatOrAmountChanged) {
       clearInterval(this.interval);
       this.initTimer();
+    }
+
+    if (hasExpiredChanged) {
+      clearInterval(this.interval);
+      this.countDown();
     }
   }
 
@@ -64,6 +78,22 @@ export default class KemetTimer extends LitElement {
 
     this.interval = setInterval(() => {
       const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+      if (secondsLeft < 0) {
+        clearInterval(this.interval);
+        emitEvent(this, 'kemet-timer-completed', true);
+        return;
+      }
+
+      emitEvent(this, 'kemet-timer-increment', secondsLeft);
+    }, 1000);
+  }
+
+  countDown() {
+    const expires = new Date(this.expires).getTime();
+
+    this.interval = setInterval(() => {
+      const secondsLeft = Math.round((expires - Date.now()) / 1000);
 
       if (secondsLeft < 0) {
         clearInterval(this.interval);
