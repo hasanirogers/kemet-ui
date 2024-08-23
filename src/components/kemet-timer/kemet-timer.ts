@@ -33,6 +33,7 @@ export default class KemetTimer extends LitElement {
   @property({ type: String })
   expires: string;
 
+  /** @internal */
   @state()
   interval;
 

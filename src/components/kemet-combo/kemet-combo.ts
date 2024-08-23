@@ -64,6 +64,7 @@ export default class KemetCombo extends LitElement {
 
     // events listeners
     this.input.addEventListener('kemet-input-input', this.handleInput.bind(this));
+    this.input.addEventListener('kemet-multi-input-focus', this.handleFocus.bind(this));
     this.input.addEventListener('keydown', event => this.handleInputKeyDown(event));
   }
 
@@ -111,6 +112,11 @@ export default class KemetCombo extends LitElement {
   handleInput(event: CustomEvent) {
     this.makeOptions();
     this.show = event.detail.length > 0;
+  }
+
+  handleFocus() {
+    this.makeOptions();
+    this.show = true;
   }
 
   handleSelection(event: KeyboardEvent) {
