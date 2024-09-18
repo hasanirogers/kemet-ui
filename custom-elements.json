@@ -116,9 +116,6 @@
                 "text": "boolean"
               },
               "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-              },
               "description": "Determines the opened state of the panel",
               "fieldName": "opened"
             },
@@ -529,6 +526,135 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetBadge",
+          "cssProperties": [
+            {
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-badge",
+          "summary": "Badges display the status of information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-badge",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
@@ -747,135 +873,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetBadge",
-          "cssProperties": [
-            {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-card/kemet-card.ts",
       "declarations": [
         {
@@ -1022,6 +1019,306 @@
           "declaration": {
             "name": "KemetCard",
             "module": "src/components/kemet-card/kemet-card.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-button/kemet-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetButton",
+          "cssProperties": [
+            {
+              "description": "The font size.",
+              "name": "--kemet-button-font-size"
+            },
+            {
+              "description": "The text color.",
+              "name": "--kemet-button-color"
+            },
+            {
+              "description": "The width.",
+              "name": "--kemet-button-width"
+            },
+            {
+              "description": "The height.",
+              "name": "--kemet-button-height"
+            },
+            {
+              "description": "The border.",
+              "name": "--kemet-button-border"
+            },
+            {
+              "description": "The border radius.",
+              "name": "--kemet-button-border-radius"
+            },
+            {
+              "description": "The transition speed of the hover effect.",
+              "name": "--kemet-button-transition-speed"
+            },
+            {
+              "description": "The background color.",
+              "name": "--kemet-button-background-color"
+            },
+            {
+              "description": "The brightness of the hover effect.",
+              "name": "--kemet-button-hover-brightness"
+            },
+            {
+              "description": "The gap between the button and icons.",
+              "name": "--kemet-button-gap"
+            },
+            {
+              "description": "The button padding.",
+              "name": "--kemet-button-padding"
+            },
+            {
+              "description": "The decoration for a text button's hover.",
+              "name": "--kemet-button-hover-decoration"
+            },
+            {
+              "description": "The diameter of a circle button.",
+              "name": "--kemet-button-circle-size"
+            },
+            {
+              "description": "The border radius of the rounded button.",
+              "name": "--kemet-button-rounded-amount"
+            },
+            {
+              "description": "The width of the outline border.",
+              "name": "--kemet-button-border-width"
+            },
+            {
+              "description": "The style of the outline border.",
+              "name": "--kemet-button-border-style"
+            },
+            {
+              "description": "The color of the outline border.",
+              "name": "--kemet-button-border-color"
+            },
+            {
+              "description": "The opacity of the disabled state.",
+              "name": "--kemet-button-disabled-opacity"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button or anchor element.",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Allows you to place an icon to the left of the button text.",
+              "name": "left"
+            },
+            {
+              "description": "Allows you to place an icon to the right of the button text.",
+              "name": "right"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "Controls the type of button. standard | text | circle | rounded | pill",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOver",
+              "description": "Sets hover to true onMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut",
+              "description": "Sets hover to false onMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "description": "Handles click behavior",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles blur",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "object"
+                  },
+                  "description": "event object"
+                }
+              ],
+              "description": "Handles keyup",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the button is active",
+              "fieldName": "active"
+            },
+            {
+              "name": "hover",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is hovered",
+              "fieldName": "hover"
+            },
+            {
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "description": "The url a button should link too",
+              "fieldName": "link"
+            },
+            {
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "Controls the type of button. standard | text | circle | rounded | pill",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-button",
+          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-button",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.ts"
           }
         }
       ]
@@ -1838,7 +2135,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    perView: 1,\n    perMove: 1,\n    gap: 12,\n    slideshow: 0,\n    rewind: true,\n    center: false,\n  }",
+              "default": "{ perView: 1, perMove: 1, gap: 12, slideshow: 0, rewind: true, center: false, }",
               "description": "Default options for the carousel.",
               "attribute": "options"
             },
@@ -1848,7 +2145,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    768: {\n      perView: 2,\n      gap: 24,\n      rewind: false,\n    },\n    1280: {\n      perView: 2.5,\n      center: true,\n    },\n  }",
+              "default": "{ 768: { perView: 2, gap: 24, rewind: false, }, 1280: { perView: 2.5, center: true, }, }",
               "description": "Options at different breakpoints for the carousel. Is mobile first.",
               "attribute": "breakpoints"
             },
@@ -2055,7 +2352,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    perView: 1,\n    perMove: 1,\n    gap: 12,\n    slideshow: 0,\n    rewind: true,\n    center: false,\n  }",
+              "default": "{ perView: 1, perMove: 1, gap: 12, slideshow: 0, rewind: true, center: false, }",
               "description": "Default options for the carousel.",
               "fieldName": "options"
             },
@@ -2064,7 +2361,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    768: {\n      perView: 2,\n      gap: 24,\n      rewind: false,\n    },\n    1280: {\n      perView: 2.5,\n      center: true,\n    },\n  }",
+              "default": "{ 768: { perView: 2, gap: 24, rewind: false, }, 1280: { perView: 2.5, center: true, }, }",
               "description": "Options at different breakpoints for the carousel. Is mobile first.",
               "fieldName": "breakpoints"
             }
@@ -2093,306 +2390,6 @@
           "declaration": {
             "name": "KemetCarousel",
             "module": "src/components/kemet-carousel/kemet-carousel.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetButton",
-          "cssProperties": [
-            {
-              "description": "The font size.",
-              "name": "--kemet-button-font-size"
-            },
-            {
-              "description": "The text color.",
-              "name": "--kemet-button-color"
-            },
-            {
-              "description": "The width.",
-              "name": "--kemet-button-width"
-            },
-            {
-              "description": "The height.",
-              "name": "--kemet-button-height"
-            },
-            {
-              "description": "The border.",
-              "name": "--kemet-button-border"
-            },
-            {
-              "description": "The border radius.",
-              "name": "--kemet-button-border-radius"
-            },
-            {
-              "description": "The transition speed of the hover effect.",
-              "name": "--kemet-button-transition-speed"
-            },
-            {
-              "description": "The background color.",
-              "name": "--kemet-button-background-color"
-            },
-            {
-              "description": "The brightness of the hover effect.",
-              "name": "--kemet-button-hover-brightness"
-            },
-            {
-              "description": "The gap between the button and icons.",
-              "name": "--kemet-button-gap"
-            },
-            {
-              "description": "The button padding.",
-              "name": "--kemet-button-padding"
-            },
-            {
-              "description": "The decoration for a text button's hover.",
-              "name": "--kemet-button-hover-decoration"
-            },
-            {
-              "description": "The diameter of a circle button.",
-              "name": "--kemet-button-circle-size"
-            },
-            {
-              "description": "The border radius of the rounded button.",
-              "name": "--kemet-button-rounded-amount"
-            },
-            {
-              "description": "The width of the outline border.",
-              "name": "--kemet-button-border-width"
-            },
-            {
-              "description": "The style of the outline border.",
-              "name": "--kemet-button-border-style"
-            },
-            {
-              "description": "The color of the outline border.",
-              "name": "--kemet-button-border-color"
-            },
-            {
-              "description": "The opacity of the disabled state.",
-              "name": "--kemet-button-disabled-opacity"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The button or anchor element.",
-              "name": "button"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Allows you to place an icon to the left of the button text.",
-              "name": "left"
-            },
-            {
-              "description": "Allows you to place an icon to the right of the button text.",
-              "name": "right"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "type": {
-                "text": "string"
-              },
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOver",
-              "description": "Sets hover to true onMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut",
-              "description": "Sets hover to false onMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "description": "Handles click behavior",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles blur",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "object"
-                  },
-                  "description": "event object"
-                }
-              ],
-              "description": "Handles keyup",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the button is active",
-              "fieldName": "active"
-            },
-            {
-              "name": "hover",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is hovered",
-              "fieldName": "hover"
-            },
-            {
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "link",
-              "type": {
-                "text": "string"
-              },
-              "description": "The url a button should link too",
-              "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "variant",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-button",
-          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-button",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
           }
         }
       ]
@@ -3399,9 +3396,6 @@
                 "text": "boolean"
               },
               "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-drawer/kemet-drawer.ts"
-              },
               "description": "Determines if the drawer is opened or not.",
               "fieldName": "opened"
             },
@@ -5949,7 +5943,7 @@
               "type": {
                 "text": "IOptions[]"
               },
-              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
+              "default": "[ { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' }, { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' }, { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' }, ]",
               "attribute": "rules"
             },
             {
@@ -6088,7 +6082,7 @@
               "type": {
                 "text": "IOptions[]"
               },
-              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
+              "default": "[ { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' }, { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' }, { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' }, ]",
               "fieldName": "rules"
             },
             {
@@ -7206,9 +7200,6 @@
                 "text": "object"
               },
               "default": "window",
-              "resolveInitializer": {
-                "module": "src/components/kemet-scroll-link/kemet-scroll-link.ts"
-              },
               "description": "A DOM element that establishes the context of scrolling.",
               "fieldName": "element"
             },
@@ -10405,26 +10396,66 @@
             {
               "description": "The offset of the arrow from the trigger",
               "name": "--kemet-tooltip-placement-offset"
+            },
+            {
+              "description": "The padding in the content slot.",
+              "name": "--kemet-popper-padding",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
+            },
+            {
+              "description": "The border color of the content.",
+              "name": "--kemet-popper-border-color",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
+            },
+            {
+              "description": "The background color of the content.",
+              "name": "--kemet-popper-background-color",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             }
           ],
           "cssParts": [
             {
               "description": "Contains the trigger for the tooltip.",
-              "name": "trigger"
+              "name": "trigger",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             },
             {
               "description": "Contains the content for the tooltip.",
-              "name": "content"
+              "name": "content",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             }
           ],
           "slots": [
             {
               "description": "Controls opening and closing the tooltip.",
-              "name": "trigger"
+              "name": "trigger",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             },
             {
               "description": "The contents of the tooltip.",
-              "name": "content"
+              "name": "content",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             }
           ],
           "members": [

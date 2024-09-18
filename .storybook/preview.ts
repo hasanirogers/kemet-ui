@@ -35,11 +35,11 @@ const preview: Preview = {
       values: [
         {
           name: 'light',
-          value: "rgb(var(--kemet-color-gray-100))",
+          value: "rgb(var(--kemet-color-neutral-100))",
         },
         {
           name: 'dark',
-          value: 'rgb(var(--kemet-color-gray-900))',
+          value: 'rgb(var(--kemet-color-neutral-900))',
         },
       ],
     },

@@ -1,4 +1,5 @@
 import { html } from 'lit';
+import { useGlobals, useEffect } from '@storybook/preview-api';
 
 export const globalFormatting = (StoryFn, context) => {
   const blacklistMargins = ['kemet-alert', 'kemet-combo', 'kemet-drawer', 'kemet-tooltip'];
@@ -6,7 +7,7 @@ export const globalFormatting = (StoryFn, context) => {
   // add spacing to those not blacklisted
   if (blacklistMargins.indexOf(context.component) === -1) {
     return html`<div kemet-margin="2xl">${StoryFn()}</div>`;
-  }
+  }hey
 
   // component specific
   if (context.component === 'kemet-combo') {
@@ -18,19 +19,23 @@ export const globalFormatting = (StoryFn, context) => {
 };
 
 export const handlePolaritySwitching = (StoryFn: any, context) => {
-  // const [{ polarity }, updateGlobals] = useGlobals();
+  const [globals, updateGlobals] = useGlobals();
 
-  // useEffect(() => {
-  //   document.documentElement.setAttribute('polarity', polarity);
+  useEffect(() => {
+    document.documentElement.setAttribute('polarity', globals.polarity);
 
-  //   if (context.viewMode === 'story') {
-  //     if (polarity === 'dark') {
-  //       updateGlobals({ backgrounds: {value: 'rgb(var(--kemet-color-gray-900))'} });
-  //     } else {
-  //       updateGlobals({ backgrounds: {value: 'rgb(var(--kemet-color-gray-100))'} });
-  //     }
-  //   }
-  // }, [polarity]);
+    if (context.viewMode === 'story') {
+      if (globals.polarity === 'dark') {
+        updateGlobals({['backgrounds']:
+          {value: 'rgb(var(--kemet-color-neutral-900))'}
+        });
+      } else {
+        updateGlobals({['backgrounds']:
+          {value: 'rgb(var(--kemet-color-neutral-100))'}
+        });
+      }
+    }
+  }, [globals.polarity]);
 
   return StoryFn();
 }
