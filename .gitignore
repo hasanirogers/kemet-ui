@@ -24,3 +24,6 @@ tsconfig.tsbuildinfo
 
 # environment
 .env
+
+# logs
+*-storybook.log
