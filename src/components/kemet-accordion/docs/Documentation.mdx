@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as AccordionStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as Stories from './stories'
 
-<Meta of={AccordionStories} />
+<Meta of={Stories} />
 
 # Kemet Accordion
 
@@ -37,12 +37,12 @@ A component that acts like a standard accordion.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={AccordionStories.Standard} />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={Stories.Standard} />
+    <Controls of={Stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-accordion&gt;
-    <ArgsTable of="kemet-accordion" />
+    <ArgTypes of="kemet-accordion" />
 
     #### Methods
 
@@ -52,7 +52,7 @@ A component that acts like a standard accordion.
     <br />
 
     ### &lt;kemet-accordion-panel&gt;
-    <ArgsTable of="kemet-accordion-panel" />
+    <ArgTypes of="kemet-accordion-panel" />
 
     #### Methods
 

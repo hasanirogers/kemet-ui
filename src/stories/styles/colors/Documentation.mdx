@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 import * as stories from './stories';
 
 <Meta of={stories} />
@@ -8,7 +8,7 @@ import * as stories from './stories';
 Kemet's config includes a number of generic colors to use out of the box for you to style with. Kemet will generate attribute values for `kemet-color` and `kemet-background-color` based how you have configured these colors. Checkout out the following to experiment with default values:
 
 <Canvas name="Standard" of={stories.Standard} />
-<ArgsTable story="Standard" />
+<Controls of={stories.Standard} />
 
 ## Polarity
 

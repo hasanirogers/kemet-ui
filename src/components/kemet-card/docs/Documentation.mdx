@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as CardStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={CardStories} />
+<Meta of={stories} />
 
 # Kemet Card
 
@@ -30,11 +30,11 @@ A highly configurable panel design to display media and information.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={CardStories.Standard} />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard} />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-card&gt;
-    <ArgsTable of="kemet-card" />
+    <ArgTypes of="kemet-card" />
   </kemet-tab-panel>
 </kemet-tabs>

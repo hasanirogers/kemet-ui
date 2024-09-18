@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
 import * as stories from './stories'
 
 <Meta of={stories} />
@@ -32,10 +32,10 @@ Calls out important messages and notifications.
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     <Canvas of={stories.Standard} />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-alert&gt;
-    <ArgsTable of="kemet-alert" />
+    <ArgTypes of="kemet-alert" />
   </kemet-tab-panel>
 </kemet-tabs>

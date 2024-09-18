@@ -1028,306 +1028,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetButton",
-          "cssProperties": [
-            {
-              "description": "The font size.",
-              "name": "--kemet-button-font-size"
-            },
-            {
-              "description": "The text color.",
-              "name": "--kemet-button-color"
-            },
-            {
-              "description": "The width.",
-              "name": "--kemet-button-width"
-            },
-            {
-              "description": "The height.",
-              "name": "--kemet-button-height"
-            },
-            {
-              "description": "The border.",
-              "name": "--kemet-button-border"
-            },
-            {
-              "description": "The border radius.",
-              "name": "--kemet-button-border-radius"
-            },
-            {
-              "description": "The transition speed of the hover effect.",
-              "name": "--kemet-button-transition-speed"
-            },
-            {
-              "description": "The background color.",
-              "name": "--kemet-button-background-color"
-            },
-            {
-              "description": "The brightness of the hover effect.",
-              "name": "--kemet-button-hover-brightness"
-            },
-            {
-              "description": "The gap between the button and icons.",
-              "name": "--kemet-button-gap"
-            },
-            {
-              "description": "The button padding.",
-              "name": "--kemet-button-padding"
-            },
-            {
-              "description": "The decoration for a text button's hover.",
-              "name": "--kemet-button-hover-decoration"
-            },
-            {
-              "description": "The diameter of a circle button.",
-              "name": "--kemet-button-circle-size"
-            },
-            {
-              "description": "The border radius of the rounded button.",
-              "name": "--kemet-button-rounded-amount"
-            },
-            {
-              "description": "The width of the outline border.",
-              "name": "--kemet-button-border-width"
-            },
-            {
-              "description": "The style of the outline border.",
-              "name": "--kemet-button-border-style"
-            },
-            {
-              "description": "The color of the outline border.",
-              "name": "--kemet-button-border-color"
-            },
-            {
-              "description": "The opacity of the disabled state.",
-              "name": "--kemet-button-disabled-opacity"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "The button or anchor element.",
-              "name": "button"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Allows you to place an icon to the left of the button text.",
-              "name": "left"
-            },
-            {
-              "description": "Allows you to place an icon to the right of the button text.",
-              "name": "right"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the button is active",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hover",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is hovered",
-              "attribute": "hover",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "link",
-              "type": {
-                "text": "string"
-              },
-              "description": "The url a button should link too",
-              "attribute": "link"
-            },
-            {
-              "kind": "field",
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOver",
-              "description": "Sets hover to true onMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseOut",
-              "description": "Sets hover to false onMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleClick",
-              "description": "Handles click behavior",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "description": "Handles blur",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "object"
-                  },
-                  "description": "event object"
-                }
-              ],
-              "description": "Handles keyup",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the button is active",
-              "fieldName": "active"
-            },
-            {
-              "name": "hover",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is hovered",
-              "fieldName": "hover"
-            },
-            {
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Is true when the button is focused",
-              "fieldName": "focused"
-            },
-            {
-              "name": "link",
-              "type": {
-                "text": "string"
-              },
-              "description": "The url a button should link too",
-              "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines whether not a button is disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "variant",
-              "type": {
-                "text": "string"
-              },
-              "default": "'standard'",
-              "description": "Controls the type of button. standard | text | circle | rounded | pill",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-button",
-          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-button",
-          "declaration": {
-            "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/kemet-carousel/kemet-carousel-current.ts",
       "declarations": [
         {
@@ -2393,6 +2093,306 @@
           "declaration": {
             "name": "KemetCarousel",
             "module": "src/components/kemet-carousel/kemet-carousel.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-button/kemet-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetButton",
+          "cssProperties": [
+            {
+              "description": "The font size.",
+              "name": "--kemet-button-font-size"
+            },
+            {
+              "description": "The text color.",
+              "name": "--kemet-button-color"
+            },
+            {
+              "description": "The width.",
+              "name": "--kemet-button-width"
+            },
+            {
+              "description": "The height.",
+              "name": "--kemet-button-height"
+            },
+            {
+              "description": "The border.",
+              "name": "--kemet-button-border"
+            },
+            {
+              "description": "The border radius.",
+              "name": "--kemet-button-border-radius"
+            },
+            {
+              "description": "The transition speed of the hover effect.",
+              "name": "--kemet-button-transition-speed"
+            },
+            {
+              "description": "The background color.",
+              "name": "--kemet-button-background-color"
+            },
+            {
+              "description": "The brightness of the hover effect.",
+              "name": "--kemet-button-hover-brightness"
+            },
+            {
+              "description": "The gap between the button and icons.",
+              "name": "--kemet-button-gap"
+            },
+            {
+              "description": "The button padding.",
+              "name": "--kemet-button-padding"
+            },
+            {
+              "description": "The decoration for a text button's hover.",
+              "name": "--kemet-button-hover-decoration"
+            },
+            {
+              "description": "The diameter of a circle button.",
+              "name": "--kemet-button-circle-size"
+            },
+            {
+              "description": "The border radius of the rounded button.",
+              "name": "--kemet-button-rounded-amount"
+            },
+            {
+              "description": "The width of the outline border.",
+              "name": "--kemet-button-border-width"
+            },
+            {
+              "description": "The style of the outline border.",
+              "name": "--kemet-button-border-style"
+            },
+            {
+              "description": "The color of the outline border.",
+              "name": "--kemet-button-border-color"
+            },
+            {
+              "description": "The opacity of the disabled state.",
+              "name": "--kemet-button-disabled-opacity"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The button or anchor element.",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Allows you to place an icon to the left of the button text.",
+              "name": "left"
+            },
+            {
+              "description": "Allows you to place an icon to the right of the button text.",
+              "name": "right"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the button is active",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hover",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is hovered",
+              "attribute": "hover",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "description": "The url a button should link too",
+              "attribute": "link"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "Controls the type of button. standard | text | circle | rounded | pill",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOver",
+              "description": "Sets hover to true onMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMouseOut",
+              "description": "Sets hover to false onMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "description": "Handles click behavior",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "description": "Handles blur",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "object"
+                  },
+                  "description": "event object"
+                }
+              ],
+              "description": "Handles keyup",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the button is active",
+              "fieldName": "active"
+            },
+            {
+              "name": "hover",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is hovered",
+              "fieldName": "hover"
+            },
+            {
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Is true when the button is focused",
+              "fieldName": "focused"
+            },
+            {
+              "name": "link",
+              "type": {
+                "text": "string"
+              },
+              "description": "The url a button should link too",
+              "fieldName": "link"
+            },
+            {
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outline style for a button",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines whether not a button is disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "string"
+              },
+              "default": "'standard'",
+              "description": "Controls the type of button. standard | text | circle | rounded | pill",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-button",
+          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-button",
+          "declaration": {
+            "name": "KemetButton",
+            "module": "src/components/kemet-button/kemet-button.ts"
           }
         }
       ]
@@ -5936,6 +5936,236 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-password/kemet-password.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetPassword",
+          "members": [
+            {
+              "kind": "field",
+              "name": "rules",
+              "type": {
+                "text": "IOptions[]"
+              },
+              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
+              "attribute": "rules"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "attribute": "show",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Please make sure you meet all the requirements.'",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "strength",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "strength"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'check2'",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "attribute": "iconSize"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "TypeStatus"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "field",
+              "type": {
+                "text": "KemetFieldInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "KemetInputInterface | KemetTextareaInterface"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "makeRules",
+              "return": {
+                "type": {
+                  "text": "TemplateResult<1>[]"
+                }
+              },
+              "description": "Makes the list of rules",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "makeCheckIcon",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "meetsCriteria",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
+              "description": "Makes the check icon if the criteria has been met",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "*"
+                  }
+                }
+              ],
+              "description": "Handles the kemet-input-input event",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setStrength",
+              "description": "Determines the strength of the password",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "visibility",
+              "description": "Determines whether to show or hide the component",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "rules",
+              "type": {
+                "text": "IOptions[]"
+              },
+              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
+              "fieldName": "rules"
+            },
+            {
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "fieldName": "show"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "value"
+            },
+            {
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Please make sure you meet all the requirements.'",
+              "fieldName": "message"
+            },
+            {
+              "name": "strength",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "strength"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'check2'",
+              "fieldName": "icon"
+            },
+            {
+              "name": "iconSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "fieldName": "iconSize"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-password",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetPassword",
+            "module": "src/components/kemet-password/kemet-password.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-password",
+          "declaration": {
+            "name": "KemetPassword",
+            "module": "src/components/kemet-password/kemet-password.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-popper/kemet-popper-close.ts",
       "declarations": [
         {
@@ -6231,236 +6461,6 @@
           "declaration": {
             "name": "KemetPopper",
             "module": "src/components/kemet-popper/kemet-popper.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-password/kemet-password.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetPassword",
-          "members": [
-            {
-              "kind": "field",
-              "name": "rules",
-              "type": {
-                "text": "IOptions[]"
-              },
-              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
-              "attribute": "rules"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "attribute": "show",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "message",
-              "type": {
-                "text": "string"
-              },
-              "default": "'Please make sure you meet all the requirements.'",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "strength",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "strength"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'check2'",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "iconSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "attribute": "iconSize"
-            },
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "TypeStatus"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "field",
-              "type": {
-                "text": "KemetFieldInterface"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "input",
-              "type": {
-                "text": "KemetInputInterface | KemetTextareaInterface"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "makeRules",
-              "return": {
-                "type": {
-                  "text": "TemplateResult<1>[]"
-                }
-              },
-              "description": "Makes the list of rules",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "makeCheckIcon",
-              "return": {
-                "type": {
-                  "text": "TemplateResult"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "meetsCriteria",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ],
-              "description": "Makes the check icon if the criteria has been met",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleInput",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "*"
-                  }
-                }
-              ],
-              "description": "Handles the kemet-input-input event",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setStrength",
-              "description": "Determines the strength of the password",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "visibility",
-              "description": "Determines whether to show or hide the component",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "rules",
-              "type": {
-                "text": "IOptions[]"
-              },
-              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
-              "fieldName": "rules"
-            },
-            {
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "fieldName": "show"
-            },
-            {
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "value"
-            },
-            {
-              "name": "message",
-              "type": {
-                "text": "string"
-              },
-              "default": "'Please make sure you meet all the requirements.'",
-              "fieldName": "message"
-            },
-            {
-              "name": "strength",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "strength"
-            },
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'check2'",
-              "fieldName": "icon"
-            },
-            {
-              "name": "iconSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "fieldName": "iconSize"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-password",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetPassword",
-            "module": "src/components/kemet-password/kemet-password.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-password",
-          "declaration": {
-            "name": "KemetPassword",
-            "module": "src/components/kemet-password/kemet-password.ts"
           }
         }
       ]

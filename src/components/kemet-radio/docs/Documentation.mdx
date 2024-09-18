@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as RadioStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={RadioStories} />
+<Meta of={stories} />
 
 # Kemet Radio
 
@@ -34,17 +34,17 @@ An enhanced radio button.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={RadioStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-radios&gt;
-    <ArgsTable of="kemet-radios" />
+    <ArgTypes of="kemet-radios" />
 
     <br />
 
     ### &lt;kemet-radio&gt;
-    <ArgsTable of="kemet-radio" />
+    <ArgTypes of="kemet-radio" />
 
     #### Methods
 

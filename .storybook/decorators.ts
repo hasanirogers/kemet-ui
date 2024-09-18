@@ -1,5 +1,4 @@
 import { html } from 'lit';
-import { useEffect, useGlobals } from '@storybook/addons';
 
 export const globalFormatting = (StoryFn, context) => {
   const blacklistMargins = ['kemet-alert', 'kemet-combo', 'kemet-drawer', 'kemet-tooltip'];
@@ -19,19 +18,19 @@ export const globalFormatting = (StoryFn, context) => {
 };
 
 export const handlePolaritySwitching = (StoryFn: any, context) => {
-  const [{ polarity }, updateGlobals] = useGlobals();
+  // const [{ polarity }, updateGlobals] = useGlobals();
 
-  useEffect(() => {
-    document.documentElement.setAttribute('polarity', polarity);
+  // useEffect(() => {
+  //   document.documentElement.setAttribute('polarity', polarity);
 
-    if (context.viewMode === 'story') {
-      if (polarity === 'dark') {
-        updateGlobals({ backgrounds: {value: 'rgb(var(--kemet-color-gray-900))'} });
-      } else {
-        updateGlobals({ backgrounds: {value: 'rgb(var(--kemet-color-gray-100))'} });
-      }
-    }
-  }, [polarity]);
+  //   if (context.viewMode === 'story') {
+  //     if (polarity === 'dark') {
+  //       updateGlobals({ backgrounds: {value: 'rgb(var(--kemet-color-gray-900))'} });
+  //     } else {
+  //       updateGlobals({ backgrounds: {value: 'rgb(var(--kemet-color-gray-100))'} });
+  //     }
+  //   }
+  // }, [polarity]);
 
   return StoryFn();
 }

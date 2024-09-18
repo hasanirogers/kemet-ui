@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as RotatorStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={RotatorStories} />
+<Meta of={stories} />
 
 # Kemet Rotator
 
@@ -28,17 +28,17 @@ A component that rotates through an array of text.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={RotatorStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-rotator&gt;
-    <ArgsTable of="kemet-rotator" />
+    <ArgTypes of="kemet-rotator" />
 
     <br />
 
     ### &lt;kemet-radio&gt;
-    <ArgsTable of="kemet-radio" />
+    <ArgTypes of="kemet-radio" />
 
     #### Methods
 

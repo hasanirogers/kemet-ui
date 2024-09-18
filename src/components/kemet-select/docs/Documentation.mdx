@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as SelectStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={SelectStories} />
+<Meta of={stories} />
 
 # Kemet Select
 
@@ -34,14 +34,14 @@ An enhanced select element.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={SelectStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-select&gt;
-    <ArgsTable of="kemet-select" />
+    <ArgTypes of="kemet-select" />
 
     ### &lt;kemet-option&gt;
-    <ArgsTable of="kemet-option" />
+    <ArgTypes of="kemet-option" />
   </kemet-tab-panel>
 </kemet-tabs>

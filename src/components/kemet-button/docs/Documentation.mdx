@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as ButtonStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={ButtonStories} />
+<Meta of={stories} />
 
 # Kemet Button
 
@@ -28,11 +28,11 @@ A versatile button that can be used either to submit a form, trigger an action, 
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={ButtonStories.Standard} />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard} />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-button&gt;
-    <ArgsTable of="kemet-button" />
+    <ArgTypes of="kemet-button" />
   </kemet-tab-panel>
 </kemet-tabs>

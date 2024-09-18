@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as FlipcardStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={FlipcardStories} />
+<Meta of={stories} />
 
 # Kemet Flipcard
 
@@ -37,16 +37,16 @@ A card that has a front and back side which can be flipped.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={FlipcardStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-flipcard&gt;
-    <ArgsTable of="kemet-flipcard" />
+    <ArgTypes of="kemet-flipcard" />
 
     <br />
 
     ### &lt;kemet-flipcard-trigger&gt;
-    <ArgsTable of="kemet-flipcard-trigger" />
+    <ArgTypes of="kemet-flipcard-trigger" />
   </kemet-tab-panel>
 </kemet-tabs>

@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as TextareaStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={TextareaStories} />
+<Meta of={stories} />
 
 # Kemet Textarea
 
@@ -28,11 +28,11 @@ An enhanced textarea element.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={TextareaStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-textarea&gt;
-    <ArgsTable of="kemet-textarea" />
+    <ArgTypes of="kemet-textarea" />
   </kemet-tab-panel>
 </kemet-tabs>

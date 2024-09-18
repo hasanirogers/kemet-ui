@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as TimerStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={TimerStories} />
+<Meta of={stories} />
 
 # Timer
 
@@ -32,16 +32,16 @@ Counts down from a specified amount of time or date.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={TimerStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-timer&gt;
-    <ArgsTable of="kemet-timer" />
+    <ArgTypes of="kemet-timer" />
 
     <br />
 
     ### &lt;kemet-timer-display&gt;
-    <ArgsTable of="kemet-timer-display" />
+    <ArgTypes of="kemet-timer-display" />
   </kemet-tab-panel>
 </kemet-tabs>

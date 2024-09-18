@@ -1,7 +1,8 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
-import { userEvent, waitFor, within, fireEvent } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import {
+ userEvent, waitFor, within, expect,
+} from '@storybook/test';
 
 import '../kemet-accordion';
 import '../kemet-accordion-panel';
@@ -11,7 +12,6 @@ import '../../kemet-tabs/kemet-tab';
 import '../../kemet-tabs/kemet-tab-panel';
 
 import '../../kemet-icon/kemet-icon';
-
 
 const meta: Meta = {
   title: 'Components / Accordion',

@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as PopperStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={PopperStories} />
+<Meta of={stories} />
 
 # Kemet Popper
 
@@ -33,16 +33,16 @@ Positions an element over a trigger. This component is a wrapper component for [
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={PopperStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-popper&gt;
-    <ArgsTable of="kemet-popper" />
+    <ArgTypes of="kemet-popper" />
     <br />
 
     ### &lt;kemet-popper-close&gt;
 
-    <ArgsTable of="kemet-popper-close" />
+    <ArgTypes of="kemet-popper-close" />
   </kemet-tab-panel>
 </kemet-tabs>

@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as ScrollSnapStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={ScrollSnapStories} />
+<Meta of={stories} />
 
 # Kemet Scroll Snap
 
@@ -53,21 +53,21 @@ A scroll-snap implementation for responsive sliders.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={ScrollSnapStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-scroll-snap&gt;
-    <ArgsTable of="kemet-scroll-snap" />
+    <ArgTypes of="kemet-scroll-snap" />
 
     <br />
 
     ### &lt;kemet-scroll-snap-slide&gt;
-    <ArgsTable of="kemet-scroll-snap-slide" />
+    <ArgTypes of="kemet-scroll-snap-slide" />
 
     <br />
 
     ### &lt;kemet-scroll-snap-paginator&gt;
-    <ArgsTable of="kemet-scroll-snap-paginator" />
+    <ArgTypes of="kemet-scroll-snap-paginator" />
   </kemet-tab-panel>
 </kemet-tabs>

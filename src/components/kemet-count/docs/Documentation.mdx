@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as CountStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={CountStories} />
+<Meta of={stories} />
 
 # Kemet Count
 
@@ -31,11 +31,11 @@ Maintains a character count for a input field. Is to be used only in the compone
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={CountStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-count&gt;
-    <ArgsTable of="kemet-count" />
+    <ArgTypes of="kemet-count" />
   </kemet-tab-panel>
 </kemet-tabs>

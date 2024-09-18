@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as DraggableStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={DraggableStories} />
+<Meta of={stories} />
 
 # Kemet Draggable
 
@@ -30,11 +30,11 @@ A draggable element with the ability to remember its position.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={DraggableStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-draggable&gt;
-    <ArgsTable of="kemet-draggable" />
+    <ArgTypes of="kemet-draggable" />
   </kemet-tab-panel>
 </kemet-tabs>
