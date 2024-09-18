@@ -51,7 +51,8 @@
     "autoprefixer": "^10.4.14",
     "lit-html": "^2.6.1",
     "mobile-drag-drop": "2.2.0",
-    "ts-dedent": "^2.2.0"
+    "ts-dedent": "^2.2.0",
+    "tslib": "^2.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

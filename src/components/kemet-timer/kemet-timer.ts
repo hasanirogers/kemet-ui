@@ -41,8 +41,11 @@ export default class KemetTimer extends LitElement {
     if (this.expires) {
       this.countDown();
     } else {
-      this.initTimer();
+      this.timer(this.getTimeInSeconds(this.amount));
     }
+
+    emitEvent(this, 'kemet-timer-started', true);
+    emitEvent(this, 'kemet-timer-increment', this.getTimeInSeconds(this.amount));
   }
 
   updated(prevProps) {
@@ -51,7 +54,7 @@ export default class KemetTimer extends LitElement {
 
     if (hasFormatOrAmountChanged) {
       clearInterval(this.interval);
-      this.initTimer();
+      this.timer(this.getTimeInSeconds(this.amount));
     }
 
     if (hasExpiredChanged) {
@@ -64,12 +67,12 @@ export default class KemetTimer extends LitElement {
     return html`<slot></slot>`;
   }
 
-  initTimer() {
+  getTimeInSeconds(time) {
     switch (this.format) {
-      case 'minutes': this.timer(this.amount * 60); return;
-      case 'hours': this.timer(this.amount * 60 * 60); return;
-      case 'days': this.timer(this.amount * 60 * 60 * 24); return;
-      default: this.timer(this.amount);
+      case 'minutes': return time * 60;
+      case 'hours': return time * 60 * 60;
+      case 'days': return time * 60 * 60 * 24;
+      default: return time;
     }
   }
 

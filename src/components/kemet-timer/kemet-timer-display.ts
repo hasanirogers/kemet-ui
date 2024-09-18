@@ -21,9 +21,10 @@ export default class KemetTimerDisplay extends LitElement {
   format: TypeFormats = 'seconds';
 
   @state()
-  displayTime: string = '';
+  displayTime: string;
 
-  firstUpdated() {
+  constructor() {
+    super();
     this.getTime();
   }
 
@@ -52,6 +53,15 @@ export default class KemetTimerDisplay extends LitElement {
           this.displayTime = (secondsLeft % 60 < 10 ? `0${secondsLeft % 60}` : secondsLeft % 60).toString();
       }
     });
+  }
+
+  getTimeInSeconds(time) {
+    switch (this.format) {
+      case 'minutes': return time * 60;
+      case 'hours': return time * 60 * 60;
+      case 'days': return time * 60 * 60 * 24;
+      default: return time;
+    }
   }
 }
 
