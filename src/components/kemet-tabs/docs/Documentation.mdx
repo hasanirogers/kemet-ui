@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as TabsStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={TabsStories} />
+<Meta of={stories} />
 
 # Kemet Tabs
 
@@ -39,21 +39,21 @@ A collection of components to enable tab behavior.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={TabsStories.SelectByName}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.SelectByName}  />
+    <Controls of={stories.SelectByName} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-tabs&gt;
-    <ArgsTable of="kemet-tabs" />
+    <ArgTypes of="kemet-tabs" />
 
     <br />
 
     ### &lt;kemet-tab&gt;
-    <ArgsTable of="kemet-tab" />
+    <ArgTypes of="kemet-tab" />
 
     <br />
 
     ### &lt;kemet-tab-panel&gt;
-    <ArgsTable of="kemet-tab-panel" />
+    <ArgTypes of="kemet-tab-panel" />
   </kemet-tab-panel>
 </kemet-tabs>

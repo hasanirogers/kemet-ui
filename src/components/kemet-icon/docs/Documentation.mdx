@@ -1,8 +1,8 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
 import { Icons } from '../../../../.storybook/components/icons/Icons.tsx';
-import * as IconStories from './stories'
+import * as stories from './stories'
 
-<Meta of={IconStories} />
+<Meta of={stories} />
 
 # Kemet Icon
 
@@ -30,12 +30,12 @@ An element that represents an icon from a predefined set of open sourced icons.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={IconStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-icon&gt;
-    <ArgsTable of="kemet-icon" />
+    <ArgTypes of="kemet-icon" />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     Kemet Icon comes with several predefined sets of icons that can be referenced. These icons come from open source projects. To get more information on the icons please visit the set's documentation site.

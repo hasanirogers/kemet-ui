@@ -200,7 +200,7 @@ export default class KemetInput extends LitElement {
     this.slug = this.field ? this.field.slug : 'input';
 
     if (this.field) {
-      this.field.addEventListener('fmc-password-status', (event: CustomEvent) => this.handleStatus(event));
+      this.field.addEventListener('kemet-password-status', (event: CustomEvent) => this.handleStatus(event));
     }
   }
 

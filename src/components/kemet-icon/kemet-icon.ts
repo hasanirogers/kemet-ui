@@ -59,7 +59,7 @@ export default class KemetIcon extends LitElement {
     const svgElement = parser.parseFromString(svgString, 'image/svg+xml').documentElement;
     const svgPrevious = this.shadowRoot?.querySelector('svg');
 
-    if (svgElement.tagName === 'svg') {
+    if (svgElement.tagName.toLowerCase() === 'svg') {
       svgElement.setAttribute('id', this.icon);
       svgElement.setAttribute('width', `${this.size}px`);
       svgElement.setAttribute('height', `${this.size}px`);

@@ -9,11 +9,9 @@ export default meta;
 
 type Story = StoryObj;
 
-const Template = (args) => {
-  return html`
+const Template = args => html`
     <div kemet-color=${args.textColor} kemet-background-color=${args.backgroundColor} kemet-padding="2xl">The quick brown fox jumps over the lazy dog.</div>
   `;
-}
 
 export const Standard: Story = {
   render: Template,
@@ -30,5 +28,5 @@ export const Standard: Story = {
       control: { type: 'select' },
       options: makeColors(),
     },
-  }
-}
+  },
+};

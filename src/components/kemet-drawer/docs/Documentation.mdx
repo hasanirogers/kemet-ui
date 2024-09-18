@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as DrawerStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={DrawerStories} />
+<Meta of={stories} />
 
 # Kemet Drawer
 
@@ -31,11 +31,11 @@ A component that adds an off-canvas menu with different effects.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={DrawerStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-drawer&gt;
-    <ArgsTable of="kemet-drawer" />
+    <ArgTypes of="kemet-drawer" />
   </kemet-tab-panel>
 </kemet-tabs>

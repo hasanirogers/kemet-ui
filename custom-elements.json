@@ -116,9 +116,6 @@
                 "text": "boolean"
               },
               "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
-              },
               "description": "Determines the opened state of the panel",
               "fieldName": "opened"
             },
@@ -529,6 +526,135 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-badge/kemet-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetBadge",
+          "cssProperties": [
+            {
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays the badge in a circle",
+              "fieldName": "circle"
+            },
+            {
+              "name": "pill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-badge",
+          "summary": "Badges display the status of information.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-badge",
+          "declaration": {
+            "name": "KemetBadge",
+            "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
@@ -741,135 +867,6 @@
           "declaration": {
             "name": "KemetAlert",
             "module": "src/components/kemet-alert/kemet-alert.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetBadge",
-          "cssProperties": [
-            {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
           }
         }
       ]
@@ -1412,6 +1409,15 @@
             {
               "kind": "method",
               "name": "first"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             }
           ],
           "events": [
@@ -1479,6 +1485,15 @@
             {
               "kind": "method",
               "name": "last"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             }
           ],
           "events": [
@@ -1571,6 +1586,15 @@
             {
               "kind": "method",
               "name": "changed"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             }
           ],
           "events": [
@@ -1653,6 +1677,15 @@
             {
               "kind": "method",
               "name": "next"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             }
           ],
           "events": [
@@ -1720,6 +1753,15 @@
             {
               "kind": "method",
               "name": "prev"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyUp",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ]
             }
           ],
           "events": [
@@ -2093,7 +2135,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    perView: 1,\n    perMove: 1,\n    gap: 12,\n    slideshow: 0,\n    rewind: true,\n    center: false,\n  }",
+              "default": "{ perView: 1, perMove: 1, gap: 12, slideshow: 0, rewind: true, center: false, }",
               "description": "Default options for the carousel.",
               "attribute": "options"
             },
@@ -2103,7 +2145,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    768: {\n      perView: 2,\n      gap: 24,\n      rewind: false,\n    },\n    1280: {\n      perView: 2.5,\n      center: true,\n    },\n  }",
+              "default": "{ 768: { perView: 2, gap: 24, rewind: false, }, 1280: { perView: 2.5, center: true, }, }",
               "description": "Options at different breakpoints for the carousel. Is mobile first.",
               "attribute": "breakpoints"
             },
@@ -2310,7 +2352,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    perView: 1,\n    perMove: 1,\n    gap: 12,\n    slideshow: 0,\n    rewind: true,\n    center: false,\n  }",
+              "default": "{ perView: 1, perMove: 1, gap: 12, slideshow: 0, rewind: true, center: false, }",
               "description": "Default options for the carousel.",
               "fieldName": "options"
             },
@@ -2319,7 +2361,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n    768: {\n      perView: 2,\n      gap: 24,\n      rewind: false,\n    },\n    1280: {\n      perView: 2.5,\n      center: true,\n    },\n  }",
+              "default": "{ 768: { perView: 2, gap: 24, rewind: false, }, 1280: { perView: 2.5, center: true, }, }",
               "description": "Options at different breakpoints for the carousel. Is mobile first.",
               "fieldName": "breakpoints"
             }
@@ -2829,6 +2871,10 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus"
             },
             {
               "kind": "method",
@@ -3350,9 +3396,6 @@
                 "text": "boolean"
               },
               "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/components/kemet-drawer/kemet-drawer.ts"
-              },
               "description": "Determines if the drawer is opened or not.",
               "fieldName": "opened"
             },
@@ -5402,6 +5445,491 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-multi-input/kemet-multi-input.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetMultiInput",
+          "cssProperties": [
+            {
+              "description": "The height of the input.",
+              "name": "--kemet-input-height"
+            },
+            {
+              "description": "The padding on the input.",
+              "name": "--kemet-input-padding"
+            },
+            {
+              "description": "The border of the input.",
+              "name": "--kemet-input-border"
+            },
+            {
+              "description": " The border of the error state.",
+              "name": "--kemet-input-border-color-error"
+            },
+            {
+              "description": "The border of the success state.",
+              "name": "--kemet-input-border-color-success"
+            },
+            {
+              "description": "The border of the warning state.",
+              "name": "--kemet-input-border-color-warning"
+            },
+            {
+              "description": "The icon-left padding.",
+              "name": "--kemet-input-icon-left-padding"
+            },
+            {
+              "description": "The icon-right padding.",
+              "name": "--kemet-input-icon-right-padding"
+            },
+            {
+              "description": "The border radius on rounded.",
+              "name": "--kemet-input-border-radius-rounded"
+            },
+            {
+              "description": "The border on filled.",
+              "name": "--kemet-input-border-filled"
+            },
+            {
+              "description": "The color on filled.",
+              "name": "--kemet-input-color-filled"
+            },
+            {
+              "description": "The background-color on filled.",
+              "name": "--kemet-input-background-color-filled"
+            },
+            {
+              "description": "The error state background color.",
+              "name": "--kemet-input-background-color-error"
+            },
+            {
+              "description": "The success state background color.",
+              "name": "--kemet-input-background-color-success"
+            },
+            {
+              "description": "The warning state background color.",
+              "name": "--kemet-input-background-color-warning"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "input"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays rounded corners",
+              "attribute": "rounded"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'input'",
+              "description": "The name of the input",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The input's value"
+            },
+            {
+              "kind": "field",
+              "name": "selections",
+              "type": {
+                "text": "IComboSelection[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "paddingLeft",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "field"
+            },
+            {
+              "kind": "field",
+              "name": "combo"
+            },
+            {
+              "kind": "field",
+              "name": "chips"
+            },
+            {
+              "kind": "method",
+              "name": "addComboItem",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
+              "description": "Handles when a selection is made from a combo",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ],
+              "description": "Handles when the input receives input",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ],
+              "description": "Handles when the input is focused"
+            },
+            {
+              "kind": "method",
+              "name": "makeSelections",
+              "description": "Renders the chips from the selections of the combo",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "calculatePadding",
+              "description": "calculates padding to properly place the cursor of the input",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleRemoveChip",
+              "parameters": [
+                {
+                  "name": "event"
+                }
+              ],
+              "description": "handle removing a chip from the selections",
+              "privacy": "private"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
+              "name": "slug",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The placeholder attribute",
+              "name": "placeholder",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The minlength attribute",
+              "name": "minlength",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The maxlength attribute",
+              "name": "maxlength",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The min attribute",
+              "name": "min",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The max attribute",
+              "name": "max",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The step attribute",
+              "name": "step",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The autocomplete attribute",
+              "name": "autocomplete",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The pattern attribute",
+              "name": "pattern",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The input mode attribute",
+              "name": "inputmode",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The autofocus attribute",
+              "name": "autofocus",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The disable attribute",
+              "name": "disabled",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The readonly attribute",
+              "name": "readonly",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "The required attribute",
+              "name": "required",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The type of input",
+              "name": "type",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "States whether the input is invalid",
+              "name": "invalid",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The status of the input",
+              "name": "status",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Activates validation on blur",
+              "name": "validateOnBlur",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Aria Autocomplete",
+              "name": "ariaAutoComplete",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Aria Controls",
+              "name": "ariaControls",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Aria Active Descendant",
+              "name": "ariaActiveDescendant",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays a filled input box",
+              "name": "filled",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Custom Icon to the right of the input",
+              "name": "iconRight",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Custom Icon to the left of the input",
+              "name": "iconLeft",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "Size of the icons",
+              "name": "iconSize",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "object"
+              },
+              "description": "The HTML5 validity object.",
+              "name": "validity",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Manages password visibility",
+              "name": "isPasswordVisible",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Input Type of keypress handled through handleInput(e)",
+              "name": "inputType",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the input is focused",
+              "name": "focused",
+              "kind": "field"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when the input receives and loses focus",
+              "name": "kemet-input-focused"
+            },
+            {
+              "description": "Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element. Use the validity object to support custom validation messages.",
+              "name": "kemet-input-status"
+            },
+            {
+              "description": "Fires when the input receives input",
+              "name": "kemet-input-input"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays rounded corners",
+              "fieldName": "rounded"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'input'",
+              "description": "The name of the input",
+              "fieldName": "name"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-multi-input",
+          "summary": "An input element that accepts multiple items from a combo.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetMultiInput",
+            "module": "src/components/kemet-multi-input/kemet-multi-input.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-multi-input",
+          "declaration": {
+            "name": "KemetMultiInput",
+            "module": "src/components/kemet-multi-input/kemet-multi-input.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-password/kemet-password.ts",
       "declarations": [
         {
@@ -5415,7 +5943,7 @@
               "type": {
                 "text": "IOptions[]"
               },
-              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
+              "default": "[ { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' }, { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' }, { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' }, ]",
               "attribute": "rules"
             },
             {
@@ -5554,7 +6082,7 @@
               "type": {
                 "text": "IOptions[]"
               },
-              "default": "[\n    { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },\n    { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },\n    { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },\n  ]",
+              "default": "[ { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' }, { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' }, { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' }, ]",
               "fieldName": "rules"
             },
             {
@@ -6672,9 +7200,6 @@
                 "text": "object"
               },
               "default": "window",
-              "resolveInitializer": {
-                "module": "src/components/kemet-scroll-link/kemet-scroll-link.ts"
-              },
               "description": "A DOM element that establishes the context of scrolling.",
               "fieldName": "element"
             },
@@ -9349,6 +9874,216 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/kemet-timer/kemet-timer-display.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTimerDisplay",
+          "members": [
+            {
+              "kind": "field",
+              "name": "format",
+              "type": {
+                "text": "TypeFormats"
+              },
+              "default": "'seconds'",
+              "description": "The format to display the remaining time in",
+              "attribute": "format"
+            },
+            {
+              "kind": "field",
+              "name": "displayTime",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getTime"
+            },
+            {
+              "kind": "method",
+              "name": "getTimeInSeconds",
+              "parameters": [
+                {
+                  "name": "time"
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "format",
+              "type": {
+                "text": "TypeFormats"
+              },
+              "default": "'seconds'",
+              "description": "The format to display the remaining time in",
+              "fieldName": "format"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-timer-display",
+          "summary": "Displays remaining time",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTimerDisplay",
+            "module": "src/components/kemet-timer/kemet-timer-display.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-timer-display",
+          "declaration": {
+            "name": "KemetTimerDisplay",
+            "module": "src/components/kemet-timer/kemet-timer-display.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-timer/kemet-timer.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTimer",
+          "members": [
+            {
+              "kind": "field",
+              "name": "format",
+              "type": {
+                "text": "string"
+              },
+              "default": "'seconds'",
+              "description": "The format of the amount property",
+              "attribute": "format"
+            },
+            {
+              "kind": "field",
+              "name": "amount",
+              "type": {
+                "text": "number"
+              },
+              "default": "10",
+              "description": "The amount of time to set the timer",
+              "attribute": "amount"
+            },
+            {
+              "kind": "field",
+              "name": "expires",
+              "type": {
+                "text": "string"
+              },
+              "description": "Begins a count down to a specified time, accepts a string that matches value given for a Date constructor",
+              "attribute": "expires"
+            },
+            {
+              "kind": "method",
+              "name": "getTimeInSeconds",
+              "parameters": [
+                {
+                  "name": "time"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "timer",
+              "parameters": [
+                {
+                  "name": "seconds",
+                  "default": "0",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "countDown"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when the timer reaches 0",
+              "name": "kemet-timer-completed"
+            },
+            {
+              "description": "Fires on tick of the timer",
+              "name": "kemet-timer-increment"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "format",
+              "type": {
+                "text": "string"
+              },
+              "default": "'seconds'",
+              "description": "The format of the amount property",
+              "fieldName": "format"
+            },
+            {
+              "name": "amount",
+              "type": {
+                "text": "number"
+              },
+              "default": "10",
+              "description": "The amount of time to set the timer",
+              "fieldName": "amount"
+            },
+            {
+              "name": "expires",
+              "type": {
+                "text": "string"
+              },
+              "description": "Begins a count down to a specified time, accepts a string that matches value given for a Date constructor",
+              "fieldName": "expires"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-timer",
+          "summary": "Counts down from a specified amount of time or date.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTimer",
+            "module": "src/components/kemet-timer/kemet-timer.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-timer",
+          "declaration": {
+            "name": "KemetTimer",
+            "module": "src/components/kemet-timer/kemet-timer.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/kemet-toggle/kemet-toggle.ts",
       "declarations": [
         {
@@ -9661,26 +10396,66 @@
             {
               "description": "The offset of the arrow from the trigger",
               "name": "--kemet-tooltip-placement-offset"
+            },
+            {
+              "description": "The padding in the content slot.",
+              "name": "--kemet-popper-padding",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
+            },
+            {
+              "description": "The border color of the content.",
+              "name": "--kemet-popper-border-color",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
+            },
+            {
+              "description": "The background color of the content.",
+              "name": "--kemet-popper-background-color",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             }
           ],
           "cssParts": [
             {
               "description": "Contains the trigger for the tooltip.",
-              "name": "trigger"
+              "name": "trigger",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             },
             {
               "description": "Contains the content for the tooltip.",
-              "name": "content"
+              "name": "content",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             }
           ],
           "slots": [
             {
               "description": "Controls opening and closing the tooltip.",
-              "name": "trigger"
+              "name": "trigger",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             },
             {
               "description": "The contents of the tooltip.",
-              "name": "content"
+              "name": "content",
+              "inheritedFrom": {
+                "name": "KemetPopper",
+                "module": "src/components/kemet-popper/kemet-popper.ts"
+              }
             }
           ],
           "members": [

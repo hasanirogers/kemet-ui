@@ -14,19 +14,20 @@ const config: StorybookConfig = {
         },
       },
     },
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-    '@storybook/preset-scss',
-    '@whitespace/storybook-addon-html',
+    {
+      name: '@storybook/addon-essentials',
+      // we're already loading docs for remark-gfm so disable it here
+      options: {
+          docs: false,
+      },
+    },
+    '@storybook/addon-interactions', '@storybook/addon-links', '@storybook/addon-a11y', '@storybook/preset-scss', '@whitespace/storybook-addon-html', '@chromatic-com/storybook'
   ],
   framework: {
     name: '@storybook/web-components-vite',
     options: {}
   },
-  docs: {
-    autodocs: false
-  }
+  docs: {}
 };
 
 export default config;

@@ -1,6 +1,7 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Args, Meta, StoryObj } from '@storybook/web-components';
+import { userEvent, within, expect } from '@storybook/test';
 
 import '../kemet-alert';
 
@@ -42,13 +43,13 @@ const meta: Meta = {
       control: { type: 'select' },
       options: ['none', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left'],
     },
-  }
+  },
 };
 export default meta;
 
 type Story = StoryObj;
 
-const Template = (args) => {
+const Template = (args: Args) => {
   const makeIcon = () => {
     if (args.icon !== 'none' && args.icon) {
       return html`<kemet-icon slot="icon" icon=${args.icon} size="24" ></kemet-icon>`;
@@ -80,31 +81,17 @@ const Template = (args) => {
   `;
 };
 
-// export const Standard: Story = {
-//   render: (args: any) => Template(args),
-//   args: {
-//     heading: 'This is a heading.',
-//     text: 'The brown fox jumped over the lazy dog.',
-//     icon: 'gear',
-//     status: 'standard',
-//     closable: false,
-//     border: 'left',
-//     opened: true,
-//     overlay: 'none',
-//   },
-// };
-
 export const Standard: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     text: 'The brown fox jumped over the lazy dog.',
     overlay: 'none',
-  }
+  },
 };
 
 export const Heading: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -114,7 +101,7 @@ export const Heading: Story = {
 };
 
 export const Icon: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -125,7 +112,7 @@ export const Icon: Story = {
 };
 
 export const Closable: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -134,10 +121,25 @@ export const Closable: Story = {
     closable: true,
     overlay: 'none',
   },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement);
+    const alert = canvas.getByText('This is a heading.').closest('kemet-alert');
+    const closeButton = alert.shadowRoot.querySelector('.close kemet-icon');
+
+    await step('Close the Alert', async () => {
+      await userEvent.click(closeButton);
+      expect(alert.opened).toBeFalsy();
+    });
+
+    await step('Reopen the Alert', async () => {
+      alert.opened = true;
+      expect(alert.opened).toBeTruthy();
+    });
+  },
 };
 
 export const BorderTop: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -150,7 +152,7 @@ export const BorderTop: Story = {
 };
 
 export const BorderRight: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -163,7 +165,7 @@ export const BorderRight: Story = {
 };
 
 export const BorderBottom: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -176,7 +178,7 @@ export const BorderBottom: Story = {
 };
 
 export const BorderLeft: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -189,7 +191,7 @@ export const BorderLeft: Story = {
 };
 
 export const Primary: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -198,12 +200,12 @@ export const Primary: Story = {
     closable: true,
     border: 'left',
     overlay: 'none',
-    status: 'primary'
+    status: 'primary',
   },
 };
 
 export const Success: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -212,12 +214,12 @@ export const Success: Story = {
     closable: true,
     border: 'left',
     overlay: 'none',
-    status: 'success'
+    status: 'success',
   },
 };
 
 export const Warning: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -226,12 +228,12 @@ export const Warning: Story = {
     closable: true,
     border: 'left',
     overlay: 'none',
-    status: 'warning'
+    status: 'warning',
   },
 };
 
 export const Error: Story = {
-  render: (args: any) => Template(args),
+  render: (args: Args) => Template(args),
   args: {
     opened: true,
     heading: 'This is a heading.',
@@ -240,8 +242,6 @@ export const Error: Story = {
     closable: true,
     border: 'left',
     overlay: 'none',
-    status: 'error'
+    status: 'error',
   },
 };
-
-

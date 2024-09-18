@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as TooltipStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={TooltipStories} />
+<Meta of={stories} />
 
 # Kemet Tooltip
 
@@ -31,11 +31,11 @@ The Tooltip is a Popper with an additional arrow pointing to the trigger.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={TooltipStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-tooltip&gt;
-    <ArgsTable of="kemet-tooltip" />
+    <ArgTypes of="kemet-tooltip" />
   </kemet-tab-panel>
 </kemet-tabs>

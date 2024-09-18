@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as ComboStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={ComboStories} />
+<Meta of={stories} />
 
 # Kemet Combo
 
@@ -31,11 +31,11 @@ Allows the user to select a choice filtered through an Input. May only be used a
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={ComboStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-combo&gt;
-    <ArgsTable of="kemet-combo" />
+    <ArgTypes of="kemet-combo" />
   </kemet-tab-panel>
 </kemet-tabs>

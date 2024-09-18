@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as CarouselStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={CarouselStories} />
+<Meta of={stories} />
 
 # Kemet Carousel
 
@@ -48,13 +48,13 @@ The Carousel allows you to click or swipe through content.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={CarouselStories.Standard} />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard} />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-carousel&gt;
     The main carousel element.
-    <ArgsTable of="kemet-carousel" />
+    <ArgTypes of="kemet-carousel" />
 
     #### Options
 
@@ -99,36 +99,36 @@ The Carousel allows you to click or swipe through content.
 
     ### &lt;kemet-carousel-link&gt;
     Zero-based index link to a slide in the carousel.
-    <ArgsTable of="kemet-carousel-link" />
+    <ArgTypes of="kemet-carousel-link" />
 
 
     ### &lt;kemet-carouse-next&gt;
     A link to the next slide in the carousel.
-    <ArgsTable of="kemet-carousel-next" />
+    <ArgTypes of="kemet-carousel-next" />
 
     ### &lt;kemet-carousel-prev&gt;
     A link to the previous slide in the carousel.
-    <ArgsTable of="kemet-carousel-prev" />
+    <ArgTypes of="kemet-carousel-prev" />
 
     ### &lt;kemet-carousel-slide&gt;
     A container for a slide in the carousel.
-    <ArgsTable of="kemet-carousel-slide" />
+    <ArgTypes of="kemet-carousel-slide" />
 
     ### &lt;kemet-carousel-first&gt;
     A link to the first slide in the carousel.
-    <ArgsTable of="kemet-carousel-first" />
+    <ArgTypes of="kemet-carousel-first" />
 
     ### &lt;kemet-carousel-last&gt;
     A link to the last slide in the carousel.
-    <ArgsTable of="kemet-carousel-last" />
+    <ArgTypes of="kemet-carousel-last" />
 
     ### &lt;kemet-carousel-current&gt;
     Displays the active slide number.
-    <ArgsTable of="kemet-carousel-current" />
+    <ArgTypes of="kemet-carousel-current" />
 
     ### &lt;kemet-carousel-total&gt;
     Displays the total slide number.
-    <ArgsTable of="kemet-carousel-total" />
+    <ArgTypes of="kemet-carousel-total" />
 
     ### &lt;kemet-carousel-information&gt;
     Note that this technically isn't a web component. Use this custom tag name to grab information form a slide and display it in the toolbar.

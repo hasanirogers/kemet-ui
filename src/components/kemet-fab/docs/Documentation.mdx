@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as FabStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={FabStories} />
+<Meta of={stories} />
 
 # Kemet Fab
 
@@ -31,11 +31,11 @@ The FAB, or Floating Action Button, performs a primary action on a page.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={FabStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-fab&gt;
-    <ArgsTable of="kemet-fab" />
+    <ArgTypes of="kemet-fab" />
   </kemet-tab-panel>
 </kemet-tabs>

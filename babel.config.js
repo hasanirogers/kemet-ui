@@ -14,6 +14,5 @@ module.exports = {
       version: '2018-09',
       decoratorsBeforeExport: true,
     }],
-    ['@babel/plugin-proposal-class-properties'],
   ],
 };

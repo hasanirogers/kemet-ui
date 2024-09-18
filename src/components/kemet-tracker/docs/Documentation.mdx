@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as TrackerStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={TrackerStories} />
+<Meta of={stories} />
 
 # Kemet Tracker
 
@@ -34,14 +34,14 @@ Displays the progress of a process such as a wizard of multi-step form.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={TrackerStories.Standard}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-tracker&gt;
-    <ArgsTable of="kemet-tracker" />
+    <ArgTypes of="kemet-tracker" />
 
     ### &lt;kemet-tracker-step&gt;
-    <ArgsTable of="kemet-tracker-step" />
+    <ArgTypes of="kemet-tracker-step" />
   </kemet-tab-panel>
 </kemet-tabs>

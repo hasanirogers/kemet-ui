@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import * as FieldStories from './stories'
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import * as stories from './stories'
 
-<Meta of={FieldStories} />
+<Meta of={stories} />
 
 # Kemet Field
 
@@ -30,11 +30,11 @@ Used in combination with Input, Select, and Textarea, to make a Field.
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    <Canvas of={FieldStories.Input}  />
-    <ArgsTable story={PRIMARY_STORY} />
+    <Canvas of={stories.Input}  />
+    <Controls of={stories.Input} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
     ### &lt;kemet-field&gt;
-    <ArgsTable of="kemet-field" />
+    <ArgTypes of="kemet-field" />
   </kemet-tab-panel>
 </kemet-tabs>

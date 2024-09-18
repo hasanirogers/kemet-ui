@@ -28,11 +28,16 @@ export default class KemetCarouselLink extends LitElement {
         color: var(--kemet-carousel-link-selected-color, var(--kemet-color-primary));
       }
 
-      :host(:not([selected])) {
+      button {
+        border: 0;
+        background: none;
+      }
+
+      :host(:not([selected])) button {
         cursor: pointer;
       }
 
-      :host([disabled]) {
+      :host([disabled]) button {
         cursor: not-allowed;
       }
     `,
@@ -49,15 +54,21 @@ export default class KemetCarouselLink extends LitElement {
 
   render() {
     return html`
-      <span tabindex="0" @keyup=${() => this.changed()} @click=${() => this.changed()}>
+      <button @keyup=${event => this.handleKeyUp(event)} @click=${() => this.changed()}>
         <slot></slot>
-      </span>
+      </button>
     `;
   }
 
   changed() {
     if (!this.disabled) {
       emitEvent(this, 'kemet-carousel-link', this);
+    }
+  }
+
+  handleKeyUp(event) {
+    if (event.code === 'Enter') {
+      this.changed();
     }
   }
 }
