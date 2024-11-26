@@ -7,7 +7,7 @@ export const globalFormatting = (StoryFn, context) => {
   // add spacing to those not blacklisted
   if (blacklistMargins.indexOf(context.component) === -1) {
     return html`<div kemet-margin="2xl">${StoryFn()}</div>`;
-  }hey
+  }
 
   // component specific
   if (context.component === 'kemet-combo') {
