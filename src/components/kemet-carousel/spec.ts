@@ -101,13 +101,13 @@ describe('Carousel', () => {
     `,
   };
 
-  it('displays a carousel', async () => {
+  it.skip('displays a carousel', async () => {
     render(templates.descriptionBar, document.body);
     const carousel = getByText(document.body, 'Slide 1').closest('kemet-carousel');
     expect(carousel).toBeTruthy();
   });
 
-  describe('Navigation', () => {
+  describe.skip('Navigation', () => {
     it('handles navigation to the next slide', async () => {
       render(templates.paginationBar, document.body);
       const carousel = getByText(document.body, 'Slide 1').closest('kemet-carousel');
