@@ -1,7 +1,7 @@
 import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import type { Args, Meta, StoryObj } from '@storybook/web-components';
-import { userEvent, within, expect } from '@storybook/test';
+import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
+import { userEvent, within, expect } from 'storybook/test';
 
 import '../kemet-alert';
 

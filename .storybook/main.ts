@@ -14,14 +14,10 @@ const config: StorybookConfig = {
         },
       },
     },
-    {
-      name: '@storybook/addon-essentials',
-      // we're already loading docs for remark-gfm so disable it here
-      options: {
-          docs: false,
-      },
-    },
-    '@storybook/addon-interactions', '@storybook/addon-links', '@storybook/addon-a11y', '@storybook/preset-scss', '@whitespace/storybook-addon-html', '@chromatic-com/storybook'
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    '@storybook/preset-scss',
+    '@chromatic-com/storybook'
   ],
   framework: {
     name: '@storybook/web-components-vite',

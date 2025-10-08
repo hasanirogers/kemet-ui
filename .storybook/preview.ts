@@ -1,6 +1,7 @@
-/* global window */
+import { setCustomElements, Preview } from '@storybook/web-components-vite';
+import prettier from 'prettier/standalone';
+import * as html from 'prettier/plugins/html';
 
-import { setCustomElements, Preview } from '@storybook/web-components';
 import { handlePolaritySwitching, globalFormatting } from './decorators';
 import customElements from '../custom-elements.json';
 
@@ -28,48 +29,41 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [globalFormatting, handlePolaritySwitching],
+
   parameters: {
     backgrounds: {
-      default: 'light',
-      values: [
-        {
+      options: {
+        light: {
           name: 'light',
           value: "rgb(var(--kemet-color-neutral-100))",
         },
-        {
+
+        dark: {
           name: 'dark',
           value: 'rgb(var(--kemet-color-neutral-900))',
-        },
-      ],
-    },
-    html: {
-      prettier: {
-        tabWidth: 2,
-        useTabs: false,
-        printWidth: 180,
-        htmlWhitespaceSensitivity: 'strict',
-      },
-      removeComments: true,
-      removeEmptyComments: true,
-      highlighter: {
-        showLineNumbers: false,
-        wrapLines: false,
-      },
-      transform: (code) => {
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = code;
-        const sourceElement = wrapper.querySelector('#root-inner')?.firstChild as HTMLElement;
-        const cleaned = sourceElement?.innerHTML
-          .replace(/\s+([a-zA-Z_:][a-zA-Z0-9_.:-]*)=""/g, ' $1') // collapse empty attrs
-        return cleaned;
-      },
+        }
+      }
     },
     docs: {
       codePanel: true,
       source: {
         type: 'dynamic',
         excludeDecorators: true,
+        transform: async (src, storyContext) => {
+          if (!src) return src;
+          try {
+            return await prettier.format(src, {
+              parser: 'html',
+              plugins: [html],
+              tabWidth: 2,
+              printWidth: 80,
+            });
+          } catch {
+            return src; // fallback if Prettier fails
+          }
+        },
       },
     },
     options: {
@@ -79,6 +73,12 @@ const preview: Preview = {
       },
     },
   },
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'light'
+    }
+  }
 };
 
 export default preview;

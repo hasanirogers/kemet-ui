@@ -1,8 +1,5 @@
 module.exports = {
-  extends: [
-    '@open-wc/eslint-config',
-    'plugin:@typescript-eslint/recommended',
-  ],
+  extends: ['@open-wc/eslint-config', 'plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended'],
   settings: {
     'import/resolver': {
       node: {

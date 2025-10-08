@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 import '../../../components/kemet-button/kemet-button';
 import '../../../components/kemet-field/kemet-field';

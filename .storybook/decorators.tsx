@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { useGlobals, useEffect } from '@storybook/preview-api';
+import { useGlobals, useEffect } from 'storybook/preview-api';
 
 export const globalFormatting = (StoryFn, context) => {
   const blacklistMargins = ['kemet-alert', 'kemet-combo', 'kemet-drawer', 'kemet-tooltip'];
