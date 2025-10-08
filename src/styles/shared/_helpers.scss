@@ -1,16 +1,18 @@
 @use 'sass:math';
 @use 'sass:string';
+@use 'sass:map';
+@use 'sass:list';
 @use 'config' as *;
 @use '../components/config' as *;
 
 
 @function getListFirst($list) {
-  @return nth($list, 1);
+  @return list.nth($list, 1);
 }
 
 @function getListLast($list) {
-  $max: length($list);
-  @return nth($list, $max);
+  $max: list.length($list);
+  @return list.nth($list, $max);
 }
 
 
@@ -51,8 +53,8 @@
           $percent: $size + '%';
 
           [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:#{$size}"] {
-            flex: 0 0 unquote($percent);
-            max-width: unquote($percent);
+            flex: 0 0 string.unquote($percent);
+            max-width: string.unquote($percent);
           }
         }
       }
@@ -63,8 +65,8 @@
           $percent: $size + '%';
 
           [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:#{$size}"] {
-            flex: 0 0 unquote($percent);
-            max-width: unquote($percent);
+            flex: 0 0 string.unquote($percent);
+            max-width: string.unquote($percent);
           }
         }
       }
@@ -75,8 +77,8 @@
           $percent: $size + '%';
 
           [kemet-layout] [kemet-breakpoint*="#{$breakpoint}:#{$size}"] {
-            flex: 0 0 unquote($percent);
-            max-width: unquote($percent);
+            flex: 0 0 string.unquote($percent);
+            max-width: string.unquote($percent);
           }
         }
       }
@@ -86,28 +88,28 @@
 
 @mixin makeGutters() {
   [kemet-gutters] {
-    margin-right: -(map-get($gutters, md));
+    margin-right: -(map.get($gutters, md));
   }
 
   [kemet-layout='flexlist'][kemet-gutters] {
-    gap: map-get($gutters, md);
+    gap: map.get($gutters, md);
   }
 
   [kemet-gutters] > * {
-    padding-right: map-get($gutters, md);
+    padding-right: map.get($gutters, md);
   }
 
   [kemet-layout='flexgrid'][kemet-gutters] > * {
-    margin-bottom: map-get($gutters, md);
+    margin-bottom: map.get($gutters, md);
   }
 
   [kemet-layout='flexcolumn'][kemet-gutters] > :not(:first-child) {
-    margin-top: map-get($gutters, md);
+    margin-top: map.get($gutters, md);
   }
 
   @media only screen and (max-width: $stackpoint) {
     [kemet-layout='flexrow'][kemet-gutters][autostack] > * {
-      margin-bottom: map-get($gutters, md);
+      margin-bottom: map.get($gutters, md);
     }
   }
 
@@ -278,8 +280,8 @@
         $base: math.div(100, $i);
 
         [kemet-basis*="#{$breakpoint}:#{$i}-columns"] > * {
-          flex: 0 0 unquote($base+'%');
-          max-width: unquote($base+'%');
+          flex: 0 0 string.unquote($base+'%');
+          max-width: string.unquote($base+'%');
         }
       }
     } // media query
