@@ -35,7 +35,6 @@ export const stylesBase = css`
 
   dialog {
     display: block;
-    position: relative;
     z-index: 3;
     margin: auto;
     min-width: var(--kemet-modal-dialog-min-width);

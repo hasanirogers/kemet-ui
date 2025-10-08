@@ -42,7 +42,7 @@ const Template = (args) => {
         <kemet-scroll-snap-slide label="Heading ${i + 1}" kemet-margin-top="2xl" style=${ifDefined(args.slideWidth ? `--kemet-scroll-snap-slide-width: ${args.slideWidth};` : undefined)}>
           <h3 kemet-type-size="3xl">Heading ${i + 1}</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <img src="https://via.placeholder.com/1920x1080" alt="A placeholder" style="max-width:100%" />
+          <img src="https://placehold.co/1920x1080" alt="A placeholder" style="max-width:100%" />
         </kemet-scroll-snap-slide>
       `);
     }

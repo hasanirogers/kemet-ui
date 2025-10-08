@@ -46,7 +46,7 @@ const Template = (args) => html`
 
 const showMedia = (type) => {
   if (type === 'image') {
-    return html`<img slot="media" src="https://via.placeholder.com/1920x1080" alt="a placeholder" />`;
+    return html`<img slot="media" src="https://placehold.co/1920x1080" alt="a placeholder" />`;
   }
 
   if (type === 'avatar') {

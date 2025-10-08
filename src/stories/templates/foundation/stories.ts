@@ -43,7 +43,7 @@ const AgencyTemplate = () => html`
   <section>
     <div kemet-layout="flexgrid" kemet-gutters kemet-margin-left="2xl" kemet-margin-right="2xl">
       <div kemet-breakpoint="tiny:100 medium:50">
-        <img src="https://via.placeholder.com/1920x1080" alt="A place holder" style="max-width:100%;" />
+        <img src="https://placehold.co/1920x1080" alt="A place holder" style="max-width:100%;" />
       </div>
       <div kemet-breakpoint="tiny:100 medium:50" kemet-order="medium:minus-1">
         <h1>Our Agency, our selves.</h1>
@@ -81,18 +81,18 @@ const AgencyTemplate = () => html`
     <div kemet-margin="2xl">
       <h2>Our Recent Work</h2>
       <div kemet-layout="flexgrid" kemet-basis="tiny:1-columns medium:4-columns" kemet-gutters="2xl">
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
-        <div><img src="https://via.placeholder.com/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
+        <div><img src="https://placehold.co/1920x1080?text=Work" alt="Work" style="max-width:100%;" /></div>
       </div>
     </div>
   </section>
@@ -271,7 +271,7 @@ const eCommerceTemplate = () => html`
       <h3>Top Products</h3>
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -281,7 +281,7 @@ const eCommerceTemplate = () => html`
       <br />
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -291,7 +291,7 @@ const eCommerceTemplate = () => html`
       <br />
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -303,7 +303,7 @@ const eCommerceTemplate = () => html`
       <h3>Top Products</h3>
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -313,7 +313,7 @@ const eCommerceTemplate = () => html`
       <br />
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -323,7 +323,7 @@ const eCommerceTemplate = () => html`
       <br />
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -335,7 +335,7 @@ const eCommerceTemplate = () => html`
       <h3>Top Products</h3>
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -345,7 +345,7 @@ const eCommerceTemplate = () => html`
       <br />
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -355,7 +355,7 @@ const eCommerceTemplate = () => html`
       <br />
       <div kemet-layout="flexrow">
         <div kemet-breakpoint="tiny:content">
-          <img src="https://via.placeholder.com/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
+          <img src="https://placehold.co/100x100" width="100" height="100" alt="a placeholder" kemet-margin-right="lg" />
         </div>
         <div>
           <strong>Nunc Eu Ullamcorper Orci</strong>
@@ -656,7 +656,7 @@ const NewsTemplate = () => html`
           <h3>Trending Posts</h3>
           <div kemet-layout="flexrow" kemet-gutters>
             <div kemet-breakpoint="tiny:content">
-              <img src="https://via.placeholder.com/100x100" alt="a placeholder" />
+              <img src="https://placehold.co/100x100" alt="a placeholder" />
             </div>
             <h4>All I need is a space suit and I'm ready to go.</h4>
           </div>
@@ -664,7 +664,7 @@ const NewsTemplate = () => html`
 
           <div kemet-layout="flexrow" kemet-gutters>
             <div kemet-breakpoint="tiny:content">
-              <img src="https://via.placeholder.com/100x100" alt="a placeholder" />
+              <img src="https://placehold.co/100x100" alt="a placeholder" />
             </div>
             <h4>All I need is a space suit and I'm ready to go.</h4>
           </div>
@@ -672,7 +672,7 @@ const NewsTemplate = () => html`
 
           <div kemet-layout="flexrow" kemet-gutters>
             <div kemet-breakpoint="tiny:content">
-              <img src="https://via.placeholder.com/100x100" alt="a placeholder" />
+              <img src="https://placehold.co/100x100" alt="a placeholder" />
             </div>
             <h4>All I need is a space suit and I'm ready to go.</h4>
           </div>
@@ -680,7 +680,7 @@ const NewsTemplate = () => html`
 
           <div kemet-layout="flexrow" kemet-gutters>
             <div kemet-breakpoint="tiny:content">
-              <img src="https://via.placeholder.com/100x100" alt="a placeholder" />
+              <img src="https://placehold.co/100x100" alt="a placeholder" />
             </div>
             <h4>All I need is a space suit and I'm ready to go.</h4>
           </div>
@@ -693,14 +693,14 @@ const NewsTemplate = () => html`
         <div kemet-breakpoint="tiny:100 large:33">
           <h3>Flickr Images</h3>
           <ul kemet-layout="flexlist" kemet-gutters="2xs">
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
-            <li><img src="https://via.placeholder.com/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
+            <li><img src="https://placehold.co/75x75" alt="a placeholder" /></li>
           </ul>
         </div>
         <div kemet-breakpoint="tiny:100 medium:50 large:33">

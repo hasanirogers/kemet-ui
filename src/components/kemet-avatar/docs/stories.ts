@@ -53,7 +53,7 @@ const TemplateMultiple = (args) => {
   const avatars = [];
 
   for (let i = 0; i < args.numOfAvatars; i += 1) {
-    avatars.push(html`<kemet-avatar circle image="https://via.placeholder.com/64x64" kemet-border="all-4 solid gray-50"></kemet-avatar>\n`);
+    avatars.push(html`<kemet-avatar circle image="https://placehold.co/64x64" kemet-border="all-4 solid gray-50"></kemet-avatar>\n`);
   }
 
   return html`
@@ -85,7 +85,7 @@ export const Initials: Story = {
 export const Image: Story = {
   render: (args: any) => Template(args),
   args: {
-    image: 'https://via.placeholder.com/64x64',
+    image: 'https://placehold.co/64x64',
   }
 };
 
@@ -93,7 +93,7 @@ export const Circle: Story = {
   render: (args: any) => Template(args),
   args: {
     circle: true,
-    image: 'https://via.placeholder.com/64x64',
+    image: 'https://placehold.co/64x64',
   }
 };
 
@@ -101,7 +101,7 @@ export const Status: Story = {
   render: (args: any) => Template(args),
   args: {
     circle: true,
-    image: 'https://via.placeholder.com/64x64',
+    image: 'https://placehold.co/64x64',
     status: true,
   }
 };

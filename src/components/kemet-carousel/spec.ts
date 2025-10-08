@@ -56,7 +56,7 @@ describe('Carousel', () => {
         <kemet-carousel-slide slot="slides" selected>
           <figure>
             <h3>Slide 1</h3>
-            <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" />
+            <img src="https://placehold.co/1920x1080" alt="a placeholder" />
             <figcaption>An image in a carousel.</figcaption>
           </figure>
           <span slot="information"><a href="https://google.com" target="_blank">Title</a>. An image of slide 1. </span>
@@ -65,7 +65,7 @@ describe('Carousel', () => {
         <kemet-carousel-slide slot="slides" selected>
           <figure>
             <h3>Slide 2</h3>
-            <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" />
+            <img src="https://placehold.co/1920x1080" alt="a placeholder" />
             <figcaption>An image in a carousel.</figcaption>
           </figure>
           <span slot="information"><a href="https://google.com" target="_blank">Title</a>. An image of slide 2. </span>
@@ -74,7 +74,7 @@ describe('Carousel', () => {
         <kemet-carousel-slide slot="slides" selected>
           <figure>
             <h3>Slide 3</h3>
-            <img src="https://via.placeholder.com/1920x1080" alt="a placeholder" />
+            <img src="https://placehold.co/1920x1080" alt="a placeholder" />
             <figcaption>An image in a carousel.</figcaption>
           </figure>
           <span slot="information"><a href="https://google.com" target="_blank">Title</a>. An image of slide 3.</span>
