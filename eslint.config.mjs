@@ -12,6 +12,7 @@ export default [
       'dist/**',
       'coverage/**',
       './.storybook/**',
+      'storybook-static/**',
       'src/utilities/controllers/**',
       '**/stories.ts',
     ],
@@ -57,6 +58,9 @@ export default [
       // Lit / Web-Components specific
       'lit/no-native-attributes': 'off',
       'lit/no-classfield-shadowing': 'off',
+
+      // TODO revisit allowing any
+      '@typescript-eslint/no-explicit-any': 'off',
 
       // Optional: integrate Storybook recommended rules
       ...storybook.configs.recommended.rules,

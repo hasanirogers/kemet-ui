@@ -79,7 +79,6 @@ export default class KemetSVG extends LitElement {
     if (svgElement) {
       this.fillSVG(svgElement);
     } else {
-      // eslint-disable-next-line no-console
       console.error(`Could not find svg "${this.svg}" in set "${this.set}".`);
     }
   }

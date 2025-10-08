@@ -1,4 +1,3 @@
-/* eslint-disable no-lonely-if */
 /* eslint-disable no-case-declarations */
 import { LitElement, html } from 'lit';
 import {

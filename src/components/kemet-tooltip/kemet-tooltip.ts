@@ -42,7 +42,6 @@ export default class KemetTooltip extends KemetPopper {
   static styles = [stylesTooltip, stylesPopper, stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFall, stylesPopperFlipHorizontal, stylesPopperFlipVertical, stylesPopperSign, stylesPopperSuperScaled];
 
   render() {
-    // eslint-disable-next-line lit-a11y/mouse-events-have-key-events
     return html`
       <div
         id="trigger"

@@ -22,7 +22,6 @@ export default class KemetAvatars extends LitElement {
   }
 }
 
-// eslint-disable-next-line no-unused-expressions
 declare global {
   interface HTMLElementTagNameMap {
     'kemet-avatars': KemetAvatars

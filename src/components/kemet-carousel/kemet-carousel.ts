@@ -413,7 +413,6 @@ export default class KemetCarousel extends LitElement {
       if (newIndex > -1 && newIndex < this.slides.length) {
         this.index = newIndex;
       } else {
-        // eslint-disable-next-line no-console
         console.warn('An invalid index number was entered. The kemet-carousel has been reset to the first slide.');
         this.index = 0;
       }

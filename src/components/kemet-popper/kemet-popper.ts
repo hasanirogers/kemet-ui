@@ -101,7 +101,6 @@ export default class KemetPopper extends LitElement {
   }
 
   render() {
-    // eslint-disable-next-line lit-a11y/mouse-events-have-key-events
     return html`
       <div
         id="trigger"

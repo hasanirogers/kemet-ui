@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # npm test
-# npm run lint:eslint
-# npm run lint:stylelint
+npm run lint:eslint
+npm run lint:stylelint

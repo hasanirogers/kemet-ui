@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-console */
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesBase } from './styles';

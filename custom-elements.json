@@ -150,8 +150,8 @@
             "package": "lit"
           },
           "tagName": "kemet-accordion-panel",
-          "summary": "A blade for an accordion.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A blade for an accordion."
         }
       ],
       "exports": [
@@ -276,8 +276,8 @@
             "package": "lit"
           },
           "tagName": "kemet-accordion",
-          "summary": "A component that acts like a standard accordion.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A component that acts like a standard accordion."
         }
       ],
       "exports": [
@@ -295,231 +295,6 @@
           "declaration": {
             "name": "KemetAccordion",
             "module": "src/components/kemet-accordion/kemet-accordion.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatar",
-          "cssProperties": [
-            {
-              "description": "The color of the text.",
-              "name": "--kemet-avatar-color"
-            },
-            {
-              "description": "The color of the background.",
-              "name": "--kemet-avatar-background-color"
-            },
-            {
-              "description": "The border radius of the rounded type.",
-              "name": "--kemet-avatar-rounded-radius"
-            },
-            {
-              "description": "The space around the initials.",
-              "name": "--kemet-avatar-initials-margin"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the initials for the avatar.",
-              "name": "initials"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon or element that indicates the status of the avatar.",
-              "name": "status"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "attribute": "image"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "attribute": "initials"
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makeSize"
-            },
-            {
-              "kind": "method",
-              "name": "makeContent"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "type": {
-                "text": "string"
-              },
-              "description": "The size in pixels.",
-              "fieldName": "size"
-            },
-            {
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "fieldName": "image"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "fieldName": "label"
-            },
-            {
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "fieldName": "initials"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "fieldName": "circle"
-            },
-            {
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays with rounded corners",
-              "fieldName": "rounded"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatar",
-          "summary": "A representation of a person or thing.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatar",
-          "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetAvatars",
-          "cssProperties": [
-            {
-              "description": "The space between avatars. Default: -1.5rem.",
-              "name": "--kemet-avatars-squeeze"
-            }
-          ],
-          "members": [],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-avatars",
-          "summary": "Groups multiple avatars.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-avatars",
-          "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         }
       ]
@@ -719,8 +494,8 @@
             "package": "lit"
           },
           "tagName": "kemet-alert",
-          "summary": "Calls out important messages and notifications.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Calls out important messages and notifications."
         }
       ],
       "exports": [
@@ -848,8 +623,8 @@
             "package": "lit"
           },
           "tagName": "kemet-badge",
-          "summary": "Badges display the status of information.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Badges display the status of information."
         }
       ],
       "exports": [
@@ -867,6 +642,231 @@
           "declaration": {
             "name": "KemetBadge",
             "module": "src/components/kemet-badge/kemet-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-avatar/kemet-avatar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAvatar",
+          "cssProperties": [
+            {
+              "description": "The color of the text.",
+              "name": "--kemet-avatar-color"
+            },
+            {
+              "description": "The color of the background.",
+              "name": "--kemet-avatar-background-color"
+            },
+            {
+              "description": "The border radius of the rounded type.",
+              "name": "--kemet-avatar-rounded-radius"
+            },
+            {
+              "description": "The space around the initials.",
+              "name": "--kemet-avatar-initials-margin"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Contains the initials for the avatar.",
+              "name": "initials"
+            }
+          ],
+          "slots": [
+            {
+              "description": "A slot for an icon or element that indicates the status of the avatar.",
+              "name": "status"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "attribute": "initials"
+            },
+            {
+              "kind": "field",
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays in a circle.",
+              "attribute": "circle",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeSize"
+            },
+            {
+              "kind": "method",
+              "name": "makeContent"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "fieldName": "image"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "fieldName": "label"
+            },
+            {
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "fieldName": "initials"
+            },
+            {
+              "name": "circle",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays in a circle.",
+              "fieldName": "circle"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "fieldName": "rounded"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-avatar",
+          "customElement": true,
+          "summary": "A representation of a person or thing."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-avatar",
+          "declaration": {
+            "name": "KemetAvatar",
+            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/kemet-avatar/kemet-avatars.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAvatars",
+          "cssProperties": [
+            {
+              "description": "The space between avatars. Default: -1.5rem.",
+              "name": "--kemet-avatars-squeeze"
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-avatars",
+          "customElement": true,
+          "summary": "Groups multiple avatars."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-avatars",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/components/kemet-avatar/kemet-avatars.ts"
           }
         }
       ]
@@ -1186,8 +1186,8 @@
             "package": "lit"
           },
           "tagName": "kemet-button",
-          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content."
         }
       ],
       "exports": [
@@ -1338,8 +1338,8 @@
             "package": "lit"
           },
           "tagName": "kemet-card",
-          "summary": "A highly configurable panel design to display media and information.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A highly configurable panel design to display media and information."
         }
       ],
       "exports": [
@@ -1402,8 +1402,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-current",
-          "summary": "Displays the active slide number.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Displays the active slide number."
         }
       ],
       "exports": [
@@ -1478,8 +1478,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-first",
-          "summary": "A link to the first slide in the carousel.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A link to the first slide in the carousel."
         }
       ],
       "exports": [
@@ -1554,8 +1554,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-last",
-          "summary": "A link to the last slide in the carousel.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A link to the last slide in the carousel."
         }
       ],
       "exports": [
@@ -1670,8 +1670,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-link",
-          "summary": "Zero-based index link to a slide in the carousel.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Zero-based index link to a slide in the carousel."
         }
       ],
       "exports": [
@@ -1746,8 +1746,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-next",
-          "summary": "A link to the next slide in the carousel.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A link to the next slide in the carousel."
         }
       ],
       "exports": [
@@ -1822,8 +1822,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-prev",
-          "summary": "A link to the previous slide in the carousel.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A link to the previous slide in the carousel."
         }
       ],
       "exports": [
@@ -1906,8 +1906,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-slide",
-          "summary": "A container for a slide in the carousel.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A container for a slide in the carousel."
         }
       ],
       "exports": [
@@ -1970,8 +1970,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel-total",
-          "summary": "Displays the total slide number.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Displays the total slide number."
         }
       ],
       "exports": [
@@ -2409,8 +2409,8 @@
             "package": "lit"
           },
           "tagName": "kemet-carousel",
-          "summary": "The Carousel allows you to click or swipe through content.",
-          "customElement": true
+          "customElement": true,
+          "summary": "The Carousel allows you to click or swipe through content."
         }
       ],
       "exports": [
@@ -2764,8 +2764,8 @@
             "package": "lit"
           },
           "tagName": "kemet-checkbox",
-          "summary": "An enhanced checkbox.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An enhanced checkbox."
         }
       ],
       "exports": [
@@ -2989,8 +2989,8 @@
             "package": "lit"
           },
           "tagName": "kemet-combo",
-          "summary": "Allows the user to select a choice filtered through an Input. May only be used as a component of Field.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Allows the user to select a choice filtered through an Input. May only be used as a component of Field."
         }
       ],
       "exports": [
@@ -3137,8 +3137,8 @@
             "package": "lit"
           },
           "tagName": "kemet-count",
-          "summary": "Maintains a character count for an input field. Is to be used only in the component slot of a Field component.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Maintains a character count for an input field. Is to be used only in the component slot of a Field component."
         }
       ],
       "exports": [
@@ -3291,8 +3291,8 @@
             "package": "lit"
           },
           "tagName": "kemet-draggable",
-          "summary": "A draggable element with the ability to remember its position.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A draggable element with the ability to remember its position."
         }
       ],
       "exports": [
@@ -3470,8 +3470,8 @@
             "package": "lit"
           },
           "tagName": "kemet-drawer",
-          "summary": "A component that adds an off-canvas menu with different effects.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A component that adds an off-canvas menu with different effects."
         }
       ],
       "exports": [
@@ -3684,8 +3684,8 @@
             "package": "lit"
           },
           "tagName": "kemet-fab",
-          "summary": "The FAB, or Floating Action Button, performs a primary action on a page.",
-          "customElement": true
+          "customElement": true,
+          "summary": "The FAB, or Floating Action Button, performs a primary action on a page."
         }
       ],
       "exports": [
@@ -4000,8 +4000,8 @@
             "package": "lit"
           },
           "tagName": "kemet-field",
-          "summary": "Used in combination with Input, Select, and Textarea, to make a Field.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Used in combination with Input, Select, and Textarea, to make a Field."
         }
       ],
       "exports": [
@@ -4060,8 +4060,8 @@
             "package": "lit"
           },
           "tagName": "kemet-flipcard-trigger",
-          "summary": "Triggers a flipcard component to flip.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Triggers a flipcard component to flip."
         }
       ],
       "exports": [
@@ -4273,8 +4273,8 @@
             "package": "lit"
           },
           "tagName": "kemet-flipcard",
-          "summary": "A card that has a front and back side which can be flipped.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A card that has a front and back side which can be flipped."
         }
       ],
       "exports": [
@@ -4378,8 +4378,8 @@
             "package": "lit"
           },
           "tagName": "kemet-icon",
-          "summary": "An element that represents an icon from a predefined set of open sourced icons.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An element that represents an icon from a predefined set of open sourced icons."
         }
       ],
       "exports": [
@@ -5192,8 +5192,8 @@
             "package": "lit"
           },
           "tagName": "kemet-input",
-          "summary": "An enhanced input element.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An enhanced input element."
         }
       ],
       "exports": [
@@ -5240,8 +5240,8 @@
             "package": "lit"
           },
           "tagName": "kemet-modal-close",
-          "summary": "A close button for a modal.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A close button for a modal."
         }
       ],
       "exports": [
@@ -5458,8 +5458,8 @@
             "package": "lit"
           },
           "tagName": "kemet-modal",
-          "summary": "A dialog that has many built-in effects and flexible styles.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A dialog that has many built-in effects and flexible styles."
         }
       ],
       "exports": [
@@ -5943,8 +5943,8 @@
             "package": "lit"
           },
           "tagName": "kemet-multi-input",
-          "summary": "An input element that accepts multiple items from a combo.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An input element that accepts multiple items from a combo."
         }
       ],
       "exports": [
@@ -6232,8 +6232,8 @@
             "package": "lit"
           },
           "tagName": "kemet-popper-close",
-          "summary": "A close button for the popper",
-          "customElement": true
+          "customElement": true,
+          "summary": "A close button for the popper"
         }
       ],
       "exports": [
@@ -6474,8 +6474,8 @@
             "package": "lit"
           },
           "tagName": "kemet-popper",
-          "summary": "A wrapper component for the popper.js lib.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A wrapper component for the popper.js lib."
         }
       ],
       "exports": [
@@ -6726,8 +6726,8 @@
             "package": "lit"
           },
           "tagName": "kemet-radio",
-          "summary": "An enhanced radio button.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An enhanced radio button."
         }
       ],
       "exports": [
@@ -6954,8 +6954,8 @@
             "package": "lit"
           },
           "tagName": "kemet-radios",
-          "summary": "A group of radio buttons.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A group of radio buttons."
         }
       ],
       "exports": [
@@ -7134,8 +7134,8 @@
             "package": "lit"
           },
           "tagName": "kemet-rotator",
-          "summary": "A component that rotates through an array of text.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A component that rotates through an array of text."
         }
       ],
       "exports": [
@@ -7273,8 +7273,8 @@
             "package": "lit"
           },
           "tagName": "kemet-scroll-link",
-          "summary": "A component that adds a smooth scrolling link to a target.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A component that adds a smooth scrolling link to a target."
         }
       ],
       "exports": [
@@ -7412,8 +7412,8 @@
             "package": "lit"
           },
           "tagName": "kemet-scroll-nav",
-          "summary": "An element that transforms at a scroll point.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An element that transforms at a scroll point."
         }
       ],
       "exports": [
@@ -7658,8 +7658,8 @@
             "package": "lit"
           },
           "tagName": "kemet-scroll-snap-paginator",
-          "summary": "The scroll snap's pagination.",
-          "customElement": true
+          "customElement": true,
+          "summary": "The scroll snap's pagination."
         }
       ],
       "exports": [
@@ -7766,8 +7766,8 @@
             "package": "lit"
           },
           "tagName": "kemet-scroll-snap-slide",
-          "summary": "A slide in a scroll snap component.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A slide in a scroll snap component."
         }
       ],
       "exports": [
@@ -7928,8 +7928,8 @@
             "package": "lit"
           },
           "tagName": "kemet-scroll-snap",
-          "summary": "A scroll-snap implementation for responsive sliders.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A scroll-snap implementation for responsive sliders."
         }
       ],
       "exports": [
@@ -8048,8 +8048,8 @@
             "package": "lit"
           },
           "tagName": "kemet-option",
-          "summary": "An option in a select.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An option in a select."
         }
       ],
       "exports": [
@@ -8423,8 +8423,8 @@
             "package": "lit"
           },
           "tagName": "kemet-sortable-item",
-          "summary": "An item in a sortable list.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An item in a sortable list."
         }
       ],
       "exports": [
@@ -8510,8 +8510,8 @@
             "package": "lit"
           },
           "tagName": "kemet-sortable",
-          "summary": "A list that can be sorted by drag and drop.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A list that can be sorted by drag and drop."
         }
       ],
       "exports": [
@@ -8664,8 +8664,8 @@
             "package": "lit"
           },
           "tagName": "kemet-svg",
-          "summary": "A svg from a set of custom SVGs.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A svg from a set of custom SVGs."
         }
       ],
       "exports": [
@@ -8734,8 +8734,8 @@
             "package": "lit"
           },
           "tagName": "kemet-svgs",
-          "summary": "A set of SVG graphics that can be referenced anywhere in a page or app.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A set of SVG graphics that can be referenced anywhere in a page or app."
         }
       ],
       "exports": [
@@ -8836,8 +8836,8 @@
             "package": "lit"
           },
           "tagName": "kemet-tab-panel",
-          "summary": "A panel in a set of tabs.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A panel in a set of tabs."
         }
       ],
       "exports": [
@@ -8981,8 +8981,8 @@
             "package": "lit"
           },
           "tagName": "kemet-tab",
-          "summary": "A tab in a set of tabs.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A tab in a set of tabs."
         }
       ],
       "exports": [
@@ -9887,8 +9887,8 @@
             "package": "lit"
           },
           "tagName": "kemet-textarea",
-          "summary": "An enhanced textarea element.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An enhanced textarea element."
         }
       ],
       "exports": [
@@ -9966,8 +9966,8 @@
             "package": "lit"
           },
           "tagName": "kemet-timer-display",
-          "summary": "Displays remaining time",
-          "customElement": true
+          "customElement": true,
+          "summary": "Displays remaining time"
         }
       ],
       "exports": [
@@ -10097,8 +10097,8 @@
             "package": "lit"
           },
           "tagName": "kemet-timer",
-          "summary": "Counts down from a specified amount of time or date.",
-          "customElement": true
+          "customElement": true,
+          "summary": "Counts down from a specified amount of time or date."
         }
       ],
       "exports": [
@@ -10375,8 +10375,8 @@
             "package": "lit"
           },
           "tagName": "kemet-toggle",
-          "summary": "A toggle switch for forms.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A toggle switch for forms."
         }
       ],
       "exports": [
@@ -10656,8 +10656,8 @@
             "module": "/src/components/kemet-popper/kemet-popper"
           },
           "tagName": "kemet-tooltip",
-          "summary": "A tooltip is a Popper component that displays a dynamic arrow pointing to the trigger.",
           "customElement": true,
+          "summary": "A tooltip is a Popper component that displays a dynamic arrow pointing to the trigger.",
           "attributes": [
             {
               "name": "placement",
@@ -11026,8 +11026,8 @@
             "package": "lit"
           },
           "tagName": "kemet-tracker-step",
-          "summary": "A step in the Tracker",
-          "customElement": true
+          "customElement": true,
+          "summary": "A step in the Tracker"
         }
       ],
       "exports": [
@@ -11326,8 +11326,8 @@
             "package": "lit"
           },
           "tagName": "kemet-upload-file",
-          "summary": "A file in the upload.",
-          "customElement": true
+          "customElement": true,
+          "summary": "A file in the upload."
         }
       ],
       "exports": [
@@ -11636,8 +11636,8 @@
             "package": "lit"
           },
           "tagName": "kemet-upload",
-          "summary": "An interface for uploading files.",
-          "customElement": true
+          "customElement": true,
+          "summary": "An interface for uploading files."
         }
       ],
       "exports": [

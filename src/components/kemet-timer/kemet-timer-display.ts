@@ -40,7 +40,6 @@ export default class KemetTimerDisplay extends LitElement {
           this.displayTime = (secondsLeft % 60 < 10 ? `0${secondsLeft % 60}` : secondsLeft % 60).toString();
           break;
         case 'minutes':
-          // eslint-disable-next-line no-mixed-operators
           this.displayTime = Math.floor((secondsLeft % 86400) % 3600 / 60).toString();
           break;
         case 'hours':
