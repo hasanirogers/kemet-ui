@@ -17,5 +17,4 @@ export interface KemetTextareaInterface extends HTMLElement {
   rounded?: boolean,
   filled?: boolean,
   rows?: number,
-  autocorrect?: boolean,
 }

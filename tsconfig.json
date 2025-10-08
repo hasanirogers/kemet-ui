@@ -5,7 +5,7 @@
     "moduleResolution": "node",
     "useDefineForClassFields": false,
     "noEmitOnError": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2022", "dom"],
     "strict": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -17,6 +17,8 @@
     "declaration": true,
     "incremental": true,
     "resolveJsonModule": true,
+    "types": ["react", "react-dom", "vite/client"],
+    "jsx": "react-jsx",
     "skipLibCheck": true
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
