@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { TypeVariant } from './types';
+import { TypeVariant, TypeTarget, TypeType } from './types';
 import { stylesBase } from './styles';
 import { FormSubmitController } from '../../utilities/controllers/forms';
 import '../kemet-icon/kemet-icon';
@@ -19,6 +19,8 @@ import '../kemet-icon/kemet-icon';
  * @prop {boolean} outlined - Outline style for a button
  * @prop {boolean} disabled - Determines whether not a button is disabled
  * @prop {string} variant - Controls the type of button. standard | text | circle | rounded | pill
+ * @prop {TypeTarget} target - The target attribute for a link
+ * @prop {TypeType} type - The type attribute for a button
  *
  * @slot left - Allows you to place an icon to the left of the button text.
  * @slot right - Allows you to place an icon to the right of the button text.
@@ -74,6 +76,12 @@ export default class KemetButton extends LitElement {
   @property({ reflect: true })
   variant: TypeVariant = 'standard';
 
+  @property()
+  target: TypeTarget = '_self';
+
+  @property()
+  type: TypeType = 'button';
+
   constructor() {
     super();
 
@@ -90,7 +98,7 @@ export default class KemetButton extends LitElement {
   render() {
     if (this.link && !this.disabled) {
       return html`
-        <a href=${this.link} class="button" role="button" part="button">
+        <a href=${this.link} target=${this.target} class="button" role="button" part="button">
           <slot name="left"></slot>
           <slot></slot>
           <slot name="right"></slot>
@@ -99,7 +107,7 @@ export default class KemetButton extends LitElement {
     }
 
     return html`
-      <button class="button" part="button" ?disabled=${this.disabled} aria-disabled=${this.disabled ? 'true' : 'false'}>
+      <button class="button" part="button" type=${this.type} ?disabled=${this.disabled} aria-disabled=${this.disabled ? 'true' : 'false'}>
         <slot name="left"></slot>
         <slot></slot>
         <slot name="right"></slot>

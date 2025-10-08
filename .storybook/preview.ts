@@ -60,10 +60,13 @@ const preview: Preview = {
         const wrapper = document.createElement('div');
         wrapper.innerHTML = code;
         const sourceElement = wrapper.querySelector('#root-inner')?.firstChild as HTMLElement;
-        return sourceElement?.innerHTML;
+        const cleaned = sourceElement?.innerHTML
+          .replace(/\s+([a-zA-Z_:][a-zA-Z0-9_.:-]*)=""/g, ' $1') // collapse empty attrs
+        return cleaned;
       },
     },
     docs: {
+      codePanel: true,
       source: {
         type: 'dynamic',
         excludeDecorators: true,

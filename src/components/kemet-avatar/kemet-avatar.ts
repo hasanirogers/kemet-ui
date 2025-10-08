@@ -69,7 +69,7 @@ export default class KemetAvatar extends LitElement {
 
   makeContent() {
     if (this.image) {
-      return html`<img src=${this.image} alt=${this.label} />`;
+      return html`<img part="avatar-image" src=${this.image} alt=${this.label} />`;
     }
 
     if (this.initials) {
