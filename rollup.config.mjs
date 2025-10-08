@@ -3,10 +3,7 @@ import multi from '@rollup/plugin-multi-entry';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import json from '@rollup/plugin-json';
-import pkgMinifyHTML from 'rollup-plugin-minify-html-literals';
 import copy from 'rollup-plugin-copy';
-
-const minifyHTML = pkgMinifyHTML.default;
 
 const copyConfig = {
   targets: [
@@ -35,6 +32,6 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [resolve(), commonjs(), multi(), json(), minifyHTML(), terser()],
+    plugins: [resolve(), commonjs(), multi(), json(), terser()],
   },
 ];
