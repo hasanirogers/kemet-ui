@@ -5,22 +5,22 @@
   "main": "index.js",
   "watch": {
     "build": "src/**/*.*",
-    "analyze": "src/components/**/kemet-*.*"
+    "analyze": "src/elements/**/kemet-*.*"
   },
   "scripts": {
-    "analyze": "custom-elements-manifest analyze --litelement --globs \"src/components/**/kemet-*.*\"",
-    "build": "rimraf dist && npm run build:css && npm run build:ts && npm run build:rollup",
-    "build:css": "sass src/styles/kemet.components.scss:dist/styles/kemet.components.css src/styles/kemet.core.scss:dist/styles/kemet.core.css src/styles/kemet.base.scss:dist/styles/kemet.base.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
-    "build:rollup": "rollup -c rollup.config.mjs",
-    "build:ts": "tsc",
+    "analyze": "custom-elements-manifest analyze --litelement --globs \"src/elements/**/kemet-*.*\"",
+    "build": "rimraf dist && npm run build:css && npm run build:scss && npm run build:ts",
+    "build:css": "sass src/styles/kemet.elements.scss:dist/styles/kemet.elements.css src/styles/kemet.core.scss:dist/styles/kemet.core.css src/styles/kemet.base.scss:dist/styles/kemet.base.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
+    "build:scss": "cp -R src/styles dist",
+    "build:ts": "tsup",
     "chromatic": "npx chromatic --project-token=chpt_6729a2f8709640a --build-script-name=storybook:build",
+    "dev": "concurrently npm:storybook npm:watch",
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-pattern .gitignore",
     "format:stylelint": "npx stylelint --fix 'src/styles/**/*.scss' -c stylelint.config.mjs",
     "lint:eslint": "eslint --ext .js,.html . --ignore-pattern .gitignore",
     "lint:stylelint": "npx stylelint 'src/styles/**/*.scss' -c stylelint.config.mjs",
     "prepare": "husky",
     "prepublish": "rimraf dist && npm run build",
-    "start": "concurrently npm:storybook npm:watch",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "test": "vitest --config=vitest.browser.config.mts",
@@ -36,8 +36,258 @@
     "custom elements",
     "blueprint system"
   ],
+  "exports": {
+    "./types/jsx": "./types/jsx.d.ts",
+    "./styles/*": "./dist/styles/*",
+    "./kemet-accordion": {
+      "types": "./dist/kemet-accordion/kemet-accordion.d.mts",
+      "import": "./dist/kemet-accordion/kemet-accordion.mjs",
+      "require": "./dist/kemet-accordion/kemet-accordion.js"
+    },
+    "./kemet-accordion-panel": {
+      "types": "./dist/kemet-accordion/kemet-accordion-panel.d.mts",
+      "import": "./dist/kemet-accordion/kemet-accordion-panel.mjs",
+      "require": "./dist/kemet-accordion/kemet-accordion-panel.js"
+    },
+    "./kemet-alert": {
+      "types": "./dist/kemet-alert/kemet-alert.d.mts",
+      "import": "./dist/kemet-alert/kemet-alert.mjs",
+      "require": "./dist/kemet-alert/kemet-alert.js"
+    },
+    "./kemet-avatar": {
+      "types": "./dist/kemet-avatar/kemet-avatar.d.mts",
+      "import": "./dist/kemet-avatar/kemet-avatar.mjs",
+      "require": "./dist/kemet-avatar/kemet-avatar.js"
+    },
+    "./kemet-badge": {
+      "types": "./dist/kemet-badge/kemet-badge.d.mts",
+      "import": "./dist/kemet-badge/kemet-badge.mjs",
+      "require": "./dist/kemet-badge/kemet-badge.js"
+    },
+    "./kemet-button": {
+      "types": "./dist/kemet-button/kemet-button.d.mts",
+      "import": "./dist/kemet-button/kemet-button.mjs",
+      "require": "./dist/kemet-button/kemet-button.js"
+    },
+    "./kemet-card": {
+      "types": "./dist/kemet-card/kemet-card.d.mts",
+      "import": "./dist/kemet-card/kemet-card.mjs",
+      "require": "./dist/kemet-card/kemet-card.js"
+    },
+    "./kemet-carousel": {
+      "types": "./dist/kemet-carousel/kemet-carousel.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel.js"
+    },
+    "./kemet-carousel-current": {
+      "types": "./dist/kemet-carousel/kemet-carousel-current.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-current.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-current.js"
+    },
+    "./kemet-carousel-first": {
+      "types": "./dist/kemet-carousel/kemet-carousel-first.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-first.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-first.js"
+    },
+    "./kemet-carousel-last": {
+      "types": "./dist/kemet-carousel/kemet-carousel-last.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-last.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-last.js"
+    },
+    "./kemet-carousel-next": {
+      "types": "./dist/kemet-carousel/kemet-carousel-next.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-next.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-next.js"
+    },
+    "./kemet-carousel-prev": {
+      "types": "./dist/kemet-carousel/kemet-carousel-prev.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-prev.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-prev.js"
+    },
+    "./kemet-carousel-link": {
+      "types": "./dist/kemet-carousel/kemet-carousel-link.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-link.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-link.js"
+    },
+    "./kemet-carousel-slide": {
+      "types": "./dist/kemet-carousel/kemet-carousel-slide.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-slide.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-slide.js"
+    },
+    "./kemet-carousel-total": {
+      "types": "./dist/kemet-carousel/kemet-carousel-total.d.mts",
+      "import": "./dist/kemet-carousel/kemet-carousel-total.mjs",
+      "require": "./dist/kemet-carousel/kemet-carousel-total.js"
+    },
+    "./kemet-checkbox": {
+      "types": "./dist/kemet-checkbox/kemet-checkbox.d.mts",
+      "import": "./dist/kemet-checkbox/kemet-checkbox.mjs",
+      "require": "./dist/kemet-checkbox/kemet-checkbox.js"
+    },
+    "./kemet-combo": {
+      "types": "./dist/kemet-combo/kemet-combo.d.mts",
+      "import": "./dist/kemet-combo/kemet-combo.mjs",
+      "require": "./dist/kemet-combo/kemet-combo.js"
+    },
+    "./kemet-count": {
+      "types": "./dist/kemet-count/kemet-count.d.mts",
+      "import": "./dist/kemet-count/kemet-count.mjs",
+      "require": "./dist/kemet-count/kemet-count.js"
+    },
+    "./kemet-draggable": {
+      "types": "./dist/kemet-draggable/kemet-draggable.d.mts",
+      "import": "./dist/kemet-draggable/kemet-draggable.mjs",
+      "require": "./dist/kemet-draggable/kemet-draggable.js"
+    },
+    "./kemet-drawer": {
+      "types": "./dist/kemet-drawer/kemet-drawer.d.mts",
+      "import": "./dist/kemet-drawer/kemet-drawer.mjs",
+      "require": "./dist/kemet-drawer/kemet-drawer.js"
+    },
+    "./kemet-fab": {
+      "types": "./dist/kemet-fab/kemet-fab.d.mts",
+      "import": "./dist/kemet-fab/kemet-fab.mjs",
+      "require": "./dist/kemet-fab/kemet-fab.js"
+    },
+    "./kemet-field": {
+      "types": "./dist/kemet-field/kemet-field.d.mts",
+      "import": "./dist/kemet-field/kemet-field.mjs",
+      "require": "./dist/kemet-field/kemet-field.js"
+    },
+    "./kemet-flipcard": {
+      "types": "./dist/kemet-flipcard/kemet-flipcard.d.mts",
+      "import": "./dist/kemet-flipcard/kemet-flipcard.mjs",
+      "require": "./dist/kemet-flipcard/kemet-flipcard.js"
+    },
+    "./kemet-flipcard-trigger": {
+      "types": "./dist/kemet-flipcard/kemet-flipcard-trigger.d.mts",
+      "import": "./dist/kemet-flipcard/kemet-flipcard-trigger.mjs",
+      "require": "./dist/kemet-flipcard/kemet-flipcard-trigger.js"
+    },
+    "./kemet-icon": {
+      "types": "./dist/kemet-icon/kemet-icon.d.mts",
+      "import": "./dist/kemet-icon/kemet-icon.mjs",
+      "require": "./dist/kemet-icon/kemet-icon.js"
+    },
+    "./kemet-input": {
+      "types": "./dist/kemet-input/kemet-input.d.mts",
+      "import": "./dist/kemet-input/kemet-input.mjs",
+      "require": "./dist/kemet-input/kemet-input.js"
+    },
+    "./kemet-modal": {
+      "types": "./dist/kemet-modal/kemet-modal.d.mts",
+      "import": "./dist/kemet-modal/kemet-modal.mjs",
+      "require": "./dist/kemet-modal/kemet-modal.js"
+    },
+    "./kemet-multi-input": {
+      "types": "./dist/kemet-multi-input/kemet-multi-input.d.mts",
+      "import": "./dist/kemet-multi-input/kemet-multi-input.mjs",
+      "require": "./dist/kemet-multi-input/kemet-multi-input.js"
+    },
+    "./kemet-password": {
+      "types": "./dist/kemet-password/kemet-password.d.mts",
+      "import": "./dist/kemet-password/kemet-password.mjs",
+      "require": "./dist/kemet-password/kemet-password.js"
+    },
+    "./kemet-popper": {
+      "types": "./dist/kemet-popper/kemet-popper.d.mts",
+      "import": "./dist/kemet-popper/kemet-popper.mjs",
+      "require": "./dist/kemet-popper/kemet-popper.js"
+    },
+    "./kemet-radio": {
+      "types": "./dist/kemet-radio/kemet-radio.d.mts",
+      "import": "./dist/kemet-radio/kemet-radio.mjs",
+      "require": "./dist/kemet-radio/kemet-radio.js"
+    },
+    "./kemet-rotator": {
+      "types": "./dist/kemet-rotator/kemet-rotator.d.mts",
+      "import": "./dist/kemet-rotator/kemet-rotator.mjs",
+      "require": "./dist/kemet-rotator/kemet-rotator.js"
+    },
+    "./kemet-scroll-nav": {
+      "types": "./dist/kemet-scroll-nav/kemet-scroll-nav.d.mts",
+      "import": "./dist/kemet-scroll-nav/kemet-scroll-nav.mjs",
+      "require": "./dist/kemet-scroll-nav/kemet-scroll-nav.js"
+    },
+    "./kemet-scroll-snap": {
+      "types": "./dist/kemet-scroll-snap/kemet-scroll-snap.d.mts",
+      "import": "./dist/kemet-scroll-snap/kemet-scroll-snap.mjs",
+      "require": "./dist/kemet-scroll-snap/kemet-scroll-snap.js"
+    },
+    "./kemet-scroll-snap-paginator": {
+      "types": "./dist/kemet-scroll-snap/kemet-scroll-snap-paginator.d.mts",
+      "import": "./dist/kemet-scroll-snap/kemet-scroll-snap-paginator.mjs",
+      "require": "./dist/kemet-scroll-snap/kemet-scroll-snap-paginator.js"
+    },
+    "./kemet-scroll-snap-slide": {
+      "types": "./dist/kemet-scroll-snap/kemet-scroll-snap-slide.d.mts",
+      "import": "./dist/kemet-scroll-snap/kemet-scroll-snap-slide.mjs",
+      "require": "./dist/kemet-scroll-snap/kemet-scroll-snap-slide.js"
+    },
+    "./kemet-select": {
+      "types": "./dist/kemet-select/kemet-select.d.mts",
+      "import": "./dist/kemet-select/kemet-select.mjs",
+      "require": "./dist/kemet-select/kemet-select.js"
+    },
+    "./kemet-sortable": {
+      "types": "./dist/kemet-sortable/kemet-sortable.d.mts",
+      "import": "./dist/kemet-sortable/kemet-sortable.mjs",
+      "require": "./dist/kemet-sortable/kemet-sortable.js"
+    },
+    "./kemet-svgs": {
+      "types": "./dist/kemet-svgs/kemet-svgs.d.mts",
+      "import": "./dist/kemet-svgs/kemet-svgs.mjs",
+      "require": "./dist/kemet-svgs/kemet-svgs.js"
+    },
+    "./kemet-tabs": {
+      "types": "./dist/kemet-tabs/kemet-tabs.d.mts",
+      "import": "./dist/kemet-tabs/kemet-tabs.mjs",
+      "require": "./dist/kemet-tabs/kemet-tabs.js"
+    },
+    "./kemet-tab": {
+      "types": "./dist/kemet-tabs/kemet-tab.d.mts",
+      "import": "./dist/kemet-tabs/kemet-tab.mjs",
+      "require": "./dist/kemet-tabs/kemet-tab.js"
+    },
+    "./kemet-tab-panel": {
+      "types": "./dist/kemet-tabs/kemet-tab-panel.d.mts",
+      "import": "./dist/kemet-tabs/kemet-tab-panel.mjs",
+      "require": "./dist/kemet-tabs/kemet-tab-panel.js"
+    },
+    "./kemet-textarea": {
+      "types": "./dist/kemet-textarea/kemet-textarea.d.mts",
+      "import": "./dist/kemet-textarea/kemet-textarea.mjs",
+      "require": "./dist/kemet-textarea/kemet-textarea.js"
+    },
+    "./kemet-timer": {
+      "types": "./dist/kemet-timer/kemet-timer.d.mts",
+      "import": "./dist/kemet-timer/kemet-timer.mjs",
+      "require": "./dist/kemet-timer/kemet-timer.js"
+    },
+    "./kemet-toggle": {
+      "types": "./dist/kemet-toggle/kemet-toggle.d.mts",
+      "import": "./dist/kemet-toggle/kemet-toggle.mjs",
+      "require": "./dist/kemet-toggle/kemet-toggle.js"
+    },
+    "./kemet-tooltip": {
+      "types": "./dist/kemet-tooltip/kemet-tooltip.d.mts",
+      "import": "./dist/kemet-tooltip/kemet-tooltip.mjs",
+      "require": "./dist/kemet-tooltip/kemet-tooltip.js"
+    },
+    "./kemet-tracker": {
+      "types": "./dist/kemet-tracker/kemet-tracker.d.mts",
+      "import": "./dist/kemet-tracker/kemet-tracker.mjs",
+      "require": "./dist/kemet-tracker/kemet-tracker.js"
+    },
+    "./kemet-upload": {
+      "types": "./dist/kemet-upload/kemet-upload.d.mts",
+      "import": "./dist/kemet-upload/kemet-upload.mjs",
+      "require": "./dist/kemet-upload/kemet-upload.js"
+    }
+  },
   "files": [
     "dist",
+    "types",
     "custom-elements.json"
   ],
   "browserslist": [
@@ -45,22 +295,15 @@
     "iOS >= 8"
   ],
   "dependencies": {
-    "@popperjs/core": "^2.11.7",
-    "autoprefixer": "^10.4.14",
+    "@popperjs/core": "^2.11.8",
+    "autoprefixer": "^10.4.21",
     "lit": "^3.1.2",
-    "mobile-drag-drop": "2.2.0",
-    "ts-dedent": "^2.2.0",
-    "tslib": "^2.7.0"
+    "mobile-drag-drop": "2.2.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
     "@custom-elements-manifest/analyzer": "^0.10.10",
     "@eslint/js": "^9.37.0",
-    "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-multi-entry": "^7.0.0",
-    "@rollup/plugin-node-resolve": "^16.0.2",
-    "@rollup/plugin-terser": "^0.4.4",
     "@storybook/addon-a11y": "^9.1.10",
     "@storybook/addon-docs": "^9.1.10",
     "@storybook/addon-links": "^9.1.10",
@@ -91,14 +334,13 @@
     "react-syntax-highlighter": "^15.6.6",
     "remark-gfm": "^4.0.1",
     "rimraf": "^6.0.1",
-    "rollup": "^4.52.4",
-    "rollup-plugin-copy": "^3.5.0",
     "sass": "^1.93.2",
     "storybook": "^9.1.10",
     "stylelint": "^16.25.0",
     "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-config-standard": "^39.0.1",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0",
     "vite": "^7.1.9",

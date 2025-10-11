@@ -4,7 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion-panel.ts",
+      "path": "src/elements/kemet-accordion/kemet-accordion-panel.ts",
       "declarations": [
         {
           "kind": "class",
@@ -160,7 +160,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "module": "src/elements/kemet-accordion/kemet-accordion-panel.ts"
           }
         },
         {
@@ -168,14 +168,14 @@
           "name": "kemet-accordion-panel",
           "declaration": {
             "name": "KemetAccordionPanel",
-            "module": "src/components/kemet-accordion/kemet-accordion-panel.ts"
+            "module": "src/elements/kemet-accordion/kemet-accordion-panel.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-accordion/kemet-accordion.ts",
+      "path": "src/elements/kemet-accordion/kemet-accordion.ts",
       "declarations": [
         {
           "kind": "class",
@@ -286,7 +286,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "module": "src/elements/kemet-accordion/kemet-accordion.ts"
           }
         },
         {
@@ -294,143 +294,14 @@
           "name": "kemet-accordion",
           "declaration": {
             "name": "KemetAccordion",
-            "module": "src/components/kemet-accordion/kemet-accordion.ts"
+            "module": "src/elements/kemet-accordion/kemet-accordion.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-badge/kemet-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetBadge",
-          "cssProperties": [
-            {
-              "description": "The padding of the badge. Default: 10px.",
-              "name": "--kemet-badge-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "attribute": "status",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "circlePadding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "attribute": "circle-padding"
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "status",
-              "type": {
-                "text": "string"
-              },
-              "default": "'primary'",
-              "description": "The status of the badge",
-              "fieldName": "status"
-            },
-            {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
-              "name": "circle-padding",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Padding on the badge as a circle",
-              "fieldName": "circlePadding"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-badge",
-          "customElement": true,
-          "summary": "Badges display the status of information."
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-badge",
-          "declaration": {
-            "name": "KemetBadge",
-            "module": "src/components/kemet-badge/kemet-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-alert/kemet-alert.ts",
+      "path": "src/elements/kemet-alert/kemet-alert.ts",
       "declarations": [
         {
           "kind": "class",
@@ -633,7 +504,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
+            "module": "src/elements/kemet-alert/kemet-alert.ts"
           }
         },
         {
@@ -641,85 +512,36 @@
           "name": "kemet-alert",
           "declaration": {
             "name": "KemetAlert",
-            "module": "src/components/kemet-alert/kemet-alert.ts"
+            "module": "src/elements/kemet-alert/kemet-alert.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatar.ts",
+      "path": "src/elements/kemet-badge/kemet-badge.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAvatar",
+          "name": "KemetBadge",
           "cssProperties": [
             {
-              "description": "The color of the text.",
-              "name": "--kemet-avatar-color"
-            },
-            {
-              "description": "The color of the background.",
-              "name": "--kemet-avatar-background-color"
-            },
-            {
-              "description": "The border radius of the rounded type.",
-              "name": "--kemet-avatar-rounded-radius"
-            },
-            {
-              "description": "The space around the initials.",
-              "name": "--kemet-avatar-initials-margin"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "Contains the initials for the avatar.",
-              "name": "initials"
-            }
-          ],
-          "slots": [
-            {
-              "description": "A slot for an icon or element that indicates the status of the avatar.",
-              "name": "status"
+              "description": "The padding of the badge. Default: 10px.",
+              "name": "--kemet-badge-padding"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "size",
+              "name": "status",
               "type": {
                 "text": "string"
               },
-              "description": "The size in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "attribute": "image"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "attribute": "initials"
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "attribute": "status",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -727,86 +549,82 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
+              "default": "false",
+              "description": "Displays the badge in a circle",
               "attribute": "circle",
               "reflects": true
             },
             {
               "kind": "field",
-              "name": "rounded",
+              "name": "pill",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays with rounded corners",
-              "attribute": "rounded",
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "attribute": "pill",
               "reflects": true
             },
             {
-              "kind": "method",
-              "name": "makeSize"
+              "kind": "field",
+              "name": "circlePadding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "attribute": "circle-padding"
             },
             {
               "kind": "method",
-              "name": "makeContent"
+              "name": "handleSlotChange"
             }
           ],
           "attributes": [
             {
-              "name": "size",
+              "name": "status",
               "type": {
                 "text": "string"
               },
-              "description": "The size in pixels.",
-              "fieldName": "size"
-            },
-            {
-              "name": "image",
-              "type": {
-                "text": "string"
-              },
-              "description": "Url to an image.",
-              "fieldName": "image"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "Labels the avatar.",
-              "fieldName": "label"
-            },
-            {
-              "name": "initials",
-              "type": {
-                "text": "string"
-              },
-              "description": "Initials of the user.",
-              "fieldName": "initials"
+              "default": "'primary'",
+              "description": "The status of the badge",
+              "fieldName": "status"
             },
             {
               "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays in a circle.",
+              "default": "false",
+              "description": "Displays the badge in a circle",
               "fieldName": "circle"
             },
             {
-              "name": "rounded",
+              "name": "pill",
               "type": {
                 "text": "boolean"
               },
-              "description": "Displays with rounded corners",
-              "fieldName": "rounded"
+              "default": "false",
+              "description": "Rounds the corners on the badge",
+              "fieldName": "pill"
+            },
+            {
+              "name": "circle-padding",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Padding on the badge as a circle",
+              "fieldName": "circlePadding"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-avatar",
+          "tagName": "kemet-badge",
           "customElement": true,
-          "summary": "A representation of a person or thing."
+          "summary": "Badges display the status of information."
         }
       ],
       "exports": [
@@ -814,42 +632,151 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+            "name": "KemetBadge",
+            "module": "src/elements/kemet-badge/kemet-badge.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-avatar",
+          "name": "kemet-badge",
           "declaration": {
-            "name": "KemetAvatar",
-            "module": "src/components/kemet-avatar/kemet-avatar.ts"
+            "name": "KemetBadge",
+            "module": "src/elements/kemet-badge/kemet-badge.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-avatar/kemet-avatars.ts",
+      "path": "src/elements/kemet-card/kemet-card.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetAvatars",
+          "name": "KemetCard",
           "cssProperties": [
             {
-              "description": "The space between avatars. Default: -1.5rem.",
-              "name": "--kemet-avatars-squeeze"
+              "description": "The space around elements.",
+              "name": "--kemet-card-padding"
+            },
+            {
+              "description": "The color of the borders.",
+              "name": "--kemet-card-border-color"
+            },
+            {
+              "description": "The color of the text. Default:",
+              "name": "--kemet-card-color"
+            },
+            {
+              "description": "The max width of the card.",
+              "name": "--kemet-card-max-width"
+            },
+            {
+              "description": "The border around the card.",
+              "name": "--kemet-card-border"
+            },
+            {
+              "description": "The border radius of the card.",
+              "name": "--kemet-card-border-radius"
+            },
+            {
+              "description": "The background color.",
+              "name": "--kemet-card-background-color"
+            },
+            {
+              "description": "The body spacing.",
+              "name": "--kemet-card-body-padding"
+            },
+            {
+              "description": "The header spacing.",
+              "name": "--kemet-card-header-padding"
+            },
+            {
+              "description": "The header border.",
+              "name": "--kemet-card-header-border-bottom"
+            },
+            {
+              "description": "The caption text color.",
+              "name": "--kemet-card-caption-color"
+            },
+            {
+              "description": "The caption spacing.",
+              "name": "--kemet-card-caption-padding"
+            },
+            {
+              "description": "The caption background color.",
+              "name": "--kemet-card-caption-background-color"
+            },
+            {
+              "description": "The footer spacing.",
+              "name": "--kemet-card-footer-padding"
+            },
+            {
+              "description": "The footer border.",
+              "name": "--kemet-card-footer-border-top"
             }
           ],
-          "members": [],
+          "cssParts": [
+            {
+              "description": "The media area of the card.",
+              "name": "media"
+            },
+            {
+              "description": "The main contents of the card.",
+              "name": "body"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The contents of the alert.",
+              "name": "default"
+            },
+            {
+              "description": "The card's header.",
+              "name": "header"
+            },
+            {
+              "description": "A slot for images, videos, or embeds.",
+              "name": "media"
+            },
+            {
+              "description": "Text for the media slot.",
+              "name": "caption"
+            },
+            {
+              "description": "The card's footer.",
+              "name": "footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "attribute": "center",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Centers the elements in the card.",
+              "fieldName": "center"
+            }
+          ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-avatars",
+          "tagName": "kemet-card",
           "customElement": true,
-          "summary": "Groups multiple avatars."
+          "summary": "A highly configurable panel design to display media and information."
         }
       ],
       "exports": [
@@ -857,23 +784,23 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+            "name": "KemetCard",
+            "module": "src/elements/kemet-card/kemet-card.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-avatars",
+          "name": "kemet-card",
           "declaration": {
-            "name": "KemetAvatars",
-            "module": "src/components/kemet-avatar/kemet-avatars.ts"
+            "name": "KemetCard",
+            "module": "src/elements/kemet-card/kemet-card.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/kemet-button.ts",
+      "path": "src/elements/kemet-button/kemet-button.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1196,7 +1123,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
+            "module": "src/elements/kemet-button/kemet-button.ts"
           }
         },
         {
@@ -1204,142 +1131,172 @@
           "name": "kemet-button",
           "declaration": {
             "name": "KemetButton",
-            "module": "src/components/kemet-button/kemet-button.ts"
+            "module": "src/elements/kemet-button/kemet-button.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-card/kemet-card.ts",
+      "path": "src/elements/kemet-avatar/kemet-avatar.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetCard",
+          "name": "KemetAvatar",
           "cssProperties": [
             {
-              "description": "The space around elements.",
-              "name": "--kemet-card-padding"
+              "description": "The color of the text.",
+              "name": "--kemet-avatar-color"
             },
             {
-              "description": "The color of the borders.",
-              "name": "--kemet-card-border-color"
+              "description": "The color of the background.",
+              "name": "--kemet-avatar-background-color"
             },
             {
-              "description": "The color of the text. Default:",
-              "name": "--kemet-card-color"
+              "description": "The border radius of the rounded type.",
+              "name": "--kemet-avatar-rounded-radius"
             },
             {
-              "description": "The max width of the card.",
-              "name": "--kemet-card-max-width"
-            },
-            {
-              "description": "The border around the card.",
-              "name": "--kemet-card-border"
-            },
-            {
-              "description": "The border radius of the card.",
-              "name": "--kemet-card-border-radius"
-            },
-            {
-              "description": "The background color.",
-              "name": "--kemet-card-background-color"
-            },
-            {
-              "description": "The body spacing.",
-              "name": "--kemet-card-body-padding"
-            },
-            {
-              "description": "The header spacing.",
-              "name": "--kemet-card-header-padding"
-            },
-            {
-              "description": "The header border.",
-              "name": "--kemet-card-header-border-bottom"
-            },
-            {
-              "description": "The caption text color.",
-              "name": "--kemet-card-caption-color"
-            },
-            {
-              "description": "The caption spacing.",
-              "name": "--kemet-card-caption-padding"
-            },
-            {
-              "description": "The caption background color.",
-              "name": "--kemet-card-caption-background-color"
-            },
-            {
-              "description": "The footer spacing.",
-              "name": "--kemet-card-footer-padding"
-            },
-            {
-              "description": "The footer border.",
-              "name": "--kemet-card-footer-border-top"
+              "description": "The space around the initials.",
+              "name": "--kemet-avatar-initials-margin"
             }
           ],
           "cssParts": [
             {
-              "description": "The media area of the card.",
-              "name": "media"
-            },
-            {
-              "description": "The main contents of the card.",
-              "name": "body"
+              "description": "Contains the initials for the avatar.",
+              "name": "initials"
             }
           ],
           "slots": [
             {
-              "description": "The contents of the alert.",
-              "name": "default"
-            },
-            {
-              "description": "The card's header.",
-              "name": "header"
-            },
-            {
-              "description": "A slot for images, videos, or embeds.",
-              "name": "media"
-            },
-            {
-              "description": "Text for the media slot.",
-              "name": "caption"
-            },
-            {
-              "description": "The card's footer.",
-              "name": "footer"
+              "description": "A slot for an icon or element that indicates the status of the avatar.",
+              "name": "status"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "center",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "attribute": "image"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "attribute": "initials"
+            },
+            {
+              "kind": "field",
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "description": "Centers the elements in the card.",
-              "attribute": "center",
+              "description": "Displays in a circle.",
+              "attribute": "circle",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makeSize"
+            },
+            {
+              "kind": "method",
+              "name": "makeContent"
             }
           ],
           "attributes": [
             {
-              "name": "center",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "description": "The size in pixels.",
+              "fieldName": "size"
+            },
+            {
+              "name": "image",
+              "type": {
+                "text": "string"
+              },
+              "description": "Url to an image.",
+              "fieldName": "image"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "Labels the avatar.",
+              "fieldName": "label"
+            },
+            {
+              "name": "initials",
+              "type": {
+                "text": "string"
+              },
+              "description": "Initials of the user.",
+              "fieldName": "initials"
+            },
+            {
+              "name": "circle",
               "type": {
                 "text": "boolean"
               },
-              "description": "Centers the elements in the card.",
-              "fieldName": "center"
+              "description": "Displays in a circle.",
+              "fieldName": "circle"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays with rounded corners",
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-card",
+          "tagName": "kemet-avatar",
           "customElement": true,
-          "summary": "A highly configurable panel design to display media and information."
+          "summary": "A representation of a person or thing."
         }
       ],
       "exports": [
@@ -1347,23 +1304,66 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetAvatar",
+            "module": "src/elements/kemet-avatar/kemet-avatar.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-card",
+          "name": "kemet-avatar",
           "declaration": {
-            "name": "KemetCard",
-            "module": "src/components/kemet-card/kemet-card.ts"
+            "name": "KemetAvatar",
+            "module": "src/elements/kemet-avatar/kemet-avatar.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-current.ts",
+      "path": "src/elements/kemet-avatar/kemet-avatars.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetAvatars",
+          "cssProperties": [
+            {
+              "description": "The space between avatars. Default: -1.5rem.",
+              "name": "--kemet-avatars-squeeze"
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-avatars",
+          "customElement": true,
+          "summary": "Groups multiple avatars."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/elements/kemet-avatar/kemet-avatars.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-avatars",
+          "declaration": {
+            "name": "KemetAvatars",
+            "module": "src/elements/kemet-avatar/kemet-avatars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/kemet-carousel/kemet-carousel-current.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1412,7 +1412,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselCurrent",
-            "module": "src/components/kemet-carousel/kemet-carousel-current.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-current.ts"
           }
         },
         {
@@ -1420,14 +1420,14 @@
           "name": "kemet-carousel-current",
           "declaration": {
             "name": "KemetCarouselCurrent",
-            "module": "src/components/kemet-carousel/kemet-carousel-current.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-current.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-first.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel-first.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1488,7 +1488,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselFirst",
-            "module": "src/components/kemet-carousel/kemet-carousel-first.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-first.ts"
           }
         },
         {
@@ -1496,14 +1496,14 @@
           "name": "kemet-carousel-first",
           "declaration": {
             "name": "KemetCarouselFirst",
-            "module": "src/components/kemet-carousel/kemet-carousel-first.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-first.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-last.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel-last.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1564,7 +1564,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselLast",
-            "module": "src/components/kemet-carousel/kemet-carousel-last.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-last.ts"
           }
         },
         {
@@ -1572,14 +1572,14 @@
           "name": "kemet-carousel-last",
           "declaration": {
             "name": "KemetCarouselLast",
-            "module": "src/components/kemet-carousel/kemet-carousel-last.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-last.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-link.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel-link.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1680,7 +1680,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselLink",
-            "module": "src/components/kemet-carousel/kemet-carousel-link.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-link.ts"
           }
         },
         {
@@ -1688,14 +1688,14 @@
           "name": "kemet-carousel-link",
           "declaration": {
             "name": "KemetCarouselLink",
-            "module": "src/components/kemet-carousel/kemet-carousel-link.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-link.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-next.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel-next.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1756,7 +1756,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselNext",
-            "module": "src/components/kemet-carousel/kemet-carousel-next.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-next.ts"
           }
         },
         {
@@ -1764,14 +1764,14 @@
           "name": "kemet-carousel-next",
           "declaration": {
             "name": "KemetCarouselNext",
-            "module": "src/components/kemet-carousel/kemet-carousel-next.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-next.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-prev.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel-prev.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1832,7 +1832,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselPrev",
-            "module": "src/components/kemet-carousel/kemet-carousel-prev.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-prev.ts"
           }
         },
         {
@@ -1840,14 +1840,14 @@
           "name": "kemet-carousel-prev",
           "declaration": {
             "name": "KemetCarouselPrev",
-            "module": "src/components/kemet-carousel/kemet-carousel-prev.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-prev.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-slide.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel-slide.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1916,7 +1916,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselSlide",
-            "module": "src/components/kemet-carousel/kemet-carousel-slide.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-slide.ts"
           }
         },
         {
@@ -1924,14 +1924,14 @@
           "name": "kemet-carousel-slide",
           "declaration": {
             "name": "KemetCarouselSlide",
-            "module": "src/components/kemet-carousel/kemet-carousel-slide.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-slide.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel-total.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel-total.ts",
       "declarations": [
         {
           "kind": "class",
@@ -1980,7 +1980,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarouselTotal",
-            "module": "src/components/kemet-carousel/kemet-carousel-total.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-total.ts"
           }
         },
         {
@@ -1988,14 +1988,14 @@
           "name": "kemet-carousel-total",
           "declaration": {
             "name": "KemetCarouselTotal",
-            "module": "src/components/kemet-carousel/kemet-carousel-total.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel-total.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-carousel/kemet-carousel.ts",
+      "path": "src/elements/kemet-carousel/kemet-carousel.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2419,7 +2419,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCarousel",
-            "module": "src/components/kemet-carousel/kemet-carousel.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel.ts"
           }
         },
         {
@@ -2427,14 +2427,14 @@
           "name": "kemet-carousel",
           "declaration": {
             "name": "KemetCarousel",
-            "module": "src/components/kemet-carousel/kemet-carousel.ts"
+            "module": "src/elements/kemet-carousel/kemet-carousel.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-checkbox/kemet-checkbox.ts",
+      "path": "src/elements/kemet-checkbox/kemet-checkbox.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2774,7 +2774,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.ts"
+            "module": "src/elements/kemet-checkbox/kemet-checkbox.ts"
           }
         },
         {
@@ -2782,14 +2782,14 @@
           "name": "kemet-checkbox",
           "declaration": {
             "name": "KemetCheckbox",
-            "module": "src/components/kemet-checkbox/kemet-checkbox.ts"
+            "module": "src/elements/kemet-checkbox/kemet-checkbox.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-combo/kemet-combo.ts",
+      "path": "src/elements/kemet-combo/kemet-combo.ts",
       "declarations": [
         {
           "kind": "class",
@@ -2999,7 +2999,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.ts"
+            "module": "src/elements/kemet-combo/kemet-combo.ts"
           }
         },
         {
@@ -3007,162 +3007,14 @@
           "name": "kemet-combo",
           "declaration": {
             "name": "KemetCombo",
-            "module": "src/components/kemet-combo/kemet-combo.ts"
+            "module": "src/elements/kemet-combo/kemet-combo.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-count/kemet-count.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetCount",
-          "cssProperties": [
-            {
-              "description": "The font size. Default: 90%.",
-              "name": "--kemet-count-font-size"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "message",
-              "type": {
-                "text": "string"
-              },
-              "description": "The text label shown to users",
-              "attribute": "message"
-            },
-            {
-              "kind": "field",
-              "name": "remaining",
-              "type": {
-                "text": "number"
-              },
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
-            },
-            {
-              "kind": "field",
-              "name": "limit",
-              "type": {
-                "text": "number"
-              },
-              "description": "The maximum number of characters allowed",
-              "attribute": "limit"
-            },
-            {
-              "kind": "field",
-              "name": "validateImmediately",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "attribute": "validate-immediately"
-            },
-            {
-              "kind": "field",
-              "name": "field",
-              "type": {
-                "text": "KemetFieldInterface"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "inputSlot",
-              "type": {
-                "text": "KemetInputInterface | KemetTextareaInterface"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "input",
-              "type": {
-                "text": "HTMLInputElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "textarea",
-              "type": {
-                "text": "HTMLTextAreaElement"
-              }
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when there's a change in status.",
-              "name": "kemet-count-status"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "message",
-              "type": {
-                "text": "string"
-              },
-              "description": "The text label shown to users",
-              "fieldName": "message"
-            },
-            {
-              "name": "remaining",
-              "type": {
-                "text": "number"
-              },
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
-            },
-            {
-              "name": "limit",
-              "type": {
-                "text": "number"
-              },
-              "description": "The maximum number of characters allowed",
-              "fieldName": "limit"
-            },
-            {
-              "name": "validate-immediately",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Set to true if the field should validate as soon as the character limit is reached",
-              "fieldName": "validateImmediately"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-count",
-          "customElement": true,
-          "summary": "Maintains a character count for an input field. Is to be used only in the component slot of a Field component."
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-count",
-          "declaration": {
-            "name": "KemetCount",
-            "module": "src/components/kemet-count/kemet-count.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-draggable/kemet-draggable.ts",
+      "path": "src/elements/kemet-draggable/kemet-draggable.ts",
       "declarations": [
         {
           "kind": "class",
@@ -3301,7 +3153,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.ts"
+            "module": "src/elements/kemet-draggable/kemet-draggable.ts"
           }
         },
         {
@@ -3309,14 +3161,162 @@
           "name": "kemet-draggable",
           "declaration": {
             "name": "KemetDraggable",
-            "module": "src/components/kemet-draggable/kemet-draggable.ts"
+            "module": "src/elements/kemet-draggable/kemet-draggable.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-drawer/kemet-drawer.ts",
+      "path": "src/elements/kemet-count/kemet-count.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetCount",
+          "cssProperties": [
+            {
+              "description": "The font size. Default: 90%.",
+              "name": "--kemet-count-font-size"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "description": "The text label shown to users",
+              "attribute": "message"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "type": {
+                "text": "number"
+              },
+              "description": "The number of characters remaining",
+              "attribute": "remaining"
+            },
+            {
+              "kind": "field",
+              "name": "limit",
+              "type": {
+                "text": "number"
+              },
+              "description": "The maximum number of characters allowed",
+              "attribute": "limit"
+            },
+            {
+              "kind": "field",
+              "name": "validateImmediately",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "attribute": "validate-immediately"
+            },
+            {
+              "kind": "field",
+              "name": "field",
+              "type": {
+                "text": "KemetFieldInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "inputSlot",
+              "type": {
+                "text": "KemetInputInterface | KemetTextareaInterface"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "textarea",
+              "type": {
+                "text": "HTMLTextAreaElement"
+              }
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when there's a change in status.",
+              "name": "kemet-count-status"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "type": {
+                "text": "string"
+              },
+              "description": "The text label shown to users",
+              "fieldName": "message"
+            },
+            {
+              "name": "remaining",
+              "type": {
+                "text": "number"
+              },
+              "description": "The number of characters remaining",
+              "fieldName": "remaining"
+            },
+            {
+              "name": "limit",
+              "type": {
+                "text": "number"
+              },
+              "description": "The maximum number of characters allowed",
+              "fieldName": "limit"
+            },
+            {
+              "name": "validate-immediately",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Set to true if the field should validate as soon as the character limit is reached",
+              "fieldName": "validateImmediately"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-count",
+          "customElement": true,
+          "summary": "Maintains a character count for an input field. Is to be used only in the component slot of a Field component."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/elements/kemet-count/kemet-count.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-count",
+          "declaration": {
+            "name": "KemetCount",
+            "module": "src/elements/kemet-count/kemet-count.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/kemet-drawer/kemet-drawer.ts",
       "declarations": [
         {
           "kind": "class",
@@ -3480,7 +3480,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetDrawer",
-            "module": "src/components/kemet-drawer/kemet-drawer.ts"
+            "module": "src/elements/kemet-drawer/kemet-drawer.ts"
           }
         },
         {
@@ -3488,14 +3488,14 @@
           "name": "kemet-drawer",
           "declaration": {
             "name": "KemetDrawer",
-            "module": "src/components/kemet-drawer/kemet-drawer.ts"
+            "module": "src/elements/kemet-drawer/kemet-drawer.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-fab/kemet-fab.ts",
+      "path": "src/elements/kemet-fab/kemet-fab.ts",
       "declarations": [
         {
           "kind": "class",
@@ -3694,7 +3694,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.ts"
+            "module": "src/elements/kemet-fab/kemet-fab.ts"
           }
         },
         {
@@ -3702,14 +3702,14 @@
           "name": "kemet-fab",
           "declaration": {
             "name": "KemetFAB",
-            "module": "src/components/kemet-fab/kemet-fab.ts"
+            "module": "src/elements/kemet-fab/kemet-fab.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-field/kemet-field.ts",
+      "path": "src/elements/kemet-field/kemet-field.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4010,7 +4010,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetField",
-            "module": "src/components/kemet-field/kemet-field.ts"
+            "module": "src/elements/kemet-field/kemet-field.ts"
           }
         },
         {
@@ -4018,14 +4018,14 @@
           "name": "kemet-field",
           "declaration": {
             "name": "KemetField",
-            "module": "src/components/kemet-field/kemet-field.ts"
+            "module": "src/elements/kemet-field/kemet-field.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-flipcard/kemet-flipcard-trigger.ts",
+      "path": "src/elements/kemet-flipcard/kemet-flipcard-trigger.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4070,7 +4070,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetFlipcardTrigger",
-            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.ts"
+            "module": "src/elements/kemet-flipcard/kemet-flipcard-trigger.ts"
           }
         },
         {
@@ -4078,14 +4078,14 @@
           "name": "kemet-flipcard-trigger",
           "declaration": {
             "name": "KemetFlipcardTrigger",
-            "module": "src/components/kemet-flipcard/kemet-flipcard-trigger.ts"
+            "module": "src/elements/kemet-flipcard/kemet-flipcard-trigger.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-flipcard/kemet-flipcard.ts",
+      "path": "src/elements/kemet-flipcard/kemet-flipcard.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4283,7 +4283,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetFlipcard",
-            "module": "src/components/kemet-flipcard/kemet-flipcard.ts"
+            "module": "src/elements/kemet-flipcard/kemet-flipcard.ts"
           }
         },
         {
@@ -4291,14 +4291,14 @@
           "name": "kemet-flipcard",
           "declaration": {
             "name": "KemetFlipcard",
-            "module": "src/components/kemet-flipcard/kemet-flipcard.ts"
+            "module": "src/elements/kemet-flipcard/kemet-flipcard.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-icon/kemet-icon.ts",
+      "path": "src/elements/kemet-icon/kemet-icon.ts",
       "declarations": [
         {
           "kind": "class",
@@ -4388,7 +4388,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.ts"
+            "module": "src/elements/kemet-icon/kemet-icon.ts"
           }
         },
         {
@@ -4396,14 +4396,14 @@
           "name": "kemet-icon",
           "declaration": {
             "name": "KemetIcon",
-            "module": "src/components/kemet-icon/kemet-icon.ts"
+            "module": "src/elements/kemet-icon/kemet-icon.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-input/kemet-input.ts",
+      "path": "src/elements/kemet-input/kemet-input.ts",
       "declarations": [
         {
           "kind": "class",
@@ -5202,7 +5202,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetInput",
-            "module": "src/components/kemet-input/kemet-input.ts"
+            "module": "src/elements/kemet-input/kemet-input.ts"
           }
         },
         {
@@ -5210,14 +5210,14 @@
           "name": "kemet-input",
           "declaration": {
             "name": "KemetInput",
-            "module": "src/components/kemet-input/kemet-input.ts"
+            "module": "src/elements/kemet-input/kemet-input.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-modal/kemet-modal-close.ts",
+      "path": "src/elements/kemet-modal/kemet-modal-close.ts",
       "declarations": [
         {
           "kind": "class",
@@ -5250,7 +5250,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetModalClose",
-            "module": "src/components/kemet-modal/kemet-modal-close.ts"
+            "module": "src/elements/kemet-modal/kemet-modal-close.ts"
           }
         },
         {
@@ -5258,14 +5258,14 @@
           "name": "kemet-modal-close",
           "declaration": {
             "name": "KemetModalClose",
-            "module": "src/components/kemet-modal/kemet-modal-close.ts"
+            "module": "src/elements/kemet-modal/kemet-modal-close.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-modal/kemet-modal.ts",
+      "path": "src/elements/kemet-modal/kemet-modal.ts",
       "declarations": [
         {
           "kind": "class",
@@ -5468,7 +5468,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetModal",
-            "module": "src/components/kemet-modal/kemet-modal.ts"
+            "module": "src/elements/kemet-modal/kemet-modal.ts"
           }
         },
         {
@@ -5476,14 +5476,14 @@
           "name": "kemet-modal",
           "declaration": {
             "name": "KemetModal",
-            "module": "src/components/kemet-modal/kemet-modal.ts"
+            "module": "src/elements/kemet-modal/kemet-modal.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-multi-input/kemet-multi-input.ts",
+      "path": "src/elements/kemet-multi-input/kemet-multi-input.ts",
       "declarations": [
         {
           "kind": "class",
@@ -5953,7 +5953,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetMultiInput",
-            "module": "src/components/kemet-multi-input/kemet-multi-input.ts"
+            "module": "src/elements/kemet-multi-input/kemet-multi-input.ts"
           }
         },
         {
@@ -5961,14 +5961,14 @@
           "name": "kemet-multi-input",
           "declaration": {
             "name": "KemetMultiInput",
-            "module": "src/components/kemet-multi-input/kemet-multi-input.ts"
+            "module": "src/elements/kemet-multi-input/kemet-multi-input.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-password/kemet-password.ts",
+      "path": "src/elements/kemet-password/kemet-password.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6183,7 +6183,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetPassword",
-            "module": "src/components/kemet-password/kemet-password.ts"
+            "module": "src/elements/kemet-password/kemet-password.ts"
           }
         },
         {
@@ -6191,14 +6191,14 @@
           "name": "kemet-password",
           "declaration": {
             "name": "KemetPassword",
-            "module": "src/components/kemet-password/kemet-password.ts"
+            "module": "src/elements/kemet-password/kemet-password.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-popper/kemet-popper-close.ts",
+      "path": "src/elements/kemet-popper/kemet-popper-close.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6242,7 +6242,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetPopperClose",
-            "module": "src/components/kemet-popper/kemet-popper-close.ts"
+            "module": "src/elements/kemet-popper/kemet-popper-close.ts"
           }
         },
         {
@@ -6250,14 +6250,14 @@
           "name": "kemet-popper-close",
           "declaration": {
             "name": "KemetPopperClose",
-            "module": "src/components/kemet-popper/kemet-popper-close.ts"
+            "module": "src/elements/kemet-popper/kemet-popper-close.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-popper/kemet-popper.ts",
+      "path": "src/elements/kemet-popper/kemet-popper.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6484,7 +6484,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetPopper",
-            "module": "src/components/kemet-popper/kemet-popper.ts"
+            "module": "src/elements/kemet-popper/kemet-popper.ts"
           }
         },
         {
@@ -6492,14 +6492,14 @@
           "name": "kemet-popper",
           "declaration": {
             "name": "KemetPopper",
-            "module": "src/components/kemet-popper/kemet-popper.ts"
+            "module": "src/elements/kemet-popper/kemet-popper.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-radio/kemet-radio.ts",
+      "path": "src/elements/kemet-radio/kemet-radio.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6736,7 +6736,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetRadio",
-            "module": "src/components/kemet-radio/kemet-radio.ts"
+            "module": "src/elements/kemet-radio/kemet-radio.ts"
           }
         },
         {
@@ -6744,14 +6744,14 @@
           "name": "kemet-radio",
           "declaration": {
             "name": "KemetRadio",
-            "module": "src/components/kemet-radio/kemet-radio.ts"
+            "module": "src/elements/kemet-radio/kemet-radio.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-radio/kemet-radios.ts",
+      "path": "src/elements/kemet-radio/kemet-radios.ts",
       "declarations": [
         {
           "kind": "class",
@@ -6964,7 +6964,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetRadios",
-            "module": "src/components/kemet-radio/kemet-radios.ts"
+            "module": "src/elements/kemet-radio/kemet-radios.ts"
           }
         },
         {
@@ -6972,14 +6972,14 @@
           "name": "kemet-radios",
           "declaration": {
             "name": "KemetRadios",
-            "module": "src/components/kemet-radio/kemet-radios.ts"
+            "module": "src/elements/kemet-radio/kemet-radios.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-rotator/kemet-rotator.ts",
+      "path": "src/elements/kemet-rotator/kemet-rotator.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7144,7 +7144,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetRotator",
-            "module": "src/components/kemet-rotator/kemet-rotator.ts"
+            "module": "src/elements/kemet-rotator/kemet-rotator.ts"
           }
         },
         {
@@ -7152,153 +7152,14 @@
           "name": "kemet-rotator",
           "declaration": {
             "name": "KemetRotator",
-            "module": "src/components/kemet-rotator/kemet-rotator.ts"
+            "module": "src/elements/kemet-rotator/kemet-rotator.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-link/kemet-scroll-link.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetScrollLink",
-          "members": [
-            {
-              "kind": "field",
-              "name": "element",
-              "type": {
-                "text": "object"
-              },
-              "default": "window",
-              "description": "A DOM element that establishes the context of scrolling.",
-              "attribute": "element"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "object"
-              },
-              "description": "A DOM element that represents the destination of the scroll link. If no target is specified it will default to the top of the page.",
-              "attribute": "target"
-            },
-            {
-              "kind": "field",
-              "name": "xOffset",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Allows the horizontal scrolling to stop short of the given value.",
-              "attribute": "x-offset",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "yOffset",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Allows the vertical scrolling to stop short of the given value.",
-              "attribute": "y-offset",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "isSmoothSupported",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyup",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleScroll"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "element",
-              "type": {
-                "text": "object"
-              },
-              "default": "window",
-              "description": "A DOM element that establishes the context of scrolling.",
-              "fieldName": "element"
-            },
-            {
-              "name": "target",
-              "type": {
-                "text": "object"
-              },
-              "description": "A DOM element that represents the destination of the scroll link. If no target is specified it will default to the top of the page.",
-              "fieldName": "target"
-            },
-            {
-              "name": "x-offset",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Allows the horizontal scrolling to stop short of the given value.",
-              "fieldName": "xOffset"
-            },
-            {
-              "name": "y-offset",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Allows the vertical scrolling to stop short of the given value.",
-              "fieldName": "yOffset"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-scroll-link",
-          "customElement": true,
-          "summary": "A component that adds a smooth scrolling link to a target."
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetScrollLink",
-            "module": "src/components/kemet-scroll-link/kemet-scroll-link.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-scroll-link",
-          "declaration": {
-            "name": "KemetScrollLink",
-            "module": "src/components/kemet-scroll-link/kemet-scroll-link.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-nav/kemet-scroll-nav.ts",
+      "path": "src/elements/kemet-scroll-nav/kemet-scroll-nav.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7422,7 +7283,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollNav",
-            "module": "src/components/kemet-scroll-nav/kemet-scroll-nav.ts"
+            "module": "src/elements/kemet-scroll-nav/kemet-scroll-nav.ts"
           }
         },
         {
@@ -7430,14 +7291,14 @@
           "name": "kemet-scroll-nav",
           "declaration": {
             "name": "KemetScrollNav",
-            "module": "src/components/kemet-scroll-nav/kemet-scroll-nav.ts"
+            "module": "src/elements/kemet-scroll-nav/kemet-scroll-nav.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts",
+      "path": "src/elements/kemet-scroll-snap/kemet-scroll-snap-paginator.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7668,7 +7529,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollSnapPaginator",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
+            "module": "src/elements/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
           }
         },
         {
@@ -7676,14 +7537,14 @@
           "name": "kemet-scroll-snap-paginator",
           "declaration": {
             "name": "KemetScrollSnapPaginator",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
+            "module": "src/elements/kemet-scroll-snap/kemet-scroll-snap-paginator.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts",
+      "path": "src/elements/kemet-scroll-snap/kemet-scroll-snap-slide.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7776,7 +7637,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollSnapSlide",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
+            "module": "src/elements/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
           }
         },
         {
@@ -7784,14 +7645,14 @@
           "name": "kemet-scroll-snap-slide",
           "declaration": {
             "name": "KemetScrollSnapSlide",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
+            "module": "src/elements/kemet-scroll-snap/kemet-scroll-snap-slide.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts",
+      "path": "src/elements/kemet-scroll-snap/kemet-scroll-snap.ts",
       "declarations": [
         {
           "kind": "class",
@@ -7938,7 +7799,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetScrollSnap",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
+            "module": "src/elements/kemet-scroll-snap/kemet-scroll-snap.ts"
           }
         },
         {
@@ -7946,14 +7807,14 @@
           "name": "kemet-scroll-snap",
           "declaration": {
             "name": "KemetScrollSnap",
-            "module": "src/components/kemet-scroll-snap/kemet-scroll-snap.ts"
+            "module": "src/elements/kemet-scroll-snap/kemet-scroll-snap.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-select/kemet-option.ts",
+      "path": "src/elements/kemet-select/kemet-option.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8058,7 +7919,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetOption",
-            "module": "src/components/kemet-select/kemet-option.ts"
+            "module": "src/elements/kemet-select/kemet-option.ts"
           }
         },
         {
@@ -8066,14 +7927,14 @@
           "name": "kemet-option",
           "declaration": {
             "name": "KemetOption",
-            "module": "src/components/kemet-select/kemet-option.ts"
+            "module": "src/elements/kemet-select/kemet-option.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-select/kemet-select.ts",
+      "path": "src/elements/kemet-select/kemet-select.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8375,7 +8236,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSelect",
-            "module": "src/components/kemet-select/kemet-select.ts"
+            "module": "src/elements/kemet-select/kemet-select.ts"
           }
         },
         {
@@ -8383,14 +8244,14 @@
           "name": "kemet-select",
           "declaration": {
             "name": "KemetSelect",
-            "module": "src/components/kemet-select/kemet-select.ts"
+            "module": "src/elements/kemet-select/kemet-select.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-sortable/kemet-sortable-item.ts",
+      "path": "src/elements/kemet-sortable/kemet-sortable-item.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8433,7 +8294,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSortableItem",
-            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
+            "module": "src/elements/kemet-sortable/kemet-sortable-item.ts"
           }
         },
         {
@@ -8441,14 +8302,14 @@
           "name": "kemet-sortable-item",
           "declaration": {
             "name": "KemetSortableItem",
-            "module": "src/components/kemet-sortable/kemet-sortable-item.ts"
+            "module": "src/elements/kemet-sortable/kemet-sortable-item.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-sortable/kemet-sortable.ts",
+      "path": "src/elements/kemet-sortable/kemet-sortable.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8520,7 +8381,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSortable",
-            "module": "src/components/kemet-sortable/kemet-sortable.ts"
+            "module": "src/elements/kemet-sortable/kemet-sortable.ts"
           }
         },
         {
@@ -8528,14 +8389,14 @@
           "name": "kemet-sortable",
           "declaration": {
             "name": "KemetSortable",
-            "module": "src/components/kemet-sortable/kemet-sortable.ts"
+            "module": "src/elements/kemet-sortable/kemet-sortable.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-svgs/kemet-svg.ts",
+      "path": "src/elements/kemet-svgs/kemet-svg.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8674,7 +8535,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSVG",
-            "module": "src/components/kemet-svgs/kemet-svg.ts"
+            "module": "src/elements/kemet-svgs/kemet-svg.ts"
           }
         },
         {
@@ -8682,14 +8543,14 @@
           "name": "kemet-svg",
           "declaration": {
             "name": "KemetSVG",
-            "module": "src/components/kemet-svgs/kemet-svg.ts"
+            "module": "src/elements/kemet-svgs/kemet-svg.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-svgs/kemet-svgs.ts",
+      "path": "src/elements/kemet-svgs/kemet-svgs.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8744,7 +8605,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetSVGs",
-            "module": "src/components/kemet-svgs/kemet-svgs.ts"
+            "module": "src/elements/kemet-svgs/kemet-svgs.ts"
           }
         },
         {
@@ -8752,14 +8613,14 @@
           "name": "kemet-svgs",
           "declaration": {
             "name": "KemetSVGs",
-            "module": "src/components/kemet-svgs/kemet-svgs.ts"
+            "module": "src/elements/kemet-svgs/kemet-svgs.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tabs/kemet-tab-panel.ts",
+      "path": "src/elements/kemet-tabs/kemet-tab-panel.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8846,7 +8707,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTabPanel",
-            "module": "src/components/kemet-tabs/kemet-tab-panel.ts"
+            "module": "src/elements/kemet-tabs/kemet-tab-panel.ts"
           }
         },
         {
@@ -8854,14 +8715,14 @@
           "name": "kemet-tab-panel",
           "declaration": {
             "name": "KemetTabPanel",
-            "module": "src/components/kemet-tabs/kemet-tab-panel.ts"
+            "module": "src/elements/kemet-tabs/kemet-tab-panel.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tabs/kemet-tab.ts",
+      "path": "src/elements/kemet-tabs/kemet-tab.ts",
       "declarations": [
         {
           "kind": "class",
@@ -8991,7 +8852,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTab",
-            "module": "src/components/kemet-tabs/kemet-tab.ts"
+            "module": "src/elements/kemet-tabs/kemet-tab.ts"
           }
         },
         {
@@ -8999,14 +8860,14 @@
           "name": "kemet-tab",
           "declaration": {
             "name": "KemetTab",
-            "module": "src/components/kemet-tabs/kemet-tab.ts"
+            "module": "src/elements/kemet-tabs/kemet-tab.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tabs/kemet-tabs.ts",
+      "path": "src/elements/kemet-tabs/kemet-tabs.ts",
       "declarations": [
         {
           "kind": "class",
@@ -9400,7 +9261,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTabs",
-            "module": "src/components/kemet-tabs/kemet-tabs.ts"
+            "module": "src/elements/kemet-tabs/kemet-tabs.ts"
           }
         },
         {
@@ -9408,14 +9269,14 @@
           "name": "kemet-tabs",
           "declaration": {
             "name": "KemetTabs",
-            "module": "src/components/kemet-tabs/kemet-tabs.ts"
+            "module": "src/elements/kemet-tabs/kemet-tabs.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-textarea/kemet-textarea.ts",
+      "path": "src/elements/kemet-textarea/kemet-textarea.ts",
       "declarations": [
         {
           "kind": "class",
@@ -9897,7 +9758,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTextarea",
-            "module": "src/components/kemet-textarea/kemet-textarea.ts"
+            "module": "src/elements/kemet-textarea/kemet-textarea.ts"
           }
         },
         {
@@ -9905,14 +9766,14 @@
           "name": "kemet-textarea",
           "declaration": {
             "name": "KemetTextarea",
-            "module": "src/components/kemet-textarea/kemet-textarea.ts"
+            "module": "src/elements/kemet-textarea/kemet-textarea.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-timer/kemet-timer-display.ts",
+      "path": "src/elements/kemet-timer/kemet-timer-display.ts",
       "declarations": [
         {
           "kind": "class",
@@ -9976,7 +9837,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTimerDisplay",
-            "module": "src/components/kemet-timer/kemet-timer-display.ts"
+            "module": "src/elements/kemet-timer/kemet-timer-display.ts"
           }
         },
         {
@@ -9984,14 +9845,14 @@
           "name": "kemet-timer-display",
           "declaration": {
             "name": "KemetTimerDisplay",
-            "module": "src/components/kemet-timer/kemet-timer-display.ts"
+            "module": "src/elements/kemet-timer/kemet-timer-display.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-timer/kemet-timer.ts",
+      "path": "src/elements/kemet-timer/kemet-timer.ts",
       "declarations": [
         {
           "kind": "class",
@@ -10107,7 +9968,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTimer",
-            "module": "src/components/kemet-timer/kemet-timer.ts"
+            "module": "src/elements/kemet-timer/kemet-timer.ts"
           }
         },
         {
@@ -10115,14 +9976,14 @@
           "name": "kemet-timer",
           "declaration": {
             "name": "KemetTimer",
-            "module": "src/components/kemet-timer/kemet-timer.ts"
+            "module": "src/elements/kemet-timer/kemet-timer.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-toggle/kemet-toggle.ts",
+      "path": "src/elements/kemet-toggle/kemet-toggle.ts",
       "declarations": [
         {
           "kind": "class",
@@ -10385,7 +10246,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetToggle",
-            "module": "src/components/kemet-toggle/kemet-toggle.ts"
+            "module": "src/elements/kemet-toggle/kemet-toggle.ts"
           }
         },
         {
@@ -10393,14 +10254,14 @@
           "name": "kemet-toggle",
           "declaration": {
             "name": "KemetToggle",
-            "module": "src/components/kemet-toggle/kemet-toggle.ts"
+            "module": "src/elements/kemet-toggle/kemet-toggle.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tooltip/kemet-tooltip.ts",
+      "path": "src/elements/kemet-tooltip/kemet-tooltip.ts",
       "declarations": [
         {
           "kind": "class",
@@ -10440,7 +10301,7 @@
               "name": "--kemet-popper-padding",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10448,7 +10309,7 @@
               "name": "--kemet-popper-border-color",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10456,7 +10317,7 @@
               "name": "--kemet-popper-background-color",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             }
           ],
@@ -10466,7 +10327,7 @@
               "name": "trigger",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10474,7 +10335,7 @@
               "name": "content",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             }
           ],
@@ -10484,7 +10345,7 @@
               "name": "trigger",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10492,7 +10353,7 @@
               "name": "content",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             }
           ],
@@ -10513,7 +10374,7 @@
               "reflects": true,
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10527,7 +10388,7 @@
               "reflects": true,
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10541,7 +10402,7 @@
               "attribute": "fire-on",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10555,7 +10416,7 @@
               "attribute": "strategy",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10569,7 +10430,7 @@
               "attribute": "skidding",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10583,7 +10444,7 @@
               "attribute": "distance",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10591,7 +10452,7 @@
               "name": "refresh",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10599,7 +10460,7 @@
               "name": "makePopper",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10615,7 +10476,7 @@
               ],
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10631,7 +10492,7 @@
               ],
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10647,13 +10508,13 @@
               ],
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             }
           ],
           "superclass": {
             "name": "KemetPopper",
-            "module": "/src/components/kemet-popper/kemet-popper"
+            "module": "/src/elements/kemet-popper/kemet-popper"
           },
           "tagName": "kemet-tooltip",
           "customElement": true,
@@ -10669,7 +10530,7 @@
               "fieldName": "placement",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10681,7 +10542,7 @@
               "fieldName": "opened",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10694,7 +10555,7 @@
               "fieldName": "fireOn",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10707,7 +10568,7 @@
               "fieldName": "strategy",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10720,7 +10581,7 @@
               "fieldName": "skidding",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10733,7 +10594,7 @@
               "fieldName": "distance",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             }
           ],
@@ -10743,7 +10604,7 @@
               "name": "kemet-popper-opened",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             },
             {
@@ -10751,7 +10612,7 @@
               "name": "kemet-popper-closed",
               "inheritedFrom": {
                 "name": "KemetPopper",
-                "module": "src/components/kemet-popper/kemet-popper.ts"
+                "module": "src/elements/kemet-popper/kemet-popper.ts"
               }
             }
           ]
@@ -10763,7 +10624,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTooltip",
-            "module": "src/components/kemet-tooltip/kemet-tooltip.ts"
+            "module": "src/elements/kemet-tooltip/kemet-tooltip.ts"
           }
         },
         {
@@ -10771,14 +10632,14 @@
           "name": "kemet-tooltip",
           "declaration": {
             "name": "KemetTooltip",
-            "module": "src/components/kemet-tooltip/kemet-tooltip.ts"
+            "module": "src/elements/kemet-tooltip/kemet-tooltip.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tracker/kemet-tracker-step.ts",
+      "path": "src/elements/kemet-tracker/kemet-tracker-step.ts",
       "declarations": [
         {
           "kind": "class",
@@ -11036,7 +10897,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTrackerStep",
-            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
+            "module": "src/elements/kemet-tracker/kemet-tracker-step.ts"
           }
         },
         {
@@ -11044,14 +10905,14 @@
           "name": "kemet-tracker-step",
           "declaration": {
             "name": "KemetTrackerStep",
-            "module": "src/components/kemet-tracker/kemet-tracker-step.ts"
+            "module": "src/elements/kemet-tracker/kemet-tracker-step.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-tracker/kemet-tracker.ts",
+      "path": "src/elements/kemet-tracker/kemet-tracker.ts",
       "declarations": [
         {
           "kind": "class",
@@ -11126,7 +10987,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetTracker",
-            "module": "src/components/kemet-tracker/kemet-tracker.ts"
+            "module": "src/elements/kemet-tracker/kemet-tracker.ts"
           }
         },
         {
@@ -11134,14 +10995,14 @@
           "name": "kemet-tracker",
           "declaration": {
             "name": "KemetTracker",
-            "module": "src/components/kemet-tracker/kemet-tracker.ts"
+            "module": "src/elements/kemet-tracker/kemet-tracker.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-upload/kemet-upload-file.ts",
+      "path": "src/elements/kemet-upload/kemet-upload-file.ts",
       "declarations": [
         {
           "kind": "class",
@@ -11336,7 +11197,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetUploadFile",
-            "module": "src/components/kemet-upload/kemet-upload-file.ts"
+            "module": "src/elements/kemet-upload/kemet-upload-file.ts"
           }
         },
         {
@@ -11344,14 +11205,14 @@
           "name": "kemet-upload-file",
           "declaration": {
             "name": "KemetUploadFile",
-            "module": "src/components/kemet-upload/kemet-upload-file.ts"
+            "module": "src/elements/kemet-upload/kemet-upload-file.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-upload/kemet-upload.ts",
+      "path": "src/elements/kemet-upload/kemet-upload.ts",
       "declarations": [
         {
           "kind": "class",
@@ -11646,7 +11507,7 @@
           "name": "default",
           "declaration": {
             "name": "KemetUpload",
-            "module": "src/components/kemet-upload/kemet-upload.ts"
+            "module": "src/elements/kemet-upload/kemet-upload.ts"
           }
         },
         {
@@ -11654,38 +11515,38 @@
           "name": "kemet-upload",
           "declaration": {
             "name": "KemetUpload",
-            "module": "src/components/kemet-upload/kemet-upload.ts"
+            "module": "src/elements/kemet-upload/kemet-upload.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/__screenshots__/test.ts/kemet-button--kemet-button--renders-an-anchor-1.png",
+      "path": "src/elements/kemet-button/__screenshots__/test.ts/kemet-button--kemet-button--renders-an-anchor-1.png",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/__screenshots__/test.ts/kemet-button-should-be-active-when-the-button-is-clicked-1.png",
+      "path": "src/elements/kemet-button/__screenshots__/test.ts/kemet-button-should-be-active-when-the-button-is-clicked-1.png",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/__screenshots__/test.ts/kemet-button-should-be-focused-when-tabbed-on-1.png",
+      "path": "src/elements/kemet-button/__screenshots__/test.ts/kemet-button-should-be-focused-when-tabbed-on-1.png",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/__screenshots__/test.ts/kemet-button-should-render-a-link-when-given-an-href-1.png",
+      "path": "src/elements/kemet-button/__screenshots__/test.ts/kemet-button-should-render-a-link-when-given-an-href-1.png",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/kemet-button/__screenshots__/test.ts/kemet-button-should-render-an-anchor-when-given-an-link-1.png",
+      "path": "src/elements/kemet-button/__screenshots__/test.ts/kemet-button-should-render-an-anchor-when-given-an-link-1.png",
       "declarations": [],
       "exports": []
     }

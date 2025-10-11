@@ -15,7 +15,7 @@
     "sourceMap": true,
     "inlineSources": true,
     "declaration": true,
-    "incremental": true,
+    "incremental": false,
     "resolveJsonModule": true,
     "types": ["react", "react-dom", "vite/client"],
     "jsx": "react-jsx",

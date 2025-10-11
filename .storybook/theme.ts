@@ -4,6 +4,6 @@ import Logo from './logo.svg';
 export default create({
   base: 'dark',
   brandTitle: 'Kemet UI | Storybook',
-  brandUrl: 'https://storybook.kemet.dev',
+  brandUrl: 'https://kemet.dev/docs',
   brandImage: Logo
 });

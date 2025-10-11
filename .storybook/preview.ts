@@ -7,7 +7,7 @@ import customElements from '../custom-elements.json';
 
 import '../src/styles/kemet.base.scss';
 import '../src/styles/kemet.core.scss';
-import '../src/styles/kemet.components.scss';
+import '../src/styles/kemet.elements.scss';
 import './storybook.scss';
 
 setCustomElements(customElements);
@@ -69,7 +69,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Introduction', 'Styles', 'Components', 'Templates'],
+        order: ['Introduction', 'Styles', 'Elements', 'Templates'],
       },
     },
   },
