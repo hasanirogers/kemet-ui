@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/timer.stories'
+
+<Meta of={stories} />
+
+# Timer
+
+Counts down from a specified amount of time or date.
+
+<kemet-tabs divider panel-effect="stacked">
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-timer amount="1" format="minutes">
+      <kemet-timer-display format="seconds"></kemet-timer-display>
+    </kemet-timer>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/element/timer';
+    import 'kemet-ui/element/timer-display';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-timer&gt;
+    <ArgTypes of="kemet-timer" />
+
+    <br />
+
+    ### &lt;kemet-timer-display&gt;
+    <ArgTypes of="kemet-timer-display" />
+  </kemet-tab-panel>
+</kemet-tabs>

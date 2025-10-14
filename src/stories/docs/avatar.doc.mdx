@@ -1,0 +1,34 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/avatar.stories'
+
+<Meta of={stories} />
+
+# Kemet Avatar
+
+A representation of a person or thing.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-avatar initials="KU"></kemet-avatar>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/avatar';
+    import 'kemet-ui/elements/avatars';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard} />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-avatar&gt;
+    <ArgTypes of="kemet-avatar" />
+  </kemet-tab-panel>
+</kemet-tabs>

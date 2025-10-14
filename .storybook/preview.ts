@@ -7,7 +7,6 @@ import customElements from '../custom-elements.json';
 
 import '../src/styles/kemet.base.scss';
 import '../src/styles/kemet.core.scss';
-import '../src/styles/kemet.elements.scss';
 import './storybook.scss';
 
 setCustomElements(customElements);

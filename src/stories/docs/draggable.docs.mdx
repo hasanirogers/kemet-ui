@@ -1,0 +1,35 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/draggable.stories'
+
+<Meta of={stories} />
+
+# Kemet Draggable
+
+A draggable element with the ability to remember its position.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-draggable memory="a-unique-identifier">
+      <kemet-button>Drag Me!</kemet-button>
+    </kemet-draggable>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/draggable'
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-draggable&gt;
+    <ArgTypes of="kemet-draggable" />
+  </kemet-tab-panel>
+</kemet-tabs>

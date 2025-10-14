@@ -1,0 +1,36 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/alert.stories'
+
+<Meta of={stories} />
+
+# Kemet Alert
+
+Calls out important messages and notifications.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-alert opened>
+      The brown fox jumped over the lazy dog.
+    </kemet-alert>
+    ```
+
+    ### Import JavaScript
+
+    ```javascript
+    import 'kemet-ui/elements/alert';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard} />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-alert&gt;
+    <ArgTypes of="kemet-alert" />
+  </kemet-tab-panel>
+</kemet-tabs>

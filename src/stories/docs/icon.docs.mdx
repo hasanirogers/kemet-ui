@@ -1,0 +1,74 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import { Icons } from '../../../.storybook/components/icons/Icons.tsx';
+import * as stories from '../elements/icon.stories.ts'
+
+<Meta of={stories} />
+
+# Kemet Icon
+
+An element that represents an icon from a predefined set of open sourced icons.
+
+<kemet-tabs divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab slot="tab">Sets</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-icon set="[open source icon set]" icon="[icon name]" size="[icon size]"></kemet-icon>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/icon'
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-icon&gt;
+    <ArgTypes of="kemet-icon" />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    Kemet Icon comes with several predefined sets of icons that can be referenced. These icons come from open source projects. To get more information on the icons please visit the set's documentation site.
+
+    <br />
+
+    ### Bootstrap
+
+    * **set**: bootstrap
+    * **site**: https://icons.getbootstrap.com
+
+    <Icons set="bootstrap" />
+
+    <br />
+
+    ### Font Awesome Regular
+
+    * **set**: font-awesome-regular
+    * **site**: https://fontawesome.com
+
+    <Icons set="font-awesome-regular" />
+
+    <br />
+
+    ### Font Awesome Solid
+
+    * **set**: font-awesome-solid
+    * **site**: https://fontawesome.com
+
+    <Icons set="font-awesome-solid" />
+
+    <br />
+
+    ### Font Awesome Brand
+
+    * **set**: font-awesome-brand
+    * **site**: https://fontawesome.com
+
+    <Icons set="font-awesome-brand" />
+  </kemet-tab-panel>
+</kemet-tabs>

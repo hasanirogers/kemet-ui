@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/select.stories'
+
+<Meta of={stories} />
+
+# Kemet Select
+
+An enhanced select element.
+
+<kemet-tabs divider panel-effect="stacked">
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-select>
+      <kemet-option label="Item 1" value="1"></kemet-option>
+      <kemet-option label="Item 2" value="2"></kemet-option>
+      <kemet-option label="Item 3" value="3"></kemet-option>
+    </kemet-select>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/select';
+    import 'kemet-ui/elements/option';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-select&gt;
+    <ArgTypes of="kemet-select" />
+
+    ### &lt;kemet-option&gt;
+    <ArgTypes of="kemet-option" />
+  </kemet-tab-panel>
+</kemet-tabs>

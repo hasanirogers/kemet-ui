@@ -1,0 +1,36 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/count.stories'
+
+<Meta of={stories} />
+
+# Kemet Count
+
+Maintains a character count for a input field. Is to be used only in the component slot of a Field component.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-field slug="unique-identifier">
+      <kemet-input slot="input" name="input-field"></kemet-input>
+      <kemet-count slot="component" message="characters remaining." limit="32"></kemet-count>
+    </kemet-field>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/element/count';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-count&gt;
+    <ArgTypes of="kemet-count" />
+  </kemet-tab-panel>
+</kemet-tabs>

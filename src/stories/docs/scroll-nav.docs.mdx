@@ -1,0 +1,30 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/scroll-nav.stories'
+
+<Meta of={stories} />
+
+# Kemet Scroll Nav
+
+An element that transforms at a scroll point.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-scroll-nav>
+      [Your nav markup here]
+    </kemet-scroll-nav>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/scroll-nav';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-scroll-nav&gt;
+    <ArgTypes of="kemet-scroll-nav" />
+  </kemet-tab-panel>
+</kemet-tabs>

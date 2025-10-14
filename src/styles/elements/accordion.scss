@@ -1,9 +1,0 @@
-@use 'config' as *;
-
-kemet-accordion-panel [icon='chevron-down'] {
-  transition: transform 300ms ease;
-}
-
-kemet-accordion-panel[opened] [icon='chevron-down'] {
-  transform: rotate(180deg);
-}
