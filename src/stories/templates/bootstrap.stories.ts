@@ -1,15 +1,15 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
-import '../../../components/kemet-button/kemet-button';
-import '../../../components/kemet-field/kemet-field';
-import '../../../components/kemet-input/kemet-input';
-import '../../../components/kemet-toggle/kemet-toggle';
-import '../../../components/kemet-select/kemet-select';
-import '../../../components/kemet-select/kemet-option';
-import '../../../components/kemet-radio/kemet-radio';
-import '../../../components/kemet-radio/kemet-radios';
-import '../../../components/kemet-badge/kemet-badge';
+import '../../elements/button';
+import '../../elements/field';
+import '../../elements/input';
+import '../../elements/toggle';
+import '../../elements/select';
+import '../../elements/option';
+import '../../elements/radio';
+import '../../elements/radios';
+import '../../elements/badge';
 
 const meta: Meta = {
   title: 'Templates / Bootstrap',

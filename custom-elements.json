@@ -4298,6 +4298,113 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/elements/icon-lucide.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetLucide",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'code'",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "default": "'latest'",
+              "attribute": "version"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "24",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "svg",
+              "type": {
+                "text": "SVGElement | null"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_initLucide",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'code'",
+              "fieldName": "icon"
+            },
+            {
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "default": "'latest'",
+              "fieldName": "version"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "24",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-lucide",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetLucide",
+            "module": "src/elements/icon-lucide.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-lucide",
+          "declaration": {
+            "name": "KemetLucide",
+            "module": "src/elements/icon-lucide.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/elements/icon.ts",
       "declarations": [
         {

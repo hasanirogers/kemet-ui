@@ -21,6 +21,6 @@
     "jsx": "react-jsx",
     "skipLibCheck": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "types/global.d.ts"],
   "exclude": ["node_modules", "sandboxes", "./src/stories/**/*"]
 }
