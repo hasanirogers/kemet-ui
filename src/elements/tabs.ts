@@ -11,6 +11,7 @@ import { stylesKemetTabs } from '../styles/elements/tabs';
 
 import type KemetTab from './tab';
 import type KemetTabPanel from './tab-panel';
+import './icon-bootstrap';
 
 /**
  * @since 1.0.0
@@ -295,7 +296,7 @@ export default class KemetTabs extends LitElement {
 
   makeLeftArrow() {
     if (this.overflow) {
-      return html`<kemet-icon icon='chevron-left' size="20" @click=${() => this.handleLeftArrow()}></kemet-icon>`;
+      return html`<kemet-icon-bootstrap icon='chevron-left' size="20" @click=${() => this.handleLeftArrow()}></kemet-icon-bootstrap>`;
     }
 
     return null;
@@ -303,7 +304,7 @@ export default class KemetTabs extends LitElement {
 
   makeRightArrow() {
     if (this.overflow) {
-      return html`<kemet-icon icon='chevron-right' size="20" @click=${() => this.handleRightArrow()}></kemet-icon>`;
+      return html`<kemet-icon-bootstrap icon='chevron-right' size="20" @click=${() => this.handleRightArrow()}></kemet-icon-bootstrap>`;
     }
 
     return null;

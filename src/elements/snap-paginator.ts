@@ -3,6 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesScrollSnapPaginator } from '../styles/elements/scroll-snap';
 import KemetScrollSnapSlide from './scroll-snap-slide';
+import './icon-bootstrap';
 
 /**
  * @since 1.0.0
@@ -107,7 +108,7 @@ export default class KemetScrollSnapPaginator extends LitElement {
       return slide.label;
     }
 
-    return html`<kemet-icon icon=${this.icon} size=${this.size}></kemet-icon>`;
+    return html`<kemet-icon-bootstrap icon=${this.icon} size=${this.size}></kemet-icon-bootstrap>`;
   }
 
   slideLink(index: string) {

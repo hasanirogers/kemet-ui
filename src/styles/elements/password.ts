@@ -72,7 +72,7 @@ export const stylesBase = css`
     position: relative;
   }
 
-  .rules kemet-icon {
+  .rules kemet-icon-bootstrap {
     color: rgb(var(--kemet-color-success));
     position: absolute;
     left: -2rem;

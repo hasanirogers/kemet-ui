@@ -2,6 +2,7 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { stylesStep } from '../styles/elements/tracker';
 import { KemetTrackerInterface } from '../types/tracker';
+import './icon-bootstrap';
 
 /**
  *
@@ -102,7 +103,7 @@ export default class KemetTrackerStep extends LitElement {
   makeDotContent() {
     if (this.completed && !this.mobile && !this.hideDotContent) {
       return html`
-        <kemet-icon icon="check2" size=${this.completedSize}></kemet-icon>
+        <kemet-icon-bootstrap icon="check2" size=${this.completedSize}></kemet-icon-bootstrap>
       `;
     }
 

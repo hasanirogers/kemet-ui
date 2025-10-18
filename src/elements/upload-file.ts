@@ -1,6 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesUploadFile, stylesLoaders } from '../styles/elements/upload';
+import './icon-bootstrap';
 
 const formatBytes = (bytes: number, decimals = 2) => {
   if (bytes === 0) return '0 Bytes';
@@ -97,11 +98,11 @@ export default class KemetUploadFile extends LitElement {
     }
 
     if (this.status === 'complete') {
-      return html`<kemet-icon icon="check-circle" size="48"></kemet-icon>`;
+      return html`<kemet-icon-bootstrap icon="check-circle" size="48"></kemet-icon-bootstrap>`;
     }
 
     if (this.status === 'error') {
-      return html`<kemet-icon icon="exclamation-circle" size="48"></kemet-icon>`;
+      return html`<kemet-icon-bootstrap icon="exclamation-circle" size="48"></kemet-icon-bootstrap>`;
     }
 
     return null;

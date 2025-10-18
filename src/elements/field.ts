@@ -101,24 +101,12 @@ export default class KemetField extends LitElement {
   render() {
     return html`
       <label for="${this.slug}" id="${this.slug}-label" part="label">
-        <span part="text">${this.label}${this.makeStatusIcon()}</span>
+        <span part="text">${this.label}</span>
         <slot name="input"></slot>
       </label>
       ${this.makeStatusMessage()}
       <slot name="component"></slot>
     `;
-  }
-
-  makeStatusIcon() {
-    if (this.status === 'error' || this.status === 'warning') {
-      return html`<kemet-icon icon="${this.errorIcon}" size="16"></kemet-icon>`;
-    }
-
-    if (this.status === 'success') {
-      return html`<kemet-icon icon="${this.successIcon}" size="16"></kemet-icon>`;
-    }
-
-    return null;
   }
 
   makeStatusMessage() {

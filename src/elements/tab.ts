@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesKemetTab } from '../styles/elements/tabs';
+import './icon-bootstrap';
 
 /**
  * @since 1.0.0
@@ -71,7 +72,7 @@ export default class KemetTab extends LitElement {
 
   makeCloseable() {
     if (this.closable) {
-      return html`<kemet-icon icon="x-lg" @click=${() => this.handleClosable()}></kemet-icon>`;
+      return html`&nbsp;<kemet-icon-bootstrap icon="x-lg" size="16" @click=${() => this.handleClosable()}></kemet-icon-bootstrap>`;
     }
 
     return null;

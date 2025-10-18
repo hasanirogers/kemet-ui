@@ -220,7 +220,7 @@ export const stylesKemetTab = css`
     color: var(--kemet-tab-color);
   }
 
-  kemet-icon {
+  kemet-icon-bootstrap {
     cursor: pointer;
     margin-left: 0.5rem;
   }

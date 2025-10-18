@@ -3,6 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesUpload } from '../styles/elements/upload';
+import './icon-bootstrap';
 
 const preventDefaults = (event: Event) => {
   event.preventDefault();
@@ -107,7 +108,7 @@ export default class KemetUpload extends LitElement {
   render() {
     return html`
       <div class="upload" part="upload">
-        <kemet-icon icon="cloud-arrow-up" size="128"></kemet-icon>
+        <kemet-icon-bootstrap icon="cloud-arrow-up" size="128"></kemet-icon-bootstrap>
         <input
           type="file"
           id=${this.slug}

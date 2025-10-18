@@ -44,17 +44,17 @@ const TemplateMultiple = () => html`
   <ul class="fabs" kemet-layout="flexcolumn" kemet-gutters kemet-margin="none" kemet-padding="none">
     <li>
       <kemet-fab pill>
-        <kemet-icon slot="icon" icon="envelope" size="24"></kemet-icon> Email
+        <kemet-icon-bootstrap slot="icon" icon="envelope" size="24"></kemet-icon-bootstrap> Email
       </kemet-fab>
     </li>
     <li>
       <kemet-fab pill>
-        <kemet-icon slot="icon" icon="calendar" size="24"></kemet-icon> Calendar
+        <kemet-icon-bootstrap slot="icon" icon="calendar" size="24"></kemet-icon-bootstrap> Calendar
       </kemet-fab>
     </li>
     <li>
       <kemet-fab pill>
-        <kemet-icon slot="icon" icon="pencil-square" size="24"></kemet-icon> Edit
+        <kemet-icon-bootstrap slot="icon" icon="pencil-square" size="24"></kemet-icon-bootstrap> Edit
       </kemet-fab>
     </li>
   </ul>

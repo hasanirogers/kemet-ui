@@ -28,18 +28,6 @@ export const stylesBase = css`
     margin-bottom: 0.8rem;
   }
 
-  :host([status='error']) kemet-icon {
-    color: rgb(var(--kemet-color-error));
-  }
-
-  :host([status='success']) kemet-icon {
-    color: rgb(var(--kemet-color-success));
-  }
-
-  :host([status='warning']) kemet-icon {
-    color: rgb(var(--kemet-color-warning));
-  }
-
   .message {
     font-size: 0.9rem;
     line-height: 1;

@@ -44,7 +44,7 @@ const Template = (args) => html`
     image="${ifDefined(args.image !== '' ? args.image : null)}"
     initials="${ifDefined(args.initials !== '' ? args.initials : null)}"
   >
-    ${args.icon !== '' && args.icon ? html`<kemet-icon icon=${args.icon} size="48" kemet-margin="xs"></kemet-icon>` : null}
+    ${args.icon !== '' && args.icon ? html`<kemet-icon-bootstrap icon=${args.icon} size="48" kemet-margin="xs"></kemet-icon-bootstrap>` : null}
     ${args.status ? html`<kemet-badge slot="status" status="success" kemet-border="all-2 solid white"></kemet-badge>` : null}
   </kemet-avatar>
 `;

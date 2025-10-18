@@ -6,6 +6,7 @@ import { KemetInputInterface } from '../types/input';
 import { KemetTextareaInterface } from '../types/textarea';
 import { stylesBase } from '../styles/elements/password';
 import { TypeStatus } from '../types/password';
+import './icon-bootstrap';
 
 /**
  * @since 1.2.0
@@ -64,7 +65,7 @@ export default class KemetPassword extends LitElement {
   icon: string = 'check2';
 
   @property({ type: Number })
-  iconSize: number = 16;
+  iconSize: number = 18;
 
   @state()
   status: TypeStatus;
@@ -129,7 +130,7 @@ export default class KemetPassword extends LitElement {
    */
   makeCheckIcon(meetsCriteria: boolean): TemplateResult {
     if (meetsCriteria) {
-      return html`<kemet-icon icon=${this.icon} size=${this.iconSize}></kemet-icon>`;
+      return html`<kemet-icon-bootstrap icon=${this.icon} size=${this.iconSize}></kemet-icon-bootstrap>`;
     }
 
     return null;

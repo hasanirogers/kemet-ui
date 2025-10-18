@@ -16,7 +16,7 @@ const meta: Meta = {
   component: 'kemet-popper',
   args: {
     triggerText: 'Hover Over Me',
-    content: '<kemet-popper-close style="position:absolute; right:1rem;"><kemet-icon icon="x-lg"></kemet-icon></kemet-popper-close><h2 kemet-margin-top="none">Heading</h2><img width="240" src="https://placehold.co/1920x1080" alt="A placeholder" /><p><a href="https://google.com">This</a> is some <a href="https://google.com">content</a>.</p>',
+    content: '<kemet-popper-close style="position:absolute; right:1rem;"><kemet-icon-bootstrap icon="x-lg"></kemet-icon-bootstrap></kemet-popper-close><h2 kemet-margin-top="none">Heading</h2><img width="240" src="https://placehold.co/1920x1080" alt="A placeholder" /><p><a href="https://google.com">This</a> is some <a href="https://google.com">content</a>.</p>',
     canvasPosition: 'middle',
   },
   argTypes: {

@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js'
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import KemetModal from '../../elements/modal';
 
 import '../../elements/modal';
 import '../../elements/modal-close';
@@ -9,6 +10,8 @@ import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 import '../../elements/button';
+
+import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
   title: 'Elements / Modal',
@@ -29,7 +32,7 @@ type Story = StoryObj;
 
 const Template = (args) => {
   const openModal = () => {
-    const modal = document.querySelector('kemet-modal');
+    const modal = document.querySelector('kemet-modal') as KemetModal;
     modal.opened = true;
   };
 
@@ -37,7 +40,7 @@ const Template = (args) => {
     if (display) {
       return html`
         <kemet-modal-close tabindex="0" role="button" aria-label="Close Button" style="display:flex;">
-          <kemet-icon icon="x-circle" size="24" kemet-background-color="white" kemet-border-radius="circle"></kemet-icon>
+          <kemet-icon-bootstrap icon="x-circle" size="24" kemet-background-color="white" kemet-border-radius="circle"></kemet-icon-bootstrap>
         </kemet-modal-close>
       `;
     }

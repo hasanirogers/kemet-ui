@@ -150,10 +150,10 @@ const Template = (args) => {
             <kemet-carousel-information></kemet-carousel-information>
           </div>
           <kemet-carousel-prev kemet-breakpoint="tiny:content">
-            <kemet-badge circle kemet-padding="sm"><kemet-icon icon="chevron-left"></kemet-icon></kemet-badge>
+            <kemet-badge circle kemet-padding="sm"><kemet-icon-bootstrap icon="chevron-left" size="12"></kemet-icon-bootstrap></kemet-badge>
           </kemet-carousel-prev>
           <kemet-carousel-next kemet-breakpoint="tiny:content">
-            <kemet-badge circle kemet-padding="sm"><kemet-icon icon="chevron-right"></kemet-icon></kemet-badge>
+            <kemet-badge circle kemet-padding="sm"><kemet-icon-bootstrap icon="chevron-right" size="12"></kemet-icon-bootstrap></kemet-badge>
           </kemet-carousel-next>
         </div>
       `;

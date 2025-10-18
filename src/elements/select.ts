@@ -6,6 +6,7 @@ import { KemetFieldInterface } from '../types/field';
 import { stylesSelect } from '../styles/elements/select';
 
 import type KemetOption from './option';
+import './icon-bootstrap';
 
 /**
  * @since 1.0.0
@@ -90,7 +91,7 @@ export default class KemetSelect extends LitElement {
   icon: string = 'chevron-down';
 
   @property({ type: Number, attribute: 'icon-size' })
-  iconSize: number = 16;
+  iconSize: number = 18;
 
   @property({ type: Boolean, reflect: true })
   filled: boolean;
@@ -184,7 +185,7 @@ export default class KemetSelect extends LitElement {
    */
   makeIcon() {
     if (this.icon || this.icon !== '') {
-      return html`<kemet-icon icon=${this.icon} size=${this.iconSize}></kemet-icon>`;
+      return html`<kemet-icon-bootstrap icon=${this.icon} size=${this.iconSize}></kemet-icon-bootstrap>`;
     }
 
     return null;

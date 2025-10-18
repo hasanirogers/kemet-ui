@@ -64,10 +64,6 @@ export const stylesSelect = css`
     background-color: var(--kemet-select-background-color-filled);
   }
 
-  :host([filled]) kemet-icon {
-    color: var(--kemet-select-color-filled);
-  }
-
   :host([status='error'][filled]) select {
     background-color: var(--kemet-select-background-color-error);
   }
@@ -80,7 +76,7 @@ export const stylesSelect = css`
     background-color: var(--kemet-select-background-color-warning);
   }
 
-  kemet-icon {
+  kemet-icon-bootstrap {
     position: absolute;
     right: var(--kemet-select-icon-right);
     top: 50%;
