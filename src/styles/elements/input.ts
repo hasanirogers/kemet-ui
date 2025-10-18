@@ -98,35 +98,38 @@ export const stylesBase = css`
     background-color: var(--kemet-input-background-color-warning);
   }
 
-  kemet-icon {
+  kemet-icon-bootstrap,
+  ::slotted(kemet-icon-bootstrap) {
     color: rgb(var(--kemet-color-text));
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
 
-  kemet-icon.left {
+  kemet-icon-bootstrap.left,
+  :host([icon-left]) ::slotted(kemet-icon-bootstrap) {
     left: 1rem;
   }
 
-  kemet-icon.right {
+  kemet-icon-bootstrap.right,
+  :host([icon-right]) ::slotted(kemet-icon-bootstrap) {
     right: 1rem;
   }
 
-  kemet-icon.eye,
-  kemet-icon.search {
+  kemet-icon-bootstrap.eye,
+  kemet-icon-bootstrap.search {
     cursor: pointer;
   }
 
-  :host([status='error']) kemet-icon {
+  :host([status='error']) ::slotted(kemet-icon-bootstrap) {
     color: rgb(var(--kemet-color-error));
   }
 
-  :host([status='warning']) kemet-icon {
+  :host([status='warning']) ::slotted(kemet-icon-bootstrap) {
     color: rgb(var(--kemet-color-error));
   }
 
-  :host([status='success']) kemet-icon {
+  :host([status='success']) ::slotted(kemet-icon-bootstrap) {
     color: rgb(var(--kemet-color-success));
   }
 `;

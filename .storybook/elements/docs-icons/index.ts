@@ -35,14 +35,9 @@ export default class DocsIcons extends LitElement {
   getUrl(){
     let url: string;
 
-    console.log(this.library);
-
     switch (this.library) {
       case 'bootstrap': url = 'https://unpkg.com/bootstrap-icons@latest/bootstrap-icons.svg'; break;
       case 'lucide': url = 'https://unpkg.com/lucide-static@latest/font/lucide.svg'; break;
-      // case 'font-awesome-brands': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/brands.svg'; break;
-      // case 'font-awesome-regular': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/regular.svg'; break;
-      // case 'font-awesome-solid': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/solid.svg'; break;
       default: url = 'https://unpkg.com/bootstrap-icons@latest/bootstrap-icons.svg'; break;
     }
 

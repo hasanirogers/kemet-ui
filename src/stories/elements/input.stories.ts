@@ -8,6 +8,8 @@ import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 
+import '../../elements/icon-bootstrap';
+
 const meta: Meta = {
   title: 'Elements / Input',
   component: 'kemet-input',
@@ -36,27 +38,28 @@ export default meta;
 type Story = StoryObj;
 
 const Template = (args) => html`<kemet-input
-  type="${args.type}"
-  status="${args.status}"
-  pattern=${ifDefined(args.pattern !== '' ? args.pattern : undefined)}
+  type="${ifDefined(args.type)}"
+  status="${ifDefined(args.status)}"
+  pattern=${ifDefined(args.pattern)}
   ?required=${args.required}
   ?validate-on-blur=${args.validateOnBlur}
   ?rounded=${args.rounded}
   ?filled=${args.filled}
-  icon-left=${ifDefined(args.iconLeft !== '' ? args.iconLeft : undefined)}
-  icon-right=${ifDefined(args.iconRight !== '' ? args.iconRight : undefined)}
-  placeholder=${ifDefined(args.placeholder !== '' ? args.placeholder : undefined)}
-  minlength=${ifDefined(args.minlength || undefined)}
-  maxlength=${ifDefined(args.maxlength || undefined)}
-  min=${ifDefined(args.min || undefined)}
-  max=${ifDefined(args.max || undefined)}
-  step=${ifDefined(args.step || undefined)}
-  autocomplete="${args.autocomplete}"
-  inputmode="${args.inputmode}"
+  placeholder=${ifDefined(args.placeholder)}
+  minlength=${ifDefined(args.minlength)}
+  maxlength=${ifDefined(args.maxlength)}
+  min=${ifDefined(args.min)}
+  max=${ifDefined(args.max)}
+  step=${ifDefined(args.step)}
+  autocomplete="${ifDefined(args.autocomplete)}"
+  inputmode="${ifDefined(args.inputmode)}"
   ?autofocus=${args.autofocus}
   ?disabled=${args.disabled}
   ?readonly=${args.readonly}
-></kemet-input>`;
+>
+  ${args.left}
+  ${args.right}
+</kemet-input>`;
 
 export const Standard: Story = {
   render: args => Template(args),
@@ -76,10 +79,26 @@ export const Filled: Story = {
   },
 };
 
+export const search: Story = {
+  render: args => Template(args),
+  args: {
+    type: 'search',
+    left: html`<kemet-icon-bootstrap icon="search" slot="left"></kemet-icon-bootstrap>`,
+    placeholder: 'Input a value to see the clear icon appear'
+  },
+}
+
 export const LeftIcon: Story = {
   render: args => Template(args),
   args: {
-    iconLeft: 'phone',
+    left: html`<kemet-icon-bootstrap icon="phone" slot="left"></kemet-icon-bootstrap>`,
+  },
+};
+
+export const RightIcon: Story = {
+  render: args => Template(args),
+  args: {
+    right: html`<kemet-icon-bootstrap icon="search" slot="right"></kemet-icon-bootstrap>`,
   },
 };
 
@@ -88,7 +107,9 @@ export const ValidateOnBlur: Story = {
   args: {
     validateOnBlur: true,
     required: true,
-    pattern: '^[a-zA-Z0-9]*$',
-    placeholder: "Enter a special character."
+    inputmode: 'tel',
+    pattern: "^(?:\\+?1\\p{White_Space}?)?(?:\\([2-9]\\d{2}\\)|[2-9]\\d{2})[\\p{White_Space}.\\-]?[2-9]\\d{2}[\\p{White_Space}.\\-]?\\d{4}$",
+    placeholder: "Enter an invalid us phone number to see the input trigger an error on blur",
+    left: html`<kemet-icon-bootstrap icon="phone" slot="left"></kemet-icon-bootstrap>`
   },
 };

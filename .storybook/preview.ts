@@ -50,10 +50,11 @@ const preview: Preview = {
       source: {
         type: 'dynamic',
         excludeDecorators: true,
-        transform: async (src, storyContext) => {
+        transform: async (src: string) => {
           if (!src) return src;
           try {
-            return await prettier.format(src, {
+            const cleaned = src.replace(/\s+([a-zA-Z_:][a-zA-Z0-9_.:-]*)=""/g, ' $1'); // collapse empty attrs
+            return await prettier.format(cleaned, {
               parser: 'html',
               plugins: [html],
               tabWidth: 2,

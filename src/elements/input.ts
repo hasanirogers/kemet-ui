@@ -157,14 +157,11 @@ export default class KemetInput extends LitElement {
   @property({ type: Boolean, reflect: true })
   filled: boolean;
 
-  @property({ type: String, reflect: true, attribute: 'icon-right' })
-  iconRight: string;
+  @property({ type: Boolean, reflect: true, attribute: 'icon-right' })
+  iconRight: boolean;
 
-  @property({ type: String, reflect: true, attribute: 'icon-left' })
-  iconLeft: string;
-
-  @property({ type: Number })
-  iconSize: number = 20;
+  @property({ type: Boolean, reflect: true, attribute: 'icon-left' })
+  iconLeft: boolean;
 
   @property({ type: Object })
   validity: object;
@@ -209,7 +206,7 @@ export default class KemetInput extends LitElement {
   render() {
     return html`
       <div>
-        ${this.makeIconLeft()}
+        <slot name="left" @slotchange=${this.handleLeftChange}></slot>
         <input
           part="input"
           id=${this.slug}
@@ -239,35 +236,26 @@ export default class KemetInput extends LitElement {
           @focus=${this.handleFocus}
           @blur=${this.handleBlur}
         />
-        ${this.makeIconRight()} ${this.makeIconClear()} ${this.makeVisibilityToggle()}
+        <slot name="right" @slotchange=${this.handleRightChange}></slot>
+        ${this.makeIconClear()} ${this.makeVisibilityToggle()}
       </div>
     `;
   }
 
-  makeIconRight() {
-    if (this.iconRight) {
-      return html`
-        <kemet-icon class="right" icon="${this.iconRight}" size="${this.iconSize ? this.iconSize : 20}"></kemet-icon>
-      `;
-    }
-
-    return null;
+  handleLeftChange() {
+    const left = this.querySelector('[slot="left"]');
+    if (left) this.iconLeft = true;
   }
 
-  makeIconLeft() {
-    if (this.iconLeft) {
-      return html`
-        <kemet-icon class="left" icon="${this.iconLeft}" size="${this.iconSize ? this.iconSize : 16}"></kemet-icon>
-      `;
-    }
-
-    return null;
+  handleRightChange() {
+    const right = this.querySelector('[slot="right"]');
+    if (right) this.iconRight = true;
   }
 
   makeIconClear() {
     if (this.type === 'search' && this.value !== '') {
       return html`
-        <kemet-icon class="search right" icon="x-lg" size="${this.iconSize}" @click=${() => this.handleClear()}></kemet-icon>
+        <kemet-icon-bootstrap class="search right" icon="x-lg" @click=${() => this.handleClear()}></kemet-icon-bootstrap>
       `;
     }
 
@@ -276,22 +264,15 @@ export default class KemetInput extends LitElement {
 
   makeVisibilityToggle() {
     if (this.type === 'password') {
-      return html`<kemet-icon
+      this.iconRight = true;
+      return html`<kemet-icon-bootstrap
         class="eye right"
-        icon="${this.setPasswordIcon()}"
+        icon="${this.isPasswordVisible ? 'eye' : 'eye-slash'}"
         @click=${() => this.togglePasswordVisibility()}
-      ></kemet-icon>`;
+      ></kemet-icon-bootstrap>`;
     }
 
     return null;
-  }
-
-  setPasswordIcon() {
-    if (this.isPasswordVisible) {
-      return 'eye';
-    }
-
-    return 'eye-slash';
   }
 
   /**
@@ -308,8 +289,8 @@ export default class KemetInput extends LitElement {
    * @private
    */
   handleBlur() {
-    if (this.validateOnBlur && this.form && !this.form.noValidate) {
-      this.input?.checkValidity();
+    if (this.validateOnBlur && this.form && !this.form?.noValidate) {
+      this.input?.reportValidity();
       this.validity = this.input?.validity;
     }
 
