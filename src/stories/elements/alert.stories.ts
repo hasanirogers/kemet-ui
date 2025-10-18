@@ -9,7 +9,7 @@ import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
   title: 'Elements / Alert',
@@ -52,7 +52,7 @@ type Story = StoryObj;
 const Template = (args: Args) => {
   const makeIcon = () => {
     if (args.icon !== 'none' && args.icon) {
-      return html`<kemet-icon slot="icon" icon=${args.icon} size="24" ></kemet-icon>`;
+      return html`<kemet-icon-bootstrap slot="icon" icon=${args.icon} size="24" ></kemet-icon-bootstrap>`;
     }
 
     return null;

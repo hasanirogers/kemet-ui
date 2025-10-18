@@ -1,11 +1,11 @@
 import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from '../elements/icon-lucide.stories'
+import * as stories from '../elements/icon-bootstrap.stories'
 
 <Meta of={stories} />
 
-# Kemet Icon Lucide
+# Kemet Icon Bootstrap
 
-A wrapper around the [Lucide](https://lucide.dev) icon library.
+A wrapper around the [Bootstrap](https://icons.getbootstrap.com/) icon library.
 
 <kemet-tabs panel-effect="stacked" divider>
   <kemet-tab slot="tab">Usage</kemet-tab>
@@ -14,12 +14,12 @@ A wrapper around the [Lucide](https://lucide.dev) icon library.
   <kemet-tab-panel slot="panel">
     ### Markup
     ```html
-    <kemet-icon-lucide icon="[icon name]"></kemet-icon-lucide>
+    <kemet-icon-bootstrap icon="[icon name]"></kemet-icon-bootstrap>
     ```
 
     ### Import JavaScript
     ```javascript
-    import 'kemet-ui/elements/icon-lucide';
+    import 'kemet-ui/elements/icon-bootstrap';
     ```
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
@@ -27,10 +27,10 @@ A wrapper around the [Lucide](https://lucide.dev) icon library.
     <Controls of={stories.Standard} />
   </kemet-tab-panel>
   <kemet-tab-panel slot="panel">
-    ### &lt;kemet-icon-lucide&gt;
-    <ArgTypes of="kemet-icon-lucide" />
+    ### &lt;kemet-icon-bootstrap&gt;
+    <ArgTypes of="kemet-icon-bootstrap" />
   </kemet-tab-panel>
 </kemet-tabs>
 
 ### Available Icons
-<docs-icons library="lucide"></docs-icons>
+<docs-icons></docs-icons>

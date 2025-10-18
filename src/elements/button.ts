@@ -3,7 +3,6 @@ import { customElement, property } from 'lit/decorators.js';
 import { TypeVariant, TypeTarget, TypeType } from '../types/button';
 import { stylesBase } from '../styles/elements/button';
 import { FormSubmitController } from '../utilities/controllers/forms';
-import '../elements/icon';
 
 /**
  * @since 1.0.0

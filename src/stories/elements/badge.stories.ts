@@ -9,7 +9,7 @@ import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
   title: 'Elements / Badge',
@@ -36,7 +36,7 @@ type Story = StoryObj;
 
 const Template = (args) => html`
   <kemet-badge status=${ifDefined(args.status)} ?pill=${args.pill} ?circle=${args.circle} circle-padding=${args.circlePadding}>
-    ${args.circle ? html`<kemet-icon icon="cart3"></kemet-icon>&nbsp;3` : 'Badge'}
+    ${args.circle ? html`<kemet-icon-bootstrap icon="cart3"></kemet-icon-bootstrap>&nbsp;3` : 'Badge'}
   </kemet-badge>
 `;
 

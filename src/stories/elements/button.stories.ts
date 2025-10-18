@@ -8,7 +8,7 @@ import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
   title: 'Elements / Button',
@@ -41,9 +41,9 @@ type Story = StoryObj;
 
 const Template = (args) => html`
   <kemet-button variant="${ifDefined(args.variant)}" ?outlined=${args.outlined} ?disabled=${args.disabled} link=${ifDefined(args.link !== '' ? args.link : undefined)}>
-    ${ifDefined(args.iconLeft !== '' && args.type !== 'circle' && args.iconLeft ? html`<kemet-icon slot="left" icon="${args.iconLeft}"></kemet-icon>` : undefined)}
-    ${args.variant === 'circle' ? html`<kemet-icon icon="gear" size="24"></kemet-icon>` : 'Button'}
-    ${ifDefined(args.iconRight !== '' && args.variant !== 'circle' && args.iconRight ? html`<kemet-icon slot="right" icon="${args.iconRight}"></kemet-icon>` : undefined)}
+    ${ifDefined(args.iconLeft !== '' && args.type !== 'circle' && args.iconLeft ? html`<kemet-icon-bootstrap slot="left" icon="${args.iconLeft}"></kemet-icon-bootstrap>` : undefined)}
+    ${args.variant === 'circle' ? html`<kemet-icon-bootstrap icon="gear" size="24"></kemet-icon-bootstrap>` : 'Button'}
+    ${ifDefined(args.iconRight !== '' && args.variant !== 'circle' && args.iconRight ? html`<kemet-icon-bootstrap slot="right" icon="${args.iconRight}"></kemet-icon-bootstrap>` : undefined)}
   </kemet-button>
 `;
 

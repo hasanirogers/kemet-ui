@@ -1,7 +1,8 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
-import '../../elements/icon-lucide';
+import '../../elements/icon-bootstrap';
 import '../../elements/button';
 
 import '../../elements/tabs';
@@ -12,11 +13,10 @@ import '../../../.storybook/elements/docs-icons';
 
 
 const meta: Meta = {
-  title: 'Icons / Lucide',
-  component: 'kemet-icon-lucide',
+  title: 'Icons / Bootstrap',
+  component: 'kemet-icon-bootstrap',
   args: {
     icon: 'code',
-    size: 24,
   },
 };
 export default meta;
@@ -24,7 +24,7 @@ export default meta;
 type Story = StoryObj;
 
 const Template = args => html`
-  <kemet-icon-lucide icon=${args.icon} size=${args.size}></kemet-icon-lucide>
+  <kemet-icon-bootstrap icon=${args.icon} size=${ifDefined(args.size)}></kemet-icon-bootstrap>
 `;
 
 export const Standard: Story = {

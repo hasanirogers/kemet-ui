@@ -4298,12 +4298,12 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/elements/icon-lucide.ts",
+      "path": "src/elements/icon-bootstrap.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "KemetLucide",
+          "name": "KemetIconBootstrap",
           "members": [
             {
               "kind": "field",
@@ -4312,6 +4312,7 @@
                 "text": "string"
               },
               "default": "'code'",
+              "description": "The name of the icon to display",
               "attribute": "icon"
             },
             {
@@ -4321,6 +4322,7 @@
                 "text": "string"
               },
               "default": "'latest'",
+              "description": "The version of Bootstrap to use",
               "attribute": "version"
             },
             {
@@ -4330,6 +4332,109 @@
                 "text": "number"
               },
               "default": "24",
+              "description": "The size of the icon in pixels",
+              "attribute": "size"
+            },
+            {
+              "kind": "method",
+              "name": "_initBootstrap",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'code'",
+              "description": "The name of the icon to display",
+              "fieldName": "icon"
+            },
+            {
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "default": "'latest'",
+              "description": "The version of Bootstrap to use",
+              "fieldName": "version"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "24",
+              "description": "The size of the icon in pixels",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-icon-bootstrap",
+          "customElement": true,
+          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetIconBootstrap",
+            "module": "src/elements/icon-bootstrap.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-icon-bootstrap",
+          "declaration": {
+            "name": "KemetIconBootstrap",
+            "module": "src/elements/icon-bootstrap.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/icon-lucide.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetIconLucide",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'code'",
+              "description": "The name of the icon to display",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "default": "'latest'",
+              "description": "The version of Lucide to use",
+              "attribute": "version"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "24",
+              "description": "The size of the icon",
               "attribute": "size"
             },
             {
@@ -4357,6 +4462,7 @@
                 "text": "string"
               },
               "default": "'code'",
+              "description": "The name of the icon to display",
               "fieldName": "icon"
             },
             {
@@ -4365,6 +4471,7 @@
                 "text": "string"
               },
               "default": "'latest'",
+              "description": "The version of Lucide to use",
               "fieldName": "version"
             },
             {
@@ -4373,6 +4480,7 @@
                 "text": "number"
               },
               "default": "24",
+              "description": "The size of the icon",
               "fieldName": "size"
             }
           ],
@@ -4380,113 +4488,9 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "kemet-lucide",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetLucide",
-            "module": "src/elements/icon-lucide.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-lucide",
-          "declaration": {
-            "name": "KemetLucide",
-            "module": "src/elements/icon-lucide.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/elements/icon.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetIcon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'alarm'",
-              "description": "The name of the icon to reference.",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "set",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bootstrap'",
-              "description": "The sprite map from an open source project that an icon belongs too. Values include: (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "attribute": "set"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The width and height of the icon in pixels.",
-              "attribute": "size"
-            },
-            {
-              "kind": "method",
-              "name": "getIcon"
-            },
-            {
-              "kind": "method",
-              "name": "getUrl"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'alarm'",
-              "description": "The name of the icon to reference.",
-              "fieldName": "icon"
-            },
-            {
-              "name": "set",
-              "type": {
-                "text": "string"
-              },
-              "default": "'bootstrap'",
-              "description": "The sprite map from an open source project that an icon belongs too. Values include: (bootstrap | font-awesome-brand | font-awesome-regular | font-awesome-solid)",
-              "fieldName": "set"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The width and height of the icon in pixels.",
-              "fieldName": "size"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-icon",
+          "tagName": "kemet-icon-lucide",
           "customElement": true,
-          "summary": "An element that represents an icon from a predefined set of open sourced icons."
+          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content."
         }
       ],
       "exports": [
@@ -4494,16 +4498,16 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "KemetIcon",
-            "module": "src/elements/icon.ts"
+            "name": "KemetIconLucide",
+            "module": "src/elements/icon-lucide.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "kemet-icon",
+          "name": "kemet-icon-lucide",
           "declaration": {
-            "name": "KemetIcon",
-            "module": "src/elements/icon.ts"
+            "name": "KemetIconLucide",
+            "module": "src/elements/icon-lucide.ts"
           }
         }
       ]

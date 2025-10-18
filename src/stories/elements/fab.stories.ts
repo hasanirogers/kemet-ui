@@ -3,7 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 import '../../elements/fab';
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
 
 import '../../elements/tabs';
 import '../../elements/tab';
@@ -22,7 +22,7 @@ type Story = StoryObj;
 
 const Template = (args) => html`
   <kemet-fab ?expanded=${args.expanded} ?outlined=${args.outlined} ?disabled=${args.disabled} ?pill=${args.pill} expand-point=${ifDefined(args.expandPoint || null)} collapse-point=${ifDefined(args.collapsePoint || null)}>
-    <kemet-icon slot="icon" icon="pencil-square" size="24"></kemet-icon>
+    <kemet-icon-bootstrap slot="icon" icon="pencil-square" size="24"></kemet-icon-bootstrap>
     ${args.label}
   </kemet-fab>
 `;

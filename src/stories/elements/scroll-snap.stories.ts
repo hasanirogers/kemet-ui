@@ -9,7 +9,6 @@ import '../../elements/snap-paginator';
 import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
-import '../../elements/icon';
 
 const meta: Meta = {
   title: 'Elements / Scroll Snap',

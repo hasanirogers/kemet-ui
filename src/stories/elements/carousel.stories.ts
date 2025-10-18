@@ -17,7 +17,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/badge';
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
   title: 'Elements / Carousel',
@@ -88,7 +88,7 @@ const Template = (args) => {
     if (args.arrows) {
       return html`
         <kemet-carousel-prev slot="prev">
-          <kemet-icon icon="chevron-left" size="72"></kemet-icon>
+          <kemet-icon-bootstrap icon="chevron-left" size="72"></kemet-icon-bootstrap>
         </kemet-carousel-prev>
       `;
     }
@@ -100,7 +100,7 @@ const Template = (args) => {
     if (args.arrows) {
       return html`
         <kemet-carousel-next slot="next">
-          <kemet-icon icon="chevron-right" size="72"></kemet-icon>
+          <kemet-icon-bootstrap icon="chevron-right" size="72"></kemet-icon-bootstrap>
         </kemet-carousel-next>
       `;
     }
@@ -120,17 +120,17 @@ const Template = (args) => {
 
       return html`
         <kemet-carousel-first slot="toolbar">
-          <kemet-icon icon="chevron-double-left"></kemet-icon>
+          <kemet-icon-bootstrap icon="chevron-double-left"></kemet-icon-bootstrap>
         </kemet-carousel-first>
         <kemet-carousel-prev slot="toolbar">
-          <kemet-icon icon="chevron-left"></kemet-icon>
+          <kemet-icon-bootstrap icon="chevron-left"></kemet-icon-bootstrap>
         </kemet-carousel-prev>
         ${pages}
         <kemet-carousel-next slot="toolbar">
-          <kemet-icon icon="chevron-right"></kemet-icon>
+          <kemet-icon-bootstrap icon="chevron-right"></kemet-icon-bootstrap>
         </kemet-carousel-next>
         <kemet-carousel-last slot="toolbar">
-          <kemet-icon icon="chevron-double-right"></kemet-icon>
+          <kemet-icon-bootstrap icon="chevron-double-right"></kemet-icon-bootstrap>
         </kemet-carousel-last>
       `;
     }

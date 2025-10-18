@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/avatar';
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
   title: 'Elements / Card',
@@ -52,7 +52,7 @@ const showMedia = (type) => {
   if (type === 'avatar') {
     return html`
       <kemet-avatar circle slot="media">
-        <kemet-icon size="196" kemet-margin="xs" icon="person"></kemet-icon>
+        <kemet-icon-bootstrap size="196" kemet-margin="xs" icon="person"></kemet-icon-bootstrap>
       </kemet-avatar>
     `;
   }

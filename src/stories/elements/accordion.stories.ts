@@ -11,7 +11,9 @@ import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
+import KemetAccordionPanel from '../../elements/accordion-panel';
+import KemetAccordion from '../../elements/accordion';
 
 const meta: Meta = {
   title: 'Elements / Accordion',
@@ -25,21 +27,21 @@ const Template = args => html`
   <kemet-accordion ?toggle-panels=${args.togglePanels} kemet-elevation="layer-4">
     <kemet-accordion-panel>
       <h3 slot="trigger">Trigger 1</h3>
-      <kemet-icon slot="icon" icon="chevron-down" size="18"></kemet-icon>
+      <kemet-icon-bootstrap slot="icon" icon="chevron-down" size="18"></kemet-icon-bootstrap>
       <div slot="body">
         <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
       </div>
     </kemet-accordion-panel>
     <kemet-accordion-panel>
       <h3 slot="trigger">Trigger 2</h3>
-      <kemet-icon slot="icon" icon="chevron-down" size="18"></kemet-icon>
+      <kemet-icon-bootstrap slot="icon" icon="chevron-down" size="18"></kemet-icon-bootstrap>
       <div slot="body">
         <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
       </div>
     </kemet-accordion-panel>
     <kemet-accordion-panel>
       <h3 slot="trigger">Trigger 3</h3>
-      <kemet-icon slot="icon" icon="chevron-down" size="18"></kemet-icon>
+      <kemet-icon-bootstrap slot="icon" icon="chevron-down" size="18"></kemet-icon-bootstrap>
       <div slot="body">
         <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
       </div>
@@ -54,10 +56,10 @@ export const Standard: Story = {
     const trigger1 = canvas.getByText('Trigger 1');
     const trigger2 = canvas.getByText('Trigger 2');
     const trigger3 = canvas.getByText('Trigger 3');
-    const panel1 = trigger1.closest('kemet-accordion-panel');
-    const panel2 = trigger2.closest('kemet-accordion-panel');
-    const panel3 = trigger3.closest('kemet-accordion-panel');
-    const accordion = trigger1.closest('kemet-accordion');
+    const panel1 = trigger1.closest('kemet-accordion-panel') as KemetAccordionPanel;
+    const panel2 = trigger2.closest('kemet-accordion-panel') as KemetAccordionPanel;
+    const panel3 = trigger3.closest('kemet-accordion-panel') as KemetAccordionPanel;
+    const accordion = trigger1.closest('kemet-accordion') as KemetAccordion;
 
     await step('Expand Trigger 2', async () => {
       await userEvent.click(trigger2);
@@ -89,7 +91,7 @@ export const TogglePanels: Story = {
     const canvas = within(canvasElement);
     const trigger1 = canvas.getByText('Trigger 1');
     const trigger2 = canvas.getByText('Trigger 2');
-    const panel2 = trigger2.closest('kemet-accordion-panel');
+    const panel2 = trigger2.closest('kemet-accordion-panel') as KemetAccordionPanel;
 
     await step('Expand Trigger 2', async () => {
       await userEvent.click(trigger2);

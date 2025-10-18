@@ -51,7 +51,6 @@ export default class KemetIconLucide extends LitElement {
     // setTimeout is the only way to get the svg after lucide has created it
     setTimeout(() => {
       const svg = this.shadowRoot.querySelector('svg');
-      console.log(this.size);
       if (svg) {
         svg.style.width = `${this.size.toString()}px`;
         svg.style.height = `${this.size.toString()}px`;

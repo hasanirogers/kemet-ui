@@ -6,7 +6,7 @@ import '../../styles/elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 
-import '../../elements/icon';
+import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
   title: 'Elements / Tabs',
@@ -33,13 +33,13 @@ type Story = StoryObj;
 const NamedTemplate = (args) => html`
   <kemet-tabs selected="${ifDefined(args.selected)}" panel-effect=${ifDefined(args.panelEffect)} ?swipe=${args.swipe} ?divider=${args.divider} tabs-align=${ifDefined(args.tabsAlign)} ?hide-ink=${args.hideInk} placement=${ifDefined(args.placement)} measure-height-offset=${ifDefined(args.measureHeightOffset)}>
     <kemet-tab slot="tab" link="account">
-      <kemet-icon icon="person-circle"></kemet-icon>&nbsp;Account
+      <kemet-icon-bootstrap icon="person-circle"></kemet-icon-bootstrap>&nbsp;Account
     </kemet-tab>
     <kemet-tab slot="tab" link="settings">
-      <kemet-icon icon="gear"></kemet-icon>&nbsp;Settings
+      <kemet-icon-bootstrap icon="gear"></kemet-icon-bootstrap>&nbsp;Settings
     </kemet-tab>
     <kemet-tab slot="tab" link="dashboard">
-      <kemet-icon icon="columns-gap"></kemet-icon>&nbsp;Dashboard
+      <kemet-icon-bootstrap icon="columns-gap"></kemet-icon-bootstrap>&nbsp;Dashboard
     </kemet-tab>
     <kemet-tab-panel panel="account" slot="panel">
       <h3 kemet-margin-top="none">Account</h3>

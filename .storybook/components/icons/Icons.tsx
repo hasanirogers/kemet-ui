@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { KemetIconInterface } from '../../../src/components/kemet-icon/types';
+import KemetIconBootstrap from '../../../src/elements/icon-bootstrap';
 import './Icons.css';
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'kemet-icon': KemetIconInterface
+      'kemet-icon-bootstrap': KemetIconBootstrap
     }
   }
 }
@@ -43,9 +43,9 @@ export const Icons = (props) => {
 
     switch (props.set) {
       case 'bootstrap': url = 'https://unpkg.com/bootstrap-icons@latest/bootstrap-icons.svg'; break;
-      case 'font-awesome-brands': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/brands.svg'; break;
-      case 'font-awesome-regular': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/regular.svg'; break;
-      case 'font-awesome-solid': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/solid.svg'; break;
+      // case 'font-awesome-brands': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/brands.svg'; break;
+      // case 'font-awesome-regular': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/regular.svg'; break;
+      // case 'font-awesome-solid': url = 'https://unpkg.com/@fortawesome/fontawesome-free@latest/sprites/solid.svg'; break;
       default: url = 'https://unpkg.com/bootstrap-icons@latest/bootstrap-icons.svg';
     }
 
@@ -62,7 +62,7 @@ export const Icons = (props) => {
         {iconSlugs.map(slug => (
           <li key={slug}>
             <figure>
-              <kemet-icon set={props.set} icon={slug} size="32"></kemet-icon>
+              <kemet-icon-bootstrap icon={slug} size="32"></kemet-icon-bootstrap>
               <figcaption>{slug}</figcaption>
             </figure>
           </li>
