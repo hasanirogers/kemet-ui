@@ -4,6 +4,29 @@ import { emitEvent } from '../utilities/misc/events';
 import { stylesBase } from '../styles/elements/alert';
 import { TypeStatus } from '../types/alert';
 
+export const roundedSizes = ['sm', 'md', 'lg', 'xl', 'circle', 'pill'] as const;
+export enum EnumRoundedSizes {
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
+  XL = 'xl',
+  CIRCLE = 'circle',
+  PILL = 'pill'
+}
+export type TypeRoundedSizes = EnumRoundedSizes;
+
+export const overlayPositions = ['fixed', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left'] as const;
+export enum EnumOverlayPositions {
+  FIXED = 'fixed',
+  TOP_FULL = 'top-full',
+  BOTTOM_FULL = 'bottom-full',
+  TOP_RIGHT = 'top-right',
+  TOP_LEFT = 'top-left',
+  BOTTOM_RIGHT = 'bottom-right',
+  BOTTOM_LEFT = 'bottom-left'
+}
+export type TypeOverlayPositions = EnumOverlayPositions;
+
 /**
  * @since 1.4.0
  * @status stable
@@ -16,7 +39,8 @@ import { TypeStatus } from '../types/alert';
  * @prop {boolean} closable - Adds a close button to the alert.
  * @prop {string} borderStatus - Adds a border that indicates the status.
  * @prop {boolean} hidden - Hides the element from document flow.
- * @prop {string} overlay - Fixes the alert over content in specified position.
+ * @prop {TypeOverlayPositions} overlay - Fixes the alert over content in specified position.
+ * @prop {TypeVariants} variant - The style of the alert.
  *
  * @slot default - The contents of the alert.
  *
@@ -58,6 +82,9 @@ export default class KemetAlert extends LitElement {
   @property({ type: String, reflect: true })
   overlay: string;
 
+  @property({ type: String, reflect: true })
+  rounded: TypeRoundedSizes;
+
   shouldUpdate(prevProps: Map<string, never>) {
     if (prevProps.has('opened') && !prevProps.get('opened')) {
       this.hidden = false;
@@ -93,7 +120,7 @@ export default class KemetAlert extends LitElement {
 
   makeCloseBtn() {
     if (this.closable) {
-      return html`<kemet-icon icon="x-lg" @click=${() => { this.opened = false; }}></kemet-icon>`;
+      return html`<kemet-icon-bootstrap icon="x-lg" @click=${() => { this.opened = false; }}></kemet-icon-bootstrap>`;
     }
 
     return null;

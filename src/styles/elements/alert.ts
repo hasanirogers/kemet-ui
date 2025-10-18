@@ -7,6 +7,7 @@ export const stylesBase = css`
     --kemet-alert-status-color: inherit;
     --kemet-alert-align-items: center;
     --kemet-alert-border: 1px solid rgb(var(--kemet-alert-status-color));
+    --kemet-alert-radius: 0;
 
     display: flex;
     grid-template-columns: auto 1fr auto;
@@ -16,6 +17,7 @@ export const stylesBase = css`
     padding: var(--kemet-alert-padding);
     border: var(--kemet-alert-border);
     transition: opacity 300ms ease;
+    border-radius: var(--kemet-alert-radius);
   }
 
   :host([opened]) {
@@ -88,6 +90,34 @@ export const stylesBase = css`
 
   :host([overlay*="right"]) {
     right: 0;
+  }
+
+  :host([rounded]) {
+    --kemet-alert-radius: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded="sm"]) {
+    --kemet-alert-radius: var(--kemet-border-radius-sm);
+  }
+
+  :host([rounded="md"]) {
+    --kemet-alert-radius: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded="lg"]) {
+    --kemet-alert-radius: var(--kemet-border-radius-lg);
+  }
+
+  :host([rounded="xl"]) {
+    --kemet-alert-radius: var(--kemet-border-radius-xl);
+  }
+
+  :host([rounded="circle"]) {
+    --kemet-alert-radius: var(--kemet-border-radius-circle);
+  }
+
+  :host([rounded="pill"]) {
+    --kemet-alert-radius: var(--kemet-border-radius-pill);
   }
 
   .close {

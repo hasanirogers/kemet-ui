@@ -1,7 +1,8 @@
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
 import { userEvent, within, expect } from 'storybook/test';
+import KemetAlert, { EnumOverlayPositions, EnumRoundedSizes, roundedSizes } from '../../elements/alert';;
 
 import '../../elements/alert';
 
@@ -14,13 +15,11 @@ import '../../elements/icon-bootstrap';
 const meta: Meta = {
   title: 'Elements / Alert',
   component: 'kemet-alert',
+  args: {
+    text: 'The brown fox jumped over the lazy dog.',
+    opened: true,
+  },
   argTypes: {
-    heading: {
-      control: { type: 'text' },
-    },
-    text: {
-      control: { type: 'text' },
-    },
     icon: {
       control: { type: 'select' },
       options: ['none', 'info-circle', 'check-circle', 'gear', 'exclamation-circle'],
@@ -29,19 +28,17 @@ const meta: Meta = {
       control: { type: 'select' },
       options: ['standard', 'primary', 'success', 'warning', 'error'],
     },
-    closable: {
-      control: { type: 'boolean' },
-    },
     border: {
       control: { type: 'select' },
       options: ['none', 'top', 'right', 'bottom', 'left'],
     },
-    opened: {
-      control: { type: 'boolean' },
-    },
     overlay: {
       control: { type: 'select' },
       options: ['none', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left'],
+    },
+    rounded: {
+      control: { type: 'select' },
+      options: roundedSizes,
     },
   },
 };
@@ -50,32 +47,16 @@ export default meta;
 type Story = StoryObj;
 
 const Template = (args: Args) => {
-  const makeIcon = () => {
-    if (args.icon !== 'none' && args.icon) {
-      return html`<kemet-icon-bootstrap slot="icon" icon=${args.icon} size="24" ></kemet-icon-bootstrap>`;
-    }
-
-    return null;
-  };
-
-  const makeHeading = () => {
-    if (args.heading !== '' && args.heading) {
-      return html`<h3 kemet-margin-bottom="none" kemet-margin-top="none">${args.heading}</h3>`;
-    }
-
-    return null;
-  };
-
   return html`
     <kemet-alert
       status=${ifDefined(args.status)}
       ?closable=${args.closable}
       ?opened=${args.opened}
-      border-status=${args.border}
-      overlay=${ifDefined(args.overlay !== 'none' ? args.overlay : null)}
-      kemet-margin=${ifDefined(args.overlay.indexOf('full') < 0 ? '2xl' : nothing)}>
-      ${makeIcon()}
-      ${makeHeading()}
+      border-status=${ifDefined(args.border)}
+      rounded=${ifDefined(args.rounded)}
+      overlay=${ifDefined(args.overlay !== 'none' ? args.overlay : null)}>
+      ${args.icon}
+      ${args.heading}
       ${args.text}
     </kemet-alert>
   `;
@@ -83,51 +64,42 @@ const Template = (args: Args) => {
 
 export const Standard: Story = {
   render: (args: Args) => Template(args),
-  args: {
-    opened: true,
-    text: 'The brown fox jumped over the lazy dog.',
-    overlay: 'none',
-  },
 };
 
 export const Heading: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    overlay: 'none',
+    heading: html`<h3 kemet-margin-bottom="none" kemet-margin-top="none">This is a heading.</h3>`,
   },
 };
 
 export const Icon: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'info-circle',
-    overlay: 'none',
+    icon: html`<kemet-icon-bootstrap slot="icon" icon="info-circle" size="24"></kemet-icon-bootstrap>`,
   },
 };
+
+export const Rounded: Story = {
+  render: (args: Args) => Template(args),
+  args: {
+    rounded: EnumRoundedSizes.MD,
+  }
+}
 
 export const Closable: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'info-circle',
     closable: true,
-    overlay: 'none',
+    heading: html`<h3 kemet-margin-bottom="none" kemet-margin-top="none">This is a heading.</h3>`,
   },
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
-    const alert = canvas.getByText('This is a heading.').closest('kemet-alert');
-    const closeButton = alert.shadowRoot.querySelector('.close kemet-icon');
+    const alert = canvas.getByText('This is a heading.').closest('kemet-alert') as KemetAlert;
+    const closeButton = alert?.shadowRoot?.querySelector('.close kemet-icon');
 
     await step('Close the Alert', async () => {
-      await userEvent.click(closeButton);
+      if (closeButton) await userEvent.click(closeButton);
       expect(alert.opened).toBeFalsy();
     });
 
@@ -141,65 +113,35 @@ export const Closable: Story = {
 export const BorderTop: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'info-circle',
-    closable: true,
     border: 'top',
-    overlay: 'none',
   },
 };
 
 export const BorderRight: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'info-circle',
-    closable: true,
     border: 'right',
-    overlay: 'none',
   },
 };
 
 export const BorderBottom: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'info-circle',
-    closable: true,
     border: 'bottom',
-    overlay: 'none',
   },
 };
 
 export const BorderLeft: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'info-circle',
-    closable: true,
     border: 'left',
-    overlay: 'none',
   },
 };
 
 export const Primary: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'info-circle',
-    closable: true,
     border: 'left',
-    overlay: 'none',
     status: 'primary',
   },
 };
@@ -207,13 +149,7 @@ export const Primary: Story = {
 export const Success: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'check-circle',
-    closable: true,
     border: 'left',
-    overlay: 'none',
     status: 'success',
   },
 };
@@ -221,13 +157,7 @@ export const Success: Story = {
 export const Warning: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'exclamation-triangle',
-    closable: true,
     border: 'left',
-    overlay: 'none',
     status: 'warning',
   },
 };
@@ -235,13 +165,68 @@ export const Warning: Story = {
 export const Error: Story = {
   render: (args: Args) => Template(args),
   args: {
-    opened: true,
-    heading: 'This is a heading.',
-    text: 'The brown fox jumped over the lazy dog.',
-    icon: 'exclamation-octagon',
-    closable: true,
     border: 'left',
-    overlay: 'none',
     status: 'error',
   },
 };
+
+export const TopFull: Story = {
+  render: (args: Args) => Template(args),
+  args: {
+    overlay: EnumOverlayPositions.TOP_FULL,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  }
+};
+
+export const BottomFull: Story = {
+  render: (args: Args) => Template(args),
+  args: {
+    overlay: EnumOverlayPositions.BOTTOM_FULL,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  }
+};
+
+export const TopRight: Story = {
+  render: (args: Args) => Template(args),
+  args: {
+    overlay: EnumOverlayPositions.TOP_RIGHT,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  }
+};
+
+export const TopLeft: Story = {
+  render: (args: Args) => Template(args),
+  args: {
+    overlay: EnumOverlayPositions.TOP_LEFT,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  }
+};
+
+export const BottomRight: Story = {
+  render: (args: Args) => Template(args),
+  args: {
+    overlay: EnumOverlayPositions.BOTTOM_RIGHT,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  }
+};
+
+export const BottomLeft: Story = {
+  render: (args: Args) => Template(args),
+  args: {
+    overlay: EnumOverlayPositions.BOTTOM_LEFT,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  }
+};
+

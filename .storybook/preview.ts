@@ -32,6 +32,7 @@ const preview: Preview = {
   decorators: [globalFormatting, handlePolaritySwitching],
 
   parameters: {
+    layout: 'centered',
     backgrounds: {
       options: {
         light: {
