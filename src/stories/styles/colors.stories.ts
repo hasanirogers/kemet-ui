@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
-import { makeColors } from '../../../../.storybook/utilities';
+import { makeColors } from '../../../.storybook/utilities';
 
 const meta: Meta = {
   title: 'Styles API / Colors',

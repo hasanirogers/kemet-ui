@@ -3,6 +3,9 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 const meta: Meta = {
   title: 'Styles API / Flexcolumn',
+  parameters: {
+    layout: 'padded',
+  },
 };
 export default meta;
 

@@ -1,19 +1,17 @@
 import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from './stories'
+import * as stories from './typography.stories'
 
 <Meta of={stories} />
 
-# Spacing
+# Typography
 
-Allows you to add either margin on padding to an element.
+You can control the size of type with type-size.
 
 <Canvas name="Standard" of={stories.Standard} />
 <Controls of={stories.Standard} />
 
+## Multiple Responsive Sizes
+
 <br />
-
-## Multiple Breakpoints
-
-You can also change the spacing at multiple breakpoints.
 
 <Canvas name="Multiple" of={stories.Multiple} />
