@@ -305,14 +305,6 @@
       "declarations": [
         {
           "kind": "variable",
-          "name": "roundedSizes",
-          "type": {
-            "text": "['sm', 'md', 'lg', 'xl', 'circle', 'pill']"
-          },
-          "default": "['sm', 'md', 'lg', 'xl', 'circle', 'pill']"
-        },
-        {
-          "kind": "variable",
           "name": "overlayPositions",
           "type": {
             "text": "['fixed', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left']"
@@ -537,14 +529,6 @@
         }
       ],
       "exports": [
-        {
-          "kind": "js",
-          "name": "roundedSizes",
-          "declaration": {
-            "name": "roundedSizes",
-            "module": "src/elements/alert.ts"
-          }
-        },
         {
           "kind": "js",
           "name": "overlayPositions",
@@ -823,28 +807,6 @@
             },
             {
               "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "attribute": "pill",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "circlePadding",
               "type": {
                 "text": "number"
@@ -854,8 +816,53 @@
               "attribute": "circle-padding"
             },
             {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "description": "Rounds the corners on the badge",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outlines the badge",
+              "attribute": "outlined",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconLeft",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "iconRight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
               "kind": "method",
               "name": "handleSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleLeftChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleRightChange"
             }
           ],
           "attributes": [
@@ -868,24 +875,6 @@
               "fieldName": "status"
             },
             {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Displays the badge in a circle",
-              "fieldName": "circle"
-            },
-            {
-              "name": "pill",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Rounds the corners on the badge",
-              "fieldName": "pill"
-            },
-            {
               "name": "circle-padding",
               "type": {
                 "text": "number"
@@ -893,6 +882,23 @@
               "default": "0",
               "description": "Padding on the badge as a circle",
               "fieldName": "circlePadding"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "description": "Rounds the corners on the badge",
+              "fieldName": "rounded"
+            },
+            {
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Outlines the badge",
+              "fieldName": "outlined"
             }
           ],
           "superclass": {

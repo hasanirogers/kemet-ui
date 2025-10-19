@@ -30,3 +30,14 @@ export enum EnumAxis {
   Vertical = 'vertical'
 }
 export type TypeAxis = EnumAxis;
+
+export const roundedSizes = ['sm', 'md', 'lg', 'xl', 'circle', 'pill'] as const;
+export enum EnumRoundedSizes {
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
+  XL = 'xl',
+  CIRCLE = 'circle',
+  PILL = 'pill'
+}
+export type TypeRoundedSizes = EnumRoundedSizes;

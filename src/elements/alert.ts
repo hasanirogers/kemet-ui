@@ -2,18 +2,7 @@ import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesBase } from '../styles/elements/alert';
-import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
-
-export const roundedSizes = ['sm', 'md', 'lg', 'xl', 'circle', 'pill'] as const;
-export enum EnumRoundedSizes {
-  SM = 'sm',
-  MD = 'md',
-  LG = 'lg',
-  XL = 'xl',
-  CIRCLE = 'circle',
-  PILL = 'pill'
-}
-export type TypeRoundedSizes = EnumRoundedSizes;
+import { EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/misc/constants';
 
 export const overlayPositions = ['fixed', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left'] as const;
 export enum EnumOverlayPositions {

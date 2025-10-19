@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/badge';
-import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+import { EnumRoundedSizes, EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/misc/constants';
 
 
 /**
@@ -12,9 +12,9 @@ import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
  * @summary Badges display the status of information.
  *
  * @prop {TypeStatus} status - The status of the badge
- * @prop {boolean} circle - Displays the badge in a circle
- * @prop {boolean} pill - Rounds the corners on the badge
  * @prop {number} circlePadding - Padding on the badge as a circle
+ * @prop {TypeRoundedSizes} rounded - Rounds the corners on the badge
+ * @prop {boolean} outlined - Outlines the badge
  *
  * @cssproperty --kemet-badge-padding - The padding of the badge. Default: 10px.
  *
@@ -27,24 +27,46 @@ export default class KemetBadge extends LitElement {
   @property({ reflect: true })
   status: TypeStatus = EnumStatuses.Primary;
 
-  @property({ type: Boolean, reflect: true })
-  circle: boolean = false;
-
-  @property({ type: Boolean, reflect: true })
-  pill: boolean = false;
-
   @property({ type: Number, attribute: 'circle-padding' })
   circlePadding: number = 0;
 
+  @property({ type: String, reflect: true })
+  rounded: TypeRoundedSizes;
+
+  @property({ type: Boolean, reflect: true })
+  outlined: boolean = false;
+
+  @state()
+  iconLeft: boolean = false;
+
+  @state()
+  iconRight: boolean = false;
+
   render() {
-    return html`<slot @slotchange=${() => this.handleSlotChange()}></slot>`;
+    return html`
+      <slot name="left" @slotchange=${() => this.handleLeftChange()}></slot>
+      ${this.iconLeft ? html`&nbsp;` : ''}
+      <slot @slotchange=${() => this.handleSlotChange()}></slot>
+      ${this.iconRight ? html`&nbsp;` : ''}
+      <slot name="right" @slotchange=${() => this.handleRightChange()}></slot>
+    `;
   }
 
   handleSlotChange() {
-    if (this.circle) {
+    if (this.rounded === EnumRoundedSizes.CIRCLE) {
       this.style.height = `${this.offsetWidth + this.circlePadding}px`;
       this.style.width = `${this.offsetWidth + this.circlePadding}px`;
     }
+  }
+
+  handleLeftChange() {
+    const left = this.querySelector('[slot="left"]');
+    if (left) this.iconLeft = true;
+  }
+
+  handleRightChange() {
+    const right = this.querySelector('[slot="right"]');
+    if (right) this.iconRight = true;
   }
 }
 

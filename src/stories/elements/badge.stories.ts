@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 
@@ -10,18 +10,20 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
-import { EnumStatuses, statuses } from '../../utilities/misc/constants';
+import { EnumRoundedSizes, EnumStatuses, roundedSizes, statuses } from '../../utilities/misc/constants';
 
 const meta: Meta = {
   title: 'Feedback & Status / Badge',
   component: 'kemet-badge',
+  render: args => Template(args),
   argTypes: {
     status: {
       control: { type: 'select' },
       options: statuses,
     },
-    circlePadding: {
-      control: { type: 'number' },
+    rounded: {
+      control: { type: 'select' },
+      options: roundedSizes,
     },
   }
 };
@@ -29,47 +31,66 @@ export default meta;
 
 type Story = StoryObj;
 
-const Template = (args) => html`
-  <kemet-badge status=${ifDefined(args.status)} ?pill=${args.pill} ?circle=${args.circle} circle-padding=${args.circlePadding}>
-    ${args.circle ? html`<kemet-icon-bootstrap icon="cart3"></kemet-icon-bootstrap>&nbsp;3` : 'Badge'}
+const Template = (args: Args) => html`
+  <kemet-badge status=${ifDefined(args.status)} rounded=${ifDefined(args.rounded)} ?outlined=${args.outlined} circle-padding=${ifDefined(args.circlePadding)}>
+    ${args.left}
+    ${args.rounded === EnumRoundedSizes.CIRCLE ? html`<kemet-icon-bootstrap icon="cart3"></kemet-icon-bootstrap>&nbsp;3` : 'Badge'}
+    ${args.right}
   </kemet-badge>
 `;
 
-export const Standard: Story = {
-  render: args => Template(args),
-};
+export const Standard: Story = {};
+
+export const Rounded: Story = {
+  args: {
+    rounded: EnumRoundedSizes.MD,
+  }
+}
 
 export const Pill: Story = {
-  render: args => Template(args),
   args: {
-    pill: true,
+    rounded: EnumRoundedSizes.PILL,
   },
 };
 
 export const Circle: Story = {
-  render: args => Template(args),
   args: {
-    circle: true,
-    circlePadding: 4,
+    rounded: EnumRoundedSizes.CIRCLE,
+    circlePadding: 24,
   },
 };
 
+export const LeftIcon: Story = {
+  args: {
+    left: html`<kemet-icon-bootstrap slot="left" icon="tag-fill" size="15"></kemet-icon-bootstrap>`,
+  },
+};
+
+export const RightIcon: Story = {
+  args: {
+    right: html`<kemet-icon-bootstrap slot="right" icon="x-circle-fill" size="15"></kemet-icon-bootstrap>`,
+  },
+};
+
+export const Outlined: Story = {
+  args: {
+    outlined: true,
+  }
+};
+
 export const Success: Story = {
-  render: args => Template(args),
   args: {
     status: EnumStatuses.Success,
   },
 };
 
 export const Warning: Story = {
-  render: args => Template(args),
   args: {
     status: EnumStatuses.Warning,
   },
 };
 
 export const Error: Story = {
-  render: args => Template(args),
   args: {
     status: EnumStatuses.Error,
   },
