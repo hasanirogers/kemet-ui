@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Avatar',
+  title: 'Feedback & Status / Avatar',
   component: 'kemet-avatar',
   argTypes: {
     circle: {

@@ -9,7 +9,7 @@ import '../../elements/tab-panel';
 import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
-  title: 'Elements / Tabs',
+  title: 'Organization / Tabs',
   component: 'kemet-tabs',
   argTypes: {
     panelEffect: {

@@ -14,7 +14,7 @@ import '../../elements/tab-panel';
 import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
-  title: 'Elements / Alert',
+  title: 'Feedback & Status / Alert',
   component: 'kemet-alert',
   args: {
     text: 'The brown fox jumped over the lazy dog.',

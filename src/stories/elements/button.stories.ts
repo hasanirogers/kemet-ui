@@ -12,7 +12,7 @@ import '../../elements/icon-bootstrap';
 import { EnumVariants, variants } from '../../elements/button';
 
 const meta: Meta = {
-  title: 'Elements / Button',
+  title: 'Actions / Button',
   component: 'kemet-button',
   argTypes: {
     variant: {

@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Sortable',
+  title: 'Actions / Sortable',
   component: 'kemet-sortable',
   args: {
     numItems: 3,

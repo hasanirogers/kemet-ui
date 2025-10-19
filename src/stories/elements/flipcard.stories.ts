@@ -11,7 +11,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Flipcard',
+  title: 'Organization / Flipcard',
   component: 'kemet-flipcard',
   argTypes: {
     axis: {

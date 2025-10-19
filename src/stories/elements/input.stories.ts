@@ -12,7 +12,7 @@ import '../../elements/icon-bootstrap';
 import { statuses } from '../../utilities/misc/constants';
 
 const meta: Meta = {
-  title: 'Elements / Input',
+  title: 'Form Controls / Input',
   component: 'kemet-input',
   argTypes: {
     type: {

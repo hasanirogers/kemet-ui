@@ -12,7 +12,7 @@ import '../../elements/avatar';
 import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
-  title: 'Elements / Card',
+  title: 'Organization / Card',
   component: 'kemet-card',
   args: {
     bodyText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

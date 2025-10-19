@@ -12,7 +12,7 @@ import '../../elements/tab-panel';
 import '../../elements/button';
 
 const meta: Meta = {
-  title: 'Elements / Popper',
+  title: 'Interactive / Popper',
   component: 'kemet-popper',
   args: {
     triggerText: 'Hover Over Me',

@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 
 const meta: Meta = {
-  title: 'Elements / Textarea',
+  title: 'Form Controls / Textarea',
   component: 'kemet-textarea',
   argTypes: {
     status: {

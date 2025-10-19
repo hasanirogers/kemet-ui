@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Upload',
+  title: 'Interactive / Upload',
   component: 'kemet-upload',
   args: {
     files: [

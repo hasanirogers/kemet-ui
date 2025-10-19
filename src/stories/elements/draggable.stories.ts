@@ -11,7 +11,7 @@ import '../../elements/tab-panel';
 import '../../elements/button';
 
 const meta: Meta = {
-  title: 'Elements / Draggable',
+  title: 'Actions / Draggable',
   component: 'kemet-draggable',
   args: {
     text: 'Drag Me',

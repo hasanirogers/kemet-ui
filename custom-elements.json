@@ -6512,7 +6512,7 @@
               "kind": "field",
               "name": "input",
               "type": {
-                "text": "KemetInput | KemetTextareaInterface"
+                "text": "KemetInput | KemetTextarea"
               }
             },
             {
@@ -6734,6 +6734,22 @@
           "default": "['click', 'hover']"
         },
         {
+          "kind": "variable",
+          "name": "effects",
+          "type": {
+            "text": "['none', 'fade', 'scale', 'slide', 'fall', 'flip-horizontal', 'flip-vertical', 'sign', 'super-scaled']"
+          },
+          "default": "['none', 'fade', 'scale', 'slide', 'fall', 'flip-horizontal', 'flip-vertical', 'sign', 'super-scaled']"
+        },
+        {
+          "kind": "variable",
+          "name": "strategy",
+          "type": {
+            "text": "['fixed', 'absolute']"
+          },
+          "default": "['fixed', 'absolute']"
+        },
+        {
           "kind": "class",
           "description": "",
           "name": "KemetPopper",
@@ -6778,7 +6794,6 @@
               "type": {
                 "text": "TypePlacement"
               },
-              "default": "'top'",
               "description": "The position of the popper over the trigger.",
               "attribute": "placement",
               "reflects": true
@@ -6799,7 +6814,6 @@
               "type": {
                 "text": "TypeFireOn"
               },
-              "default": "'hover'",
               "description": "Activate the Popper on Click or Hover",
               "attribute": "fire-on"
             },
@@ -6807,9 +6821,8 @@
               "kind": "field",
               "name": "strategy",
               "type": {
-                "text": "string"
+                "text": "TypeStrategy"
               },
-              "default": "'fixed'",
               "description": "Sets the strategy option in Popper's api",
               "attribute": "strategy"
             },
@@ -6894,7 +6907,6 @@
               "type": {
                 "text": "TypePlacement"
               },
-              "default": "'top'",
               "description": "The position of the popper over the trigger.",
               "fieldName": "placement"
             },
@@ -6911,16 +6923,14 @@
               "type": {
                 "text": "TypeFireOn"
               },
-              "default": "'hover'",
               "description": "Activate the Popper on Click or Hover",
               "fieldName": "fireOn"
             },
             {
               "name": "strategy",
               "type": {
-                "text": "string"
+                "text": "TypeStrategy"
               },
-              "default": "'fixed'",
               "description": "Sets the strategy option in Popper's api",
               "fieldName": "strategy"
             },
@@ -6966,6 +6976,22 @@
           "name": "fireEvents",
           "declaration": {
             "name": "fireEvents",
+            "module": "src/elements/popper.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "effects",
+          "declaration": {
+            "name": "effects",
+            "module": "src/elements/popper.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "strategy",
+          "declaration": {
+            "name": "strategy",
             "module": "src/elements/popper.ts"
           }
         },
@@ -7272,9 +7298,8 @@
               "kind": "field",
               "name": "axis",
               "type": {
-                "text": "string"
+                "text": "TypeAxis"
               },
-              "default": "'horizontal'",
               "description": "The direction of the button's layout",
               "attribute": "axis",
               "reflects": true
@@ -7302,9 +7327,8 @@
               "kind": "field",
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'standard'",
               "description": "The status of the radio button set",
               "attribute": "status",
               "reflects": true
@@ -7390,9 +7414,8 @@
             {
               "name": "axis",
               "type": {
-                "text": "string"
+                "text": "TypeAxis"
               },
-              "default": "'horizontal'",
               "description": "The direction of the button's layout",
               "fieldName": "axis"
             },
@@ -7416,9 +7439,8 @@
             {
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'standard'",
               "description": "The status of the radio button set",
               "fieldName": "status"
             },
@@ -7471,6 +7493,14 @@
       "kind": "javascript-module",
       "path": "src/elements/rotator.ts",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "effects",
+          "type": {
+            "text": "['fade', 'flip']"
+          },
+          "default": "['fade', 'flip']"
+        },
         {
           "kind": "class",
           "description": "",
@@ -7526,9 +7556,8 @@
               "kind": "field",
               "name": "effect",
               "type": {
-                "text": "string"
+                "text": "TypeEffects"
               },
-              "default": "'fade'",
               "description": "The transition effect type.",
               "attribute": "effect",
               "reflects": true
@@ -7603,9 +7632,8 @@
             {
               "name": "effect",
               "type": {
-                "text": "string"
+                "text": "TypeEffects"
               },
-              "default": "'fade'",
               "description": "The transition effect type.",
               "fieldName": "effect"
             },
@@ -7631,6 +7659,14 @@
       "exports": [
         {
           "kind": "js",
+          "name": "effects",
+          "declaration": {
+            "name": "effects",
+            "module": "src/elements/rotator.ts"
+          }
+        },
+        {
+          "kind": "js",
           "name": "default",
           "declaration": {
             "name": "KemetRotator",
@@ -7651,6 +7687,14 @@
       "kind": "javascript-module",
       "path": "src/elements/scroll-nav.ts",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "effects",
+          "type": {
+            "text": "['sticky', 'resize']"
+          },
+          "default": "['sticky', 'resize']"
+        },
         {
           "kind": "class",
           "description": "",
@@ -7682,9 +7726,8 @@
               "kind": "field",
               "name": "effect",
               "type": {
-                "text": "string"
+                "text": "TypeEffect"
               },
-              "default": "'sticky'",
               "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
               "attribute": "effect",
               "reflects": true
@@ -7733,9 +7776,8 @@
             {
               "name": "effect",
               "type": {
-                "text": "string"
+                "text": "TypeEffect"
               },
-              "default": "'sticky'",
               "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
               "fieldName": "effect"
             },
@@ -7768,6 +7810,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "effects",
+          "declaration": {
+            "name": "effects",
+            "module": "src/elements/scroll-nav.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -7945,9 +7995,8 @@
               "kind": "field",
               "name": "axis",
               "type": {
-                "text": "string"
+                "text": "TypeAxis"
               },
-              "default": "'horizontal'",
               "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
               "attribute": "axis",
               "reflects": true
@@ -7956,9 +8005,8 @@
               "kind": "field",
               "name": "pagination",
               "type": {
-                "text": "string"
+                "text": "TypeDirection"
               },
-              "default": "'bottom'",
               "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
               "attribute": "pagination",
               "reflects": true
@@ -8012,18 +8060,16 @@
             {
               "name": "axis",
               "type": {
-                "text": "string"
+                "text": "TypeAxis"
               },
-              "default": "'horizontal'",
               "description": "Determines the direction the component flows. Values include: (horizontal | vertical)",
               "fieldName": "axis"
             },
             {
               "name": "pagination",
               "type": {
-                "text": "string"
+                "text": "TypeDirection"
               },
-              "default": "'bottom'",
               "description": "Determines where to display the paginator. Values include: (top | right | bottom | left)",
               "fieldName": "pagination"
             }
@@ -9240,9 +9286,87 @@
       "path": "src/elements/tabs.ts",
       "declarations": [
         {
+          "kind": "variable",
+          "name": "panelEffect",
+          "type": {
+            "text": "['none', 'slide', 'fade', 'stacked']"
+          },
+          "default": "['none', 'slide', 'fade', 'stacked']"
+        },
+        {
+          "kind": "variable",
+          "name": "tabsAlign",
+          "type": {
+            "text": "['center', 'between', 'around', 'evenly', 'start', 'end']"
+          },
+          "default": "['center', 'between', 'around', 'evenly', 'start', 'end']"
+        },
+        {
           "kind": "class",
           "description": "",
           "name": "KemetTabs",
+          "cssProperties": [
+            {
+              "description": "The thickness of the ink.",
+              "name": "--kemet-tabs-ink-size"
+            },
+            {
+              "description": "The radius on the ink.",
+              "name": "--kemet-tabs-ink-radius"
+            },
+            {
+              "description": "The color of the ink.",
+              "name": "--kemet-tabs-ink-color"
+            },
+            {
+              "description": "The thickness of the divider.",
+              "name": "--kemet-tabs-divider-size"
+            },
+            {
+              "description": "The color of the divider.",
+              "name": "--kemet-tabs-divider-color"
+            },
+            {
+              "description": "The transition speed of the panels.",
+              "name": "--kemet-tabs-transition-speed"
+            },
+            {
+              "description": "The space between tabs and panels.",
+              "name": "--kemet-tabs-spacer"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The container for the tablist.",
+              "name": "links"
+            },
+            {
+              "description": "Contains the tabs.",
+              "name": "tablist"
+            },
+            {
+              "description": "Contains the panels.",
+              "name": "panels"
+            },
+            {
+              "description": "The ink element.",
+              "name": "ink"
+            },
+            {
+              "description": "The divider element.",
+              "name": "divider"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Place the tabs here.",
+              "name": "tab"
+            },
+            {
+              "description": "Place the panels here.",
+              "name": "panel"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -9250,6 +9374,7 @@
               "type": {
                 "text": "string"
               },
+              "description": "The selected tab by name",
               "attribute": "selected",
               "reflects": true
             },
@@ -9260,6 +9385,7 @@
                 "text": "number"
               },
               "default": "0",
+              "description": "The selected tab by index",
               "attribute": "selectedIndex"
             },
             {
@@ -9269,15 +9395,16 @@
                 "text": "number"
               },
               "default": "0",
+              "description": "Positions the current panel",
               "attribute": "panelPosition"
             },
             {
               "kind": "field",
               "name": "panelEffect",
               "type": {
-                "text": "TypePanelEffect"
+                "text": "string"
               },
-              "default": "'none'",
+              "description": "The transition effect for panels",
               "attribute": "panel-effect",
               "reflects": true
             },
@@ -9287,15 +9414,16 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Determines whether to enable swipe behavior",
               "attribute": "swipe"
             },
             {
               "kind": "field",
               "name": "placement",
               "type": {
-                "text": "TypePlacement"
+                "text": "TypeDirection"
               },
-              "default": "'top'",
+              "description": "Places the tabs to the top, right, bottom, or left",
               "attribute": "placement",
               "reflects": true
             },
@@ -9305,6 +9433,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Determines whether to show a divider line",
               "attribute": "divider"
             },
             {
@@ -9313,7 +9442,7 @@
               "type": {
                 "text": "TypeTabsAlign"
               },
-              "default": "'center'",
+              "description": "Spacing alignment of the tabs",
               "attribute": "tabs-align",
               "reflects": true
             },
@@ -9321,8 +9450,9 @@
               "kind": "field",
               "name": "ink",
               "type": {
-                "text": "Iink"
+                "text": "object"
               },
+              "description": "An object that contains information about the ink",
               "attribute": "ink"
             },
             {
@@ -9332,6 +9462,7 @@
                 "text": "boolean"
               },
               "default": "false",
+              "description": "Determines whether to hide the ink",
               "attribute": "hide-ink"
             },
             {
@@ -9340,6 +9471,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Is true when the space of the tabs is larger than it's container",
               "attribute": "overflow",
               "reflects": true
             },
@@ -9532,12 +9664,19 @@
               ]
             }
           ],
+          "events": [
+            {
+              "description": "Fires when a tab is changed",
+              "name": "kemet-tab-changed"
+            }
+          ],
           "attributes": [
             {
               "name": "selected",
               "type": {
                 "text": "string"
               },
+              "description": "The selected tab by name",
               "fieldName": "selected"
             },
             {
@@ -9546,6 +9685,7 @@
                 "text": "number"
               },
               "default": "0",
+              "description": "The selected tab by index",
               "fieldName": "selectedIndex"
             },
             {
@@ -9554,14 +9694,15 @@
                 "text": "number"
               },
               "default": "0",
+              "description": "Positions the current panel",
               "fieldName": "panelPosition"
             },
             {
               "name": "panel-effect",
               "type": {
-                "text": "TypePanelEffect"
+                "text": "string"
               },
-              "default": "'none'",
+              "description": "The transition effect for panels",
               "fieldName": "panelEffect"
             },
             {
@@ -9569,14 +9710,15 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Determines whether to enable swipe behavior",
               "fieldName": "swipe"
             },
             {
               "name": "placement",
               "type": {
-                "text": "TypePlacement"
+                "text": "TypeDirection"
               },
-              "default": "'top'",
+              "description": "Places the tabs to the top, right, bottom, or left",
               "fieldName": "placement"
             },
             {
@@ -9584,6 +9726,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Determines whether to show a divider line",
               "fieldName": "divider"
             },
             {
@@ -9591,14 +9734,15 @@
               "type": {
                 "text": "TypeTabsAlign"
               },
-              "default": "'center'",
+              "description": "Spacing alignment of the tabs",
               "fieldName": "tabsAlign"
             },
             {
               "name": "ink",
               "type": {
-                "text": "Iink"
+                "text": "object"
               },
+              "description": "An object that contains information about the ink",
               "fieldName": "ink"
             },
             {
@@ -9607,6 +9751,7 @@
                 "text": "boolean"
               },
               "default": "false",
+              "description": "Determines whether to hide the ink",
               "fieldName": "hideInk"
             },
             {
@@ -9614,6 +9759,7 @@
               "type": {
                 "text": "boolean"
               },
+              "description": "Is true when the space of the tabs is larger than it's container",
               "fieldName": "overflow"
             }
           ],
@@ -9622,10 +9768,27 @@
             "package": "lit"
           },
           "tagName": "kemet-tabs",
-          "customElement": true
+          "customElement": true,
+          "summary": "A group of tabs and panels."
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "panelEffect",
+          "declaration": {
+            "name": "panelEffect",
+            "module": "src/elements/tabs.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tabsAlign",
+          "declaration": {
+            "name": "tabsAlign",
+            "module": "src/elements/tabs.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -9816,7 +9979,6 @@
               "type": {
                 "text": "TypeStatus"
               },
-              "default": "'standard'",
               "attribute": "status",
               "reflects": true
             },
@@ -10073,7 +10235,6 @@
               "type": {
                 "text": "TypeStatus"
               },
-              "default": "'standard'",
               "fieldName": "status"
             },
             {
@@ -10738,7 +10899,6 @@
               "type": {
                 "text": "TypePlacement"
               },
-              "default": "'top'",
               "description": "The position of the popper over the trigger.",
               "attribute": "placement",
               "reflects": true,
@@ -10767,7 +10927,6 @@
               "type": {
                 "text": "TypeFireOn"
               },
-              "default": "'hover'",
               "description": "Activate the Popper on Click or Hover",
               "attribute": "fire-on",
               "inheritedFrom": {
@@ -10779,9 +10938,8 @@
               "kind": "field",
               "name": "strategy",
               "type": {
-                "text": "string"
+                "text": "TypeStrategy"
               },
-              "default": "'fixed'",
               "description": "Sets the strategy option in Popper's api",
               "attribute": "strategy",
               "inheritedFrom": {
@@ -10895,7 +11053,6 @@
               "type": {
                 "text": "TypePlacement"
               },
-              "default": "'top'",
               "description": "The position of the popper over the trigger.",
               "fieldName": "placement",
               "inheritedFrom": {
@@ -10920,7 +11077,6 @@
               "type": {
                 "text": "TypeFireOn"
               },
-              "default": "'hover'",
               "description": "Activate the Popper on Click or Hover",
               "fieldName": "fireOn",
               "inheritedFrom": {
@@ -10931,9 +11087,8 @@
             {
               "name": "strategy",
               "type": {
-                "text": "string"
+                "text": "TypeStrategy"
               },
-              "default": "'fixed'",
               "description": "Sets the strategy option in Popper's api",
               "fieldName": "strategy",
               "inheritedFrom": {
@@ -11169,7 +11324,7 @@
               "kind": "field",
               "name": "tracker",
               "type": {
-                "text": "KemetTrackerInterface"
+                "text": "KemetTracker"
               }
             },
             {

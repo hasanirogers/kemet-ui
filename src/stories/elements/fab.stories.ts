@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / FAB',
+  title: 'Actions / FAB',
   component: 'kemet-fab',
   args: {
     label: 'Action',

@@ -16,7 +16,7 @@ import KemetAccordionPanel from '../../elements/accordion-panel';
 import KemetAccordion from '../../elements/accordion';
 
 const meta: Meta = {
-  title: 'Elements / Accordion',
+  title: 'Organization / Accordion',
   component: 'kemet-accordion',
 };
 export default meta;

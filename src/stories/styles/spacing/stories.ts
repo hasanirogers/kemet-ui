@@ -3,7 +3,7 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 const meta: Meta = {
-  title: 'Styles / Spacing',
+  title: 'Styles API / Spacing',
 };
 export default meta;
 

@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Timer',
+  title: 'Feedback & Status / Timer',
   component: 'kemet-timer',
   argTypes: {
     format: {

@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Combo',
+  title: 'Form Controls / Combo',
   component: 'kemet-combo',
   args: {
     options: [

@@ -20,7 +20,7 @@ import '../../elements/badge';
 import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
-  title: 'Elements / Carousel',
+  title: 'Interactive / Carousel',
   component: 'kemet-carousel',
   args: {
     numOfSlides: 5,

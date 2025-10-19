@@ -14,7 +14,7 @@ import '../../elements/button';
 import '../../elements/icon-bootstrap';
 
 const meta: Meta = {
-  title: 'Elements / Modal',
+  title: 'Organization / Modal',
   component: 'kemet-modal',
   args: {
     displayCloseBtn: true,

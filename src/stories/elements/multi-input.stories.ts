@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Multi Input',
+  title: 'Form Controls / Multi Input',
   component: 'kemet-multi-input',
   args: {
     options: [

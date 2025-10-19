@@ -8,7 +8,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Scroll Nav',
+  title: 'Interactive / Scroll Nav',
   component: 'kemet-scroll-nav',
 };
 export default meta;

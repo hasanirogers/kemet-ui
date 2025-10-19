@@ -13,7 +13,7 @@ import '../../elements/tab-panel';
 
 
 const meta: Meta = {
-  title: 'Elements / Drawer',
+  title: 'Organization / Drawer',
   component: 'kemet-drawer',
   argTypes: {
     effect: {

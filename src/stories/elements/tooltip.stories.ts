@@ -11,7 +11,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Tooltip',
+  title: 'Feedback & Status / Tooltip',
   component: 'kemet-tooltip',
   args: {
     triggerText: 'Trigger',

@@ -70,7 +70,19 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Introduction', 'Styles', 'Icons','Elements', 'Templates'],
+        order: [
+          'Introduction',
+          'Styles API',
+          ['Config', 'Core API'],
+          'Icons',
+          'Actions',
+          'Form Controls',
+          'Interactive',
+          'Feedback & Status',
+          'Organization',
+          'Miscellaneous',
+          'Templates'
+        ],
       },
     },
   },

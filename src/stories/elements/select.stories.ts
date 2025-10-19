@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Select',
+  title: 'Form Controls / Select',
   component: 'kemet-select',
   argTypes: {
     status: {

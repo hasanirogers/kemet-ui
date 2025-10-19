@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { makeColors } from '../../../../.storybook/utilities';
 
 const meta: Meta = {
-  title: 'Styles / Colors',
+  title: 'Styles API / Colors',
 };
 export default meta;
 

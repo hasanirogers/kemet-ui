@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Password',
+  title: 'Form Controls / Password',
   component: 'kemet-password',
   args: {
     rules: [

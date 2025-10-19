@@ -13,7 +13,7 @@ import '../../elements/icon-bootstrap';
 import { EnumStatuses, statuses } from '../../utilities/misc/constants';
 
 const meta: Meta = {
-  title: 'Elements / Badge',
+  title: 'Feedback & Status / Badge',
   component: 'kemet-badge',
   argTypes: {
     status: {

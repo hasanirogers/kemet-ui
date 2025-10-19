@@ -11,7 +11,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Scroll Snap',
+  title: 'Interactive / Scroll Snap',
   component: 'kemet-scroll-snap',
   args: {
     numberOfSlides: 5,

@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Radio',
+  title: 'Form Controls / Radio',
   component: 'kemet-radio',
   args: {
     legend: 'Legend',

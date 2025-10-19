@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Toggle',
+  title: 'Form Controls / Toggle',
   component: 'kemet-toggle',
   args: {
     label: 'Label'

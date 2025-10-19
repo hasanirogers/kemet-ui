@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Rotator',
+  title: 'Miscellaneous / Rotator',
   component: 'kemet-rotator',
   args: {
     rotationSpeed: 3,

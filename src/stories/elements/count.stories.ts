@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Count',
+  title: 'Form Controls / Count',
   component: 'kemet-count',
   args: {
     label: 'Label',

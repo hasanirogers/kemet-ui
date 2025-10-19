@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / SVGs',
+  title: 'Miscellaneous / SVGs',
   component: 'kemet-svgs',
   args: {
     svg: 'anubis',

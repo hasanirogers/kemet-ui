@@ -12,7 +12,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Field',
+  title: 'Form Controls / Field',
   component: 'kemet-accordion',
   args: {
     label: 'Label',

@@ -2,7 +2,7 @@ import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 const meta: Meta = {
-  title: 'Styles / Type Alignment',
+  title: 'Styles API / Type Alignment',
 };
 export default meta;
 

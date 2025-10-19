@@ -8,7 +8,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 const meta: Meta = {
-  title: 'Elements / Checkbox',
+  title: 'Form Controls / Checkbox',
   component: 'kemet-checkbox',
   args: {
     label: 'Label',
