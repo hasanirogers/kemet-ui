@@ -1,8 +1,16 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/timer';
-import { TypeFormats } from '../types/timer';
 import { emitEvent } from '../utilities/misc/events';
+
+export type TypeFormats = 'seconds' | 'minutes' | 'hours' | 'days';
+export enum EnumFormats {
+  Seconds = 'seconds',
+  Minutes = 'minutes',
+  Hours = 'hours',
+  Days = 'days'
+}
+export type TypeFormat = EnumFormats;
 
 /**
  * @since 3.1.0

@@ -10,6 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
+import { EnumStatuses, statuses } from '../../utilities/misc/constants';
 
 const meta: Meta = {
   title: 'Elements / Badge',
@@ -17,13 +18,7 @@ const meta: Meta = {
   argTypes: {
     status: {
       control: { type: 'select' },
-      options: ['standard', 'primary', 'success', 'warning', 'error'],
-    },
-    pill: {
-      control: { type: 'boolean' },
-    },
-    circle: {
-      control: { type: 'boolean' },
+      options: statuses,
     },
     circlePadding: {
       control: { type: 'number' },
@@ -62,20 +57,20 @@ export const Circle: Story = {
 export const Success: Story = {
   render: args => Template(args),
   args: {
-    status: 'success',
+    status: EnumStatuses.Success,
   },
 };
 
 export const Warning: Story = {
   render: args => Template(args),
   args: {
-    status: 'warning',
+    status: EnumStatuses.Warning,
   },
 };
 
 export const Error: Story = {
   render: args => Template(args),
   args: {
-    status: 'error',
+    status: EnumStatuses.Error,
   },
 };

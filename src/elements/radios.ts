@@ -2,10 +2,10 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { FormSubmitController } from '../utilities/controllers/forms';
 import { emitEvent } from '../utilities/misc/events';
-import { stylesRadios } from '../styles/elements/radio';
-import { TypeAxis, TypeStatus } from '../types/radio';
-
+import { EnumAxis, EnumStatuses, TypeAxis, TypeStatus } from '../utilities/misc/constants';
 import type KemetRadio from './radio';
+
+import { stylesRadios } from '../styles/elements/radio';
 
 /**
  * @since 1.0.0
@@ -15,10 +15,10 @@ import type KemetRadio from './radio';
  * @summary A group of radio buttons.
  *
  * @prop {string} legend - The legend text for the fieldset
- * @prop {string} axis - The direction of the button's layout
+ * @prop {TypeAxis} axis - The direction of the button's layout
  * @prop {string} value - The value of the selected radio button
  * @prop {string} name - The name of the radio button set
- * @prop {string} status - The status of the radio button set
+ * @prop {TypeStatus} status - The status of the radio button set
  * @prop {string} message - Validation message for the user
  * @prop {boolean} required - Determines whether the radio button set is required
  *
@@ -39,7 +39,7 @@ export default class KemetRadios extends LitElement {
   legend: string = '';
 
   @property({ type: String, reflect: true })
-  axis: TypeAxis = 'horizontal';
+  axis: TypeAxis = EnumAxis.Horizontal;
 
   @property({ type: String })
   value: string;
@@ -48,7 +48,7 @@ export default class KemetRadios extends LitElement {
   name: string = 'radios';
 
   @property({ type: String, reflect: true })
-  status: TypeStatus = 'standard';
+  status: TypeStatus = EnumStatuses.Standard;
 
   @property({ type: String })
   message: string;
@@ -94,7 +94,7 @@ export default class KemetRadios extends LitElement {
       target.checked = true;
       target.setAttribute('aria-checked', 'true');
       this.value = target.value;
-      this.status = 'standard';
+      this.status = EnumStatuses.Standard;
 
       emitEvent(this, 'kemet-radios-change', target);
     }

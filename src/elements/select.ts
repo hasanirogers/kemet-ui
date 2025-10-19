@@ -2,11 +2,12 @@ import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { FormSubmitController } from '../utilities/controllers/forms';
 import { emitEvent } from '../utilities/misc/events';
-import { KemetFieldInterface } from '../types/field';
 import { stylesSelect } from '../styles/elements/select';
 
 import type KemetOption from './option';
 import './icon-bootstrap';
+import KemetField from './field';
+import { EnumStatuses } from '../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -103,7 +104,7 @@ export default class KemetSelect extends LitElement {
   invalid: boolean;
 
   @state()
-  control: KemetFieldInterface;
+  control: KemetField;
 
   @state()
   select: HTMLSelectElement;
@@ -213,7 +214,7 @@ export default class KemetSelect extends LitElement {
     if (!this.select.checkValidity()) {
       this.invalid = true;
       this.status = 'error';
-      this.control.status = 'error';
+      this.control.status = EnumStatuses.Error;
 
       emitEvent(this, 'kemet-input-status', {
         status: 'error',

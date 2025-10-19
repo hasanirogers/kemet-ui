@@ -5,7 +5,12 @@ import {
 import { live } from 'lit/directives/live.js';
 import { stylesBase } from '../styles/elements/multi-input';
 import { emitEvent } from '../utilities/misc/events';
-import { IComboSelection } from '../types/multi-input';
+
+export interface InterfaceSelections {
+  element: HTMLUListElement;
+  text: string;
+  id: string;
+}
 
 /**
  * @since 3.1.0
@@ -89,7 +94,7 @@ export default class KemetMultiInput extends LitElement {
   value: string = '';
 
   @state()
-  selections: IComboSelection[] = [];
+  selections: InterfaceSelections[] = [];
 
   @state()
   paddingLeft: number;

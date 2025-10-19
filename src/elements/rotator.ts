@@ -2,7 +2,13 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { stylesRotator } from '../styles/elements/rotator';
-import { TypeEffect } from '../types/rotator';
+
+export const effects = ['fade', 'flip'] as const;
+export enum EnumEffects {
+  Fade = 'fade',
+  Flip = 'flip',
+}
+export type TypeEffects = EnumEffects;
 
 /**
  * @since 1.0.0
@@ -15,7 +21,7 @@ import { TypeEffect } from '../types/rotator';
  * @prop {string} width - The width of the rotator block.
  * @prop {string} height - The height of the rotator block.
  * @prop {array} messages - Text in the rotator. Supports HTML.
- * @prop {string} effect - The transition effect type.
+ * @prop {TypeEffects} effect - The transition effect type.
  * @prop {number} rotationSpeed - How fast, in seconds, each slide lasts. Stop the rotator with 0.
  *
  * @cssproperty --kemet-rotator-transition-speed - How long, in css time units, the transition effect lasts.
@@ -39,7 +45,7 @@ export default class KemetRotator extends LitElement {
   messages: string[] = [];
 
   @property({ type: String, reflect: true })
-  effect: TypeEffect = 'fade';
+  effect: TypeEffects = EnumEffects.Fade;
 
   @property({ type: Number, attribute: 'rotation-speed' })
   rotationSpeed: number = 3;

@@ -2,8 +2,8 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesScrollSnap } from '../styles/elements/scroll-snap';
-import { KemetScrollSnapSlideInterface, TypeAxis, TypePagination } from '../types/scroll-snap';
 import KemetScrollSnapSlide from './scroll-snap-slide';
+import { EnumAxis, EnumDirections, TypeAxis, TypeDirection } from '../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -12,8 +12,8 @@ import KemetScrollSnapSlide from './scroll-snap-slide';
  * @tagname kemet-scroll-snap
  * @summary A scroll-snap implementation for responsive sliders.
  *
- * @prop {string} axis - Determines the direction the component flows. Values include: (horizontal | vertical)
- * @prop {string} pagination - Determines where to display the paginator. Values include: (top | right | bottom | left)
+ * @prop {TypeAxis} axis - Determines the direction the component flows. Values include: (horizontal | vertical)
+ * @prop {TypeDirection} pagination - Determines where to display the paginator. Values include: (top | right | bottom | left)
  *
  * @slot slides - Place your slides here.
  * @slot pagination - Place the paginator component here if you want one.
@@ -35,10 +35,10 @@ export default class KemetScrollSnap extends LitElement {
   static styles = [stylesScrollSnap];
 
   @property({ type: String, reflect: true })
-  axis: TypeAxis = 'horizontal';
+  axis: TypeAxis = EnumAxis.Horizontal;
 
   @property({ type: String, reflect: true })
-  pagination: TypePagination = 'bottom';
+  pagination: TypeDirection = EnumDirections.Bottom;
 
   @state()
   isTouchDevice: boolean;
@@ -105,7 +105,7 @@ export default class KemetScrollSnap extends LitElement {
     const slides = [];
 
     this.querySelectorAll('kemet-scroll-snap-slide').forEach((element, index) => {
-      const slide = element as KemetScrollSnapSlideInterface;
+      const slide = element as KemetScrollSnapSlide;
 
       slide.index = index;
       slides.push({

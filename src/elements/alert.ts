@@ -2,7 +2,7 @@ import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesBase } from '../styles/elements/alert';
-import { TypeStatus } from '../types/alert';
+import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
 
 export const roundedSizes = ['sm', 'md', 'lg', 'xl', 'circle', 'pill'] as const;
 export enum EnumRoundedSizes {
@@ -37,7 +37,7 @@ export type TypeOverlayPositions = EnumOverlayPositions;
  * @prop {boolean} opened - Determines if the alert is opened or not.
  * @prop {boolean} reveal - Fades in the alert when opened.
  * @prop {boolean} closable - Adds a close button to the alert.
- * @prop {string} borderStatus - Adds a border that indicates the status.
+ * @prop {TypeDirection} borderStatus - Adds a border that indicates the status.
  * @prop {boolean} hidden - Hides the element from document flow.
  * @prop {TypeOverlayPositions} overlay - Fixes the alert over content in specified position.
  * @prop {TypeVariants} variant - The style of the alert.
@@ -71,7 +71,7 @@ export default class KemetAlert extends LitElement {
   closable: boolean;
 
   @property({ type: String, reflect: true })
-  status: TypeStatus = 'standard';
+  status: TypeStatus = EnumStatuses.Standard;
 
   @property({ type: String, reflect: true, attribute: 'border-status' })
   borderStatus: string;

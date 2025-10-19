@@ -1,8 +1,17 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
-import { TypeEffect, TypeSide } from '../types/drawer';
 import { stylesBase, stylesEffects } from '../styles/elements/drawer';
+import { EnumDirections, TypeDirection } from '../utilities/misc/constants';
+
+export const effects = ['slide', 'reveal', 'push', 'scale'] as const;
+export enum EnumEffects {
+  Slide = 'slide',
+  Reveal = 'reveal',
+  Push = 'push',
+  Scale = 'scale'
+}
+export type TypeEffect = EnumEffects;
 
 /**
  * @since 1.0.0
@@ -13,7 +22,7 @@ import { stylesBase, stylesEffects } from '../styles/elements/drawer';
  *
  * @prop {boolean} opened - Determines if the drawer is opened or not.
  * @prop {string} effect - The animation effect for opening and closing the drawer. Values include: (slide | reveal | push | scale)
- * @prop {string} side - Allows you to control which side the drawer opens from. Values include: (left | right | top | bottom)
+ * @prop {TypeDirection} side - Allows you to control which side the drawer opens from. Values include: (left | right | top | bottom)
  * @prop {boolean} overlay - Adds an overlay over the content section of the Drawer when opened
  *
  * @slot navigation - The off-screen nav area of your app or site
@@ -44,10 +53,10 @@ export default class KemetDrawer extends LitElement {
   opened: boolean = undefined;
 
   @property({ type: String, reflect: true })
-  effect: TypeEffect = 'slide';
+  effect: TypeEffect = EnumEffects.Slide;
 
   @property({ type: String, reflect: true })
-  side: TypeSide = 'left';
+  side: TypeDirection = EnumDirections.Left;
 
   @property({ type: Boolean, reflect: true })
   overlay: boolean = false;

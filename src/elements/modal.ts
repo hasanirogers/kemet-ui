@@ -4,7 +4,25 @@ import {
 } from 'lit/decorators.js';
 import { stylesBase, stylesEffects } from '../styles/elements/modal';
 import { emitEvent } from '../utilities/misc/events';
-import { TypeEffect } from '../types/modal';
+
+export const effects = ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'] as const;
+export enum EnumEffects {
+  FadeinScaleup = 'fadein-scaleup',
+  SlideRight = 'slide-right',
+  SlideBottom = 'slide-bottom',
+  Newspaper = 'newspaper',
+  Fall = 'fall',
+  SideFall = 'side-fall',
+  FlipHorizontal = 'flip-horizontal',
+  FlipVertical = 'flip-vertical',
+  Sign3d = 'sign-3d',
+  SuperScaled = 'super-scaled',
+  Slit = 'slit',
+  RotateBottom = 'rotate-bottom',
+  RotateLeft = 'rotate-left'
+}
+export type TypeEffect = EnumEffects;
+
 
 /**
  * @since 1.0.0

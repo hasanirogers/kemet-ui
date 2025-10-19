@@ -1,7 +1,8 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/badge';
-import { TypeStatus } from '../types/badge';
+import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+
 
 /**
  * @since 1.0.0
@@ -10,7 +11,7 @@ import { TypeStatus } from '../types/badge';
  * @tagname kemet-badge
  * @summary Badges display the status of information.
  *
- * @prop {string} status - The status of the badge
+ * @prop {TypeStatus} status - The status of the badge
  * @prop {boolean} circle - Displays the badge in a circle
  * @prop {boolean} pill - Rounds the corners on the badge
  * @prop {number} circlePadding - Padding on the badge as a circle
@@ -24,7 +25,7 @@ export default class KemetBadge extends LitElement {
   static styles = [stylesBase];
 
   @property({ reflect: true })
-  status: TypeStatus = 'primary';
+  status: TypeStatus = EnumStatuses.Primary;
 
   @property({ type: Boolean, reflect: true })
   circle: boolean = false;

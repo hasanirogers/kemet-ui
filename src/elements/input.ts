@@ -5,9 +5,40 @@ import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../utilities/controllers/forms';
 import { emitEvent } from '../utilities/misc/events';
 import KemetField from '../elements/field';
-import { TypeAriaAutoComplete, TypeAutoComplete, TypeStatus } from '../types/input';
 import KemetCount from './count';
 import { stylesBase } from '../styles/elements/input';
+import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+
+export const ariaAutoComplete = ['inline', 'list', 'both', 'none'] as const;
+export enum EnumAriaAutoComplete {
+  Inline = 'inline',
+  List = 'list',
+  Both = 'both',
+  None = 'none'
+}
+export type TypeAriaAutoComplete = EnumAriaAutoComplete;
+
+export const autoComplete = ['on', 'off', 'additional-name', 'address-level1', 'address-level2', 'address-level3', 'address-level4', 'address-line1', 'address-line2', 'address-line3', 'bday', 'bday-year', 'bday-day', 'bday-month', 'billing', 'cc-additional-name'] as const;
+export enum EnumAutoComplete {
+  On = 'on',
+  Off = 'off',
+  AdditionalName = 'additional-name',
+  AddressLevel1 = 'address-level1',
+  AddressLevel2 = 'address-level2',
+  AddressLevel3 = 'address-level3',
+  AddressLevel4 = 'address-level4',
+  AddressLine1 = 'address-line1',
+  AddressLine2 = 'address-line2',
+  AddressLine3 = 'address-line3',
+  Bday = 'bday',
+  BdayYear = 'bday-year',
+  BdayDay = 'bday-day',
+  BdayMonth = 'bday-month',
+  Billing = 'billing',
+  CcAdditionalName = 'cc-additional-name'
+}
+export type TypeAutoComplete = EnumAutoComplete;
+
 
 
 /**
@@ -25,7 +56,7 @@ import { stylesBase } from '../styles/elements/input';
  * @prop {string} min - The min attribute
  * @prop {string} max - The max attribute
  * @prop {string} step - The step attribute
- * @prop {string} autocomplete - The autocomplete attribute
+ * @prop {TypeAutoComplete} autocomplete - The autocomplete attribute
  * @prop {string} pattern - The pattern attribute
  * @prop {string} inputmode - The input mode attribute
  * @prop {boolean} autofocus - The autofocus attribute
@@ -37,7 +68,7 @@ import { stylesBase } from '../styles/elements/input';
  * @prop {boolean} invalid - States whether the input is invalid
  * @prop {string} status - The status of the input
  * @prop {boolean} validateOnBlur - Activates validation on blur
- * @prop {string} ariaAutoComplete - Aria Autocomplete
+ * @prop {TypeAriaAutoComplete} ariaAutoComplete - Aria Autocomplete
  * @prop {string} ariaControls - Aria Controls
  * @prop {string} ariaActiveDescendant - Aria Active Descendant
  * @prop {boolean} rounded - Displays rounded corners
@@ -137,7 +168,7 @@ export default class KemetInput extends LitElement {
   invalid: boolean;
 
   @property({ type: String, reflect: true })
-  status: TypeStatus = 'standard';
+  status: TypeStatus = EnumStatuses.Standard;
 
   @property({ type: Boolean, attribute: 'validate-on-blur' })
   validateOnBlur: boolean = false;
@@ -307,11 +338,11 @@ export default class KemetInput extends LitElement {
 
     if (this.input.checkValidity() && this.checkLimitValidity() && this.status !== 'success') {
       this.invalid = false;
-      this.status = 'standard';
+      this.status = EnumStatuses.Standard;
       this.validity = this.input.validity;
 
       emitEvent(this, 'kemet-input-status', {
-        status: 'standard',
+        status: EnumStatuses.Standard,
         validity: this.input.validity,
         element: this,
       });
@@ -336,10 +367,10 @@ export default class KemetInput extends LitElement {
 
     if (this.validateOnBlur) {
       this.invalid = true;
-      this.status = 'error';
+      this.status = EnumStatuses.Error;
 
       emitEvent(this, 'kemet-input-status', {
-        status: 'error',
+        status: EnumStatuses.Error,
         validity: this.input?.validity,
         element: this,
       });

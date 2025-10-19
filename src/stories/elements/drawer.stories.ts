@@ -1,6 +1,8 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { effects, EnumEffects } from '../../elements/drawer';
+import { directions, EnumDirections } from '../../utilities/misc/constants';
 
 import '../../elements/drawer';
 
@@ -9,17 +11,18 @@ import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
 
+
 const meta: Meta = {
   title: 'Elements / Drawer',
   component: 'kemet-drawer',
   argTypes: {
     effect: {
       control: { type: 'select' },
-      options: ['slide', 'reveal', 'push', 'scale'],
+      options: effects,
     },
     side: {
       control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
+      options: directions,
     },
   },
 };
@@ -67,7 +70,7 @@ export const Top: Story = {
   render: args => Template(args),
   args: {
     overlay: true,
-    side: 'top'
+    side: EnumDirections.Top
   }
 };
 
@@ -75,7 +78,7 @@ export const Right: Story = {
   render: args => Template(args),
   args: {
     overlay: true,
-    side: 'right'
+    side: EnumDirections.Right
   }
 };
 
@@ -83,7 +86,7 @@ export const Bottom: Story = {
   render: args => Template(args),
   args: {
     overlay: true,
-    side: 'bottom'
+    side: EnumDirections.Bottom
   }
 };
 
@@ -91,7 +94,7 @@ export const Push: Story = {
   render: args => Template(args),
   args: {
     overlay: true,
-    effect: 'push'
+    effect: EnumEffects.Push
   }
 };
 
@@ -99,6 +102,6 @@ export const Scale: Story = {
   render: args => Template(args),
   args: {
     overlay: true,
-    effect: 'scale'
+    effect: EnumEffects.Scale
   }
 };

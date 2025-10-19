@@ -4,6 +4,7 @@ import { emitEvent } from '../utilities/misc/events';
 import KemetField from '../elements/field';
 import KemetInput from '../elements/input';
 import KemetTextarea from '../elements/textarea';
+import { EnumStatuses } from '../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -75,21 +76,21 @@ export default class KemetCount extends LitElement {
           // nativeElement.validity.passedLimit = true;
 
           if (this.validateImmediately) {
-            this.inputSlot.status = 'error';
+            this.inputSlot.status = EnumStatuses.Error;
             this.inputSlot.invalid = true;
 
             emitEvent(this, 'kemet-count-status', {
-              status: 'error',
+              status: EnumStatuses.Error,
               validity: nativeElement.validity,
               element: this.inputSlot,
             });
           }
         } else {
-          this.inputSlot.status = 'standard';
+          this.inputSlot.status = EnumStatuses.Standard;
           nativeElement.checkValidity();
 
           emitEvent(this, 'kemet-count-status', {
-            status: 'standard',
+            status: EnumStatuses.Standard,
             validity: nativeElement.validity,
             element: this.inputSlot,
           });

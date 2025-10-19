@@ -9,6 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
+import { statuses } from '../../utilities/misc/constants';
 
 const meta: Meta = {
   title: 'Elements / Input',
@@ -21,7 +22,7 @@ const meta: Meta = {
     },
     status: {
       control: { type: 'radio' },
-      options: ['standard', 'error', 'success', 'warning'],
+      options: statuses,
     },
     autocomplete: {
       control: { type: 'radio' },

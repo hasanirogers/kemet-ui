@@ -9,6 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
+import { EnumVariants, variants } from '../../elements/button';
 
 const meta: Meta = {
   title: 'Elements / Button',
@@ -16,22 +17,7 @@ const meta: Meta = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['standard', 'text', 'circle', 'rounded', 'pill'],
-    },
-    outlined: {
-      control: { type: 'boolean' },
-    },
-    iconLeft: {
-      control: { type: 'text' },
-    },
-    iconRight: {
-      control: { type: 'text' },
-    },
-    link: {
-      control: { type: 'text' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
+      options: variants,
     },
   }
 };
@@ -41,9 +27,9 @@ type Story = StoryObj;
 
 const Template = (args) => html`
   <kemet-button variant="${ifDefined(args.variant)}" ?outlined=${args.outlined} ?disabled=${args.disabled} link=${ifDefined(args.link !== '' ? args.link : undefined)}>
-    ${ifDefined(args.iconLeft !== '' && args.type !== 'circle' && args.iconLeft ? html`<kemet-icon-bootstrap slot="left" icon="${args.iconLeft}"></kemet-icon-bootstrap>` : undefined)}
+    ${ifDefined(args.iconLeft !== '' && args.type !== 'circle' && args.iconLeft ? html`<kemet-icon-bootstrap slot="left" icon="${args.iconLeft}" size="18"></kemet-icon-bootstrap>` : undefined)}
     ${args.variant === 'circle' ? html`<kemet-icon-bootstrap icon="gear" size="24"></kemet-icon-bootstrap>` : 'Button'}
-    ${ifDefined(args.iconRight !== '' && args.variant !== 'circle' && args.iconRight ? html`<kemet-icon-bootstrap slot="right" icon="${args.iconRight}"></kemet-icon-bootstrap>` : undefined)}
+    ${ifDefined(args.iconRight !== '' && args.variant !== 'circle' && args.iconRight ? html`<kemet-icon-bootstrap slot="right" icon="${args.iconRight}" size="18"></kemet-icon-bootstrap>` : undefined)}
   </kemet-button>
 `;
 
@@ -55,28 +41,28 @@ export const Standard: Story = {
 export const Text: Story = {
   render: args => Template(args),
   args: {
-    variant: 'text',
+    variant: EnumVariants.TEXT,
   },
 };
 
 export const Circle: Story = {
   render: args => Template(args),
   args: {
-    variant: 'circle',
+    variant: EnumVariants.CIRCLE,
   },
 };
 
 export const Rounded: Story = {
   render: args => Template(args),
   args: {
-    variant: 'rounded',
+    variant: EnumVariants.ROUNDED,
   },
 };
 
 export const Pill: Story = {
   render: args => Template(args),
   args: {
-    variant: 'pill',
+    variant: EnumVariants.PILL,
   },
 };
 
@@ -91,7 +77,7 @@ export const OutlinedRounded: Story = {
   render: args => Template(args),
   args: {
     outlined: true,
-    variant: 'rounded',
+    variant: EnumVariants.ROUNDED,
   },
 };
 
@@ -99,7 +85,7 @@ export const OutlinedPill: Story = {
   render: args => Template(args),
   args: {
     outlined: true,
-    variant: 'pill',
+    variant: EnumVariants.PILL,
   },
 };
 

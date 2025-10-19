@@ -1,8 +1,8 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { stylesStep } from '../styles/elements/tracker';
-import { KemetTrackerInterface } from '../types/tracker';
 import './icon-bootstrap';
+import KemetTracker from './tracker';
 
 /**
  *
@@ -69,7 +69,7 @@ export default class KemetTrackerStep extends LitElement {
   completedSize: number = 16;
 
   @state()
-  tracker: KemetTrackerInterface;
+  tracker: KemetTracker;
 
   firstUpdated() {
     this.tracker = this.closest('kemet-tracker');

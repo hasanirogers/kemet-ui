@@ -4,14 +4,41 @@ import {
  customElement, property, query, state,
 } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
-import {
-  KemetTabPanelInterface, TypePanelEffect, TypePlacement, TypeTabsAlign,
-} from '../types/tabs';
 import { stylesKemetTabs } from '../styles/elements/tabs';
-
+import { TypeDirection, EnumDirections } from '../utilities/misc/constants';
 import type KemetTab from './tab';
 import type KemetTabPanel from './tab-panel';
 import './icon-bootstrap';
+
+
+
+interface InterfaceLink {
+  width: string;
+  height: string;
+  positionX: string;
+  positionY: string;
+}
+
+export const panelEffect = ['none', 'slide', 'fade', 'stacked'] as const;
+export enum EnumPanelEffect {
+  None = 'none',
+  Slide = 'slide',
+  Fade = 'fade',
+  Stacked = 'stacked'
+}
+export type TypePanelEffect = EnumPanelEffect;
+
+
+export const tabsAlign = ['center', 'between', 'around', 'evenly', 'start', 'end'] as const;
+export enum EnumTabsAlign {
+  Center = 'center',
+  Between = 'between',
+  Around = 'around',
+  Evenly = 'evenly',
+  Start = 'start',
+  End = 'end'
+}
+export type TypeTabsAlign = EnumTabsAlign;
 
 /**
  * @since 1.0.0
@@ -25,9 +52,9 @@ import './icon-bootstrap';
  * @prop {number} panelPosition - Positions the current panel
  * @prop {string} panelEffect - The transition effect for panels
  * @prop {boolean} swipe - Determines whether to enable swipe behavior
- * @prop {string} placement - Places the tabs to the top, right, bottom, or left
+ * @prop {TypeDirection} placement - Places the tabs to the top, right, bottom, or left
  * @prop {boolean} divider - Determines whether to show a divider line
- * @prop {string} tabsAlign - Spacing alignment of the tabs
+ * @prop {TypeTabsAlign} tabsAlign - Spacing alignment of the tabs
  * @prop {object} ink - An object that contains information about the ink
  * @prop {boolean} hideInk - Determines whether to hide the ink
  * @prop {boolean} overflow - Is true when the space of the tabs is larger than it's container
@@ -53,13 +80,6 @@ import './icon-bootstrap';
  *
  */
 
-interface Iink {
-  width: string;
-  height: string;
-  positionX: string;
-  positionY: string;
-}
-
 @customElement('kemet-tabs')
 export default class KemetTabs extends LitElement {
   static styles = [stylesKemetTabs];
@@ -74,22 +94,22 @@ export default class KemetTabs extends LitElement {
   panelPosition: number = 0;
 
   @property({ type: String, reflect: true, attribute: 'panel-effect' })
-  panelEffect: TypePanelEffect = 'none';
+  panelEffect: TypePanelEffect = EnumPanelEffect.None;
 
   @property({ type: Boolean })
   swipe: boolean;
 
   @property({ type: String, reflect: true })
-  placement: TypePlacement = 'top';
+  placement: TypeDirection = EnumDirections.Top;
 
   @property({ type: Boolean })
   divider: boolean;
 
   @property({ type: String, reflect: true, attribute: 'tabs-align' })
-  tabsAlign: TypeTabsAlign = 'center';
+  tabsAlign: TypeTabsAlign = EnumTabsAlign.Center;
 
   @property({ type: Object })
-  ink: Iink;
+  ink: InterfaceLink;
 
   @property({ type: Boolean, attribute: 'hide-ink' })
   hideInk: boolean = false;
@@ -477,7 +497,7 @@ export default class KemetTabs extends LitElement {
 
   animatePanel(panelName: string, panelIndex: number) {
     if (panelName) {
-      const selectedPanel = this.querySelector(`[panel="${panelName}"]`) as KemetTabPanelInterface;
+      const selectedPanel = this.querySelector(`[panel="${panelName}"]`) as KemetTabPanel;
       if (selectedPanel) this.panelPosition = selectedPanel.offsetLeft * -1;
     } else {
       if (this.panels[panelIndex]) this.panelPosition = this.panels[panelIndex].offsetLeft * -1;

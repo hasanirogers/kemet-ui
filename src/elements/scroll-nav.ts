@@ -1,7 +1,14 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesScrollNav } from '../styles/elements/scroll-nav';
-import { TypeEffect } from '../types/scroll-nav';
+
+export const effects = ['sticky', 'resize'] as const;
+export enum EnumEffects {
+  Sticky = 'sticky',
+  Resize = 'resize'
+}
+export type TypeEffects = EnumEffects;
+
 
 /**
  * @since 1.0.0
@@ -10,7 +17,7 @@ import { TypeEffect } from '../types/scroll-nav';
  * @tagname kemet-scroll-nav
  * @summary An element that transforms at a scroll point.
  *
- * @prop {string} effect - Determines where the transform point is activated. Values include: (sticky | resize)
+ * @prop {TypeEffect} effect - Determines where the transform point is activated. Values include: (sticky | resize)
  * @prop {boolean} transform - Whether the nav has shifted into a new state.
  * @prop {number} offset - Allows for an arbitrary adjustment of the transform point in pixels. Works with negative values.
  *
@@ -27,7 +34,7 @@ export default class KemetScrollNav extends LitElement {
   static styles = [stylesScrollNav];
 
   @property({ type: String, reflect: true })
-  effect: TypeEffect = 'sticky';
+  effect: TypeEffects = EnumEffects.Sticky;
 
   @property({ type: Boolean, reflect: true })
   transform: boolean = false;

@@ -2,11 +2,11 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesBase } from '../styles/elements/field';
-import { TypeStatus } from '../types/field';
 
 import KemetCombo from './combo';
 import KemetInput from './input';
 import KemetTextarea from './textarea';
+import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -19,7 +19,7 @@ import KemetTextarea from './textarea';
  * @prop {string} label - The label text
  * @prop {string} message - The validation message for error or success
  * @prop {boolean} focused - Determines if the containing input is focused
- * @prop {string} status - The validation status of standard, error, or success
+ * @prop {TypeStatus} status - The validation status of standard, error, or success
  * @prop {boolean} filled - Is true when the containing input has a value
  * @prop {number} length - The length of the containing input
  * @prop {boolean} disabled - Determines the disabled state of the control
@@ -53,7 +53,7 @@ export default class KemetField extends LitElement {
   focused: boolean;
 
   @property({ type: String, reflect: true })
-  status: TypeStatus = 'standard';
+  status: TypeStatus = EnumStatuses.Standard;
 
   @property({ type: Boolean, reflect: true })
   filled: boolean;

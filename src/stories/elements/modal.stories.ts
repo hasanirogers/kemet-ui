@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js'
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
-import KemetModal from '../../elements/modal';
+import KemetModal, { effects } from '../../elements/modal';
 
 import '../../elements/modal';
 import '../../elements/modal-close';
@@ -22,7 +22,7 @@ const meta: Meta = {
   argTypes: {
     effect: {
       control: { type: 'select' },
-      options: ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'],
+      options: effects,
     },
   },
 };

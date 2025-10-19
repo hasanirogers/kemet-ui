@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { stylesDisplay } from '../styles/elements/timer';
-import { TypeFormats } from '../types/timer';
+import { TypeFormats } from './timer';
 
 /**
  * @since 3.1.0

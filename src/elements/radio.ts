@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesRadio } from '../styles/elements/radio';
-import { KemetRadioInterface } from '../types/radio';
+import KemetRadios from './radios';
 
 /**
  * @since 1.0.0
@@ -68,7 +68,7 @@ export default class KemetRadio extends LitElement {
   input: HTMLInputElement;
 
   firstUpdated() {
-    const radiosElement = this.closest('kemet-radios') as KemetRadioInterface;
+    const radiosElement = this.closest('kemet-radios') as KemetRadios;
 
     this.name = radiosElement.name || 'radio-button';
     this.input = this.shadowRoot.querySelector('input');

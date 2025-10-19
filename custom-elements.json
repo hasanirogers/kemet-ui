@@ -304,6 +304,22 @@
       "path": "src/elements/alert.ts",
       "declarations": [
         {
+          "kind": "variable",
+          "name": "roundedSizes",
+          "type": {
+            "text": "['sm', 'md', 'lg', 'xl', 'circle', 'pill']"
+          },
+          "default": "['sm', 'md', 'lg', 'xl', 'circle', 'pill']"
+        },
+        {
+          "kind": "variable",
+          "name": "overlayPositions",
+          "type": {
+            "text": "['fixed', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left']"
+          },
+          "default": "['fixed', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left']"
+        },
+        {
           "kind": "class",
           "description": "",
           "name": "KemetAlert",
@@ -378,7 +394,6 @@
               "type": {
                 "text": "TypeStatus"
               },
-              "default": "'standard'",
               "attribute": "status",
               "reflects": true
             },
@@ -386,7 +401,7 @@
               "kind": "field",
               "name": "borderStatus",
               "type": {
-                "text": "string"
+                "text": "TypeDirection"
               },
               "description": "Adds a border that indicates the status.",
               "attribute": "border-status",
@@ -406,10 +421,19 @@
               "kind": "field",
               "name": "overlay",
               "type": {
-                "text": "string"
+                "text": "TypeOverlayPositions"
               },
               "description": "Fixes the alert over content in specified position.",
               "attribute": "overlay",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "attribute": "rounded",
               "reflects": true
             },
             {
@@ -419,6 +443,14 @@
             {
               "kind": "method",
               "name": "handleMotion"
+            },
+            {
+              "type": {
+                "text": "TypeVariants"
+              },
+              "description": "The style of the alert.",
+              "name": "variant",
+              "kind": "field"
             }
           ],
           "events": [
@@ -461,13 +493,12 @@
               "type": {
                 "text": "TypeStatus"
               },
-              "default": "'standard'",
               "fieldName": "status"
             },
             {
               "name": "border-status",
               "type": {
-                "text": "string"
+                "text": "TypeDirection"
               },
               "description": "Adds a border that indicates the status.",
               "fieldName": "borderStatus"
@@ -483,10 +514,17 @@
             {
               "name": "overlay",
               "type": {
-                "text": "string"
+                "text": "TypeOverlayPositions"
               },
               "description": "Fixes the alert over content in specified position.",
               "fieldName": "overlay"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
@@ -499,6 +537,22 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "roundedSizes",
+          "declaration": {
+            "name": "roundedSizes",
+            "module": "src/elements/alert.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "overlayPositions",
+          "declaration": {
+            "name": "overlayPositions",
+            "module": "src/elements/alert.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -761,9 +815,8 @@
               "kind": "field",
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'primary'",
               "description": "The status of the badge",
               "attribute": "status",
               "reflects": true
@@ -809,9 +862,8 @@
             {
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'primary'",
               "description": "The status of the badge",
               "fieldName": "status"
             },
@@ -875,6 +927,30 @@
       "kind": "javascript-module",
       "path": "src/elements/button.ts",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "variants",
+          "type": {
+            "text": "['standard', 'text', 'circle', 'rounded', 'pill']"
+          },
+          "default": "['standard', 'text', 'circle', 'rounded', 'pill']"
+        },
+        {
+          "kind": "variable",
+          "name": "targets",
+          "type": {
+            "text": "['_blank', '_self', '_parent', '_top']"
+          },
+          "default": "['_blank', '_self', '_parent', '_top']"
+        },
+        {
+          "kind": "variable",
+          "name": "types",
+          "type": {
+            "text": "['button', 'submit', 'reset']"
+          },
+          "default": "['button', 'submit', 'reset']"
+        },
         {
           "kind": "class",
           "description": "",
@@ -1035,9 +1111,8 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "string"
+                "text": "TypeVariants"
               },
-              "default": "'standard'",
               "description": "Controls the type of button. standard | text | circle | rounded | pill",
               "attribute": "variant",
               "reflects": true
@@ -1046,9 +1121,8 @@
               "kind": "field",
               "name": "target",
               "type": {
-                "text": "TypeTarget"
+                "text": "TypeTargets"
               },
-              "default": "'_self'",
               "description": "The target attribute for a link",
               "attribute": "target"
             },
@@ -1056,11 +1130,38 @@
               "kind": "field",
               "name": "type",
               "type": {
-                "text": "TypeType"
+                "text": "TypeTypes"
               },
-              "default": "'button'",
               "description": "The type attribute for a button",
               "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "iconLeft",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "icon-left",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconRight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "icon-right",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleLeftChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleRightChange"
             },
             {
               "kind": "method",
@@ -1156,29 +1257,42 @@
             {
               "name": "variant",
               "type": {
-                "text": "string"
+                "text": "TypeVariants"
               },
-              "default": "'standard'",
               "description": "Controls the type of button. standard | text | circle | rounded | pill",
               "fieldName": "variant"
             },
             {
               "name": "target",
               "type": {
-                "text": "TypeTarget"
+                "text": "TypeTargets"
               },
-              "default": "'_self'",
               "description": "The target attribute for a link",
               "fieldName": "target"
             },
             {
               "name": "type",
               "type": {
-                "text": "TypeType"
+                "text": "TypeTypes"
               },
-              "default": "'button'",
               "description": "The type attribute for a button",
               "fieldName": "type"
+            },
+            {
+              "name": "icon-left",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "iconLeft"
+            },
+            {
+              "name": "icon-right",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "iconRight"
             }
           ],
           "superclass": {
@@ -1191,6 +1305,30 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "variants",
+          "declaration": {
+            "name": "variants",
+            "module": "src/elements/button.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "targets",
+          "declaration": {
+            "name": "targets",
+            "module": "src/elements/button.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "types",
+          "declaration": {
+            "name": "types",
+            "module": "src/elements/button.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -2588,9 +2726,8 @@
               "kind": "field",
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'standard'",
               "description": "The status of the checkbox",
               "attribute": "status",
               "reflects": true
@@ -2744,9 +2881,8 @@
             {
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'standard'",
               "description": "The status of the checkbox",
               "fieldName": "status"
             },
@@ -3319,6 +3455,14 @@
       "path": "src/elements/drawer.ts",
       "declarations": [
         {
+          "kind": "variable",
+          "name": "effects",
+          "type": {
+            "text": "['slide', 'reveal', 'push', 'scale']"
+          },
+          "default": "['slide', 'reveal', 'push', 'scale']"
+        },
+        {
           "kind": "class",
           "description": "",
           "name": "KemetDrawer",
@@ -3389,7 +3533,6 @@
               "type": {
                 "text": "string"
               },
-              "default": "'slide'",
               "description": "The animation effect for opening and closing the drawer. Values include: (slide | reveal | push | scale)",
               "attribute": "effect",
               "reflects": true
@@ -3398,9 +3541,8 @@
               "kind": "field",
               "name": "side",
               "type": {
-                "text": "string"
+                "text": "TypeDirection"
               },
-              "default": "'left'",
               "description": "Allows you to control which side the drawer opens from. Values include: (left | right | top | bottom)",
               "attribute": "side",
               "reflects": true
@@ -3442,16 +3584,14 @@
               "type": {
                 "text": "string"
               },
-              "default": "'slide'",
               "description": "The animation effect for opening and closing the drawer. Values include: (slide | reveal | push | scale)",
               "fieldName": "effect"
             },
             {
               "name": "side",
               "type": {
-                "text": "string"
+                "text": "TypeDirection"
               },
-              "default": "'left'",
               "description": "Allows you to control which side the drawer opens from. Values include: (left | right | top | bottom)",
               "fieldName": "side"
             },
@@ -3475,6 +3615,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "effects",
+          "declaration": {
+            "name": "effects",
+            "module": "src/elements/drawer.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -3777,9 +3925,8 @@
               "kind": "field",
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'standard'",
               "description": "The validation status of standard, error, or success",
               "attribute": "status",
               "reflects": true
@@ -3846,10 +3993,6 @@
               "type": {
                 "text": "KemetCombo"
               }
-            },
-            {
-              "kind": "method",
-              "name": "makeStatusIcon"
             },
             {
               "kind": "method",
@@ -3946,9 +4089,8 @@
             {
               "name": "status",
               "type": {
-                "text": "string"
+                "text": "TypeStatus"
               },
-              "default": "'standard'",
               "description": "The validation status of standard, error, or success",
               "fieldName": "status"
             },
@@ -4312,7 +4454,6 @@
                 "text": "string"
               },
               "default": "'code'",
-              "description": "The name of the icon to display",
               "attribute": "icon"
             },
             {
@@ -4321,8 +4462,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "'latest'",
-              "description": "The version of Bootstrap to use",
+              "default": "'1.11.3'",
               "attribute": "version"
             },
             {
@@ -4332,13 +4472,73 @@
                 "text": "number"
               },
               "default": "24",
-              "description": "The size of the icon in pixels",
               "attribute": "size"
             },
             {
+              "kind": "field",
+              "name": "fontFaceLoaded",
+              "privacy": "private",
+              "static": true,
+              "default": "new Map<string, boolean>()"
+            },
+            {
+              "kind": "field",
+              "name": "iconStylesCache",
+              "privacy": "private",
+              "static": true,
+              "default": "new Map<string, CSSStyleSheet>()"
+            },
+            {
+              "kind": "field",
+              "name": "resolvedVersions",
+              "privacy": "private",
+              "static": true,
+              "default": "new Map<string, string>()"
+            },
+            {
+              "kind": "field",
+              "name": "stylesLoaded",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
               "kind": "method",
-              "name": "_initBootstrap",
+              "name": "_resolveVersion",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Promise<string>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "version",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_loadBootstrapStyles",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_loadFontFaceInDocument",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "resolvedVersion",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
             }
           ],
           "attributes": [
@@ -4348,7 +4548,6 @@
                 "text": "string"
               },
               "default": "'code'",
-              "description": "The name of the icon to display",
               "fieldName": "icon"
             },
             {
@@ -4356,8 +4555,7 @@
               "type": {
                 "text": "string"
               },
-              "default": "'latest'",
-              "description": "The version of Bootstrap to use",
+              "default": "'1.11.3'",
               "fieldName": "version"
             },
             {
@@ -4366,7 +4564,6 @@
                 "text": "number"
               },
               "default": "24",
-              "description": "The size of the icon in pixels",
               "fieldName": "size"
             }
           ],
@@ -4375,8 +4572,7 @@
             "package": "lit"
           },
           "tagName": "kemet-icon-bootstrap",
-          "customElement": true,
-          "summary": "A versatile button that can be used either to submit a form, trigger an action, or link to content."
+          "customElement": true
         }
       ],
       "exports": [
@@ -4516,6 +4712,22 @@
       "kind": "javascript-module",
       "path": "src/elements/input.ts",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "ariaAutoComplete",
+          "type": {
+            "text": "['inline', 'list', 'both', 'none']"
+          },
+          "default": "['inline', 'list', 'both', 'none']"
+        },
+        {
+          "kind": "variable",
+          "name": "autoComplete",
+          "type": {
+            "text": "['on', 'off', 'additional-name', 'address-level1', 'address-level2', 'address-level3', 'address-level4', 'address-line1', 'address-line2', 'address-line3', 'bday', 'bday-year', 'bday-day', 'bday-month', 'billing', 'cc-additional-name']"
+          },
+          "default": "['on', 'off', 'additional-name', 'address-level1', 'address-level2', 'address-level3', 'address-level4', 'address-line1', 'address-line2', 'address-line3', 'bday', 'bday-year', 'bday-day', 'bday-month', 'billing', 'cc-additional-name']"
+        },
         {
           "kind": "class",
           "description": "",
@@ -4665,7 +4877,7 @@
               "kind": "field",
               "name": "autocomplete",
               "type": {
-                "text": "string"
+                "text": "TypeAutoComplete"
               },
               "description": "The autocomplete attribute",
               "attribute": "autocomplete"
@@ -4763,7 +4975,6 @@
               "type": {
                 "text": "string"
               },
-              "default": "'standard'",
               "description": "The status of the input",
               "attribute": "status",
               "reflects": true
@@ -4782,7 +4993,7 @@
               "kind": "field",
               "name": "ariaAutoComplete",
               "type": {
-                "text": "string"
+                "text": "TypeAriaAutoComplete"
               },
               "description": "Aria Autocomplete",
               "attribute": "aria-autocomplete"
@@ -4847,16 +5058,6 @@
             },
             {
               "kind": "field",
-              "name": "iconSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "20",
-              "description": "Size of the icons",
-              "attribute": "iconSize"
-            },
-            {
-              "kind": "field",
               "name": "validity",
               "type": {
                 "text": "object"
@@ -4917,11 +5118,11 @@
             },
             {
               "kind": "method",
-              "name": "makeIconRight"
+              "name": "handleLeftChange"
             },
             {
               "kind": "method",
-              "name": "makeIconLeft"
+              "name": "handleRightChange"
             },
             {
               "kind": "method",
@@ -4930,10 +5131,6 @@
             {
               "kind": "method",
               "name": "makeVisibilityToggle"
-            },
-            {
-              "kind": "method",
-              "name": "setPasswordIcon"
             },
             {
               "kind": "method",
@@ -5016,6 +5213,14 @@
               "name": "focus",
               "description": "Focuses the standard input",
               "privacy": "public"
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "Size of the icons",
+              "name": "iconSize",
+              "kind": "field"
             }
           ],
           "events": [
@@ -5101,7 +5306,7 @@
             {
               "name": "autocomplete",
               "type": {
-                "text": "string"
+                "text": "TypeAutoComplete"
               },
               "description": "The autocomplete attribute",
               "fieldName": "autocomplete"
@@ -5185,7 +5390,6 @@
               "type": {
                 "text": "string"
               },
-              "default": "'standard'",
               "description": "The status of the input",
               "fieldName": "status"
             },
@@ -5201,7 +5405,7 @@
             {
               "name": "aria-autocomplete",
               "type": {
-                "text": "string"
+                "text": "TypeAriaAutoComplete"
               },
               "description": "Aria Autocomplete",
               "fieldName": "ariaAutoComplete"
@@ -5255,15 +5459,6 @@
               "fieldName": "iconLeft"
             },
             {
-              "name": "iconSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "20",
-              "description": "Size of the icons",
-              "fieldName": "iconSize"
-            },
-            {
               "name": "validity",
               "type": {
                 "text": "object"
@@ -5308,6 +5503,22 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "ariaAutoComplete",
+          "declaration": {
+            "name": "ariaAutoComplete",
+            "module": "src/elements/input.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "autoComplete",
+          "declaration": {
+            "name": "autoComplete",
+            "module": "src/elements/input.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -5378,6 +5589,14 @@
       "kind": "javascript-module",
       "path": "src/elements/modal.ts",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "effects",
+          "type": {
+            "text": "['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left']"
+          },
+          "default": "['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left']"
+        },
         {
           "kind": "class",
           "description": "",
@@ -5576,6 +5795,14 @@
       "exports": [
         {
           "kind": "js",
+          "name": "effects",
+          "declaration": {
+            "name": "effects",
+            "module": "src/elements/modal.ts"
+          }
+        },
+        {
+          "kind": "js",
           "name": "default",
           "declaration": {
             "name": "KemetModal",
@@ -5701,7 +5928,7 @@
               "kind": "field",
               "name": "selections",
               "type": {
-                "text": "IComboSelection[]"
+                "text": "InterfaceSelections[]"
               },
               "default": "[]"
             },
@@ -6264,7 +6491,7 @@
               "type": {
                 "text": "number"
               },
-              "default": "16",
+              "default": "18",
               "attribute": "iconSize"
             },
             {
@@ -6278,14 +6505,14 @@
               "kind": "field",
               "name": "field",
               "type": {
-                "text": "KemetFieldInterface"
+                "text": "KemetField"
               }
             },
             {
               "kind": "field",
               "name": "input",
               "type": {
-                "text": "KemetInputInterface | KemetTextareaInterface"
+                "text": "KemetInput | KemetTextareaInterface"
               }
             },
             {
@@ -6396,7 +6623,7 @@
               "type": {
                 "text": "number"
               },
-              "default": "16",
+              "default": "18",
               "fieldName": "iconSize"
             }
           ],
@@ -6490,6 +6717,22 @@
       "kind": "javascript-module",
       "path": "src/elements/popper.ts",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "placement",
+          "type": {
+            "text": "['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'right', 'right-start', 'right-end', 'left', 'left-start', 'left-end']"
+          },
+          "default": "['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'right', 'right-start', 'right-end', 'left', 'left-start', 'left-end']"
+        },
+        {
+          "kind": "variable",
+          "name": "fireEvents",
+          "type": {
+            "text": "['click', 'hover']"
+          },
+          "default": "['click', 'hover']"
+        },
         {
           "kind": "class",
           "description": "",
@@ -6710,6 +6953,22 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "placement",
+          "declaration": {
+            "name": "placement",
+            "module": "src/elements/popper.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "fireEvents",
+          "declaration": {
+            "name": "fireEvents",
+            "module": "src/elements/popper.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -7889,7 +8148,7 @@
               "type": {
                 "text": "number"
               },
-              "default": "16",
+              "default": "18",
               "attribute": "icon-size"
             },
             {
@@ -8069,7 +8328,7 @@
               "type": {
                 "text": "number"
               },
-              "default": "16",
+              "default": "18",
               "fieldName": "iconSize"
             },
             {
@@ -9615,7 +9874,7 @@
               "kind": "field",
               "name": "control",
               "type": {
-                "text": "KemetFieldInterface"
+                "text": "KemetField"
               }
             },
             {

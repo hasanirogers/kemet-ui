@@ -1,8 +1,34 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { TypeVariant, TypeTarget, TypeType } from '../types/button';
 import { stylesBase } from '../styles/elements/button';
 import { FormSubmitController } from '../utilities/controllers/forms';
+
+export const variants = ['standard', 'text', 'circle', 'rounded', 'pill'] as const;
+export enum EnumVariants {
+  STANDARD = 'standard',
+  TEXT = 'text',
+  CIRCLE = 'circle',
+  ROUNDED = 'rounded',
+  PILL = 'pill'
+}
+export type TypeVariants = EnumVariants;
+
+export const targets = ['_blank', '_self', '_parent', '_top'] as const;
+export enum EnumTargets {
+  BLANK = '_blank',
+  SELF = '_self',
+  PARENT = '_parent',
+  TOP = '_top'
+}
+export type TypeTargets = EnumTargets;
+
+export const types = ['button', 'submit', 'reset'] as const;
+export enum EnumTypes {
+  BUTTON = 'button',
+  SUBMIT = 'submit',
+  RESET = 'reset'
+}
+export type TypeTypes = EnumTypes;
 
 /**
  * @since 1.0.0
@@ -17,9 +43,9 @@ import { FormSubmitController } from '../utilities/controllers/forms';
  * @prop {string} link - The url a button should link too
  * @prop {boolean} outlined - Outline style for a button
  * @prop {boolean} disabled - Determines whether not a button is disabled
- * @prop {string} variant - Controls the type of button. standard | text | circle | rounded | pill
- * @prop {TypeTarget} target - The target attribute for a link
- * @prop {TypeType} type - The type attribute for a button
+ * @prop {TypeVariants} variant - Controls the type of button. standard | text | circle | rounded | pill
+ * @prop {TypeTargets} target - The target attribute for a link
+ * @prop {TypeTypes} type - The type attribute for a button
  *
  * @slot left - Allows you to place an icon to the left of the button text.
  * @slot right - Allows you to place an icon to the right of the button text.
@@ -73,13 +99,19 @@ export default class KemetButton extends LitElement {
   disabled: boolean = false;
 
   @property({ reflect: true })
-  variant: TypeVariant = 'standard';
+  variant: TypeVariants = EnumVariants.STANDARD;
 
   @property()
-  target: TypeTarget = '_self';
+  target: TypeTargets = EnumTargets.SELF;
 
   @property()
-  type: TypeType = 'button';
+  type: TypeTypes = EnumTypes.BUTTON;
+
+  @property({ type: Boolean, reflect: true, attribute: 'icon-left' })
+  iconLeft: boolean = false;
+
+  @property({ type: Boolean, reflect: true, attribute: 'icon-right' })
+  iconRight: boolean = false;
 
   constructor() {
     super();
@@ -98,20 +130,30 @@ export default class KemetButton extends LitElement {
     if (this.link && !this.disabled) {
       return html`
         <a href=${this.link} target=${this.target} class="button" role="button" part="button">
-          <slot name="left"></slot>
+          <slot name="left" @slotchange=${this.handleLeftChange}></slot>
           <slot></slot>
-          <slot name="right"></slot>
+          <slot name="right" @slotchange=${this.handleRightChange}></slot>
         </a>
       `;
     }
 
     return html`
       <button class="button" part="button" type=${this.type} ?disabled=${this.disabled} aria-disabled=${this.disabled ? 'true' : 'false'}>
-        <slot name="left"></slot>
+        <slot name="left" @slotchange=${this.handleLeftChange}></slot>
         <slot></slot>
-        <slot name="right"></slot>
+        <slot name="right" @slotchange=${this.handleRightChange}></slot>
       </button>
     `;
+  }
+
+  handleLeftChange() {
+    const left = this.querySelector('[slot="left"]');
+    if (left) this.iconLeft = true;
+  }
+
+  handleRightChange() {
+    const right = this.querySelector('[slot="right"]');
+    if (right) this.iconRight = true;
   }
 
   /**

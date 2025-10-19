@@ -3,9 +3,10 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../utilities/controllers/forms';
-import { KemetFieldInterface } from '../types/field';
+import KemetField from './field';
+import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
 import { stylesTextarea } from '../styles/elements/textarea';
-import { TypeStatus } from '../types/textarea';
+
 
 /**
  * @since 1.0.0
@@ -93,7 +94,7 @@ export default class KemetTextarea extends LitElement {
   invalid: boolean;
 
   @property({ type: String, reflect: true })
-  status: TypeStatus = 'standard';
+  status: TypeStatus = EnumStatuses.Standard;
 
   @property({ type: Number })
   rows: number = 4;
@@ -114,7 +115,7 @@ export default class KemetTextarea extends LitElement {
   form: HTMLFormElement;
 
   @state()
-  control: KemetFieldInterface;
+  control: KemetField;
 
   @state()
   textarea: HTMLTextAreaElement;
@@ -218,7 +219,7 @@ export default class KemetTextarea extends LitElement {
 
     if (this.textarea.checkValidity() && this.checkLimitValidity()) {
       this.invalid = false;
-      this.status = 'standard';
+      this.status = EnumStatuses.Standard;
       this.validity = this.textarea.validity;
 
       /**
@@ -266,7 +267,7 @@ export default class KemetTextarea extends LitElement {
 
     if (this.validateOnBlur) {
       this.invalid = true;
-      this.status = 'error';
+      this.status = EnumStatuses.Error;
 
       /**
        * Fires when there's a change in status

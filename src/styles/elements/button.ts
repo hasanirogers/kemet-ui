@@ -90,4 +90,12 @@ export const stylesBase = css`
     --kemet-button-background-color: transparent;
     --kemet-button-border: var(--kemet-button-border-width) var(--kemet-button-border-style) var(--kemet-button-border-color);
   }
+
+  :host([icon-left]) {
+    --kemet-button-padding: 1rem 1.25rem 1rem .75rem;
+  }
+
+  :host([icon-right]) {
+    --kemet-button-padding:  1rem .75rem 1rem 1.25rem;
+  }
 `

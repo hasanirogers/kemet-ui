@@ -1,12 +1,13 @@
 import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { emitEvent } from '../utilities/misc/events';
-import { KemetFieldInterface } from '../types/field';
-import { KemetInputInterface } from '../types/input';
-import { KemetTextareaInterface } from '../types/textarea';
+import KemetField from './field';
+import KemetInput from './input';
+import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+import KemetTextarea from './textarea';
 import { stylesBase } from '../styles/elements/password';
-import { TypeStatus } from '../types/password';
 import './icon-bootstrap';
+
 
 /**
  * @since 1.2.0
@@ -71,10 +72,10 @@ export default class KemetPassword extends LitElement {
   status: TypeStatus;
 
   @state()
-  field: KemetFieldInterface;
+  field: KemetField;
 
   @state()
-  input: KemetInputInterface | KemetTextareaInterface;
+  input: KemetInput | KemetTextarea;
 
   firstUpdated() {
     // elements
@@ -162,22 +163,22 @@ export default class KemetPassword extends LitElement {
 
       if (metRulesPercentage <= 0.33) {
         this.strength = 'weak';
-        this.status = 'error';
+        this.status = EnumStatuses.Error;
       }
 
       if (metRulesPercentage > 0.33 && metRulesPercentage <= 0.67) {
         this.strength = 'better';
-        this.status = 'error';
+        this.status = EnumStatuses.Error;
       }
 
       if (metRulesPercentage > 0.67) {
         this.strength = 'strong';
-        this.status = 'success';
+        this.status = EnumStatuses.Success;
       }
 
       emitEvent(this, 'kemet-password-status', {
         status: this.status,
-        validity: { meetsPasswordCriteria: this.status === 'success' },
+        validity: { meetsPasswordCriteria: this.status === EnumStatuses.Success },
         element: this,
       });
     }, 1);

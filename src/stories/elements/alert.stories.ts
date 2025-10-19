@@ -2,7 +2,8 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
 import { userEvent, within, expect } from 'storybook/test';
-import KemetAlert, { EnumOverlayPositions, EnumRoundedSizes, roundedSizes } from '../../elements/alert';;
+import KemetAlert, { EnumOverlayPositions, EnumRoundedSizes, overlayPositions, roundedSizes } from '../../elements/alert';
+import { directions, EnumStatuses, statuses } from '../../utilities/misc/constants';
 
 import '../../elements/alert';
 
@@ -20,21 +21,17 @@ const meta: Meta = {
     opened: true,
   },
   argTypes: {
-    icon: {
-      control: { type: 'select' },
-      options: ['none', 'info-circle', 'check-circle', 'gear', 'exclamation-circle'],
-    },
     status: {
       control: { type: 'select' },
-      options: ['standard', 'primary', 'success', 'warning', 'error'],
+      options: statuses,
     },
     border: {
       control: { type: 'select' },
-      options: ['none', 'top', 'right', 'bottom', 'left'],
+      options: directions,
     },
     overlay: {
       control: { type: 'select' },
-      options: ['none', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left'],
+      options: overlayPositions,
     },
     rounded: {
       control: { type: 'select' },
@@ -142,7 +139,7 @@ export const Primary: Story = {
   render: (args: Args) => Template(args),
   args: {
     border: 'left',
-    status: 'primary',
+    status: EnumStatuses.Primary,
   },
 };
 
@@ -150,7 +147,7 @@ export const Success: Story = {
   render: (args: Args) => Template(args),
   args: {
     border: 'left',
-    status: 'success',
+    status: EnumStatuses.Success,
   },
 };
 
@@ -158,7 +155,7 @@ export const Warning: Story = {
   render: (args: Args) => Template(args),
   args: {
     border: 'left',
-    status: 'warning',
+    status: EnumStatuses.Warning,
   },
 };
 
@@ -166,7 +163,7 @@ export const Error: Story = {
   render: (args: Args) => Template(args),
   args: {
     border: 'left',
-    status: 'error',
+    status: EnumStatuses.Error,
   },
 };
 

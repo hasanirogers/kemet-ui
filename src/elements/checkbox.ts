@@ -5,7 +5,7 @@ import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../utilities/controllers/forms';
 import { emitEvent } from '../utilities/misc/events';
 import { stylesBase } from '../styles/elements/checkbox';
-import { TypeStatus } from '../types/checkbox';
+import { TypeStatus, EnumStatuses } from '../utilities/misc/constants';
 
 /**
  * @since 1.0.0
@@ -24,7 +24,7 @@ import { TypeStatus } from '../types/checkbox';
  * @prop {boolean} focused - Is true when the checkbox is focused
  * @prop {boolean} rounded - Gives the checkbox rounded edges
  * @prop {boolean} filled - Fills the checkbox with color
- * @prop {string} status - The status of the checkbox
+ * @prop {TypeStatus} status - The status of the checkbox
  * @prop {string} message - Message associated with checkbox status
  *
  * @csspart label - The label element.
@@ -81,7 +81,7 @@ export default class KemetCheckbox extends LitElement {
   filled: boolean = false;
 
   @property({ type: String, reflect: true })
-  status: TypeStatus = 'standard';
+  status: TypeStatus = EnumStatuses.Standard;
 
   @property({ type: String })
   message: string;
@@ -146,12 +146,12 @@ export default class KemetCheckbox extends LitElement {
     this.value = this.checked;
 
     if (this.input.checkValidity()) {
-      this.status = 'standard';
+      this.status = EnumStatuses.Standard;
     }
   }
 
   makeMessage() {
-    if (this.status === 'error' || this.status === 'warning') {
+    if (this.status === EnumStatuses.Error || this.status === EnumStatuses.Warning) {
       return html`<span part="message">${this.message}</span>`;
     }
 

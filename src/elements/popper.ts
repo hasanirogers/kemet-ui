@@ -4,9 +4,59 @@ import {
 } from 'lit/decorators.js';
 import { createPopper } from '@popperjs/core/dist/esm';
 import { emitEvent } from '../utilities/misc/events';
-import { TypeFireOn, TypePlacement } from '../types/popper';
 import { stylesPopper } from '../styles/elements/popper';
 // import { stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFall, stylesPopperFlipHorizontal, stylesPopperFlipVertical, stylesPopperSign, stylesPopperSuperScaled } from './styles.effects';
+
+export const placement = ['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'right', 'right-start', 'right-end', 'left', 'left-start', 'left-end'] as const;
+export enum EnumPlacement {
+  AUTO = 'auto',
+  AUTO_START = 'auto-start',
+  AUTO_END = 'auto-end',
+  TOP = 'top',
+  TOP_START = 'top-start',
+  TOP_END = 'top-end',
+  BOTTOM = 'bottom',
+  BOTTOM_START = 'bottom-start',
+  BOTTOM_END = 'bottom-end',
+  RIGHT = 'right',
+  RIGHT_START = 'right-start',
+  RIGHT_END = 'right-end',
+  LEFT = 'left',
+  LEFT_START = 'left-start',
+  LEFT_END = 'left-end',
+}
+export type TypePlacement = EnumPlacement;
+
+
+export const fireEvents = ['click', 'hover'] as const;
+export enum EnumFireEvents {
+  CLICK = "click",
+  HOVER = "hover",
+}
+export type TypeFireEvents = EnumFireEvents;
+
+
+export const effects = ['none', 'fade', 'scale', 'slide', 'fall', 'flip-horizontal', 'flip-vertical', 'sign', 'super-scaled'] as const;
+export enum EnumEffects {
+  NONE = "none",
+  FADE = "fade",
+  SCALE = "scale",
+  SLIDE = "slide",
+  FALL = "fall",
+  FLIP_HORIZONTAL = "flip-horizontal",
+  FLIP_VERTICAL = "flip-vertical",
+  SIGN = "sign",
+  SUPER_SCALED = "super-scaled",
+}
+export type TypeEffects = EnumEffects;
+
+export const strategy = ['fixed', 'absolute'] as const;
+export enum EnumStrategy {
+  FIXED = "fixed",
+  ABSOLUTE = "absolute",
+}
+export type TypeStrategy = EnumStrategy;
+
 
 /**
  * @since 2.0.0
@@ -31,7 +81,7 @@ import { stylesPopper } from '../styles/elements/popper';
  * @prop {TypePlacement} placement - The position of the popper over the trigger.
  * @prop {boolean} opened - Determines if the Popper is opened or closed
  * @prop {TypeFireOn} fireOn - Activate the Popper on Click or Hover
- * @prop {string} strategy - Sets the strategy option in Popper's api
+ * @prop {TypeStrategy} strategy - Sets the strategy option in Popper's api
  * @prop {number} skidding - Sets an offset to the Popper from the trigger
  * @prop {number} distance - Sets spacing between the Popper and the trigger
  *
@@ -42,16 +92,16 @@ export default class KemetPopper extends LitElement {
   static styles = [stylesPopper];
 
   @property({ type: String, reflect: true })
-  placement: TypePlacement = 'top';
+  placement: TypePlacement = EnumPlacement.TOP;
 
   @property({ type: Boolean, reflect: true })
   opened: boolean;
 
   @property({ type: String, attribute: 'fire-on' })
-  fireOn: TypeFireOn = 'hover';
+  fireOn: TypeFireEvents = EnumFireEvents.HOVER;
 
   @property({ type: String })
-  strategy: 'fixed' | 'absolute' = 'fixed';
+  strategy: TypeStrategy = EnumStrategy.FIXED;
 
   @property({ type: Number })
   skidding: number = 0;
@@ -61,7 +111,7 @@ export default class KemetPopper extends LitElement {
 
   /** @internal */
   @state()
-  popperInstance: { setOptions: (arg0: { placement: TypePlacement; strategy: 'fixed' | 'absolute'; modifiers: { name: string; options: { offset: number[]; }; }[]; }) => void; };
+  popperInstance: { setOptions: (arg0: { placement: TypePlacement; strategy: TypeStrategy; modifiers: { name: string; options: { offset: number[]; }; }[]; }) => void; };
 
   /** @internal */
   @query('#trigger')
