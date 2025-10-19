@@ -11,7 +11,7 @@ export enum EnumEffects {
   Push = 'push',
   Scale = 'scale'
 }
-export type TypeEffect = EnumEffects;
+export type TypeEffect = typeof effects[number];
 
 /**
  * @since 1.0.0

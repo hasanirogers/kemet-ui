@@ -14,7 +14,7 @@ export enum EnumOverlayPositions {
   BOTTOM_RIGHT = 'bottom-right',
   BOTTOM_LEFT = 'bottom-left'
 }
-export type TypeOverlayPositions = EnumOverlayPositions;
+export type TypeOverlayPositions = typeof overlayPositions[number];
 
 /**
  * @since 1.4.0

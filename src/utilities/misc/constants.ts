@@ -12,7 +12,7 @@ export enum EnumDirections {
   Bottom = 'bottom',
   Left = 'left'
 }
-export type TypeDirection = EnumDirections;
+export type TypeDirection = typeof directions[number];
 
 export const statuses = ['standard', 'primary', 'success', 'warning', 'error'] as const;
 export enum EnumStatuses {
@@ -22,14 +22,14 @@ export enum EnumStatuses {
   Warning = 'warning',
   Error = 'error'
 }
-export type TypeStatus = EnumStatuses;
+export type TypeStatus = typeof statuses[number];
 
-export const TypeAxis = ['horizontal', 'vertical'] as const;
+export const axis = ['horizontal', 'vertical'] as const;
 export enum EnumAxis {
   Horizontal = 'horizontal',
   Vertical = 'vertical'
 }
-export type TypeAxis = EnumAxis;
+export type TypeAxis = typeof axis[number];
 
 export const roundedSizes = ['sm', 'md', 'lg', 'xl', 'circle', 'pill'] as const;
 export enum EnumRoundedSizes {
@@ -40,4 +40,4 @@ export enum EnumRoundedSizes {
   CIRCLE = 'circle',
   PILL = 'pill'
 }
-export type TypeRoundedSizes = EnumRoundedSizes;
+export type TypeRoundedSizes = typeof roundedSizes[number];

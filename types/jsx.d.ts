@@ -1,106 +1,140 @@
+import { LitElement } from 'lit';
 import 'react';
-import KemetAccordionClass from 'dist/kemet-accordion/kemet-accordion.d.mts';
-import KemetAccordionPanelClass from 'dist/kemet-accordion/kemet-accordion-panel.d.mts';
-import KemetAlertClass from 'dist/kemet-alert/kemet-alert.d.mts';
-import KemetAvatarClass from 'dist/kemet-avatar/kemet-avatar.d.mts';
-import KemetBadgeClass from 'dist/kemet-badge/kemet-badge.d.mts';
-import KemetButtonClass from 'dist/kemet-button/kemet-button.d.mts';
-import KemetCardClass from 'dist/kemet-card/kemet-card.d.mts';
-import KemetCarouselClass from 'dist/kemet-carousel/kemet-carousel.d.mts';
-import KemetCarouselCurrentClass from 'dist/kemet-carousel/kemet-carousel-current.d.mts';
-import KemetCarouselFirstClass from 'dist/kemet-carousel/kemet-carousel-first.d.mts';
-import KemetCarouselLastClass from 'dist/kemet-carousel/kemet-carousel-last.d.mts';
-import KemetCarouselNextClass from 'dist/kemet-carousel/kemet-carousel-next.d.mts';
-import KemetCarouselPrevClass from 'dist/kemet-carousel/kemet-carousel-prev.d.mts';
-import KemetCarouselLinkClass from 'dist/kemet-carousel/kemet-carousel-link.d.mts';
-import KemetCarouselSlideClass from 'dist/kemet-carousel/kemet-carousel-slide.d.mts';
-import KemetCarouselTotalClass from 'dist/kemet-carousel/kemet-carousel-total.d.mts';
-import KemetCheckboxClass from 'dist/kemet-checkbox/kemet-checkbox.d.mts';
-import KemetComboClass from 'dist/kemet-combo/kemet-combo.d.mts';
-import KemetCountClass from 'dist/kemet-count/kemet-count.d.mts';
-import KemetDraggableClass from 'dist/kemet-draggable/kemet-draggable.d.mts';
-import KemetDrawerClass from 'dist/kemet-drawer/kemet-drawer.d.mts';
-import KemetFabClass from 'dist/kemet-fab/kemet-fab.d.mts';
-import KemetFieldClass from 'dist/kemet-field/kemet-field.d.mts';
-import KemetFlipcardClass from 'dist/kemet-flipcard/kemet-flipcard.d.mts';
-import KemetFlipcardTriggerClass from 'dist/kemet-flipcard/kemet-flipcard-trigger.d.mts';
-import KemetIconClass from 'dist/kemet-icon/kemet-icon.d.mts';
-import KemetInputClass from 'dist/kemet-input/kemet-input.d.mts';
-import KemetModalClass from 'dist/kemet-modal/kemet-modal.d.mts';
-import KemetMultiInputClass from 'dist/kemet-multi-input/kemet-multi-input.d.mts';
-import KemetPasswordClass from 'dist/kemet-password/kemet-password.d.mts';
-import KemetPopperClass from 'dist/kemet-popper/kemet-popper.d.mts';
-import KemetRadioClass from 'dist/kemet-radio/kemet-radio.d.mts';
-import KemetRotatorClass from 'dist/kemet-rotator/kemet-rotator.d.mts';
-import KemetSelectClass from 'dist/kemet-select/kemet-select.d.mts';
-import KemetScrollNavClass from 'dist/kemet-scroll-nav/kemet-scroll-nav.d.mts';
-import KemetScrollSnapClass from 'dist/kemet-scroll-snap/kemet-scroll-snap.d.mts';
-import KemetScrollSnapPaginatorClass from 'dist/kemet-scroll-snap/kemet-scroll-snap-paginator.d.mts';
-import KemetScrollSnapSlideClass from 'dist/kemet-scroll-snap/kemet-scroll-snap-slide.d.mts';
-import KemetSortableClass from 'dist/kemet-sortable/kemet-sortable.d.mts';
-import KemetSvgs from 'dist/kemet-svgs/kemet-svgs.d.mts';
-import KemetTabClass from 'dist/kemet-tab/kemet-tab.d.mts';
-import KemetTabPanelClass from 'dist/kemet-tab-panel/kemet-tab-panel.d.mts';
-import KemetTabsClass from 'dist/kemet-tabs/kemet-tabs.d.mts';
-import KemetTextareaClass from 'dist/kemet-textarea/kemet-textarea.d.mts';
-import KemetTimerClass from 'dist/kemet-timer/kemet-timer.d.mts';
-import KemetToggleClass from 'dist/kemet-toggle/kemet-toggle.d.mts';
-import KemetTooltipClass from 'dist/kemet-tooltip/kemet-tooltip.d.mts';
-import KemetTrackerClass from 'dist/kemet-tracker/kemet-tracker.d.mts';
-import KemetUpload from 'dist/kemet-upload/kemet-upload.d.mts;'
+
+import KemetAccordionClass from '../dist/elements/accordion';
+import KemetAccordionPanelClass from '../dist/elements/accordion-panel';
+import KemetAlertClass from '../dist/elements/alert';
+import KemetAvatarClass from '../dist/elements/avatar';
+import KemetBadgeClass from '../dist/elements/badge';
+import KemetButtonClass from '../dist/elements/button';
+import KemetCardClass from '../dist/elements/card';
+import KemetCarouselClass from '../dist/elements/carousel';
+import KemetCarouselCurrentClass from '../dist/elements/carousel-current';
+import KemetCarouselFirstClass from '../dist/elements/carousel-first';
+import KemetCarouselLastClass from '../dist/elements/carousel-last';
+import KemetCarouselNextClass from '../dist/elements/carousel-next';
+import KemetCarouselPrevClass from '../dist/elements/carousel-prev';
+import KemetCarouselLinkClass from '../dist/elements/carousel-link';
+import KemetCarouselSlideClass from '../dist/elements/carousel-slide';
+import KemetCarouselTotalClass from '../dist/elements/carousel-total';
+import KemetCheckboxClass from '../dist/elements/checkbox';
+import KemetComboClass from '../dist/elements/combo';
+import KemetCountClass from '../dist/elements/count';
+import KemetDraggableClass from '../dist/elements/draggable';
+import KemetDrawerClass from '../dist/elements/drawer';
+import KemetFabClass from '../dist/elements/fab';
+import KemetFieldClass from '../dist/elements/field';
+import KemetFlipcardClass from '../dist/elements/flipcard';
+import KemetFlipcardTriggerClass from '../dist/elements/flipcard-trigger';
+import KemetIconBootstrapClass from '../dist/elements/icon-bootstrap';
+import KemetIconLucideClass from '../dist/elements/icon-lucide';
+import KemetInputClass from '../dist/elements/input';
+import KemetModalClass from '../dist/elements/modal';
+import KemetMultiInputClass from '../dist/elements/multi-input';
+import KemetPasswordClass from '../dist/elements/password';
+import KemetPopperClass from '../dist/elements/popper';
+import KemetRadioClass from '../dist/elements/radio';
+import KemetRotatorClass from '../dist/elements/rotator';
+import KemetSelectClass from '../dist/elements/select';
+import KemetScrollNavClass from '../dist/elements/scroll-nav';
+import KemetScrollSnapClass from '../dist/elements/scroll-snap';
+import KemetScrollSnapPaginatorClass from '../dist/elements/scroll-snap-paginator';
+import KemetScrollSnapSlideClass from '../dist/elements/scroll-snap-slide';
+import KemetSortableClass from '../dist/elements/sortable';
+import KemetSvgs from '../dist/elements/svgs';
+import KemetTabClass from '../dist/elements/tab';
+import KemetTabPanelClass from '../dist/elements/tab-panel';
+import KemetTabsClass from '../dist/elements/tabs';
+import KemetTextareaClass from '../dist/elements/textarea';
+import KemetTimerClass from '../dist/elements/timer';
+import KemetToggleClass from '../dist/elements/toggle';
+import KemetTooltipClass from '../dist/elements/tooltip';
+import KemetTrackerClass from '../dist/elements/tracker';
+import KemetUpload from '../dist/elements/upload';
+
+
+/**
+ * Extract only data properties (no methods) from a type
+ */
+type DataProps<T> = {
+  [K in keyof T as T[K] extends (...args: any[]) => any ? never : K]: T[K];
+};
+
+/**
+ * Extract custom properties from a LitElement instance (excluding base LitElement props)
+ */
+type LitElementProps<T extends LitElement> = Omit<
+  DataProps<T>,
+  keyof LitElement
+>;
+
+/**
+ * Create React-compatible props for a Lit custom element
+ */
+type ReactLitProps<T extends LitElement> =
+  Omit<React.HTMLAttributes<T>, 'children'> &
+  Partial<LitElementProps<T>> & {
+    ref?: React.Ref<T>;
+    children?: React.ReactNode;
+    slot?: string;
+  };
+
 
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
-      'kemet-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetButtonClass;
-      'kemet-accordion': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetAccordionClass;
-      'kemet-accordion-panel': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetAccordionPanelClass;
-      'kemet-alert': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetAlertClass;
-      'kemet-avatar': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetAvatarClass;
-      'kemet-badge': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetBadgeClass;
-      'kemet-card': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCardClass;
-      'kemet-carousel': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselClass;
-      'kemet-carousel-current': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselCurrentClass;
-      'kemet-carousel-first': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselFirstClass;
-      'kemet-carousel-last': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselLastClass;
-      'kemet-carousel-next': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselNextClass;
-      'kemet-carousel-prev': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselPrevClass;
-      'kemet-carousel-link': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselLinkClass;
-      'kemet-carousel-slide': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselSlideClass;
-      'kemet-carousel-total': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCarouselTotalClass;
-      'kemet-checkbox': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCheckboxClass;
-      'kemet-combo': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetComboClass;
-      'kemet-count': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetCountClass;
-      'kemet-draggable': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetDraggableClass;
-      'kemet-drawer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetDrawerClass;
-      'kemet-fab': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetFabClass;
-      'kemet-field': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetFieldClass;
-      'kemet-flipcard': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetFlipcardClass;
-      'kemet-flipcard-trigger': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetFlipcardTriggerClass;
-      'kemet-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetIconClass;
-      'kemet-input': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetInputClass;
-      'kemet-modal': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetModalClass;
-      'kemet-multi-input': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetMultiInputClass;
-      'kemet-password': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetPasswordClass;
-      'kemet-popper': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetPopperClass;
-      'kemet-radio': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetRadioClass;
-      'kemet-rotator': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetRotatorClass;
-      'kemet-select': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetSelectClass;
-      'kemet-scroll-nav': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetScrollNavClass;
-      'kemet-scroll-snap': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetScrollSnapClass;
-      'kemet-scroll-snap-paginator': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetScrollSnapPaginatorClass;
-      'kemet-scroll-snap-slide': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetScrollSnapSlideClass;
-      'kemet-sortable': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetSortableClass;
-      'kemet-svgs': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetSvgs;
-      'kemet-tab': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetTabClass;
-      'kemet-tab-panel': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetTabPanelClass;
-      'kemet-tabs': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetTabsClass;
-      'kemet-textarea': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetTextareaClass;
-      'kemet-timer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetTimerClass;
-      'kemet-toggle': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetToggleClass;
-      'kemet-tooltip': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetTooltipClass;
-      'kemet-tracker': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetTrackerClass;
-      'kemet-upload': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & KemetUpload;
+      'kemet-accordion': ReactLitProps<KemetAccordionClass>;
+      'kemet-accordion-panel': ReactLitProps<KemetAccordionPanelClass>;
+      'kemet-alert': ReactLitProps<KemetAlertClass>;
+      'kemet-avatar': ReactLitProps<KemetAvatarClass>;
+      'kemet-badge': ReactLitProps<KemetBadgeClass>;
+      'kemet-button': ReactLitProps<KemetButtonClass>;
+      'kemet-card': ReactLitProps<KemetCardClass>;
+      'kemet-carousel': ReactLitProps<KemetCarouselClass>;
+      'kemet-carousel-current': ReactLitProps<KemetCarouselCurrentClass>;
+      'kemet-carousel-first': ReactLitProps<KemetCarouselFirstClass>;
+      'kemet-carousel-last': ReactLitProps<KemetCarouselLastClass>;
+      'kemet-carousel-next': ReactLitProps<KemetCarouselNextClass>;
+      'kemet-carousel-prev': ReactLitProps<KemetCarouselPrevClass>;
+      'kemet-carousel-link': ReactLitProps<KemetCarouselLinkClass>;
+      'kemet-carousel-slide': ReactLitProps<KemetCarouselSlideClass>;
+      'kemet-carousel-total': ReactLitProps<KemetCarouselTotalClass>;
+      'kemet-checkbox': ReactLitProps<KemetCheckboxClass>;
+      'kemet-combo': ReactLitProps<KemetComboClass>;
+      'kemet-count': ReactLitProps<KemetCountClass>;
+      'kemet-draggable': ReactLitProps<KemetDraggableClass>;
+      'kemet-drawer': ReactLitProps<KemetDrawerClass>;
+      'kemet-fab': ReactLitProps<KemetFabClass>;
+      'kemet-field': ReactLitProps<KemetFieldClass>;
+      'kemet-flipcard': ReactLitProps<KemetFlipcardClass>;
+      'kemet-flipcard-trigger': ReactLitProps<KemetFlipcardTriggerClass>;
+      'kemet-icon-bootstrap': ReactLitProps<KemetIconBootstrapClass>;
+      'kemet-icon-lucide' : ReactLitProps<KemetIconLucideClass>;
+      'kemet-input': ReactLitProps<KemetInputClass>;
+      'kemet-modal': ReactLitProps<KemetModalClass>;
+      'kemet-multi-input': ReactLitProps<KemetMultiInputClass>;
+      'kemet-password': ReactLitProps<KemetPasswordClass>;
+      'kemet-popper': ReactLitProps<KemetPopperClass>;
+      'kemet-radio': ReactLitProps<KemetRadioClass>;
+      'kemet-rotator': ReactLitProps<KemetRotatorClass>;
+      'kemet-select': ReactLitProps<KemetSelectClass>;
+      'kemet-scroll-nav': ReactLitProps<KemetScrollNavClass>;
+      'kemet-scroll-snap': ReactLitProps<KemetScrollSnapClass>;
+      'kemet-scroll-snap-paginator': ReactLitProps<KemetScrollSnapPaginatorClass>;
+      'kemet-scroll-snap-slide': ReactLitProps<KemetScrollSnapSlideClass>;
+      'kemet-sortable': ReactLitProps<KemetSortableClass>;
+      'kemet-svgs': ReactLitProps<KemetSvgs>;
+      'kemet-tab': ReactLitProps<KemetTabClass>;
+      'kemet-tab-panel': ReactLitProps<KemetTabPanelClass>;
+      'kemet-tabs': ReactLitProps<KemetTabsClass>;
+      'kemet-textarea': ReactLitProps<KemetTextareaClass>;
+      'kemet-timer': ReactLitProps<KemetTimerClass>;
+      'kemet-toggle': ReactLitProps<KemetToggleClass>;
+      'kemet-tooltip': ReactLitProps<KemetTooltipClass>;
+      'kemet-tracker': ReactLitProps<KemetTrackerClass>;
+      'kemet-upload': ReactLitProps<KemetUpload>;
     }
   }
 }
+
+export {};

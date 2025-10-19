@@ -16,7 +16,7 @@ export enum EnumAriaAutoComplete {
   Both = 'both',
   None = 'none'
 }
-export type TypeAriaAutoComplete = EnumAriaAutoComplete;
+export type TypeAriaAutoComplete = typeof ariaAutoComplete[number];
 
 export const autoComplete = ['on', 'off', 'additional-name', 'address-level1', 'address-level2', 'address-level3', 'address-level4', 'address-line1', 'address-line2', 'address-line3', 'bday', 'bday-year', 'bday-day', 'bday-month', 'billing', 'cc-additional-name'] as const;
 export enum EnumAutoComplete {
@@ -37,7 +37,7 @@ export enum EnumAutoComplete {
   Billing = 'billing',
   CcAdditionalName = 'cc-additional-name'
 }
-export type TypeAutoComplete = EnumAutoComplete;
+export type TypeAutoComplete = typeof autoComplete[number];
 
 
 

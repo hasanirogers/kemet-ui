@@ -21,7 +21,7 @@ export enum EnumEffects {
   RotateBottom = 'rotate-bottom',
   RotateLeft = 'rotate-left'
 }
-export type TypeEffect = EnumEffects;
+export type TypeEffect = typeof effects[number];
 
 
 /**

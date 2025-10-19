@@ -11,7 +11,7 @@ export enum EnumVariants {
   ROUNDED = 'rounded',
   PILL = 'pill'
 }
-export type TypeVariants = EnumVariants;
+export type TypeVariants = typeof variants[number];
 
 export const targets = ['_blank', '_self', '_parent', '_top'] as const;
 export enum EnumTargets {
@@ -20,7 +20,7 @@ export enum EnumTargets {
   PARENT = '_parent',
   TOP = '_top'
 }
-export type TypeTargets = EnumTargets;
+export type TypeTargets = typeof targets[number];
 
 export const types = ['button', 'submit', 'reset'] as const;
 export enum EnumTypes {
@@ -28,7 +28,7 @@ export enum EnumTypes {
   SUBMIT = 'submit',
   RESET = 'reset'
 }
-export type TypeTypes = EnumTypes;
+export type TypeTypes = typeof types[number];
 
 /**
  * @since 1.0.0

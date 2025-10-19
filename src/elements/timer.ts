@@ -3,14 +3,14 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/timer';
 import { emitEvent } from '../utilities/misc/events';
 
-export type TypeFormats = 'seconds' | 'minutes' | 'hours' | 'days';
+export const formats = ['seconds', 'minutes', 'hours', 'days'] as const;
 export enum EnumFormats {
   Seconds = 'seconds',
   Minutes = 'minutes',
   Hours = 'hours',
   Days = 'days'
 }
-export type TypeFormat = EnumFormats;
+export type TypeFormats = typeof formats[number];
 
 /**
  * @since 3.1.0
@@ -19,7 +19,7 @@ export type TypeFormat = EnumFormats;
  * @tagname kemet-timer
  * @summary Counts down from a specified amount of time or date.
  *
- * @prop {string} format - The format of the amount property
+ * @prop {TypeFormats} format - The format of the amount property
  * @prop {number} amount - The amount of time to set the timer
  * @prop {string} expires - Begins a count down to a specified time, accepts a string that matches value given for a Date constructor
  *

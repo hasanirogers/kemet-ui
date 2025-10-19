@@ -26,7 +26,7 @@ export enum EnumPanelEffect {
   Fade = 'fade',
   Stacked = 'stacked'
 }
-export type TypePanelEffect = EnumPanelEffect;
+export type TypePanelEffect = typeof panelEffect[number];
 
 
 export const tabsAlign = ['center', 'between', 'around', 'evenly', 'start', 'end'] as const;
@@ -38,7 +38,7 @@ export enum EnumTabsAlign {
   Start = 'start',
   End = 'end'
 }
-export type TypeTabsAlign = EnumTabsAlign;
+export type TypeTabsAlign = typeof tabsAlign[number];
 
 /**
  * @since 1.0.0

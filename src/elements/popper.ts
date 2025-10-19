@@ -25,7 +25,7 @@ export enum EnumPlacement {
   LEFT_START = 'left-start',
   LEFT_END = 'left-end',
 }
-export type TypePlacement = EnumPlacement;
+export type TypePlacement = typeof placement[number];
 
 
 export const fireEvents = ['click', 'hover'] as const;
@@ -33,7 +33,7 @@ export enum EnumFireEvents {
   CLICK = "click",
   HOVER = "hover",
 }
-export type TypeFireEvents = EnumFireEvents;
+export type TypeFireEvents = typeof fireEvents[number];
 
 
 export const effects = ['none', 'fade', 'scale', 'slide', 'fall', 'flip-horizontal', 'flip-vertical', 'sign', 'super-scaled'] as const;
@@ -48,14 +48,14 @@ export enum EnumEffects {
   SIGN = "sign",
   SUPER_SCALED = "super-scaled",
 }
-export type TypeEffects = EnumEffects;
+export type TypeEffects = typeof effects[number];
 
 export const strategy = ['fixed', 'absolute'] as const;
 export enum EnumStrategy {
   FIXED = "fixed",
   ABSOLUTE = "absolute",
 }
-export type TypeStrategy = EnumStrategy;
+export type TypeStrategy = typeof strategy[number];
 
 
 /**

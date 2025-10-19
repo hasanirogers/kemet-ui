@@ -8,7 +8,7 @@ export enum EnumEffects {
   Fade = 'fade',
   Flip = 'flip',
 }
-export type TypeEffects = EnumEffects;
+export type TypeEffects = typeof effects[number];
 
 /**
  * @since 1.0.0

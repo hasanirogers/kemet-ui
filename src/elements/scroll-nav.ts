@@ -7,7 +7,7 @@ export enum EnumEffects {
   Sticky = 'sticky',
   Resize = 'resize'
 }
-export type TypeEffects = EnumEffects;
+export type TypeEffects = typeof effects[number];
 
 
 /**
