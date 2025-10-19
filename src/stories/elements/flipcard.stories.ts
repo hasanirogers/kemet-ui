@@ -13,6 +13,9 @@ import '../../elements/tab-panel';
 const meta: Meta = {
   title: 'Organization / Flipcard',
   component: 'kemet-flipcard',
+  parameters: {
+    layout: 'padded'
+  },
   argTypes: {
     axis: {
       control: { type: 'select' },
