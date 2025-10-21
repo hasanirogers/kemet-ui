@@ -9,7 +9,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
-import { statuses } from '../../utilities/misc/constants';
+import { statuses } from '../../utilities/constants';
 
 const meta: Meta = {
   title: 'Form Controls / Input',

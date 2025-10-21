@@ -10,7 +10,7 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
-import { EnumRoundedSizes, EnumStatuses, roundedSizes, statuses } from '../../utilities/misc/constants';
+import { EnumRoundedSizes, EnumStatuses, roundedSizes, statuses } from '../../utilities/constants';
 
 const meta: Meta = {
   title: 'Feedback & Status / Badge',

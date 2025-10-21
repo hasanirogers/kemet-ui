@@ -2,8 +2,8 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
 import { userEvent, within, expect } from 'storybook/test';
-import KemetAlert, { EnumOverlayPositions, EnumRoundedSizes, overlayPositions, roundedSizes } from '../../elements/alert';
-import { directions, EnumStatuses, statuses } from '../../utilities/misc/constants';
+import KemetAlert, { EnumOverlayPositions, overlayPositions } from '../../elements/alert';
+import { directions, EnumStatuses, statuses, EnumRoundedSizes, roundedSizes } from '../../utilities/constants';
 
 import '../../elements/alert';
 

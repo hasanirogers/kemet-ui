@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { effects, EnumEffects } from '../../elements/drawer';
-import { directions, EnumDirections } from '../../utilities/misc/constants';
+import { directions, EnumDirections } from '../../utilities/constants';
 
 import '../../elements/drawer';
 
