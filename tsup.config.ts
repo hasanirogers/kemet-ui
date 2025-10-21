@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 export default defineConfig((options) => ({
   entryPoints: [
     "src/elements/*.ts",
-    "src/react/*.ts"
+    "src/wrappers/*.(ts|tsx)"
   ],
   format: ["cjs", "esm"],
   dts: true,
