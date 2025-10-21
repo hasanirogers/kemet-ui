@@ -35,7 +35,6 @@ const Template = (args) => {
   const makeSlides = (numberOfSlides) => {
     const slides = [];
 
-    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < numberOfSlides; i++) {
       slides.push(html`
         <kemet-scroll-snap-slide label="Heading ${i + 1}" kemet-margin-top="2xl" style=${ifDefined(args.slideWidth ? `--kemet-scroll-snap-slide-width: ${args.slideWidth};` : undefined)}>
@@ -75,26 +74,6 @@ const Template = (args) => {
     </kemet-scroll-snap>
   `;
 }
-
-
-// export const Standard: Story = {
-//   render: args => Template(args),
-//   args: {
-//     showPagination: true,
-//     numberOfSlides: 5,
-//     gap: '1.5rem',
-//     axis: 'horizontal',
-//     pagination: 'bottom',
-//     paginationIcon: 'circle-fill',
-//     paginationSize: 16,
-//     paginationUseNumbers: false,
-//     paginationUseLabels: false,
-//     paginationCenter: true,
-//     paginationGap: '0.5rem',
-//     slideWidth: '44vw',
-//     horizontalMaxWidth: '90%',
-//   },
-// };
 
 export const Standard: Story = {
   render: args => Template(args),
