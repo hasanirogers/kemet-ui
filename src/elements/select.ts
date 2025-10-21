@@ -1,13 +1,13 @@
 import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { FormSubmitController } from '../utilities/controllers/forms';
-import { emitEvent } from '../utilities/misc/events';
+import { FormSubmitController } from '../utilities/form-controller';
+import { emitEvent } from '../utilities/events';
 import { stylesSelect } from '../styles/elements/select';
 
 import type KemetOption from './option';
 import './icon-bootstrap';
 import KemetField from './field';
-import { EnumStatuses } from '../utilities/misc/constants';
+import { EnumStatuses } from '../utilities/constants';
 
 /**
  * @since 1.0.0

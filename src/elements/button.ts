@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/button';
-import { FormSubmitController } from '../utilities/controllers/forms';
+import { FormSubmitController } from '../utilities/form-controller';
 
 export const variants = ['standard', 'text', 'circle', 'rounded', 'pill'] as const;
 export enum EnumVariants {

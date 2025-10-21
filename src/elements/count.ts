@@ -1,10 +1,10 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import KemetField from '../elements/field';
 import KemetInput from '../elements/input';
 import KemetTextarea from '../elements/textarea';
-import { EnumStatuses } from '../utilities/misc/constants';
+import { EnumStatuses } from '../utilities/constants';
 
 /**
  * @since 1.0.0

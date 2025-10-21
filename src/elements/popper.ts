@@ -3,7 +3,7 @@ import {
   customElement, property, query, queryAll, state,
 } from 'lit/decorators.js';
 import { createPopper } from '@popperjs/core/dist/esm';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesPopper } from '../styles/elements/popper';
 // import { stylesPopperFade, stylesPopperScale, stylesPopperSlide, stylesPopperFall, stylesPopperFlipHorizontal, stylesPopperFlipVertical, stylesPopperSign, stylesPopperSuperScaled } from './styles.effects';
 

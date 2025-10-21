@@ -3,7 +3,7 @@ import {
   customElement, property, query, state,
 } from 'lit/decorators.js';
 import { stylesBase, stylesEffects } from '../styles/elements/modal';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 
 export const effects = ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'] as const;
 export enum EnumEffects {

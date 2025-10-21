@@ -2,10 +2,10 @@ import { html, LitElement } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { FormSubmitController } from '../utilities/controllers/forms';
-import { emitEvent } from '../utilities/misc/events';
+import { FormSubmitController } from '../utilities/form-controller';
+import { emitEvent } from '../utilities/events';
 import { stylesBase } from '../styles/elements/checkbox';
-import { TypeStatus, EnumStatuses } from '../utilities/misc/constants';
+import { TypeStatus, EnumStatuses } from '../utilities/constants';
 
 /**
  * @since 1.0.0

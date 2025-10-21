@@ -1,9 +1,9 @@
 import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import KemetField from './field';
 import KemetInput from './input';
-import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+import { EnumStatuses, TypeStatus } from '../utilities/constants';
 import KemetTextarea from './textarea';
 import { stylesBase } from '../styles/elements/password';
 import './icon-bootstrap';

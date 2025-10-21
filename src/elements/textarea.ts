@@ -2,9 +2,9 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { FormSubmitController } from '../utilities/controllers/forms';
+import { FormSubmitController } from '../utilities/form-controller';
 import KemetField from './field';
-import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+import { EnumStatuses, TypeStatus } from '../utilities/constants';
 import { stylesTextarea } from '../styles/elements/textarea';
 
 

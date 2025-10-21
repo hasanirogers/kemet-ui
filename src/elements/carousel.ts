@@ -5,7 +5,7 @@ import {
   state,
   query,
 } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesCarousel } from '../styles/elements/carousel';
 
 import type KemetCarouselCurrent from './carousel-current';

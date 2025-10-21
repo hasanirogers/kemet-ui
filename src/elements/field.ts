@@ -1,12 +1,12 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesBase } from '../styles/elements/field';
 
 import KemetCombo from './combo';
 import KemetInput from './input';
 import KemetTextarea from './textarea';
-import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+import { EnumStatuses, TypeStatus } from '../utilities/constants';
 
 /**
  * @since 1.0.0

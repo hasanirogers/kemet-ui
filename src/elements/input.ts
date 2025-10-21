@@ -2,12 +2,12 @@ import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
-import { FormSubmitController } from '../utilities/controllers/forms';
-import { emitEvent } from '../utilities/misc/events';
+import { FormSubmitController } from '../utilities/form-controller';
+import { emitEvent } from '../utilities/events';
 import KemetField from '../elements/field';
 import KemetCount from './count';
 import { stylesBase } from '../styles/elements/input';
-import { EnumStatuses, TypeStatus } from '../utilities/misc/constants';
+import { EnumStatuses, TypeStatus } from '../utilities/constants';
 
 export const ariaAutoComplete = ['inline', 'list', 'both', 'none'] as const;
 export enum EnumAriaAutoComplete {

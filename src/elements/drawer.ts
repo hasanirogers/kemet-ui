@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesBase, stylesEffects } from '../styles/elements/drawer';
-import { EnumDirections, TypeDirection } from '../utilities/misc/constants';
+import { EnumDirections, TypeDirection } from '../utilities/constants';
 
 export const effects = ['slide', 'reveal', 'push', 'scale'] as const;
 export enum EnumEffects {

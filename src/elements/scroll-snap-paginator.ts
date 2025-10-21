@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesScrollSnapPaginator } from '../styles/elements/scroll-snap';
 import KemetScrollSnapSlide from './scroll-snap-slide';
 import './icon-bootstrap';

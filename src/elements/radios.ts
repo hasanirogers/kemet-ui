@@ -1,8 +1,8 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { FormSubmitController } from '../utilities/controllers/forms';
-import { emitEvent } from '../utilities/misc/events';
-import { EnumAxis, EnumStatuses, TypeAxis, TypeStatus } from '../utilities/misc/constants';
+import { FormSubmitController } from '../utilities/form-controller';
+import { emitEvent } from '../utilities/events';
+import { EnumAxis, EnumStatuses, TypeAxis, TypeStatus } from '../utilities/constants';
 import type KemetRadio from './radio';
 
 import { stylesRadios } from '../styles/elements/radio';

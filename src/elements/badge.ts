@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/badge';
-import { EnumRoundedSizes, EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/misc/constants';
+import { EnumRoundedSizes, EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/constants';
 
 
 /**

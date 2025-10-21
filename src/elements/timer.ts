@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/timer';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 
 export const formats = ['seconds', 'minutes', 'hours', 'days'] as const;
 export enum EnumFormats {

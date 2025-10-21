@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { polyfill } from 'mobile-drag-drop';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesSortable } from '../styles/elements/sortable';
 import type KemetSortableItem from './sortable-item';
 

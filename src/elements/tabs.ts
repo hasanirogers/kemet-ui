@@ -3,9 +3,9 @@ import { LitElement, html } from 'lit';
 import {
  customElement, property, query, state,
 } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesKemetTabs } from '../styles/elements/tabs';
-import { TypeDirection, EnumDirections } from '../utilities/misc/constants';
+import { TypeDirection, EnumDirections } from '../utilities/constants';
 import type KemetTab from './tab';
 import type KemetTabPanel from './tab-panel';
 import './icon-bootstrap';

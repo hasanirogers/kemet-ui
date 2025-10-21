@@ -1,8 +1,8 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 import { stylesBase } from '../styles/elements/alert';
-import { EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/misc/constants';
+import { EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/constants';
 
 export const overlayPositions = ['fixed', 'top-full', 'bottom-full', 'top-right', 'top-left', 'bottom-right', 'bottom-left'] as const;
 export enum EnumOverlayPositions {

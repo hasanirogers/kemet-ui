@@ -4,7 +4,7 @@ import {
 } from 'lit/decorators.js';
 import { live } from 'lit/directives/live.js';
 import { stylesBase } from '../styles/elements/multi-input';
-import { emitEvent } from '../utilities/misc/events';
+import { emitEvent } from '../utilities/events';
 
 export interface InterfaceSelections {
   element: HTMLUListElement;
