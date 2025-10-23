@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
 
 import '../../elements/tracker';
 import '../../elements/tracker-step';
@@ -12,6 +12,10 @@ import '../../elements/tab-panel';
 const meta: Meta = {
   title: 'Feedback & Status / Tracker',
   component: 'kemet-tracker',
+  render: args => Template(args),
+  parameters: {
+    layout: 'padded',
+  },
   args: {
     numOfSteps: 5,
     currentStep: 3,
@@ -26,12 +30,11 @@ export default meta;
 
 type Story = StoryObj;
 
-const Template = (args) => {
-  const steps = [];
-
-  for (let i = 1; i <= args.numOfSteps; i += 1) {
-    steps.push(html`<kemet-tracker-step ?completed=${i < args.currentStep || args.currentStep > args.numOfSteps} ?current=${i === args.currentStep} ?hide-dot-content=${args.hideDotContent}>Step ${i}</kemet-tracker-step>`);
-  }
+const Template = (args: Args) => {
+  const steps = Array.from({ length: args.numOfSteps }, (_, i) => {
+    const stepNum = i + 1;
+    return html`<kemet-tracker-step ?completed=${stepNum < args.currentStep || args.currentStep > args.numOfSteps} ?current=${stepNum === args.currentStep} ?hide-dot-content=${args.hideDotContent}>Step ${stepNum}</kemet-tracker-step>`;
+  });
 
   return html`
     <kemet-tracker breakpoint=${ifDefined(args.breakpoint)}>
@@ -40,12 +43,9 @@ const Template = (args) => {
   `;
 };
 
-export const Standard: Story = {
-  render: args => Template(args),
-};
+export const Standard: Story = {};
 
 export const HideDotContent: Story = {
-  render: args => Template(args),
   args: {
     hideDotContent: true,
   }
