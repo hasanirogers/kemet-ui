@@ -1,6 +1,5 @@
 import { html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { emitEvent } from '../utilities/events';
 import { stylesBase } from '../styles/elements/field';
 
 import KemetCombo from './combo';
@@ -32,7 +31,7 @@ import { EnumStatuses, TypeStatus } from '../utilities/constants';
  * @csspart message - The validation message of the field.
  * @csspart text - The text in the label.
  *
- * @event kemet-field-input - Fires when input fires on the input slot
+ * @event kemet-input - Fires when input fires on the input slot
  *
  */
 
@@ -76,20 +75,14 @@ export default class KemetField extends LitElement {
   @state()
   slotCombo: KemetCombo;
 
-  constructor() {
-    super();
-
-    // listeners
-    this.addEventListener('kemet-input-focused', (event: CustomEvent) => this.handleFocused(event));
-    this.addEventListener('kemet-input-status', (event: CustomEvent) => this.handleStatus(event));
-    this.addEventListener('kemet-input-input', (event: CustomEvent) => this.handleInput(event));
-    this.addEventListener('kemet-count-status', (event: CustomEvent) => this.handleStatus(event));
-    this.addEventListener('kemet-combo-selection', (event: CustomEvent) => this.handleSelection(event));
-  }
-
   firstUpdated() {
     this.slotInput = this.querySelector('[slot="input"]');
     this.slotCombo = this.querySelector('[slot="combo"]');
+
+    this.slotInput.addEventListener('kemet-focus', (event: CustomEvent) => this.handleFocused(event));
+    this.slotInput.addEventListener('kemet-status-change', (event: CustomEvent) => this.handleStatus(event));
+    this.slotInput.addEventListener('kemet-input', (event: CustomEvent) => this.handleInput(event));
+    this.slotCombo?.addEventListener('kemet-selection', (event: CustomEvent) => this.handleSelection(event));
 
     if (this.slotInput.value) {
       this.length = this.slotInput.value.length;
@@ -130,11 +123,12 @@ export default class KemetField extends LitElement {
   }
 
   handleInput(event: CustomEvent) {
-    emitEvent(this, 'kemet-field-input', event.detail.length);
-    this.filled = event.detail !== '';
+    this.length = event.detail.value.length ?? 0;
+    this.filled = event.detail.value !== '';
   }
 
   handleSelection(event: CustomEvent) {
+    console.log(event.detail);
     this.slotInput.setAttribute('aria-activedescendant', event.detail);
   }
 }

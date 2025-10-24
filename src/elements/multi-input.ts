@@ -114,7 +114,7 @@ export default class KemetMultiInput extends LitElement {
     this.combo = this.field.querySelector('kemet-combo');
 
     if (this.combo) {
-      this.combo.addEventListener('kemet-combo-selection', (event: CustomEvent) => this.addComboItem(event));
+      this.combo.addEventListener('kemet-selection', (event: CustomEvent) => this.addComboItem(event));
     }
   }
 
@@ -154,15 +154,15 @@ export default class KemetMultiInput extends LitElement {
    * Handles when the input receives input
    * @private
    */
-  handleInput(event) {
-    emitEvent(this, 'kemet-input-input', event.target.value);
+  handleInput(event: Event) {
+    emitEvent(this, 'kemet-input', (event.target as HTMLInputElement).value);
   }
 
   /**
    * Handles when the input is focused
    */
-  handleFocus(event) {
-    emitEvent(this, 'kemet-multi-input-focus', event.target.value);
+  handleFocus() {
+    emitEvent(this, 'kemet-focus', this);
   }
 
   /**

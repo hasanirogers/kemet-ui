@@ -33,8 +33,8 @@ export type TypeOverlayPositions = typeof overlayPositions[number];
  *
  * @slot default - The contents of the alert.
  *
- * @event kemet-alert-opened - Fires when alert is opened.
- * @event kemet-alert-closed - Fires when alert is closed.
+ * @event kemet-opened - Fires when alert is opened.
+ * @event kemet-closed - Fires when alert is closed.
  *
  * @csspart close - Container for the close button.
  *
@@ -89,9 +89,9 @@ export default class KemetAlert extends LitElement {
 
   updated(prevProps: Map<string, never>) {
     if (!prevProps.get('opened') && this.opened === true) {
-      emitEvent(this, 'kemet-alert-opened', this);
+      emitEvent(this, 'kemet-opened', this);
     } else {
-      emitEvent(this, 'kemet-alert-closed', this);
+      emitEvent(this, 'kemet-closed', this);
     }
   }
 

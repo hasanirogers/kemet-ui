@@ -14,7 +14,7 @@ import { emitEvent } from '../utilities/events';
  * @prop {boolean} selected - Automatically applied when link is active slide.
  * @prop {boolean} disabled - Deactivates the button.
  *
- * @event kemet-carousel-link
+ * @event kemet-link-activated
  *
  * @cssproperty --kemet-carousel-link-selected-color - The color of an selected link. Default: var(--kemet-color-primary).
  *
@@ -54,21 +54,21 @@ export default class KemetCarouselLink extends LitElement {
 
   render() {
     return html`
-      <button @keyup=${event => this.handleKeyUp(event)} @click=${() => this.changed()}>
+      <button @keyup=${event => this.handleKeyUp(event)} @click=${() => this.activated()}>
         <slot></slot>
       </button>
     `;
   }
 
-  changed() {
+  activated() {
     if (!this.disabled) {
-      emitEvent(this, 'kemet-carousel-link', this);
+      emitEvent(this, 'kemet-link-activated', this);
     }
   }
 
   handleKeyUp(event) {
     if (event.code === 'Enter') {
-      this.changed();
+      this.activated();
     }
   }
 }

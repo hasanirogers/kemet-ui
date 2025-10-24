@@ -23,8 +23,9 @@ export type TypeFormats = typeof formats[number];
  * @prop {number} amount - The amount of time to set the timer
  * @prop {string} expires - Begins a count down to a specified time, accepts a string that matches value given for a Date constructor
  *
- * @event kemet-timer-completed - Fires when the timer reaches 0
- * @event kemet-timer-increment - Fires on tick of the timer
+ * @event kemet-start - Fires when the timer starts
+ * @event kemet-complete - Fires when the timer reaches 0
+ * @event kemet-increment - Fires on tick of the timer
  *
  */
 
@@ -52,8 +53,8 @@ export default class KemetTimer extends LitElement {
       this.timer(this.getTimeInSeconds(this.amount));
     }
 
-    emitEvent(this, 'kemet-timer-started', true);
-    emitEvent(this, 'kemet-timer-increment', this.getTimeInSeconds(this.amount));
+    emitEvent(this, 'kemet-start', this);
+    emitEvent(this, 'kemet-increment', this.getTimeInSeconds(this.amount));
   }
 
   updated(prevProps) {
@@ -75,7 +76,7 @@ export default class KemetTimer extends LitElement {
     return html`<slot></slot>`;
   }
 
-  getTimeInSeconds(time) {
+  getTimeInSeconds(time: number): number {
     switch (this.format) {
       case 'minutes': return time * 60;
       case 'hours': return time * 60 * 60;
@@ -93,11 +94,11 @@ export default class KemetTimer extends LitElement {
 
       if (secondsLeft < 0) {
         clearInterval(this.interval);
-        emitEvent(this, 'kemet-timer-completed', true);
+        emitEvent(this, 'kemet-complete', this);
         return;
       }
 
-      emitEvent(this, 'kemet-timer-increment', secondsLeft);
+      emitEvent(this, 'kemet-increment', secondsLeft);
     }, 1000);
   }
 
@@ -109,11 +110,11 @@ export default class KemetTimer extends LitElement {
 
       if (secondsLeft < 0) {
         clearInterval(this.interval);
-        emitEvent(this, 'kemet-timer-completed', true);
+        emitEvent(this, 'kemet-complete', this);
         return;
       }
 
-      emitEvent(this, 'kemet-timer-increment', secondsLeft);
+      emitEvent(this, 'kemet-increment', secondsLeft);
     }, 1000);
   }
 }

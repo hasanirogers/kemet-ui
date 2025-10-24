@@ -49,8 +49,8 @@ export type TypeEffect = typeof effects[number];
  * @cssproperty --kemet-modal-dialog-mobile-padding - The padding of the mobile dialog.
  * @cssproperty --kemet-modal-overlay-background-color - The color of the backdrop overlay.
  *
- * @event kemet-modal-opened - Fires when the modal opens
- * @event kemet-modal-closed - Fires when the modal closes
+ * @event kemet-opened - Fires when the modal opens
+ * @event kemet-closed - Fires when the modal closes
  *
  */
 
@@ -92,7 +92,7 @@ export default class KemetModal extends LitElement {
     super();
 
     // bindings
-    this.addEventListener('kemet-modal-close-pressed', () => { this.handleClose(); });
+    this.addEventListener('kemet-closed-pressed', () => { this.handleClose(); });
   }
 
   firstUpdated() {
@@ -153,13 +153,13 @@ export default class KemetModal extends LitElement {
   handleOpen() {
     this.opened = true;
     if (this.dialogElement?.showModal) this.dialogElement.showModal();
-    emitEvent(this, 'kemet-modal-opened', this);
+    emitEvent(this, 'kemet-opened', this);
   }
 
   handleClose() {
     this.opened = false;
     if (this.dialogElement?.close) this.dialogElement.close();
-    emitEvent(this, 'kemet-modal-closed', this);
+    emitEvent(this, 'kemet-closed', this);
   }
 
   handleFocusableDown(event: KeyboardEvent) {

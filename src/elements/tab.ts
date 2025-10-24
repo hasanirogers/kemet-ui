@@ -18,8 +18,8 @@ import './icon-bootstrap';
  * @cssproperty --kemet-tab-padding - The padding of the tab.
  * @cssproperty --kemet-tab-color - The color of the selected tab.
  *
- * @event kemet-tab-selected - Fires when a tab is selected
- * @event kemet-tab-close - Fires when the tab should close
+ * @event kemet-selected - Fires when a tab is selected
+ * @event kemet-closed - Fires when the tab should close
  *
  */
 
@@ -55,7 +55,7 @@ export default class KemetTab extends LitElement {
   }
 
   select() {
-    emitEvent(this, 'kemet-tab-selected', this);
+    emitEvent(this, 'kemet-selected', this);
   }
 
   a11y() {
@@ -79,7 +79,7 @@ export default class KemetTab extends LitElement {
   }
 
   handleClosable() {
-    emitEvent(this, 'kemet-tab-close', this);
+    emitEvent(this, 'kemet-closed', this);
   }
 }
 

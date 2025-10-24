@@ -21,8 +21,8 @@ import { stylesPanel } from '../styles/elements/accordion';
  * @csspart trigger - Contains the trigger for the panel.
  * @csspart body - Contains the body for the panel.
  *
- * @event kemet-accordion-panel-opened - Fires when a panel is opened
- * @event kemet-accordion-panel-closed - Fires when a panel is closed
+ * @event kemet-opened - Fires when a panel is opened
+ * @event kemet-closed - Fires when a panel is closed
  *
  */
 
@@ -71,12 +71,12 @@ export default class KemetAccordionPanel extends LitElement {
   updated(prevProps: Map<string, never>) {
     if (!prevProps.get('opened') && this.opened === true) {
       this.maxHeight = `${this.bodyElement?.offsetHeight}px`;
-      emitEvent(this, 'kemet-accordion-panel-opened', this);
+      emitEvent(this, 'kemet-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
       this.maxHeight = '0px';
-      emitEvent(this, 'kemet-accordion-panel-closed', this);
+      emitEvent(this, 'kemet-closed', this);
     }
 
     this.a11y();

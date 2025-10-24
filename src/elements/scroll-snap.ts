@@ -26,7 +26,7 @@ import { EnumAxis, EnumDirections, TypeAxis, TypeDirection } from '../utilities/
  * @cssproperty --kemet-scroll-snap-vertical-height - The vertical height of the container.
  * @cssproperty --kemet-scroll-snap-slides-vertical-padding - Padding on the vertical axis.
  *
- * @event kemet-scroll-snap-make-slides - Fires when slide data has been created.
+ * @event kemet-make-slides - Fires when slide data has been created.
  *
  */
 
@@ -49,7 +49,7 @@ export default class KemetScrollSnap extends LitElement {
   constructor() {
     super();
 
-    this.addEventListener('kemet-scroll-snap-focus', (event: CustomEvent) => {
+    this.addEventListener('kemet-focus', (event: CustomEvent) => {
       this.focusSlide(event.detail);
     });
   }
@@ -116,7 +116,7 @@ export default class KemetScrollSnap extends LitElement {
     });
 
     this.slides = slides;
-    emitEvent(this, 'kemet-scroll-snap-make-slides', this.slides);
+    emitEvent(this, 'kemet-make-slides', this.slides);
   }
 
   focusSlide(index: number) {

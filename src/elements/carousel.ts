@@ -29,8 +29,8 @@ import type KemetCarouselSlide from './carousel-slide';
  * @prop {object} options - Default options for the carousel.
  * @prop {object} breakpoints - Options at different breakpoints for the carousel. Is mobile first.
  *
- * @event kemet-carousel-change-start - Fires when the slide has begun to change.
- * @event kemet-carousel-change-finished - Fires when a slide has changed and finished animating
+ * @event kemet-change-start - Fires when the slide has begun to change.
+ * @event kemet-change-finished - Fires when a slide has changed and finished animating
  *
  * @slot slides - Place the slide elements here.
  * @slot toolbar - Allows you to construct a toolbar within the carousel. Place things like pagination here.
@@ -166,11 +166,11 @@ export default class KemetCarousel extends LitElement {
     super();
 
     // bindings
-    this.addEventListener('kemet-carousel-first', this.handleFirst.bind(this));
-    this.addEventListener('kemet-carousel-last', this.handleLast.bind(this));
-    this.addEventListener('kemet-carousel-next', this.handleNext.bind(this));
-    this.addEventListener('kemet-carousel-prev', this.handlePrev.bind(this));
-    this.addEventListener('kemet-carousel-link', this.handleLink.bind(this));
+    this.addEventListener('kemet-first-activated', this.handleFirst.bind(this));
+    this.addEventListener('kemet-last-activated', this.handleLast.bind(this));
+    this.addEventListener('kemet-next-activated', this.handleNext.bind(this));
+    this.addEventListener('kemet-prev-activated', this.handlePrev.bind(this));
+    this.addEventListener('kemet-link-activated', this.handleLink.bind(this));
   }
 
   firstUpdated() {
@@ -431,7 +431,7 @@ export default class KemetCarousel extends LitElement {
       currentSlide.selected = true;
 
       // notify consumers of slide change
-      emitEvent(this, 'kemet-carousel-change-start', this);
+      emitEvent(this, 'kemet-change-start', this);
 
       // update information element
       this.updateInformation();
@@ -467,7 +467,7 @@ export default class KemetCarousel extends LitElement {
       currentElement.current = this.index + 1;
     }
 
-    emitEvent(this, 'kemet-carousel-change-finished', this);
+    emitEvent(this, 'kemet-change-finished', this);
   }
 
   handleLink(event: CustomEvent) {

@@ -40,8 +40,8 @@ export type TypeEffect = typeof effects[number];
  * @cssproperty --kemet-drawer-background-color - The background color of the drawer.
  * @cssproperty --kemet-drawer-overlay-color - The color of the overlay.
  *
- * @event kemet-drawer-opened - Fires when the drawer opens.
- * @event kemet-drawer-closed - Fires when the drawer closes.
+ * @event kemet-opened - Fires when the drawer opens.
+ * @event kemet-closed - Fires when the drawer closes.
  *
  */
 
@@ -72,11 +72,11 @@ export default class KemetDrawer extends LitElement {
 
   updated(prevProps: Map<string, never>) {
     if (!prevProps.get('opened') && this.opened === true) {
-      emitEvent(this, 'kemet-drawer-opened', this);
+      emitEvent(this, 'kemet-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      emitEvent(this, 'kemet-drawer-closed', this);
+      emitEvent(this, 'kemet-closed', this);
     }
   }
 

@@ -12,6 +12,9 @@ import '../../elements/tab-panel';
 const meta: Meta = {
   title: 'Form Controls / Combo',
   component: 'kemet-combo',
+  parameters: {
+    layout: 'padded',
+  },
   args: {
     options: [
       'How do use Kemet UI?',

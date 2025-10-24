@@ -68,7 +68,7 @@ export default class KemetFlipcard extends LitElement {
   constructor() {
     super();
 
-    this.addEventListener('kemet-flipcard-flipped', () => {
+    this.addEventListener('kemet-flipped', () => {
       this.flipped = !this.flipped;
     });
   }

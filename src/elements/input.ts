@@ -99,10 +99,11 @@ export type TypeAutoComplete = typeof autoComplete[number];
  * @cssproperty --kemet-input-background-color-success - The success state background color.
  * @cssproperty --kemet-input-background-color-warning - The warning state background color.
  *
- * @event kemet-input-focused - Fires when the input receives and loses focus
- * @event kemet-input-status Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element.
+ * @event kemet-input-focus - Fires when the input receives focus
+ * @event kemet-input-blur - Fires when the input loses focus
+ * @event kemet-status-change Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element.
  * Use the validity object to support custom validation messages.
- * @event kemet-input-input - Fires when the input receives input
+ * @event kemet-input - Fires when the input receives input
  *
  */
 
@@ -230,7 +231,7 @@ export default class KemetInput extends LitElement {
     this.slug = this.field ? this.field.slug : 'input';
 
     if (this.field) {
-      this.field.addEventListener('kemet-password-status', (event: CustomEvent) => this.handleStatus(event));
+      this.field.addEventListener('kemet-status-change', (event: CustomEvent) => this.handleStatus(event));
     }
   }
 
@@ -312,7 +313,7 @@ export default class KemetInput extends LitElement {
    */
   handleFocus() {
     this.focused = true;
-    emitEvent(this, 'kemet-input-focused', true);
+    emitEvent(this, 'kemet-focus', this);
   }
 
   /**
@@ -326,14 +327,14 @@ export default class KemetInput extends LitElement {
     }
 
     this.focused = false;
-    emitEvent(this, 'kemet-input-focused', false);
+    emitEvent(this, 'kemet-blur', this);
   }
 
   /**
    * Handles when the input changes value
    * @private
    */
-  handleChange() {
+  handleChange(event: Event) {
     this.value = this.input.value;
 
     if (this.input.checkValidity() && this.checkLimitValidity() && this.status !== 'success') {
@@ -341,10 +342,11 @@ export default class KemetInput extends LitElement {
       this.status = EnumStatuses.Standard;
       this.validity = this.input.validity;
 
-      emitEvent(this, 'kemet-input-status', {
+      emitEvent(this, 'kemet-status-change', {
         status: EnumStatuses.Standard,
         validity: this.input.validity,
         element: this,
+        value: (event.target as HTMLInputElement).value,
       });
     }
   }
@@ -353,26 +355,32 @@ export default class KemetInput extends LitElement {
    * Handles when the input receives input
    * @private
    */
-  handleInput() {
+  handleInput(event: InputEvent) {
     this.value = this.input.value;
-    emitEvent(this, 'kemet-input-input', this.value);
+    emitEvent(this, 'kemet-input', {
+      status: this.status,
+      validity: this.input.validity,
+      element: event.target as HTMLInputElement,
+      value: (event.target as HTMLInputElement).value,
+    });
   }
 
   /**
    * Handles when the input has an error
    * @private
    */
-  handleInvalid() {
+  handleInvalid(event: Event) {
     this.validity = this.input?.validity;
 
     if (this.validateOnBlur) {
       this.invalid = true;
       this.status = EnumStatuses.Error;
 
-      emitEvent(this, 'kemet-input-status', {
+      emitEvent(this, 'kemet-status-change', {
         status: EnumStatuses.Error,
         validity: this.input?.validity,
         element: this,
+        value: (event.target as HTMLInputElement).value,
       });
     }
   }
@@ -395,7 +403,12 @@ export default class KemetInput extends LitElement {
    */
   handleClear() {
     this.value = '';
-    emitEvent(this, 'kemet-input-input', this.value);
+    emitEvent(this, 'kemet-input', {
+      status: this.status,
+      validity: this.input.validity,
+      element: this,
+      value: '',
+    });
   }
 
   /**

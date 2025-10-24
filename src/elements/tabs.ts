@@ -19,6 +19,12 @@ interface InterfaceLink {
   positionY: string;
 }
 
+export interface InterfaceTabsDetails {
+  element: KemetTabs;
+  selectedName: string;
+  selectedIndex: number;
+}
+
 export const panelEffect = ['none', 'slide', 'fade', 'stacked'] as const;
 export enum EnumPanelEffect {
   None = 'none',
@@ -76,7 +82,7 @@ export type TypeTabsAlign = typeof tabsAlign[number];
  * @cssproperty --kemet-tabs-transition-speed - The transition speed of the panels.
  * @cssproperty --kemet-tabs-spacer - The space between tabs and panels.
  *
- * @event kemet-tab-changed - Fires when a tab is changed
+ * @event kemet-change - Fires when a tab is changed
  *
  */
 
@@ -138,8 +144,8 @@ export default class KemetTabs extends LitElement {
   constructor() {
     super();
 
-    this.addEventListener('kemet-tab-selected', this.tabSelectedChange.bind(this));
-    this.addEventListener('kemet-tab-close', this.handleTabClose.bind(this));
+    this.addEventListener('kemet-selected', this.tabSelectedChange.bind(this));
+    this.addEventListener('kemet-closed', this.handleTabClose.bind(this));
     window.addEventListener('resize', this.handleResize.bind(this));
   }
 
@@ -421,12 +427,11 @@ export default class KemetTabs extends LitElement {
   }
 
   dispatchTabChange() {
-    const details = {
-      currentTabName: this.selected,
-      currentTabIndex: this.selectedIndex,
-    };
-
-    emitEvent(this, 'kemet-tab-changed', details);
+    emitEvent(this, 'kemet-change', {
+      element: this,
+      selectedName: this.selected,
+      selectedIndex: this.selectedIndex
+    });
   }
 
   tabSelectedChange(event: CustomEvent) {

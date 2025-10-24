@@ -4,6 +4,13 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { emitEvent } from '../utilities/events';
 import { stylesUpload } from '../styles/elements/upload';
 import './icon-bootstrap';
+import KemetUploadFile from './upload-file';
+
+export interface InterfaceUploadChangeDetails {
+  event: Event | DragEvent;
+  files: FileList;
+  fileElement: KemetUploadFile;
+}
 
 const preventDefaults = (event: Event) => {
   event.preventDefault();
@@ -126,7 +133,7 @@ export default class KemetUpload extends LitElement {
   }
 
   handleChange(event: Event) {
-    emitEvent(this, 'kemet-upload-change', {
+    emitEvent(this, 'kemet-change', {
       event,
       files: this.fileInputElement.files,
       fileElement: this.fileInputElement,
@@ -134,7 +141,7 @@ export default class KemetUpload extends LitElement {
   }
 
   handleDrop(event: DragEvent) {
-    emitEvent(this, 'kemet-upload-change', {
+    emitEvent(this, 'kemetchange', {
       event,
       files: event?.dataTransfer.files || [],
       fileElement: this.fileInputElement,

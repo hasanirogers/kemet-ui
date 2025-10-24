@@ -9,7 +9,7 @@ import { emitEvent } from '../utilities/events';
  * @tagname kemet-popper-close
  * @summary A close button for the popper
  *
- * @event kemet-popper-close-btn
+ * @event kemet-closed-pressed
  *
  */
 
@@ -36,7 +36,7 @@ export default class KemetPopperClose extends LitElement {
   }
 
   close() {
-    emitEvent(this, 'kemet-popper-close-btn', this);
+    emitEvent(this, 'kemet-closed-pressed', this);
   }
 
   handleKeyboard(event: KeyboardEvent) {

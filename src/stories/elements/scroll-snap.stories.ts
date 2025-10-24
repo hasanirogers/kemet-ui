@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 import '../../elements/scroll-snap';
 import '../../elements/scroll-snap-slide';
-import '../../elements/snap-paginator';
+import '../../elements/scroll-snap-paginator';
 
 import '../../elements/tabs';
 import '../../elements/tab';
@@ -33,19 +33,13 @@ type Story = StoryObj;
 
 const Template = (args) => {
   const makeSlides = (numberOfSlides) => {
-    const slides = [];
-
-    for (let i = 0; i < numberOfSlides; i++) {
-      slides.push(html`
-        <kemet-scroll-snap-slide label="Heading ${i + 1}" kemet-margin-top="2xl" style=${ifDefined(args.slideWidth ? `--kemet-scroll-snap-slide-width: ${args.slideWidth};` : undefined)}>
-          <h3 kemet-type-size="3xl">Heading ${i + 1}</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <img src="https://placehold.co/1920x1080" alt="A placeholder" style="max-width:100%" />
-        </kemet-scroll-snap-slide>
-      `);
-    }
-
-    return slides;
+    return Array.from({ length: numberOfSlides }, (_, i) => html`
+      <kemet-scroll-snap-slide label="Heading ${i + 1}" kemet-margin-top="2xl" style=${ifDefined(args.slideWidth ? `--kemet-scroll-snap-slide-width: ${args.slideWidth};` : undefined)}>
+        <h3 kemet-type-size="3xl">Heading ${i + 1}</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <img src="https://placehold.co/1920x1080" alt="A placeholder" style="max-width:100%" />
+      </kemet-scroll-snap-slide>
+    `);
   };
 
   const makePagination = (display, icon, size, useNumbers, useLabels, center) => {

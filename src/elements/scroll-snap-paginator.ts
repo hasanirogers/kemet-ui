@@ -24,7 +24,7 @@ import './icon-bootstrap';
  * @cssproperty --kemet-scroll-snap-paginator-gap - The space between pagination items.
  * @cssproperty --kemet-scroll-snap-paginator-link-color - The color of a linkable pagination item.
  *
- * @event kemet-scroll-snap-focus - Fires when a set of slides are focused on.
+ * @event kemet-focus - Fires when a set of slides are focused on.
  *
  */
 
@@ -57,7 +57,7 @@ export default class KemetScrollSnapPaginator extends LitElement {
     const scrollSnapElement = this.closest('kemet-scroll-snap');
 
     if (scrollSnapElement) {
-      scrollSnapElement.addEventListener('kemet-scroll-snap-make-slides', (event: CustomEvent) => {
+      scrollSnapElement.addEventListener('kemet-make-slides', (event: CustomEvent) => {
         this.slides = event.detail;
       });
     }
@@ -112,7 +112,7 @@ export default class KemetScrollSnapPaginator extends LitElement {
   }
 
   slideLink(index: string) {
-    emitEvent(this, 'kemet-scroll-snap-focus', index);
+    emitEvent(this, 'kemet-focus', index);
   }
 
   handleKeyboardInput(event: KeyboardEvent, id: string) {

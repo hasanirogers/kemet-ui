@@ -16,8 +16,8 @@ import { emitEvent } from '../utilities/events';
  * @prop {string} left - The element's left position in pixels.
  * @prop {boolean} measure - If set to true, will measure the width and height of the element's content and apply it to the host element.
  *
- * @event kemet-draggable-start
- * @event kemet-draggable-stop
+ * @event kemet-start
+ * @event kemet-stop
  *
  */
 
@@ -114,7 +114,7 @@ export default class KemetDraggable extends LitElement {
     document.addEventListener('mouseup', this.mouseUp);
     document.addEventListener('mousemove', this.mouseMove);
 
-    emitEvent(this, 'kemet-draggable-start', this);
+    emitEvent(this, 'kemet-start', this);
   }
 
   drag(event: MouseEvent) {
@@ -144,7 +144,7 @@ export default class KemetDraggable extends LitElement {
       localStorage.setItem(this.memory, JSON.stringify(savedPosition));
     }
 
-    emitEvent(this, 'kemet-draggable-stop', this);
+    emitEvent(this, 'kemet-stop', this);
   }
 
   measureContent() {

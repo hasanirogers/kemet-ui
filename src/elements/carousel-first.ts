@@ -12,7 +12,7 @@ import { emitEvent } from '../utilities/events';
  *
  * @prop {boolean} disabled - Deactivates the button.
  *
- * @event kemet-carousel-first
+ * @event kemet-first-activated
  *
  */
 
@@ -37,21 +37,21 @@ export default class KemetCarouselFirst extends LitElement {
 
   render() {
     return html`
-      <button @keyup=${event => this.handleKeyUp(event)} @click=${() => this.first()}>
+      <button @keyup=${event => this.handleKeyUp(event)} @click=${() => this.activated()}>
         <slot></slot>
       </button>
     `;
   }
 
-  first() {
+  activated() {
     if (!this.disabled) {
-      emitEvent(this, 'kemet-carousel-first', this);
+      emitEvent(this, 'kemet-first-activated', this);
     }
   }
 
   handleKeyUp(event) {
     if (event.code === 'Enter') {
-      this.first();
+      this.activated();
     }
   }
 }

@@ -9,7 +9,7 @@ import { emitEvent } from '../utilities/events';
  * @tagname kemet-flipcard-trigger
  * @summary Triggers a flipcard component to flip.
  *
- * @event kemet-flipcard-flipped - Fires when a flipcard is flipped
+ * @event kemet-flipped - Fires when a flipcard is flipped
  */
 
 @customElement('kemet-flipcard-trigger')
@@ -29,7 +29,7 @@ export default class KemetFlipcardTrigger extends LitElement {
   }
 
   trigger() {
-    emitEvent(this, 'kemet-flipcard-flipped', this);
+    emitEvent(this, 'kemet-flipped', this);
   }
 
   handleKeyup(event: KeyboardEvent) {

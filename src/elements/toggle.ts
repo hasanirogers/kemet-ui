@@ -36,7 +36,7 @@ import { stylesToggle } from '../styles/elements/toggle';
  * @cssproperty --kemet-toggle-handle-color - The color of the handle.
  * @cssproperty --kemet-toggle-handle-shadow - The shadow on the handle.
  *
- * @event kemet-toggle-change - Fires when the toggle changes state
+ * @event kemet-change - Fires when the toggle changes state
  *
  */
 
@@ -107,7 +107,7 @@ export default class KemetToggle extends LitElement {
   handleChange() {
     this.checked = !this.checked;
     this.value = this.checked ? this.optionChecked : this.optionUnchecked;
-    emitEvent(this, 'kemet-toggle-change', true);
+    emitEvent(this, 'kemet-change', this);
   }
 
   makeUncheckedOption() {

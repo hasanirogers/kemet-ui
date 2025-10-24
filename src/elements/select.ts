@@ -198,7 +198,7 @@ export default class KemetSelect extends LitElement {
    */
   handleFocus() {
     this.hasFocus = true;
-    emitEvent(this, 'kemet-input-focused', true);
+    emitEvent(this, 'kemet-focus', this);
   }
 
   /**
@@ -207,17 +207,17 @@ export default class KemetSelect extends LitElement {
    */
   handleBlur() {
     this.hasFocus = false;
-    emitEvent(this, 'kemet-input-focused', false);
+    emitEvent(this, 'kemet-blur', this);
 
     this.select.checkValidity();
 
     if (!this.select.checkValidity()) {
       this.invalid = true;
-      this.status = 'error';
+      this.status = EnumStatuses.Error;
       this.control.status = EnumStatuses.Error;
 
-      emitEvent(this, 'kemet-input-status', {
-        status: 'error',
+      emitEvent(this, 'kemet-status-change', {
+        status: EnumStatuses.Error,
         validity: this.select.validity,
         element: this,
       });
@@ -228,18 +228,24 @@ export default class KemetSelect extends LitElement {
    * Handles when the input changes value
    * @private
    */
-  handleChange() {
+  handleChange(event: Event) {
     this.value = this.select.value;
-    emitEvent(this, 'kemet-input-change', this.value);
+    emitEvent(this, 'kemet-change', {
+      status: this.status,
+      validity: this.select.validity,
+      element: this,
+      value: (event.target as HTMLSelectElement).value,
+    });
 
     if (this.select.checkValidity()) {
       this.invalid = false;
-      this.status = 'standard';
+      this.status = EnumStatuses.Standard;
 
-      emitEvent(this, 'kemet-input-status', {
-        status: 'standard',
+      emitEvent(this, 'kemet-status-change', {
+        status: EnumStatuses.Standard,
         validity: this.select.validity,
         element: this,
+        value: (event.target as HTMLSelectElement).value,
       });
     }
   }
@@ -250,10 +256,10 @@ export default class KemetSelect extends LitElement {
    */
   handleInvalid() {
     this.invalid = true;
-    this.status = 'error';
+    this.status = EnumStatuses.Error;
 
-    emitEvent(this, 'kemet-input-status', {
-      status: 'error',
+    emitEvent(this, 'kemet-status-change', {
+      status: EnumStatuses.Error,
       validity: this.select.validity,
       element: this,
     });

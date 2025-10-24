@@ -4,6 +4,12 @@ import { emitEvent } from '../utilities/events';
 import { stylesBase } from '../styles/elements/combo';
 import type KemetField from './field';
 
+export interface InterfaceKemetSelectionEvent {
+  element: KemetCombo;
+  text: string;
+  id: string;
+}
+
 /**
  * @since 1.0.0
  * @status stable
@@ -28,7 +34,7 @@ import type KemetField from './field';
  * @cssproperty --kemet-combo-hover-color - The hover item's text color.
  * @cssproperty --kemet-combo-hover-background-color - The hover item's background color.
  *
- * @event kemet-combo-selection - Fires when a selection has been made
+ * @event kemet-selection - Fires when a selection has been made
  *
  */
 
@@ -63,8 +69,8 @@ export default class KemetCombo extends LitElement {
     this.slug = this.field.slug || 'slug';
 
     // events listeners
-    this.input.addEventListener('kemet-input-input', this.handleInput.bind(this));
-    this.input.addEventListener('kemet-multi-input-focus', this.handleFocus.bind(this));
+    this.input.addEventListener('kemet-input', this.handleInput.bind(this));
+    this.input.addEventListener('kemet-focus', this.handleFocus.bind(this));
     this.input.addEventListener('keydown', event => this.handleInputKeyDown(event));
   }
 
@@ -111,7 +117,7 @@ export default class KemetCombo extends LitElement {
 
   handleInput(event: CustomEvent) {
     this.makeOptions();
-    this.show = event.detail.length > 0;
+    this.show = event.detail.value.length > 0;
   }
 
   handleFocus() {
@@ -124,7 +130,7 @@ export default class KemetCombo extends LitElement {
     this.input.value = target.innerText;
     this.show = false;
 
-    emitEvent(this, 'kemet-combo-selection', {
+    emitEvent(this, 'kemet-selection', {
       element: target,
       text: target.innerText,
       id: target.getAttribute('id'),

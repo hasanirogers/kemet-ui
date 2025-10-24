@@ -5,6 +5,12 @@ import { emitEvent } from '../utilities/events';
 import { stylesSortable } from '../styles/elements/sortable';
 import type KemetSortableItem from './sortable-item';
 
+export interface InterfaceSortableDragDetails {
+  event: DragEvent,
+  current: KemetSortableItem,
+  all: NodeListOf<KemetSortableItem>,
+}
+
 const getMouseOffset = (event: DragEvent) => {
   const target = event.target as HTMLElement;
   const targetRect = target.getBoundingClientRect();
@@ -26,7 +32,9 @@ const getElementVerticalCenter = (element: HTMLElement) => {
  * @tagname kemet-sortable
  * @summary A list that can be sorted by drag and drop.
  *
- * @event kemet-sortable-drag-end - Fires when an item has been moved to a new spot.
+ * @event kemet-drag-start - Fires when an item starts to be moved.
+ * @event kemet-drag-over - Fires when an item is moving to a new spot.
+ * @event kemet-drag-end - Fires when an item has been moved to a new spot.
  */
 
 @customElement('kemet-sortable')
@@ -55,6 +63,12 @@ export default class KemetSortable extends LitElement {
 
     setTimeout(() => {
       this.sortableItem.ghost = true;
+
+      emitEvent(this, 'kemet-drag-start', {
+        event,
+        current: this.sortableItem,
+        all: this.querySelectorAll('kemet-sortable-item'),
+      });
     }, 0);
   }
 
@@ -62,6 +76,12 @@ export default class KemetSortable extends LitElement {
     event.preventDefault();
 
     const target = event.target as KemetSortableItem;
+
+    emitEvent(this, 'kemet-drag-over', {
+      event,
+      current: this.sortableItem,
+      all: this.querySelectorAll('kemet-sortable-item'),
+    });
 
     if (target && target.tagName === 'KEMET-SORTABLE-ITEM') {
       const offset = getMouseOffset(event);
@@ -79,7 +99,7 @@ export default class KemetSortable extends LitElement {
     event.preventDefault();
     this.sortableItem.ghost = false;
 
-    emitEvent(this, 'kemet-sortable-drag-end', {
+    emitEvent(this, 'kemet-drag-end', {
       event,
       current: this.sortableItem,
       all: this.querySelectorAll('kemet-sortable-item'),

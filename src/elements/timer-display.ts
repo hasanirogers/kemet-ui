@@ -33,7 +33,7 @@ export default class KemetTimerDisplay extends LitElement {
   }
 
   getTime() {
-    this.closest('kemet-timer').addEventListener('kemet-timer-increment', (event: CustomEvent) => {
+    this.closest('kemet-timer').addEventListener('kemet-increment', (event: CustomEvent) => {
       const secondsLeft = event.detail;
       switch (this.format) {
         case 'seconds':

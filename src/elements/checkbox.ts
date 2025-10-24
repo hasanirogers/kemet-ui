@@ -38,8 +38,9 @@ import { TypeStatus, EnumStatuses } from '../utilities/constants';
  * @cssproperty --kemet-checkbox-filled-color - The filled color of the checkbox mark.
  * @cssproperty --kemet-checkbox-filled-background-color - The filled background color.
  *
- * @event kemet-checkbox-change - Fires when the state of the checkbox changes
- * @event kemet-checkbox-focused - Fires when the checkbox loses or receives focus
+ * @event kemet-change - Fires when the state of the checkbox changes
+ * @event kemet-focus - Fires when the checkbox receives focus
+ * @event kemet-blur - Fires when the checkbox loses focus
  *
  */
 
@@ -129,17 +130,17 @@ export default class KemetCheckbox extends LitElement {
   handleClick() {
     this.checked = !this.checked;
     this.indeterminate = false;
-    emitEvent(this, 'kemet-checkbox-change', this);
+    emitEvent(this, 'kemet-change', this);
   }
 
   handleBlur() {
     this.focused = false;
-    emitEvent(this, 'kemet-checkbox-focused', false);
+    emitEvent(this, 'kemet-blur', true);
   }
 
   handleFocus() {
     this.focused = true;
-    emitEvent(this, 'kemet-checkbox-focused', true);
+    emitEvent(this, 'kemet-focus', true);
   }
 
   handleChange() {

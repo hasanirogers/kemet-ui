@@ -41,7 +41,7 @@ export default class KemetAccordion extends LitElement {
     super();
 
     // bindings
-    this.addEventListener('kemet-accordion-panel-opened', this.handlePanelOpened.bind(this));
+    this.addEventListener('kemet-opened', this.handlePanelOpened.bind(this));
   }
 
   firstUpdated() {

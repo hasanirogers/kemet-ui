@@ -33,10 +33,16 @@ import './icon-bootstrap';
  *
  */
 
-interface IOptions {
+interface InterfaceOptions {
   pattern: string;
   message: string;
   meetsCriteria?: boolean;
+}
+
+export interface InterfacePasswordStatusChangeDetails {
+  status: TypeStatus;
+  meetsPasswordCriteria: boolean;
+  element: KemetPassword;
 }
 
 @customElement('kemet-password')
@@ -44,7 +50,7 @@ export default class KemetPassword extends LitElement {
   static styles = [stylesBase];
 
   @property({ type: Array })
-  rules: IOptions[] = [
+  rules: InterfaceOptions[] = [
     { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' },
     { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' },
     { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' },
@@ -83,7 +89,7 @@ export default class KemetPassword extends LitElement {
     this.input = this.field.querySelector('[slot="input"]');
 
     // events listeners
-    this.input.addEventListener('kemet-input-input', this.handleInput.bind(this));
+    this.input.addEventListener('kemet-input', this.handleInput.bind(this));
   }
 
   render() {
@@ -143,7 +149,7 @@ export default class KemetPassword extends LitElement {
    * @private
    */
   handleInput(event: CustomEvent) {
-    this.value = event.detail;
+    this.value = event.detail.value;
     this.setStrength();
     this.visibility();
   }
@@ -176,9 +182,9 @@ export default class KemetPassword extends LitElement {
         this.status = EnumStatuses.Success;
       }
 
-      emitEvent(this, 'kemet-password-status', {
+      emitEvent(this, 'kemet-status-change', {
         status: this.status,
-        validity: { meetsPasswordCriteria: this.status === EnumStatuses.Success },
+        meetsPasswordCriteria: this.status === EnumStatuses.Success,
         element: this,
       });
     }, 1);

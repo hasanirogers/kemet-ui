@@ -25,7 +25,7 @@ import { stylesRadios } from '../styles/elements/radio';
  * @csspart fieldset - The fieldset element.
  * @csspart legend - The legend element.
  *
- * @event kemet-radios-change - Fires when the state of the checkbox changes
+ * @event kemet-change - Fires when the state of the checkbox changes
  *
  */
 
@@ -96,7 +96,7 @@ export default class KemetRadios extends LitElement {
       this.value = target.value;
       this.status = EnumStatuses.Standard;
 
-      emitEvent(this, 'kemet-radios-change', target);
+      emitEvent(this, 'kemet-change', this);
     }
   }
 

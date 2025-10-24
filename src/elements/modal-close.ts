@@ -9,7 +9,7 @@ import { emitEvent } from '../utilities/events';
  * @tagname kemet-modal-close
  * @summary A close button for a modal.
  *
- * @event kemet-modal-close-pressed - Fires when the close button is pressed
+ * @event kemet-closed-pressed - Fires when the close button is pressed
  *
  */
 
@@ -34,7 +34,7 @@ export default class KemetModalClose extends LitElement {
   }
 
   close() {
-    emitEvent(this, 'kemet-modal-close-pressed', this);
+    emitEvent(this, 'kemet-closed-pressed', this);
   }
 }
 

@@ -65,8 +65,8 @@ export type TypeStrategy = typeof strategy[number];
  * @tagname kemet-popper
  * @summary A wrapper component for the popper.js lib.
  *
- * @event kemet-popper-opened - Fires when the popper opens
- * @event kemet-popper-closed - Fires when the popper closes
+ * @event kemet-opened - Fires when the popper opens
+ * @event kemet-closed - Fires when the popper closes
  *
  * @slot trigger - Controls opening and closing the popover.
  * @slot content - The contents of the popover.
@@ -127,7 +127,7 @@ export default class KemetPopper extends LitElement {
 
   constructor() {
     super();
-    this.addEventListener('kemet-popper-close-btn', () => { this.opened = false; });
+    this.addEventListener('kemet-closed-pressed', () => { this.opened = false; });
   }
 
   firstUpdated() {
@@ -142,11 +142,11 @@ export default class KemetPopper extends LitElement {
     this.refresh();
 
     if (!prevProps.get('opened') && this.opened === true) {
-      emitEvent(this, 'kemet-popper-opened', this);
+      emitEvent(this, 'kemet-opened', this);
     }
 
     if (prevProps.get('opened') && this.opened === false) {
-      emitEvent(this, 'kemet-popper-closed', this);
+      emitEvent(this, 'kemet-closed', this);
     }
   }
 

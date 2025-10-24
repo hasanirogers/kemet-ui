@@ -1,3 +1,6 @@
+import KemetCount from "../elements/count";
+import KemetInput from "../elements/input";
+
 export const keyCodes = {
   ENTER: 13,
   SPACE: 32,
@@ -41,3 +44,10 @@ export enum EnumRoundedSizes {
   PILL = 'pill'
 }
 export type TypeRoundedSizes = typeof roundedSizes[number];
+
+export interface InterfaceInputDetails {
+  status: TypeStatus;
+  validity: ValidityState;
+  element: HTMLElement | KemetCount | KemetInput;
+  value?: string;
+}

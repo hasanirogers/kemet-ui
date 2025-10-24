@@ -4,7 +4,13 @@ import { emitEvent } from '../utilities/events';
 import KemetField from '../elements/field';
 import KemetInput from '../elements/input';
 import KemetTextarea from '../elements/textarea';
-import { EnumStatuses } from '../utilities/constants';
+import { EnumStatuses, TypeStatus } from '../utilities/constants';
+
+export interface InterfaceKemetStatusChangeEvent {
+  status: TypeStatus;
+  validity: ValidityState;
+  element: KemetField;
+}
 
 /**
  * @since 1.0.0
@@ -20,7 +26,7 @@ import { EnumStatuses } from '../utilities/constants';
  *
  * @cssproperty --kemet-count-font-size - The font size. Default: 90%.
  *
- * @event kemet-count-status - Fires when there's a change in status.
+ * @event kemet-status-change - Fires when there's a change in status.
  *
  */
 
@@ -40,13 +46,13 @@ export default class KemetCount extends LitElement {
   message: string;
 
   @property({ type: Number })
-  remaining: number;
-
-  @property({ type: Number })
   limit: number;
 
   @property({ type: Boolean, attribute: 'validate-immediately' })
   validateImmediately: boolean;
+
+  @state()
+  remaining: number;
 
   @state()
   field: KemetField;
@@ -63,23 +69,20 @@ export default class KemetCount extends LitElement {
   firstUpdated() {
     this.field = this.closest('kemet-field');
     this.inputSlot = this.field.querySelector('[slot="input"]');
-
     this.remaining = this.limit - this.field.length;
 
-    this.field.addEventListener('kemet-field-input', (event: CustomEvent) => {
-      this.remaining = this.limit - event.detail;
+    this.field.addEventListener('kemet-input', (event: CustomEvent) => {
+      this.remaining = this.limit - event.detail.value.length;
 
       const nativeElement = this.input || this.textarea;
 
       if (nativeElement) {
         if (this.remaining < 0) {
-          // nativeElement.validity.passedLimit = true;
-
           if (this.validateImmediately) {
             this.inputSlot.status = EnumStatuses.Error;
             this.inputSlot.invalid = true;
 
-            emitEvent(this, 'kemet-count-status', {
+            emitEvent(this, 'kemet-status-change', {
               status: EnumStatuses.Error,
               validity: nativeElement.validity,
               element: this.inputSlot,
@@ -89,7 +92,7 @@ export default class KemetCount extends LitElement {
           this.inputSlot.status = EnumStatuses.Standard;
           nativeElement.checkValidity();
 
-          emitEvent(this, 'kemet-count-status', {
+          emitEvent(this, 'kemet-status-change', {
             status: EnumStatuses.Standard,
             validity: nativeElement.validity,
             element: this.inputSlot,

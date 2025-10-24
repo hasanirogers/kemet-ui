@@ -34,8 +34,8 @@ import KemetRadios from './radios';
  * @cssproperty --kemet-radio-dot-color-filled - The filled color of the radio button.
  * @cssproperty --kemet-radio-dot-ring-color - The ring color of the radio button's dot.
  *
- * @event kemet-radio-focused -  Fires when the checkbox loses or receives focus
- * @event kemet-radio-focused - Fires when the checkbox loses or receives focus
+ * @event kemet-focus -  Fires when the checkbox receives focus
+ * @event kemet-blur - Fires when the checkbox loses focus
  *
  */
 
@@ -113,12 +113,12 @@ export default class KemetRadio extends LitElement {
 
   handleBlur() {
     this.focused = false;
-    emitEvent(this, 'kemet-radio-focused', false);
+    emitEvent(this, 'kemet-blur', this);
   }
 
   handleFocus() {
     this.focused = true;
-    emitEvent(this, 'kemet-radio-focused', true);
+    emitEvent(this, 'kemet-focus', this);
   }
 
   makeDot() {
