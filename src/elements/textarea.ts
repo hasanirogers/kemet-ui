@@ -204,7 +204,7 @@ export default class KemetTextarea extends LitElement {
       }),
     );
 
-    if (this.validateOnBlur && this.form && !this.form.noValidate) {
+    if (this.validateOnBlur && this.form) {
       this.textarea.checkValidity();
       this.validity = this.textarea.validity;
     }

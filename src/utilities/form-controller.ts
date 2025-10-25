@@ -1,8 +1,6 @@
 export class FormSubmitController {
   host;
-
   form;
-
   options;
 
   constructor(host, options = undefined) {
@@ -62,44 +60,46 @@ export class FormSubmitController {
     const disabled = this.options.disabled(this.host);
     this.form = this.options.form(this.host);
 
-    if (this.form && !this.form.noValidate && !disabled) {
+    if (this.form && !disabled) {
       const components = this.form.querySelectorAll('kemet-input, kemet-textarea, kemet-select, kemet-checkbox, kemet-radios');
 
       components.forEach((component) => {
-        component.checkValidity();
+        if (component.checkValidity) {
+          component.checkValidity();
 
-        if (!component.checkValidity()) {
-          component.status = 'error';
-          component.invalid = true;
+          if (!component.checkValidity()) {
+            component.status = 'error';
+            component.invalid = true;
 
-          component.dispatchEvent(
-            new CustomEvent('kemet-input-status', {
-              bubbles: true,
-              composed: true,
-              detail: {
-                status: 'error',
-                validity: component.validity ? component.validity : {},
-                element: component,
-              },
-            }),
-          );
-        }
+            component.dispatchEvent(
+              new CustomEvent('kemet-input-status', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  status: 'error',
+                  validity: component.validity ? component.validity : {},
+                  element: component,
+                },
+              }),
+            );
+          }
 
-        if (component.checkLimitValidity && !component.checkLimitValidity()) {
-          component.status = 'error';
-          component.invalid = true;
+          if (component.checkLimitValidity && !component.checkLimitValidity()) {
+            component.status = 'error';
+            component.invalid = true;
 
-          component.dispatchEvent(
-            new CustomEvent('kemet-input-status', {
-              bubbles: true,
-              composed: true,
-              detail: {
-                status: 'error',
-                validity: { passedLimit: true },
-                element: component,
-              },
-            }),
-          );
+            component.dispatchEvent(
+              new CustomEvent('kemet-input-status', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  status: 'error',
+                  validity: { passedLimit: true },
+                  element: component,
+                },
+              }),
+            );
+          }
         }
       });
     }

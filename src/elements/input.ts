@@ -321,7 +321,7 @@ export default class KemetInput extends LitElement {
    * @private
    */
   handleBlur() {
-    if (this.validateOnBlur && this.form && !this.form?.noValidate) {
+    if (this.validateOnBlur && this.form) {
       this.input?.reportValidity();
       this.validity = this.input?.validity;
     }
