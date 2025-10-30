@@ -7,7 +7,27 @@ import { emitEvent } from '../utilities/events';
 import KemetField from '../elements/field';
 import KemetCount from './count';
 import { stylesBase } from '../styles/elements/input';
-import { EnumStatuses, TypeStatus } from '../utilities/constants';
+import { EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/constants';
+
+export const inputTypes = ['text', 'color', 'date', 'datetime-local', 'email', 'password', 'hidden', 'month', 'number', 'reset', 'search', 'tel', 'time', 'url', 'week'] as const;
+export enum EnumInputTypes {
+  Text = 'text',
+  Color = 'color',
+  Date = 'date',
+  DateTimeLocal = 'datetime-local',
+  Email = 'email',
+  Password = 'password',
+  Hidden = 'hidden',
+  Month = 'month',
+  Number = 'number',
+  Reset = 'reset',
+  Search = 'search',
+  Tel = 'tel',
+  Time = 'time',
+  Url = 'url',
+  Week = 'week'
+}
+export type TypeInputTypes = typeof inputTypes[number];
 
 export const ariaAutoComplete = ['inline', 'list', 'both', 'none'] as const;
 export enum EnumAriaAutoComplete {
@@ -39,6 +59,19 @@ export enum EnumAutoComplete {
 }
 export type TypeAutoComplete = typeof autoComplete[number];
 
+export const inputModes = ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'] as const;
+export enum EnumInputModes {
+  None = 'none',
+  Text = 'text',
+  Decimal = 'decimal',
+  Numeric = 'numeric',
+  Tel = 'tel',
+  Search = 'search',
+  Email = 'email',
+  Url = 'url'
+}
+export type TypeInputModes = typeof inputModes[number];
+
 
 
 /**
@@ -58,7 +91,7 @@ export type TypeAutoComplete = typeof autoComplete[number];
  * @prop {string} step - The step attribute
  * @prop {TypeAutoComplete} autocomplete - The autocomplete attribute
  * @prop {string} pattern - The pattern attribute
- * @prop {string} inputmode - The input mode attribute
+ * @prop {TypeInputModes} inputmode - The input mode attribute
  * @prop {boolean} autofocus - The autofocus attribute
  * @prop {boolean} disabled - The disable attribute
  * @prop {boolean} readonly - The readonly attribute
@@ -71,7 +104,7 @@ export type TypeAutoComplete = typeof autoComplete[number];
  * @prop {TypeAriaAutoComplete} ariaAutoComplete - Aria Autocomplete
  * @prop {string} ariaControls - Aria Controls
  * @prop {string} ariaActiveDescendant - Aria Active Descendant
- * @prop {boolean} rounded - Displays rounded corners
+ * @prop {TypeRoundedSizes} rounded - Displays rounded corners
  * @prop {boolean} filled - Displays a filled input box
  * @prop {string} iconRight - Custom Icon to the right of the input
  * @prop {string} iconLeft - Custom Icon to the left of the input
@@ -145,7 +178,7 @@ export default class KemetInput extends LitElement {
   pattern: string;
 
   @property({ type: String })
-  inputmode: string;
+  inputmode: TypeInputModes;
 
   @property({ type: Boolean })
   autofocus: boolean;
@@ -160,7 +193,7 @@ export default class KemetInput extends LitElement {
   required: boolean;
 
   @property({ type: String })
-  type: string = 'text';
+  type: TypeInputTypes = EnumInputTypes.Text;
 
   @property({ type: String, reflect: true })
   value: string = '';
@@ -184,9 +217,6 @@ export default class KemetInput extends LitElement {
   ariaActiveDescendant: string;
 
   @property({ type: Boolean, reflect: true })
-  rounded: boolean;
-
-  @property({ type: Boolean, reflect: true })
   filled: boolean;
 
   @property({ type: Boolean, reflect: true, attribute: 'icon-right' })
@@ -206,6 +236,9 @@ export default class KemetInput extends LitElement {
 
   @property({ type: Boolean, reflect: true })
   focused: boolean = false;
+
+  @property({ type: String, reflect: true })
+  rounded: TypeRoundedSizes;
 
   @state()
   field: KemetField;
@@ -295,7 +328,7 @@ export default class KemetInput extends LitElement {
   }
 
   makeVisibilityToggle() {
-    if (this.type === 'password') {
+    if (this.type === EnumInputTypes.Password) {
       this.iconRight = true;
       return html`<kemet-icon-bootstrap
         class="eye right"
@@ -337,7 +370,7 @@ export default class KemetInput extends LitElement {
   handleChange(event: Event) {
     this.value = this.input.value;
 
-    if (this.input.checkValidity() && this.checkLimitValidity() && this.status !== 'success') {
+    if (this.input.checkValidity() && this.checkLimitValidity() && this.status !== EnumStatuses.Success) {
       this.invalid = false;
       this.status = EnumStatuses.Standard;
       this.validity = this.input.validity;

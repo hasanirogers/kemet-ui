@@ -1,6 +1,7 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/avatar';
+import { TypeRoundedSizes } from '../utilities/constants';
 
 /**
  * @since 1.4.0
@@ -14,7 +15,7 @@ import { stylesBase } from '../styles/elements/avatar';
  * @prop {string} label - Labels the avatar.
  * @prop {string} initials - Initials of the user.
  * @prop {boolean} circle - Displays in a circle.
- * @prop {boolean} rounded - Displays with rounded corners
+ * @prop {TypeRoundedSizes} rounded - Displays with rounded corners
  *
  * @slot status - A slot for an icon or element that indicates the status of the avatar.
  *
@@ -43,11 +44,8 @@ export default class KemetAvatar extends LitElement {
   @property({ type: String })
   initials: string;
 
-  @property({ type: Boolean, reflect: true })
-  circle: boolean;
-
-  @property({ type: Boolean, reflect: true })
-  rounded: boolean;
+  @property({ type: String, reflect: true })
+  rounded: TypeRoundedSizes;
 
   firstUpdated() {
     this.makeSize();

@@ -12,6 +12,7 @@ import '../../elements/tab-panel';
 import '../../elements/button';
 
 import '../../elements/icon-bootstrap';
+import { EnumRoundedSizes, roundedSizes } from '../../utilities/constants';
 
 const meta: Meta = {
   title: 'Organization / Modal',
@@ -19,11 +20,16 @@ const meta: Meta = {
   args: {
     displayCloseBtn: true,
   },
+  render: (args) => Template(args),
   argTypes: {
     effect: {
       control: { type: 'select' },
       options: effects,
     },
+    rounded: {
+      control: { type: 'select' },
+      options: roundedSizes,
+    }
   },
 };
 export default meta;
@@ -50,7 +56,7 @@ const Template = (args) => {
 
   return html`
     <kemet-button @click="${() => openModal()}">Open Modal</kemet-button>
-    <kemet-modal ?opened=${args.opened} ?rounded=${args.rounded} effect="${ifDefined(args.effect)}" ?close-on-click="${args.closeOnClick}">
+    <kemet-modal ?opened=${args.opened} rounded=${ifDefined(args.rounded)} effect="${ifDefined(args.effect)}" ?close-on-click="${args.closeOnClick}">
       <div kemet-padding="xl">
         ${makeCloseBtn(args.displayCloseBtn)}
         <h2 kemet-margin="none">Modal Title</h2>
@@ -60,13 +66,10 @@ const Template = (args) => {
   `;
 };
 
-export const Standard: Story = {
-  render: (args) => Template(args),
-};
+export const Standard: Story = {};
 
 export const Rounded: Story = {
-  render: (args) => Template(args),
   args: {
-    rounded: true
+    rounded: EnumRoundedSizes.MD
   }
 };

@@ -5,6 +5,9 @@ import {
 import { live } from 'lit/directives/live.js';
 import { stylesBase } from '../styles/elements/multi-input';
 import { emitEvent } from '../utilities/events';
+import { EnumKeyCodes as EnumKeys, EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/constants';
+import KemetField from './field';
+import KemetCombo from './combo';
 
 export interface InterfaceSelections {
   element: HTMLUListElement;
@@ -22,35 +25,16 @@ export interface InterfaceSelections {
  * @prop {string} slug - Used for the id of the input. Should match the slug used in a control if applicable.
  * @prop {string} name - The name of the input
  * @prop {string} placeholder - The placeholder attribute
- * @prop {string} minlength - The minlength attribute
- * @prop {string} maxlength - The maxlength attribute
- * @prop {string} min - The min attribute
- * @prop {string} max - The max attribute
- * @prop {string} step - The step attribute
- * @prop {string} autocomplete - The autocomplete attribute
- * @prop {string} pattern - The pattern attribute
- * @prop {string} inputmode - The input mode attribute
- * @prop {boolean} autofocus - The autofocus attribute
  * @prop {boolean} disabled - The disable attribute
- * @prop {boolean} readonly - The readonly attribute
  * @prop {boolean} required - The required attribute
- * @prop {string} type - The type of input
  * @prop {string} value - The input's value
  * @prop {boolean} invalid - States whether the input is invalid
  * @prop {string} status - The status of the input
  * @prop {boolean} validateOnBlur - Activates validation on blur
- * @prop {string} ariaAutoComplete - Aria Autocomplete
- * @prop {string} ariaControls - Aria Controls
- * @prop {string} ariaActiveDescendant - Aria Active Descendant
- * @prop {boolean} rounded - Displays rounded corners
+ * @prop {TypeRoundedSizes} rounded - Displays rounded corners
  * @prop {boolean} filled - Displays a filled input box
- * @prop {string} iconRight - Custom Icon to the right of the input
- * @prop {string} iconLeft - Custom Icon to the left of the input
- * @prop {number} iconSize - Size of the icons
- * @prop {object} validity - The HTML5 validity object.
- * @prop {boolean} isPasswordVisible - Manages password visibility
- * @prop {string} inputType - Input Type of keypress handled through handleInput(e)
- * @prop {boolean} focused - Determines if the input is focused
+ * @prop {ValidityState} validity - The HTML5 validity object.
+
  *
  * @csspart input
  *
@@ -79,16 +63,37 @@ export interface InterfaceSelections {
 
 @customElement('kemet-multi-input')
 export default class KemetMultiInput extends LitElement {
-  /** @internal */
-  // formSubmitController: FormSubmitController;
-
   static styles = [stylesBase];
 
+  @property({ type: String })
+  slug: string = 'input';
+
+  @property({ type: String })
+  placeholder: string = '';
+
   @property({ type: Boolean })
-  rounded: boolean = false;
+  disabled: boolean = false;
+
+  @property({ type: Boolean })
+  filled: boolean = false;
+
+  @property({ reflect: true })
+  rounded: TypeRoundedSizes;
 
   @property({ type: String })
   name: string = 'input';
+
+  @property({ reflect: true })
+  status: TypeStatus = EnumStatuses.Standard;
+
+  @property({ type: Boolean })
+  required: boolean = false;
+
+  @property({ type: Boolean })
+  invalid: boolean;
+
+  @property({ type: Boolean, attribute: 'validate-on-blur' })
+  validateOnBlur: boolean = false;
 
   @state()
   value: string = '';
@@ -100,18 +105,23 @@ export default class KemetMultiInput extends LitElement {
   paddingLeft: number;
 
   @state()
-  field;
+  field: KemetField;
 
   @state()
-  combo;
+  combo: KemetCombo;
 
   @query('[part=chips]')
-  chips;
+  chips: { offsetWidth: number; };
+
+  @query('input')
+  input: HTMLInputElement;
 
   firstUpdated() {
     // elements
     this.field = this.closest('kemet-field');
     this.combo = this.field.querySelector('kemet-combo');
+
+    document.addEventListener('click', this.handleComboClose.bind(this));
 
     if (this.combo) {
       this.combo.addEventListener('kemet-selection', (event: CustomEvent) => this.addComboItem(event));
@@ -127,10 +137,17 @@ export default class KemetMultiInput extends LitElement {
       <div>
         <input
           part="input"
-          id="input"
+          id=${this.slug}
           name=${this.name}
+          placeholder=${this.placeholder}
+          ?required=${this.required}
+          ?disabled=${this.disabled}
           @input=${this.handleInput}
           @focus=${this.handleFocus}
+          @blur=${this.handleBlur}
+          @change=${this.handleChange}
+          @invalid=${this.handleInvalid}
+          @keydown=${this.handleKeydown}
           .value=${live(this.value)}
         />
          ${this.makeSelections()}
@@ -146,6 +163,7 @@ export default class KemetMultiInput extends LitElement {
 
   addComboItem(event: CustomEvent) {
     this.value = '';
+    this.status = EnumStatuses.Standard;
     const isPresent = this.selections.find(selection => selection.id === event.detail.id);
     if (!isPresent) this.selections = [...this.selections, event.detail];
   }
@@ -155,7 +173,13 @@ export default class KemetMultiInput extends LitElement {
    * @private
    */
   handleInput(event: Event) {
-    emitEvent(this, 'kemet-input', (event.target as HTMLInputElement).value);
+    this.value = (event.target as HTMLInputElement).value;
+    emitEvent(this, 'kemet-input', {
+      element: this,
+      validity: this.input.validity,
+      status: this.status,
+      value: (event.target as HTMLInputElement).value
+    });
   }
 
   /**
@@ -163,6 +187,32 @@ export default class KemetMultiInput extends LitElement {
    */
   handleFocus() {
     emitEvent(this, 'kemet-focus', this);
+  }
+
+  handleBlur() {
+    emitEvent(this, 'kemet-blur', this);
+    if (this.validateOnBlur) {
+      this.input.checkValidity();
+    }
+  }
+
+  handleChange(event: Event) {
+    emitEvent(this, 'kemet-change', {
+      element: this,
+      validity: this.input.validity,
+      status: this.status,
+      value: (event.target as HTMLInputElement).value
+    });
+  }
+
+  handleInvalid(event: Event) {
+    this.status = EnumStatuses.Error;
+    emitEvent(this, 'kemet-invalid', {
+      element: this,
+      validity: this.input.validity,
+      status: this.status,
+      value: (event.target as HTMLInputElement).value
+    });
   }
 
   /**
@@ -199,6 +249,18 @@ export default class KemetMultiInput extends LitElement {
   handleRemoveChip(event) {
     const text = event.target.closest('[part=chip]').querySelector('span').innerText;
     this.selections = this.selections.filter(selection => selection.text !== text);
+  }
+
+  handleComboClose(event: MouseEvent) {
+    if (event.target !== this && this.combo) {
+      this.combo.show = false;
+    }
+  }
+
+  handleKeydown(event: KeyboardEvent) {
+    if (event.key === EnumKeys.ESCAPE) {
+      this.combo.show = false;
+    }
   }
 }
 

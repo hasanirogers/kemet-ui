@@ -30,6 +30,7 @@ export type TypeOverlayPositions = typeof overlayPositions[number];
  * @prop {boolean} hidden - Hides the element from document flow.
  * @prop {TypeOverlayPositions} overlay - Fixes the alert over content in specified position.
  * @prop {TypeVariants} variant - The style of the alert.
+ * @prop {TypeRoundedSizes} rounded - The rounded size of the alert.
  *
  * @slot default - The contents of the alert.
  *

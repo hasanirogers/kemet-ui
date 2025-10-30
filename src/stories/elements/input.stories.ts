@@ -9,16 +9,18 @@ import '../../elements/tab';
 import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
-import { statuses } from '../../utilities/constants';
+import { EnumRoundedSizes, roundedSizes, statuses } from '../../utilities/constants';
+import { inputModes, inputTypes } from '../../elements/input';
 
 const meta: Meta = {
   title: 'Form Controls / Input',
   component: 'kemet-input',
+  render: args => Template(args),
   argTypes: {
     type: {
       name: 'Type',
       control: { type: 'select' },
-      options: ['text', 'color', 'date', 'datetime-local', 'email', 'password', 'hidden', 'month', 'number', 'reset', 'search', 'tel', 'time', 'url', 'week'],
+      options: inputTypes,
     },
     status: {
       control: { type: 'radio' },
@@ -30,8 +32,12 @@ const meta: Meta = {
     },
     inputmode: {
       control: { type: 'select' },
-      options: ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'],
+      options: inputModes,
     },
+    rounded: {
+      control: { type: 'select' },
+      options: roundedSizes,
+    }
   }
 };
 export default meta;
@@ -44,7 +50,7 @@ const Template = (args) => html`<kemet-input
   pattern=${ifDefined(args.pattern)}
   ?required=${args.required}
   ?validate-on-blur=${args.validateOnBlur}
-  ?rounded=${args.rounded}
+  rounded=${ifDefined(args.rounded)}
   ?filled=${args.filled}
   placeholder=${ifDefined(args.placeholder)}
   minlength=${ifDefined(args.minlength)}
@@ -62,26 +68,21 @@ const Template = (args) => html`<kemet-input
   ${args.right}
 </kemet-input>`;
 
-export const Standard: Story = {
-  render: args => Template(args),
-};
+export const Standard: Story = {};
 
 export const Rounded: Story = {
-  render: args => Template(args),
   args: {
-    rounded: true,
+    rounded: EnumRoundedSizes.MD,
   },
 };
 
 export const Filled: Story = {
-  render: args => Template(args),
   args: {
     filled: true,
   },
 };
 
 export const search: Story = {
-  render: args => Template(args),
   args: {
     type: 'search',
     left: html`<kemet-icon-bootstrap icon="search" slot="left"></kemet-icon-bootstrap>`,
@@ -90,21 +91,18 @@ export const search: Story = {
 }
 
 export const LeftIcon: Story = {
-  render: args => Template(args),
   args: {
     left: html`<kemet-icon-bootstrap icon="phone" slot="left"></kemet-icon-bootstrap>`,
   },
 };
 
 export const RightIcon: Story = {
-  render: args => Template(args),
   args: {
     right: html`<kemet-icon-bootstrap icon="search" slot="right"></kemet-icon-bootstrap>`,
   },
 };
 
 export const ValidateOnBlur: Story = {
-  render: args => Template(args),
   args: {
     validateOnBlur: true,
     required: true,

@@ -7,7 +7,7 @@ import { stylesSelect } from '../styles/elements/select';
 import type KemetOption from './option';
 import './icon-bootstrap';
 import KemetField from './field';
-import { EnumStatuses } from '../utilities/constants';
+import { EnumStatuses, TypeRoundedSizes } from '../utilities/constants';
 
 /**
  * @since 1.0.0
@@ -27,7 +27,7 @@ import { EnumStatuses } from '../utilities/constants';
  * @prop {string} icon - The dropdown icon
  * @prop {number} iconSize - The dropdown icon size
  * @prop {boolean} filled - Displays a filled select
- * @prop {boolean} rounded - Displays rounded corners
+ * @prop {TypeRoundedSizes} rounded - Displays rounded corners
  *
  * @csspart select
  *
@@ -97,8 +97,8 @@ export default class KemetSelect extends LitElement {
   @property({ type: Boolean, reflect: true })
   filled: boolean;
 
-  @property({ type: Boolean, reflect: true })
-  rounded: boolean;
+  @property({ reflect: true })
+  rounded: TypeRoundedSizes;
 
   @state()
   invalid: boolean;
@@ -175,8 +175,8 @@ export default class KemetSelect extends LitElement {
 
     return this.options.map(
       option => html`<option value=${option.value} ?disabled=${option.disabled} ?selected=${option.selected}>
-          ${option.label}
-        </option>`,
+        ${option.label}
+      </option>`,
     );
   }
 

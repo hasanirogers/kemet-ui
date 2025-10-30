@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { FormSubmitController } from '../utilities/form-controller';
 import KemetField from './field';
-import { EnumStatuses, TypeStatus } from '../utilities/constants';
+import { EnumStatuses, TypeRoundedSizes, TypeStatus } from '../utilities/constants';
 import { stylesTextarea } from '../styles/elements/textarea';
 
 
@@ -28,7 +28,7 @@ import { stylesTextarea } from '../styles/elements/textarea';
  * @prop {boolean}  invalid
  * @prop {TypeStatus}  status
  * @prop {boolean}  validateOnBlur
- * @prop {boolean}  rounded
+ * @prop {TypeRoundedSizes}  rounded
  * @prop {boolean}  filled
  * @prop {number}  rows
  * @prop {boolean} autocorrect
@@ -105,8 +105,8 @@ export default class KemetTextarea extends LitElement {
   @property({ type: Boolean, reflect: true })
   filled: boolean;
 
-  @property({ type: Boolean, reflect: true })
-  rounded: boolean;
+  @property({ reflect: true })
+  rounded: TypeRoundedSizes;
 
   @property({ type: Boolean })
   autocorrect: boolean;

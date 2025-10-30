@@ -10,29 +10,42 @@ export const stylesBase = css`
   :host {
     --kemet-avatar-color: rgb(var(--kemet-color-white));
     --kemet-avatar-background-color: rgb(var(--kemet-color-gray-300));
-    --kemet-avatar-rounded-radius: 1rem;
+    --kemet-avatar-rounded: 0;
     --kemet-avatar-initials-margin: 1rem;
 
     display: inline-flex;
     color: var(--kemet-color-white);
     position: relative;
+    border-radius: var(--kemet-avatar-rounded);
     background-color: var(--kemet-avatar-background-color);
   }
 
-  :host([circle]) {
-    border-radius: var(--kemet-border-radius-circle);
-  }
-
-  :host([circle]) > * {
-    border-radius: var(--kemet-border-radius-circle);
+  :host > * {
+    border-radius: var(--kemet-avatar-rounded);
   }
 
   :host([rounded]) {
-    border-radius: var(--kemet-avatar-rounded-radius);
+    --kemet-avatar-rounded: var(--kemet-border-radius-md);
   }
 
-  :host([rounded]) > * {
-    border-radius: var(--kemet-avatar-rounded-radius);
+  :host([rounded=sm]) {
+    --kemet-avatar-rounded: var(--kemet-border-radius-sm);
+  }
+
+  :host([rounded=lg]) {
+    --kemet-avatar-rounded: var(--kemet-border-radius-lg);
+  }
+
+  :host([rounded=xl]) {
+    --kemet-avatar-rounded: var(--kemet-border-radius-xl);
+  }
+
+  :host([rounded=circle]) {
+    --kemet-avatar-rounded: var(--kemet-border-radius-circle);
+  }
+
+  :host([rounded=pill]) {
+    --kemet-avatar-rounded: var(--kemet-border-radius-pill);
   }
 
   .initials {

@@ -9,13 +9,13 @@ export const stylesTextarea = css`
     --kemet-textarea-border-color-warning: 1px solid rgb(var(--kemet-color-warning));
     --kemet-textarea-icon-left-padding: 3rem;
     --kemet-textarea-icon-right-padding: 3rem;
-    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-md);
     --kemet-textarea-border-filled: none;
     --kemet-textarea-color-filled: rgb(var(--kemet-color-white));
     --kemet-textarea-background-color-filled: rgb(var(--kemet-color-primary));
     --kemet-textarea-background-color-error: rgb(var(--kemet-color-error));
     --kemet-textarea-background-color-success: rgb(var(--kemet-color-success));
     --kemet-textarea-background-color-warning: rgb(var(--kemet-color-warning));
+    --kemet-textarea-border-radius-rounded: 0;
 
     position: relative;
     display: block;
@@ -30,6 +30,7 @@ export const stylesTextarea = css`
     appearance: none;
     box-sizing: border-box;
     background: transparent;
+    border-radius: var(--kemet-textarea-border-radius-rounded);
   }
 
   :host([status='error']) textarea {
@@ -57,7 +58,31 @@ export const stylesTextarea = css`
   }
 
   :host([rounded]) textarea {
-    border-radius: var(--kemet-textarea-border-radius-rounded);
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded=sm]) textarea {
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-sm);
+  }
+
+  :host([rounded=md]) textarea {
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded=lg]) textarea {
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-lg);
+  }
+
+  :host([rounded=xl]) textarea {
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-xl);
+  }
+
+  :host([rounded=circle]) textarea {
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-circle);
+  }
+
+  :host([rounded=pill]) textarea {
+    --kemet-textarea-border-radius-rounded: var(--kemet-border-radius-pill);
   }
 
   :host([filled]) textarea {

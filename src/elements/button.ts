@@ -2,14 +2,13 @@ import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { stylesBase } from '../styles/elements/button';
 import { FormSubmitController } from '../utilities/form-controller';
+import { TypeRoundedSizes } from '../utilities/constants';
 
-export const variants = ['standard', 'text', 'circle', 'rounded', 'pill'] as const;
+export const variants = ['standard', 'text', 'outlined'] as const;
 export enum EnumVariants {
   STANDARD = 'standard',
   TEXT = 'text',
-  CIRCLE = 'circle',
-  ROUNDED = 'rounded',
-  PILL = 'pill'
+  OUTLINED = 'outlined',
 }
 export type TypeVariants = typeof variants[number];
 
@@ -46,6 +45,7 @@ export type TypeTypes = typeof types[number];
  * @prop {TypeVariants} variant - Controls the type of button. standard | text | circle | rounded | pill
  * @prop {TypeTargets} target - The target attribute for a link
  * @prop {TypeTypes} type - The type attribute for a button
+ * @prop {TypeRoundedSizes} rounded - The border radius of the button
  *
  * @slot left - Allows you to place an icon to the left of the button text.
  * @slot right - Allows you to place an icon to the right of the button text.
@@ -93,9 +93,6 @@ export default class KemetButton extends LitElement {
   link: string;
 
   @property({ type: Boolean, reflect: true })
-  outlined: boolean = false;
-
-  @property({ type: Boolean, reflect: true })
   disabled: boolean = false;
 
   @property({ reflect: true })
@@ -112,6 +109,9 @@ export default class KemetButton extends LitElement {
 
   @property({ type: Boolean, reflect: true, attribute: 'icon-right' })
   iconRight: boolean = false;
+
+  @property({ type: String, reflect: true })
+  rounded: TypeRoundedSizes;
 
   constructor() {
     super();

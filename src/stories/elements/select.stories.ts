@@ -1,6 +1,6 @@
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
+import { roundedSizes } from '../../utilities/constants';
 
 import '../../elements/select';
 import '../../elements/option';
@@ -8,6 +8,7 @@ import '../../elements/option';
 import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
+
 
 const meta: Meta = {
   title: 'Form Controls / Select',
@@ -17,6 +18,10 @@ const meta: Meta = {
       control: { type: 'radio' },
       options: ['standard', 'error', 'success', 'warning'],
     },
+    rounded: {
+      control: { type: 'select' },
+      options: roundedSizes,
+    },
   }
 };
 export default meta;
@@ -24,8 +29,8 @@ export default meta;
 type Story = StoryObj;
 
 
-const Template = (args) => html`
-<kemet-select status="${ifDefined(args.status)}" ?required=${args.required} ?disabled=${args.disabled} icon=${ifDefined(args.icon)} icon-size=${ifDefined(args.iconSize)} ?filled=${args.filled} ?rounded=${args.rounded}>
+const Template = (args: Args) => html`
+<kemet-select .status=${args.status} ?required=${args.required} ?disabled=${args.disabled}  ?filled=${args.filled} .rounded=${args.rounded}>
   <kemet-option label="Choose an Item" value=""></kemet-option>
   <kemet-option label="Item 1" value="1"></kemet-option>
   <kemet-option label="Item 2" value="2" selected></kemet-option>

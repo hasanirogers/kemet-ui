@@ -4,6 +4,7 @@ import {
 } from 'lit/decorators.js';
 import { stylesBase, stylesEffects } from '../styles/elements/modal';
 import { emitEvent } from '../utilities/events';
+import { TypeRoundedSizes } from '../utilities/constants';
 
 export const effects = ['fadein-scaleup', 'slide-right', 'slide-bottom', 'newspaper', 'fall', 'side-fall', 'flip-horizontal', 'flip-vertical', 'sign-3d', 'super-scaled', 'slit', 'rotate-bottom', 'rotate-left'] as const;
 export enum EnumEffects {
@@ -36,6 +37,7 @@ export type TypeEffect = typeof effects[number];
  * @prop {boolean} closeOnClick
  * @prop {string} breakpoint
  * @prop {boolean} mobile
+ * @prop {TypeRoundedSizes} rounded
  *
  * @csspart dialog - The main contents of the modal.
  * @csspart overlay - The surrounding scrim of the modal.
@@ -48,6 +50,7 @@ export type TypeEffect = typeof effects[number];
  * @cssproperty --kemet-modal-dialog-mobile-margin - The margins of the mobile dialog.
  * @cssproperty --kemet-modal-dialog-mobile-padding - The padding of the mobile dialog.
  * @cssproperty --kemet-modal-overlay-background-color - The color of the backdrop overlay.
+ * @cssproperty --kemet-modal-radius - The mount of rounding for rounded corners
  *
  * @event kemet-opened - Fires when the modal opens
  * @event kemet-closed - Fires when the modal closes
@@ -73,8 +76,8 @@ export default class KemetModal extends LitElement {
   @property({ type: Boolean, reflect: true })
   mobile: boolean;
 
-  @property({ type: Boolean, reflect: true })
-  rounded: boolean;
+  @property({ reflect: true })
+  rounded: TypeRoundedSizes;
 
   /** @internal */
   @query('dialog')

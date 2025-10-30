@@ -1,11 +1,11 @@
 import KemetCount from "../elements/count";
 import KemetInput from "../elements/input";
 
-export const keyCodes = {
-  ENTER: 13,
-  SPACE: 32,
-  ESC: 27,
-};
+export enum EnumKeyCodes {
+  ESCAPE = 'Escape',
+  ENTER = 'Enter',
+  SPACE = 'Space',
+}
 
 export const directions = ['none','top', 'right', 'bottom', 'left'] as const;
 export enum EnumDirections {

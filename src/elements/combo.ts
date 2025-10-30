@@ -98,6 +98,11 @@ export default class KemetCombo extends LitElement {
         option => option.toLowerCase().indexOf(this.input.value?.toLowerCase()) !== -1,
       );
 
+      if (this.filteredOptions.length < 1) {
+        this.show = false;
+        return null;
+      }
+
       return this.filteredOptions.map(
         (option, index) => html`<li
             id="${this.slug}-option-${index}"

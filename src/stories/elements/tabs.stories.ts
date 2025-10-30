@@ -1,6 +1,8 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { panelEffect, tabsAlign } from '../../elements/tabs';
+import { directions } from '../../utilities/constants';
 
 import '../../styles/elements/tabs';
 import '../../elements/tab';
@@ -8,21 +10,22 @@ import '../../elements/tab-panel';
 
 import '../../elements/icon-bootstrap';
 
+
 const meta: Meta = {
   title: 'Organization / Tabs',
   component: 'kemet-tabs',
   argTypes: {
     panelEffect: {
       control: { type: 'select' },
-      options: ['none', 'slide', 'fade'],
+      options: panelEffect,
     },
     tabsAlign: {
       control: { type: 'select' },
-      options: ['center', 'between', 'around', 'evenly', 'start', 'end'],
+      options: tabsAlign,
     },
     placement: {
       control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
+      options: directions,
     },
   }
 };
@@ -59,21 +62,18 @@ const NamedTemplate = (args) => html`
 `;
 
 const IndexTemplate = (args) => {
-  const tabs = [];
-  const panels = [];
+  const tabs = Array.from({ length: args.numOfTabs}, (_, index) => {
+    return html`<kemet-tab slot="tab" ?closable=${args.closable}>This is tab ${index + 1}.</kemet-tab>`;
+  })
 
-  for (let i = 0; i < args.numOfTabs; i += 1) {
-    tabs.push(html`<kemet-tab slot="tab" ?closable=${args.closable}>This is tab ${i + 1}.</kemet-tab>`);
-  }
-
-  for (let i = 0; i < args.numOfTabs; i += 1) {
-    panels.push(html`
-      <kemet-tab-panel slot="panel">
-        <h3>Panel ${i + 1}</h3>
+  const panels = Array.from({ length: args.numOfTabs }, (_, index) => {
+    return html`
+    <kemet-tab-panel slot="panel">
+        <h3>Panel ${index + 1}</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </kemet-tab-panel>
-    `);
-  }
+    `;
+  });
 
   return html`
     <kemet-tabs panel-effect=${ifDefined(args.panelEffect)} ?swipe=${args.swipe} ?divider=${args.divider} tabs-align=${ifDefined(args.tabsAlign)} ?hide-ink=${args.hideInk} placement=${ifDefined(args.placement)} measure-height-offset=${ifDefined(args.measureHeightOffset)}>

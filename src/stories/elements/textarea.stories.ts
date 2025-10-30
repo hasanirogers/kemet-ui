@@ -1,11 +1,14 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { EnumRoundedSizes, roundedSizes } from '../../utilities/constants';
 
+import '../../elements/textarea';
 
 const meta: Meta = {
   title: 'Form Controls / Textarea',
   component: 'kemet-textarea',
+  render: args => Template(args),
   argTypes: {
     status: {
       control: { type: 'radio' },
@@ -14,6 +17,10 @@ const meta: Meta = {
     inputmode: {
       control: { type: 'select' },
       options: ['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url'],
+    },
+    rounded: {
+      control: { type: 'select' },
+      options: roundedSizes,
     },
   }
 };
@@ -34,30 +41,25 @@ const Template = (args) => html`<kemet-textarea
   ?readonly=${args.readonly}
   rows=${ifDefined(args.rows)}
   ?filled=${args.filled}
-  ?rounded=${args.rounded}
+  .rounded=${args.rounded}
 ></kemet-textarea>`;
 
-export const Standard: Story = {
-  render: args => Template(args),
-};
+export const Standard: Story = {};
 
 export const Disabled: Story = {
-  render: args => Template(args),
   args: {
     disabled: true
   }
 };
 
 export const Filled: Story = {
-  render: args => Template(args),
   args: {
     filled: true
   }
 };
 
 export const Rounded: Story = {
-  render: args => Template(args),
   args: {
-    rounded: true
+    rounded: EnumRoundedSizes.MD
   }
 };

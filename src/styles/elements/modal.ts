@@ -17,6 +17,7 @@ export const stylesBase = css`
     --kemet-modal-dialog-mobile-padding: 1rem;
     --kemet-modal-dialog-background-color: rgb(var(--kemet-color-white));
     --kemet-modal-overlay-background-color: rgb(var(--kemet-color-black) / 20%);
+    --kemet-modal-radius: 0;
 
     position: fixed;
     display: flex;
@@ -40,6 +41,7 @@ export const stylesBase = css`
     min-width: var(--kemet-modal-dialog-min-width);
     max-width: var(--kemet-modal-dialog-max-width);
     border: 0;
+    border-radius: var(--kemet-modal-radius);
     background: var(--kemet-modal-dialog-background-color);
   }
 
@@ -55,7 +57,27 @@ export const stylesBase = css`
   }
 
   :host([rounded]) dialog {
-    border-radius: var(--kemet-modal-radius);
+    --kemet-modal-radius: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded=sm]) dialog {
+    --kemet-modal-radius: var(--kemet-border-radius-sm);
+  }
+
+  :host([rounded=lg]) dialog {
+    --kemet-modal-radius: var(--kemet-border-radius-lg);
+  }
+
+  :host([rounded=xl]) dialog {
+    --kemet-modal-radius: var(--kemet-border-radius-xl);
+  }
+
+  :host([rounded=circle]) dialog {
+    --kemet-modal-radius: var(--kemet-border-radius-circle);
+  }
+
+  :host([rounded=pill]) dialog {
+    --kemet-modal-radius: var(--kemet-border-radius-pill);
   }
 
   :host([rounded][mobile]) dialog {
@@ -64,7 +86,6 @@ export const stylesBase = css`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-
 
   .overlay {
     position: fixed;

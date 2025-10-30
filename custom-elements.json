@@ -102,11 +102,11 @@
           "events": [
             {
               "description": "Fires when a panel is opened",
-              "name": "kemet-accordion-panel-opened"
+              "name": "kemet-opened"
             },
             {
               "description": "Fires when a panel is closed",
-              "name": "kemet-accordion-panel-closed"
+              "name": "kemet-closed"
             }
           ],
           "attributes": [
@@ -425,6 +425,7 @@
               "type": {
                 "text": "TypeRoundedSizes"
               },
+              "description": "The rounded size of the alert.",
               "attribute": "rounded",
               "reflects": true
             },
@@ -448,11 +449,11 @@
           "events": [
             {
               "description": "Fires when alert is opened.",
-              "name": "kemet-alert-opened"
+              "name": "kemet-opened"
             },
             {
               "description": "Fires when alert is closed.",
-              "name": "kemet-alert-closed"
+              "name": "kemet-closed"
             }
           ],
           "attributes": [
@@ -516,6 +517,7 @@
               "type": {
                 "text": "TypeRoundedSizes"
               },
+              "description": "The rounded size of the alert.",
               "fieldName": "rounded"
             }
           ],
@@ -632,19 +634,9 @@
             },
             {
               "kind": "field",
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "attribute": "circle",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "description": "Displays with rounded corners",
               "attribute": "rounded",
@@ -657,6 +649,14 @@
             {
               "kind": "method",
               "name": "makeContent"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Displays in a circle.",
+              "name": "circle",
+              "kind": "field"
             }
           ],
           "attributes": [
@@ -693,17 +693,9 @@
               "fieldName": "initials"
             },
             {
-              "name": "circle",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays in a circle.",
-              "fieldName": "circle"
-            },
-            {
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "description": "Displays with rounded corners",
               "fieldName": "rounded"
@@ -937,9 +929,9 @@
           "kind": "variable",
           "name": "variants",
           "type": {
-            "text": "['standard', 'text', 'circle', 'rounded', 'pill']"
+            "text": "['standard', 'text', 'outlined']"
           },
-          "default": "['standard', 'text', 'circle', 'rounded', 'pill']"
+          "default": "['standard', 'text', 'outlined']"
         },
         {
           "kind": "variable",
@@ -1093,17 +1085,6 @@
             },
             {
               "kind": "field",
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "attribute": "outlined",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "disabled",
               "type": {
                 "text": "boolean"
@@ -1162,6 +1143,16 @@
               "reflects": true
             },
             {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "description": "The border radius of the button",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
               "kind": "method",
               "name": "handleLeftChange"
             },
@@ -1207,6 +1198,14 @@
               ],
               "description": "Handles keyup",
               "privacy": "private"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Outline style for a button",
+              "name": "outlined",
+              "kind": "field"
             }
           ],
           "attributes": [
@@ -1241,15 +1240,6 @@
               },
               "description": "The url a button should link too",
               "fieldName": "link"
-            },
-            {
-              "name": "outlined",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Outline style for a button",
-              "fieldName": "outlined"
             },
             {
               "name": "disabled",
@@ -1299,6 +1289,14 @@
               },
               "default": "false",
               "fieldName": "iconRight"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "description": "The border radius of the button",
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
@@ -1590,7 +1588,7 @@
             },
             {
               "kind": "method",
-              "name": "first"
+              "name": "activated"
             },
             {
               "kind": "method",
@@ -1604,7 +1602,7 @@
           ],
           "events": [
             {
-              "name": "kemet-carousel-first"
+              "name": "kemet-first-activated"
             }
           ],
           "attributes": [
@@ -1666,7 +1664,7 @@
             },
             {
               "kind": "method",
-              "name": "last"
+              "name": "activated"
             },
             {
               "kind": "method",
@@ -1680,7 +1678,7 @@
           ],
           "events": [
             {
-              "name": "kemet-carousel-last"
+              "name": "kemet-last-activated"
             }
           ],
           "attributes": [
@@ -1767,7 +1765,7 @@
             },
             {
               "kind": "method",
-              "name": "changed"
+              "name": "activated"
             },
             {
               "kind": "method",
@@ -1781,7 +1779,7 @@
           ],
           "events": [
             {
-              "name": "kemet-carousel-link"
+              "name": "kemet-link-activated"
             }
           ],
           "attributes": [
@@ -1858,7 +1856,7 @@
             },
             {
               "kind": "method",
-              "name": "next"
+              "name": "activated"
             },
             {
               "kind": "method",
@@ -1872,7 +1870,7 @@
           ],
           "events": [
             {
-              "name": "kemet-carousel-next"
+              "name": "kemet-next-activated"
             }
           ],
           "attributes": [
@@ -1934,7 +1932,7 @@
             },
             {
               "kind": "method",
-              "name": "prev"
+              "name": "activated"
             },
             {
               "kind": "method",
@@ -1948,7 +1946,7 @@
           ],
           "events": [
             {
-              "name": "kemet-carousel-prev"
+              "name": "kemet-prev-activated"
             }
           ],
           "attributes": [
@@ -2467,11 +2465,11 @@
           "events": [
             {
               "description": "Fires when the slide has begun to change.",
-              "name": "kemet-carousel-change-start"
+              "name": "kemet-change-start"
             },
             {
               "description": "Fires when a slide has changed and finished animating",
-              "name": "kemet-carousel-change-finished"
+              "name": "kemet-change-finished"
             }
           ],
           "attributes": [
@@ -2790,11 +2788,15 @@
           "events": [
             {
               "description": "Fires when the state of the checkbox changes",
-              "name": "kemet-checkbox-change"
+              "name": "kemet-change"
             },
             {
-              "description": "Fires when the checkbox loses or receives focus",
-              "name": "kemet-checkbox-focused"
+              "description": "Fires when the checkbox receives focus",
+              "name": "kemet-focus"
+            },
+            {
+              "description": "Fires when the checkbox loses focus",
+              "name": "kemet-blur"
             }
           ],
           "attributes": [
@@ -3096,7 +3098,7 @@
           "events": [
             {
               "description": "Fires when a selection has been made",
-              "name": "kemet-combo-selection"
+              "name": "kemet-selection"
             }
           ],
           "attributes": [
@@ -3180,15 +3182,6 @@
             },
             {
               "kind": "field",
-              "name": "remaining",
-              "type": {
-                "text": "number"
-              },
-              "description": "The number of characters remaining",
-              "attribute": "remaining"
-            },
-            {
-              "kind": "field",
               "name": "limit",
               "type": {
                 "text": "number"
@@ -3204,6 +3197,14 @@
               },
               "description": "Set to true if the field should validate as soon as the character limit is reached",
               "attribute": "validate-immediately"
+            },
+            {
+              "kind": "field",
+              "name": "remaining",
+              "type": {
+                "text": "number"
+              },
+              "description": "The number of characters remaining"
             },
             {
               "kind": "field",
@@ -3237,7 +3238,7 @@
           "events": [
             {
               "description": "Fires when there's a change in status.",
-              "name": "kemet-count-status"
+              "name": "kemet-status-change"
             }
           ],
           "attributes": [
@@ -3248,14 +3249,6 @@
               },
               "description": "The text label shown to users",
               "fieldName": "message"
-            },
-            {
-              "name": "remaining",
-              "type": {
-                "text": "number"
-              },
-              "description": "The number of characters remaining",
-              "fieldName": "remaining"
             },
             {
               "name": "limit",
@@ -3385,10 +3378,10 @@
           ],
           "events": [
             {
-              "name": "kemet-draggable-start"
+              "name": "kemet-start"
             },
             {
-              "name": "kemet-draggable-stop"
+              "name": "kemet-stop"
             }
           ],
           "attributes": [
@@ -3568,11 +3561,11 @@
           "events": [
             {
               "description": "Fires when the drawer opens.",
-              "name": "kemet-drawer-opened"
+              "name": "kemet-opened"
             },
             {
               "description": "Fires when the drawer closes.",
-              "name": "kemet-drawer-closed"
+              "name": "kemet-closed"
             }
           ],
           "attributes": [
@@ -4056,7 +4049,7 @@
           "events": [
             {
               "description": "Fires when input fires on the input slot",
-              "name": "kemet-field-input"
+              "name": "kemet-input"
             }
           ],
           "attributes": [
@@ -4200,7 +4193,7 @@
           "events": [
             {
               "description": "Fires when a flipcard is flipped",
-              "name": "kemet-flipcard-flipped"
+              "name": "kemet-flipped"
             }
           ],
           "superclass": {
@@ -4720,6 +4713,14 @@
       "declarations": [
         {
           "kind": "variable",
+          "name": "inputTypes",
+          "type": {
+            "text": "['text', 'color', 'date', 'datetime-local', 'email', 'password', 'hidden', 'month', 'number', 'reset', 'search', 'tel', 'time', 'url', 'week']"
+          },
+          "default": "['text', 'color', 'date', 'datetime-local', 'email', 'password', 'hidden', 'month', 'number', 'reset', 'search', 'tel', 'time', 'url', 'week']"
+        },
+        {
+          "kind": "variable",
           "name": "ariaAutoComplete",
           "type": {
             "text": "['inline', 'list', 'both', 'none']"
@@ -4733,6 +4734,14 @@
             "text": "['on', 'off', 'additional-name', 'address-level1', 'address-level2', 'address-level3', 'address-level4', 'address-line1', 'address-line2', 'address-line3', 'bday', 'bday-year', 'bday-day', 'bday-month', 'billing', 'cc-additional-name']"
           },
           "default": "['on', 'off', 'additional-name', 'address-level1', 'address-level2', 'address-level3', 'address-level4', 'address-line1', 'address-line2', 'address-line3', 'bday', 'bday-year', 'bday-day', 'bday-month', 'billing', 'cc-additional-name']"
+        },
+        {
+          "kind": "variable",
+          "name": "inputModes",
+          "type": {
+            "text": "['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url']"
+          },
+          "default": "['none', 'text', 'decimal', 'numeric', 'tel', 'search', 'email', 'url']"
         },
         {
           "kind": "class",
@@ -4901,7 +4910,7 @@
               "kind": "field",
               "name": "inputmode",
               "type": {
-                "text": "string"
+                "text": "TypeInputModes"
               },
               "description": "The input mode attribute",
               "attribute": "inputmode"
@@ -4950,7 +4959,6 @@
               "type": {
                 "text": "string"
               },
-              "default": "'text'",
               "description": "The type of input",
               "attribute": "type"
             },
@@ -5024,16 +5032,6 @@
             },
             {
               "kind": "field",
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays rounded corners",
-              "attribute": "rounded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "filled",
               "type": {
                 "text": "boolean"
@@ -5103,6 +5101,16 @@
             },
             {
               "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "description": "Displays rounded corners",
+              "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "field",
               "type": {
                 "text": "KemetField"
@@ -5153,18 +5161,42 @@
             {
               "kind": "method",
               "name": "handleChange",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ],
               "description": "Handles when the input changes value",
               "privacy": "private"
             },
             {
               "kind": "method",
               "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "InputEvent"
+                  }
+                }
+              ],
               "description": "Handles when the input receives input",
               "privacy": "private"
             },
             {
               "kind": "method",
               "name": "handleInvalid",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ],
               "description": "Handles when the input has an error",
               "privacy": "private"
             },
@@ -5231,16 +5263,20 @@
           ],
           "events": [
             {
-              "description": "Fires when the input receives and loses focus",
-              "name": "kemet-input-focused"
+              "description": "Fires when the input receives focus",
+              "name": "kemet-input-focus"
+            },
+            {
+              "description": "Fires when the input loses focus",
+              "name": "kemet-input-blur"
             },
             {
               "description": "Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element. Use the validity object to support custom validation messages.",
-              "name": "kemet-input-status"
+              "name": "kemet-status-change"
             },
             {
               "description": "Fires when the input receives input",
-              "name": "kemet-input-input"
+              "name": "kemet-input"
             }
           ],
           "attributes": [
@@ -5328,7 +5364,7 @@
             {
               "name": "inputmode",
               "type": {
-                "text": "string"
+                "text": "TypeInputModes"
               },
               "description": "The input mode attribute",
               "fieldName": "inputmode"
@@ -5370,7 +5406,6 @@
               "type": {
                 "text": "string"
               },
-              "default": "'text'",
               "description": "The type of input",
               "fieldName": "type"
             },
@@ -5433,14 +5468,6 @@
               "fieldName": "ariaActiveDescendant"
             },
             {
-              "name": "rounded",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays rounded corners",
-              "fieldName": "rounded"
-            },
-            {
               "name": "filled",
               "type": {
                 "text": "boolean"
@@ -5497,6 +5524,14 @@
               "default": "false",
               "description": "Determines if the input is focused",
               "fieldName": "focused"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
+              "description": "Displays rounded corners",
+              "fieldName": "rounded"
             }
           ],
           "superclass": {
@@ -5511,6 +5546,14 @@
       "exports": [
         {
           "kind": "js",
+          "name": "inputTypes",
+          "declaration": {
+            "name": "inputTypes",
+            "module": "src/elements/input.ts"
+          }
+        },
+        {
+          "kind": "js",
           "name": "ariaAutoComplete",
           "declaration": {
             "name": "ariaAutoComplete",
@@ -5522,6 +5565,14 @@
           "name": "autoComplete",
           "declaration": {
             "name": "autoComplete",
+            "module": "src/elements/input.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "inputModes",
+          "declaration": {
+            "name": "inputModes",
             "module": "src/elements/input.ts"
           }
         },
@@ -5560,7 +5611,7 @@
           "events": [
             {
               "description": "Fires when the close button is pressed",
-              "name": "kemet-modal-close-pressed"
+              "name": "kemet-closed-pressed"
             }
           ],
           "superclass": {
@@ -5639,6 +5690,10 @@
             {
               "description": "The color of the backdrop overlay.",
               "name": "--kemet-modal-overlay-background-color"
+            },
+            {
+              "description": "The mount of rounding for rounded corners",
+              "name": "--kemet-modal-radius"
             }
           ],
           "cssParts": [
@@ -5702,7 +5757,7 @@
               "kind": "field",
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "attribute": "rounded",
               "reflects": true
@@ -5735,11 +5790,11 @@
           "events": [
             {
               "description": "Fires when the modal opens",
-              "name": "kemet-modal-opened"
+              "name": "kemet-opened"
             },
             {
               "description": "Fires when the modal closes",
-              "name": "kemet-modal-closed"
+              "name": "kemet-closed"
             }
           ],
           "attributes": [
@@ -5784,7 +5839,7 @@
             {
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "fieldName": "rounded"
             }
@@ -5903,11 +5958,50 @@
           "members": [
             {
               "kind": "field",
-              "name": "rounded",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'input'",
+              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
+              "attribute": "slug"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The placeholder attribute",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
+              "description": "The disable attribute",
+              "attribute": "disabled"
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays a filled input box",
+              "attribute": "filled"
+            },
+            {
+              "kind": "field",
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
               "description": "Displays rounded corners",
               "attribute": "rounded"
             },
@@ -5920,6 +6014,45 @@
               "default": "'input'",
               "description": "The name of the input",
               "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "description": "The status of the input",
+              "attribute": "status",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "The required attribute",
+              "attribute": "required"
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "States whether the input is invalid",
+              "attribute": "invalid"
+            },
+            {
+              "kind": "field",
+              "name": "validateOnBlur",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Activates validation on blur",
+              "attribute": "validate-on-blur"
             },
             {
               "kind": "field",
@@ -5947,15 +6080,31 @@
             },
             {
               "kind": "field",
-              "name": "field"
+              "name": "field",
+              "type": {
+                "text": "KemetField"
+              }
             },
             {
               "kind": "field",
-              "name": "combo"
+              "name": "combo",
+              "type": {
+                "text": "KemetCombo"
+              }
             },
             {
               "kind": "field",
-              "name": "chips"
+              "name": "chips",
+              "type": {
+                "text": "{ offsetWidth: number; }"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement"
+              }
             },
             {
               "kind": "method",
@@ -5976,7 +6125,10 @@
               "name": "handleInput",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
                 }
               ],
               "description": "Handles when the input receives input",
@@ -5985,12 +6137,35 @@
             {
               "kind": "method",
               "name": "handleFocus",
+              "description": "Handles when the input is focused"
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur"
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
               "parameters": [
                 {
-                  "name": "event"
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
                 }
-              ],
-              "description": "Handles when the input is focused"
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInvalid",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -6016,235 +6191,35 @@
               "privacy": "private"
             },
             {
-              "type": {
-                "text": "string"
-              },
-              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
-              "name": "slug",
-              "kind": "field"
+              "kind": "method",
+              "name": "handleComboClose",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeydown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
             },
             {
               "type": {
-                "text": "string"
-              },
-              "description": "The placeholder attribute",
-              "name": "placeholder",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The minlength attribute",
-              "name": "minlength",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The maxlength attribute",
-              "name": "maxlength",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The min attribute",
-              "name": "min",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The max attribute",
-              "name": "max",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The step attribute",
-              "name": "step",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The autocomplete attribute",
-              "name": "autocomplete",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The pattern attribute",
-              "name": "pattern",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The input mode attribute",
-              "name": "inputmode",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The autofocus attribute",
-              "name": "autofocus",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The disable attribute",
-              "name": "disabled",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The readonly attribute",
-              "name": "readonly",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "The required attribute",
-              "name": "required",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The type of input",
-              "name": "type",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "States whether the input is invalid",
-              "name": "invalid",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "The status of the input",
-              "name": "status",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Activates validation on blur",
-              "name": "validateOnBlur",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "Aria Autocomplete",
-              "name": "ariaAutoComplete",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "Aria Controls",
-              "name": "ariaControls",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "Aria Active Descendant",
-              "name": "ariaActiveDescendant",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Displays a filled input box",
-              "name": "filled",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "Custom Icon to the right of the input",
-              "name": "iconRight",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "Custom Icon to the left of the input",
-              "name": "iconLeft",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "number"
-              },
-              "description": "Size of the icons",
-              "name": "iconSize",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "object"
+                "text": "ValidityState"
               },
               "description": "The HTML5 validity object.",
               "name": "validity",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Manages password visibility",
-              "name": "isPasswordVisible",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "Input Type of keypress handled through handleInput(e)",
-              "name": "inputType",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the input is focused",
-              "name": "focused",
               "kind": "field"
             }
           ],
@@ -6264,11 +6239,46 @@
           ],
           "attributes": [
             {
-              "name": "rounded",
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "default": "'input'",
+              "description": "Used for the id of the input. Should match the slug used in a control if applicable.",
+              "fieldName": "slug"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The placeholder attribute",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
+              "description": "The disable attribute",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Displays a filled input box",
+              "fieldName": "filled"
+            },
+            {
+              "name": "rounded",
+              "type": {
+                "text": "TypeRoundedSizes"
+              },
               "description": "Displays rounded corners",
               "fieldName": "rounded"
             },
@@ -6280,6 +6290,40 @@
               "default": "'input'",
               "description": "The name of the input",
               "fieldName": "name"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "description": "The status of the input",
+              "fieldName": "status"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "The required attribute",
+              "fieldName": "required"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "States whether the input is invalid",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "validate-on-blur",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Activates validation on blur",
+              "fieldName": "validateOnBlur"
             }
           ],
           "superclass": {
@@ -6443,7 +6487,7 @@
               "kind": "field",
               "name": "rules",
               "type": {
-                "text": "IOptions[]"
+                "text": "InterfaceOptions[]"
               },
               "default": "[ { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' }, { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' }, { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' }, ]",
               "attribute": "rules"
@@ -6582,7 +6626,7 @@
             {
               "name": "rules",
               "type": {
-                "text": "IOptions[]"
+                "text": "InterfaceOptions[]"
               },
               "default": "[ { pattern: '(?=.{8,}$)', message: 'At least 8 characters long' }, { pattern: '(?=.*[a-z])(?=.*[A-Z])', message: 'Uppercase and lowercase' }, { pattern: '(?=.*[0-9])', message: 'At least one number (0-9)' }, ]",
               "fieldName": "rules"
@@ -6688,7 +6732,7 @@
           ],
           "events": [
             {
-              "name": "kemet-popper-close-btn"
+              "name": "kemet-closed-pressed"
             }
           ],
           "superclass": {
@@ -6900,11 +6944,11 @@
           "events": [
             {
               "description": "Fires when the popper opens",
-              "name": "kemet-popper-opened"
+              "name": "kemet-opened"
             },
             {
               "description": "Fires when the popper closes",
-              "name": "kemet-popper-closed"
+              "name": "kemet-closed"
             }
           ],
           "attributes": [
@@ -7179,8 +7223,12 @@
           ],
           "events": [
             {
-              "description": "Fires when the checkbox loses or receives focus",
-              "name": "kemet-radio-focused"
+              "description": " Fires when the checkbox receives focus",
+              "name": "kemet-focus"
+            },
+            {
+              "description": "Fires when the checkbox loses focus",
+              "name": "kemet-blur"
             }
           ],
           "attributes": [
@@ -7404,7 +7452,7 @@
           "events": [
             {
               "description": "Fires when the state of the checkbox changes",
-              "name": "kemet-radios-change"
+              "name": "kemet-change"
             }
           ],
           "attributes": [
@@ -7844,6 +7892,252 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/elements/scroll-snap-paginator.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetScrollSnapPaginator",
+          "cssProperties": [
+            {
+              "description": "The padding on the container.",
+              "name": "--kemet-scroll-snap-paginator-padding"
+            },
+            {
+              "description": "The space between pagination items.",
+              "name": "--kemet-scroll-snap-paginator-gap"
+            },
+            {
+              "description": "The color of a linkable pagination item.",
+              "name": "--kemet-scroll-snap-paginator-link-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "description": "Information about each slide.",
+              "attribute": "slides"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'circle-fill'",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The size in pixels of the icons.",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether to center the pagination items.",
+              "attribute": "center",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "hideFocusedLinks",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Will hide inactive pagination items if set to true.",
+              "attribute": "hide-focused-links"
+            },
+            {
+              "kind": "field",
+              "name": "useNumberPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
+              "attribute": "use-number-pages",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "useLabelPages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
+              "attribute": "use-label-pages",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "makePagination"
+            },
+            {
+              "kind": "method",
+              "name": "pageDisplay",
+              "parameters": [
+                {
+                  "name": "slide",
+                  "type": {
+                    "text": "KemetScrollSnapSlide"
+                  }
+                },
+                {
+                  "name": "visibleIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "slideLink",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyboardInput",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "id",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when a set of slides are focused on.",
+              "name": "kemet-focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "slides",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "description": "Information about each slide.",
+              "fieldName": "slides"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "'circle-fill'",
+              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
+              "fieldName": "icon"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "The size in pixels of the icons.",
+              "fieldName": "size"
+            },
+            {
+              "name": "center",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines whether to center the pagination items.",
+              "fieldName": "center"
+            },
+            {
+              "name": "hide-focused-links",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Will hide inactive pagination items if set to true.",
+              "fieldName": "hideFocusedLinks"
+            },
+            {
+              "name": "use-number-pages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
+              "fieldName": "useNumberPages"
+            },
+            {
+              "name": "use-label-pages",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
+              "fieldName": "useLabelPages"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-scroll-snap-paginator",
+          "customElement": true,
+          "summary": "The scroll snap's pagination."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetScrollSnapPaginator",
+            "module": "src/elements/scroll-snap-paginator.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-scroll-snap-paginator",
+          "declaration": {
+            "name": "KemetScrollSnapPaginator",
+            "module": "src/elements/scroll-snap-paginator.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/elements/scroll-snap-slide.ts",
       "declarations": [
         {
@@ -8059,7 +8353,7 @@
           "events": [
             {
               "description": "Fires when slide data has been created.",
-              "name": "kemet-scroll-snap-make-slides"
+              "name": "kemet-make-slides"
             }
           ],
           "attributes": [
@@ -8288,6 +8582,14 @@
             {
               "kind": "method",
               "name": "handleChange",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ],
               "description": "Handles when the input changes value",
               "privacy": "private"
             },
@@ -8427,252 +8729,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/elements/snap-paginator.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "KemetScrollSnapPaginator",
-          "cssProperties": [
-            {
-              "description": "The padding on the container.",
-              "name": "--kemet-scroll-snap-paginator-padding"
-            },
-            {
-              "description": "The space between pagination items.",
-              "name": "--kemet-scroll-snap-paginator-gap"
-            },
-            {
-              "description": "The color of a linkable pagination item.",
-              "name": "--kemet-scroll-snap-paginator-link-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "slides",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]",
-              "description": "Information about each slide.",
-              "attribute": "slides"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'circle-fill'",
-              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The size in pixels of the icons.",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether to center the pagination items.",
-              "attribute": "center",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "hideFocusedLinks",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Will hide inactive pagination items if set to true.",
-              "attribute": "hide-focused-links"
-            },
-            {
-              "kind": "field",
-              "name": "useNumberPages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
-              "attribute": "use-number-pages",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "useLabelPages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
-              "attribute": "use-label-pages",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "makePagination"
-            },
-            {
-              "kind": "method",
-              "name": "pageDisplay",
-              "parameters": [
-                {
-                  "name": "slide",
-                  "type": {
-                    "text": "KemetScrollSnapSlide"
-                  }
-                },
-                {
-                  "name": "visibleIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "slideLink",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyboardInput",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                },
-                {
-                  "name": "id",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when a set of slides are focused on.",
-              "name": "kemet-scroll-snap-focus"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "slides",
-              "type": {
-                "text": "array"
-              },
-              "default": "[]",
-              "description": "Information about each slide.",
-              "fieldName": "slides"
-            },
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "'circle-fill'",
-              "description": "A string representing which icon to use for pagination. Supports icons used in kemet-icon.",
-              "fieldName": "icon"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "The size in pixels of the icons.",
-              "fieldName": "size"
-            },
-            {
-              "name": "center",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines whether to center the pagination items.",
-              "fieldName": "center"
-            },
-            {
-              "name": "hide-focused-links",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Will hide inactive pagination items if set to true.",
-              "fieldName": "hideFocusedLinks"
-            },
-            {
-              "name": "use-number-pages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as a set of numbers.",
-              "fieldName": "useNumberPages"
-            },
-            {
-              "name": "use-label-pages",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If set to true, the pages in the pagination iterator will appear as the label set on the slide.",
-              "fieldName": "useLabelPages"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "kemet-scroll-snap-paginator",
-          "customElement": true,
-          "summary": "The scroll snap's pagination."
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "KemetScrollSnapPaginator",
-            "module": "src/elements/snap-paginator.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "kemet-scroll-snap-paginator",
-          "declaration": {
-            "name": "KemetScrollSnapPaginator",
-            "module": "src/elements/snap-paginator.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/elements/sortable-item.ts",
       "declarations": [
         {
@@ -8784,8 +8840,16 @@
           ],
           "events": [
             {
+              "description": "Fires when an item starts to be moved.",
+              "name": "kemet-drag-start"
+            },
+            {
+              "description": "Fires when an item is moving to a new spot.",
+              "name": "kemet-drag-over"
+            },
+            {
               "description": "Fires when an item has been moved to a new spot.",
-              "name": "kemet-sortable-drag-end"
+              "name": "kemet-drag-end"
             }
           ],
           "superclass": {
@@ -9218,11 +9282,11 @@
           "events": [
             {
               "description": "Fires when a tab is selected",
-              "name": "kemet-tab-selected"
+              "name": "kemet-selected"
             },
             {
               "description": "Fires when the tab should close",
-              "name": "kemet-tab-close"
+              "name": "kemet-closed"
             }
           ],
           "attributes": [
@@ -9673,7 +9737,7 @@
           "events": [
             {
               "description": "Fires when a tab is changed",
-              "name": "kemet-tab-changed"
+              "name": "kemet-change"
             }
           ],
           "attributes": [
@@ -10392,6 +10456,14 @@
       "path": "src/elements/timer.ts",
       "declarations": [
         {
+          "kind": "variable",
+          "name": "formats",
+          "type": {
+            "text": "['seconds', 'minutes', 'hours', 'days']"
+          },
+          "default": "['seconds', 'minutes', 'hours', 'days']"
+        },
+        {
           "kind": "class",
           "description": "",
           "name": "KemetTimer",
@@ -10400,7 +10472,7 @@
               "kind": "field",
               "name": "format",
               "type": {
-                "text": "string"
+                "text": "TypeFormats"
               },
               "default": "'seconds'",
               "description": "The format of the amount property",
@@ -10428,9 +10500,17 @@
             {
               "kind": "method",
               "name": "getTimeInSeconds",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              },
               "parameters": [
                 {
-                  "name": "time"
+                  "name": "time",
+                  "type": {
+                    "text": "number"
+                  }
                 }
               ]
             },
@@ -10454,19 +10534,23 @@
           ],
           "events": [
             {
+              "description": "Fires when the timer starts",
+              "name": "kemet-start"
+            },
+            {
               "description": "Fires when the timer reaches 0",
-              "name": "kemet-timer-completed"
+              "name": "kemet-complete"
             },
             {
               "description": "Fires on tick of the timer",
-              "name": "kemet-timer-increment"
+              "name": "kemet-increment"
             }
           ],
           "attributes": [
             {
               "name": "format",
               "type": {
-                "text": "string"
+                "text": "TypeFormats"
               },
               "default": "'seconds'",
               "description": "The format of the amount property",
@@ -10500,6 +10584,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "formats",
+          "declaration": {
+            "name": "formats",
+            "module": "src/elements/timer.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -10691,7 +10783,7 @@
           "events": [
             {
               "description": "Fires when the toggle changes state",
-              "name": "kemet-toggle-change"
+              "name": "kemet-change"
             }
           ],
           "attributes": [
@@ -11132,7 +11224,7 @@
           "events": [
             {
               "description": "Fires when the popper opens",
-              "name": "kemet-popper-opened",
+              "name": "kemet-opened",
               "inheritedFrom": {
                 "name": "KemetPopper",
                 "module": "src/elements/popper.ts"
@@ -11140,7 +11232,7 @@
             },
             {
               "description": "Fires when the popper closes",
-              "name": "kemet-popper-closed",
+              "name": "kemet-closed",
               "inheritedFrom": {
                 "name": "KemetPopper",
                 "module": "src/elements/popper.ts"

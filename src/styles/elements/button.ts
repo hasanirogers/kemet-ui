@@ -16,7 +16,6 @@ export const stylesBase = css`
     --kemet-button-padding: 1rem 1.25rem;
     --kemet-button-hover-decoration: underline;
     --kemet-button-circle-size: 50px;
-    --kemet-button-rounded-amount: 6px;
     --kemet-button-border-width: 1.5px;
     --kemet-button-border-style: solid;
     --kemet-button-border-color: rgb(var(--kemet-color-foreground));
@@ -62,30 +61,42 @@ export const stylesBase = css`
     cursor: not-allowed;
   }
 
-  :host([variant='text']) {
+  :host([variant=text]) {
     --kemet-button-color: rgb(var(--kemet-color-text));
     --kemet-button-background-color: none;
   }
 
-  :host([variant='text']:hover) {
+  :host([variant=text]:hover) {
     text-decoration: var(--kemet-button-hover-decoration);
   }
 
-  :host([variant='circle']) {
+  :host([rounded]) {
+    --kemet-button-border-radius: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded=sm]) {
+    --kemet-button-border-radius: var(--kemet-border-radius-sm);
+  }
+
+  :host([rounded=lg]) {
+    --kemet-button-border-radius: var(--kemet-border-radius-lg);
+  }
+
+  :host([rounded=xl]) {
+    --kemet-button-border-radius: var(--kemet-border-radius-xl);
+  }
+
+  :host([rounded=circle]) {
     --kemet-button-border-radius: var(--kemet-border-radius-circle);
     --kemet-button-width: var(--kemet-button-circle-size);
     --kemet-button-height: var(--kemet-button-circle-size);
   }
 
-  :host([variant='rounded']) {
-    --kemet-button-border-radius: var(--kemet-button-rounded-amount);
-  }
-
-  :host([variant='pill']) {
+  :host([rounded=pill]) {
     --kemet-button-border-radius: var(--kemet-border-radius-pill);
   }
 
-  :host([outlined]) {
+  :host([variant=outlined]) {
     --kemet-button-color: rgb(var(--kemet-color-foreground));
     --kemet-button-background-color: transparent;
     --kemet-button-border: var(--kemet-button-border-width) var(--kemet-button-border-style) var(--kemet-button-border-color);

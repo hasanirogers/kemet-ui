@@ -8,29 +8,20 @@ import '../../elements/avatars';
 import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
+import { EnumRoundedSizes, roundedSizes } from '../../utilities/constants';
 
 const meta: Meta = {
   title: 'Feedback & Status / Avatar',
   component: 'kemet-avatar',
+  render: (args: any) => Template(args),
+  args: {
+    icon: 'person',
+  },
   argTypes: {
-    circle: {
-      control: { type: 'boolean' },
-    },
     rounded: {
-      control: { type: 'boolean' },
-    },
-    image: {
-      control: { type: 'text' },
-    },
-    initials: {
-      control: { type: 'text' },
-    },
-    icon: {
-      control: { type: 'text' },
-    },
-    status: {
-      control: { type: 'boolean' },
-    },
+      options: roundedSizes,
+      control: { type: 'select' },
+    }
   }
 };
 export default meta;
@@ -40,7 +31,7 @@ type Story = StoryObj;
 const Template = (args) => html`
   <kemet-avatar
     ?circle=${args.circle}
-    ?rounded=${args.rounded}
+    rounded=${ifDefined(args.rounded)}
     image="${ifDefined(args.image !== '' ? args.image : null)}"
     initials="${ifDefined(args.initials !== '' ? args.initials : null)}"
   >
@@ -50,11 +41,9 @@ const Template = (args) => html`
 `;
 
 const TemplateMultiple = (args) => {
-  const avatars = [];
-
-  for (let i = 0; i < args.numOfAvatars; i += 1) {
-    avatars.push(html`<kemet-avatar circle image="https://placehold.co/64x64" kemet-border="all-4 solid gray-50"></kemet-avatar>\n`);
-  }
+  const avatars = Array.from({ length: args.numOfAvatars }, () => {
+    return html`<kemet-avatar rounded="circle" image="https://placehold.co/64x64" kemet-border="all-4 solid gray-50"></kemet-avatar>`
+  });
 
   return html`
     <style>
@@ -68,39 +57,37 @@ const TemplateMultiple = (args) => {
   `;
 };
 
-export const Standard: Story = {
-  render: (args: any) => Template(args),
-  args: {
-    icon: 'person',
-  }
-};
+export const Standard: Story = {};
 
 export const Initials: Story = {
-  render: (args: any) => Template(args),
   args: {
     initials: 'KU',
   }
 };
 
 export const Image: Story = {
-  render: (args: any) => Template(args),
   args: {
+    image: 'https://placehold.co/64x64',
+  }
+};
+
+export const Rounded: Story = {
+  args: {
+    rounded: EnumRoundedSizes.XL,
     image: 'https://placehold.co/64x64',
   }
 };
 
 export const Circle: Story = {
-  render: (args: any) => Template(args),
   args: {
-    circle: true,
+    rounded: EnumRoundedSizes.CIRCLE,
     image: 'https://placehold.co/64x64',
   }
 };
 
 export const Status: Story = {
-  render: (args: any) => Template(args),
   args: {
-    circle: true,
+    rounded: EnumRoundedSizes.CIRCLE,
     image: 'https://placehold.co/64x64',
     status: true,
   }
@@ -111,13 +98,5 @@ export const Multiple: Story = {
   args: {
     squeeze: '-1.5rem',
     numOfAvatars: 3,
-  },
-  argTypes: {
-    squeeze: {
-      control: { type: 'text' },
-    },
-    numOfAvatars: {
-      control: { type: 'number' },
-    },
   }
 };

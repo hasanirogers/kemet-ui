@@ -11,12 +11,11 @@ export const stylesSelect = css`
     --kemet-select-border-filled: none;
     --kemet-select-color-filled: rgb(var(--kemet-color-white));
     --kemet-select-background-color-filled: rgb(var(--kemet-color-primary));
-    --kemet-select-color-filled: rgb(var(--kemet-color-white));
     --kemet-select-background-color-error: rgb(var(--kemet-color-error));
-    --kemet-select-background-color-success: rgb(var(--kemet-color-success));
     --kemet-select-background-color-success: rgb(var(--kemet-color-success));
     --kemet-select-background-color-warning: rgb(var(--kemet-color-warning));
     --kemet-select-icon-right: 1rem;
+    --kemet-select-border-radius-rounded: 0;
 
     position: relative;
     display: block;
@@ -32,6 +31,7 @@ export const stylesSelect = css`
     appearance: none;
     box-sizing: border-box;
     background-color: transparent;
+    border-radius: var(--kemet-select-border-radius-rounded);
   }
 
   option {
@@ -55,7 +55,31 @@ export const stylesSelect = css`
   }
 
   :host([rounded]) select {
-    border-radius: var(--kemet-select-border-radius-rounded);
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded=sm]) select {
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-sm);
+  }
+
+  :host([rounded=md]) select {
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded=lg]) select {
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-lg);
+  }
+
+  :host([rounded=xl]) select {
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-xl);
+  }
+
+  :host([rounded=circle]) select {
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-circle);
+  }
+
+  :host([rounded=pill]) select {
+    --kemet-select-border-radius-rounded: var(--kemet-border-radius-pill);
   }
 
   :host([filled]) select {
@@ -81,5 +105,9 @@ export const stylesSelect = css`
     right: var(--kemet-select-icon-right);
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  :host([filled]) kemet-icon-bootstrap {
+    color: var(--kemet-select-color-filled);
   }
 `;

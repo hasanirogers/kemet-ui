@@ -13,6 +13,7 @@ export const stylesBase = css`
     --kemet-input-background-color-error: rgb(var(--kemet-color-error));
     --kemet-input-background-color-success: rgb(var(--kemet-color-success));
     --kemet-input-background-color-warning: rgb(var(--kemet-color-warning));
+    --kemet-input-border-radius-rounded: 0;
 
     --kemet-multi-input-chip-color: rgb(var(--kemet-color-background));
     --kemet-multi-input-chip-background: rgb(var(--kemet-color-foreground));
@@ -32,6 +33,19 @@ export const stylesBase = css`
     appearance: none;
     box-sizing: border-box;
     background-color: transparent;
+    border-radius: var(--kemet-input-border-radius-rounded);
+  }
+
+  :host([status=error]) input {
+    --kemet-input-border: 1px solid rgb(var(--kemet-color-error));
+  }
+
+  :host([status=success]) input {
+    --kemet-input-border: 1px solid rgb(var(--kemet-color-success));
+  }
+
+  :host([status=warning]) input {
+    --kemet-input-border: 1px solid rgb(var(--kemet-color-warning));
   }
 
   :host([disabled]) input {
@@ -39,7 +53,31 @@ export const stylesBase = css`
   }
 
   :host([rounded]) input {
-    border-radius: var(--kemet-input-border-radius-rounded);
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-md);
+  }
+
+  :host([rounded=sm]) input {
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-sm);
+  }
+
+  :host([rounded=lg]) input {
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-lg);
+  }
+
+  :host([rounded=xl]) input {
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-xl);
+  }
+
+  :host([rounded=circle]) input {
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-circle);
+  }
+
+  :host([rounded=pill]) input {
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-pill);
+  }
+
+  :host([rounded=circle]) input {
+    --kemet-input-border-radius-rounded: var(--kemet-border-radius-circle);
   }
 
   :host([filled]) input {
