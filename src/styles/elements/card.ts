@@ -14,7 +14,7 @@ export const stylesBase = css`
     --kemet-card-max-width: 600px;
     --kemet-card-border: 1px solid var(--kemet-card-border-color);
     --kemet-card-border-radius: 0;
-    --kemet-card-background-color: rgb(var(--kemet-color-white));
+    --kemet-card-background-color: rgb(var(--kemet-color-background));
     --kemet-card-body-padding: var(--kemet-card-padding);
     --kemet-card-header-padding: var(--kemet-card-padding);
     --kemet-card-header-border-bottom: 1px solid var(--kemet-card-border-color);
