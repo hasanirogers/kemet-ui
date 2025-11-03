@@ -24,7 +24,7 @@ import './icon-bootstrap';
  * @prop {string} icon
  * @prop {number} iconSize
  *
- * @event kemet-password-status - Fires when there's a change in status.
+ * @event kemet-status-change - Fires when there's a change in status.
  *
  * @csspart status - The status message.
  * @csspart indicator - The strength indicator bars.

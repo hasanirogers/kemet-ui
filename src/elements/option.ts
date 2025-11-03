@@ -13,9 +13,6 @@ import { customElement, property } from 'lit/decorators.js';
  * @prop {boolean} disabled - Determines whether to disable the option
  * @prop {boolean} selected - Selects the option if true
  *
- * @event kemet-input-focused - Fires when the input receives and loses focus
- * @event kemet-input-status - Fires when there's a change in status
- *
  */
 
 @customElement('kemet-option')

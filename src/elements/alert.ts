@@ -38,6 +38,7 @@ export type TypeOverlayPositions = typeof overlayPositions[number];
  * @event kemet-closed - Fires when alert is closed.
  *
  * @csspart close - Container for the close button.
+ * @csspart message - Container for the alert message.
  *
  * @cssproperty --kemet-alert-padding - The padding on the alert.
  * @cssproperty --kemet-alert-border-thickness - The thickness of the border.
@@ -99,7 +100,7 @@ export default class KemetAlert extends LitElement {
   render() {
     return html`
       <slot name="icon"></slot>
-      <div>
+      <div part="message">
         <slot></slot>
       </div>
       <div class="close" part="close">

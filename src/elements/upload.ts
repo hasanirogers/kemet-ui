@@ -35,7 +35,7 @@ const preventDefaults = (event: Event) => {
  * @prop {number} maxSize - The maximum file size for uploads
  * @prop {string} buttonLabel - The browse files button text
  *
- * @event kemet-upload-change - Fires when files have been added
+ * @event kemet-change - Fires when files have been added
  *
  * @csspart upload - The area where files are dropped.
  * @csspart heading - The description in the upload area.
@@ -141,7 +141,7 @@ export default class KemetUpload extends LitElement {
   }
 
   handleDrop(event: DragEvent) {
-    emitEvent(this, 'kemetchange', {
+    emitEvent(this, 'kemet-change', {
       event,
       files: event?.dataTransfer.files || [],
       fileElement: this.fileInputElement,

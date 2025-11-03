@@ -1,5 +1,6 @@
-import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from '../elements/popper.stories'
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/popper.stories';
+import '../../../.storybook/elements/docs-api';
 
 <Meta of={stories} />
 
@@ -10,7 +11,6 @@ Positions an element over a trigger. This component is a wrapper component for [
 <kemet-tabs panel-effect="stacked" divider>
   <kemet-tab slot="tab">Usage</kemet-tab>
   <kemet-tab slot="tab">Story</kemet-tab>
-  <kemet-tab slot="tab">API</kemet-tab>
   <kemet-tab-panel slot="panel">
     ### Markup
     ```html
@@ -30,13 +30,8 @@ Positions an element over a trigger. This component is a wrapper component for [
     <Canvas of={stories.Standard}  />
     <Controls of={stories.Standard} />
   </kemet-tab-panel>
-  <kemet-tab-panel slot="panel">
-    ### &lt;kemet-popper&gt;
-    <ArgTypes of="kemet-popper" />
-    <br />
-
-    ### &lt;kemet-popper-close&gt;
-
-    <ArgTypes of="kemet-popper-close" />
-  </kemet-tab-panel>
 </kemet-tabs>
+
+<docs-api tag="kemet-popper" />
+<docs-api tag="kemet-popper-close" />
+

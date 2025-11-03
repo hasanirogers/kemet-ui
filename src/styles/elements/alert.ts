@@ -120,12 +120,18 @@ export const stylesBase = css`
     --kemet-alert-radius: var(--kemet-border-radius-pill);
   }
 
+  [part=message] {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
   .close {
     cursor: pointer;
     margin-left: auto;
   }
 
-  ::slotted(kemet-icon) {
+  ::slotted(kemet-icon-bootstrap) {
     color: rgb(var(--kemet-alert-status-color));
   }
 

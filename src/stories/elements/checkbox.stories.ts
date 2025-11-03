@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import type { Args, Meta, StoryObj } from '@storybook/web-components-vite';
 
 import '../../elements/checkbox';
 
@@ -10,6 +10,7 @@ import '../../elements/tab-panel';
 const meta: Meta = {
   title: 'Form Controls / Checkbox',
   component: 'kemet-checkbox',
+  render: args => Template(args),
   args: {
     label: 'Label',
   },
@@ -18,37 +19,31 @@ export default meta;
 
 type Story = StoryObj;
 
-const Template = (args) => html`
+const Template = (args: Args) => html`
   <kemet-checkbox label=${args.label} ?checked=${args.checked} ?indeterminate=${args.indeterminate} ?disabled=${args.disabled} ?rounded=${args.rounded} ?filled=${args.filled}></kemet-checkbox>
 `;
 
-export const Standard: Story = {
-  render: args => Template(args),
-};
+export const Standard: Story = {};
 
 export const Indeterminate: Story = {
-  render: args => Template(args),
   args: {
     indeterminate: true,
   }
 };
 
 export const Disabled: Story = {
-  render: args => Template(args),
   args: {
     disabled: true,
   }
 };
 
 export const Rounded: Story = {
-  render: args => Template(args),
   args: {
     rounded: true,
   }
 };
 
 export const Filled: Story = {
-  render: args => Template(args),
   args: {
     checked: true,
     filled: true,

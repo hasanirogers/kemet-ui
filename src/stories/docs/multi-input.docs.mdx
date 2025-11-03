@@ -1,5 +1,6 @@
-import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import * as stories from '../elements/multi-input.stories'
+import '../../../.storybook/elements/docs-api';
 
 <Meta of={stories} />
 
@@ -10,7 +11,6 @@ Allows an array of input items.
 <kemet-tabs divider panel-effect="stacked">
   <kemet-tab slot="tab">Usage</kemet-tab>
   <kemet-tab slot="tab">Story</kemet-tab>
-  <kemet-tab slot="tab">API</kemet-tab>
   <kemet-tab-panel slot="panel">
     ### Markup
     ```html
@@ -29,13 +29,7 @@ Allows an array of input items.
     <Canvas of={stories.Standard}  />
     <Controls of={stories.Standard} />
   </kemet-tab-panel>
-  <kemet-tab-panel slot="panel">
-    ### &lt;kemet-timer&gt;
-    <ArgTypes of="kemet-timer" />
-
-    <br />
-
-    ### &lt;kemet-timer-display&gt;
-    <ArgTypes of="kemet-multi-input" />
-  </kemet-tab-panel>
 </kemet-tabs>
+
+<docs-api tag="kemet-multi-input" />
+

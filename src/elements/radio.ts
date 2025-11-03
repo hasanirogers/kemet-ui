@@ -99,15 +99,33 @@ export default class KemetRadio extends LitElement {
     `;
   }
 
+  /**
+    * Simulates a click on the input element.
+    * @public
+    * @method click
+    * @returns {void}
+    */
   click() {
     this.input.click();
   }
 
-  blur() {
+  /**
+   * Calls blur on the input element.
+   * @public
+   * @method blur
+   * @returns {void}
+   */
+  blur(): void {
     this.input.blur();
   }
 
-  focus() {
+  /**
+   * Calls focus on the input element.
+   * @public
+   * @method focus
+   * @returns {void}
+   */
+  focus(): void {
     this.input.focus();
   }
 

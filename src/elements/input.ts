@@ -132,8 +132,8 @@ export type TypeInputModes = typeof inputModes[number];
  * @cssproperty --kemet-input-background-color-success - The success state background color.
  * @cssproperty --kemet-input-background-color-warning - The warning state background color.
  *
- * @event kemet-input-focus - Fires when the input receives focus
- * @event kemet-input-blur - Fires when the input loses focus
+ * @event kemet-focus - Fires when the input receives focus
+ * @event kemet-blur - Fires when the input loses focus
  * @event kemet-status-change Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element.
  * Use the validity object to support custom validation messages.
  * @event kemet-input - Fires when the input receives input
@@ -447,6 +447,7 @@ export default class KemetInput extends LitElement {
   /**
    * Checks the validity of the character limit for the count component
    * @public
+   * @method checkLimitValidity
    * @returns {boolean}
    */
   checkLimitValidity(): boolean {
@@ -460,9 +461,11 @@ export default class KemetInput extends LitElement {
     return true;
   }
 
+
   /**
    * Checks the validity of the standard input
    * @public
+   * @method checkValidity
    * @returns {boolean}
    */
   checkValidity(): boolean {
@@ -472,8 +475,10 @@ export default class KemetInput extends LitElement {
   /**
    * Focuses the standard input
    * @public
+   * @method focus
+   * @returns {void}
    */
-  focus() {
+  focus(): void {
     this.input?.focus();
   }
 }

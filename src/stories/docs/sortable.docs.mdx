@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from '../elements/sortable.stories'
+import * as stories from '../elements/sortable.stories';
+import '../../../.storybook/elements/docs-api';
 
 <Meta of={stories} />
 
@@ -10,7 +11,6 @@ An enhanced select element.
 <kemet-tabs divider panel-effect="stacked">
   <kemet-tab slot="tab">Usage</kemet-tab>
   <kemet-tab slot="tab">Story</kemet-tab>
-  <kemet-tab slot="tab">API</kemet-tab>
   <kemet-tab-panel slot="panel">
     ### Markup
     ```html
@@ -31,11 +31,7 @@ An enhanced select element.
     <Canvas of={stories.Standard}  />
     <Controls of={stories.Standard} />
   </kemet-tab-panel>
-  <kemet-tab-panel slot="panel">
-    ### &lt;kemet-sortable&gt;
-    <ArgTypes of="kemet-sortable" />
-
-    ### &lt;kemet-sortable-item&gt;
-    <ArgTypes of="kemet-sortable-item" />
-  </kemet-tab-panel>
 </kemet-tabs>
+
+<docs-api tag="kemet-sortable" />
+<docs-api tag="kemet-sortable-item" />

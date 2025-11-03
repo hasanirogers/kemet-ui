@@ -1,5 +1,6 @@
-import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from '../elements/field.stories'
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/field.stories';
+import '../../../.storybook/elements/docs-api';
 
 <Meta of={stories} />
 
@@ -10,7 +11,6 @@ Used in combination with Input, Select, and Textarea, to make a Field.
 <kemet-tabs panel-effect="stacked" divider>
   <kemet-tab slot="tab">Usage</kemet-tab>
   <kemet-tab slot="tab">Story</kemet-tab>
-  <kemet-tab slot="tab">API</kemet-tab>
   <kemet-tab-panel slot="panel">
     ### Markup
     ```html
@@ -28,8 +28,7 @@ Used in combination with Input, Select, and Textarea, to make a Field.
     <Canvas of={stories.Input}  />
     <Controls of={stories.Input} />
   </kemet-tab-panel>
-  <kemet-tab-panel slot="panel">
-    ### &lt;kemet-field&gt;
-    <ArgTypes of="kemet-field" />
-  </kemet-tab-panel>
 </kemet-tabs>
+
+<docs-api tag="kemet-field" />
+

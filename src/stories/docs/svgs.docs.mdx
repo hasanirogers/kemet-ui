@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from '../elements/svgs.stories'
+import * as stories from '../elements/svgs.stories';
+import '../../../.storybook/elements/docs-api';
 
 <Meta of={stories} />
 
@@ -42,11 +43,8 @@ A set of SVG graphics that can be referenced any where in a page or app.
     <Canvas of={stories.Standard}  />
     <Controls of={stories.Standard} />
   </kemet-tab-panel>
-  <kemet-tab-panel slot="panel">
-    ### &lt;kemet-svgs&gt;
-    <ArgTypes of="kemet-svgs" />
-
-    ### &lt;kemet-svg&gt;
-    <ArgTypes of="kemet-svg" />
-  </kemet-tab-panel>
 </kemet-tabs>
+
+<docs-api tag="kemet-svgs" />
+<docs-api tag="kemet-svg" />
+

@@ -54,10 +54,11 @@ export interface InterfaceSelections {
  * @cssproperty --kemet-input-background-color-success - The success state background color.
  * @cssproperty --kemet-input-background-color-warning - The warning state background color.
  *
- * @event kemet-input-focused - Fires when the input receives and loses focus
- * @event kemet-input-status Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element.
- * Use the validity object to support custom validation messages.
- * @event kemet-input-input - Fires when the input receives input
+ * @event kemet-focus - Fires when the input receives focus
+ * @event kemet-blur - Fires when the input loses focus
+ * @event kemet-input - Fires when the input receives input
+ * @event kemet-change - Fires when the input changes
+ * @event kemet-invalid - Fires when the input is invalid
  *
  */
 

@@ -13,6 +13,7 @@ import KemetAccordionPanel from './accordion-panel';
  * @prop {number} currentPanel - The index value for the most recently opened panel
  * @prop {boolean} togglePanels - Support for closing all inactive panels when one is opened
  *
+ *
  */
 
 @customElement('kemet-accordion')
@@ -25,15 +26,12 @@ export default class KemetAccordion extends LitElement {
   @property({ type: Boolean, attribute: 'toggle-panels' })
   togglePanels: boolean = false;
 
-  /** @internal */
   @state()
   panels: NodeListOf<KemetAccordionPanel>;
 
-  /** @internal */
   @state()
   onKeyDown: (event: KeyboardEvent) => void;
 
-  /** @internal */
   @state()
   currentPanelFocus: number;
 
@@ -134,13 +132,25 @@ export default class KemetAccordion extends LitElement {
     }
   }
 
-  expandAll() {
+  /**
+   * Expands all panels in the accordion
+   * @public
+   * @method expandAll
+   * @returns {void}
+   */
+  expandAll(): void {
     this.panels.forEach((panel) => {
       panel.opened = true;
     });
   }
 
-  collapseAll() {
+  /**
+   * Collapses all panels in the accordion
+   * @public
+   * @method collapseAll
+   * @returns {void}
+   */
+  collapseAll(): void {
     this.panels.forEach((panel) => {
       panel.opened = false;
     });

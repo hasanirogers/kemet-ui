@@ -117,6 +117,12 @@ export default class KemetRotator extends LitElement {
     }
   }
 
+  /**
+   * Rotates to the next slide.
+   * @public
+   * @method nextSlide
+   * @returns {void}
+   */
   nextSlide() {
     if (this.activeSlide < this.messages.length - 1) {
       this.activeSlide += 1;

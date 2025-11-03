@@ -9,6 +9,7 @@ import '../../elements/button';
 import '../../elements/tabs';
 import '../../elements/tab';
 import '../../elements/tab-panel';
+import KemetFlipcard from '../../elements/flipcard';
 
 const meta: Meta = {
   title: 'Organization / Flipcard',
@@ -25,7 +26,7 @@ const meta: Meta = {
   args: {
     flipped: false
   }
-};
+} satisfies Meta<KemetFlipcard>;
 export default meta;
 
 type Story = StoryObj;

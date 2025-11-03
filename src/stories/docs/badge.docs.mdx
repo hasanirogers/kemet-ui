@@ -1,5 +1,7 @@
 import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from '../elements/badge.stories'
+import * as stories from '../elements/badge.stories';
+import '../../../.storybook/elements/docs-api';
+
 
 <Meta of={stories} />
 
@@ -10,7 +12,6 @@ Badges display the status of information.
 <kemet-tabs panel-effect="stacked" divider>
   <kemet-tab slot="tab">Usage</kemet-tab>
   <kemet-tab slot="tab">Story</kemet-tab>
-  <kemet-tab slot="tab">API</kemet-tab>
   <kemet-tab-panel slot="panel">
     ### Markup
     ```html
@@ -26,8 +27,6 @@ Badges display the status of information.
     <Canvas of={stories.Standard} />
     <Controls of={stories.Standard} />
   </kemet-tab-panel>
-  <kemet-tab-panel slot="panel">
-    ### &lt;kemet-badge&gt;
-    <ArgTypes of="kemet-badge" />
-  </kemet-tab-panel>
 </kemet-tabs>
+
+<docs-api tag="kemet-badge"></docs-api>

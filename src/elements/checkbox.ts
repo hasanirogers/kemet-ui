@@ -123,7 +123,13 @@ export default class KemetCheckbox extends LitElement {
     `;
   }
 
-  click() {
+  /**
+   * Simulates a click on the input element.
+   * @public
+   * @method click
+   * @returns {void}
+   */
+  click(): void {
     this.input.click();
   }
 

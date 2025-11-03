@@ -203,6 +203,27 @@
               "attribute": "toggle-panels"
             },
             {
+              "kind": "field",
+              "name": "panels",
+              "type": {
+                "text": "NodeListOf<KemetAccordionPanel>"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "onKeyDown",
+              "type": {
+                "text": "(event: KeyboardEvent) => void"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "currentPanelFocus",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
               "kind": "method",
               "name": "handleSlotChange"
             },
@@ -244,11 +265,25 @@
             },
             {
               "kind": "method",
-              "name": "expandAll"
+              "name": "expandAll",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Expands all panels in the accordion",
+              "privacy": "public"
             },
             {
               "kind": "method",
-              "name": "collapseAll"
+              "name": "collapseAll",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Collapses all panels in the accordion",
+              "privacy": "public"
             }
           ],
           "attributes": [
@@ -341,6 +376,10 @@
             {
               "description": "Container for the close button.",
               "name": "close"
+            },
+            {
+              "description": "Container for the alert message.",
+              "name": "message"
             }
           ],
           "slots": [
@@ -2754,7 +2793,14 @@
             },
             {
               "kind": "method",
-              "name": "click"
+              "name": "click",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Simulates a click on the input element.",
+              "privacy": "public"
             },
             {
               "kind": "method",
@@ -5249,6 +5295,11 @@
             {
               "kind": "method",
               "name": "focus",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
               "description": "Focuses the standard input",
               "privacy": "public"
             },
@@ -5264,11 +5315,11 @@
           "events": [
             {
               "description": "Fires when the input receives focus",
-              "name": "kemet-input-focus"
+              "name": "kemet-focus"
             },
             {
               "description": "Fires when the input loses focus",
-              "name": "kemet-input-blur"
+              "name": "kemet-blur"
             },
             {
               "description": "Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element. Use the validity object to support custom validation messages.",
@@ -6003,7 +6054,8 @@
                 "text": "TypeRoundedSizes"
               },
               "description": "Displays rounded corners",
-              "attribute": "rounded"
+              "attribute": "rounded",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -6225,16 +6277,24 @@
           ],
           "events": [
             {
-              "description": "Fires when the input receives and loses focus",
-              "name": "kemet-input-focused"
+              "description": "Fires when the input receives focus",
+              "name": "kemet-focus"
             },
             {
-              "description": "Fires when there's a change in status. This event includes an object that reports: 1) the status. 2) HTML5 validity object. 3) the component element. Use the validity object to support custom validation messages.",
-              "name": "kemet-input-status"
+              "description": "Fires when the input loses focus",
+              "name": "kemet-blur"
             },
             {
               "description": "Fires when the input receives input",
-              "name": "kemet-input-input"
+              "name": "kemet-input"
+            },
+            {
+              "description": "Fires when the input changes",
+              "name": "kemet-change"
+            },
+            {
+              "description": "Fires when the input is invalid",
+              "name": "kemet-invalid"
             }
           ],
           "attributes": [
@@ -7198,15 +7258,36 @@
             },
             {
               "kind": "method",
-              "name": "click"
+              "name": "click",
+              "description": "Simulates a click on the input element.",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
             },
             {
               "kind": "method",
-              "name": "blur"
+              "name": "blur",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Calls blur on the input element.",
+              "privacy": "public"
             },
             {
               "kind": "method",
-              "name": "focus"
+              "name": "focus",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Calls focus on the input element.",
+              "privacy": "public"
             },
             {
               "kind": "method",
@@ -7643,7 +7724,14 @@
             },
             {
               "kind": "method",
-              "name": "nextSlide"
+              "name": "nextSlide",
+              "description": "Rotates to the next slide.",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
             }
           ],
           "attributes": [
@@ -8510,7 +8598,7 @@
               "kind": "field",
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "attribute": "rounded",
               "reflects": true
@@ -8695,7 +8783,7 @@
             {
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "fieldName": "rounded"
             }
@@ -10082,7 +10170,7 @@
               "kind": "field",
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "attribute": "rounded",
               "reflects": true
@@ -10332,7 +10420,7 @@
             {
               "name": "rounded",
               "type": {
-                "text": "boolean"
+                "text": "TypeRoundedSizes"
               },
               "fieldName": "rounded"
             },
@@ -12026,7 +12114,7 @@
           "events": [
             {
               "description": "Fires when files have been added",
-              "name": "kemet-upload-change"
+              "name": "kemet-change"
             }
           ],
           "attributes": [

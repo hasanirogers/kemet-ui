@@ -1,4 +1,4 @@
-import { setCustomElements, Preview } from '@storybook/web-components-vite';
+import { setCustomElementsManifest, Preview } from '@storybook/web-components-vite';
 import prettier from 'prettier/standalone';
 import * as html from 'prettier/plugins/html';
 
@@ -9,7 +9,7 @@ import '../src/styles/kemet.base.scss';
 import '../src/styles/kemet.core.scss';
 import './storybook.scss';
 
-setCustomElements(customElements);
+setCustomElementsManifest(customElements);
 
 const preview: Preview = {
   globalTypes: {
@@ -33,19 +33,7 @@ const preview: Preview = {
 
   parameters: {
     layout: 'centered',
-    backgrounds: {
-      options: {
-        light: {
-          name: 'light',
-          value: "rgb(var(--kemet-color-neutral-100))",
-        },
-
-        dark: {
-          name: 'dark',
-          value: 'rgb(var(--kemet-color-neutral-900))',
-        }
-      }
-    },
+    backgrounds: { disable: true },
     docs: {
       codePanel: true,
       source: {

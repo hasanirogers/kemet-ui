@@ -1,5 +1,6 @@
-import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
-import * as stories from '../elements/radio.stories'
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/radio.stories';
+import '../../../.storybook/elements/docs-api';
 
 <Meta of={stories} />
 
@@ -10,7 +11,6 @@ An enhanced radio button.
 <kemet-tabs panel-effect="stacked" divider>
   <kemet-tab slot="tab">Usage</kemet-tab>
   <kemet-tab slot="tab">Story</kemet-tab>
-  <kemet-tab slot="tab">API</kemet-tab>
   <kemet-tab-panel slot="panel">
     ### Markup
     ```html
@@ -31,21 +31,7 @@ An enhanced radio button.
     <Canvas of={stories.Standard}  />
     <Controls of={stories.Standard} />
   </kemet-tab-panel>
-  <kemet-tab-panel slot="panel">
-    ### &lt;kemet-radios&gt;
-    <ArgTypes of="kemet-radios" />
-
-    <br />
-
-    ### &lt;kemet-radio&gt;
-    <ArgTypes of="kemet-radio" />
-
-    #### Methods
-
-    - **.blur()** - Simulates a blur on the input element.
-    - **.click()** - Simulates a click on the input element.
-    - **.focus()** - Focuses on the input element.
-
-    <br /><hr />
-  </kemet-tab-panel>
 </kemet-tabs>
+
+<docs-api tag="kemet-radios" />
+<docs-api tag="kemet-radio" />

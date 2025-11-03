@@ -26,13 +26,11 @@ export const handlePolaritySwitching = (StoryFn: any, context) => {
 
     if (context.viewMode === 'story') {
       if (globals.polarity === 'dark') {
-        updateGlobals({['backgrounds']:
-          {value: 'rgb(var(--kemet-color-neutral-900))'}
-        });
+        // updateGlobals({ backgrounds: { value: '#202020', name: 'dark' } });
+        document.body.style.backgroundColor = '#222425';
       } else {
-        updateGlobals({['backgrounds']:
-          {value: 'rgb(var(--kemet-color-neutral-100))'}
-        });
+        // updateGlobals({ backgrounds: { value: '#f8f8f8', name: 'light' } });
+        document.body.style.backgroundColor = '#f8f8f8';
       }
     }
   }, [globals.polarity]);

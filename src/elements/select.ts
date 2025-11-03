@@ -45,9 +45,10 @@ import { EnumStatuses, TypeRoundedSizes } from '../utilities/constants';
  * @cssproperty --kemet-select-background-color-warning - The warning state background color.
  * @cssproperty --kemet-select-icon-right - The space on the right of the icon.
  *
- * @event kemet-input-focused - Fires when the input receives and loses focus
- * @event kemet-input-status - Fires when there's a change in status
- * @event kemet-input-change - Fires when the select input changes
+ * @event kemet-focus - Fires when the input receives focus
+ * @event kemet-blur - Fires when the input loses focus
+ * @event kemet-status-change - Fires when there's a change in status
+ * @event kemet-change - Fires when the select input changes
  *
  */
 
