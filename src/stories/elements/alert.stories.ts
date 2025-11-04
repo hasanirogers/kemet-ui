@@ -16,6 +16,7 @@ import '../../elements/icon-bootstrap';
 const meta: Meta = {
   title: 'Feedback & Status / Alert',
   component: 'kemet-alert',
+  render: (args: Args) => Template(args),
   args: {
     text: 'The brown fox jumped over the lazy dog.',
     opened: true,
@@ -49,6 +50,7 @@ const Template = (args: Args) => {
       status=${ifDefined(args.status)}
       ?closable=${args.closable}
       ?opened=${args.opened}
+      ?filled=${args.filled}
       border-status=${ifDefined(args.border)}
       rounded=${ifDefined(args.rounded)}
       overlay=${ifDefined(args.overlay !== 'none' ? args.overlay : null)}>
@@ -59,33 +61,34 @@ const Template = (args: Args) => {
   `;
 };
 
-export const Standard: Story = {
-  render: (args: Args) => Template(args),
-};
+export const Standard: Story = {};
 
 export const Heading: Story = {
-  render: (args: Args) => Template(args),
   args: {
     heading: html`<h3 kemet-margin-bottom="none" kemet-margin-top="none">This is a heading.</h3>`,
   },
 };
 
 export const Icon: Story = {
-  render: (args: Args) => Template(args),
   args: {
     icon: html`<kemet-icon-bootstrap slot="icon" icon="info-circle" size="24"></kemet-icon-bootstrap>`,
   },
 };
 
 export const Rounded: Story = {
-  render: (args: Args) => Template(args),
   args: {
     rounded: EnumRoundedSizes.MD,
   }
 }
 
+export const Filled: Story = {
+  args: {
+    filled: true,
+    icon: html`<kemet-icon-bootstrap slot="icon" icon="info-circle" size="24"></kemet-icon-bootstrap>`,
+  }
+}
+
 export const Closable: Story = {
-  render: (args: Args) => Template(args),
   args: {
     closable: true,
     heading: html`<h3 kemet-margin-bottom="none" kemet-margin-top="none">This is a heading.</h3>`,
@@ -108,35 +111,30 @@ export const Closable: Story = {
 };
 
 export const BorderTop: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'top',
   },
 };
 
 export const BorderRight: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'right',
   },
 };
 
 export const BorderBottom: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'bottom',
   },
 };
 
 export const BorderLeft: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'left',
   },
 };
 
 export const Primary: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'left',
     status: EnumStatuses.Primary,
@@ -144,7 +142,6 @@ export const Primary: Story = {
 };
 
 export const Success: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'left',
     status: EnumStatuses.Success,
@@ -152,7 +149,6 @@ export const Success: Story = {
 };
 
 export const Warning: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'left',
     status: EnumStatuses.Warning,
@@ -160,7 +156,6 @@ export const Warning: Story = {
 };
 
 export const Error: Story = {
-  render: (args: Args) => Template(args),
   args: {
     border: 'left',
     status: EnumStatuses.Error,
@@ -168,7 +163,6 @@ export const Error: Story = {
 };
 
 export const TopFull: Story = {
-  render: (args: Args) => Template(args),
   args: {
     overlay: EnumOverlayPositions.TOP_FULL,
   },
@@ -178,7 +172,6 @@ export const TopFull: Story = {
 };
 
 export const BottomFull: Story = {
-  render: (args: Args) => Template(args),
   args: {
     overlay: EnumOverlayPositions.BOTTOM_FULL,
   },
@@ -188,7 +181,6 @@ export const BottomFull: Story = {
 };
 
 export const TopRight: Story = {
-  render: (args: Args) => Template(args),
   args: {
     overlay: EnumOverlayPositions.TOP_RIGHT,
   },
@@ -198,7 +190,6 @@ export const TopRight: Story = {
 };
 
 export const TopLeft: Story = {
-  render: (args: Args) => Template(args),
   args: {
     overlay: EnumOverlayPositions.TOP_LEFT,
   },
@@ -208,7 +199,6 @@ export const TopLeft: Story = {
 };
 
 export const BottomRight: Story = {
-  render: (args: Args) => Template(args),
   args: {
     overlay: EnumOverlayPositions.BOTTOM_RIGHT,
   },
@@ -218,7 +208,6 @@ export const BottomRight: Story = {
 };
 
 export const BottomLeft: Story = {
-  render: (args: Args) => Template(args),
   args: {
     overlay: EnumOverlayPositions.BOTTOM_LEFT,
   },

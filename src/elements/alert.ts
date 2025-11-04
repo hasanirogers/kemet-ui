@@ -31,7 +31,9 @@ export type TypeOverlayPositions = typeof overlayPositions[number];
  * @prop {TypeOverlayPositions} overlay - Fixes the alert over content in specified position.
  * @prop {TypeVariants} variant - The style of the alert.
  * @prop {TypeRoundedSizes} rounded - The rounded size of the alert.
+ * @prop {boolean} filled - Determines if the alert uses the filled style.
  *
+ * @slot icon - The icon of the alert.
  * @slot default - The contents of the alert.
  *
  * @event kemet-opened - Fires when alert is opened.
@@ -75,6 +77,9 @@ export default class KemetAlert extends LitElement {
 
   @property({ type: String, reflect: true })
   rounded: TypeRoundedSizes;
+
+  @property({ type: Boolean, reflect: true })
+  filled: boolean;
 
   shouldUpdate(prevProps: Map<string, never>) {
     if (prevProps.has('opened') && !prevProps.get('opened')) {

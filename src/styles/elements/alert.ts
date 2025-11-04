@@ -8,7 +8,10 @@ export const stylesBase = css`
     --kemet-alert-align-items: center;
     --kemet-alert-border: 1px solid rgb(var(--kemet-alert-status-color));
     --kemet-alert-radius: 0;
+    --kemet-alert-color: inherit;
+    --kemet-alert-background-color: transparent;
 
+    color: var(--kemet-alert-color);
     display: flex;
     grid-template-columns: auto 1fr auto;
     gap: var(--kemet-alert-padding);
@@ -18,10 +21,21 @@ export const stylesBase = css`
     border: var(--kemet-alert-border);
     transition: opacity 300ms ease;
     border-radius: var(--kemet-alert-radius);
+    background-color: var(--kemet-alert-background-color);
   }
 
   :host([opened]) {
     opacity: 1;
+  }
+
+  :host([filled]) {
+    --kemet-alert-border: 2px solid rgb(var(--kemet-color-white));
+    --kemet-alert-color: rgb(var(--kemet-color-white));
+    --kemet-alert-background-color: rgb(var(--kemet-alert-status-color));
+  }
+
+  :host([filled][status=standard]) {
+    --kemet-alert-color: rgb(var(--kemet-color-background));
   }
 
   :host([border-status="top"]) {
@@ -131,7 +145,7 @@ export const stylesBase = css`
     margin-left: auto;
   }
 
-  ::slotted(kemet-icon-bootstrap) {
+  :host(:not([filled])) ::slotted(kemet-icon-bootstrap) {
     color: rgb(var(--kemet-alert-status-color));
   }
 
