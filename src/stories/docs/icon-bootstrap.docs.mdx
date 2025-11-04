@@ -1,0 +1,36 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/icon-bootstrap.stories'
+
+<Meta of={stories} />
+
+# Kemet Icon Bootstrap
+
+A wrapper around the [Bootstrap](https://icons.getbootstrap.com/) icon library.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab slot="tab">API</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-icon-bootstrap icon="[icon name]"></kemet-icon-bootstrap>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/icon-bootstrap';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard} />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    ### &lt;kemet-icon-bootstrap&gt;
+    <ArgTypes of="kemet-icon-bootstrap" />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+### Available Icons
+<docs-icons></docs-icons>

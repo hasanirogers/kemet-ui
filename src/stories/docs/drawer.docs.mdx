@@ -1,0 +1,34 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/drawer.stories';
+import '../../../.storybook/elements/docs-api';
+
+<Meta of={stories} />
+
+# Kemet Drawer
+
+A component that adds an off-canvas menu with different effects.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-drawer>
+      <nav slot="navigation">Your navigation goes here.</nav>
+      <section slot="content">Your content goes here.</section>
+    </kemet-drawer>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/drawer'
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+<docs-api tag="kemet-drawer" />

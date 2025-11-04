@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Styles API / Core API" />
+
+# Core API
+
+The Core API consists of attributes you may use to layout a page.
+
+| Attribute              | Description                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------- |
+| kemet-layout	         | Sets the layout mode. Values can either be flexlayout, flexgrid, or flexlist.           |
+| kemet-autostack	       | Automatically stacks the current layout according to the stackpoint configured in Sass. |
+| kemet-gutters	         | Adds responsive guttes to the layout. Configurable by Sass.                             |
+| kemet-breakpoint	     | Use on an item of the current layout. Controls spacing at breakpoints.                  |
+| kemet-align	           | Allows you to control the align of the current layout.                                  |
+| kemet-align-cross	     | Allows you to control the cross-alignment of the current layout.                        |
+| kemet-order	           | Controls the order of a layout item. Can be used responsively.                          |
+| kemet-basis	           | Used on flexgrids in particular. Controls the columns of the grid.                      |
+| kemet-fit-content	     | Used on flexcolumns in particular. Sets the height of an item to the content.           |
+| kemet-flex-items	     | Makes the items in a layout flex.                                                       |
+| kemet-type-size	       | Controls the size of type.                                                              |
+| kemet-color            | Controls the color of text.                                                             |
+| kemet-background-color | Controls the background color.                                                          |
+| kemet-elevation        | Controls the layer of box shadow on a box.                                              |
+| kemet-border           | Controls the border of an element.                                                      |
+| kemet-border-radius    | Controls the border raidus of an element.                                               |
+| kemet-show	           | Shows an element given the breakpoint.                                                  |
+| kemet-hide	           | Hides an element given the breakpoint.                                                  |
+| kemet-margin	         | Adds responsive margins to all sides of an element.                                     |
+| kemet-margin-left	     | Adds responsive left margin to an element.                                              |
+| kemet-margin-right	   | Adds responsive right margin to an element.                                             |
+| kemet-margin-top	     | Adds responsive top margin to an element.                                               |
+| kemet-margin-bottom	   | Adds responsive bottom margin to an element.                                            |
+| kemet-padding	         | Adds responsive padding to all sides of an element.                                     |
+| kemet-padding-left     | Adds responsive left padding to an element.                                             |
+| kemet-padding-right    | Adds responsive right padding to an element.                                            |
+| kemet-padding-top      | Adds responsive top padding to an element.                                              |
+| kemet-padding-bottom   | Adds responsive bottom padding to an element.                                           |
+
+When using responsive attributes the value for the attribute will be delimited with a `:` that separates the breakpoint and value. For example, when working with responsive margins, you'd write the largest margin for the medium breakpoint like:
+
+```html
+kemet-margin="medium:3xl"
+```

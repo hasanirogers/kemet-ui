@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/tracker.stories';
+import '../../../.storybook/elements/docs-api';
+
+<Meta of={stories} />
+
+# Kemet Tracker
+
+Displays the progress of a process such as a wizard of multi-step form.
+
+<kemet-tabs divider panel-effect="stacked">
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-tracker>
+      <kemet-tracker-step>Step 1</kemet-tracker-step>
+      <kemet-tracker-step>Step 2</kemet-tracker-step>
+      <kemet-tracker-step>Step 3</kemet-tracker-step>
+    </kemet-tracker>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/tracker';
+    import 'kemet-ui/elements/tracker-step';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+<docs-api tag="kemet-tracker" />
+<docs-api tag="kemet-tracker-step" />

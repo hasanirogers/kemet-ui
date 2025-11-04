@@ -1,0 +1,37 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/sortable.stories';
+import '../../../.storybook/elements/docs-api';
+
+<Meta of={stories} />
+
+# Kemet Sortable
+
+An enhanced select element.
+
+<kemet-tabs divider panel-effect="stacked">
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-sortable>
+      <kemet-sortable-item>Item 1</kemet-sortable-item>
+      <kemet-sortable-item>Item 2</kemet-sortable-item>
+      <kemet-sortable-item>Item 3</kemet-sortable-item>
+    </kemet-sortable>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/sortable';
+    import 'kemet-ui/elements/sortable-item';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+<docs-api tag="kemet-sortable" />
+<docs-api tag="kemet-sortable-item" />

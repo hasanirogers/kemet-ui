@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/fab.stories';
+import '../../../.storybook/elements/docs-api';
+
+<Meta of={stories} />
+
+# Kemet Fab
+
+The FAB, or Floating Action Button, performs a primary action on a page.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-fab>
+      <kemet-icon-bootstrap slot="icon" icon="[chose-an-icon]"></kemet-icon-bootstrap>
+      Label Here
+    </kemet-fab>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/element/fab';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+<docs-api tag="kemet-fab" />

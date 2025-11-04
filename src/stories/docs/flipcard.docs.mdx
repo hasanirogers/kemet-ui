@@ -1,0 +1,41 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/flipcard.stories';
+import '../../../.storybook/elements/docs-api';
+
+<Meta of={stories} />
+
+# Kemet Flipcard
+
+A card that has a front and back side which can be flipped.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-flipcard>
+      <div slot="front">
+        <p>This is the front of the card.</p>
+      </div>
+      <div slot="back">
+        <p>This is the back of the card.</p>
+      </div>
+    </kemet-flipcard>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/flipcard'
+    import 'kemet-ui/elements/flipcard-trigger'
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+<docs-api tag="kemet-flipcard" />
+<docs-api tag="kemet-flipcard-trigger" />
+

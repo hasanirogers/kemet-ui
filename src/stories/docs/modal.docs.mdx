@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/modal.stories';
+import '../../../.storybook/elements/docs-api';
+
+<Meta of={stories} />
+
+# Kemet Modal
+
+A dialog that has many built in effects and flexible styles.
+
+<kemet-tabs panel-effect="stacked" divider>
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-modal>
+      <kemet-modal-close tabindex="0" role="button" aria-label="Close Button">
+        <kemet-icon-bootstrap icon="x-circle-fill" size="24"></kemet-icon-bootstrap>
+      </kemet-modal-close>
+      <h2>Modal Title</h2>
+      <p>Your modal contents here.<p>
+    </kemet-modal>
+    ```
+
+    **Note:** `kemet-modal-close` is optional.
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/modal';
+    import 'kemet-ui/elements/modal-close';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.Standard}  />
+    <Controls of={stories.Standard} />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+<docs-api tag="kemet-modal" />
+<docs-api tag="kemet-modal-close" />
+

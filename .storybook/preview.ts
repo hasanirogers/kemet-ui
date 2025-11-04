@@ -1,15 +1,15 @@
-/* global window */
+import { setCustomElementsManifest, Preview } from '@storybook/web-components-vite';
+import prettier from 'prettier/standalone';
+import * as html from 'prettier/plugins/html';
 
-import { setCustomElements, Preview } from '@storybook/web-components';
 import { handlePolaritySwitching, globalFormatting } from './decorators';
 import customElements from '../custom-elements.json';
 
 import '../src/styles/kemet.base.scss';
 import '../src/styles/kemet.core.scss';
-import '../src/styles/kemet.components.scss';
 import './storybook.scss';
 
-setCustomElements(customElements);
+setCustomElementsManifest(customElements);
 
 const preview: Preview = {
   globalTypes: {
@@ -28,54 +28,58 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [globalFormatting, handlePolaritySwitching],
+
   parameters: {
-    backgrounds: {
-      default: 'light',
-      values: [
-        {
-          name: 'light',
-          value: "rgb(var(--kemet-color-neutral-100))",
-        },
-        {
-          name: 'dark',
-          value: 'rgb(var(--kemet-color-neutral-900))',
-        },
-      ],
-    },
-    html: {
-      prettier: {
-        tabWidth: 2,
-        useTabs: false,
-        printWidth: 180,
-        htmlWhitespaceSensitivity: 'strict',
-      },
-      removeComments: true,
-      removeEmptyComments: true,
-      highlighter: {
-        showLineNumbers: false,
-        wrapLines: false,
-      },
-      transform: (code) => {
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = code;
-        const sourceElement = wrapper.querySelector('#root-inner')?.firstChild as HTMLElement;
-        return sourceElement?.innerHTML;
-      },
-    },
+    layout: 'centered',
+    backgrounds: { disable: true },
     docs: {
+      codePanel: true,
       source: {
         type: 'dynamic',
         excludeDecorators: true,
+        transform: async (src: string) => {
+          if (!src) return src;
+          try {
+            const cleaned = src.replace(/\s+([a-zA-Z_:][a-zA-Z0-9_.:-]*)=""/g, ' $1'); // collapse empty attrs
+            return await prettier.format(cleaned, {
+              parser: 'html',
+              plugins: [html],
+              tabWidth: 2,
+              printWidth: 80,
+            });
+          } catch {
+            return src; // fallback if Prettier fails
+          }
+        },
       },
     },
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Introduction', 'Styles', 'Components', 'Templates'],
+        order: [
+          'Introduction',
+          'Styles API',
+          ['Config', 'Core API'],
+          'Icons',
+          'Actions',
+          'Form Controls',
+          'Interactive',
+          'Feedback & Status',
+          'Organization',
+          'Miscellaneous',
+          'Templates'
+        ],
       },
     },
   },
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'light'
+    }
+  }
 };
 
 export default preview;

@@ -1,0 +1,43 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import * as stories from '../elements/tabs.stories';
+import '../../../.storybook/elements/docs-api';
+
+<Meta of={stories} />
+
+# Kemet Tabs
+
+A collection of components to enable tab behavior.
+
+<kemet-tabs divider panel-effect="stacked">
+  <kemet-tab slot="tab">Usage</kemet-tab>
+  <kemet-tab slot="tab">Story</kemet-tab>
+  <kemet-tab-panel slot="panel">
+    ### Markup
+    ```html
+    <kemet-tabs>
+      <kemet-tab slot="tab">One</kemet-tab>
+      <kemet-tab slot="tab">Two</kemet-tab>
+      <kemet-tab slot="tab">Three</kemet-tab>
+      <kemet-tab-panel slot="panel">Panel One</kemet-tab-panel>
+      <kemet-tab-panel slot="panel">Panel Two</kemet-tab-panel>
+      <kemet-tab-panel slot="panel">Panel Three</kemet-tab-panel>
+    </kemet-tabs>
+    ```
+
+    ### Import JavaScript
+    ```javascript
+    import 'kemet-ui/elements/tabs';
+    import 'kemet-ui/elements/tab';
+    import 'kemet-ui/elements/tab-panel';
+    ```
+  </kemet-tab-panel>
+  <kemet-tab-panel slot="panel">
+    <Canvas of={stories.SelectByName}  />
+    <Controls of={stories.SelectByName} />
+  </kemet-tab-panel>
+</kemet-tabs>
+
+<docs-api tag="kemet-tabs" />
+<docs-api tag="kemet-tab" />
+<docs-api tag="kemet-tab-panel" />
+

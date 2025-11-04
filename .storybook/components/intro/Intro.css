@@ -1,18 +1,48 @@
-/* stylelint-disable selector-class-pattern */
-.storybook__intro > div {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  display: grid;
-  column-gap: 1rem;
-  grid-template-columns: auto 1fr;
+.intro p {
+  text-align: center;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
-  padding: 1rem 2rem 1rem 1rem;
+  line-height: 1.5;
 }
 
-.storybook__intro svg {
-  width: 96px;
-  height: 96px;
-  grid-row: span 2;
-  display: block;
-  fill: rgb(var(--kemet-color-primary));
+.intro-masthead {
+  position: relative;
+  text-align: center;
+}
+
+.intro-masthead img {
+  max-width: 80%;
+}
+
+.intro-masthead header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  min-width: 600px;
+}
+
+.intro-masthead h1 {
+  font-size: 8rem;
+  color: rgb(var(--kemet-color-neutral-100));
+  text-shadow: 2px 2px rgb(var(--kemet-color-black));
+}
+
+.intro-masthead p {
+  position: relative;
+  top: -1.5rem;
+  font-size: 3rem;
+  color: rgb(var(--kemet-color-white));
+  text-shadow: 2px 2px rgb(var(--kemet-color-black));
+  padding-bottom: 1rem;
+}
+
+.intro-masthead p,
+.intro-masthead h1 {
+  width: auto;
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: rgb(var(--kemet-color-blue-500) / 70%);
 }
