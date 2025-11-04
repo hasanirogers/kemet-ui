@@ -7,12 +7,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-      - run: npm install
-      - run: npm run deploy
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Build Site
+        working-directory: ./
         env:
-          FTP_DEPLOY_HOST: ${{ secrets.FTP_DEPLOY_HOST }}
-          FTP_DEPLOY_USERNAME: ${{ secrets.FTP_DEPLOY_USERNAME }}
-          FTP_DEPLOY_PASSWORD: ${{ secrets.FTP_DEPLOY_PASSWORD }}
-          FTP_DEPLOY_PORT: ${{ secrets.FTP_DEPLOY_PORT }}
+          NODE_ENV: production
+          STORYBOOK_BASE_HREF: /docs/
+        run: |
+          npm install --include=dev
+          npm run build:storybook
+      - name: Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ secrets.FTP_DEPLOY_USERNAME }}
+          server: ${{ secrets.FTP_DEPLOY_HOST }}
+          port: ${{ secrets.FTP_DEPLOY_PORT }}
+          local_path: "./storybook-static/*"
+          remote_path: "./sites/kemet-ui-site/docs/"
+          sftp_only: true
+          password: ${{ secrets.FTP_DEPLOY_PASSWORD }}

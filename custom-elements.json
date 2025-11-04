@@ -384,6 +384,10 @@
           ],
           "slots": [
             {
+              "description": "The icon of the alert.",
+              "name": "icon"
+            },
+            {
               "description": "The contents of the alert.",
               "name": "default"
             }
@@ -466,6 +470,16 @@
               },
               "description": "The rounded size of the alert.",
               "attribute": "rounded",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert uses the filled style.",
+              "attribute": "filled",
               "reflects": true
             },
             {
@@ -558,6 +572,14 @@
               },
               "description": "The rounded size of the alert.",
               "fieldName": "rounded"
+            },
+            {
+              "name": "filled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the alert uses the filled style.",
+              "fieldName": "filled"
             }
           ],
           "superclass": {
@@ -6459,16 +6481,6 @@
               },
               "description": "Selects the option if true",
               "attribute": "selected"
-            }
-          ],
-          "events": [
-            {
-              "description": "Fires when the input receives and loses focus",
-              "name": "kemet-input-focused"
-            },
-            {
-              "description": "Fires when there's a change in status",
-              "name": "kemet-input-status"
             }
           ],
           "attributes": [
