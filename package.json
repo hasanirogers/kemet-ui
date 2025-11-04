@@ -11,8 +11,9 @@
     "build": "rimraf dist && npm run build:css && npm run build:scss && npm run build:ts",
     "build:css": "sass src/styles/kemet.core.scss:dist/styles/kemet.core.css src/styles/kemet.base.scss:dist/styles/kemet.base.css && postcss dist/styles/**/*.css -u autoprefixer --dir dist/styles",
     "build:scss": "cp -R src/styles dist",
+    "build:storybook": "storybook build",
     "build:ts": "tsup",
-    "chromatic": "npx chromatic --project-token=chpt_6729a2f8709640a --build-script-name=storybook:build",
+    "chromatic": "npx chromatic --project-token=chpt_6729a2f8709640a --build-script-name=build:storybook",
     "dev": "concurrently npm:storybook npm:watch",
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-pattern .gitignore",
     "format:stylelint": "npx stylelint --fix 'src/styles/**/*.scss' -c stylelint.config.mjs",
@@ -21,7 +22,6 @@
     "prepare": "husky",
     "prepublish": "rimraf dist && npm run build",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build",
     "test": "vitest --config=vitest.browser.config.mts",
     "watch": "npm-watch"
   },
