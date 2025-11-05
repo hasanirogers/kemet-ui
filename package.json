@@ -1,6 +1,6 @@
 {
   "name": "kemet-ui",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A flexible blueprint system for UIs.",
   "watch": {
     "build": "src/**/*.*",
