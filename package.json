@@ -23,6 +23,7 @@
     "prepublish": "rimraf dist && npm run build",
     "storybook": "storybook dev -p 6006",
     "test": "vitest --config=vitest.browser.config.mts",
+    "preversion": "npm run build",
     "watch": "npm-watch"
   },
   "author": {
