@@ -39,6 +39,7 @@
   "exports": {
     "./elements/*": "./dist/elements/*",
     "./types/jsx": "./types/jsx.d.ts",
+    "./types/solid": "./types/solid.d.ts",
     "./react": "./dist/wrappers/react.js",
     "./next": "./dist/wrappers/next.js",
     "./styles/*": "./dist/styles/*"
