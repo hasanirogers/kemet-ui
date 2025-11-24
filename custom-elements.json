@@ -6548,6 +6548,216 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/elements/otp-input.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetOtpInput",
+          "cssProperties": [
+            {
+              "description": "The height of the input.",
+              "name": "--kemet-input-height"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The input elements.",
+              "name": "input"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "digits",
+              "type": {
+                "text": "number"
+              },
+              "default": "6",
+              "attribute": "digits"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pattern",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "pattern"
+            },
+            {
+              "kind": "field",
+              "name": "autoFocus",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "values",
+              "type": {
+                "text": "string[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "lastInput",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "completed",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "inputElements",
+              "type": {
+                "text": "NodeListOf<HTMLInputElement>"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "determineCompleted"
+            },
+            {
+              "kind": "method",
+              "name": "makeInputs"
+            },
+            {
+              "kind": "method",
+              "name": "eatCharacters",
+              "parameters": [
+                {
+                  "name": "inputValue",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "InputEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handlePaste",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "ClipboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "The number of inputs.",
+              "name": "inputs",
+              "kind": "field"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when the input receives focus",
+              "name": "kemet-focus"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "digits",
+              "type": {
+                "text": "number"
+              },
+              "default": "6",
+              "fieldName": "digits"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "pattern",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "pattern"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-otp-input",
+          "customElement": true,
+          "summary": "An input element that accepts multiple items from a combo."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetOtpInput",
+            "module": "src/elements/otp-input.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-otp-input",
+          "declaration": {
+            "name": "KemetOtpInput",
+            "module": "src/elements/otp-input.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/elements/password.ts",
       "declarations": [
         {
