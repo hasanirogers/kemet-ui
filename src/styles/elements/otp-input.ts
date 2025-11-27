@@ -10,7 +10,7 @@ export const stylesBase = css`
 
     display: grid;
     gap: var(--kemet-spacer-md);
-    grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--kemet-otp-input-min-width), 1fr));
   }
 
   label {
@@ -37,6 +37,6 @@ export const stylesBase = css`
     height: 100%;
     font-size: var(--kemet-otp-input-font-size);
     border: var(--kemet-otp-input-border);
-    border-radius: var(--border-radius);
+    border-radius: var(--kemet-otp-input-border-radius);
   }
 `;
