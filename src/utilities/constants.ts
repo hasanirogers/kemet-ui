@@ -5,6 +5,8 @@ export enum EnumKeyCodes {
   ESCAPE = 'Escape',
   ENTER = 'Enter',
   SPACE = 'Space',
+  BACKSPACE = 'Backspace',
+  DELETE = 'Delete'
 }
 
 export const directions = ['none','top', 'right', 'bottom', 'left'] as const;

@@ -6548,6 +6548,230 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/elements/otp-input.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetOtpInput",
+          "cssProperties": [
+            {
+              "description": "The text color of the otp inputs.",
+              "name": "--kemet-otp-input-color"
+            },
+            {
+              "description": "The minimum width of the otp inputs.",
+              "name": "--kemet-otp-input-min-width"
+            },
+            {
+              "description": "The font size of the otp inputs.",
+              "name": "--kemet-otp-input-font-size"
+            },
+            {
+              "description": "The border of the otp inputs.",
+              "name": "--kemet-otp-input-border"
+            },
+            {
+              "description": "The border radius of the otp inputs.",
+              "name": "--kemet-otp-input-border-radius"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "The input elements.",
+              "name": "input"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "digits",
+              "type": {
+                "text": "number"
+              },
+              "default": "6",
+              "description": "The number of inputs.",
+              "attribute": "digits"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "All digits entered by the user combined in one string.",
+              "attribute": "value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "pattern",
+              "type": {
+                "text": "string"
+              },
+              "description": "The pattern to match against for stripping characters",
+              "attribute": "pattern"
+            },
+            {
+              "kind": "field",
+              "name": "autoFocus",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "values",
+              "type": {
+                "text": "string[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "lastInput",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "completed",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "inputElements",
+              "type": {
+                "text": "NodeListOf<HTMLInputElement>"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "determineCompleted"
+            },
+            {
+              "kind": "method",
+              "name": "makeInputs"
+            },
+            {
+              "kind": "method",
+              "name": "eatCharacters",
+              "parameters": [
+                {
+                  "name": "inputValue",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "InputEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handlePaste",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "ClipboardEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when otp is filled out completely",
+              "name": "kemet-completed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "digits",
+              "type": {
+                "text": "number"
+              },
+              "default": "6",
+              "description": "The number of inputs.",
+              "fieldName": "digits"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "All digits entered by the user combined in one string.",
+              "fieldName": "value"
+            },
+            {
+              "name": "pattern",
+              "type": {
+                "text": "string"
+              },
+              "description": "The pattern to match against for stripping characters",
+              "fieldName": "pattern"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-otp-input",
+          "customElement": true,
+          "summary": "An input element that accepts multiple items from a combo."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetOtpInput",
+            "module": "src/elements/otp-input.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-otp-input",
+          "declaration": {
+            "name": "KemetOtpInput",
+            "module": "src/elements/otp-input.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/elements/password.ts",
       "declarations": [
         {
@@ -11719,6 +11943,168 @@
           "declaration": {
             "name": "KemetTracker",
             "module": "src/elements/tracker.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/typewriter.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "KemetTypewriter",
+          "members": [
+            {
+              "kind": "field",
+              "name": "content",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The content to be typed.",
+              "attribute": "content"
+            },
+            {
+              "kind": "field",
+              "name": "delay",
+              "type": {
+                "text": "number"
+              },
+              "default": "10",
+              "description": "The delay between each character.",
+              "attribute": "delay"
+            },
+            {
+              "kind": "field",
+              "name": "cursor",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The cursor to be displayed.",
+              "attribute": "cursor"
+            },
+            {
+              "kind": "field",
+              "name": "loop",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to loop the content.",
+              "attribute": "loop"
+            },
+            {
+              "kind": "field",
+              "name": "restartDelay",
+              "type": {
+                "text": "number"
+              },
+              "default": "1000",
+              "description": "The delay before restarting the typewriter.",
+              "attribute": "restart-delay"
+            },
+            {
+              "kind": "field",
+              "name": "typewriter",
+              "type": {
+                "text": "Typewriter"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "timeoutId",
+              "type": {
+                "text": "ReturnType<typeof setTimeout> | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "method",
+              "name": "restartTypewriter"
+            }
+          ],
+          "events": [
+            {
+              "description": "Fires when typewriter is completed",
+              "name": "kemet-completed"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "content",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The content to be typed.",
+              "fieldName": "content"
+            },
+            {
+              "name": "delay",
+              "type": {
+                "text": "number"
+              },
+              "default": "10",
+              "description": "The delay between each character.",
+              "fieldName": "delay"
+            },
+            {
+              "name": "cursor",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "The cursor to be displayed.",
+              "fieldName": "cursor"
+            },
+            {
+              "name": "loop",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to loop the content.",
+              "fieldName": "loop"
+            },
+            {
+              "name": "restart-delay",
+              "type": {
+                "text": "number"
+              },
+              "default": "1000",
+              "description": "The delay before restarting the typewriter.",
+              "fieldName": "restartDelay"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "kemet-typewriter",
+          "customElement": true,
+          "summary": "An element that types out content."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "KemetTypewriter",
+            "module": "src/elements/typewriter.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "kemet-typewriter",
+          "declaration": {
+            "name": "KemetTypewriter",
+            "module": "src/elements/typewriter.ts"
           }
         }
       ]

@@ -58,7 +58,8 @@
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.21",
     "lit": "^3.1.2",
-    "mobile-drag-drop": "2.2.0"
+    "mobile-drag-drop": "2.2.0",
+    "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.2",
