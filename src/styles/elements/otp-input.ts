@@ -2,11 +2,11 @@ import { css } from 'lit';
 
 export const stylesBase = css`
   :host {
-    --color: rgb(var(--kemet-color-gray-600));
-    --min-width: 3rem;
-    --font-size: 2rem;
-    --border: 1px solid rgb(var(--kemet-color-gray-300));
-    --border-radius: var(--kemet-border-radius-md);
+    --kemet-otp-input-color: rgb(var(--kemet-color-gray-600));
+    --kemet-otp-input-min-width: 3rem;
+    --kemet-otp-input-font-size: 2rem;
+    --kemet-otp-input-border: 1px solid rgb(var(--kemet-color-gray-300));
+    --kemet-otp-input-border-radius: var(--kemet-border-radius-md);
 
     display: grid;
     gap: var(--kemet-spacer-md);
@@ -31,12 +31,12 @@ export const stylesBase = css`
   }
 
   [part="input"] {
-    color: var(--color);
+    color: var(--kemet-otp-input-color);
     text-align: center;
     width: 100%;
     height: 100%;
-    font-size: var(--font-size);
-    border: var(--border);
+    font-size: var(--kemet-otp-input-font-size);
+    border: var(--kemet-otp-input-border);
     border-radius: var(--border-radius);
   }
 `;

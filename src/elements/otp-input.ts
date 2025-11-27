@@ -20,9 +20,13 @@ import { emitEvent } from '../utilities/events';
  *
  * @csspart input - The input elements.
  *
- * @cssproperty --kemet-input-height - The height of the input.
+ * @cssproperty --kemet-otp-input-color - The text color of the otp inputs.
+ * @cssproperty --kemet-otp-input-min-width - The minimum width of the otp inputs.
+ * @cssproperty --kemet-otp-input-font-size - The font size of the otp inputs.
+ * @cssproperty --kemet-otp-input-border - The border of the otp inputs.
+ * @cssproperty --kemet-otp-input-border-radius - The border radius of the otp inputs.
  *
- * @event kemet-focus - Fires when the input receives focus
+ * @event kemet-completed - Fires when otp is filled out completely
  *
  */
 
